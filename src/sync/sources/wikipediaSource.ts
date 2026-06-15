@@ -91,6 +91,89 @@ function parseMinute(value: string): number | undefined {
   return Number(match[1]) + (match[2] ? Number(match[2]) : 0);
 }
 
+function parseMinuteValue(value: string): number | undefined {
+  const trimmed = value.trim();
+  const apostropheMatch = trimmed.match(/^(\d+)(?:\+(\d+))?'$/);
+  if (apostropheMatch) {
+    return Number(apostropheMatch[1]) + (apostropheMatch[2] ? Number(apostropheMatch[2]) : 0);
+  }
+
+  const plainMatch = trimmed.match(/^(\d+)(?:\+(\d+))?$/);
+  if (!plainMatch) {
+    return undefined;
+  }
+
+  return Number(plainMatch[1]) + (plainMatch[2] ? Number(plainMatch[2]) : 0);
+}
+
+function parseGoalModifier(value: string): GoalDetail | null {
+  const lower = value.toLowerCase();
+  if (/\bo\.g\.|own goal|\(o\.g\.\)/.test(lower)) {
+    return "own-goal";
+  }
+
+  if (/\bpen\.|\bpenalty\b/.test(lower)) {
+    return "penalty";
+  }
+
+  return null;
+}
+
+function parseLegacyGoalLine(line: string): Array<{ minute?: number; detail: GoalDetail }> {
+  const minute = parseMinute(line);
+  let detail: GoalDetail = "normal";
+
+  if (/\bo\.g\.|\(o\.g\.\)|own goal/i.test(line)) {
+    detail = "own-goal";
+  } else if (/\bpen\.|\bpenalty\b/i.test(line)) {
+    detail = "penalty";
+  }
+
+  if (minute === undefined && detail === "normal") {
+    return [];
+  }
+
+  return [{ minute, detail }];
+}
+
+function parseGoalTemplateContent(content: string): Array<{ minute?: number; detail: GoalDetail }> {
+  const parts = content
+    .split("|")
+    .map((part) => part.trim())
+    .filter(Boolean);
+  const goals: Array<{ minute?: number; detail: GoalDetail }> = [];
+
+  for (let index = 0; index < parts.length; ) {
+    const minute = parseMinuteValue(parts[index]);
+    if (minute === undefined) {
+      index += 1;
+      continue;
+    }
+
+    let detail: GoalDetail = "normal";
+    index += 1;
+
+    const modifier = index < parts.length ? parseGoalModifier(parts[index]) : null;
+    if (modifier) {
+      detail = modifier;
+      index += 1;
+    }
+
+    goals.push({ minute, detail });
+  }
+
+  return goals;
+}
+
+function parseGoalsFromLine(line: string): Array<{ minute?: number; detail: GoalDetail }> {
+  const templateGoals = [...line.matchAll(/\{\{goal\|([^}]+)\}\}/gi)].flatMap((match) => parseGoalTemplateContent(match[1]));
+  if (templateGoals.length > 0) {
+    return templateGoals;
+  }
+
+  return parseLegacyGoalLine(line);
+}
+
 function getHeadingLevel(line: string): number | null {
   const match = line.match(/^(=+)\s*.+?\s*\1$/);
   return match ? match[1].length : null;
@@ -126,7 +209,7 @@ function parsePlayerLine(line: string): string | null {
 }
 
 function getField(block: string, fieldName: string): string {
-  const match = block.match(new RegExp(`\\|${fieldName}=\\n?([\\s\\S]*?)(?=\\n\\|[a-z0-9]+=)`, "i"));
+  const match = block.match(new RegExp(`\\|${fieldName}=([\\s\\S]*?)(?=\\n\\|[a-z0-9]+=)`, "i"));
   return match ? match[1].trim() : "";
 }
 
@@ -205,7 +288,32 @@ function parseGoalLines(value: string): string[] {
   return value
     .split(/\r?\n/)
     .map((line) => line.trim())
-    .filter((line) => line.length > 0 && /\[\[/.test(line) && /(\d+(?:\+\d+)?)'|\(o\.g\.\)/i.test(line));
+    .filter(
+      (line) =>
+        line.length > 0 &&
+        /\[\[/.test(line) &&
+        (/\{\{goal\|/i.test(line) || /(\d+(?:\+\d+)?)'/.test(line) || /\bo\.g\./i.test(line))
+    );
+}
+
+function resolveNationalTeam(
+  detail: GoalDetail,
+  groupTeamCode: string | undefined,
+  groupTeamName: string,
+  homeCode: string | undefined,
+  homeTeam: string,
+  awayCode: string | undefined,
+  awayTeam: string
+): string {
+  if (detail === "own-goal") {
+    if (groupTeamCode && groupTeamCode === homeCode) {
+      return awayCode ? (FIFA_COUNTRY_NAMES[awayCode] ?? awayTeam) : awayTeam;
+    }
+
+    return homeCode ? (FIFA_COUNTRY_NAMES[homeCode] ?? homeTeam) : homeTeam;
+  }
+
+  return groupTeamCode ? (FIFA_COUNTRY_NAMES[groupTeamCode] ?? groupTeamName) : groupTeamName;
 }
 
 function buildMatchLabel(homeTeam: string, awayTeam: string, score: string | undefined): string {
@@ -241,23 +349,33 @@ export function parseWikipediaFootballBoxes(wikitext: string, pageTitle: string)
           continue;
         }
 
-        const detail: GoalDetail = /\(o\.g\.\)|own goal/i.test(line) ? "own-goal" : "normal";
-        const minute = parseMinute(line);
-        const nationalTeam = group.teamCode ? (FIFA_COUNTRY_NAMES[group.teamCode] ?? group.teamName) : group.teamName;
+        for (const parsedGoal of parseGoalsFromLine(line)) {
+          const { minute, detail } = parsedGoal;
+          const nationalTeam = resolveNationalTeam(
+            detail,
+            group.teamCode,
+            group.teamName,
+            homeCode,
+            homeTeam,
+            awayCode,
+            awayTeam
+          );
 
-        records.push({
-          externalGoalId: `${matchId}:${normalizePlayerName(playerName)}:${minute ?? "unknown"}:${detail}`,
-          playerName,
-          nationalTeam,
-          goals: 1,
-          source: "wikipedia",
-          matchId,
-          matchLabel,
-          kickedOffAt,
-          minute,
-          timeConfidence: minute !== undefined ? (kickedOffAt ? "estimated" : "match-only") : kickedOffAt ? "match-only" : "unknown",
-          detail
-        });
+          records.push({
+            externalGoalId: `${matchId}:${normalizePlayerName(playerName)}:${minute ?? "unknown"}:${detail}`,
+            playerName,
+            nationalTeam,
+            goals: 1,
+            source: "wikipedia",
+            matchId,
+            matchLabel,
+            kickedOffAt,
+            minute,
+            timeConfidence:
+              minute !== undefined ? (kickedOffAt ? "estimated" : "match-only") : kickedOffAt ? "match-only" : "unknown",
+            detail
+          });
+        }
       }
     }
   }

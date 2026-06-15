@@ -187,6 +187,73 @@ assert.deepEqual(
   ]
 );
 
+const wikipediaTemplateGoals = parseWikipediaFootballBoxes(
+  `{{#invoke:football box|main
+|date={{Start date|2026|6|14}}
+|time=12:00 p.m. UTC-5
+|team1={{#invoke:flag|fb-rt|GER}}
+|score=7–1
+|team2={{#invoke:flag|fb|CUW}}
+|goals1=
+*[[Felix Nmecha|Nmecha]] {{goal|6}}
+*[[Kai Havertz|Havertz]] {{goal|45+5|pen.|88}}
+|goals2=
+*[[Livano Comenencia|Comenencia]] {{goal|21}}
+|stadium=[[NRG Stadium]]
+}}<section end=E1 />`,
+  "2026 FIFA World Cup Group E"
+);
+
+assert.deepEqual(
+  wikipediaTemplateGoals.map((goal) => [goal.playerName, goal.nationalTeam, goal.minute, goal.detail]),
+  [
+    ["Felix Nmecha", "Germany", 6, "normal"],
+    ["Kai Havertz", "Germany", 50, "penalty"],
+    ["Kai Havertz", "Germany", 88, "normal"],
+    ["Livano Comenencia", "Curaçao", 21, "normal"]
+  ]
+);
+
+const wikipediaOwnGoal = parseWikipediaFootballBoxes(
+  `{{#invoke:football box|main
+|team1={{#invoke:flag|fb-rt|QAT}}
+|score=1–1
+|team2={{#invoke:flag|fb|SUI}}
+|goals1=
+*[[Miro Muheim|Muheim]] 90+4' o.g.
+|goals2=
+*[[Breel Embolo|Embolo]] 17' pen.
+|stadium=[[Levi's Stadium]]
+}}<section end=B2 />`,
+  "2026 FIFA World Cup Group B"
+);
+
+assert.deepEqual(
+  wikipediaOwnGoal.map((goal) => [goal.playerName, goal.nationalTeam, goal.minute, goal.detail]),
+  [
+    ["Miro Muheim", "Switzerland", 94, "own-goal"],
+    ["Breel Embolo", "Switzerland", 17, "penalty"]
+  ]
+);
+
+const wikipediaEmptyGoalsColumn = parseWikipediaFootballBoxes(
+  `{{#invoke:football box|main
+|team1={{#invoke:flag|fb-rt|HAI}}
+|score=0–1
+|team2={{#invoke:flag|fb|SCO}}
+|goals1=
+|goals2=
+*[[John McGinn|McGinn]] 28'
+|stadium=[[Gillette Stadium]]
+}}<section end=C2 />`,
+  "2026 FIFA World Cup Group C"
+);
+
+assert.deepEqual(
+  wikipediaEmptyGoalsColumn.map((goal) => [goal.playerName, goal.nationalTeam, goal.minute, goal.detail]),
+  [["John McGinn", "Scotland", 28, "normal"]]
+);
+
 const apiFootballGoals = parseApiFootballEvents("12345", [
   {
     time: { elapsed: 12 },

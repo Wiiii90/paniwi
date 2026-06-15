@@ -1,8 +1,8 @@
 [
   {
-    "matchId": "wikipedia:2026 fifa world cup group a:mexico-south africa:2026-06-11T12:00:00.000Z",
+    "matchId": "wikipedia:2026 fifa world cup group a:mexico-south africa:2026-06-11T19:00:00.000Z",
     "label": "Mexico 2–0 South Africa",
-    "kickedOffAt": "2026-06-11T12:00:00.000Z",
+    "kickedOffAt": "2026-06-11T19:00:00.000Z",
     "status": "finished",
     "homeTeam": {
       "name": "Mexico 2–0 South Africa"
@@ -12,27 +12,27 @@
     },
     "goals": [
       {
-        "externalGoalId": "wikipedia:2026 fifa world cup group a:mexico-south africa:2026-06-11T12:00:00.000Z:julian quinones:9:normal",
+        "externalGoalId": "wikipedia:2026 fifa world cup group a:mexico-south africa:2026-06-11T19:00:00.000Z:julian quinones:9:normal",
         "playerName": "Julián Quiñones",
         "nationalTeam": "Mexico",
         "goals": 1,
         "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group a:mexico-south africa:2026-06-11T12:00:00.000Z",
+        "matchId": "wikipedia:2026 fifa world cup group a:mexico-south africa:2026-06-11T19:00:00.000Z",
         "matchLabel": "Mexico 2–0 South Africa",
-        "kickedOffAt": "2026-06-11T12:00:00.000Z",
+        "kickedOffAt": "2026-06-11T19:00:00.000Z",
         "minute": 9,
         "timeConfidence": "estimated",
         "detail": "normal"
       },
       {
-        "externalGoalId": "wikipedia:2026 fifa world cup group a:mexico-south africa:2026-06-11T12:00:00.000Z:raul jimenez:67:normal",
+        "externalGoalId": "wikipedia:2026 fifa world cup group a:mexico-south africa:2026-06-11T19:00:00.000Z:raul jimenez:67:normal",
         "playerName": "Raúl Jiménez",
         "nationalTeam": "Mexico",
         "goals": 1,
         "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group a:mexico-south africa:2026-06-11T12:00:00.000Z",
+        "matchId": "wikipedia:2026 fifa world cup group a:mexico-south africa:2026-06-11T19:00:00.000Z",
         "matchLabel": "Mexico 2–0 South Africa",
-        "kickedOffAt": "2026-06-11T12:00:00.000Z",
+        "kickedOffAt": "2026-06-11T19:00:00.000Z",
         "minute": 67,
         "timeConfidence": "estimated",
         "detail": "normal"
@@ -42,9 +42,9 @@
     "affectedOwners": []
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group a:south korea-czech republic:2026-06-11T12:00:00.000Z",
+    "matchId": "wikipedia:2026 fifa world cup group a:south korea-czech republic:2026-06-12T02:00:00.000Z",
     "label": "South Korea 2–1 Czech Republic",
-    "kickedOffAt": "2026-06-11T12:00:00.000Z",
+    "kickedOffAt": "2026-06-12T02:00:00.000Z",
     "status": "finished",
     "homeTeam": {
       "name": "South Korea 2–1 Czech Republic"
@@ -54,40 +54,40 @@
     },
     "goals": [
       {
-        "externalGoalId": "wikipedia:2026 fifa world cup group a:south korea-czech republic:2026-06-11T12:00:00.000Z:ladislav krejci footballer born 1999:59:normal",
+        "externalGoalId": "wikipedia:2026 fifa world cup group a:south korea-czech republic:2026-06-12T02:00:00.000Z:ladislav krejci footballer born 1999:59:normal",
         "playerName": "Ladislav Krejčí (footballer, born 1999)",
         "nationalTeam": "Czech Republic",
         "goals": 1,
         "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group a:south korea-czech republic:2026-06-11T12:00:00.000Z",
+        "matchId": "wikipedia:2026 fifa world cup group a:south korea-czech republic:2026-06-12T02:00:00.000Z",
         "matchLabel": "South Korea 2–1 Czech Republic",
-        "kickedOffAt": "2026-06-11T12:00:00.000Z",
+        "kickedOffAt": "2026-06-12T02:00:00.000Z",
         "minute": 59,
         "timeConfidence": "estimated",
         "detail": "normal"
       },
       {
-        "externalGoalId": "wikipedia:2026 fifa world cup group a:south korea-czech republic:2026-06-11T12:00:00.000Z:hwang in beom:67:normal",
+        "externalGoalId": "wikipedia:2026 fifa world cup group a:south korea-czech republic:2026-06-12T02:00:00.000Z:hwang in beom:67:normal",
         "playerName": "Hwang In-beom",
         "nationalTeam": "South Korea",
         "goals": 1,
         "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group a:south korea-czech republic:2026-06-11T12:00:00.000Z",
+        "matchId": "wikipedia:2026 fifa world cup group a:south korea-czech republic:2026-06-12T02:00:00.000Z",
         "matchLabel": "South Korea 2–1 Czech Republic",
-        "kickedOffAt": "2026-06-11T12:00:00.000Z",
+        "kickedOffAt": "2026-06-12T02:00:00.000Z",
         "minute": 67,
         "timeConfidence": "estimated",
         "detail": "normal"
       },
       {
-        "externalGoalId": "wikipedia:2026 fifa world cup group a:south korea-czech republic:2026-06-11T12:00:00.000Z:oh hyeon gyu:80:normal",
+        "externalGoalId": "wikipedia:2026 fifa world cup group a:south korea-czech republic:2026-06-12T02:00:00.000Z:oh hyeon gyu:80:normal",
         "playerName": "Oh Hyeon-gyu",
         "nationalTeam": "South Korea",
         "goals": 1,
         "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group a:south korea-czech republic:2026-06-11T12:00:00.000Z",
+        "matchId": "wikipedia:2026 fifa world cup group a:south korea-czech republic:2026-06-12T02:00:00.000Z",
         "matchLabel": "South Korea 2–1 Czech Republic",
-        "kickedOffAt": "2026-06-11T12:00:00.000Z",
+        "kickedOffAt": "2026-06-12T02:00:00.000Z",
         "minute": 80,
         "timeConfidence": "estimated",
         "detail": "normal"
@@ -97,9 +97,9 @@
     "affectedOwners": []
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group b:canada-bosnia and herzegovina:2026-06-12T12:00:00.000Z",
+    "matchId": "wikipedia:2026 fifa world cup group b:canada-bosnia and herzegovina:2026-06-12T19:00:00.000Z",
     "label": "Canada 1–1 Bosnia and Herzegovina",
-    "kickedOffAt": "2026-06-12T12:00:00.000Z",
+    "kickedOffAt": "2026-06-12T19:00:00.000Z",
     "status": "finished",
     "homeTeam": {
       "name": "Canada 1–1 Bosnia and Herzegovina"
@@ -109,27 +109,27 @@
     },
     "goals": [
       {
-        "externalGoalId": "wikipedia:2026 fifa world cup group b:canada-bosnia and herzegovina:2026-06-12T12:00:00.000Z:jovo lukic:21:normal",
+        "externalGoalId": "wikipedia:2026 fifa world cup group b:canada-bosnia and herzegovina:2026-06-12T19:00:00.000Z:jovo lukic:21:normal",
         "playerName": "Jovo Lukić",
         "nationalTeam": "Bosnia and Herzegovina",
         "goals": 1,
         "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group b:canada-bosnia and herzegovina:2026-06-12T12:00:00.000Z",
+        "matchId": "wikipedia:2026 fifa world cup group b:canada-bosnia and herzegovina:2026-06-12T19:00:00.000Z",
         "matchLabel": "Canada 1–1 Bosnia and Herzegovina",
-        "kickedOffAt": "2026-06-12T12:00:00.000Z",
+        "kickedOffAt": "2026-06-12T19:00:00.000Z",
         "minute": 21,
         "timeConfidence": "estimated",
         "detail": "normal"
       },
       {
-        "externalGoalId": "wikipedia:2026 fifa world cup group b:canada-bosnia and herzegovina:2026-06-12T12:00:00.000Z:cyle larin:78:normal",
+        "externalGoalId": "wikipedia:2026 fifa world cup group b:canada-bosnia and herzegovina:2026-06-12T19:00:00.000Z:cyle larin:78:normal",
         "playerName": "Cyle Larin",
         "nationalTeam": "Canada",
         "goals": 1,
         "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group b:canada-bosnia and herzegovina:2026-06-12T12:00:00.000Z",
+        "matchId": "wikipedia:2026 fifa world cup group b:canada-bosnia and herzegovina:2026-06-12T19:00:00.000Z",
         "matchLabel": "Canada 1–1 Bosnia and Herzegovina",
-        "kickedOffAt": "2026-06-12T12:00:00.000Z",
+        "kickedOffAt": "2026-06-12T19:00:00.000Z",
         "minute": 78,
         "timeConfidence": "estimated",
         "detail": "normal"
@@ -139,9 +139,132 @@
     "affectedOwners": []
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T12:00:00.000Z",
+    "matchId": "wikipedia:2026 fifa world cup group d:united states-paraguay:2026-06-13T01:00:00.000Z",
+    "label": "United States 4–1 Paraguay",
+    "kickedOffAt": "2026-06-13T01:00:00.000Z",
+    "status": "finished",
+    "homeTeam": {
+      "name": "United States 4–1 Paraguay"
+    },
+    "awayTeam": {
+      "name": "Gegner offen"
+    },
+    "goals": [
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group d:united states-paraguay:2026-06-13T01:00:00.000Z:damian bobadilla:7:own-goal",
+        "playerName": "Damián Bobadilla",
+        "nationalTeam": "Paraguay",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:united states-paraguay:2026-06-13T01:00:00.000Z",
+        "matchLabel": "United States 4–1 Paraguay",
+        "kickedOffAt": "2026-06-13T01:00:00.000Z",
+        "minute": 7,
+        "timeConfidence": "estimated",
+        "detail": "own-goal"
+      },
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group d:united states-paraguay:2026-06-13T01:00:00.000Z:folarin balogun:31:normal",
+        "playerName": "Folarin Balogun",
+        "nationalTeam": "United States",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:united states-paraguay:2026-06-13T01:00:00.000Z",
+        "matchLabel": "United States 4–1 Paraguay",
+        "kickedOffAt": "2026-06-13T01:00:00.000Z",
+        "minute": 31,
+        "timeConfidence": "estimated",
+        "detail": "normal"
+      },
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group d:united states-paraguay:2026-06-13T01:00:00.000Z:folarin balogun:50:normal",
+        "playerName": "Folarin Balogun",
+        "nationalTeam": "United States",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:united states-paraguay:2026-06-13T01:00:00.000Z",
+        "matchLabel": "United States 4–1 Paraguay",
+        "kickedOffAt": "2026-06-13T01:00:00.000Z",
+        "minute": 50,
+        "timeConfidence": "estimated",
+        "detail": "normal"
+      },
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group d:united states-paraguay:2026-06-13T01:00:00.000Z:mauricio footballer born 2001:73:normal",
+        "playerName": "Maurício (footballer, born 2001)",
+        "nationalTeam": "Paraguay",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:united states-paraguay:2026-06-13T01:00:00.000Z",
+        "matchLabel": "United States 4–1 Paraguay",
+        "kickedOffAt": "2026-06-13T01:00:00.000Z",
+        "minute": 73,
+        "timeConfidence": "estimated",
+        "detail": "normal"
+      },
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group d:united states-paraguay:2026-06-13T01:00:00.000Z:giovanni reyna:98:normal",
+        "playerName": "Giovanni Reyna",
+        "nationalTeam": "United States",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:united states-paraguay:2026-06-13T01:00:00.000Z",
+        "matchLabel": "United States 4–1 Paraguay",
+        "kickedOffAt": "2026-06-13T01:00:00.000Z",
+        "minute": 98,
+        "timeConfidence": "estimated",
+        "detail": "normal"
+      }
+    ],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group b:qatar-switzerland:2026-06-13T19:00:00.000Z",
+    "label": "Qatar 1–1 Switzerland",
+    "kickedOffAt": "2026-06-13T19:00:00.000Z",
+    "status": "finished",
+    "homeTeam": {
+      "name": "Qatar 1–1 Switzerland"
+    },
+    "awayTeam": {
+      "name": "Gegner offen"
+    },
+    "goals": [
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group b:qatar-switzerland:2026-06-13T19:00:00.000Z:breel embolo:17:penalty",
+        "playerName": "Breel Embolo",
+        "nationalTeam": "Switzerland",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group b:qatar-switzerland:2026-06-13T19:00:00.000Z",
+        "matchLabel": "Qatar 1–1 Switzerland",
+        "kickedOffAt": "2026-06-13T19:00:00.000Z",
+        "minute": 17,
+        "timeConfidence": "estimated",
+        "detail": "penalty"
+      },
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group b:qatar-switzerland:2026-06-13T19:00:00.000Z:miro muheim:94:own-goal",
+        "playerName": "Miro Muheim",
+        "nationalTeam": "Switzerland",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group b:qatar-switzerland:2026-06-13T19:00:00.000Z",
+        "matchLabel": "Qatar 1–1 Switzerland",
+        "kickedOffAt": "2026-06-13T19:00:00.000Z",
+        "minute": 94,
+        "timeConfidence": "estimated",
+        "detail": "own-goal"
+      }
+    ],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T22:00:00.000Z",
     "label": "Brazil 1–1 Morocco",
-    "kickedOffAt": "2026-06-13T12:00:00.000Z",
+    "kickedOffAt": "2026-06-13T22:00:00.000Z",
     "status": "finished",
     "homeTeam": {
       "name": "Brazil 1–1 Morocco"
@@ -151,27 +274,27 @@
     },
     "goals": [
       {
-        "externalGoalId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T12:00:00.000Z:ismael saibari:21:normal",
+        "externalGoalId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T22:00:00.000Z:ismael saibari:21:normal",
         "playerName": "Ismael Saibari",
         "nationalTeam": "Morocco",
         "goals": 1,
         "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T12:00:00.000Z",
+        "matchId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T22:00:00.000Z",
         "matchLabel": "Brazil 1–1 Morocco",
-        "kickedOffAt": "2026-06-13T12:00:00.000Z",
+        "kickedOffAt": "2026-06-13T22:00:00.000Z",
         "minute": 21,
         "timeConfidence": "estimated",
         "detail": "normal"
       },
       {
-        "externalGoalId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T12:00:00.000Z:vinicius junior:32:normal",
+        "externalGoalId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T22:00:00.000Z:vinicius junior:32:normal",
         "playerName": "Vinícius Júnior",
         "nationalTeam": "Brazil",
         "goals": 1,
         "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T12:00:00.000Z",
+        "matchId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T22:00:00.000Z",
         "matchLabel": "Brazil 1–1 Morocco",
-        "kickedOffAt": "2026-06-13T12:00:00.000Z",
+        "kickedOffAt": "2026-06-13T22:00:00.000Z",
         "minute": 32,
         "timeConfidence": "estimated",
         "detail": "normal"
@@ -179,14 +302,14 @@
     ],
     "pointGoals": [
       {
-        "externalGoalId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T12:00:00.000Z:vinicius junior:32:normal",
+        "externalGoalId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T22:00:00.000Z:vinicius junior:32:normal",
         "playerName": "Vinícius Júnior",
         "nationalTeam": "Brazil",
         "goals": 1,
         "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T12:00:00.000Z",
+        "matchId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T22:00:00.000Z",
         "matchLabel": "Brazil 1–1 Morocco",
-        "kickedOffAt": "2026-06-13T12:00:00.000Z",
+        "kickedOffAt": "2026-06-13T22:00:00.000Z",
         "minute": 32,
         "timeConfidence": "estimated",
         "detail": "normal",
@@ -200,9 +323,9 @@
     ]
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group c:haiti-scotland:2026-06-13T12:00:00.000Z",
+    "matchId": "wikipedia:2026 fifa world cup group c:haiti-scotland:2026-06-14T01:00:00.000Z",
     "label": "Haiti 0–1 Scotland",
-    "kickedOffAt": "2026-06-13T12:00:00.000Z",
+    "kickedOffAt": "2026-06-14T01:00:00.000Z",
     "status": "finished",
     "homeTeam": {
       "name": "Haiti 0–1 Scotland"
@@ -212,14 +335,14 @@
     },
     "goals": [
       {
-        "externalGoalId": "wikipedia:2026 fifa world cup group c:haiti-scotland:2026-06-13T12:00:00.000Z:john mcginn:28:normal",
+        "externalGoalId": "wikipedia:2026 fifa world cup group c:haiti-scotland:2026-06-14T01:00:00.000Z:john mcginn:28:normal",
         "playerName": "John McGinn",
-        "nationalTeam": "Haiti",
+        "nationalTeam": "Scotland",
         "goals": 1,
         "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group c:haiti-scotland:2026-06-13T12:00:00.000Z",
+        "matchId": "wikipedia:2026 fifa world cup group c:haiti-scotland:2026-06-14T01:00:00.000Z",
         "matchLabel": "Haiti 0–1 Scotland",
-        "kickedOffAt": "2026-06-13T12:00:00.000Z",
+        "kickedOffAt": "2026-06-14T01:00:00.000Z",
         "minute": 28,
         "timeConfidence": "estimated",
         "detail": "normal"
@@ -229,45 +352,430 @@
     "affectedOwners": []
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group b:qatar-sui:2026-06-13T12:00:00.000Z",
-    "label": "Qatar 1–1 SUI",
-    "kickedOffAt": "2026-06-13T12:00:00.000Z",
+    "matchId": "wikipedia:2026 fifa world cup group d:australia-tur:2026-06-14T04:00:00.000Z",
+    "label": "Australia 2–0 TUR",
+    "kickedOffAt": "2026-06-14T04:00:00.000Z",
     "status": "finished",
     "homeTeam": {
-      "name": "Qatar 1–1 SUI"
+      "name": "Australia 2–0 TUR"
     },
     "awayTeam": {
       "name": "Gegner offen"
     },
     "goals": [
       {
-        "externalGoalId": "wikipedia:2026 fifa world cup group b:qatar-sui:2026-06-13T12:00:00.000Z:breel embolo:17:normal",
-        "playerName": "Breel Embolo",
-        "nationalTeam": "SUI",
+        "externalGoalId": "wikipedia:2026 fifa world cup group d:australia-tur:2026-06-14T04:00:00.000Z:nestory irankunda:27:normal",
+        "playerName": "Nestory Irankunda",
+        "nationalTeam": "Australia",
         "goals": 1,
         "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group b:qatar-sui:2026-06-13T12:00:00.000Z",
-        "matchLabel": "Qatar 1–1 SUI",
-        "kickedOffAt": "2026-06-13T12:00:00.000Z",
-        "minute": 17,
+        "matchId": "wikipedia:2026 fifa world cup group d:australia-tur:2026-06-14T04:00:00.000Z",
+        "matchLabel": "Australia 2–0 TUR",
+        "kickedOffAt": "2026-06-14T04:00:00.000Z",
+        "minute": 27,
         "timeConfidence": "estimated",
         "detail": "normal"
       },
       {
-        "externalGoalId": "wikipedia:2026 fifa world cup group b:qatar-sui:2026-06-13T12:00:00.000Z:miro muheim:94:normal",
-        "playerName": "Miro Muheim",
-        "nationalTeam": "Qatar",
+        "externalGoalId": "wikipedia:2026 fifa world cup group d:australia-tur:2026-06-14T04:00:00.000Z:connor metcalfe:75:normal",
+        "playerName": "Connor Metcalfe",
+        "nationalTeam": "Australia",
         "goals": 1,
         "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group b:qatar-sui:2026-06-13T12:00:00.000Z",
-        "matchLabel": "Qatar 1–1 SUI",
-        "kickedOffAt": "2026-06-13T12:00:00.000Z",
-        "minute": 94,
+        "matchId": "wikipedia:2026 fifa world cup group d:australia-tur:2026-06-14T04:00:00.000Z",
+        "matchLabel": "Australia 2–0 TUR",
+        "kickedOffAt": "2026-06-14T04:00:00.000Z",
+        "minute": 75,
+        "timeConfidence": "estimated",
+        "detail": "normal"
+      }
+    ],
+    "pointGoals": [
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group d:australia-tur:2026-06-14T04:00:00.000Z:nestory irankunda:27:normal",
+        "playerName": "Nestory Irankunda",
+        "nationalTeam": "Australia",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:australia-tur:2026-06-14T04:00:00.000Z",
+        "matchLabel": "Australia 2–0 TUR",
+        "kickedOffAt": "2026-06-14T04:00:00.000Z",
+        "minute": 27,
+        "timeConfidence": "estimated",
+        "detail": "normal",
+        "owner": "Marco",
+        "pickedPlayerName": "Nestory Irankunda",
+        "points": 1
+      }
+    ],
+    "affectedOwners": [
+      "Marco"
+    ]
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z",
+    "label": "Germany 7–1 Curaçao",
+    "kickedOffAt": "2026-06-14T17:00:00.000Z",
+    "status": "finished",
+    "homeTeam": {
+      "name": "Germany 7–1 Curaçao"
+    },
+    "awayTeam": {
+      "name": "Gegner offen"
+    },
+    "goals": [
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z:felix nmecha:6:normal",
+        "playerName": "Felix Nmecha",
+        "nationalTeam": "Germany",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z",
+        "matchLabel": "Germany 7–1 Curaçao",
+        "kickedOffAt": "2026-06-14T17:00:00.000Z",
+        "minute": 6,
+        "timeConfidence": "estimated",
+        "detail": "normal"
+      },
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z:livano comenencia:21:normal",
+        "playerName": "Livano Comenencia",
+        "nationalTeam": "Curaçao",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z",
+        "matchLabel": "Germany 7–1 Curaçao",
+        "kickedOffAt": "2026-06-14T17:00:00.000Z",
+        "minute": 21,
+        "timeConfidence": "estimated",
+        "detail": "normal"
+      },
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z:nico schlotterbeck:38:normal",
+        "playerName": "Nico Schlotterbeck",
+        "nationalTeam": "Germany",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z",
+        "matchLabel": "Germany 7–1 Curaçao",
+        "kickedOffAt": "2026-06-14T17:00:00.000Z",
+        "minute": 38,
+        "timeConfidence": "estimated",
+        "detail": "normal"
+      },
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z:jamal musiala:47:normal",
+        "playerName": "Jamal Musiala",
+        "nationalTeam": "Germany",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z",
+        "matchLabel": "Germany 7–1 Curaçao",
+        "kickedOffAt": "2026-06-14T17:00:00.000Z",
+        "minute": 47,
+        "timeConfidence": "estimated",
+        "detail": "normal"
+      },
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z:kai havertz:50:penalty",
+        "playerName": "Kai Havertz",
+        "nationalTeam": "Germany",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z",
+        "matchLabel": "Germany 7–1 Curaçao",
+        "kickedOffAt": "2026-06-14T17:00:00.000Z",
+        "minute": 50,
+        "timeConfidence": "estimated",
+        "detail": "penalty"
+      },
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z:nathaniel brown footballer:68:normal",
+        "playerName": "Nathaniel Brown (footballer)",
+        "nationalTeam": "Germany",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z",
+        "matchLabel": "Germany 7–1 Curaçao",
+        "kickedOffAt": "2026-06-14T17:00:00.000Z",
+        "minute": 68,
+        "timeConfidence": "estimated",
+        "detail": "normal"
+      },
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z:deniz undav:78:normal",
+        "playerName": "Deniz Undav",
+        "nationalTeam": "Germany",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z",
+        "matchLabel": "Germany 7–1 Curaçao",
+        "kickedOffAt": "2026-06-14T17:00:00.000Z",
+        "minute": 78,
+        "timeConfidence": "estimated",
+        "detail": "normal"
+      },
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z:kai havertz:88:normal",
+        "playerName": "Kai Havertz",
+        "nationalTeam": "Germany",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z",
+        "matchLabel": "Germany 7–1 Curaçao",
+        "kickedOffAt": "2026-06-14T17:00:00.000Z",
+        "minute": 88,
+        "timeConfidence": "estimated",
+        "detail": "normal"
+      }
+    ],
+    "pointGoals": [
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z:felix nmecha:6:normal",
+        "playerName": "Felix Nmecha",
+        "nationalTeam": "Germany",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z",
+        "matchLabel": "Germany 7–1 Curaçao",
+        "kickedOffAt": "2026-06-14T17:00:00.000Z",
+        "minute": 6,
+        "timeConfidence": "estimated",
+        "detail": "normal",
+        "owner": "Nina",
+        "pickedPlayerName": "Felix Nmecha",
+        "points": 1
+      },
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z:felix nmecha:6:normal",
+        "playerName": "Felix Nmecha",
+        "nationalTeam": "Germany",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z",
+        "matchLabel": "Germany 7–1 Curaçao",
+        "kickedOffAt": "2026-06-14T17:00:00.000Z",
+        "minute": 6,
+        "timeConfidence": "estimated",
+        "detail": "normal",
+        "owner": "Willi",
+        "pickedPlayerName": "Felix Nmecha",
+        "points": 1
+      }
+    ],
+    "affectedOwners": [
+      "Nina",
+      "Willi"
+    ]
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group f:netherlands-japan:2026-06-14T20:00:00.000Z",
+    "label": "Netherlands 2–2 Japan",
+    "kickedOffAt": "2026-06-14T20:00:00.000Z",
+    "status": "finished",
+    "homeTeam": {
+      "name": "Netherlands 2–2 Japan"
+    },
+    "awayTeam": {
+      "name": "Gegner offen"
+    },
+    "goals": [
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group f:netherlands-japan:2026-06-14T20:00:00.000Z:virgil van dijk:50:normal",
+        "playerName": "Virgil van Dijk",
+        "nationalTeam": "Netherlands",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:netherlands-japan:2026-06-14T20:00:00.000Z",
+        "matchLabel": "Netherlands 2–2 Japan",
+        "kickedOffAt": "2026-06-14T20:00:00.000Z",
+        "minute": 50,
+        "timeConfidence": "estimated",
+        "detail": "normal"
+      },
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group f:netherlands-japan:2026-06-14T20:00:00.000Z:keito nakamura:57:normal",
+        "playerName": "Keito Nakamura",
+        "nationalTeam": "Japan",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:netherlands-japan:2026-06-14T20:00:00.000Z",
+        "matchLabel": "Netherlands 2–2 Japan",
+        "kickedOffAt": "2026-06-14T20:00:00.000Z",
+        "minute": 57,
+        "timeConfidence": "estimated",
+        "detail": "normal"
+      },
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group f:netherlands-japan:2026-06-14T20:00:00.000Z:crysencio summerville:64:normal",
+        "playerName": "Crysencio Summerville",
+        "nationalTeam": "Netherlands",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:netherlands-japan:2026-06-14T20:00:00.000Z",
+        "matchLabel": "Netherlands 2–2 Japan",
+        "kickedOffAt": "2026-06-14T20:00:00.000Z",
+        "minute": 64,
+        "timeConfidence": "estimated",
+        "detail": "normal"
+      },
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group f:netherlands-japan:2026-06-14T20:00:00.000Z:daichi kamada:88:normal",
+        "playerName": "Daichi Kamada",
+        "nationalTeam": "Japan",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:netherlands-japan:2026-06-14T20:00:00.000Z",
+        "matchLabel": "Netherlands 2–2 Japan",
+        "kickedOffAt": "2026-06-14T20:00:00.000Z",
+        "minute": 88,
         "timeConfidence": "estimated",
         "detail": "normal"
       }
     ],
     "pointGoals": [],
     "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group e:civ-ecuador:2026-06-14T23:00:00.000Z",
+    "label": "CIV 1–0 Ecuador",
+    "kickedOffAt": "2026-06-14T23:00:00.000Z",
+    "status": "finished",
+    "homeTeam": {
+      "name": "CIV 1–0 Ecuador"
+    },
+    "awayTeam": {
+      "name": "Gegner offen"
+    },
+    "goals": [
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group e:civ-ecuador:2026-06-14T23:00:00.000Z:amad diallo:90:normal",
+        "playerName": "Amad Diallo",
+        "nationalTeam": "CIV",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:civ-ecuador:2026-06-14T23:00:00.000Z",
+        "matchLabel": "CIV 1–0 Ecuador",
+        "kickedOffAt": "2026-06-14T23:00:00.000Z",
+        "minute": 90,
+        "timeConfidence": "estimated",
+        "detail": "normal"
+      }
+    ],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group f:sweden-tunisia:2026-06-15T02:00:00.000Z",
+    "label": "Sweden 5–1 Tunisia",
+    "kickedOffAt": "2026-06-15T02:00:00.000Z",
+    "status": "finished",
+    "homeTeam": {
+      "name": "Sweden 5–1 Tunisia"
+    },
+    "awayTeam": {
+      "name": "Gegner offen"
+    },
+    "goals": [
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group f:sweden-tunisia:2026-06-15T02:00:00.000Z:yasin ayari:7:normal",
+        "playerName": "Yasin Ayari",
+        "nationalTeam": "Sweden",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:sweden-tunisia:2026-06-15T02:00:00.000Z",
+        "matchLabel": "Sweden 5–1 Tunisia",
+        "kickedOffAt": "2026-06-15T02:00:00.000Z",
+        "minute": 7,
+        "timeConfidence": "estimated",
+        "detail": "normal"
+      },
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group f:sweden-tunisia:2026-06-15T02:00:00.000Z:alexander isak:30:normal",
+        "playerName": "Alexander Isak",
+        "nationalTeam": "Sweden",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:sweden-tunisia:2026-06-15T02:00:00.000Z",
+        "matchLabel": "Sweden 5–1 Tunisia",
+        "kickedOffAt": "2026-06-15T02:00:00.000Z",
+        "minute": 30,
+        "timeConfidence": "estimated",
+        "detail": "normal"
+      },
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group f:sweden-tunisia:2026-06-15T02:00:00.000Z:omar rekik:43:normal",
+        "playerName": "Omar Rekik",
+        "nationalTeam": "Tunisia",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:sweden-tunisia:2026-06-15T02:00:00.000Z",
+        "matchLabel": "Sweden 5–1 Tunisia",
+        "kickedOffAt": "2026-06-15T02:00:00.000Z",
+        "minute": 43,
+        "timeConfidence": "estimated",
+        "detail": "normal"
+      },
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group f:sweden-tunisia:2026-06-15T02:00:00.000Z:viktor gyokeres:59:normal",
+        "playerName": "Viktor Gyökeres",
+        "nationalTeam": "Sweden",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:sweden-tunisia:2026-06-15T02:00:00.000Z",
+        "matchLabel": "Sweden 5–1 Tunisia",
+        "kickedOffAt": "2026-06-15T02:00:00.000Z",
+        "minute": 59,
+        "timeConfidence": "estimated",
+        "detail": "normal"
+      },
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group f:sweden-tunisia:2026-06-15T02:00:00.000Z:mattias svanberg:84:normal",
+        "playerName": "Mattias Svanberg",
+        "nationalTeam": "Sweden",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:sweden-tunisia:2026-06-15T02:00:00.000Z",
+        "matchLabel": "Sweden 5–1 Tunisia",
+        "kickedOffAt": "2026-06-15T02:00:00.000Z",
+        "minute": 84,
+        "timeConfidence": "estimated",
+        "detail": "normal"
+      },
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group f:sweden-tunisia:2026-06-15T02:00:00.000Z:yasin ayari:96:normal",
+        "playerName": "Yasin Ayari",
+        "nationalTeam": "Sweden",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:sweden-tunisia:2026-06-15T02:00:00.000Z",
+        "matchLabel": "Sweden 5–1 Tunisia",
+        "kickedOffAt": "2026-06-15T02:00:00.000Z",
+        "minute": 96,
+        "timeConfidence": "estimated",
+        "detail": "normal"
+      }
+    ],
+    "pointGoals": [
+      {
+        "externalGoalId": "wikipedia:2026 fifa world cup group f:sweden-tunisia:2026-06-15T02:00:00.000Z:alexander isak:30:normal",
+        "playerName": "Alexander Isak",
+        "nationalTeam": "Sweden",
+        "goals": 1,
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:sweden-tunisia:2026-06-15T02:00:00.000Z",
+        "matchLabel": "Sweden 5–1 Tunisia",
+        "kickedOffAt": "2026-06-15T02:00:00.000Z",
+        "minute": 30,
+        "timeConfidence": "estimated",
+        "detail": "normal",
+        "owner": "Jonas",
+        "pickedPlayerName": "Alexander Isak",
+        "points": 1
+      }
+    ],
+    "affectedOwners": [
+      "Jonas"
+    ]
   }
 ]
