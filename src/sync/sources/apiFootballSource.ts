@@ -59,9 +59,15 @@ type ApiFootballFixturesResponse = {
 };
 
 const defaultBaseUrl = "https://v3.football.api-sports.io";
+const defaultRequestLimit = 90;
 const worldCupLeagueId = 1;
 const worldCupSeason = 2026;
 const skippedFixtureStatuses = new Set(["NS", "TBD", "PST", "CANC", "ABD", "AWD", "WO"]);
+
+type ApiFootballRequestBudget = {
+  limit: number;
+  used: number;
+};
 
 function parseCommaSeparated(value: string | undefined): string[] {
   if (!value) {
@@ -77,6 +83,35 @@ function parseCommaSeparated(value: string | undefined): string[] {
 function getOptionalEnvValue(value: string | undefined): string | undefined {
   const normalized = value?.trim();
   return normalized ? normalized : undefined;
+}
+
+export function getApiFootballRequestLimit(env: NodeJS.ProcessEnv = process.env): number {
+  const configured = getOptionalEnvValue(env.API_FOOTBALL_MAX_REQUESTS);
+  if (!configured) {
+    return defaultRequestLimit;
+  }
+
+  const limit = Number(configured);
+  if (!Number.isInteger(limit) || limit < 1) {
+    throw new Error("API_FOOTBALL_MAX_REQUESTS must be a positive integer.");
+  }
+
+  return limit;
+}
+
+function createRequestBudget(env: NodeJS.ProcessEnv = process.env): ApiFootballRequestBudget {
+  return {
+    limit: getApiFootballRequestLimit(env),
+    used: 0
+  };
+}
+
+function claimRequestBudget(budget: ApiFootballRequestBudget): void {
+  if (budget.used >= budget.limit) {
+    throw new Error(`API-Football request budget exhausted (${budget.used}/${budget.limit}).`);
+  }
+
+  budget.used += 1;
 }
 
 function formatDateKey(date: Date): string {
@@ -236,7 +271,8 @@ export function parseApiFootballEvents(
 async function fetchApiFootball<T>(
   path: string,
   params: Record<string, string>,
-  env: NodeJS.ProcessEnv = process.env
+  env: NodeJS.ProcessEnv = process.env,
+  budget: ApiFootballRequestBudget = createRequestBudget(env)
 ): Promise<T> {
   const apiKey = env.API_FOOTBALL_KEY;
   if (!apiKey) {
@@ -245,12 +281,15 @@ async function fetchApiFootball<T>(
 
   const baseUrl = getOptionalEnvValue(env.API_FOOTBALL_BASE_URL) ?? defaultBaseUrl;
   const timeoutMs = Number(getOptionalEnvValue(env.API_FOOTBALL_TIMEOUT_MS) ?? 10_000);
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), timeoutMs);
   const url = new URL(path, baseUrl);
   for (const [key, value] of Object.entries(params)) {
     url.searchParams.set(key, value);
   }
+
+  claimRequestBudget(budget);
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
 
   try {
     const response = await fetch(url, {
@@ -270,8 +309,12 @@ async function fetchApiFootball<T>(
   }
 }
 
-async function fetchFixtureEvents(fixtureId: string, env: NodeJS.ProcessEnv = process.env): Promise<ApiFootballEvent[]> {
-  const body = await fetchApiFootball<ApiFootballEventsResponse>("/fixtures/events", { fixture: fixtureId }, env);
+async function fetchFixtureEvents(
+  fixtureId: string,
+  env: NodeJS.ProcessEnv = process.env,
+  budget: ApiFootballRequestBudget = createRequestBudget(env)
+): Promise<ApiFootballEvent[]> {
+  const body = await fetchApiFootball<ApiFootballEventsResponse>("/fixtures/events", { fixture: fixtureId }, env, budget);
   if (hasApiErrors(body.errors)) {
     throw new Error(`API-Football returned errors for fixture ${fixtureId}: ${JSON.stringify(body.errors)}`);
   }
@@ -279,8 +322,12 @@ async function fetchFixtureEvents(fixtureId: string, env: NodeJS.ProcessEnv = pr
   return body.response ?? [];
 }
 
-async function fetchFixturesByDate(date: string, env: NodeJS.ProcessEnv = process.env): Promise<ApiFootballFixture[]> {
-  const body = await fetchApiFootball<ApiFootballFixturesResponse>("/fixtures", { date }, env);
+async function fetchFixturesByDate(
+  date: string,
+  env: NodeJS.ProcessEnv = process.env,
+  budget: ApiFootballRequestBudget = createRequestBudget(env)
+): Promise<ApiFootballFixture[]> {
+  const body = await fetchApiFootball<ApiFootballFixturesResponse>("/fixtures", { date }, env, budget);
   if (hasApiErrors(body.errors)) {
     throw new Error(`API-Football returned errors for date ${date}: ${JSON.stringify(body.errors)}`);
   }
@@ -288,17 +335,21 @@ async function fetchFixturesByDate(date: string, env: NodeJS.ProcessEnv = proces
   return body.response ?? [];
 }
 
-async function fetchGoalsForFixtureIds(fixtureIds: string[]): Promise<ExternalGoalRecord[]> {
-  const goalsByFixture = await Promise.all(
-    fixtureIds.map(async (fixtureId) => parseApiFootballEvents(fixtureId, await fetchFixtureEvents(fixtureId)))
-  );
+async function fetchGoalsForFixtureIds(fixtureIds: string[], budget: ApiFootballRequestBudget): Promise<ExternalGoalRecord[]> {
+  const goals: ExternalGoalRecord[] = [];
+  for (const fixtureId of fixtureIds) {
+    goals.push(...parseApiFootballEvents(fixtureId, await fetchFixtureEvents(fixtureId, process.env, budget)));
+  }
 
-  return goalsByFixture.flat();
+  return goals;
 }
 
-async function fetchGoalsForDates(dateKeys: string[]): Promise<ExternalGoalRecord[]> {
-  const fixturesByDate = await Promise.all(dateKeys.map((date) => fetchFixturesByDate(date)));
-  const worldCupFixtures = fixturesByDate.flatMap(filterWorldCupFixtures);
+async function fetchGoalsForDates(dateKeys: string[], budget: ApiFootballRequestBudget): Promise<ExternalGoalRecord[]> {
+  const fixtures: ApiFootballFixture[] = [];
+  for (const date of dateKeys) {
+    fixtures.push(...filterWorldCupFixtures(await fetchFixturesByDate(date, process.env, budget)));
+  }
+  const worldCupFixtures = fixtures;
 
   if (worldCupFixtures.length === 0) {
     throw new Error(`API-Football returned no World Cup fixtures for dates: ${dateKeys.join(", ")}.`);
@@ -309,26 +360,30 @@ async function fetchGoalsForDates(dateKeys: string[]): Promise<ExternalGoalRecor
     throw new Error(`API-Football returned no started World Cup fixtures for dates: ${dateKeys.join(", ")}.`);
   }
 
-  const goalsByFixture = await Promise.all(
-    fixturesWithEvents.map(async (fixture) => {
-      const fixtureId = getFixtureId(fixture);
-      return fixtureId ? parseApiFootballEvents(fixtureId, await fetchFixtureEvents(fixtureId), fixture) : [];
-    })
-  );
+  const goals: ExternalGoalRecord[] = [];
+  for (const fixture of fixturesWithEvents) {
+    const fixtureId = getFixtureId(fixture);
+    if (fixtureId) {
+      goals.push(...parseApiFootballEvents(fixtureId, await fetchFixtureEvents(fixtureId, process.env, budget), fixture));
+    }
+  }
 
-  return goalsByFixture.flat();
+  return goals;
 }
 
 export const apiFootballSource: GoalSource = {
   name: "api-football",
   async fetchGoals(): Promise<GoalSourceResult> {
+    const budget = createRequestBudget();
     const fixtureIds = parseCommaSeparated(process.env.API_FOOTBALL_FIXTURE_IDS);
     if (fixtureIds.length > 0) {
       return {
         source: "api-football",
         fetchedAt: new Date().toISOString(),
-        goals: await fetchGoalsForFixtureIds(fixtureIds),
-        mergeWithExisting: true
+        goals: await fetchGoalsForFixtureIds(fixtureIds, budget),
+        mergeWithExisting: true,
+        sourceRequestCount: budget.used,
+        sourceRequestLimit: budget.limit
       };
     }
 
@@ -336,9 +391,11 @@ export const apiFootballSource: GoalSource = {
     return {
       source: "api-football",
       fetchedAt: new Date().toISOString(),
-      goals: await fetchGoalsForDates(dateKeys),
+      goals: await fetchGoalsForDates(dateKeys, budget),
       coveredDateKeys: dateKeys,
-      mergeWithExisting: true
+      mergeWithExisting: true,
+      sourceRequestCount: budget.used,
+      sourceRequestLimit: budget.limit
     };
   }
 };

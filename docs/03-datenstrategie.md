@@ -39,6 +39,7 @@ Die App arbeitet mit statischen Snapshots. Das Frontend ruft keine externen Spor
    - Free-Plan-tauglicher Weg: `/fixtures?date=YYYY-MM-DD`, danach lokal `league.id=1` und `season=2026` filtern
    - der Adapter liest anschliessend `/fixtures/events?fixture=...` fuer gestartete/beendete WM-Fixtures
    - `API_FOOTBALL_FIXTURE_IDS` bleibt als manueller Debug-Override moeglich
+   - `API_FOOTBALL_MAX_REQUESTS` begrenzt HTTP-Calls pro Sync-Lauf hart (Default `90`)
 
 ## Wikipedia-Fallback — Stand & Grenzen
 
@@ -145,7 +146,7 @@ npm run sync:data
 
 - GitHub-Backfill einmal bewusst ausfuehren, damit API-Football-Historie vor Umstellung vollstaendig ist
 - K.o.-Runden-Schedule fuer Wikipedia-Fallback ergaenzen
-- Optional: API-Call-Budget im Meta-Snapshot ausweisen
+- API-Call-Budget ist im Adapter und Meta-Snapshot umgesetzt (`sourceRequestCount` / `sourceRequestLimit`)
 
 ## Event-Modell
 

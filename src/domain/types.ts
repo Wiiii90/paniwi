@@ -143,4 +143,6 @@ export type StaticMeta = {
   snapshotChanged?: boolean;
   syncWindowId?: string;
   windowSyncAttempts?: number;
+  sourceRequestCount?: number;
+  sourceRequestLimit?: number;
 };

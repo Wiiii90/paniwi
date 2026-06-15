@@ -7,10 +7,12 @@ import type { GoalRecord, ParticipantTeam } from "./types";
 import { normalizeGoals } from "../sync/normalizeGoals";
 import {
   filterWorldCupFixtures,
+  getApiFootballRequestLimit,
   getApiFootballDateKeys,
   parseApiFootballEvents,
   shouldFetchFixtureEvents
 } from "../sync/sources/apiFootballSource";
+import { apiFootballSource } from "../sync/sources/apiFootballSource";
 import { getSourcesForMode, parseSyncSourceMode } from "../sync/sources/sourceSelection";
 import { parseWikipediaFootballBoxes, parseWikipediaGoalscorers } from "../sync/sources/wikipediaSource";
 import { buildSourceErrorMeta, mergeGoalSnapshots } from "../sync/syncGoals";
@@ -308,6 +310,9 @@ assert.deepEqual(
   ["2026-06-15", "2026-06-16", "2026-06-17"]
 );
 assert.deepEqual(getApiFootballDateKeys({}, new Date("2026-06-15T12:00:00.000Z")), ["2026-06-15"]);
+assert.equal(getApiFootballRequestLimit({}), 90);
+assert.equal(getApiFootballRequestLimit({ API_FOOTBALL_MAX_REQUESTS: "12" }), 12);
+assert.throws(() => getApiFootballRequestLimit({ API_FOOTBALL_MAX_REQUESTS: "0" }), /positive integer/);
 
 const apiFootballFixtures = [
   {
@@ -363,6 +368,50 @@ assert.deepEqual(
   apiFootballFixtureGoals.map((goal) => [goal.matchLabel, goal.kickedOffAt, goal.playerName, goal.nationalTeam]),
   [["Sweden 5-1 Tunisia", "2026-06-15T02:00:00+00:00", "Alexander Isak", "Sweden"]]
 );
+
+const originalFetch = globalThis.fetch;
+const originalEnv = {
+  API_FOOTBALL_KEY: process.env.API_FOOTBALL_KEY,
+  API_FOOTBALL_DATES: process.env.API_FOOTBALL_DATES,
+  API_FOOTBALL_MAX_REQUESTS: process.env.API_FOOTBALL_MAX_REQUESTS,
+  API_FOOTBALL_FIXTURE_IDS: process.env.API_FOOTBALL_FIXTURE_IDS
+};
+function restoreEnvValue(key: keyof typeof originalEnv): void {
+  const value = originalEnv[key];
+  if (value === undefined) {
+    delete process.env[key];
+    return;
+  }
+
+  process.env[key] = value;
+}
+process.env.API_FOOTBALL_KEY = "test-key";
+process.env.API_FOOTBALL_DATES = "2026-06-15";
+process.env.API_FOOTBALL_MAX_REQUESTS = "1";
+delete process.env.API_FOOTBALL_FIXTURE_IDS;
+try {
+  globalThis.fetch = (async (input: string | URL | Request) => {
+    const url = new URL(input.toString());
+    if (url.pathname.endsWith("/fixtures")) {
+      return Response.json({
+        errors: {},
+        response: [apiFootballFixtures[0]]
+      });
+    }
+
+    return Response.json({
+      errors: {},
+      response: []
+    });
+  }) as typeof fetch;
+  await assert.rejects(() => apiFootballSource.fetchGoals(), /request budget exhausted/);
+} finally {
+  globalThis.fetch = originalFetch;
+  restoreEnvValue("API_FOOTBALL_KEY");
+  restoreEnvValue("API_FOOTBALL_DATES");
+  restoreEnvValue("API_FOOTBALL_MAX_REQUESTS");
+  restoreEnvValue("API_FOOTBALL_FIXTURE_IDS");
+}
 
 const oldWikipediaGoal: GoalRecord = {
   ...baseGoal,

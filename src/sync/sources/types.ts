@@ -6,6 +6,8 @@ export type GoalSourceResult = {
   goals: ExternalGoalRecord[];
   mergeWithExisting?: boolean;
   coveredDateKeys?: string[];
+  sourceRequestCount?: number;
+  sourceRequestLimit?: number;
 };
 
 export interface GoalSource {

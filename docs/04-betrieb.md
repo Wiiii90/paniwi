@@ -27,6 +27,7 @@ Wichtige Variablen:
 - `API_FOOTBALL_DATES`: optionale kommagetrennte API-Football-Tage
 - `API_FOOTBALL_DATE_FROM` / `API_FOOTBALL_DATE_TO`: optionales API-Football-Backfill-Fenster
 - `API_FOOTBALL_FIXTURE_IDS`: optionaler manueller Debug-Override
+- `API_FOOTBALL_MAX_REQUESTS`: harte API-Football-Request-Grenze pro Sync-Lauf, Default `90`
 - `GITHUB_PAGES_BASE`: optionaler Base-Pfad fuer GitHub Pages
 
 ## GitHub Actions
@@ -110,12 +111,13 @@ API_FOOTBALL_DATE_TO
 API_FOOTBALL_FIXTURE_IDS
 API_FOOTBALL_BASE_URL
 API_FOOTBALL_TIMEOUT_MS
+API_FOOTBALL_MAX_REQUESTS
 WIKIPEDIA_GOALS_PAGE
 WIKIPEDIA_API_ENDPOINT
 WIKIPEDIA_TIMEOUT_MS
 ```
 
-Ohne `API_FOOTBALL_DATES` oder Datumsfenster nutzt API-Football den aktuellen UTC-Tag. Diese Tageslaeufe ersetzen nur Treffer des geholten Tages und behalten aeltere Snapshot-Tage bei. `API_FOOTBALL_FIXTURE_IDS` ist nur noch ein manueller Override.
+Ohne `API_FOOTBALL_DATES` oder Datumsfenster nutzt API-Football den aktuellen UTC-Tag. Diese Tageslaeufe ersetzen nur Treffer des geholten Tages und behalten aeltere Snapshot-Tage bei. `API_FOOTBALL_FIXTURE_IDS` ist nur noch ein manueller Override. Jeder API-Football-HTTP-Call wird gegen `API_FOOTBALL_MAX_REQUESTS` gezaehlt; bei Erreichen der Grenze bricht der Adapter ab, statt weiter Requests zu verbrauchen.
 
 ## Fehlerverhalten
 

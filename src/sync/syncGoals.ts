@@ -179,7 +179,9 @@ function buildSyncMeta(
     snapshotFingerprint,
     snapshotChanged,
     syncWindowId: options.syncWindowId,
-    windowSyncAttempts
+    windowSyncAttempts,
+    sourceRequestCount: result.sourceRequestCount,
+    sourceRequestLimit: result.sourceRequestLimit
   };
 }
 

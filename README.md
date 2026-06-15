@@ -36,12 +36,12 @@ $env:WIKIPEDIA_GOALS_PAGE="2026 FIFA World Cup"
 npm run sync:data
 ```
 
-Der API-Football-Adapter liest Fixture-Events. Dafuer werden ein API-Key und konkrete Fixture-IDs benoetigt:
+Der API-Football-Adapter liest Tagesfixtures und danach die Events gestarteter WM-Spiele. Dafuer wird ein API-Key benoetigt:
 
 ```powershell
 $env:SYNC_SOURCE="api-football"
 $env:API_FOOTBALL_KEY="..."
-$env:API_FOOTBALL_FIXTURE_IDS="12345,67890"
+$env:API_FOOTBALL_DATES="2026-06-15"
 npm run sync:data
 ```
 
@@ -50,6 +50,8 @@ Optional:
 ```powershell
 $env:API_FOOTBALL_BASE_URL="https://v3.football.api-sports.io"
 $env:API_FOOTBALL_TIMEOUT_MS="10000"
+$env:API_FOOTBALL_MAX_REQUESTS="90"
+$env:API_FOOTBALL_FIXTURE_IDS="1539002"
 ```
 
 ## Lokale Ports
@@ -63,7 +65,7 @@ Die Ports sind bewusst weit weg von ueblichen Defaults wie `3000`, `5173`, `5174
 
 - `deploy.yml` baut den aktuell committed Snapshot und veroeffentlicht `dist` auf GitHub Pages.
 - `ci.yml` prueft Pushes und Pull Requests mit Mock-Sync, Tests und Build.
-- `sync-data.yml` laeuft sparsam an Spieltagen (05:30 und 22:30 UTC) oder manuell, nutzt `SYNC_SOURCE=wikipedia`, schreibt `public/data/*.json` und committet nur geaenderte Snapshots.
+- `sync-data.yml` laeuft sparsam in Spiel-Fenstern oder manuell, nutzt aktuell `SYNC_SOURCE=wikipedia`, schreibt `public/data/*.json` und committet nur geaenderte Snapshots.
 - Beide Workflows fuehren `npm test` und `npm run build` aus.
 
 Fuer Project Pages wird der Base-Pfad aus `GITHUB_REPOSITORY` abgeleitet. Bei Bedarf kann er im Workflow mit `GITHUB_PAGES_BASE` ueberschrieben werden.
@@ -85,9 +87,9 @@ Das Frontend ruft keine Sportdaten-API direkt auf. Das Sync-Script schreibt stat
 
 Aktuell nutzt `npm run sync:data` Mock-Daten. Echte Quellen koennen spaeter ueber die Adapter in `src/sync/sources` ergaenzt werden.
 
-Beim Sync wird `src/config/teams.ts` validiert. Erwartet werden eindeutige Owner, 10 bis 11 Spieler pro Team, Name und Nationalmannschaft pro Spieler sowie keine doppelten Spieler im selben Team.
+Beim Sync wird `src/config/teams.ts` validiert. Erwartet werden eindeutige Owner, 10 bis 11 Spieler pro Team, gueltige kanonische `playerId`s sowie keine doppelten Spieler im selben Team.
 
-`goals.json` ist der punkterelevante Trefferfeed. `raw-goals.json` enthaelt alle validen normalisierten Treffer aus der Quelle. `scorers.json` ist die Gesamt-Torschuetzenliste ohne Eigentore und Elfmeterschiessen. `matches.json` gruppiert die Treffer nach Spielen und markiert betroffene Panini-Teams.
+`goals.json` ist der punkterelevante Trefferfeed. `raw-goals.json` enthaelt alle validen normalisierten Treffer aus der Quelle. Kanonisch erkannte Spieler tragen `playerId` und `teamId`; die Rohquellen-Namen bleiben als `sourcePlayerName` und `sourceTeamName` erhalten. `scorers.json` ist die Gesamt-Torschuetzenliste ohne Eigentore und Elfmeterschiessen. `matches.json` gruppiert die Treffer nach Spielen und markiert betroffene Panini-Teams.
 
 `npm run test:snapshots` berechnet Leaderboard, Trefferfeed, Torschuetzenliste und Spiele aus `raw-goals.json` neu und prueft, ob die committed Snapshots konsistent sind.
 

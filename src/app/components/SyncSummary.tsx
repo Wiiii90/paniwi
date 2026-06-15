@@ -29,6 +29,15 @@ export function SyncSummary({ meta }: SyncSummaryProps) {
           <span className="summary-label">Uebersprungen</span>
           <strong>{meta.skippedGoalCount ?? 0}</strong>
         </div>
+        {meta.sourceRequestCount !== undefined ? (
+          <div>
+            <span className="summary-label">API-Calls</span>
+            <strong>
+              {meta.sourceRequestCount}
+              {meta.sourceRequestLimit !== undefined ? `/${meta.sourceRequestLimit}` : ""}
+            </strong>
+          </div>
+        ) : null}
       </div>
       {meta.sourceErrors?.length ? (
         <div className="source-errors">
