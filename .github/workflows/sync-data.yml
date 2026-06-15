@@ -39,7 +39,7 @@ jobs:
       WIKIPEDIA_GOALS_PAGE: ${{ vars.WIKIPEDIA_GOALS_PAGE }}
       WIKIPEDIA_API_ENDPOINT: ${{ vars.WIKIPEDIA_API_ENDPOINT }}
       WIKIPEDIA_TIMEOUT_MS: ${{ vars.WIKIPEDIA_TIMEOUT_MS }}
-      WIKIPEDIA_USER_AGENT: wm-2026-panini-liga/0.1 (https://github.com/Wiiii90/paniwi; private hobby project; contact: wilhelmaltemeier@gmail.com)
+      WIKIPEDIA_USER_AGENT: "wm-2026-panini-liga/0.1 (https://github.com/Wiiii90/paniwi; private hobby project; contact: wilhelmaltemeier@gmail.com)"
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
