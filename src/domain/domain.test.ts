@@ -55,6 +55,9 @@ assert.equal(normalizePlayerName("  K.   Mbappe! "), "k mbappe");
 
 assert.equal(matchesPlayer(baseGoal, teams[0].players[0]), true);
 assert.equal(matchesPlayer({ ...baseGoal, playerName: "H. Kane", apiPlayerId: 10 }, teams[1].players[0]), true);
+assert.equal(matchesPlayer({ ...baseGoal, playerName: "A. Isak", nationalTeam: "Sweden" }, { name: "Alexander Isak", nationalTeam: "Sweden" }), true);
+assert.equal(matchesPlayer({ ...baseGoal, playerName: "B. Isak", nationalTeam: "Sweden" }, { name: "Alexander Isak", nationalTeam: "Sweden" }), false);
+assert.equal(matchesPlayer({ ...baseGoal, playerName: "A. Isak", nationalTeam: "France" }, { name: "Alexander Isak", nationalTeam: "Sweden" }), false);
 assert.equal(matchesPlayer({ ...baseGoal, playerName: "Nobody" }, teams[0].players[0]), false);
 
 assert.equal(getGoalPoints(baseGoal), 1);

@@ -35,8 +35,10 @@
     "nationalTeam": "Sweden",
     "goals": 1,
     "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
+    "scoringOwners": [
+      "Jonas"
+    ],
+    "selected": true,
     "rank": 4
   },
   {

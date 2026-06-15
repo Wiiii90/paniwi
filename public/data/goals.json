@@ -62,5 +62,23 @@
     "owner": "Willi",
     "pickedPlayerName": "Felix Nmecha",
     "points": 1
+  },
+  {
+    "externalGoalId": "api-football:1539002:2864:30:Normal Goal:1",
+    "playerName": "A. Isak",
+    "nationalTeam": "Sweden",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 2864,
+    "matchId": "api-football:1539002",
+    "fixtureId": "1539002",
+    "matchLabel": "Sweden 5-1 Tunisia",
+    "kickedOffAt": "2026-06-15T02:00:00+00:00",
+    "minute": 30,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "owner": "Jonas",
+    "pickedPlayerName": "Alexander Isak",
+    "points": 1
   }
 ]
