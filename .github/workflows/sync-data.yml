@@ -4,13 +4,24 @@ on:
   schedule:
     - cron: "*/30 * * * *"
   workflow_dispatch:
+    inputs:
+      sync_source:
+        description: "Source mode for this run: auto, mock, wikipedia, or api-football"
+        required: false
+        default: "auto"
 
 permissions:
   contents: write
 
+concurrency:
+  group: sync-data
+  cancel-in-progress: false
+
 jobs:
   sync:
     runs-on: ubuntu-latest
+    env:
+      SYNC_SOURCE: ${{ github.event.inputs.sync_source || 'auto' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -18,7 +29,9 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      - run: npm test
       - run: npm run sync:data
+      - run: npm run build
       - name: Commit data snapshot
         uses: stefanzweifel/git-auto-commit-action@v5
         with:

@@ -41,6 +41,14 @@ npm run sync:data
 
 Die Ports sind bewusst weit weg von ueblichen Defaults wie `3000`, `5173`, `5174`, `8000` oder `8080`.
 
+## GitHub Actions
+
+- `deploy.yml` baut den aktuell committed Snapshot und veroeffentlicht `dist` auf GitHub Pages.
+- `sync-data.yml` laeuft geplant oder manuell, nutzt standardmaessig `SYNC_SOURCE=auto`, schreibt `public/data/*.json` und committet nur geaenderte Snapshots.
+- Beide Workflows fuehren `npm test` und `npm run build` aus.
+
+Fuer Project Pages wird der Base-Pfad aus `GITHUB_REPOSITORY` abgeleitet. Bei Bedarf kann er im Workflow mit `GITHUB_PAGES_BASE` ueberschrieben werden.
+
 ## Datenfluss
 
 Das Frontend ruft keine Sportdaten-API direkt auf. Das Sync-Script schreibt statische JSON-Dateien nach `public/data`.
