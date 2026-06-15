@@ -1,18 +1,13 @@
 {
-  "lastUpdated": "2026-06-15T17:33:33.662Z",
-  "source": "wikipedia",
+  "lastUpdated": "2026-06-15T18:50:43.987Z",
+  "source": "api-football",
   "attemptedSources": [
-    "wikipedia"
+    "api-football"
   ],
   "fallbackUsed": false,
-  "status": "ok",
-  "goalCount": 38,
-  "scoredGoalCount": 5,
-  "skippedGoalCount": 0,
-  "duplicateGoalCount": 0,
-  "sourceErrors": [],
-  "message": "Daten-Snapshot mit Quelle wikipedia erzeugt.",
-  "snapshotFingerprint": "85221b588ec3f7c71cc5d5b7c5a0622bad822ad12f0980b80e4737c0ed29c9c1",
-  "snapshotChanged": true,
-  "windowSyncAttempts": 1
+  "status": "error",
+  "sourceErrors": [
+    "api-football: Invalid URL"
+  ],
+  "message": "Alle Datenquellen sind fehlgeschlagen. Bestehende Snapshot-Dateien wurden nicht ueberschrieben."
 }
