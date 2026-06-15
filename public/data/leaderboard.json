@@ -1,0 +1,23 @@
+[
+  {
+    "rank": 1,
+    "owner": "Anna",
+    "points": 3,
+    "goals": 3,
+    "playersWithGoals": 3
+  },
+  {
+    "rank": 2,
+    "owner": "Ben",
+    "points": 2,
+    "goals": 2,
+    "playersWithGoals": 2
+  },
+  {
+    "rank": 3,
+    "owner": "Clara",
+    "points": 0,
+    "goals": 0,
+    "playersWithGoals": 0
+  }
+]
