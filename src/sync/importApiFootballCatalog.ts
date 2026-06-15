@@ -16,9 +16,28 @@ import {
 
 const allCanonicalTeams = canonicalTeams as readonly CanonicalTeam[];
 const allCanonicalPlayers = canonicalPlayers as readonly CanonicalPlayer[];
+const defaultCatalogDateFrom = "2026-06-11";
+const defaultCatalogDateTo = "2026-07-19";
+const worldCupLeagueId = 1;
+const worldCupSeason = 2026;
 
 type ApiFootballFixtureResponse = {
   response?: ApiFootballFixture[];
+  errors?: unknown;
+};
+
+type ApiFootballTeamRecord = {
+  team?: {
+    id?: number;
+    name?: string;
+    country?: string;
+    national?: boolean;
+    logo?: string;
+  };
+};
+
+type ApiFootballTeamsResponse = {
+  response?: ApiFootballTeamRecord[];
   errors?: unknown;
 };
 
@@ -80,6 +99,8 @@ type RosterAuditEntry = {
 type ApiFootballCatalog = {
   generatedAt: string;
   source: "api-football";
+  teamSource: "teams" | "fixtures";
+  sourceErrors: string[];
   fixtureDateKeys: string[];
   fixtureCount: number;
   requestCount: number;
@@ -95,12 +116,19 @@ type ApiFootballCatalog = {
 };
 
 function getCatalogEnv(env: NodeJS.ProcessEnv = process.env): NodeJS.ProcessEnv {
-  return {
+  const catalogEnv = {
     ...env,
     API_FOOTBALL_DATES: env.API_FOOTBALL_CATALOG_DATES ?? env.API_FOOTBALL_DATES,
     API_FOOTBALL_DATE_FROM: env.API_FOOTBALL_CATALOG_DATE_FROM ?? env.API_FOOTBALL_DATE_FROM,
     API_FOOTBALL_DATE_TO: env.API_FOOTBALL_CATALOG_DATE_TO ?? env.API_FOOTBALL_DATE_TO
   };
+
+  if (!catalogEnv.API_FOOTBALL_DATES && !catalogEnv.API_FOOTBALL_DATE_FROM && !catalogEnv.API_FOOTBALL_DATE_TO) {
+    catalogEnv.API_FOOTBALL_DATE_FROM = defaultCatalogDateFrom;
+    catalogEnv.API_FOOTBALL_DATE_TO = defaultCatalogDateTo;
+  }
+
+  return catalogEnv;
 }
 
 function hasApiErrors(errors: unknown): boolean {
@@ -180,6 +208,44 @@ function getFixtureTeamRefs(fixtures: ApiFootballFixture[]): CatalogTeamRef[] {
   return sortByName([...refsByApiId.values()]);
 }
 
+async function fetchWorldCupTeams(
+  env: NodeJS.ProcessEnv,
+  budget: ApiFootballRequestBudget
+): Promise<CatalogTeamRef[]> {
+  const body = await fetchApiFootball<ApiFootballTeamsResponse>(
+    "/teams",
+    { league: String(worldCupLeagueId), season: String(worldCupSeason) },
+    env,
+    budget
+  );
+  if (hasApiErrors(body.errors)) {
+    throw new Error(`API-Football returned team errors: ${JSON.stringify(body.errors)}`);
+  }
+
+  const teamRefs = (body.response ?? []).flatMap((record) => {
+    const teamId = record.team?.id;
+    const teamName = record.team?.name?.trim();
+    if (typeof teamId !== "number" || !teamName) {
+      return [];
+    }
+
+    const canonicalTeam = resolveCanonicalTeam(teamName, teamId);
+    return [
+      {
+        apiFootballTeamId: teamId,
+        name: teamName,
+        canonicalTeamId: canonicalTeam?.teamId
+      }
+    ];
+  });
+
+  if (teamRefs.length === 0) {
+    throw new Error("API-Football returned no World Cup teams.");
+  }
+
+  return sortByName(teamRefs);
+}
+
 async function fetchFixturesByDate(
   date: string,
   env: NodeJS.ProcessEnv,
@@ -215,6 +281,38 @@ async function fetchWorldCupFixtures(
     const dateB = b.fixture?.date ?? "";
     return dateA.localeCompare(dateB);
   });
+}
+
+async function fetchCatalogTeamRefs(
+  dateKeys: string[],
+  env: NodeJS.ProcessEnv,
+  budget: ApiFootballRequestBudget
+): Promise<{ teamRefs: CatalogTeamRef[]; fixtureCount: number; teamSource: "teams" | "fixtures"; sourceErrors: string[] }> {
+  const sourceErrors: string[] = [];
+
+  try {
+    return {
+      teamRefs: await fetchWorldCupTeams(env, budget),
+      fixtureCount: 0,
+      teamSource: "teams",
+      sourceErrors
+    };
+  } catch (error) {
+    sourceErrors.push(error instanceof Error ? error.message : String(error));
+  }
+
+  const fixtures = await fetchWorldCupFixtures(dateKeys, env, budget);
+  const teamRefs = getFixtureTeamRefs(fixtures);
+  if (teamRefs.length === 0) {
+    throw new Error(`API-Football returned no World Cup teams from teams endpoint or fixture fallback.`);
+  }
+
+  return {
+    teamRefs,
+    fixtureCount: fixtures.length,
+    teamSource: "fixtures",
+    sourceErrors
+  };
 }
 
 async function fetchSquad(
@@ -368,14 +466,15 @@ async function main(): Promise<void> {
   }
 
   const budget = createRequestBudget(env);
-  const fixtures = await fetchWorldCupFixtures(dateKeys, env, budget);
-  const teamRefs = getFixtureTeamRefs(fixtures);
+  const { teamRefs, fixtureCount, teamSource, sourceErrors } = await fetchCatalogTeamRefs(dateKeys, env, budget);
   const teams = await buildCatalogTeams(teamRefs, env, budget);
   const catalog: ApiFootballCatalog = {
     generatedAt: new Date().toISOString(),
     source: "api-football",
+    teamSource,
+    sourceErrors,
     fixtureDateKeys: dateKeys,
-    fixtureCount: fixtures.length,
+    fixtureCount,
     requestCount: budget.used,
     requestLimit: budget.limit,
     teams,
@@ -386,6 +485,7 @@ async function main(): Promise<void> {
   console.log(
     [
       `Wrote public/data/api-football-catalog.json`,
+      `teamSource=${catalog.teamSource}`,
       `fixtures=${catalog.fixtureCount}`,
       `teams=${catalog.teams.length}`,
       `matchedPlayers=${catalog.audit.matchedCanonicalPlayers}`,

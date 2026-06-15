@@ -157,13 +157,21 @@ Dafuer gibt es ein separates Einmal-Script:
 
 ```powershell
 $env:API_FOOTBALL_KEY="dein_key"
-$env:API_FOOTBALL_CATALOG_DATE_FROM="2026-06-11"
-$env:API_FOOTBALL_CATALOG_DATE_TO="2026-06-30"
 $env:API_FOOTBALL_MAX_REQUESTS="90"
 npm run sync:api-catalog
 ```
 
-Das Script ruft Tagesfixtures ab, sammelt daraus die WM-Team-IDs und versucht dann pro Team `/players/squads?team=...`. Ergebnis:
+Das Script nutzt zuerst `GET /teams?league=1&season=2026`, um alle WM-Teams unabhaengig von bereits gespielten Partien zu bekommen. Danach ruft es pro Team `/players/squads?team=...` ab.
+
+Nur wenn der Teams-Endpunkt im Free-Plan blockiert ist, faellt das Script auf Tagesfixtures zurueck, um Team-IDs zu sammeln. Ohne Datums-Override nutzt dieser Fallback den kompletten WM-Zeitraum `2026-06-11` bis `2026-07-19`. Das ist bewusst nur fuer einen Einmallauf gedacht, weil es fast das ganze 90er Request-Budget nutzt. Fuer Debugging kann der Zeitraum eingeschraenkt werden:
+
+```powershell
+$env:API_FOOTBALL_CATALOG_DATE_FROM="2026-06-11"
+$env:API_FOOTBALL_CATALOG_DATE_TO="2026-06-15"
+npm run sync:api-catalog
+```
+
+Ergebnis:
 
 - `public/data/api-football-catalog.json`
 - enthaltene Squad-Spieler mit API-Football-Spieler-ID
