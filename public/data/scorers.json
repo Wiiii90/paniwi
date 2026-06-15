@@ -1,54 +1,124 @@
 [
   {
-    "playerName": "Bruno Fernandes",
-    "normalizedPlayerName": "bruno fernandes",
-    "nationalTeam": "Portugal",
+    "playerName": "Breel Embolo",
+    "normalizedPlayerName": "breel embolo",
+    "nationalTeam": "SUI",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 1
+  },
+  {
+    "playerName": "Cyle Larin",
+    "normalizedPlayerName": "cyle larin",
+    "nationalTeam": "Canada",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 1
+  },
+  {
+    "playerName": "Hwang In-beom",
+    "normalizedPlayerName": "hwang in beom",
+    "nationalTeam": "South Korea",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 1
+  },
+  {
+    "playerName": "Ismael Saibari",
+    "normalizedPlayerName": "ismael saibari",
+    "nationalTeam": "Morocco",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 1
+  },
+  {
+    "playerName": "John McGinn",
+    "normalizedPlayerName": "john mcginn",
+    "nationalTeam": "Haiti",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 1
+  },
+  {
+    "playerName": "Jovo Lukić",
+    "normalizedPlayerName": "jovo lukic",
+    "nationalTeam": "Bosnia and Herzegovina",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 1
+  },
+  {
+    "playerName": "Julián Quiñones",
+    "normalizedPlayerName": "julian quinones",
+    "nationalTeam": "Mexico",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 1
+  },
+  {
+    "playerName": "Ladislav Krejčí (footballer, born 1999)",
+    "normalizedPlayerName": "ladislav krejci footballer born 1999",
+    "nationalTeam": "Czech Republic",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 1
+  },
+  {
+    "playerName": "Miro Muheim",
+    "normalizedPlayerName": "miro muheim",
+    "nationalTeam": "Qatar",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 1
+  },
+  {
+    "playerName": "Oh Hyeon-gyu",
+    "normalizedPlayerName": "oh hyeon gyu",
+    "nationalTeam": "South Korea",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 1
+  },
+  {
+    "playerName": "Raúl Jiménez",
+    "normalizedPlayerName": "raul jimenez",
+    "nationalTeam": "Mexico",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 1
+  },
+  {
+    "playerName": "Vinícius Júnior",
+    "normalizedPlayerName": "vinicius junior",
+    "nationalTeam": "Brazil",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [
-      "Anne"
+      "Felix"
     ],
     "selected": true,
-    "rank": 1
-  },
-  {
-    "playerName": "Christian Pulisic",
-    "normalizedPlayerName": "christian pulisic",
-    "nationalTeam": "United States",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 1
-  },
-  {
-    "playerName": "Harry Kane",
-    "normalizedPlayerName": "harry kane",
-    "nationalTeam": "England",
-    "goals": 1,
-    "penaltyGoals": 1,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 1
-  },
-  {
-    "playerName": "Jamal Musiala",
-    "normalizedPlayerName": "jamal musiala",
-    "nationalTeam": "Germany",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 1
-  },
-  {
-    "playerName": "Kylian Mbappé",
-    "normalizedPlayerName": "kylian mbappe",
-    "nationalTeam": "France",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
     "rank": 1
   }
 ]

@@ -7,7 +7,7 @@ import type { GoalRecord, ParticipantTeam } from "./types";
 import { normalizeGoals } from "../sync/normalizeGoals";
 import { parseApiFootballEvents } from "../sync/sources/apiFootballSource";
 import { getSourcesForMode, parseSyncSourceMode } from "../sync/sources/sourceSelection";
-import { parseWikipediaGoalscorers } from "../sync/sources/wikipediaSource";
+import { parseWikipediaFootballBoxes, parseWikipediaGoalscorers } from "../sync/sources/wikipediaSource";
 import { buildSourceErrorMeta } from "../sync/syncGoals";
 import { validateGoals } from "../sync/validateGoals";
 import { formatTeamValidationIssues, validateTeams } from "../sync/validateTeams";
@@ -153,6 +153,36 @@ assert.deepEqual(
     ["Kylian Mbappé", 3, "normal", "unknown"],
     ["Harry Kane", 1, "normal", "unknown"],
     ["Own Goal Test", 1, "own-goal", "unknown"]
+  ]
+);
+
+const wikipediaMatchGoals = parseWikipediaFootballBoxes(
+  `{{#invoke:football box|main
+|date={{Start date|2026|6|11}}
+|team1={{#invoke:flag|fb-rt|MEX}}
+|score={{score link|2026 FIFA World Cup Group A#Mexico vs South Africa|2–0}}
+|team2={{#invoke:flag|fb|RSA}}
+|goals1=
+*[[Julián Quiñones|Quiñones]] 9'
+*[[Raúl Jiménez|Jiménez]] 67'
+|goals2=
+|stadium=[[Estadio Azteca]], [[Mexico City]]
+}}<section end=A1 />`,
+  "2026 FIFA World Cup Group A"
+);
+
+assert.deepEqual(
+  wikipediaMatchGoals.map((goal) => [
+    goal.playerName,
+    goal.nationalTeam,
+    goal.minute,
+    goal.detail,
+    goal.timeConfidence,
+    goal.matchLabel
+  ]),
+  [
+    ["Julián Quiñones", "Mexico", 9, "normal", "estimated", "Mexico 2–0 South Africa"],
+    ["Raúl Jiménez", "Mexico", 67, "normal", "estimated", "Mexico 2–0 South Africa"]
   ]
 );
 

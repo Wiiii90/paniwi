@@ -1,18 +1,18 @@
 [
   {
-    "externalGoalId": "mock-portugal-nigeria-51-fernandes",
-    "playerName": "Bruno Fernandes",
-    "nationalTeam": "Portugal",
+    "externalGoalId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T12:00:00.000Z:vinicius junior:32:normal",
+    "playerName": "Vinícius Júnior",
+    "nationalTeam": "Brazil",
     "goals": 1,
-    "source": "mock",
-    "matchId": "mock-portugal-nigeria",
-    "matchLabel": "Portugal 1-1 Nigeria",
-    "kickedOffAt": "2026-06-15T17:20:00.000Z",
-    "minute": 51,
+    "source": "wikipedia",
+    "matchId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T12:00:00.000Z",
+    "matchLabel": "Brazil 1–1 Morocco",
+    "kickedOffAt": "2026-06-13T12:00:00.000Z",
+    "minute": 32,
     "timeConfidence": "estimated",
     "detail": "normal",
-    "owner": "Anne",
-    "pickedPlayerName": "Bruno Fernandes",
+    "owner": "Felix",
+    "pickedPlayerName": "Vinicius Junior",
     "points": 1
   }
 ]

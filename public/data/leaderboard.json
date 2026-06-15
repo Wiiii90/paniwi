@@ -1,21 +1,21 @@
 [
   {
     "rank": 1,
-    "owner": "Anne",
+    "owner": "Felix",
     "points": 1,
     "goals": 1,
     "playersWithGoals": 1
   },
   {
     "rank": 2,
-    "owner": "Caro",
+    "owner": "Anne",
     "points": 0,
     "goals": 0,
     "playersWithGoals": 0
   },
   {
     "rank": 2,
-    "owner": "Felix",
+    "owner": "Caro",
     "points": 0,
     "goals": 0,
     "playersWithGoals": 0
