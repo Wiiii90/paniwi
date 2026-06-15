@@ -29,7 +29,7 @@ function formatStatus(status: MatchRecord["status"]): string {
     return "Geplant";
   }
 
-  return "Unklar";
+  return "Daten offen";
 }
 
 export function MatchesPage({ matches }: MatchesPageProps) {
@@ -38,7 +38,7 @@ export function MatchesPage({ matches }: MatchesPageProps) {
       <div className="hero-band">
         <div>
           <p className="eyebrow">Spielplan</p>
-          <h1>Gespielte Spiele</h1>
+          <h1>Spiele</h1>
         </div>
         <strong>{matches.length} Spiele</strong>
       </div>

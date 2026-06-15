@@ -1,4 +1,5 @@
 import type { LeaderboardEntry, MatchRecord, ScoredGoal, ScorerEntry, StaticMeta } from "../../domain/types";
+import { getLatestFinishedMatches, getTodayOrLiveMatches } from "../../domain/matchFilters";
 import { StatusPill } from "../components/StatusPill";
 import { SyncSummary } from "../components/SyncSummary";
 import { formatGoalMinute } from "../formatGoal";
@@ -22,25 +23,6 @@ function formatKickoff(value: string | undefined): string {
   }).format(new Date(value));
 }
 
-function getLatestMatches(matches: MatchRecord[]): MatchRecord[] {
-  return [...matches]
-    .filter((match) => match.status === "finished" && match.homeTeam.score !== undefined && match.awayTeam.score !== undefined)
-    .sort((a, b) => {
-      const aTime = a.kickedOffAt ? new Date(a.kickedOffAt).getTime() : 0;
-      const bTime = b.kickedOffAt ? new Date(b.kickedOffAt).getTime() : 0;
-      return bTime - aTime || a.label.localeCompare(b.label);
-    })
-    .slice(0, 3);
-}
-
-function getTodayMatches(matches: MatchRecord[], now = new Date()): MatchRecord[] {
-  const todayKey = now.toISOString().slice(0, 10);
-  return [...matches]
-    .filter((match) => match.kickedOffAt?.slice(0, 10) === todayKey && match.status !== "finished")
-    .sort((a, b) => (a.kickedOffAt ?? "").localeCompare(b.kickedOffAt ?? ""))
-    .slice(0, 4);
-}
-
 function formatMatchScore(match: MatchRecord): string {
   if (match.homeTeam.score === undefined || match.awayTeam.score === undefined) {
     return match.status === "scheduled" ? "offen" : "-:-";
@@ -53,8 +35,8 @@ export function HomePage({ leaderboard, goals, scorers, matches, meta }: HomePag
   const baseUrl = import.meta.env.BASE_URL;
   const latestGoals = goals.slice(-3).reverse();
   const topScorers = scorers.slice(0, 5);
-  const latestMatches = getLatestMatches(matches);
-  const todayMatches = getTodayMatches(matches);
+  const latestMatches = getLatestFinishedMatches(matches);
+  const todayMatches = getTodayOrLiveMatches(matches);
   const leader = leaderboard[0];
 
   return (

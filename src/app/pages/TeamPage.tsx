@@ -19,18 +19,16 @@ function formatPosition(position: string | undefined): string {
   return "—";
 }
 
-function formatRosterStatus(status: string | undefined, rosterNote?: string): string {
-  let label: string;
-
+function formatRosterStatus(status: string | undefined): string {
   if (status === "nominated") {
-    label = "nominiert";
-  } else if (status === "not-nominated") {
-    label = "Niete";
-  } else {
-    label = "ungeprueft";
+    return "nominiert";
   }
 
-  return rosterNote ? `${label} · ${rosterNote}` : label;
+  if (status === "not-nominated") {
+    return "Niete";
+  }
+
+  return "ungeprueft";
 }
 
 export function TeamPage({ owner, goals, matches }: TeamPageProps) {
@@ -86,7 +84,7 @@ export function TeamPage({ owner, goals, matches }: TeamPageProps) {
             <span>{player.nationalTeam}</span>
             <span className="muted">{formatPosition(player.position)}</span>
             <span className={player.rosterStatus === "not-nominated" ? "roster-miss" : "muted"}>
-              {formatRosterStatus(player.rosterStatus, player.rosterNote)}
+              {formatRosterStatus(player.rosterStatus)}
             </span>
             <span>{player.points}</span>
           </div>

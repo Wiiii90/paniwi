@@ -26,7 +26,9 @@ export const syncPolicy = {
   /** One Wikipedia fetch per check window if the snapshot stays unchanged. */
   maxSyncAttemptsPerWindow: 1,
   minMinutesBetweenSyncs: 45,
-  unchangedFollowUpMinutes: 45
+  unchangedFollowUpMinutes: 45,
+  knockoutMaintenanceIntervalHours: 6,
+  knockoutMaintenanceWindowDurationMinutes: 30
 } as const;
 
 export const scheduledKickoffs = kickoffs as MatchKickoff[];
@@ -64,12 +66,51 @@ export function getActiveSyncWindow(now: Date = new Date()): SyncWindow | null {
     }
   }
 
-  return null;
+  return getKnockoutMaintenanceWindow(now);
 }
 
 export function isTournamentDay(now: Date = new Date()): boolean {
   const dateKey = now.toISOString().slice(0, 10);
   return dateKey >= syncPolicy.tournamentStart && dateKey <= syncPolicy.tournamentEnd;
+}
+
+export function getLastScheduledWindow(): SyncWindow | null {
+  return (
+    getAllSyncWindows()
+      .sort((left, right) => right.until.localeCompare(left.until))
+      .at(0) ?? null
+  );
+}
+
+export function getKnockoutMaintenanceWindow(now: Date = new Date()): SyncWindow | null {
+  if (!isTournamentDay(now)) {
+    return null;
+  }
+
+  const lastScheduledWindow = getLastScheduledWindow();
+  if (lastScheduledWindow && now.getTime() <= new Date(lastScheduledWindow.until).getTime()) {
+    return null;
+  }
+
+  const interval = syncPolicy.knockoutMaintenanceIntervalHours;
+  const windowStart = new Date(now);
+  windowStart.setUTCMinutes(0, 0, 0);
+  windowStart.setUTCHours(Math.floor(windowStart.getUTCHours() / interval) * interval);
+  const windowEnd = new Date(windowStart.getTime() + syncPolicy.knockoutMaintenanceWindowDurationMinutes * 60 * 1000);
+
+  if (now.getTime() > windowEnd.getTime()) {
+    return null;
+  }
+
+  const dateKey = windowStart.toISOString().slice(0, 10);
+  const hour = String(windowStart.getUTCHours()).padStart(2, "0");
+
+  return {
+    id: `knockout-maintenance:${dateKey}:${hour}`,
+    from: windowStart.toISOString(),
+    until: windowEnd.toISOString(),
+    label: `KO-Runden Sync ${dateKey} ${hour}:00 UTC`
+  };
 }
 
 export function getUpcomingSyncWindows(now: Date = new Date(), limit = 5): SyncWindow[] {

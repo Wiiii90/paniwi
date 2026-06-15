@@ -518,7 +518,7 @@ export const canonicalPlayers = [
     "playerId": "sweden-emil-holm",
     "displayName": "Emil Holm",
     "teamId": "sweden",
-    "rosterStatus": "nominated"
+    "rosterStatus": "not-nominated"
   },
   {
     "playerId": "norway-erling-haaland",

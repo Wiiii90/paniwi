@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import type { StaticMeta } from "../domain/types";
 import { evaluateSyncWindow } from "./evaluateSyncWindow";
-import { buildSyncWindowsForKickoff, syncPolicy } from "./syncSchedule";
+import { buildSyncWindowsForKickoff, getActiveSyncWindow, getLastScheduledWindow, syncPolicy } from "./syncSchedule";
 
 const sampleKickoff = {
   id: "sample:brazil-morocco:2026-06-13T16:00:00.000Z",
@@ -41,5 +41,17 @@ assert.equal(
   evaluateSyncWindow(baseMeta, new Date(firstCheckStart + 5 * 60 * 1000), true).shouldRun,
   true
 );
+
+const lastScheduledWindow = getLastScheduledWindow();
+assert.ok(lastScheduledWindow);
+const knockoutWindowStart = new Date(Math.max(new Date(lastScheduledWindow.until).getTime() + 60 * 60 * 1000, new Date("2026-06-29T00:00:00.000Z").getTime()));
+knockoutWindowStart.setUTCMinutes(5, 0, 0);
+knockoutWindowStart.setUTCHours(
+  Math.ceil(knockoutWindowStart.getUTCHours() / syncPolicy.knockoutMaintenanceIntervalHours) *
+    syncPolicy.knockoutMaintenanceIntervalHours
+);
+const knockoutWindow = getActiveSyncWindow(knockoutWindowStart);
+assert.ok(knockoutWindow);
+assert.equal(knockoutWindow.id.startsWith("knockout-maintenance:"), true);
 
 console.log("Sync schedule tests passed.");

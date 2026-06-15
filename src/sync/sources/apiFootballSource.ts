@@ -407,20 +407,31 @@ async function fetchFixtureById(
 async function fetchGoalsAndMatchesForFixtureIds(
   fixtureIds: string[],
   budget: ApiFootballRequestBudget
-): Promise<{ goals: ExternalGoalRecord[]; matches: ExternalMatchRecord[] }> {
+): Promise<{ goals: ExternalGoalRecord[]; fixtures: ApiFootballFixture[] }> {
   const goals: ExternalGoalRecord[] = [];
-  const matches: ExternalMatchRecord[] = [];
+  const fixtures: ApiFootballFixture[] = [];
   for (const fixtureId of fixtureIds) {
     const fixture = await fetchFixtureById(fixtureId, process.env, budget);
-    const match = fixture ? parseApiFootballFixture(fixture) : null;
-    if (match) {
-      matches.push(match);
+    if (fixture) {
+      fixtures.push(fixture);
     }
 
     goals.push(...parseApiFootballEvents(fixtureId, await fetchFixtureEvents(fixtureId, process.env, budget), fixture ?? undefined));
   }
 
-  return { goals, matches };
+  return { goals, fixtures };
+}
+
+function mergeFixtures(fixtures: ApiFootballFixture[]): ApiFootballFixture[] {
+  const fixturesById = new Map<string, ApiFootballFixture>();
+  for (const fixture of fixtures) {
+    const fixtureId = getFixtureId(fixture);
+    if (fixtureId) {
+      fixturesById.set(fixtureId, fixture);
+    }
+  }
+
+  return [...fixturesById.values()];
 }
 
 async function fetchFixturesForDates(dateKeys: string[], budget: ApiFootballRequestBudget): Promise<ApiFootballFixture[]> {
@@ -458,27 +469,34 @@ export const apiFootballSource: GoalSource = {
   async fetchGoals(): Promise<GoalSourceResult> {
     const budget = createRequestBudget();
     const fixtureIds = parseCommaSeparated(process.env.API_FOOTBALL_FIXTURE_IDS);
-    if (fixtureIds.length > 0) {
-      const { goals, matches } = await fetchGoalsAndMatchesForFixtureIds(fixtureIds, budget);
-      return {
-        source: "api-football",
-        fetchedAt: new Date().toISOString(),
-        goals,
-        matches,
-        mergeWithExisting: true,
-        sourceRequestCount: budget.used,
-        sourceRequestLimit: budget.limit
-      };
+    const dateKeys = getApiFootballDateKeys();
+    let dateFixtures: ApiFootballFixture[] = [];
+    try {
+      dateFixtures = await fetchFixturesForDates(dateKeys, budget);
+    } catch (error) {
+      if (fixtureIds.length === 0) {
+        throw error;
+      }
     }
 
-    const dateKeys = getApiFootballDateKeys();
-    const fixtures = await fetchFixturesForDates(dateKeys, budget);
+    const explicitFixtureResult =
+      fixtureIds.length > 0 ? await fetchGoalsAndMatchesForFixtureIds(fixtureIds, budget) : { goals: [], fixtures: [] };
+    const fixtures = mergeFixtures([...dateFixtures, ...explicitFixtureResult.fixtures]);
+    const explicitFixtureIds = new Set(explicitFixtureResult.fixtures.map((fixture) => getFixtureId(fixture)).filter(Boolean));
+    const dateGoals = await fetchGoalsForFixtures(
+      fixtures.filter((fixture) => {
+        const fixtureId = getFixtureId(fixture);
+        return !fixtureId || !explicitFixtureIds.has(fixtureId);
+      }),
+      budget
+    );
+
     return {
       source: "api-football",
       fetchedAt: new Date().toISOString(),
-      goals: await fetchGoalsForFixtures(fixtures, budget),
+      goals: [...dateGoals, ...explicitFixtureResult.goals],
       matches: fixtures.flatMap((fixture) => parseApiFootballFixture(fixture) ?? []),
-      coveredDateKeys: dateKeys,
+      coveredDateKeys: dateFixtures.length > 0 ? dateKeys : undefined,
       mergeWithExisting: true,
       sourceRequestCount: budget.used,
       sourceRequestLimit: budget.limit

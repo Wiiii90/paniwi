@@ -38,9 +38,7 @@ Wichtige Variablen:
 
 `sync-data.yml` aktualisiert `public/data/*.json` nur in definierten Turnier-Fenstern, prueft Tests und Build und committet nur geaenderte Snapshots.
 
-**Aktuell:** `SYNC_SOURCE=wikipedia` (temporaer, bis API-Football eingerichtet ist)
-
-**Ziel:** `SYNC_SOURCE=auto` (api-football → wikipedia → mock). Details: `docs/03-datenstrategie.md`
+**Aktuell:** `SYNC_SOURCE=auto` (api-football -> wikipedia -> mock). Details: `docs/03-datenstrategie.md`
 
 ### Sync-Rhythmus
 
@@ -52,7 +50,8 @@ Der automatische Sync orientiert sich am **Spielplan**, nicht an festen Tageszei
   - +60 Minuten
   - +120 Minuten
 - Jedes Fenster ist 30 Minuten breit; GitHub Actions pollt alle 15 Minuten, ruft Wikipedia aber **nur innerhalb eines Fensters** auf
-- Pro Fenster maximal **1** Wikipedia-Sync, wenn sich der Snapshot nicht aendert
+- Pro Fenster maximal **1** Sync, wenn sich der Snapshot nicht aendert
+- Nach dem letzten bekannten Gruppenphasenfenster gibt es bis Turnierende alle 6 Stunden ein 30-Minuten-Wartungsfenster, damit K.o.-Runden-Fixtures per API-Football automatisch in den Snapshot kommen
 
 Spielplan aktualisieren (selten noetig):
 
@@ -72,7 +71,7 @@ Lokal:
 
 ```powershell
 $env:SYNC_FORCE="true"
-$env:SYNC_SOURCE="wikipedia"
+$env:SYNC_SOURCE="auto"
 npm run sync:scheduled
 ```
 
@@ -84,7 +83,7 @@ Aktuell bewusst **kein** Live-Push von FIFA oder Drittanbietern. Gruende:
 - Wikipedia-API bleibt die eine legale Quelle
 - fuer eine Freundes-Liga reichen 3 Checks nach Spielende
 
-Spaeter: `SYNC_SOURCE=auto` mit API-Football als Primaerquelle; Wikipedia bleibt Fallback (`docs/03-datenstrategie.md`).
+API-Football ist die Primaerquelle; Wikipedia bleibt Fallback (`docs/03-datenstrategie.md`).
 
 ### Wikipedia / API-Etikette
 
@@ -117,7 +116,7 @@ WIKIPEDIA_API_ENDPOINT
 WIKIPEDIA_TIMEOUT_MS
 ```
 
-Ohne `API_FOOTBALL_DATES` oder Datumsfenster nutzt API-Football den aktuellen UTC-Tag. Diese Tageslaeufe ersetzen nur Treffer des geholten Tages und behalten aeltere Snapshot-Tage bei. `API_FOOTBALL_FIXTURE_IDS` ist nur noch ein manueller Override. Jeder API-Football-HTTP-Call wird gegen `API_FOOTBALL_MAX_REQUESTS` gezaehlt; bei Erreichen der Grenze bricht der Adapter ab, statt weiter Requests zu verbrauchen.
+Ohne `API_FOOTBALL_DATES` oder Datumsfenster nutzt API-Football den aktuellen UTC-Tag. Diese Tageslaeufe ersetzen nur Treffer des geholten Tages und behalten aeltere Snapshot-Tage bei. `API_FOOTBALL_FIXTURE_IDS` ist nur noch ein manueller Zusatz fuer Debug-/Backfill-Faelle und ersetzt den Datums-Fetch nicht. Jeder API-Football-HTTP-Call wird gegen `API_FOOTBALL_MAX_REQUESTS` gezaehlt; bei Erreichen der Grenze bricht der Adapter ab, statt weiter Requests zu verbrauchen.
 
 ## Fehlerverhalten
 

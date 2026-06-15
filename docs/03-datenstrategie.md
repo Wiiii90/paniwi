@@ -140,13 +140,15 @@ npm run sync:data
 
 1. Repository -> Settings -> Secrets -> `API_FOOTBALL_KEY`
 2. Optional Repository -> Settings -> Variables -> `API_FOOTBALL_DATES` oder `API_FOOTBALL_DATE_FROM` / `API_FOOTBALL_DATE_TO` fuer manuelle Backfills
-3. `sync-data.yml`: Default von `wikipedia` auf `auto` - **erst nach erfolgreichem Lokaltest**
+3. `sync-data.yml` nutzt `auto`: API-Football ist Primaerquelle, Wikipedia bleibt Fallback
 
 ### Offen fuer API-Football (Code, nicht Dashboard)
 
 - GitHub-Backfill einmal bewusst ausfuehren, damit API-Football-Historie vor Umstellung vollstaendig ist
-- K.o.-Runden-Schedule fuer Wikipedia-Fallback ergaenzen
+- K.o.-Runden kommen ueber den API-Football-Tageslauf, sobald sie als Fixtures bekannt sind; nach der Gruppenphase gibt es zusaetzliche Wartungsfenster
 - API-Call-Budget ist im Adapter und Meta-Snapshot umgesetzt (`sourceRequestCount` / `sourceRequestLimit`)
+
+`API_FOOTBALL_FIXTURE_IDS` ist nur fuer gezielte Debug-/Backfill-Faelle gedacht. Gesetzte Fixture-IDs ergaenzen den normalen Datums-Fetch und ersetzen ihn nicht.
 
 ## Event-Modell
 

@@ -63,9 +63,9 @@
     "goals": [
       {
         "externalGoalId": "wikipedia:2026 fifa world cup group a:south korea-czech republic:2026-06-12T02:00:00.000Z:ladislav krejci footballer born 1999:59:normal",
-        "playerName": "Ladislav Krejčí (footballer, born 1999)",
+        "playerName": "Ladislav Krejčí",
         "nationalTeam": "Czech Republic",
-        "sourcePlayerName": "Ladislav Krejčí (footballer, born 1999)",
+        "sourcePlayerName": "Ladislav Krejčí",
         "sourceTeamName": "Czech Republic",
         "goals": 1,
         "source": "wikipedia",
@@ -206,9 +206,9 @@
       },
       {
         "externalGoalId": "wikipedia:2026 fifa world cup group d:united states-paraguay:2026-06-13T01:00:00.000Z:mauricio footballer born 2001:73:normal",
-        "playerName": "Maurício (footballer, born 2001)",
+        "playerName": "Maurício",
         "nationalTeam": "Paraguay",
-        "sourcePlayerName": "Maurício (footballer, born 2001)",
+        "sourcePlayerName": "Maurício",
         "sourceTeamName": "Paraguay",
         "goals": 1,
         "source": "wikipedia",
@@ -562,9 +562,9 @@
       },
       {
         "externalGoalId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z:nathaniel brown footballer:68:normal",
-        "playerName": "Nathaniel Brown (footballer)",
+        "playerName": "Nathaniel Brown",
         "nationalTeam": "Germany",
-        "sourcePlayerName": "Nathaniel Brown (footballer)",
+        "sourcePlayerName": "Nathaniel Brown",
         "sourceTeamName": "Germany",
         "goals": 1,
         "source": "wikipedia",

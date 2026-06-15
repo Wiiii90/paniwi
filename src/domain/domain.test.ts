@@ -4,6 +4,7 @@ import { buildMatches } from "./buildMatches";
 import { normalizePlayerName } from "./normalizePlayerName";
 import { getGoalPoints, matchesPlayer } from "./scoring";
 import { sortGoalsChronologically } from "./sortGoals";
+import { getLatestFinishedMatches, getTodayOrLiveMatches } from "./matchFilters";
 import type { GoalRecord, ParticipantTeam } from "./types";
 import { normalizeGoals } from "../sync/normalizeGoals";
 import {
@@ -167,6 +168,48 @@ assert.deepEqual(
   ["api-football:1539002"]
 );
 
+const matchFilterSample = buildMatches(
+  [],
+  [],
+  [
+    {
+      source: "api-football",
+      matchId: "api-football:finished",
+      label: "Sweden 5-1 Tunisia",
+      kickedOffAt: "2026-06-15T02:00:00+00:00",
+      status: "finished",
+      homeTeam: { name: "Sweden", score: 5 },
+      awayTeam: { name: "Tunisia", score: 1 }
+    },
+    {
+      source: "api-football",
+      matchId: "api-football:unknown-today",
+      label: "Spain vs Cape Verde",
+      kickedOffAt: "2026-06-15T16:00:00+00:00",
+      status: "unknown",
+      homeTeam: { name: "Spain" },
+      awayTeam: { name: "Cape Verde" }
+    },
+    {
+      source: "api-football",
+      matchId: "api-football:live",
+      label: "Belgium 1-1 Egypt",
+      kickedOffAt: "2026-06-15T19:00:00+00:00",
+      status: "live",
+      homeTeam: { name: "Belgium", score: 1 },
+      awayTeam: { name: "Egypt", score: 1 }
+    }
+  ]
+);
+assert.deepEqual(
+  getLatestFinishedMatches(matchFilterSample).map((match) => match.matchId),
+  ["api-football:finished"]
+);
+assert.deepEqual(
+  getTodayOrLiveMatches(matchFilterSample, new Date("2026-06-15T12:00:00+02:00")).map((match) => match.matchId),
+  ["api-football:unknown-today", "api-football:live"]
+);
+
 assert.deepEqual(buildLeaderboard(teams, [baseGoal]).map((entry) => [entry.rank, entry.owner, entry.points]), [
   [1, "Anna", 1],
   [2, "Ben", 0]
@@ -281,6 +324,26 @@ assert.deepEqual(
     ["Julián Quiñones", "Mexico", 9, "normal", "estimated", "Mexico 2–0 South Africa"],
     ["Raúl Jiménez", "Mexico", 67, "normal", "estimated", "Mexico 2–0 South Africa"]
   ]
+);
+
+const wikipediaDisambiguatedGoal = parseWikipediaFootballBoxes(
+  `{{#invoke:football box|main
+|date={{Start date|2026|6|12}}
+|time=2:00 a.m. UTC
+|team1={{#invoke:flag|fb-rt|KOR}}
+|score=2–1
+|team2={{#invoke:flag|fb|CZE}}
+|goals1=
+|goals2=
+*[[Ladislav Krejčí (footballer, born 1999)|Krejčí]] 59'
+|stadium=[[BMO Field]]
+}}<section end=A2 />`,
+  "2026 FIFA World Cup Group A"
+);
+
+assert.deepEqual(
+  wikipediaDisambiguatedGoal.map((goal) => [goal.playerName, goal.nationalTeam, goal.minute]),
+  [["Ladislav Krejčí", "Czech Republic", 59]]
 );
 
 const wikipediaTemplateGoals = parseWikipediaFootballBoxes(
@@ -495,6 +558,65 @@ function restoreEnvValue(key: keyof typeof originalEnv): void {
 
   process.env[key] = value;
 }
+
+process.env.API_FOOTBALL_KEY = "test-key";
+process.env.API_FOOTBALL_DATES = "2026-06-15";
+process.env.API_FOOTBALL_FIXTURE_IDS = "1489377";
+process.env.API_FOOTBALL_MAX_REQUESTS = "8";
+try {
+  globalThis.fetch = (async (input: string | URL | Request) => {
+    const url = new URL(input.toString());
+    if (url.pathname.endsWith("/fixtures") && url.searchParams.get("date") === "2026-06-15") {
+      return Response.json({
+        errors: {},
+        response: [
+          apiFootballFixtures[0],
+          {
+            fixture: {
+              id: 2000001,
+              date: "2026-06-15T16:00:00+00:00",
+              status: { short: "FT" }
+            },
+            league: { id: 1, name: "World Cup", season: 2026 },
+            teams: {
+              home: { name: "Spain" },
+              away: { name: "Cape Verde" }
+            },
+            goals: { home: 2, away: 1 }
+          }
+        ]
+      });
+    }
+
+    if (url.pathname.endsWith("/fixtures") && url.searchParams.get("id") === "1489377") {
+      return Response.json({
+        errors: {},
+        response: [apiFootballFixtures[1]]
+      });
+    }
+
+    if (url.pathname.endsWith("/fixtures/events")) {
+      return Response.json({ errors: {}, response: [] });
+    }
+
+    return Response.json({ errors: {}, response: [] });
+  }) as typeof fetch;
+
+  const sourceResult = await apiFootballSource.fetchGoals();
+  assert.deepEqual(sourceResult.matches?.map((match) => match.matchId).sort(), [
+    "api-football:1489377",
+    "api-football:1539002",
+    "api-football:2000001"
+  ]);
+  assert.equal(sourceResult.coveredDateKeys?.includes("2026-06-15"), true);
+} finally {
+  globalThis.fetch = originalFetch;
+  restoreEnvValue("API_FOOTBALL_KEY");
+  restoreEnvValue("API_FOOTBALL_DATES");
+  restoreEnvValue("API_FOOTBALL_MAX_REQUESTS");
+  restoreEnvValue("API_FOOTBALL_FIXTURE_IDS");
+}
+
 process.env.API_FOOTBALL_KEY = "test-key";
 process.env.API_FOOTBALL_DATES = "2026-06-15";
 process.env.API_FOOTBALL_MAX_REQUESTS = "1";

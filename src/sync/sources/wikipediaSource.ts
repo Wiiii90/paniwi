@@ -82,13 +82,21 @@ function stripWikiMarkup(value: string): string {
     .trim();
 }
 
+function cleanWikipediaPlayerName(value: string): string {
+  return value
+    .replace(/_/g, " ")
+    .replace(/\s+\([^)]*\)$/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function parseWikiPlayerName(value: string): string {
   const linkMatch = value.match(/\[\[([^|\]]+)(?:\|[^\]]+)?\]\]/);
   if (linkMatch) {
-    return linkMatch[1].trim();
+    return cleanWikipediaPlayerName(linkMatch[1]);
   }
 
-  return stripWikiMarkup(value.replace(/(\d+(?:\+\d+)?)'.*$/g, "").replace(/^\*+\s*/, ""));
+  return cleanWikipediaPlayerName(stripWikiMarkup(value.replace(/(\d+(?:\+\d+)?)'.*$/g, "").replace(/^\*+\s*/, "")));
 }
 
 function parseMinute(value: string): number | undefined {
@@ -214,7 +222,7 @@ function parsePlayerLine(line: string): string | null {
     return null;
   }
 
-  return clean.replace(/\s+\(.+?\)$/g, "").trim();
+  return cleanWikipediaPlayerName(clean);
 }
 
 function getField(block: string, fieldName: string): string {

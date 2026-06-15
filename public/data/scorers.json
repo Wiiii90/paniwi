@@ -205,8 +205,8 @@
     "rank": 1
   },
   {
-    "playerName": "Ladislav Krejčí (footballer, born 1999)",
-    "normalizedPlayerName": "ladislav krejci footballer born 1999",
+    "playerName": "Ladislav Krejčí",
+    "normalizedPlayerName": "ladislav krejci",
     "nationalTeam": "Tschechien",
     "goals": 1,
     "penaltyGoals": 0,
@@ -235,8 +235,8 @@
     "rank": 1
   },
   {
-    "playerName": "Maurício (footballer, born 2001)",
-    "normalizedPlayerName": "mauricio footballer born 2001",
+    "playerName": "Maurício",
+    "normalizedPlayerName": "mauricio",
     "nationalTeam": "Paraguay",
     "goals": 1,
     "penaltyGoals": 0,
@@ -245,8 +245,8 @@
     "rank": 1
   },
   {
-    "playerName": "Nathaniel Brown (footballer)",
-    "normalizedPlayerName": "nathaniel brown footballer",
+    "playerName": "Nathaniel Brown",
+    "normalizedPlayerName": "nathaniel brown",
     "nationalTeam": "Deutschland",
     "goals": 1,
     "penaltyGoals": 0,
