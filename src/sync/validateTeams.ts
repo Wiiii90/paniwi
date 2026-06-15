@@ -1,4 +1,5 @@
 import type { ParticipantTeam } from "../domain/types";
+import { getCanonicalPlayer } from "../domain/canonicalResolver";
 import { normalizePlayerName } from "../domain/normalizePlayerName";
 
 export type TeamValidationIssue = {
@@ -15,7 +16,6 @@ export type TeamValidationResult = {
 export function validateTeams(teams: ParticipantTeam[]): TeamValidationResult {
   const issues: TeamValidationIssue[] = [];
   const ownerNames = new Set<string>();
-  const apiPlayerIds = new Map<number, string>();
 
   for (const team of teams) {
     const owner = team.owner.trim();
@@ -34,8 +34,9 @@ export function validateTeams(teams: ParticipantTeam[]): TeamValidationResult {
       issues.push({ owner: team.owner, reason: "invalid-team-size" });
     }
 
-    const hasPositionMetadata = team.players.some((player) => player.position !== undefined);
-    const goalkeeperCount = team.players.filter((player) => player.position === "goalkeeper").length;
+    const resolvedPlayers = team.players.map((pick) => getCanonicalPlayer(pick.playerId));
+    const hasPositionMetadata = resolvedPlayers.some((player) => player?.position !== undefined);
+    const goalkeeperCount = resolvedPlayers.filter((player) => player?.position === "goalkeeper").length;
     if (goalkeeperCount > 1) {
       issues.push({ owner: team.owner, reason: "too-many-goalkeepers" });
     }
@@ -47,32 +48,30 @@ export function validateTeams(teams: ParticipantTeam[]): TeamValidationResult {
     }
 
     const playerNames = new Set<string>();
-    for (const player of team.players) {
-      const playerName = player.name.trim();
-      const nationalTeam = player.nationalTeam.trim();
+    const playerIds = new Set<string>();
+    for (const pick of team.players) {
+      const player = getCanonicalPlayer(pick.playerId);
 
-      if (!playerName) {
-        issues.push({ owner: team.owner, reason: "missing-player-name" });
+      if (!pick.playerId.trim()) {
+        issues.push({ owner: team.owner, reason: "missing-player-id" });
         continue;
       }
 
-      if (!nationalTeam) {
-        issues.push({ owner: team.owner, player: player.name, reason: "missing-national-team" });
+      if (!player) {
+        issues.push({ owner: team.owner, player: pick.playerId, reason: "unknown-player-id" });
+        continue;
       }
 
-      const playerKey = normalizePlayerName(playerName);
+      const playerKey = normalizePlayerName(player.displayName);
       if (playerNames.has(playerKey)) {
-        issues.push({ owner: team.owner, player: player.name, reason: "duplicate-player-in-team" });
+        issues.push({ owner: team.owner, player: player.displayName, reason: "duplicate-player-in-team" });
       }
       playerNames.add(playerKey);
 
-      if (player.apiPlayerId !== undefined) {
-        const existingOwner = apiPlayerIds.get(player.apiPlayerId);
-        if (existingOwner && existingOwner !== team.owner) {
-          issues.push({ owner: team.owner, player: player.name, reason: "duplicate-api-player-id" });
-        }
-        apiPlayerIds.set(player.apiPlayerId, team.owner);
+      if (playerIds.has(pick.playerId)) {
+        issues.push({ owner: team.owner, player: player.displayName, reason: "duplicate-player-id-in-team" });
       }
+      playerIds.add(pick.playerId);
     }
   }
 

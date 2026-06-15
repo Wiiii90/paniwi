@@ -1,4 +1,5 @@
 import type { ExternalGoalRecord, GoalRecord } from "../domain/types";
+import { resolveGoalPlayer } from "../domain/canonicalResolver";
 import { normalizePlayerName } from "../domain/normalizePlayerName";
 
 function makeExternalGoalId(record: ExternalGoalRecord, index: number): string {
@@ -37,20 +38,34 @@ function inferTimeConfidence(record: ExternalGoalRecord) {
 }
 
 export function normalizeGoals(records: ExternalGoalRecord[]): GoalRecord[] {
-  return records.map((record, index) => ({
-    externalGoalId: makeExternalGoalId(record, index),
-    playerName: record.playerName.trim(),
-    nationalTeam: record.nationalTeam.trim(),
-    goals: record.goals ?? 1,
-    source: record.source,
-    apiPlayerId: record.apiPlayerId,
-    matchId: record.matchId,
-    fixtureId: record.fixtureId,
-    matchLabel: record.matchLabel,
-    kickedOffAt: record.kickedOffAt,
-    minute: record.minute,
-    scoredAt: record.scoredAt,
-    timeConfidence: inferTimeConfidence(record),
-    detail: record.detail ?? "normal"
-  }));
+  return records.map((record, index) => {
+    const baseGoal: GoalRecord = {
+      externalGoalId: makeExternalGoalId(record, index),
+      playerName: record.playerName.trim(),
+      nationalTeam: record.nationalTeam.trim(),
+      sourcePlayerName: record.playerName.trim(),
+      sourceTeamName: record.nationalTeam.trim(),
+      goals: record.goals ?? 1,
+      source: record.source,
+      apiPlayerId: record.apiPlayerId,
+      matchId: record.matchId,
+      fixtureId: record.fixtureId,
+      matchLabel: record.matchLabel,
+      kickedOffAt: record.kickedOffAt,
+      minute: record.minute,
+      scoredAt: record.scoredAt,
+      timeConfidence: inferTimeConfidence(record),
+      detail: record.detail ?? "normal"
+    };
+    const player = resolveGoalPlayer(baseGoal);
+
+    return player
+      ? {
+          ...baseGoal,
+          playerId: player.playerId,
+          teamId: player.teamId,
+          playerName: player.displayName
+        }
+      : baseGoal;
+  });
 }

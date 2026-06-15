@@ -1,5 +1,5 @@
-import type { GoalRecord, PlayerPick, ScoredGoal } from "./types";
-import { normalizePlayerName } from "./normalizePlayerName";
+import { getCanonicalPlayer, getCanonicalTeam, resolveGoalPlayer } from "./canonicalResolver";
+import type { GoalRecord, ParticipantPick, ScoredGoal } from "./types";
 
 export function getGoalPoints(goal: GoalRecord): number {
   if (goal.detail === "own-goal" || goal.detail === "penalty-shootout") {
@@ -9,37 +9,14 @@ export function getGoalPoints(goal: GoalRecord): number {
   return goal.goals;
 }
 
-function matchesAbbreviatedName(goalName: string, playerName: string): boolean {
-  const goalParts = normalizePlayerName(goalName).split(" ");
-  const playerParts = normalizePlayerName(playerName).split(" ");
-
-  if (goalParts.length !== 2 || playerParts.length < 2) {
-    return false;
-  }
-
-  const [goalInitial, goalLastName] = goalParts;
-  const playerFirstName = playerParts[0];
-  const playerLastName = playerParts[playerParts.length - 1];
-
-  return goalInitial.length === 1 && goalInitial === playerFirstName[0] && goalLastName === playerLastName;
+export function matchesPlayer(goal: GoalRecord, pick: ParticipantPick): boolean {
+  return resolveGoalPlayer(goal)?.playerId === pick.playerId;
 }
 
-export function matchesPlayer(goal: GoalRecord, player: PlayerPick): boolean {
-  if (goal.apiPlayerId && player.apiPlayerId && goal.apiPlayerId === player.apiPlayerId) {
-    return true;
-  }
-
-  const goalName = normalizePlayerName(goal.playerName);
-  const names = [player.name, ...(player.aliases ?? [])];
-  const nationalTeamsMatch = normalizePlayerName(goal.nationalTeam) === normalizePlayerName(player.nationalTeam);
-  return (
-    names.map(normalizePlayerName).includes(goalName) ||
-    (nationalTeamsMatch && names.some((name) => matchesAbbreviatedName(goal.playerName, name)))
-  );
-}
-
-export function scoreGoalForPlayer(goal: GoalRecord, owner: string, player: PlayerPick): ScoredGoal | null {
-  if (!matchesPlayer(goal, player)) {
+export function scoreGoalForPlayer(goal: GoalRecord, owner: string, pick: ParticipantPick): ScoredGoal | null {
+  const player = getCanonicalPlayer(pick.playerId);
+  const team = player ? getCanonicalTeam(player.teamId) : null;
+  if (!player || !matchesPlayer(goal, pick)) {
     return null;
   }
 
@@ -50,8 +27,12 @@ export function scoreGoalForPlayer(goal: GoalRecord, owner: string, player: Play
 
   return {
     ...goal,
+    playerId: player.playerId,
+    teamId: player.teamId,
     owner,
-    pickedPlayerName: player.name,
+    pickedPlayerName: player.displayName,
+    displayPlayerName: player.displayName,
+    displayNationalTeam: team?.displayName ?? goal.nationalTeam,
     points
   };
 }

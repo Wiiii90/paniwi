@@ -22,9 +22,7 @@ const teams: ParticipantTeam[] = [
     owner: "Anna",
     players: [
       {
-        name: "Kylian Mbappe",
-        nationalTeam: "France",
-        aliases: ["Kylian Mbappé", "K. Mbappe"]
+        playerId: "sweden-alexander-isak"
       }
     ]
   },
@@ -32,9 +30,7 @@ const teams: ParticipantTeam[] = [
     owner: "Ben",
     players: [
       {
-        name: "Harry Kane",
-        nationalTeam: "England",
-        apiPlayerId: 10
+        playerId: "germany-felix-nmecha"
       }
     ]
   }
@@ -42,10 +38,11 @@ const teams: ParticipantTeam[] = [
 
 const baseGoal: GoalRecord = {
   externalGoalId: "goal-1",
-  playerName: "Kylian Mbappé",
-  nationalTeam: "France",
+  playerName: "A. Isak",
+  nationalTeam: "Sweden",
   goals: 1,
-  source: "mock",
+  source: "api-football",
+  apiPlayerId: 2864,
   timeConfidence: "exact",
   detail: "normal"
 };
@@ -54,11 +51,10 @@ assert.equal(normalizePlayerName("Kylian Mbappé"), "kylian mbappe");
 assert.equal(normalizePlayerName("  K.   Mbappe! "), "k mbappe");
 
 assert.equal(matchesPlayer(baseGoal, teams[0].players[0]), true);
-assert.equal(matchesPlayer({ ...baseGoal, playerName: "H. Kane", apiPlayerId: 10 }, teams[1].players[0]), true);
-assert.equal(matchesPlayer({ ...baseGoal, playerName: "A. Isak", nationalTeam: "Sweden" }, { name: "Alexander Isak", nationalTeam: "Sweden" }), true);
-assert.equal(matchesPlayer({ ...baseGoal, playerName: "B. Isak", nationalTeam: "Sweden" }, { name: "Alexander Isak", nationalTeam: "Sweden" }), false);
-assert.equal(matchesPlayer({ ...baseGoal, playerName: "A. Isak", nationalTeam: "France" }, { name: "Alexander Isak", nationalTeam: "Sweden" }), false);
-assert.equal(matchesPlayer({ ...baseGoal, playerName: "Nobody" }, teams[0].players[0]), false);
+assert.equal(matchesPlayer({ ...baseGoal, playerName: "Felix Nmecha", nationalTeam: "Germany", apiPlayerId: undefined, source: "wikipedia" }, teams[1].players[0]), true);
+assert.equal(matchesPlayer({ ...baseGoal, playerName: "B. Isak", nationalTeam: "Sweden", apiPlayerId: undefined }, teams[0].players[0]), false);
+assert.equal(matchesPlayer({ ...baseGoal, playerName: "A. Isak", nationalTeam: "France", apiPlayerId: undefined }, teams[0].players[0]), false);
+assert.equal(matchesPlayer({ ...baseGoal, playerName: "Nobody", apiPlayerId: undefined }, teams[0].players[0]), false);
 
 assert.equal(getGoalPoints(baseGoal), 1);
 assert.equal(getGoalPoints({ ...baseGoal, detail: "penalty" }), 1);
@@ -67,15 +63,15 @@ assert.equal(getGoalPoints({ ...baseGoal, detail: "penalty-shootout" }), 0);
 
 const scoredGoals = scoreGoalsForTeams(teams, [
   baseGoal,
-  { ...baseGoal, playerName: "Harry Kane", nationalTeam: "England", apiPlayerId: 10, detail: "penalty" },
+  { ...baseGoal, playerName: "Felix Nmecha", nationalTeam: "Germany", apiPlayerId: undefined, source: "wikipedia", detail: "penalty" },
   { ...baseGoal, detail: "own-goal" }
 ]);
 
 assert.deepEqual(
   scoredGoals.map((goal) => [goal.owner, goal.pickedPlayerName, goal.points]),
   [
-    ["Anna", "Kylian Mbappe", 1],
-    ["Ben", "Harry Kane", 1]
+    ["Anna", "Alexander Isak", 1],
+    ["Ben", "Felix Nmecha", 1]
   ]
 );
 
@@ -87,7 +83,7 @@ assert.deepEqual(buildLeaderboard(teams, [baseGoal]).map((entry) => [entry.rank,
 assert.deepEqual(
   buildLeaderboard(teams, [
     baseGoal,
-    { ...baseGoal, externalGoalId: "goal-2", playerName: "Harry Kane", nationalTeam: "England", apiPlayerId: 10 }
+    { ...baseGoal, externalGoalId: "goal-2", playerName: "Felix Nmecha", nationalTeam: "Germany", apiPlayerId: undefined, source: "wikipedia" }
   ]).map((entry) => [entry.rank, entry.owner, entry.points]),
   [
     [1, "Anna", 1],
@@ -404,12 +400,21 @@ assert.deepEqual(
 
 assert.deepEqual(validateTeams(teams), { valid: false, issues: [{ owner: "Anna", reason: "invalid-team-size" }, { owner: "Ben", reason: "invalid-team-size" }] });
 
-const validTeam = {
+const validPlayerIds = [
+  "sweden-alexander-isak",
+  "germany-felix-nmecha",
+  "brazil-vinicius-junior",
+  "australia-nestory-irankunda",
+  "spain-fabian-ruiz",
+  "portugal-bruno-fernandes",
+  "england-jude-bellingham",
+  "morocco-achraf-hakimi",
+  "canada-jonathan-david",
+  "mexico-edson-alvarez"
+];
+const validTeam: ParticipantTeam = {
   owner: "Valid",
-  players: Array.from({ length: 10 }, (_, index) => ({
-    name: `Player ${index + 1}`,
-    nationalTeam: "Germany"
-  }))
+  players: validPlayerIds.map((playerId) => ({ playerId }))
 };
 assert.equal(validateTeams([validTeam]).valid, true);
 assert.equal(
@@ -417,11 +422,8 @@ assert.equal(
     {
       owner: "ValidWithGoalkeeper",
       players: [
-        { name: "Keeper", nationalTeam: "Germany", position: "goalkeeper" as const },
-        ...Array.from({ length: 10 }, (_, index) => ({
-          name: `Outfield ${index + 1}`,
-          nationalTeam: "Germany"
-        }))
+        { playerId: "scotland-angus-gunn" },
+        ...validPlayerIds.map((playerId) => ({ playerId }))
       ]
     }
   ]).valid,
@@ -429,15 +431,9 @@ assert.equal(
 );
 assert.equal(
   validateTeams([
-    { ...validTeam, players: [...validTeam.players, { name: "Extra", nationalTeam: "Germany", position: "forward" }] }
-  ]).issues.some((issue) => issue.reason === "eleven-player-team-needs-one-goalkeeper"),
-  true
-);
-assert.equal(
-  validateTeams([
     {
       ...validTeam,
-      players: [{ name: "Keeper", nationalTeam: "Germany", position: "goalkeeper" }, ...validTeam.players.slice(1)]
+      players: [{ playerId: "scotland-angus-gunn" }, ...validTeam.players.slice(1)]
     }
   ]).issues.some((issue) => issue.reason === "ten-player-team-cannot-include-goalkeeper"),
   true
@@ -449,17 +445,18 @@ const invalidTeams = validateTeams([
   {
     owner: "Broken",
     players: [
-      { name: "", nationalTeam: "Germany" },
-      { name: "Player 1", nationalTeam: "" },
-      { name: "Player 1", nationalTeam: "Germany" }
+      { playerId: "" },
+      { playerId: "unknown-player" },
+      { playerId: "sweden-alexander-isak" },
+      { playerId: "sweden-alexander-isak" }
     ]
   }
 ]);
 assert.equal(invalidTeams.valid, false);
 assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("duplicate-owner"), true);
-assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("missing-player-name"), true);
-assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("missing-national-team"), true);
-assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("duplicate-player-in-team"), true);
+assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("missing-player-id"), true);
+assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("unknown-player-id"), true);
+assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("duplicate-player-id-in-team"), true);
 
 assert.deepEqual(
   buildSourceErrorMeta(

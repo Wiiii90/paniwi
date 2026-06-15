@@ -1,14 +1,20 @@
 import type { GoalRecord, ParticipantTeam, ScorerEntry } from "./types";
+import { getCanonicalTeam, resolveGoalPlayer } from "./canonicalResolver";
 import { normalizePlayerName } from "./normalizePlayerName";
-import { getGoalPoints, matchesPlayer } from "./scoring";
+import { getGoalPoints } from "./scoring";
 
 type MutableScorer = Omit<ScorerEntry, "rank" | "selected"> & {
   selected: boolean;
 };
 
 function getScoringOwners(goal: GoalRecord, teams: ParticipantTeam[]): string[] {
+  const resolved = resolveGoalPlayer(goal);
+  if (!resolved) {
+    return [];
+  }
+
   const owners = teams.flatMap((team) => {
-    const picked = team.players.some((player) => matchesPlayer(goal, player));
+    const picked = team.players.some((pick) => pick.playerId === resolved.playerId);
     return picked ? [team.owner] : [];
   });
 
@@ -23,12 +29,16 @@ export function buildScorers(goals: GoalRecord[], teams: ParticipantTeam[]): Sco
       continue;
     }
 
-    const normalizedPlayerName = normalizePlayerName(goal.playerName);
-    const key = `${normalizedPlayerName}|${goal.nationalTeam.toLowerCase()}`;
+    const resolved = resolveGoalPlayer(goal);
+    const canonicalTeam = resolved ? getCanonicalTeam(resolved.teamId) : null;
+    const playerName = resolved?.displayName ?? goal.playerName;
+    const nationalTeam = canonicalTeam?.displayName ?? goal.nationalTeam;
+    const normalizedPlayerName = normalizePlayerName(playerName);
+    const key = resolved?.playerId ?? `${normalizedPlayerName}|${goal.nationalTeam.toLowerCase()}`;
     const current = scorers.get(key) ?? {
-      playerName: goal.playerName,
+      playerName,
       normalizedPlayerName,
-      nationalTeam: goal.nationalTeam,
+      nationalTeam,
       goals: 0,
       penaltyGoals: 0,
       scoringOwners: [],

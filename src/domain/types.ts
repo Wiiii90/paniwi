@@ -6,20 +6,32 @@ export type GoalTimeConfidence = "exact" | "estimated" | "match-only" | "unknown
 
 export type RosterStatus = "nominated" | "not-nominated" | "unknown";
 
-export type PlayerPick = {
-  name: string;
-  nationalTeam: string;
+export type CanonicalTeam = {
+  teamId: string;
+  displayName: string;
+  aliases?: string[];
+  apiFootballTeamId?: number;
+};
+
+export type CanonicalPlayer = {
+  playerId: string;
+  displayName: string;
+  teamId: string;
   position?: "goalkeeper" | "defender" | "midfielder" | "forward";
   rosterStatus?: RosterStatus;
-  rosterNote?: string;
-  apiPlayerId?: number;
   aliases?: string[];
+  apiFootballPlayerId?: number;
+};
+
+export type ParticipantPick = {
+  playerId: string;
+  rosterNote?: string;
 };
 
 export type ParticipantTeam = {
   owner: string;
   color?: string;
-  players: PlayerPick[];
+  players: ParticipantPick[];
 };
 
 export type ExternalGoalRecord = {
@@ -42,6 +54,10 @@ export type ExternalGoalRecord = {
 export type GoalRecord = Required<Pick<ExternalGoalRecord, "playerName" | "nationalTeam" | "source">> & {
   externalGoalId: string;
   goals: number;
+  playerId?: string;
+  teamId?: string;
+  sourcePlayerName?: string;
+  sourceTeamName?: string;
   apiPlayerId?: number;
   matchId?: string;
   fixtureId?: string;
@@ -54,15 +70,19 @@ export type GoalRecord = Required<Pick<ExternalGoalRecord, "playerName" | "natio
 };
 
 export type ScoredGoal = GoalRecord & {
+  playerId: string;
+  teamId: string;
   owner: string;
   pickedPlayerName: string;
+  displayPlayerName: string;
+  displayNationalTeam: string;
   points: number;
 };
 
 export type PlayerScore = {
   name: string;
   nationalTeam: string;
-  position?: PlayerPick["position"];
+  position?: CanonicalPlayer["position"];
   rosterStatus?: RosterStatus;
   rosterNote?: string;
   goals: number;

@@ -1,192 +1,428 @@
-import type { ParticipantTeam, PlayerPick } from "../domain/types";
+import type { ParticipantTeam } from "../domain/types";
 
-const nominated = "nominated" satisfies PlayerPick["rosterStatus"];
-const notNominated = "not-nominated" satisfies PlayerPick["rosterStatus"];
-
-export const teams: ParticipantTeam[] = [
+export const teams = [
   {
-    owner: "Nina",
-    color: "#0f766e",
-    players: [
-      { name: "Morgan Rogers", nationalTeam: "England", rosterStatus: nominated },
-      { name: "Felix Nmecha", nationalTeam: "Germany", rosterStatus: nominated },
-      { name: "Habib Diarra", nationalTeam: "Senegal", rosterStatus: nominated },
-      { name: "Bradley Barcola", nationalTeam: "France", rosterStatus: nominated },
-      { name: "Cristian Romero", nationalTeam: "Argentina", rosterStatus: nominated },
-      { name: "Rodri", nationalTeam: "Spain", rosterStatus: nominated },
-      { name: "Fabian Ruiz", nationalTeam: "Spain", aliases: ["Fabián Ruiz"], rosterStatus: nominated },
-      { name: "Aaron Hickey", nationalTeam: "Scotland", rosterStatus: nominated },
-      { name: "Richie Laryea", nationalTeam: "Canada", rosterStatus: nominated },
-      { name: "Marc Guehi", nationalTeam: "England", aliases: ["Marc Guéhi"], rosterStatus: nominated },
-      { name: "Orlando Mosquera", nationalTeam: "Panama", position: "goalkeeper", rosterStatus: nominated }
+    "owner": "Nina",
+    "color": "#0f766e",
+    "players": [
+      {
+        "playerId": "england-morgan-rogers"
+      },
+      {
+        "playerId": "germany-felix-nmecha"
+      },
+      {
+        "playerId": "senegal-habib-diarra"
+      },
+      {
+        "playerId": "france-bradley-barcola"
+      },
+      {
+        "playerId": "argentina-cristian-romero"
+      },
+      {
+        "playerId": "spain-rodri"
+      },
+      {
+        "playerId": "spain-fabian-ruiz"
+      },
+      {
+        "playerId": "scotland-aaron-hickey"
+      },
+      {
+        "playerId": "canada-richie-laryea"
+      },
+      {
+        "playerId": "england-marc-guehi"
+      },
+      {
+        "playerId": "panama-orlando-mosquera"
+      }
     ]
   },
   {
-    owner: "Willi",
-    color: "#b45309",
-    players: [
-      { name: "Alisson", nationalTeam: "Brazil", position: "goalkeeper", aliases: ["Alisson Becker"], rosterStatus: nominated },
-      { name: "Davinson Sanchez", nationalTeam: "Colombia", aliases: ["Dávinson Sánchez"], rosterStatus: nominated },
-      { name: "Stefan Posch", nationalTeam: "Austria", rosterStatus: nominated },
-      { name: "Gabriel Magalhaes", nationalTeam: "Brazil", aliases: ["Gabriel Magalhães"], rosterStatus: nominated },
-      { name: "Thomas Meunier", nationalTeam: "Belgium", rosterStatus: nominated },
-      { name: "Diego Gomez", nationalTeam: "Paraguay", aliases: ["Diego Gómez"], rosterStatus: nominated },
-      { name: "Ruben Dias", nationalTeam: "Portugal", aliases: ["Rúben Dias"], rosterStatus: nominated },
-      { name: "Garry Rodrigues", nationalTeam: "Cape Verde", rosterStatus: nominated },
-      { name: "Cho Gue-sung", nationalTeam: "South Korea", aliases: ["Guesung Cho", "Cho Gue Sung"], rosterStatus: nominated },
-      { name: "Felix Nmecha", nationalTeam: "Germany", rosterStatus: nominated },
-      { name: "Ayoub El Kaabi", nationalTeam: "Morocco", rosterStatus: nominated }
+    "owner": "Willi",
+    "color": "#b45309",
+    "players": [
+      {
+        "playerId": "brazil-alisson"
+      },
+      {
+        "playerId": "colombia-davinson-sanchez"
+      },
+      {
+        "playerId": "austria-stefan-posch"
+      },
+      {
+        "playerId": "brazil-gabriel-magalhaes"
+      },
+      {
+        "playerId": "belgium-thomas-meunier"
+      },
+      {
+        "playerId": "paraguay-diego-gomez"
+      },
+      {
+        "playerId": "portugal-ruben-dias"
+      },
+      {
+        "playerId": "cape-verde-garry-rodrigues"
+      },
+      {
+        "playerId": "south-korea-cho-gue-sung"
+      },
+      {
+        "playerId": "germany-felix-nmecha"
+      },
+      {
+        "playerId": "morocco-ayoub-el-kaabi"
+      }
     ]
   },
   {
-    owner: "Rafael",
-    color: "#7c3aed",
-    players: [
-      { name: "Alexis Guendouz", nationalTeam: "Algeria", position: "goalkeeper", rosterStatus: notNominated },
-      { name: "Trent Alexander-Arnold", nationalTeam: "England", rosterStatus: notNominated },
-      { name: "Richard Rios", nationalTeam: "Colombia", aliases: ["Richard Ríos"], rosterStatus: nominated },
-      { name: "Seko Fofana", nationalTeam: "Ivory Coast", rosterStatus: nominated },
-      { name: "Josip Stanisic", nationalTeam: "Croatia", aliases: ["Josip Stanišić"], rosterStatus: nominated },
-      { name: "Youssef En-Nesyri", nationalTeam: "Morocco", rosterStatus: notNominated },
-      { name: "Fabian Ruiz", nationalTeam: "Spain", aliases: ["Fabián Ruiz"], rosterStatus: nominated },
-      { name: "Julio Enciso", nationalTeam: "Paraguay", rosterStatus: nominated },
-      { name: "Lamine Yamal", nationalTeam: "Spain", rosterStatus: nominated },
-      { name: "Federico Vinas", nationalTeam: "Uruguay", aliases: ["Federico Viñas"], rosterStatus: nominated },
-      { name: "Matheus Cunha", nationalTeam: "Brazil", rosterStatus: nominated }
+    "owner": "Rafael",
+    "color": "#7c3aed",
+    "players": [
+      {
+        "playerId": "algeria-alexis-guendouz"
+      },
+      {
+        "playerId": "england-trent-alexander-arnold"
+      },
+      {
+        "playerId": "colombia-richard-rios"
+      },
+      {
+        "playerId": "ivory-coast-seko-fofana"
+      },
+      {
+        "playerId": "croatia-josip-stanisic"
+      },
+      {
+        "playerId": "morocco-youssef-en-nesyri"
+      },
+      {
+        "playerId": "spain-fabian-ruiz"
+      },
+      {
+        "playerId": "paraguay-julio-enciso"
+      },
+      {
+        "playerId": "spain-lamine-yamal"
+      },
+      {
+        "playerId": "uruguay-federico-vinas"
+      },
+      {
+        "playerId": "brazil-matheus-cunha"
+      }
     ]
   },
   {
-    owner: "Anne",
-    color: "#d72638",
-    players: [
-      { name: "Johny Placide", nationalTeam: "Haiti", position: "goalkeeper", rosterStatus: nominated },
-      { name: "Pedri", nationalTeam: "Spain", rosterStatus: nominated },
-      { name: "Bruno Fernandes", nationalTeam: "Portugal", rosterStatus: nominated },
-      { name: "Ryan Gravenberch", nationalTeam: "Netherlands", rosterStatus: nominated },
-      { name: "Cedric Bakambu", nationalTeam: "DR Congo", aliases: ["Cédric Bakambu"], rosterStatus: nominated },
-      { name: "Richard Rios", nationalTeam: "Colombia", aliases: ["Richard Ríos"], rosterStatus: nominated },
-      { name: "Giuliano Simeone", nationalTeam: "Argentina", rosterStatus: nominated },
-      { name: "Dailon Livramento", nationalTeam: "Cape Verde", rosterStatus: nominated },
-      { name: "Seko Fofana", nationalTeam: "Ivory Coast", rosterStatus: nominated, rosterNote: "Tausch fuer Erick Sanchez" },
-      { name: "Emil Holm", nationalTeam: "Sweden", rosterStatus: nominated },
-      { name: "Israel Reyes", nationalTeam: "Mexico", rosterStatus: nominated }
+    "owner": "Anne",
+    "color": "#d72638",
+    "players": [
+      {
+        "playerId": "haiti-johny-placide"
+      },
+      {
+        "playerId": "spain-pedri"
+      },
+      {
+        "playerId": "portugal-bruno-fernandes"
+      },
+      {
+        "playerId": "netherlands-ryan-gravenberch"
+      },
+      {
+        "playerId": "dr-congo-cedric-bakambu"
+      },
+      {
+        "playerId": "colombia-richard-rios"
+      },
+      {
+        "playerId": "argentina-giuliano-simeone"
+      },
+      {
+        "playerId": "cape-verde-dailon-livramento"
+      },
+      {
+        "playerId": "ivory-coast-seko-fofana",
+        "rosterNote": "Tausch fuer Erick Sanchez"
+      },
+      {
+        "playerId": "sweden-emil-holm"
+      },
+      {
+        "playerId": "mexico-israel-reyes"
+      }
     ]
   },
   {
-    owner: "Caro",
-    color: "#2563eb",
-    players: [
-      { name: "Nicolas Jackson", nationalTeam: "Senegal", aliases: ["Nicolas Jackson"], rosterStatus: nominated },
-      { name: "Erling Haaland", nationalTeam: "Norway", rosterStatus: nominated },
-      { name: "Lyle Foster", nationalTeam: "South Africa", rosterStatus: nominated },
-      { name: "Tyler Adams", nationalTeam: "United States", rosterStatus: nominated },
-      { name: "Tijjani Reijnders", nationalTeam: "Netherlands", rosterStatus: nominated },
-      { name: "Derrick Etienne Jr", nationalTeam: "Haiti", aliases: ["Derrick Etienne"], rosterStatus: nominated },
-      { name: "Edo Kayembe", nationalTeam: "DR Congo", rosterStatus: nominated },
-      { name: "Josip Stanisic", nationalTeam: "Croatia", aliases: ["Josip Stanišić"], rosterStatus: nominated },
-      { name: "Manuel Akanji", nationalTeam: "Switzerland", rosterStatus: nominated },
-      { name: "Piero Hincapie", nationalTeam: "Ecuador", aliases: ["Piero Hincapié"], rosterStatus: nominated },
-      { name: "Jordan Pickford", nationalTeam: "England", position: "goalkeeper", rosterStatus: nominated }
+    "owner": "Caro",
+    "color": "#2563eb",
+    "players": [
+      {
+        "playerId": "senegal-nicolas-jackson"
+      },
+      {
+        "playerId": "norway-erling-haaland"
+      },
+      {
+        "playerId": "south-africa-lyle-foster"
+      },
+      {
+        "playerId": "united-states-tyler-adams"
+      },
+      {
+        "playerId": "netherlands-tijjani-reijnders"
+      },
+      {
+        "playerId": "haiti-derrick-etienne-jr"
+      },
+      {
+        "playerId": "dr-congo-edo-kayembe"
+      },
+      {
+        "playerId": "croatia-josip-stanisic"
+      },
+      {
+        "playerId": "switzerland-manuel-akanji"
+      },
+      {
+        "playerId": "ecuador-piero-hincapie"
+      },
+      {
+        "playerId": "england-jordan-pickford"
+      }
     ]
   },
   {
-    owner: "Felix",
-    color: "#059669",
-    players: [
-      { name: "Vinicius Junior", nationalTeam: "Brazil", aliases: ["Vinícius Júnior", "Vini Jr."], rosterStatus: nominated },
-      { name: "Andrej Kramaric", nationalTeam: "Croatia", aliases: ["Andrej Kramarić"], rosterStatus: nominated },
-      { name: "Angelo Preciado", nationalTeam: "Ecuador", aliases: ["Ángelo Preciado"], rosterStatus: nominated },
-      { name: "Simon Adingra", nationalTeam: "Ivory Coast", rosterStatus: nominated },
-      { name: "Mohammad Mohebi", nationalTeam: "Iran", rosterStatus: nominated },
-      { name: "Ramin Rezaeian", nationalTeam: "Iran", rosterStatus: nominated },
-      { name: "Sander Berge", nationalTeam: "Norway", rosterStatus: nominated },
-      { name: "Thomas Meunier", nationalTeam: "Belgium", rosterStatus: nominated },
-      { name: "Billy Gilmour", nationalTeam: "Scotland", rosterStatus: nominated },
-      { name: "Youcef Atal", nationalTeam: "Algeria", rosterStatus: notNominated },
-      { name: "Angus Gunn", nationalTeam: "Scotland", position: "goalkeeper", rosterStatus: nominated }
+    "owner": "Felix",
+    "color": "#059669",
+    "players": [
+      {
+        "playerId": "brazil-vinicius-junior"
+      },
+      {
+        "playerId": "croatia-andrej-kramaric"
+      },
+      {
+        "playerId": "ecuador-angelo-preciado"
+      },
+      {
+        "playerId": "ivory-coast-simon-adingra"
+      },
+      {
+        "playerId": "iran-mohammad-mohebi"
+      },
+      {
+        "playerId": "iran-ramin-rezaeian"
+      },
+      {
+        "playerId": "norway-sander-berge"
+      },
+      {
+        "playerId": "belgium-thomas-meunier"
+      },
+      {
+        "playerId": "scotland-billy-gilmour"
+      },
+      {
+        "playerId": "algeria-youcef-atal"
+      },
+      {
+        "playerId": "scotland-angus-gunn"
+      }
     ]
   },
   {
-    owner: "Jonas",
-    color: "#9333ea",
-    players: [
-      { name: "Luis Mejia", nationalTeam: "Panama", position: "goalkeeper", aliases: ["Luis Mejía"], rosterStatus: nominated },
-      { name: "Joao Cancelo", nationalTeam: "Portugal", aliases: ["João Cancelo"], rosterStatus: nominated },
-      { name: "Aymeric Laporte", nationalTeam: "Spain", rosterStatus: nominated },
-      { name: "Achraf Hakimi", nationalTeam: "Morocco", rosterStatus: nominated },
-      { name: "Pavel Sulc", nationalTeam: "Czech Republic", aliases: ["Pavel Šulc"], rosterStatus: nominated },
-      { name: "Jude Bellingham", nationalTeam: "England", rosterStatus: nominated },
-      { name: "Edson Alvarez", nationalTeam: "Mexico", aliases: ["Edson Álvarez"], rosterStatus: nominated },
-      { name: "Tyler Adams", nationalTeam: "United States", rosterStatus: nominated },
-      { name: "Alexander Isak", nationalTeam: "Sweden", rosterStatus: nominated },
-      { name: "Oumar Diakite", nationalTeam: "Ivory Coast", aliases: ["Oumar Diakité"], rosterStatus: nominated },
-      { name: "Jonathan David", nationalTeam: "Canada", rosterStatus: nominated }
+    "owner": "Jonas",
+    "color": "#9333ea",
+    "players": [
+      {
+        "playerId": "panama-luis-mejia"
+      },
+      {
+        "playerId": "portugal-joao-cancelo"
+      },
+      {
+        "playerId": "spain-aymeric-laporte"
+      },
+      {
+        "playerId": "morocco-achraf-hakimi"
+      },
+      {
+        "playerId": "czech-republic-pavel-sulc"
+      },
+      {
+        "playerId": "england-jude-bellingham"
+      },
+      {
+        "playerId": "mexico-edson-alvarez"
+      },
+      {
+        "playerId": "united-states-tyler-adams"
+      },
+      {
+        "playerId": "sweden-alexander-isak"
+      },
+      {
+        "playerId": "ivory-coast-oumar-diakite"
+      },
+      {
+        "playerId": "canada-jonathan-david"
+      }
     ]
   },
   {
-    owner: "Kim",
-    color: "#0891b2",
-    players: [
-      { name: "Edmilson Junior", nationalTeam: "Qatar", rosterStatus: nominated },
-      { name: "Marcus Rashford", nationalTeam: "England", rosterStatus: nominated },
-      { name: "Cedric Bakambu", nationalTeam: "DR Congo", aliases: ["Cédric Bakambu"], rosterStatus: nominated },
-      { name: "Pavel Sulc", nationalTeam: "Czech Republic", aliases: ["Pavel Šulc"], rosterStatus: nominated },
-      { name: "Lukas Provod", nationalTeam: "Czech Republic", aliases: ["Lukáš Provod"], rosterStatus: nominated },
-      { name: "Timothy Weah", nationalTeam: "United States", rosterStatus: nominated },
-      { name: "Damian Bobadilla", nationalTeam: "Paraguay", aliases: ["Damián Bobadilla"], rosterStatus: nominated },
-      { name: "David Raum", nationalTeam: "Germany", rosterStatus: nominated },
-      { name: "Mathieu Choiniere", nationalTeam: "Canada", aliases: ["Mathieu Choinière"], rosterStatus: nominated },
-      { name: "Aaron Wan-Bissaka", nationalTeam: "DR Congo", rosterStatus: nominated }
+    "owner": "Kim",
+    "color": "#0891b2",
+    "players": [
+      {
+        "playerId": "qatar-edmilson-junior"
+      },
+      {
+        "playerId": "england-marcus-rashford"
+      },
+      {
+        "playerId": "dr-congo-cedric-bakambu"
+      },
+      {
+        "playerId": "czech-republic-pavel-sulc"
+      },
+      {
+        "playerId": "czech-republic-lukas-provod"
+      },
+      {
+        "playerId": "united-states-timothy-weah"
+      },
+      {
+        "playerId": "paraguay-damian-bobadilla"
+      },
+      {
+        "playerId": "germany-david-raum"
+      },
+      {
+        "playerId": "canada-mathieu-choiniere"
+      },
+      {
+        "playerId": "dr-congo-aaron-wan-bissaka"
+      }
     ]
   },
   {
-    owner: "Melli",
-    color: "#db2777",
-    players: [
-      { name: "Youri Tielemans", nationalTeam: "Belgium", rosterStatus: nominated },
-      { name: "Alexis Mac Allister", nationalTeam: "Argentina", rosterStatus: nominated },
-      { name: "Jeremy Doku", nationalTeam: "Belgium", aliases: ["Jérémy Doku"], rosterStatus: nominated },
-      { name: "Mario Pasalic", nationalTeam: "Croatia", aliases: ["Mario Pašalić"], rosterStatus: nominated },
-      { name: "Mohamed El Shenawy", nationalTeam: "Egypt", position: "goalkeeper", rosterStatus: nominated },
-      { name: "Micky van de Ven", nationalTeam: "Netherlands", rosterStatus: nominated },
-      { name: "Adrien Rabiot", nationalTeam: "France", rosterStatus: nominated },
-      { name: "Daniel Svensson", nationalTeam: "Sweden", rosterStatus: nominated },
-      { name: "Lyle Foster", nationalTeam: "South Africa", rosterStatus: nominated },
-      { name: "Krepin Diatta", nationalTeam: "Senegal", aliases: ["Krépin Diatta"], rosterStatus: nominated },
-      { name: "Elias Saad", nationalTeam: "Tunisia", rosterStatus: nominated }
+    "owner": "Melli",
+    "color": "#db2777",
+    "players": [
+      {
+        "playerId": "belgium-youri-tielemans"
+      },
+      {
+        "playerId": "argentina-alexis-mac-allister"
+      },
+      {
+        "playerId": "belgium-jeremy-doku"
+      },
+      {
+        "playerId": "croatia-mario-pasalic"
+      },
+      {
+        "playerId": "egypt-mohamed-el-shenawy"
+      },
+      {
+        "playerId": "netherlands-micky-van-de-ven"
+      },
+      {
+        "playerId": "france-adrien-rabiot"
+      },
+      {
+        "playerId": "sweden-daniel-svensson"
+      },
+      {
+        "playerId": "south-africa-lyle-foster"
+      },
+      {
+        "playerId": "senegal-krepin-diatta"
+      },
+      {
+        "playerId": "tunisia-elias-saad"
+      }
     ]
   },
   {
-    owner: "Peer",
-    color: "#ea580c",
-    players: [
-      { name: "Goncalo Ramos", nationalTeam: "Portugal", aliases: ["Gonçalo Ramos"], rosterStatus: nominated },
-      { name: "Jhon Arias", nationalTeam: "Colombia", rosterStatus: nominated },
-      { name: "Mohanad Ali", nationalTeam: "Iraq", rosterStatus: nominated },
-      { name: "Alejandro Garnacho", nationalTeam: "Argentina", rosterStatus: notNominated },
-      { name: "Lucas Paqueta", nationalTeam: "Brazil", aliases: ["Lucas Paquetá"], rosterStatus: nominated },
-      { name: "Ruben Vargas", nationalTeam: "Switzerland", rosterStatus: nominated },
-      { name: "Antonio Nusa", nationalTeam: "Norway", rosterStatus: nominated },
-      { name: "Desire Doue", nationalTeam: "France", aliases: ["Désiré Doué", "Desiré Doué"], rosterStatus: nominated },
-      { name: "Ben Doak", nationalTeam: "Scotland", aliases: ["Ben Gannon-Doak"], rosterStatus: nominated },
-      { name: "Sayfallah Ltaief", nationalTeam: "Tunisia", rosterStatus: notNominated }
+    "owner": "Peer",
+    "color": "#ea580c",
+    "players": [
+      {
+        "playerId": "portugal-goncalo-ramos"
+      },
+      {
+        "playerId": "colombia-jhon-arias"
+      },
+      {
+        "playerId": "iraq-mohanad-ali"
+      },
+      {
+        "playerId": "argentina-alejandro-garnacho"
+      },
+      {
+        "playerId": "brazil-lucas-paqueta"
+      },
+      {
+        "playerId": "switzerland-ruben-vargas"
+      },
+      {
+        "playerId": "norway-antonio-nusa"
+      },
+      {
+        "playerId": "france-desire-doue"
+      },
+      {
+        "playerId": "scotland-ben-doak"
+      },
+      {
+        "playerId": "tunisia-sayfallah-ltaief"
+      }
     ]
   },
   {
-    owner: "Marco",
-    color: "#64748b",
-    players: [
-      { name: "Luis Malagon", nationalTeam: "Mexico", position: "goalkeeper", aliases: ["Luis Malagón"], rosterStatus: notNominated },
-      { name: "Yoane Wissa", nationalTeam: "DR Congo", rosterStatus: nominated },
-      { name: "Nestory Irankunda", nationalTeam: "Australia", rosterStatus: nominated },
-      { name: "Nathanael Mbuku", nationalTeam: "DR Congo", aliases: ["Nathanaël Mbuku"], rosterStatus: nominated },
-      { name: "Haris Tabakovic", nationalTeam: "Bosnia and Herzegovina", aliases: ["Haris Tabaković"], rosterStatus: nominated },
-      { name: "Ali Jasim", nationalTeam: "Iraq", aliases: ["Ali Jassim"], rosterStatus: nominated },
-      { name: "Nicolas de la Cruz", nationalTeam: "Uruguay", aliases: ["Nicolás de la Cruz"], rosterStatus: nominated },
-      { name: "Alejandro Romero Gamarra", nationalTeam: "Paraguay", aliases: ["Gamarra"], rosterStatus: notNominated },
-      { name: "Lucas Bergvall", nationalTeam: "Sweden", rosterStatus: nominated },
-      { name: "Ngalayel Mukau", nationalTeam: "DR Congo", aliases: ["Ngal'ayel Mukau", "Christopher Mukau"], rosterStatus: nominated },
-      { name: "Alphonso Davies", nationalTeam: "Canada", rosterStatus: nominated }
+    "owner": "Marco",
+    "color": "#64748b",
+    "players": [
+      {
+        "playerId": "mexico-luis-malagon"
+      },
+      {
+        "playerId": "dr-congo-yoane-wissa"
+      },
+      {
+        "playerId": "australia-nestory-irankunda"
+      },
+      {
+        "playerId": "dr-congo-nathanael-mbuku"
+      },
+      {
+        "playerId": "bosnia-and-herzegovina-haris-tabakovic"
+      },
+      {
+        "playerId": "iraq-ali-jasim"
+      },
+      {
+        "playerId": "uruguay-nicolas-de-la-cruz"
+      },
+      {
+        "playerId": "paraguay-alejandro-romero-gamarra"
+      },
+      {
+        "playerId": "sweden-lucas-bergvall"
+      },
+      {
+        "playerId": "dr-congo-ngalayel-mukau"
+      },
+      {
+        "playerId": "canada-alphonso-davies"
+      }
     ]
   }
-];
+] satisfies ParticipantTeam[];

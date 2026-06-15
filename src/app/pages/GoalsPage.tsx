@@ -55,7 +55,7 @@ export function GoalsPage({ goals, scorers, meta }: GoalsPageProps) {
                 <strong>{goal.pickedPlayerName}</strong>
                 <span>{goal.points} Pkt.</span>
               </div>
-              <span>{goal.owner} · {goal.nationalTeam}</span>
+              <span>{goal.owner} · {goal.displayNationalTeam}</span>
               <span>{goal.matchLabel ?? "Spiel offen"}</span>
               <span>
                 {formatGoalMinute(goal)} · {formatTimeConfidence(goal.timeConfidence)}

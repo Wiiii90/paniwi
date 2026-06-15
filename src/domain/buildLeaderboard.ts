@@ -1,4 +1,5 @@
 import type { GoalRecord, LeaderboardEntry, ParticipantTeam, PlayerScore, ScoredGoal } from "./types";
+import { getCanonicalPlayer, getCanonicalTeam } from "./canonicalResolver";
 import { scoreGoalForPlayer } from "./scoring";
 
 export function scoreGoalsForTeams(teams: ParticipantTeam[], goals: GoalRecord[]): ScoredGoal[] {
@@ -13,17 +14,22 @@ export function scoreGoalsForTeams(teams: ParticipantTeam[], goals: GoalRecord[]
 }
 
 export function buildPlayerScores(team: ParticipantTeam, scoredGoals: ScoredGoal[]): PlayerScore[] {
-  return team.players.map((player) => {
+  return team.players.map((pick) => {
+    const player = getCanonicalPlayer(pick.playerId);
+    if (!player) {
+      throw new Error(`Unknown canonical playerId in team "${team.owner}": ${pick.playerId}`);
+    }
+    const canonicalTeam = getCanonicalTeam(player.teamId);
     const playerGoals = scoredGoals.filter(
-      (goal) => goal.owner === team.owner && goal.pickedPlayerName === player.name
+      (goal) => goal.owner === team.owner && goal.playerId === player.playerId
     );
 
     return {
-      name: player.name,
-      nationalTeam: player.nationalTeam,
+      name: player.displayName,
+      nationalTeam: canonicalTeam?.displayName ?? player.teamId,
       position: player.position,
       rosterStatus: player.rosterStatus,
-      rosterNote: player.rosterNote,
+      rosterNote: pick.rosterNote,
       goals: playerGoals.reduce((sum, goal) => sum + goal.goals, 0),
       points: playerGoals.reduce((sum, goal) => sum + goal.points, 0)
     };
