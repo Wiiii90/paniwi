@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { buildLeaderboard, scoreGoalsForTeams } from "./buildLeaderboard";
+import { buildMatches } from "./buildMatches";
 import { normalizePlayerName } from "./normalizePlayerName";
 import { getGoalPoints, matchesPlayer } from "./scoring";
 import { sortGoalsChronologically } from "./sortGoals";
@@ -76,6 +77,26 @@ assert.deepEqual(
     ["Anna", "Alexander Isak", 1],
     ["Ben", "Felix Nmecha", 1]
   ]
+);
+assert.equal(scoredGoals[0].displayNationalTeam, "Schweden");
+
+const parsedMatches = buildMatches(
+  [
+    {
+      ...baseGoal,
+      externalGoalId: "civ-goal",
+      playerName: "Seko Fofana",
+      nationalTeam: "Ivory Coast",
+      source: "wikipedia",
+      matchId: "civ-ecuador",
+      matchLabel: "CIV 1–0 Ecuador"
+    }
+  ],
+  []
+);
+assert.deepEqual(
+  [parsedMatches[0].homeTeam.name, parsedMatches[0].homeTeam.score, parsedMatches[0].awayTeam.name, parsedMatches[0].awayTeam.score],
+  ["Elfenbeinkueste", 1, "Ecuador", 0]
 );
 
 assert.deepEqual(buildLeaderboard(teams, [baseGoal]).map((entry) => [entry.rank, entry.owner, entry.points]), [

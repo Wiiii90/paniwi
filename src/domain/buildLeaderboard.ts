@@ -1,6 +1,7 @@
 import type { GoalRecord, LeaderboardEntry, ParticipantTeam, PlayerScore, ScoredGoal } from "./types";
 import { getCanonicalPlayer, getCanonicalTeam } from "./canonicalResolver";
 import { scoreGoalForPlayer } from "./scoring";
+import { getTeamDisplayName } from "./teamDisplay";
 
 export function scoreGoalsForTeams(teams: ParticipantTeam[], goals: GoalRecord[]): ScoredGoal[] {
   return goals.flatMap((goal) =>
@@ -26,7 +27,7 @@ export function buildPlayerScores(team: ParticipantTeam, scoredGoals: ScoredGoal
 
     return {
       name: player.displayName,
-      nationalTeam: canonicalTeam?.displayName ?? player.teamId,
+      nationalTeam: canonicalTeam ? getTeamDisplayName(canonicalTeam) : player.teamId,
       position: player.position,
       rosterStatus: player.rosterStatus,
       rosterNote: pick.rosterNote,

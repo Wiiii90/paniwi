@@ -2,11 +2,13 @@ import { useEffect, useMemo, useState } from "react";
 import { AppShell } from "./components/AppShell";
 import { loadStaticData, type StaticData } from "./data";
 import { GoalsPage } from "./pages/GoalsPage";
+import { HomePage } from "./pages/HomePage";
 import { LeaderboardPage } from "./pages/LeaderboardPage";
 import { MatchesPage } from "./pages/MatchesPage";
 import { TeamPage } from "./pages/TeamPage";
 
 type Route =
+  | { name: "home" }
   | { name: "leaderboard" }
   | { name: "goals" }
   | { name: "matches" }
@@ -15,6 +17,14 @@ type Route =
 function parseRoute(pathname: string): Route {
   const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
   const appPath = basePath && pathname.startsWith(basePath) ? pathname.slice(basePath.length) || "/" : pathname;
+
+  if (appPath === "/") {
+    return { name: "home" };
+  }
+
+  if (appPath === "/table" || appPath === "/leaderboard") {
+    return { name: "leaderboard" };
+  }
 
   if (appPath === "/goals") {
     return { name: "goals" };
@@ -46,14 +56,11 @@ export function App() {
     <AppShell>
       {!data && !error ? <p className="loading">Daten werden geladen...</p> : null}
       {error ? <p className="error">Daten konnten nicht geladen werden: {error}</p> : null}
+      {data && route.name === "home" ? (
+        <HomePage leaderboard={data.leaderboard} goals={data.goals} scorers={data.scorers} matches={data.matches} meta={data.meta} />
+      ) : null}
       {data && route.name === "leaderboard" ? (
-        <LeaderboardPage
-          leaderboard={data.leaderboard}
-          goals={data.goals}
-          scorers={data.scorers}
-          matches={data.matches}
-          meta={data.meta}
-        />
+        <LeaderboardPage leaderboard={data.leaderboard} meta={data.meta} />
       ) : null}
       {data && route.name === "goals" ? <GoalsPage goals={data.goals} scorers={data.scorers} meta={data.meta} /> : null}
       {data && route.name === "matches" ? <MatchesPage matches={data.matches} /> : null}

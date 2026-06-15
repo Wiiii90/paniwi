@@ -2,6 +2,7 @@ import type { GoalRecord, ParticipantTeam, ScorerEntry } from "./types";
 import { getCanonicalTeam, resolveGoalPlayer } from "./canonicalResolver";
 import { normalizePlayerName } from "./normalizePlayerName";
 import { getGoalPoints } from "./scoring";
+import { getTeamDisplayName, resolveTeamDisplayName } from "./teamDisplay";
 
 type MutableScorer = Omit<ScorerEntry, "rank" | "selected"> & {
   selected: boolean;
@@ -32,7 +33,7 @@ export function buildScorers(goals: GoalRecord[], teams: ParticipantTeam[]): Sco
     const resolved = resolveGoalPlayer(goal);
     const canonicalTeam = resolved ? getCanonicalTeam(resolved.teamId) : null;
     const playerName = resolved?.displayName ?? goal.playerName;
-    const nationalTeam = canonicalTeam?.displayName ?? goal.nationalTeam;
+    const nationalTeam = canonicalTeam ? getTeamDisplayName(canonicalTeam) : resolveTeamDisplayName(goal.nationalTeam, goal.source);
     const normalizedPlayerName = normalizePlayerName(playerName);
     const key = resolved?.playerId ?? `${normalizedPlayerName}|${goal.nationalTeam.toLowerCase()}`;
     const current = scorers.get(key) ?? {

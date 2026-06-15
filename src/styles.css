@@ -102,6 +102,10 @@ a {
   padding: 20px;
 }
 
+.compact-hero-band h1 {
+  font-size: clamp(2rem, 8vw, 3rem);
+}
+
 .eyebrow {
   color: #607084;
   font-size: 0.76rem;
@@ -166,6 +170,26 @@ h2 {
 
 .wide-summary-card {
   grid-column: 1 / -1;
+}
+
+.headline-stat {
+  align-items: center;
+  background: #f7f5ef;
+  border-radius: 8px;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  min-height: 58px;
+  padding: 12px;
+}
+
+.headline-stat span {
+  font-weight: 900;
+}
+
+.headline-stat strong {
+  color: #d72638;
+  font-size: 1.4rem;
 }
 
 .section-heading {
@@ -254,7 +278,7 @@ h2 {
   background: #ffffff;
   display: grid;
   gap: 10px;
-  grid-template-columns: 54px 1fr auto auto;
+  grid-template-columns: 54px minmax(0, 1fr) auto auto auto;
   padding: 14px;
 }
 
@@ -278,6 +302,22 @@ h2 {
 .summary-message,
 .source-errors {
   color: #607084;
+}
+
+.lantern-badge {
+  background: #fff1f2;
+  border: 1px solid rgba(215, 38, 56, 0.28);
+  border-radius: 999px;
+  color: #b42318;
+  font-size: 0.78rem;
+  font-weight: 900;
+  padding: 5px 8px;
+  white-space: nowrap;
+}
+
+.lantern-spacer {
+  display: block;
+  min-width: 1px;
 }
 
 .roster-miss {
@@ -492,6 +532,15 @@ h2 {
   }
 
   .leaderboard-row .small-stat {
+    display: none;
+  }
+
+  .leaderboard-row .lantern-badge {
+    grid-column: 2 / -1;
+    justify-self: start;
+  }
+
+  .leaderboard-row .lantern-spacer {
     display: none;
   }
 

@@ -1,4 +1,5 @@
 import { getCanonicalPlayer, getCanonicalTeam, resolveGoalPlayer } from "./canonicalResolver";
+import { getTeamDisplayName } from "./teamDisplay";
 import type { GoalRecord, ParticipantPick, ScoredGoal } from "./types";
 
 export function getGoalPoints(goal: GoalRecord): number {
@@ -32,7 +33,7 @@ export function scoreGoalForPlayer(goal: GoalRecord, owner: string, pick: Partic
     owner,
     pickedPlayerName: player.displayName,
     displayPlayerName: player.displayName,
-    displayNationalTeam: team?.displayName ?? goal.nationalTeam,
+    displayNationalTeam: team ? getTeamDisplayName(team) : goal.nationalTeam,
     points
   };
 }

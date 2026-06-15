@@ -4,6 +4,7 @@ import { buildLeaderboard, scoreGoalsForTeams } from "../domain/buildLeaderboard
 import { buildMatches } from "../domain/buildMatches";
 import { buildScorers } from "../domain/buildScorers";
 import { sortGoalsChronologically } from "../domain/sortGoals";
+import { getTeamDisplayName } from "../domain/teamDisplay";
 import type { GoalRecord, LeaderboardEntry, MatchRecord, ScoredGoal, ScorerEntry, StaticMeta } from "../domain/types";
 import { teams } from "../config/teams";
 import { getCanonicalPlayer, getCanonicalTeam } from "../domain/canonicalResolver";
@@ -56,7 +57,7 @@ for (const goal of goals) {
   assert.equal(Boolean(player), true, `Scored goal points to unknown canonical player: ${goal.playerId}`);
   assert.equal(Boolean(team), true, `Scored goal points to unknown canonical team: ${goal.teamId}`);
   assert.equal(goal.displayPlayerName, player?.displayName);
-  assert.equal(goal.displayNationalTeam, team?.displayName);
+  assert.equal(goal.displayNationalTeam, team ? getTeamDisplayName(team) : undefined);
 }
 
 for (const goal of rawGoals) {

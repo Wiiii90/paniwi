@@ -60,6 +60,14 @@ export const canonicalTeams = [
     "aliases": []
   },
   {
+    "teamId": "curacao",
+    "displayName": "Curacao",
+    "aliases": [
+      "Curaçao",
+      "CUW"
+    ]
+  },
+  {
     "teamId": "czech-republic",
     "displayName": "Czech Republic",
     "aliases": []
@@ -207,6 +215,15 @@ export const canonicalTeams = [
     "teamId": "tunisia",
     "displayName": "Tunisia",
     "aliases": []
+  },
+  {
+    "teamId": "turkey",
+    "displayName": "Turkey",
+    "aliases": [
+      "Turkiye",
+      "Türkiye",
+      "TUR"
+    ]
   },
   {
     "teamId": "united-states",
