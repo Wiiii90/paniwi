@@ -93,7 +93,9 @@ Beim Sync wird `src/config/teams.ts` validiert. Erwartet werden eindeutige Owner
 
 ## Teilnehmerdaten
 
-Fuer den MVP werden echte Teams einmalig in `src/config/teams.ts` gepflegt. Am besten lieferst du sie in diesem Format:
+Fuer den MVP werden echte Teams einmalig in `src/config/teams.ts` gepflegt. Teams haben 10 oder 11 Spieler. Nur wer einen Torwart gezogen hat, darf 11 Spieler aufstellen; pro Team ist maximal ein Torwart erlaubt. Ein 10er-Team enthaelt keinen Torwart.
+
+Am besten lieferst du sie in diesem Format:
 
 ```text
 Teilnehmer: Name
@@ -109,4 +111,4 @@ Fotos aus WhatsApp gehen auch, sollten aber nach OCR/Abtippen kurz gegengeprueft
 - Normale Tore: 1 Punkt
 - Elfmetertore waehrend des Spiels: 1 Punkt
 - Eigentore: 0 Punkte
-- Elfmeterschiessen: 0 Punkte
+- Elfmeterschiessen: 0 Punkte und wird nicht in Punktefeeds oder Torschuetzenwertung beruecksichtigt

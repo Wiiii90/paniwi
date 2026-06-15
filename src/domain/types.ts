@@ -7,6 +7,7 @@ export type GoalTimeConfidence = "exact" | "estimated" | "match-only" | "unknown
 export type PlayerPick = {
   name: string;
   nationalTeam: string;
+  position?: "goalkeeper" | "defender" | "midfielder" | "forward";
   apiPlayerId?: number;
   aliases?: string[];
 };

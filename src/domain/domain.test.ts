@@ -207,6 +207,36 @@ const validTeam = {
   }))
 };
 assert.equal(validateTeams([validTeam]).valid, true);
+assert.equal(
+  validateTeams([
+    {
+      owner: "ValidWithGoalkeeper",
+      players: [
+        { name: "Keeper", nationalTeam: "Germany", position: "goalkeeper" as const },
+        ...Array.from({ length: 10 }, (_, index) => ({
+          name: `Outfield ${index + 1}`,
+          nationalTeam: "Germany"
+        }))
+      ]
+    }
+  ]).valid,
+  true
+);
+assert.equal(
+  validateTeams([
+    { ...validTeam, players: [...validTeam.players, { name: "Extra", nationalTeam: "Germany", position: "forward" }] }
+  ]).issues.some((issue) => issue.reason === "eleven-player-team-needs-one-goalkeeper"),
+  true
+);
+assert.equal(
+  validateTeams([
+    {
+      ...validTeam,
+      players: [{ name: "Keeper", nationalTeam: "Germany", position: "goalkeeper" }, ...validTeam.players.slice(1)]
+    }
+  ]).issues.some((issue) => issue.reason === "ten-player-team-cannot-include-goalkeeper"),
+  true
+);
 
 const invalidTeams = validateTeams([
   validTeam,

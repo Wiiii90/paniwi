@@ -34,6 +34,18 @@ export function validateTeams(teams: ParticipantTeam[]): TeamValidationResult {
       issues.push({ owner: team.owner, reason: "invalid-team-size" });
     }
 
+    const hasPositionMetadata = team.players.some((player) => player.position !== undefined);
+    const goalkeeperCount = team.players.filter((player) => player.position === "goalkeeper").length;
+    if (goalkeeperCount > 1) {
+      issues.push({ owner: team.owner, reason: "too-many-goalkeepers" });
+    }
+    if (hasPositionMetadata && team.players.length === 11 && goalkeeperCount !== 1) {
+      issues.push({ owner: team.owner, reason: "eleven-player-team-needs-one-goalkeeper" });
+    }
+    if (team.players.length === 10 && goalkeeperCount > 0) {
+      issues.push({ owner: team.owner, reason: "ten-player-team-cannot-include-goalkeeper" });
+    }
+
     const playerNames = new Set<string>();
     for (const player of team.players) {
       const playerName = player.name.trim();

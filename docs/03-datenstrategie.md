@@ -63,7 +63,7 @@ Jeder Sync:
 5. Punkte berechnen
 6. JSON-Snapshots schreiben
 
-Eigentore und Tore im Elfmeterschiessen bleiben im Rohdaten-Snapshot moeglich, geben aber keine Punkte.
+Eigentore und Tore im Elfmeterschiessen bleiben im Rohdaten-Snapshot moeglich, geben aber keine Punkte. Elfmeterschiessen wird ausserdem nicht in Punktefeeds oder Torschuetzenwertung beruecksichtigt.
 
 ## Statische Dateien
 
