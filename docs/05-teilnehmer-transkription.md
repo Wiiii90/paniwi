@@ -2,7 +2,9 @@
 
 Stand: erste Transkription aus Bildern und `more.txt`.
 
-Bitte pruefen: Schreibweise, Nationalmannschaft, ob 10 oder 11 Spieler gewollt sind, und ob nicht nominierte Spieler ersetzt werden sollen.
+Bitte pruefen: Schreibweise, Nationalmannschaft und ob 10 oder 11 Spieler gewollt sind.
+
+Nicht nominierte Spieler bleiben im Team und gelten als Nieten. Sie werden nicht ersetzt.
 
 ## Kadercheck
 
@@ -10,7 +12,7 @@ Quelle: Wikipedia-Liste `2026 FIFA World Cup squads`, die laut Artikel auf den v
 
 Ergebnis in `src/config/teams.ts`:
 
-- 110 Picks: `nominated`
+- 111 Picks: `nominated`
 - 8 Picks: `not-nominated`
 - 0 Picks: `unknown`
 
@@ -19,7 +21,7 @@ Nicht nominierte Eintraege:
 - Rafael: Alexis Guendouz, Trent Alexander-Arnold, Youssef En-Nesyri
 - Felix: Youcef Atal
 - Peer: Alejandro Garnacho, Sayfallah Ltaief
-- Marco: Alejandro Garnacho, Sayfallah Ltaief
+- Marco: Luis Malagon, Alejandro Romero Gamarra
 
 ## Nina
 
@@ -163,13 +165,14 @@ Hinweis: `Erick Sanchez, Mexico` war auf dem Foto, wurde laut `more.txt` aber ge
 
 ## Marco
 
-- Goncalo Ramos, Portugal
-- Jhon Arias, Colombia
-- Mohanad Ali, Iraq
-- Alejandro Garnacho, Argentina
-- Lucas Paqueta, Brazil
-- Ruben Vargas, Switzerland
-- Antonio Nusa, Norway
-- Desire Doue, France
-- Ben Doak, Scotland
-- Sayfallah Ltaief, Tunisia
+- Luis Malagon, Mexico (Torwart)
+- Yoane Wissa, DR Congo
+- Nestory Irankunda, Australia
+- Nathanael Mbuku, DR Congo
+- Haris Tabakovic, Bosnia and Herzegovina
+- Ali Jasim, Iraq
+- Nicolas de la Cruz, Uruguay
+- Alejandro Romero Gamarra, Paraguay
+- Lucas Bergvall, Sweden
+- Ngalayel Mukau, DR Congo
+- Alphonso Davies, Canada

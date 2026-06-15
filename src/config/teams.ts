@@ -176,16 +176,17 @@ export const teams: ParticipantTeam[] = [
     owner: "Marco",
     color: "#64748b",
     players: [
-      { name: "Goncalo Ramos", nationalTeam: "Portugal", aliases: ["Gonçalo Ramos"], rosterStatus: nominated },
-      { name: "Jhon Arias", nationalTeam: "Colombia", rosterStatus: nominated },
-      { name: "Mohanad Ali", nationalTeam: "Iraq", rosterStatus: nominated },
-      { name: "Alejandro Garnacho", nationalTeam: "Argentina", rosterStatus: notNominated },
-      { name: "Lucas Paqueta", nationalTeam: "Brazil", aliases: ["Lucas Paquetá"], rosterStatus: nominated },
-      { name: "Ruben Vargas", nationalTeam: "Switzerland", rosterStatus: nominated },
-      { name: "Antonio Nusa", nationalTeam: "Norway", rosterStatus: nominated },
-      { name: "Desire Doue", nationalTeam: "France", aliases: ["Désiré Doué", "Desiré Doué"], rosterStatus: nominated },
-      { name: "Ben Doak", nationalTeam: "Scotland", aliases: ["Ben Gannon-Doak"], rosterStatus: nominated },
-      { name: "Sayfallah Ltaief", nationalTeam: "Tunisia", rosterStatus: notNominated }
+      { name: "Luis Malagon", nationalTeam: "Mexico", position: "goalkeeper", aliases: ["Luis Malagón"], rosterStatus: notNominated },
+      { name: "Yoane Wissa", nationalTeam: "DR Congo", rosterStatus: nominated },
+      { name: "Nestory Irankunda", nationalTeam: "Australia", rosterStatus: nominated },
+      { name: "Nathanael Mbuku", nationalTeam: "DR Congo", aliases: ["Nathanaël Mbuku"], rosterStatus: nominated },
+      { name: "Haris Tabakovic", nationalTeam: "Bosnia and Herzegovina", aliases: ["Haris Tabaković"], rosterStatus: nominated },
+      { name: "Ali Jasim", nationalTeam: "Iraq", aliases: ["Ali Jassim"], rosterStatus: nominated },
+      { name: "Nicolas de la Cruz", nationalTeam: "Uruguay", aliases: ["Nicolás de la Cruz"], rosterStatus: nominated },
+      { name: "Alejandro Romero Gamarra", nationalTeam: "Paraguay", aliases: ["Gamarra"], rosterStatus: notNominated },
+      { name: "Lucas Bergvall", nationalTeam: "Sweden", rosterStatus: nominated },
+      { name: "Ngalayel Mukau", nationalTeam: "DR Congo", aliases: ["Ngal'ayel Mukau", "Christopher Mukau"], rosterStatus: nominated },
+      { name: "Alphonso Davies", nationalTeam: "Canada", rosterStatus: nominated }
     ]
   }
 ];

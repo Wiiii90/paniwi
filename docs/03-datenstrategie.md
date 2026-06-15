@@ -84,4 +84,4 @@ Die App liest keine Rohquelle direkt. Neue Quelladapter sollen weiter interne `G
 - `not-nominated`
 - `unknown`
 
-Der Status dient der UI und Datenqualitaet. Er soll nicht als harte Scoring-Bedingung verwendet werden, weil das echte Torereignis aus der Datenquelle staerker ist als eine manuell gepflegte Kader-Markierung. Fuer Performance ist ein Ausschluss nicht noetig; die Datenmenge bleibt klein.
+Der Status dient der UI und Datenqualitaet. Nicht nominierte Spieler (`not-nominated`) bleiben als Nieten im Team und werden nicht ersetzt. Er soll nicht als harte Scoring-Bedingung verwendet werden, weil das echte Torereignis aus der Datenquelle staerker ist als eine manuell gepflegte Kader-Markierung. Fuer Performance ist ein Ausschluss nicht noetig; die Datenmenge bleibt klein.

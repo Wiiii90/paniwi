@@ -98,10 +98,10 @@ Fuer den MVP werden echte Teams einmalig in `src/config/teams.ts` gepflegt. Team
 Der Nominierungsstatus kann einmalig pro Spieler gepflegt werden:
 
 - `nominated`: im finalen WM-Kader
-- `not-nominated`: nicht im finalen WM-Kader
+- `not-nominated`: nicht im finalen WM-Kader (Niete, kein Ersatz)
 - `unknown`: noch nicht geprueft
 
-Der Status ist eine Anzeige- und Qualitaetsinformation. Die Punktewertung bleibt ereignisbasiert: Wenn ein Spieler in den Tordaten als regulaerer Torschuetze auftaucht, zaehlt das Tor nach den Scoring-Regeln.
+Der Status ist eine Anzeige- und Qualitaetsinformation. Nieten bleiben im Team und koennen keine Punkte bringen, weil sie nicht am Turnier teilnehmen. Die Punktewertung bleibt ereignisbasiert: Wenn ein Spieler in den Tordaten als regulaerer Torschuetze auftaucht, zaehlt das Tor nach den Scoring-Regeln.
 
 Am besten lieferst du sie in diesem Format:
 
