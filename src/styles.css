@@ -142,7 +142,8 @@ h2 {
 }
 
 .leaderboard-list,
-.feed-list {
+.feed-list,
+.player-history-list {
   display: grid;
   gap: 10px;
 }
@@ -179,7 +180,8 @@ h2 {
 }
 
 .table-card,
-.feed-item {
+.feed-item,
+.player-history {
   background: #ffffff;
   overflow: hidden;
 }
@@ -214,6 +216,33 @@ h2 {
   align-items: center;
   display: flex;
   justify-content: space-between;
+}
+
+.compact-feed-item {
+  border: 0;
+  border-radius: 0;
+  padding: 10px 0 0;
+}
+
+.compact-feed-item + .compact-feed-item {
+  border-top: 1px solid rgba(23, 32, 51, 0.1);
+}
+
+.player-history {
+  border: 1px solid rgba(23, 32, 51, 0.12);
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.player-history-header {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.player-history-header span {
+  color: #607084;
 }
 
 .text-link {

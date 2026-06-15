@@ -1,26 +1,11 @@
 import type { ScoredGoal, StaticMeta } from "../../domain/types";
 import { SyncSummary } from "../components/SyncSummary";
+import { formatGoalMinute, formatTimeConfidence } from "../formatGoal";
 
 type GoalsPageProps = {
   goals: ScoredGoal[];
   meta: StaticMeta;
 };
-
-function formatTimeConfidence(confidence: ScoredGoal["timeConfidence"]): string {
-  if (confidence === "exact") {
-    return "exakt";
-  }
-
-  if (confidence === "estimated") {
-    return "geschaetzt";
-  }
-
-  if (confidence === "match-only") {
-    return "nur Spielzeit";
-  }
-
-  return "Zeit offen";
-}
 
 export function GoalsPage({ goals, meta }: GoalsPageProps) {
   return (
@@ -46,7 +31,7 @@ export function GoalsPage({ goals, meta }: GoalsPageProps) {
               <span>{goal.owner} · {goal.nationalTeam}</span>
               <span>{goal.matchLabel ?? "Spiel offen"}</span>
               <span>
-                {goal.minute ? `${goal.minute}. Minute` : "Minute offen"} · {formatTimeConfidence(goal.timeConfidence)}
+                {formatGoalMinute(goal)} · {formatTimeConfidence(goal.timeConfidence)}
               </span>
             </article>
           ))

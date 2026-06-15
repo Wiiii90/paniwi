@@ -1,7 +1,9 @@
 import { teams } from "../../config/teams";
 import { buildPlayerScores } from "../../domain/buildLeaderboard";
+import { sortGoalsChronologically } from "../../domain/sortGoals";
 import type { ScoredGoal } from "../../domain/types";
 import { LinkButton } from "../components/LinkButton";
+import { formatGoalMinute, formatTimeConfidence } from "../formatGoal";
 
 type TeamPageProps = {
   owner: string;
@@ -28,7 +30,13 @@ export function TeamPage({ owner, goals }: TeamPageProps) {
   }
 
   const playerScores = buildPlayerScores(team, goals);
-  const teamGoals = goals.filter((goal) => goal.owner === team.owner);
+  const teamGoals = sortGoalsChronologically(goals.filter((goal) => goal.owner === team.owner));
+  const goalsByPlayer = new Map<string, ScoredGoal[]>();
+  for (const goal of teamGoals) {
+    const playerGoals = goalsByPlayer.get(goal.pickedPlayerName) ?? [];
+    playerGoals.push(goal);
+    goalsByPlayer.set(goal.pickedPlayerName, playerGoals);
+  }
 
   return (
     <section className="page-stack">
@@ -58,19 +66,32 @@ export function TeamPage({ owner, goals }: TeamPageProps) {
       </div>
 
       <h2>Treffer dieses Teams</h2>
-      <div className="feed-list">
+      <div className="player-history-list">
         {teamGoals.length === 0 ? (
           <p className="empty-state">Noch keine Treffer fuer dieses Team.</p>
         ) : (
-          teamGoals.map((goal) => (
-            <article className="feed-item" key={`${goal.externalGoalId}-${goal.owner}`}>
-              <strong>{goal.pickedPlayerName}</strong>
-              <span>{goal.matchLabel}</span>
-              <span>
-                {goal.minute ? `${goal.minute}. Minute` : "Minute offen"} · {goal.points} Punkt · {goal.timeConfidence}
-              </span>
-            </article>
-          ))
+          playerScores
+            .filter((player) => player.points > 0)
+            .map((player) => (
+              <section className="player-history" key={player.name}>
+                <div className="player-history-header">
+                  <strong>{player.name}</strong>
+                  <span>
+                    {player.goals} Tore · {player.points} Pkt.
+                  </span>
+                </div>
+                <div className="feed-list">
+                  {(goalsByPlayer.get(player.name) ?? []).map((goal) => (
+                    <article className="feed-item compact-feed-item" key={`${goal.externalGoalId}-${goal.owner}`}>
+                      <span>{goal.matchLabel ?? "Spiel offen"}</span>
+                      <span>
+                        {formatGoalMinute(goal)} · {formatTimeConfidence(goal.timeConfidence)} · {goal.points} Punkt
+                      </span>
+                    </article>
+                  ))}
+                </div>
+              </section>
+            ))
         )}
       </div>
     </section>
