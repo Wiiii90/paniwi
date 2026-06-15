@@ -11,23 +11,26 @@ type TeamPageProps = {
   matches: MatchRecord[];
 };
 
-function formatRosterStatus(status: string | undefined): string {
-  if (status === "nominated") {
-    return "nominiert";
+function formatPosition(position: string | undefined): string {
+  if (position === "goalkeeper") {
+    return "Torwart";
   }
 
-  if (status === "not-nominated") {
-    return "nicht nominiert";
-  }
-
-  return "ungeprueft";
+  return "—";
 }
 
-function formatPlayerMeta(player: { position?: string; rosterStatus?: string; rosterNote?: string }): string {
-  const parts = [player.position === "goalkeeper" ? "Torwart" : null, formatRosterStatus(player.rosterStatus), player.rosterNote].filter(
-    Boolean
-  );
-  return parts.join(" · ");
+function formatRosterStatus(status: string | undefined, rosterNote?: string): string {
+  let label: string;
+
+  if (status === "nominated") {
+    label = "nominiert";
+  } else if (status === "not-nominated") {
+    label = "Niete";
+  } else {
+    label = "ungeprueft";
+  }
+
+  return rosterNote ? `${label} · ${rosterNote}` : label;
 }
 
 export function TeamPage({ owner, goals, matches }: TeamPageProps) {
@@ -73,15 +76,17 @@ export function TeamPage({ owner, goals, matches }: TeamPageProps) {
         <div className="table-header player-grid">
           <span>Spieler</span>
           <span>Land</span>
-          <span>Status</span>
+          <span>Position</span>
+          <span>Kader</span>
           <span>Pts</span>
         </div>
         {playerScores.map((player) => (
           <div className="player-grid player-row" key={player.name}>
             <strong>{player.name}</strong>
             <span>{player.nationalTeam}</span>
+            <span className="muted">{formatPosition(player.position)}</span>
             <span className={player.rosterStatus === "not-nominated" ? "roster-miss" : "muted"}>
-              {formatPlayerMeta(player)}
+              {formatRosterStatus(player.rosterStatus, player.rosterNote)}
             </span>
             <span>{player.points}</span>
           </div>
