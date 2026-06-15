@@ -16,10 +16,9 @@ import {
 
 const allCanonicalTeams = canonicalTeams as readonly CanonicalTeam[];
 const allCanonicalPlayers = canonicalPlayers as readonly CanonicalPlayer[];
-const defaultCatalogDateFrom = "2026-06-11";
-const defaultCatalogDateTo = "2026-07-19";
 const worldCupLeagueId = 1;
 const worldCupSeason = 2026;
+const enableFixtureFallbackValue = "true";
 
 type ApiFootballFixtureResponse = {
   response?: ApiFootballFixture[];
@@ -70,6 +69,8 @@ type CatalogTeamRef = {
   canonicalTeamId?: string;
 };
 
+type CatalogTeamSource = "teams" | "manual" | "fixtures";
+
 type CatalogPlayer = {
   apiFootballPlayerId: number;
   name: string;
@@ -99,7 +100,7 @@ type RosterAuditEntry = {
 type ApiFootballCatalog = {
   generatedAt: string;
   source: "api-football";
-  teamSource: "teams" | "fixtures";
+  teamSource: CatalogTeamSource;
   sourceErrors: string[];
   fixtureDateKeys: string[];
   fixtureCount: number;
@@ -116,19 +117,12 @@ type ApiFootballCatalog = {
 };
 
 function getCatalogEnv(env: NodeJS.ProcessEnv = process.env): NodeJS.ProcessEnv {
-  const catalogEnv = {
+  return {
     ...env,
     API_FOOTBALL_DATES: env.API_FOOTBALL_CATALOG_DATES ?? env.API_FOOTBALL_DATES,
     API_FOOTBALL_DATE_FROM: env.API_FOOTBALL_CATALOG_DATE_FROM ?? env.API_FOOTBALL_DATE_FROM,
     API_FOOTBALL_DATE_TO: env.API_FOOTBALL_CATALOG_DATE_TO ?? env.API_FOOTBALL_DATE_TO
   };
-
-  if (!catalogEnv.API_FOOTBALL_DATES && !catalogEnv.API_FOOTBALL_DATE_FROM && !catalogEnv.API_FOOTBALL_DATE_TO) {
-    catalogEnv.API_FOOTBALL_DATE_FROM = defaultCatalogDateFrom;
-    catalogEnv.API_FOOTBALL_DATE_TO = defaultCatalogDateTo;
-  }
-
-  return catalogEnv;
 }
 
 function hasApiErrors(errors: unknown): boolean {
@@ -149,6 +143,10 @@ function hasApiErrors(errors: unknown): boolean {
 
 function sortByName<T extends { name: string }>(items: T[]): T[] {
   return [...items].sort((a, b) => a.name.localeCompare(b.name));
+}
+
+function hasDateConfig(env: NodeJS.ProcessEnv): boolean {
+  return Boolean(env.API_FOOTBALL_DATES || env.API_FOOTBALL_DATE_FROM || env.API_FOOTBALL_DATE_TO);
 }
 
 function getTeamNameKeys(team: CanonicalTeam): string[] {
@@ -206,6 +204,31 @@ function getFixtureTeamRefs(fixtures: ApiFootballFixture[]): CatalogTeamRef[] {
   }
 
   return sortByName([...refsByApiId.values()]);
+}
+
+function parseManualTeamRefs(value: string | undefined): CatalogTeamRef[] {
+  const refs = parseCommaSeparated(value).map((item) => {
+    const [rawId, ...nameParts] = item.split(":");
+    const apiFootballTeamId = Number(rawId.trim());
+    if (!Number.isInteger(apiFootballTeamId) || apiFootballTeamId < 1) {
+      throw new Error(`Invalid API_FOOTBALL_CATALOG_TEAM_IDS entry: ${item}`);
+    }
+
+    const name = nameParts.join(":").trim() || `Team ${apiFootballTeamId}`;
+    const canonicalTeam = resolveCanonicalTeam(name, apiFootballTeamId);
+    return {
+      apiFootballTeamId,
+      name,
+      canonicalTeamId: canonicalTeam?.teamId
+    };
+  });
+
+  const refsById = new Map<number, CatalogTeamRef>();
+  for (const ref of refs) {
+    refsById.set(ref.apiFootballTeamId, ref);
+  }
+
+  return sortByName([...refsById.values()]);
 }
 
 async function fetchWorldCupTeams(
@@ -287,8 +310,18 @@ async function fetchCatalogTeamRefs(
   dateKeys: string[],
   env: NodeJS.ProcessEnv,
   budget: ApiFootballRequestBudget
-): Promise<{ teamRefs: CatalogTeamRef[]; fixtureCount: number; teamSource: "teams" | "fixtures"; sourceErrors: string[] }> {
+): Promise<{ teamRefs: CatalogTeamRef[]; fixtureCount: number; teamSource: CatalogTeamSource; sourceErrors: string[] }> {
   const sourceErrors: string[] = [];
+  const manualTeamRefs = parseManualTeamRefs(env.API_FOOTBALL_CATALOG_TEAM_IDS);
+
+  if (manualTeamRefs.length > 0) {
+    return {
+      teamRefs: manualTeamRefs,
+      fixtureCount: 0,
+      teamSource: "manual",
+      sourceErrors
+    };
+  }
 
   try {
     return {
@@ -299,6 +332,21 @@ async function fetchCatalogTeamRefs(
     };
   } catch (error) {
     sourceErrors.push(error instanceof Error ? error.message : String(error));
+  }
+
+  if (env.API_FOOTBALL_CATALOG_ALLOW_FIXTURE_FALLBACK !== enableFixtureFallbackValue) {
+    throw new Error(
+      [
+        "API-Football teams endpoint did not return the World Cup team catalog.",
+        ...sourceErrors,
+        "Fixture fallback is disabled because it is incomplete and often blocked in the Free plan.",
+        "Set API_FOOTBALL_CATALOG_TEAM_IDS to explicit team IDs, or set API_FOOTBALL_CATALOG_ALLOW_FIXTURE_FALLBACK=true with explicit catalog dates for debugging only."
+      ].join(" ")
+    );
+  }
+
+  if (dateKeys.length === 0) {
+    throw new Error("Fixture fallback needs API_FOOTBALL_CATALOG_DATES or API_FOOTBALL_CATALOG_DATE_FROM/API_FOOTBALL_CATALOG_DATE_TO.");
   }
 
   const fixtures = await fetchWorldCupFixtures(dateKeys, env, budget);
@@ -315,11 +363,11 @@ async function fetchCatalogTeamRefs(
   };
 }
 
-async function fetchSquad(
+async function fetchSquadEntry(
   team: CatalogTeamRef,
   env: NodeJS.ProcessEnv,
   budget: ApiFootballRequestBudget
-): Promise<ApiFootballSquadPlayer[]> {
+): Promise<ApiFootballSquadEntry | undefined> {
   const body = await fetchApiFootball<ApiFootballSquadResponse>(
     "/players/squads",
     { team: String(team.apiFootballTeamId) },
@@ -330,8 +378,7 @@ async function fetchSquad(
     throw new Error(`API-Football returned squad errors for ${team.name}: ${JSON.stringify(body.errors)}`);
   }
 
-  const entry = body.response?.find((item) => item.team?.id === team.apiFootballTeamId) ?? body.response?.[0];
-  return entry?.players ?? [];
+  return body.response?.find((item) => item.team?.id === team.apiFootballTeamId) ?? body.response?.[0];
 }
 
 function toCatalogPlayer(apiPlayer: ApiFootballSquadPlayer, canonicalTeamId?: string): CatalogPlayer | null {
@@ -360,10 +407,17 @@ async function buildCatalogTeams(
 
   for (const team of teamRefs) {
     try {
-      const squadPlayers = await fetchSquad(team, env, budget);
-      teams.push({
+      const squadEntry = await fetchSquadEntry(team, env, budget);
+      const resolvedTeamName = squadEntry?.team?.name?.trim() || team.name;
+      const canonicalTeam = team.canonicalTeamId ? null : resolveCanonicalTeam(resolvedTeamName, team.apiFootballTeamId);
+      const resolvedTeam = {
         ...team,
-        players: sortByName(squadPlayers.flatMap((player) => toCatalogPlayer(player, team.canonicalTeamId) ?? []))
+        name: resolvedTeamName,
+        canonicalTeamId: team.canonicalTeamId ?? canonicalTeam?.teamId
+      };
+      teams.push({
+        ...resolvedTeam,
+        players: sortByName((squadEntry?.players ?? []).flatMap((player) => toCatalogPlayer(player, resolvedTeam.canonicalTeamId) ?? []))
       });
     } catch (error) {
       teams.push({
@@ -458,7 +512,7 @@ async function writeJson(path: string, value: unknown): Promise<void> {
 
 async function main(): Promise<void> {
   const env = getCatalogEnv();
-  const dateKeys = getApiFootballDateKeys(env);
+  const dateKeys = hasDateConfig(env) ? getApiFootballDateKeys(env) : [];
   const fixtureIds = parseCommaSeparated(env.API_FOOTBALL_FIXTURE_IDS);
 
   if (fixtureIds.length > 0) {

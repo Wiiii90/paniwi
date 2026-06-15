@@ -163,13 +163,27 @@ npm run sync:api-catalog
 
 Das Script nutzt zuerst `GET /teams?league=1&season=2026`, um alle WM-Teams unabhaengig von bereits gespielten Partien zu bekommen. Danach ruft es pro Team `/players/squads?team=...` ab.
 
-Nur wenn der Teams-Endpunkt im Free-Plan blockiert ist, faellt das Script auf Tagesfixtures zurueck, um Team-IDs zu sammeln. Ohne Datums-Override nutzt dieser Fallback den kompletten WM-Zeitraum `2026-06-11` bis `2026-07-19`. Das ist bewusst nur fuer einen Einmallauf gedacht, weil es fast das ganze 90er Request-Budget nutzt. Fuer Debugging kann der Zeitraum eingeschraenkt werden:
+Wenn der Teams-Endpunkt im Free-Plan blockiert ist, darf das Script nicht automatisch ueber Fixtures gehen: Fixtures sind unvollstaendig, solange nicht alle Teams gespielt haben, und historische Datumsfenster koennen im Free-Plan ebenfalls blockiert sein. Dann gibt es zwei bewusste Optionen:
+
+1. Explizite API-Football-Team-IDs setzen:
 
 ```powershell
+$env:API_FOOTBALL_CATALOG_TEAM_IDS="1:Belgium,9:Spain"
+npm run sync:api-catalog
+```
+
+Die Namen nach dem Doppelpunkt sind optional; wenn `/players/squads` den Teamnamen liefert, wird dieser zurueck in den Katalog geschrieben.
+
+2. Fixture-Fallback nur fuer Debugging erlauben:
+
+```powershell
+$env:API_FOOTBALL_CATALOG_ALLOW_FIXTURE_FALLBACK="true"
 $env:API_FOOTBALL_CATALOG_DATE_FROM="2026-06-11"
 $env:API_FOOTBALL_CATALOG_DATE_TO="2026-06-15"
 npm run sync:api-catalog
 ```
+
+Dieser Fallback ist kein vollstaendiger Kaderimport, sondern nur eine Notloesung zum Entdecken einzelner Team-IDs.
 
 Ergebnis:
 
