@@ -1,41 +1,15 @@
 [
   {
-    "playerName": "Christian Pulisic",
-    "nationalTeam": "United States",
+    "playerName": "Kylian Mbappé",
+    "nationalTeam": "France",
     "goals": 1,
     "source": "mock",
-    "matchLabel": "United States 1-0 South Korea",
-    "minute": 76,
-    "scoredAt": "2026-06-15T21:36:00.000Z",
+    "matchLabel": "France 2-1 Canada",
+    "minute": 28,
+    "scoredAt": "2026-06-12T19:28:00.000Z",
     "detail": "normal",
     "owner": "Anna",
-    "pickedPlayerName": "Christian Pulisic",
-    "points": 1
-  },
-  {
-    "playerName": "Bruno Fernandes",
-    "nationalTeam": "Portugal",
-    "goals": 1,
-    "source": "mock",
-    "matchLabel": "Portugal 1-1 Nigeria",
-    "minute": 51,
-    "scoredAt": "2026-06-15T18:11:00.000Z",
-    "detail": "normal",
-    "owner": "Ben",
-    "pickedPlayerName": "Bruno Fernandes",
-    "points": 1
-  },
-  {
-    "playerName": "Jamal Musiala",
-    "nationalTeam": "Germany",
-    "goals": 1,
-    "source": "mock",
-    "matchLabel": "Germany 2-2 Uruguay",
-    "minute": 64,
-    "scoredAt": "2026-06-14T20:24:00.000Z",
-    "detail": "normal",
-    "owner": "Anna",
-    "pickedPlayerName": "Jamal Musiala",
+    "pickedPlayerName": "Kylian Mbappe",
     "points": 1
   },
   {
@@ -52,16 +26,42 @@
     "points": 1
   },
   {
-    "playerName": "Kylian Mbappé",
-    "nationalTeam": "France",
+    "playerName": "Jamal Musiala",
+    "nationalTeam": "Germany",
     "goals": 1,
     "source": "mock",
-    "matchLabel": "France 2-1 Canada",
-    "minute": 28,
-    "scoredAt": "2026-06-12T19:28:00.000Z",
+    "matchLabel": "Germany 2-2 Uruguay",
+    "minute": 64,
+    "scoredAt": "2026-06-14T20:24:00.000Z",
     "detail": "normal",
     "owner": "Anna",
-    "pickedPlayerName": "Kylian Mbappe",
+    "pickedPlayerName": "Jamal Musiala",
+    "points": 1
+  },
+  {
+    "playerName": "Bruno Fernandes",
+    "nationalTeam": "Portugal",
+    "goals": 1,
+    "source": "mock",
+    "matchLabel": "Portugal 1-1 Nigeria",
+    "minute": 51,
+    "scoredAt": "2026-06-15T18:11:00.000Z",
+    "detail": "normal",
+    "owner": "Ben",
+    "pickedPlayerName": "Bruno Fernandes",
+    "points": 1
+  },
+  {
+    "playerName": "Christian Pulisic",
+    "nationalTeam": "United States",
+    "goals": 1,
+    "source": "mock",
+    "matchLabel": "United States 1-0 South Korea",
+    "minute": 76,
+    "scoredAt": "2026-06-15T21:36:00.000Z",
+    "detail": "normal",
+    "owner": "Anna",
+    "pickedPlayerName": "Christian Pulisic",
     "points": 1
   }
 ]

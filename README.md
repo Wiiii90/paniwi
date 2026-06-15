@@ -7,6 +7,7 @@ Statische MVP-Webapp fuer eine private WM-2026-Panini-Liga.
 ```powershell
 npm install
 npm run sync:data
+npm test
 npm run dev
 npm run build
 npm run preview

@@ -23,7 +23,7 @@ export async function syncGoals(): Promise<void> {
   const result = await fetchFromFirstWorkingSource([mockSource]);
   const goals = normalizeGoals(result.goals);
   const scoredGoals = scoreGoalsForTeams(teams, goals).sort((a, b) =>
-    (b.scoredAt ?? "").localeCompare(a.scoredAt ?? "")
+    (a.scoredAt ?? "").localeCompare(b.scoredAt ?? "")
   );
   const leaderboard = buildLeaderboard(teams, goals);
 
