@@ -1,20 +1,19 @@
 {
-  "lastUpdated": "2026-06-15T21:18:40.907Z",
-  "source": "api-football",
+  "lastUpdated": "2026-06-15T21:24:23.882Z",
+  "source": "wikipedia",
   "attemptedSources": [
-    "api-football"
+    "wikipedia"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 38,
+  "goalCount": 37,
   "scoredGoalCount": 5,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Statische Daten aus vorhandenen Rohdaten neu berechnet.",
-  "snapshotFingerprint": "985252462df7bc57a1c5688020128520be7c4bdad66c9c06cb7015aba6936a40",
+  "message": "Daten-Snapshot mit Quelle wikipedia erzeugt.",
+  "snapshotFingerprint": "7846bcf168027e4a58cd0f0c443b874c3ec135e27dc2e3bef8edac7f79d5837c",
   "snapshotChanged": true,
-  "windowSyncAttempts": 1,
-  "sourceRequestCount": 4,
-  "sourceRequestLimit": 90
+  "syncWindowId": "2026 fifa world cup group g:belgium-egypt:2026-06-15T19:00:00.000Z-check-1",
+  "windowSyncAttempts": 1
 }
