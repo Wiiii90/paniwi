@@ -16,6 +16,7 @@ import { apiFootballSource } from "../sync/sources/apiFootballSource";
 import { getSourcesForMode, parseSyncSourceMode } from "../sync/sources/sourceSelection";
 import { parseWikipediaFootballBoxes, parseWikipediaGoalscorers } from "../sync/sources/wikipediaSource";
 import { buildSourceErrorMeta, mergeGoalSnapshots } from "../sync/syncGoals";
+import { formatCanonicalValidationIssues, validateCanonicalData } from "../sync/validateCanonicalData";
 import { validateGoals } from "../sync/validateGoals";
 import { formatTeamValidationIssues, validateTeams } from "../sync/validateTeams";
 
@@ -506,6 +507,35 @@ assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("duplicate
 assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("missing-player-id"), true);
 assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("unknown-player-id"), true);
 assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("duplicate-player-id-in-team"), true);
+
+const canonicalValidation = validateCanonicalData();
+assert.equal(
+  canonicalValidation.valid,
+  true,
+  `Canonical model should be valid: ${formatCanonicalValidationIssues(canonicalValidation.issues)}`
+);
+const invalidCanonical = validateCanonicalData(
+  [
+    { teamId: "alpha", displayName: "Alpha" },
+    { teamId: "alpha", displayName: "Alpha Duplicate" },
+    { teamId: "beta", displayName: "Beta", aliases: ["Alpha"] }
+  ],
+  [
+    { playerId: "alpha-player", displayName: "Player One", teamId: "alpha", apiFootballPlayerId: 7 },
+    { playerId: "alpha-player", displayName: "Player One Copy", teamId: "alpha" },
+    { playerId: "api-duplicate-player", displayName: "Player Two", teamId: "alpha", apiFootballPlayerId: 7 },
+    { playerId: "ghost-player", displayName: "Ghost", teamId: "ghost" },
+    { playerId: "alias-player", displayName: "Another", teamId: "alpha", aliases: ["Player One"] }
+  ]
+);
+const invalidCanonicalMessage = formatCanonicalValidationIssues(invalidCanonical.issues);
+assert.equal(invalidCanonical.valid, false);
+assert.equal(invalidCanonicalMessage.includes("duplicate-team-id"), true);
+assert.equal(invalidCanonicalMessage.includes("duplicate-team-name-key"), true);
+assert.equal(invalidCanonicalMessage.includes("duplicate-player-id"), true);
+assert.equal(invalidCanonicalMessage.includes("duplicate-api-football-player-id"), true);
+assert.equal(invalidCanonicalMessage.includes("unknown-player-team-id"), true);
+assert.equal(invalidCanonicalMessage.includes("duplicate-player-name-key-in-team"), true);
 
 assert.deepEqual(
   buildSourceErrorMeta(

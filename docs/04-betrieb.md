@@ -123,6 +123,8 @@ Ohne `API_FOOTBALL_DATES` oder Datumsfenster nutzt API-Football den aktuellen UT
 
 Wenn alle Datenquellen fehlschlagen, schreibt der Sync nur `public/data/meta.json` mit `status: "error"`. Bestehende Snapshot-Dateien bleiben erhalten.
 
+Vor jedem Sync werden zuerst die kanonischen Teams/Spieler und danach die Teilnehmer-Teams validiert. Fehler wie doppelte `playerId`s, mehrdeutige Aliase oder Picks auf unbekannte Spieler brechen den Lauf ab, damit keine uneindeutigen Snapshots committed werden.
+
 ## Release-Check
 
 Vor einem Push sollten lokal laufen:
