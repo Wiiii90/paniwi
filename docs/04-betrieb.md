@@ -31,6 +31,8 @@ Wichtige Variablen:
 
 `deploy.yml` baut den committed Snapshot und deployed `dist` auf GitHub Pages.
 
+`ci.yml` prueft Pull Requests und Pushes ohne Deploy oder Snapshot-Commit. Er nutzt bewusst `SYNC_SOURCE=mock`.
+
 `sync-data.yml` aktualisiert `public/data/*.json`, prueft Tests und Build und committet nur geaenderte Snapshots. Der Workflow nutzt standardmaessig:
 
 ```text
@@ -43,7 +45,18 @@ Fuer API-Football in Actions muss mindestens dieses Repository Secret existieren
 API_FOOTBALL_KEY
 ```
 
-Fixture-IDs koennen als Variable oder Workflow-Erweiterung gepflegt werden. Ohne `API_FOOTBALL_FIXTURE_IDS` faellt `auto` auf Wikipedia und danach Mock zurueck.
+Fixture-IDs und nicht-geheime Einstellungen koennen als Repository Variables gepflegt werden:
+
+```text
+API_FOOTBALL_FIXTURE_IDS
+API_FOOTBALL_BASE_URL
+API_FOOTBALL_TIMEOUT_MS
+WIKIPEDIA_GOALS_PAGE
+WIKIPEDIA_API_ENDPOINT
+WIKIPEDIA_TIMEOUT_MS
+```
+
+Ohne `API_FOOTBALL_FIXTURE_IDS` faellt `auto` auf Wikipedia und danach Mock zurueck.
 
 ## Fehlerverhalten
 

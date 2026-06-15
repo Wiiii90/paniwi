@@ -62,6 +62,7 @@ Die Ports sind bewusst weit weg von ueblichen Defaults wie `3000`, `5173`, `5174
 ## GitHub Actions
 
 - `deploy.yml` baut den aktuell committed Snapshot und veroeffentlicht `dist` auf GitHub Pages.
+- `ci.yml` prueft Pushes und Pull Requests mit Mock-Sync, Tests und Build.
 - `sync-data.yml` laeuft geplant oder manuell, nutzt standardmaessig `SYNC_SOURCE=auto`, schreibt `public/data/*.json` und committet nur geaenderte Snapshots.
 - Beide Workflows fuehren `npm test` und `npm run build` aus.
 
