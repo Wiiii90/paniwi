@@ -198,7 +198,7 @@ export async function syncGoals(
   } catch (error) {
     if (error instanceof SourceFetchError) {
       await writeStaticMeta(buildSourceErrorMeta(error.attemptedSources, error.sourceErrors));
-      return;
+      throw error;
     }
 
     throw error;
