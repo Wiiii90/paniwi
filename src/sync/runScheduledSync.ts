@@ -2,6 +2,7 @@ import { readFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
 import type { StaticMeta } from "../domain/types";
 import { evaluateSyncWindow } from "./evaluateSyncWindow";
+import { getUpcomingSyncWindows } from "./syncSchedule";
 import { syncGoals } from "./syncGoals";
 
 async function readCurrentMeta(): Promise<StaticMeta | null> {
@@ -22,7 +23,13 @@ export async function runScheduledSync(force = parseForceFlag(process.argv)): Pr
   const decision = evaluateSyncWindow(meta, new Date(), force);
 
   if (!decision.shouldRun) {
+    const upcoming = getUpcomingSyncWindows(new Date(), 3)
+      .map((window) => `${window.label} (${window.from})`)
+      .join("; ");
     console.log(`Sync skipped: ${decision.reason}`);
+    if (upcoming) {
+      console.log(`Next windows: ${upcoming}`);
+    }
     return;
   }
 

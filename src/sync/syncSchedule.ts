@@ -1,3 +1,5 @@
+import kickoffs from "../config/matchKickoffs.json";
+
 export type SyncWindow = {
   id: string;
   from: string;
@@ -5,104 +7,56 @@ export type SyncWindow = {
   label: string;
 };
 
+export type MatchKickoff = {
+  id: string;
+  kickedOffAt: string;
+  label: string;
+  finished?: boolean;
+};
+
 export const syncPolicy = {
   tournamentStart: "2026-06-11",
   tournamentEnd: "2026-07-19",
-  /** Earliest sync after a window opens (Wikipedia needs time to update). */
-  windowWarmupMinutes: 45,
-  /** Minimum gap between two successful syncs in the same window. */
-  minMinutesBetweenSyncs: 120,
-  /** Maximum sync attempts per window when the snapshot stays unchanged. */
-  maxSyncAttemptsPerWindow: 2,
-  /** Minimum wait before an unchanged follow-up. */
-  unchangedFollowUpMinutes: 90
+  /** Regular time plus half-time break. */
+  expectedMatchMinutes: 105,
+  /** Sync checks after the expected full-time whistle. */
+  checkOffsetsAfterExpectedEndMinutes: [15, 60, 120],
+  /** Width of each check window. Cron runs every 15 minutes. */
+  windowDurationMinutes: 30,
+  /** One Wikipedia fetch per check window if the snapshot stays unchanged. */
+  maxSyncAttemptsPerWindow: 1,
+  minMinutesBetweenSyncs: 45,
+  unchangedFollowUpMinutes: 45
 } as const;
 
-/**
- * Calendar days with scheduled FIFA World Cup 2026 matches.
- * Source: FIFA match schedule (group stage + knockout). Used only to gate sync frequency.
- */
-export const matchDaysUtc = [
-  "2026-06-11",
-  "2026-06-12",
-  "2026-06-13",
-  "2026-06-14",
-  "2026-06-15",
-  "2026-06-16",
-  "2026-06-17",
-  "2026-06-18",
-  "2026-06-19",
-  "2026-06-20",
-  "2026-06-21",
-  "2026-06-22",
-  "2026-06-23",
-  "2026-06-24",
-  "2026-06-25",
-  "2026-06-26",
-  "2026-06-27",
-  "2026-06-28",
-  "2026-06-29",
-  "2026-06-30",
-  "2026-07-01",
-  "2026-07-02",
-  "2026-07-03",
-  "2026-07-04",
-  "2026-07-05",
-  "2026-07-06",
-  "2026-07-07",
-  "2026-07-08",
-  "2026-07-09",
-  "2026-07-10",
-  "2026-07-11",
-  "2026-07-12",
-  "2026-07-13",
-  "2026-07-14",
-  "2026-07-15",
-  "2026-07-16",
-  "2026-07-17",
-  "2026-07-18",
-  "2026-07-19"
-] as const;
+export const scheduledKickoffs = kickoffs as MatchKickoff[];
 
-/** UTC sync slots on match days: after late US games and after evening sessions. */
-export const dailySyncSlotsUtc = [
-  { hour: 5, minute: 30, label: "morning catch-up" },
-  { hour: 22, minute: 30, label: "evening catch-up" }
-] as const;
+export function buildSyncWindowsForKickoff(kickoff: MatchKickoff): SyncWindow[] {
+  const kickoffMs = new Date(kickoff.kickedOffAt).getTime();
+  const expectedEndMs = kickoffMs + syncPolicy.expectedMatchMinutes * 60 * 1000;
 
-function utcDateKey(date: Date): string {
-  return date.toISOString().slice(0, 10);
-}
-
-function buildWindowId(dateKey: string, slotIndex: number): string {
-  return `${dateKey}-slot-${slotIndex + 1}`;
-}
-
-export function buildSyncWindowsForDate(dateKey: string): SyncWindow[] {
-  if (!matchDaysUtc.includes(dateKey as (typeof matchDaysUtc)[number])) {
-    return [];
-  }
-
-  return dailySyncSlotsUtc.map((slot, index) => {
-    const start = new Date(`${dateKey}T${String(slot.hour).padStart(2, "0")}:${String(slot.minute).padStart(2, "0")}:00.000Z`);
-    const end = new Date(start.getTime() + 2 * 60 * 60 * 1000);
+  return syncPolicy.checkOffsetsAfterExpectedEndMinutes.map((offsetMinutes, index) => {
+    const from = new Date(expectedEndMs + offsetMinutes * 60 * 1000);
+    const until = new Date(from.getTime() + syncPolicy.windowDurationMinutes * 60 * 1000);
 
     return {
-      id: buildWindowId(dateKey, index),
-      from: start.toISOString(),
-      until: end.toISOString(),
-      label: `${dateKey} ${slot.label}`
+      id: `${kickoff.id}-check-${index + 1}`,
+      from: from.toISOString(),
+      until: until.toISOString(),
+      label: `${kickoff.label} (+${offsetMinutes}m after expected FT)`
     };
   });
 }
 
+export function getAllSyncWindows(): SyncWindow[] {
+  return scheduledKickoffs.flatMap(buildSyncWindowsForKickoff);
+}
+
 export function getActiveSyncWindow(now: Date = new Date()): SyncWindow | null {
-  const dateKey = utcDateKey(now);
-  const windows = buildSyncWindowsForDate(dateKey);
   const timestamp = now.getTime();
 
-  for (const window of windows) {
-    const from = new Date(window.from).getTime() + syncPolicy.windowWarmupMinutes * 60 * 1000;
+  for (const window of getAllSyncWindows()) {
+    const from = new Date(window.from).getTime();
     const until = new Date(window.until).getTime();
 
     if (timestamp >= from && timestamp <= until) {
@@ -114,6 +68,15 @@ export function getActiveSyncWindow(now: Date = new Date()): SyncWindow | null {
 }
 
 export function isTournamentDay(now: Date = new Date()): boolean {
-  const dateKey = utcDateKey(now);
+  const dateKey = now.toISOString().slice(0, 10);
   return dateKey >= syncPolicy.tournamentStart && dateKey <= syncPolicy.tournamentEnd;
+}
+
+export function getUpcomingSyncWindows(now: Date = new Date(), limit = 5): SyncWindow[] {
+  const timestamp = now.getTime();
+
+  return getAllSyncWindows()
+    .filter((window) => new Date(window.until).getTime() >= timestamp)
+    .sort((left, right) => left.from.localeCompare(right.from))
+    .slice(0, limit);
 }

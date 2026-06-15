@@ -41,15 +41,23 @@ SYNC_SOURCE=wikipedia
 
 ### Sync-Rhythmus
 
-Der automatische Sync ist bewusst sparsam:
+Der automatische Sync orientiert sich am **Spielplan**, nicht an festen Tageszeiten:
 
-- nur zwischen 11. Juni und 19. Juli 2026
-- nur an Spieltagen laut `src/sync/syncSchedule.ts`
-- hoechstens zwei Zeitfenster pro Spieltag: 05:30 UTC und 22:30 UTC
-- pro Fenster hoechstens zwei Versuche, wenn sich der Snapshot nicht aendert
-- mindestens 120 Minuten Abstand zwischen erfolgreichen Syncs im selben Fenster
+- Anstosszeiten liegen in `src/config/matchKickoffs.json` (72 Gruppenspiele, aus Wikipedia exportiert)
+- Nach voraussichtlichem Spielende (+105 Min) gibt es **3 Check-Fenster**:
+  - +15 Minuten
+  - +60 Minuten
+  - +120 Minuten
+- Jedes Fenster ist 30 Minuten breit; GitHub Actions pollt alle 15 Minuten, ruft Wikipedia aber **nur innerhalb eines Fensters** auf
+- Pro Fenster maximal **1** Wikipedia-Sync, wenn sich der Snapshot nicht aendert
 
-Der Workflow ruft `npm run sync:scheduled` auf. Dieses Script prueft den Spielplan und ueberspringt API-Aufrufe ausserhalb der Fenster komplett.
+Spielplan aktualisieren (selten noetig):
+
+```powershell
+npm run sync:export-kickoffs
+```
+
+Der Workflow ruft `npm run sync:scheduled` auf. Ausserhalb der Fenster bricht das Script sofort ab und loggt die naechsten Fenster.
 
 Manuell jederzeit moeglich:
 
@@ -64,6 +72,16 @@ $env:SYNC_FORCE="true"
 $env:SYNC_SOURCE="wikipedia"
 npm run sync:scheduled
 ```
+
+### Push-Feeds / Webhooks
+
+Aktuell bewusst **kein** Live-Push von FIFA oder Drittanbietern. Gruende:
+
+- weniger Abhaengigkeiten und Keys
+- Wikipedia-API bleibt die eine legale Quelle
+- fuer eine Freundes-Liga reichen 3 Checks nach Spielende
+
+Spaeter moeglich: API-Football-Fixture-Events, sobald Fixture-IDs gepflegt sind (`SYNC_SOURCE=api-football`).
 
 ### Wikipedia / API-Etikette
 

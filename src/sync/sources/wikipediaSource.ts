@@ -1,6 +1,14 @@
 import type { GoalSource, GoalSourceResult } from "./types";
 import type { ExternalGoalRecord, GoalDetail } from "../../domain/types";
 import { normalizePlayerName } from "../../domain/normalizePlayerName";
+import { parseKickoffUtc } from "../parseKickoffTime";
+
+export type WikipediaMatchKickoff = {
+  id: string;
+  kickedOffAt: string;
+  label: string;
+  finished: boolean;
+};
 
 const defaultEndpoint = "https://en.wikipedia.org/w/api.php";
 const defaultPage = "2026 FIFA World Cup";
@@ -147,13 +155,35 @@ function extractFootballBoxes(wikitext: string): string[] {
 }
 
 function parseMatchDate(block: string): string | undefined {
-  const match = block.match(/\|date=\{\{Start date\|(\d+)\|(\d+)\|(\d+)\}\}/i);
-  if (!match) {
-    return undefined;
+  return parseKickoffUtc(block);
+}
+
+export function parseWikipediaMatchKickoffs(wikitext: string, pageTitle: string): WikipediaMatchKickoff[] {
+  const records: WikipediaMatchKickoff[] = [];
+
+  for (const block of extractFootballBoxes(wikitext)) {
+    const kickedOffAt = parseKickoffUtc(block);
+    const homeCode = parseTeamCode(block, "team1");
+    const awayCode = parseTeamCode(block, "team2");
+    if (!kickedOffAt || !homeCode || !awayCode) {
+      continue;
+    }
+
+    const homeTeam = FIFA_COUNTRY_NAMES[homeCode] ?? homeCode;
+    const awayTeam = FIFA_COUNTRY_NAMES[awayCode] ?? awayCode;
+    const score = parseMatchScore(block);
+    const label = buildMatchLabel(homeTeam, awayTeam, score);
+    const id = `${normalizePlayerName(pageTitle)}:${normalizePlayerName(homeTeam)}-${normalizePlayerName(awayTeam)}:${kickedOffAt}`;
+
+    records.push({
+      id,
+      kickedOffAt,
+      label,
+      finished: Boolean(score && /–|-/.test(score))
+    });
   }
 
-  const [, year, month, day] = match;
-  return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}T12:00:00.000Z`;
+  return records;
 }
 
 function parseTeamCode(block: string, fieldName: "team1" | "team2"): string | undefined {

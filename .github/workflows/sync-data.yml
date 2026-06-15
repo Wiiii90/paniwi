@@ -2,11 +2,9 @@ name: Sync Data
 
 on:
   schedule:
-    # Tournament only: 05:30 UTC after late US games, 22:30 UTC after evening games.
-    - cron: "30 5 11-30 6 *"
-    - cron: "30 22 11-30 6 *"
-    - cron: "30 5 1-19 7 *"
-    - cron: "30 22 1-19 7 *"
+    # Poll every 15 minutes during the tournament; Wikipedia is only called inside post-match windows.
+    - cron: "*/15 * 11-30 6 *"
+    - cron: "*/15 * 1-19 7 *"
   workflow_dispatch:
     inputs:
       sync_source:

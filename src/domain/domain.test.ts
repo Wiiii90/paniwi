@@ -159,6 +159,7 @@ assert.deepEqual(
 const wikipediaMatchGoals = parseWikipediaFootballBoxes(
   `{{#invoke:football box|main
 |date={{Start date|2026|6|11}}
+|time=1:00&nbsp;p.m. [[UTC−06:00|UTC−6]]
 |team1={{#invoke:flag|fb-rt|MEX}}
 |score={{score link|2026 FIFA World Cup Group A#Mexico vs South Africa|2–0}}
 |team2={{#invoke:flag|fb|RSA}}

@@ -1,5 +1,5 @@
 import type { StaticMeta } from "../domain/types";
-import { getActiveSyncWindow, isTournamentDay, syncPolicy } from "./syncSchedule";
+import { getActiveSyncWindow, isTournamentDay, syncPolicy, type SyncWindow } from "./syncSchedule";
 
 export type SyncWindowDecision = {
   shouldRun: boolean;
@@ -11,7 +11,12 @@ function minutesBetween(earlier: string, later: Date): number {
   return (later.getTime() - new Date(earlier).getTime()) / (60 * 1000);
 }
 
-export function evaluateSyncWindow(meta: StaticMeta | null, now: Date = new Date(), force = false): SyncWindowDecision {
+export function evaluateSyncWindow(
+  meta: StaticMeta | null,
+  now: Date = new Date(),
+  force = false,
+  activeWindow: SyncWindow | null = getActiveSyncWindow(now)
+): SyncWindowDecision {
   if (force) {
     return { shouldRun: true, reason: "forced sync" };
   }
@@ -20,9 +25,9 @@ export function evaluateSyncWindow(meta: StaticMeta | null, now: Date = new Date
     return { shouldRun: false, reason: "outside tournament dates" };
   }
 
-  const window = getActiveSyncWindow(now);
+  const window = activeWindow;
   if (!window) {
-    return { shouldRun: false, reason: "outside sync window" };
+    return { shouldRun: false, reason: "outside post-match sync window" };
   }
 
   if (!meta || meta.status === "error") {
