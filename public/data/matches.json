@@ -903,10 +903,25 @@
     ]
   },
   {
+    "matchId": "wikipedia:2026 fifa world cup group h:spain-cape verde:2026-06-15T16:00:00.000Z",
+    "label": "Spain Match 14 Cape Verde",
+    "kickedOffAt": "2026-06-15T16:00:00.000Z",
+    "status": "unknown",
+    "homeTeam": {
+      "name": "Spanien"
+    },
+    "awayTeam": {
+      "name": "Kap Verde"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
     "matchId": "api-football:1489377",
     "label": "Belgium 1-1 Egypt",
     "kickedOffAt": "2026-06-15T19:00:00+00:00",
-    "status": "finished",
+    "status": "live",
     "homeTeam": {
       "name": "Belgien",
       "score": 1
@@ -951,6 +966,636 @@
         "detail": "own-goal"
       }
     ],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group h:ksa-uruguay:2026-06-15T22:00:00.000Z",
+    "label": "KSA Match 13 Uruguay",
+    "kickedOffAt": "2026-06-15T22:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Saudi Arabia"
+    },
+    "awayTeam": {
+      "name": "Uruguay"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group g:iran-nzl:2026-06-16T01:00:00.000Z",
+    "label": "Iran Match 15 NZL",
+    "kickedOffAt": "2026-06-16T01:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Iran"
+    },
+    "awayTeam": {
+      "name": "New Zealand"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group i:france-senegal:2026-06-16T19:00:00.000Z",
+    "label": "France Match 17 Senegal",
+    "kickedOffAt": "2026-06-16T19:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Frankreich"
+    },
+    "awayTeam": {
+      "name": "Senegal"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group i:iraq-norway:2026-06-16T22:00:00.000Z",
+    "label": "Iraq Match 18 Norway",
+    "kickedOffAt": "2026-06-16T22:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Irak"
+    },
+    "awayTeam": {
+      "name": "Norwegen"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group l:england-croatia:2026-06-17T20:00:00.000Z",
+    "label": "England Match 22 Croatia",
+    "kickedOffAt": "2026-06-17T20:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "England"
+    },
+    "awayTeam": {
+      "name": "Kroatien"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group b:switzerland-bosnia and herzegovina:2026-06-18T19:00:00.000Z",
+    "label": "Switzerland Match 26 Bosnia and Herzegovina",
+    "kickedOffAt": "2026-06-18T19:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Schweiz"
+    },
+    "awayTeam": {
+      "name": "Bosnien und Herzegowina"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group b:canada-qatar:2026-06-18T22:00:00.000Z",
+    "label": "Canada Match 27 Qatar",
+    "kickedOffAt": "2026-06-18T22:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Kanada"
+    },
+    "awayTeam": {
+      "name": "Katar"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group d:united states-australia:2026-06-19T19:00:00.000Z",
+    "label": "United States Match 32 Australia",
+    "kickedOffAt": "2026-06-19T19:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "USA"
+    },
+    "awayTeam": {
+      "name": "Australien"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group c:scotland-morocco:2026-06-19T22:00:00.000Z",
+    "label": "Scotland Match 30 Morocco",
+    "kickedOffAt": "2026-06-19T22:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Schottland"
+    },
+    "awayTeam": {
+      "name": "Marokko"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group c:brazil-haiti:2026-06-20T00:30:00.000Z",
+    "label": "Brazil Match 29 Haiti",
+    "kickedOffAt": "2026-06-20T00:30:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Brasilien"
+    },
+    "awayTeam": {
+      "name": "Haiti"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group d:tur-paraguay:2026-06-20T03:00:00.000Z",
+    "label": "TUR Match 31 Paraguay",
+    "kickedOffAt": "2026-06-20T03:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Tuerkei"
+    },
+    "awayTeam": {
+      "name": "Paraguay"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group f:netherlands-sweden:2026-06-20T17:00:00.000Z",
+    "label": "Netherlands Match 35 Sweden",
+    "kickedOffAt": "2026-06-20T17:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Niederlande"
+    },
+    "awayTeam": {
+      "name": "Schweden"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group e:germany-civ:2026-06-20T20:00:00.000Z",
+    "label": "Germany Match 33 CIV",
+    "kickedOffAt": "2026-06-20T20:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Deutschland"
+    },
+    "awayTeam": {
+      "name": "Elfenbeinkueste"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group e:ecuador-curacao:2026-06-21T00:00:00.000Z",
+    "label": "Ecuador Match 34 Curaçao",
+    "kickedOffAt": "2026-06-21T00:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Ecuador"
+    },
+    "awayTeam": {
+      "name": "Curacao"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group f:tunisia-japan:2026-06-21T04:00:00.000Z",
+    "label": "Tunisia Match 36 Japan",
+    "kickedOffAt": "2026-06-21T04:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Tunesien"
+    },
+    "awayTeam": {
+      "name": "Japan"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group h:spain-ksa:2026-06-21T16:00:00.000Z",
+    "label": "Spain Match 38 KSA",
+    "kickedOffAt": "2026-06-21T16:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Spanien"
+    },
+    "awayTeam": {
+      "name": "Saudi Arabia"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group g:belgium-iran:2026-06-21T19:00:00.000Z",
+    "label": "Belgium Match 39 Iran",
+    "kickedOffAt": "2026-06-21T19:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Belgien"
+    },
+    "awayTeam": {
+      "name": "Iran"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group h:uruguay-cape verde:2026-06-21T22:00:00.000Z",
+    "label": "Uruguay Match 37 Cape Verde",
+    "kickedOffAt": "2026-06-21T22:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Uruguay"
+    },
+    "awayTeam": {
+      "name": "Kap Verde"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group g:nzl-egypt:2026-06-22T01:00:00.000Z",
+    "label": "NZL Match 40 Egypt",
+    "kickedOffAt": "2026-06-22T01:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "New Zealand"
+    },
+    "awayTeam": {
+      "name": "Aegypten"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group j:argentina-austria:2026-06-22T17:00:00.000Z",
+    "label": "Argentina Match 43 Austria",
+    "kickedOffAt": "2026-06-22T17:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Argentinien"
+    },
+    "awayTeam": {
+      "name": "Oesterreich"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group i:france-iraq:2026-06-22T21:00:00.000Z",
+    "label": "France Match 42 Iraq",
+    "kickedOffAt": "2026-06-22T21:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Frankreich"
+    },
+    "awayTeam": {
+      "name": "Irak"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group i:norway-senegal:2026-06-23T00:00:00.000Z",
+    "label": "Norway Match 41 Senegal",
+    "kickedOffAt": "2026-06-23T00:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Norwegen"
+    },
+    "awayTeam": {
+      "name": "Senegal"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group l:panama-croatia:2026-06-23T23:00:00.000Z",
+    "label": "Panama Match 46 Croatia",
+    "kickedOffAt": "2026-06-23T23:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Panama"
+    },
+    "awayTeam": {
+      "name": "Kroatien"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group b:bosnia and herzegovina-qatar:2026-06-24T19:00:00.000Z",
+    "label": "Bosnia and Herzegovina Match 52 Qatar",
+    "kickedOffAt": "2026-06-24T19:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Bosnien und Herzegowina"
+    },
+    "awayTeam": {
+      "name": "Katar"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group b:switzerland-canada:2026-06-24T19:00:00.000Z",
+    "label": "Switzerland Match 51 Canada",
+    "kickedOffAt": "2026-06-24T19:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Schweiz"
+    },
+    "awayTeam": {
+      "name": "Kanada"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group c:morocco-haiti:2026-06-24T22:00:00.000Z",
+    "label": "Morocco Match 50 Haiti",
+    "kickedOffAt": "2026-06-24T22:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Marokko"
+    },
+    "awayTeam": {
+      "name": "Haiti"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group c:scotland-brazil:2026-06-24T22:00:00.000Z",
+    "label": "Scotland Match 49 Brazil",
+    "kickedOffAt": "2026-06-24T22:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Schottland"
+    },
+    "awayTeam": {
+      "name": "Brasilien"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group a:czech republic-mexico:2026-06-25T01:00:00.000Z",
+    "label": "Czech Republic Match 53 Mexico",
+    "kickedOffAt": "2026-06-25T01:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Tschechien"
+    },
+    "awayTeam": {
+      "name": "Mexiko"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group e:curacao-civ:2026-06-25T20:00:00.000Z",
+    "label": "Curaçao Match 55 CIV",
+    "kickedOffAt": "2026-06-25T20:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Curacao"
+    },
+    "awayTeam": {
+      "name": "Elfenbeinkueste"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group e:ecuador-germany:2026-06-25T20:00:00.000Z",
+    "label": "Ecuador Match 56 Germany",
+    "kickedOffAt": "2026-06-25T20:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Ecuador"
+    },
+    "awayTeam": {
+      "name": "Deutschland"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group f:japan-sweden:2026-06-25T23:00:00.000Z",
+    "label": "Japan Match 57 Sweden",
+    "kickedOffAt": "2026-06-25T23:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Japan"
+    },
+    "awayTeam": {
+      "name": "Schweden"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group f:tunisia-netherlands:2026-06-25T23:00:00.000Z",
+    "label": "Tunisia Match 58 Netherlands",
+    "kickedOffAt": "2026-06-25T23:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Tunesien"
+    },
+    "awayTeam": {
+      "name": "Niederlande"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group d:paraguay-australia:2026-06-26T02:00:00.000Z",
+    "label": "Paraguay Match 60 Australia",
+    "kickedOffAt": "2026-06-26T02:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Paraguay"
+    },
+    "awayTeam": {
+      "name": "Australien"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group d:tur-united states:2026-06-26T02:00:00.000Z",
+    "label": "TUR Match 59 United States",
+    "kickedOffAt": "2026-06-26T02:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Tuerkei"
+    },
+    "awayTeam": {
+      "name": "USA"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group i:norway-france:2026-06-26T19:00:00.000Z",
+    "label": "Norway Match 61 France",
+    "kickedOffAt": "2026-06-26T19:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Norwegen"
+    },
+    "awayTeam": {
+      "name": "Frankreich"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group i:senegal-iraq:2026-06-26T19:00:00.000Z",
+    "label": "Senegal Match 62 Iraq",
+    "kickedOffAt": "2026-06-26T19:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Senegal"
+    },
+    "awayTeam": {
+      "name": "Irak"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group h:cape verde-ksa:2026-06-27T00:00:00.000Z",
+    "label": "Cape Verde Match 65 KSA",
+    "kickedOffAt": "2026-06-27T00:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Kap Verde"
+    },
+    "awayTeam": {
+      "name": "Saudi Arabia"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group h:uruguay-spain:2026-06-27T00:00:00.000Z",
+    "label": "Uruguay Match 66 Spain",
+    "kickedOffAt": "2026-06-27T00:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Uruguay"
+    },
+    "awayTeam": {
+      "name": "Spanien"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group g:egypt-iran:2026-06-27T03:00:00.000Z",
+    "label": "Egypt Match 63 Iran",
+    "kickedOffAt": "2026-06-27T03:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Aegypten"
+    },
+    "awayTeam": {
+      "name": "Iran"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group g:nzl-belgium:2026-06-27T03:00:00.000Z",
+    "label": "NZL Match 64 Belgium",
+    "kickedOffAt": "2026-06-27T03:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "New Zealand"
+    },
+    "awayTeam": {
+      "name": "Belgien"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group l:panama-england:2026-06-27T21:00:00.000Z",
+    "label": "Panama Match 67 England",
+    "kickedOffAt": "2026-06-27T21:00:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Panama"
+    },
+    "awayTeam": {
+      "name": "England"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": []
+  },
+  {
+    "matchId": "wikipedia:2026 fifa world cup group k:colombia-portugal:2026-06-27T23:30:00.000Z",
+    "label": "Colombia Match 71 Portugal",
+    "kickedOffAt": "2026-06-27T23:30:00.000Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Kolumbien"
+    },
+    "awayTeam": {
+      "name": "Portugal"
+    },
+    "goals": [],
     "pointGoals": [],
     "affectedOwners": []
   }

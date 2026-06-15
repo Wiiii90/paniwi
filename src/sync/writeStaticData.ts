@@ -1,11 +1,20 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
-import type { GoalRecord, LeaderboardEntry, MatchRecord, ScoredGoal, ScorerEntry, StaticMeta } from "../domain/types";
+import type {
+  ExternalMatchRecord,
+  GoalRecord,
+  LeaderboardEntry,
+  MatchRecord,
+  ScoredGoal,
+  ScorerEntry,
+  StaticMeta
+} from "../domain/types";
 
 type StaticPayload = {
   leaderboard: LeaderboardEntry[];
   goals: ScoredGoal[];
   rawGoals: GoalRecord[];
+  rawMatches: ExternalMatchRecord[];
   scorers: ScorerEntry[];
   matches: MatchRecord[];
   meta: StaticMeta;
@@ -23,6 +32,7 @@ export async function writeStaticData(payload: StaticPayload): Promise<void> {
     writeJson("public/data/goals.json", payload.goals),
     writeJson("public/data/meta.json", payload.meta),
     writeJson("public/data/raw-goals.json", payload.rawGoals),
+    writeJson("public/data/raw-matches.json", payload.rawMatches),
     writeJson("public/data/scorers.json", payload.scorers),
     writeJson("public/data/matches.json", payload.matches)
   ]);

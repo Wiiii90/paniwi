@@ -1,4 +1,4 @@
-import type { ExternalGoalRecord, GoalDetail } from "../../domain/types";
+import type { ExternalGoalRecord, ExternalMatchRecord, GoalDetail, MatchStatus } from "../../domain/types";
 import type { GoalSource, GoalSourceResult } from "./types";
 
 type ApiFootballEvent = {
@@ -63,6 +63,9 @@ const defaultRequestLimit = 90;
 const worldCupLeagueId = 1;
 const worldCupSeason = 2026;
 const skippedFixtureStatuses = new Set(["NS", "TBD", "PST", "CANC", "ABD", "AWD", "WO"]);
+const liveFixtureStatuses = new Set(["1H", "HT", "2H", "ET", "BT", "P", "SUSP", "INT", "LIVE"]);
+const finishedFixtureStatuses = new Set(["FT", "AET", "PEN"]);
+const scheduledFixtureStatuses = new Set(["NS", "TBD"]);
 
 type ApiFootballRequestBudget = {
   limit: number;
@@ -222,6 +225,59 @@ function getFixtureLabel(fixture: ApiFootballFixture, fixtureId: string): string
   return `Fixture ${fixtureId}`;
 }
 
+function mapFixtureStatus(fixture: ApiFootballFixture): MatchStatus {
+  const status = fixture.fixture?.status?.short;
+  if (!status) {
+    return "unknown";
+  }
+
+  if (finishedFixtureStatuses.has(status)) {
+    return "finished";
+  }
+
+  if (liveFixtureStatuses.has(status)) {
+    return "live";
+  }
+
+  if (scheduledFixtureStatuses.has(status)) {
+    return "scheduled";
+  }
+
+  return "unknown";
+}
+
+function getTeamScore(value: number | null | undefined): number | undefined {
+  return typeof value === "number" ? value : undefined;
+}
+
+export function parseApiFootballFixture(fixture: ApiFootballFixture): ExternalMatchRecord | null {
+  const fixtureId = getFixtureId(fixture);
+  const homeTeam = fixture.teams?.home?.name?.trim();
+  const awayTeam = fixture.teams?.away?.name?.trim();
+  if (!fixtureId || !homeTeam || !awayTeam) {
+    return null;
+  }
+
+  return {
+    source: "api-football",
+    matchId: `api-football:${fixtureId}`,
+    fixtureId,
+    label: getFixtureLabel(fixture, fixtureId),
+    kickedOffAt: fixture.fixture?.date,
+    status: mapFixtureStatus(fixture),
+    homeTeam: {
+      id: fixture.teams?.home?.id,
+      name: homeTeam,
+      score: getTeamScore(fixture.goals?.home)
+    },
+    awayTeam: {
+      id: fixture.teams?.away?.id,
+      name: awayTeam,
+      score: getTeamScore(fixture.goals?.away)
+    }
+  };
+}
+
 export function filterWorldCupFixtures(fixtures: ApiFootballFixture[]): ApiFootballFixture[] {
   return fixtures.filter((fixture) => fixture.league?.id === worldCupLeagueId && fixture.league?.season === worldCupSeason);
 }
@@ -335,29 +391,55 @@ async function fetchFixturesByDate(
   return body.response ?? [];
 }
 
-async function fetchGoalsForFixtureIds(fixtureIds: string[], budget: ApiFootballRequestBudget): Promise<ExternalGoalRecord[]> {
-  const goals: ExternalGoalRecord[] = [];
-  for (const fixtureId of fixtureIds) {
-    goals.push(...parseApiFootballEvents(fixtureId, await fetchFixtureEvents(fixtureId, process.env, budget)));
+async function fetchFixtureById(
+  fixtureId: string,
+  env: NodeJS.ProcessEnv = process.env,
+  budget: ApiFootballRequestBudget = createRequestBudget(env)
+): Promise<ApiFootballFixture | null> {
+  const body = await fetchApiFootball<ApiFootballFixturesResponse>("/fixtures", { id: fixtureId }, env, budget);
+  if (hasApiErrors(body.errors)) {
+    throw new Error(`API-Football returned errors for fixture ${fixtureId}: ${JSON.stringify(body.errors)}`);
   }
 
-  return goals;
+  return body.response?.[0] ?? null;
 }
 
-async function fetchGoalsForDates(dateKeys: string[], budget: ApiFootballRequestBudget): Promise<ExternalGoalRecord[]> {
+async function fetchGoalsAndMatchesForFixtureIds(
+  fixtureIds: string[],
+  budget: ApiFootballRequestBudget
+): Promise<{ goals: ExternalGoalRecord[]; matches: ExternalMatchRecord[] }> {
+  const goals: ExternalGoalRecord[] = [];
+  const matches: ExternalMatchRecord[] = [];
+  for (const fixtureId of fixtureIds) {
+    const fixture = await fetchFixtureById(fixtureId, process.env, budget);
+    const match = fixture ? parseApiFootballFixture(fixture) : null;
+    if (match) {
+      matches.push(match);
+    }
+
+    goals.push(...parseApiFootballEvents(fixtureId, await fetchFixtureEvents(fixtureId, process.env, budget), fixture ?? undefined));
+  }
+
+  return { goals, matches };
+}
+
+async function fetchFixturesForDates(dateKeys: string[], budget: ApiFootballRequestBudget): Promise<ApiFootballFixture[]> {
   const fixtures: ApiFootballFixture[] = [];
   for (const date of dateKeys) {
     fixtures.push(...filterWorldCupFixtures(await fetchFixturesByDate(date, process.env, budget)));
   }
-  const worldCupFixtures = fixtures;
 
-  if (worldCupFixtures.length === 0) {
+  if (fixtures.length === 0) {
     throw new Error(`API-Football returned no World Cup fixtures for dates: ${dateKeys.join(", ")}.`);
   }
 
-  const fixturesWithEvents = worldCupFixtures.filter(shouldFetchFixtureEvents);
+  return fixtures;
+}
+
+async function fetchGoalsForFixtures(fixtures: ApiFootballFixture[], budget: ApiFootballRequestBudget): Promise<ExternalGoalRecord[]> {
+  const fixturesWithEvents = fixtures.filter(shouldFetchFixtureEvents);
   if (fixturesWithEvents.length === 0) {
-    throw new Error(`API-Football returned no started World Cup fixtures for dates: ${dateKeys.join(", ")}.`);
+    return [];
   }
 
   const goals: ExternalGoalRecord[] = [];
@@ -377,10 +459,12 @@ export const apiFootballSource: GoalSource = {
     const budget = createRequestBudget();
     const fixtureIds = parseCommaSeparated(process.env.API_FOOTBALL_FIXTURE_IDS);
     if (fixtureIds.length > 0) {
+      const { goals, matches } = await fetchGoalsAndMatchesForFixtureIds(fixtureIds, budget);
       return {
         source: "api-football",
         fetchedAt: new Date().toISOString(),
-        goals: await fetchGoalsForFixtureIds(fixtureIds, budget),
+        goals,
+        matches,
         mergeWithExisting: true,
         sourceRequestCount: budget.used,
         sourceRequestLimit: budget.limit
@@ -388,10 +472,12 @@ export const apiFootballSource: GoalSource = {
     }
 
     const dateKeys = getApiFootballDateKeys();
+    const fixtures = await fetchFixturesForDates(dateKeys, budget);
     return {
       source: "api-football",
       fetchedAt: new Date().toISOString(),
-      goals: await fetchGoalsForDates(dateKeys, budget),
+      goals: await fetchGoalsForFixtures(fixtures, budget),
+      matches: fixtures.flatMap((fixture) => parseApiFootballFixture(fixture) ?? []),
       coveredDateKeys: dateKeys,
       mergeWithExisting: true,
       sourceRequestCount: budget.used,

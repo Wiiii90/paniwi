@@ -10,6 +10,7 @@ import {
   filterWorldCupFixtures,
   getApiFootballRequestLimit,
   getApiFootballDateKeys,
+  parseApiFootballFixture,
   parseApiFootballEvents,
   shouldFetchFixtureEvents
 } from "../sync/sources/apiFootballSource";
@@ -97,6 +98,73 @@ const parsedMatches = buildMatches(
 assert.deepEqual(
   [parsedMatches[0].homeTeam.name, parsedMatches[0].homeTeam.score, parsedMatches[0].awayTeam.name, parsedMatches[0].awayTeam.score],
   ["Elfenbeinkueste", 1, "Ecuador", 0]
+);
+
+const fixtureGoal = { ...baseGoal, matchId: "api-football:fixture-with-goal", fixtureId: "fixture-with-goal" };
+const fixtureScoredGoals = scoreGoalsForTeams(teams, [fixtureGoal]);
+const fixtureBackedMatches = buildMatches(
+  [fixtureGoal],
+  fixtureScoredGoals,
+  [
+    {
+      source: "api-football",
+      matchId: "api-football:fixture-with-goal",
+      fixtureId: "fixture-with-goal",
+      label: "Sweden 5-1 Tunisia",
+      kickedOffAt: "2026-06-15T02:00:00+00:00",
+      status: "finished",
+      homeTeam: { name: "Sweden", score: 5 },
+      awayTeam: { name: "Tunisia", score: 1 }
+    },
+    {
+      source: "api-football",
+      matchId: "api-football:fixture-without-goals",
+      fixtureId: "fixture-without-goals",
+      label: "Spain 0-0 Cape Verde",
+      kickedOffAt: "2026-06-15T16:00:00+00:00",
+      status: "live",
+      homeTeam: { name: "Spain", score: 0 },
+      awayTeam: { name: "Cape Verde", score: 0 }
+    }
+  ]
+);
+assert.equal(fixtureBackedMatches.length, 2);
+assert.deepEqual(
+  fixtureBackedMatches.map((match) => [match.homeTeam.name, match.awayTeam.name, match.status, match.goals.length]),
+  [
+    ["Schweden", "Tunesien", "finished", 1],
+    ["Spanien", "Kap Verde", "live", 0]
+  ]
+);
+
+const dedupedFixtureMatches = buildMatches(
+  [],
+  [],
+  [
+    {
+      source: "wikipedia",
+      matchId: "wikipedia:sweden-tunisia",
+      label: "Sweden 5–1 Tunisia",
+      kickedOffAt: "2026-06-15T02:00:00.000Z",
+      status: "finished",
+      homeTeam: { name: "Sweden", score: 5 },
+      awayTeam: { name: "Tunisia", score: 1 }
+    },
+    {
+      source: "api-football",
+      matchId: "api-football:1539002",
+      fixtureId: "1539002",
+      label: "Sweden 5-1 Tunisia",
+      kickedOffAt: "2026-06-15T02:00:00+00:00",
+      status: "finished",
+      homeTeam: { name: "Sweden", score: 5 },
+      awayTeam: { name: "Tunisia", score: 1 }
+    }
+  ]
+);
+assert.deepEqual(
+  dedupedFixtureMatches.map((match) => match.matchId),
+  ["api-football:1539002"]
 );
 
 assert.deepEqual(buildLeaderboard(teams, [baseGoal]).map((entry) => [entry.rank, entry.owner, entry.points]), [
@@ -372,6 +440,26 @@ const worldCupFixtures = filterWorldCupFixtures(apiFootballFixtures);
 assert.equal(worldCupFixtures.length, 2);
 assert.equal(shouldFetchFixtureEvents(worldCupFixtures[0]), true);
 assert.equal(shouldFetchFixtureEvents(worldCupFixtures[1]), false);
+assert.deepEqual(parseApiFootballFixture(worldCupFixtures[0]), {
+  source: "api-football",
+  matchId: "api-football:1539002",
+  fixtureId: "1539002",
+  label: "Sweden 5-1 Tunisia",
+  kickedOffAt: "2026-06-15T02:00:00+00:00",
+  status: "finished",
+  homeTeam: { id: undefined, name: "Sweden", score: 5 },
+  awayTeam: { id: undefined, name: "Tunisia", score: 1 }
+});
+assert.deepEqual(parseApiFootballFixture(worldCupFixtures[1]), {
+  source: "api-football",
+  matchId: "api-football:1489377",
+  fixtureId: "1489377",
+  label: "Belgium vs Egypt",
+  kickedOffAt: "2026-06-15T19:00:00+00:00",
+  status: "scheduled",
+  homeTeam: { id: undefined, name: "Belgium", score: undefined },
+  awayTeam: { id: undefined, name: "Egypt", score: undefined }
+});
 
 const apiFootballFixtureGoals = parseApiFootballEvents(
   "1539002",

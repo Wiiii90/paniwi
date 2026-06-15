@@ -1,5 +1,5 @@
 import type { GoalSource, GoalSourceResult } from "./types";
-import type { ExternalGoalRecord, GoalDetail } from "../../domain/types";
+import type { ExternalGoalRecord, ExternalMatchRecord, GoalDetail, MatchStatus } from "../../domain/types";
 import { normalizePlayerName } from "../../domain/normalizePlayerName";
 import { parseKickoffUtc } from "../parseKickoffTime";
 
@@ -8,6 +8,10 @@ export type WikipediaMatchKickoff = {
   kickedOffAt: string;
   label: string;
   finished: boolean;
+  homeTeam: string;
+  awayTeam: string;
+  homeScore?: number;
+  awayScore?: number;
 };
 
 const defaultEndpoint = "https://en.wikipedia.org/w/api.php";
@@ -260,6 +264,7 @@ export function parseWikipediaMatchKickoffs(wikitext: string, pageTitle: string)
     const homeTeam = FIFA_COUNTRY_NAMES[homeCode] ?? homeCode;
     const awayTeam = FIFA_COUNTRY_NAMES[awayCode] ?? awayCode;
     const score = parseMatchScore(block);
+    const scoreParts = parseScoreParts(score);
     const label = buildMatchLabel(homeTeam, awayTeam, score);
     const id = `${normalizePlayerName(pageTitle)}:${normalizePlayerName(homeTeam)}-${normalizePlayerName(awayTeam)}:${kickedOffAt}`;
 
@@ -267,7 +272,10 @@ export function parseWikipediaMatchKickoffs(wikitext: string, pageTitle: string)
       id,
       kickedOffAt,
       label,
-      finished: Boolean(score && /–|-/.test(score))
+      finished: scoreParts.homeScore !== undefined && scoreParts.awayScore !== undefined,
+      homeTeam,
+      awayTeam,
+      ...scoreParts
     });
   }
 
@@ -287,6 +295,18 @@ function parseMatchScore(block: string): string | undefined {
 
   const plainScoreMatch = block.match(/\|score=([^\n|]+)/i);
   return plainScoreMatch ? stripWikiMarkup(plainScoreMatch[1]) : undefined;
+}
+
+function parseScoreParts(score: string | undefined): { homeScore?: number; awayScore?: number } {
+  const match = score?.replace(/[–—]/g, "-").match(/^(\d+)-(\d+)$/);
+  if (!match) {
+    return {};
+  }
+
+  return {
+    homeScore: Number(match[1]),
+    awayScore: Number(match[2])
+  };
 }
 
 function parseGoalLines(value: string): string[] {
@@ -327,6 +347,25 @@ function buildMatchLabel(homeTeam: string, awayTeam: string, score: string | und
   }
 
   return `${homeTeam} vs ${awayTeam}`;
+}
+
+function mapWikipediaKickoffToMatch(kickoff: WikipediaMatchKickoff): ExternalMatchRecord {
+  const status: MatchStatus = kickoff.finished ? "finished" : "scheduled";
+  return {
+    source: "wikipedia",
+    matchId: `wikipedia:${kickoff.id}`,
+    label: kickoff.label,
+    kickedOffAt: kickoff.kickedOffAt,
+    status,
+    homeTeam: {
+      name: kickoff.homeTeam,
+      score: kickoff.homeScore
+    },
+    awayTeam: {
+      name: kickoff.awayTeam,
+      score: kickoff.awayScore
+    }
+  };
 }
 
 export function parseWikipediaFootballBoxes(wikitext: string, pageTitle: string): ExternalGoalRecord[] {
@@ -608,12 +647,14 @@ export const wikipediaSource: GoalSource = {
       throw new Error(`Wikipedia page "${mainPageName}" could not be loaded.`);
     }
 
+    const groupPagesWithContent = fetchedPages.filter((page) => page.title !== mainPage.title);
     const goals = dedupeGoals([
       ...parseWikipediaGoalscorers(mainPage.wikitext, mainPage.title),
-      ...fetchedPages
-        .filter((page) => page.title !== mainPage.title)
-        .flatMap((page) => parseWikipediaFootballBoxes(page.wikitext, page.title))
+      ...groupPagesWithContent.flatMap((page) => parseWikipediaFootballBoxes(page.wikitext, page.title))
     ]);
+    const matches = groupPagesWithContent.flatMap((page) =>
+      parseWikipediaMatchKickoffs(page.wikitext, page.title).map(mapWikipediaKickoffToMatch)
+    );
 
     if (goals.length === 0) {
       throw new Error(`No goal records found on Wikipedia page "${mainPage.title}" or linked group pages.`);
@@ -622,7 +663,8 @@ export const wikipediaSource: GoalSource = {
     return {
       source: "wikipedia",
       fetchedAt: new Date().toISOString(),
-      goals
+      goals,
+      matches
     };
   }
 };

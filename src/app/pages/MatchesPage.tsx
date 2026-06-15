@@ -16,6 +16,22 @@ function formatKickoff(value: string | undefined): string {
   }).format(new Date(value));
 }
 
+function formatStatus(status: MatchRecord["status"]): string {
+  if (status === "finished") {
+    return "Beendet";
+  }
+
+  if (status === "live") {
+    return "Live";
+  }
+
+  if (status === "scheduled") {
+    return "Geplant";
+  }
+
+  return "Unklar";
+}
+
 export function MatchesPage({ matches }: MatchesPageProps) {
   return (
     <section className="page-stack">
@@ -35,7 +51,7 @@ export function MatchesPage({ matches }: MatchesPageProps) {
             <article className="match-card" key={match.matchId}>
               <div className="match-card-header">
                 <span>{formatKickoff(match.kickedOffAt)}</span>
-                <strong>{match.status === "finished" ? "Beendet" : match.status}</strong>
+                <strong>{formatStatus(match.status)}</strong>
               </div>
               <div className="match-scoreline">
                 <span>{match.homeTeam.name}</span>

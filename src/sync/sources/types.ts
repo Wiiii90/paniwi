@@ -1,9 +1,10 @@
-import type { ExternalGoalRecord, SourceName } from "../../domain/types";
+import type { ExternalGoalRecord, ExternalMatchRecord, SourceName } from "../../domain/types";
 
 export type GoalSourceResult = {
   source: SourceName;
   fetchedAt: string;
   goals: ExternalGoalRecord[];
+  matches?: ExternalMatchRecord[];
   mergeWithExisting?: boolean;
   coveredDateKeys?: string[];
   sourceRequestCount?: number;

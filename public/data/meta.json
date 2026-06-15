@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-15T20:53:02.007Z",
+  "lastUpdated": "2026-06-15T21:18:40.907Z",
   "source": "api-football",
   "attemptedSources": [
     "api-football"
@@ -11,7 +11,7 @@
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
+  "message": "Statische Daten aus vorhandenen Rohdaten neu berechnet.",
   "snapshotFingerprint": "985252462df7bc57a1c5688020128520be7c4bdad66c9c06cb7015aba6936a40",
   "snapshotChanged": true,
   "windowSyncAttempts": 1,

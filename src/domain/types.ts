@@ -51,6 +51,23 @@ export type ExternalGoalRecord = {
   detail?: GoalDetail;
 };
 
+export type ExternalMatchTeam = {
+  id?: number;
+  name: string;
+  score?: number;
+};
+
+export type ExternalMatchRecord = {
+  matchId: string;
+  fixtureId?: string;
+  source: SourceName;
+  label: string;
+  kickedOffAt?: string;
+  status: MatchStatus;
+  homeTeam: ExternalMatchTeam;
+  awayTeam: ExternalMatchTeam;
+};
+
 export type GoalRecord = Required<Pick<ExternalGoalRecord, "playerName" | "nationalTeam" | "source">> & {
   externalGoalId: string;
   goals: number;

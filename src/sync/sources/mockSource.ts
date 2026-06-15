@@ -6,6 +6,35 @@ export const mockSource: GoalSource = {
     return {
       source: "mock",
       fetchedAt: new Date().toISOString(),
+      matches: [
+        {
+          source: "mock",
+          matchId: "mock-france-canada",
+          label: "France 2-1 Canada",
+          kickedOffAt: "2026-06-12T19:00:00.000Z",
+          status: "finished",
+          homeTeam: { name: "France", score: 2 },
+          awayTeam: { name: "Canada", score: 1 }
+        },
+        {
+          source: "mock",
+          matchId: "mock-england-japan",
+          label: "England 3-0 Japan",
+          kickedOffAt: "2026-06-13T16:00:00.000Z",
+          status: "finished",
+          homeTeam: { name: "England", score: 3 },
+          awayTeam: { name: "Japan", score: 0 }
+        },
+        {
+          source: "mock",
+          matchId: "mock-spain-cape-verde",
+          label: "Spain vs Cape Verde",
+          kickedOffAt: "2026-06-15T16:00:00.000Z",
+          status: "scheduled",
+          homeTeam: { name: "Spain" },
+          awayTeam: { name: "Cape Verde" }
+        }
+      ],
       goals: [
         {
           externalGoalId: "mock-france-canada-28-mbappe",

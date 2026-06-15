@@ -24,7 +24,7 @@ function formatKickoff(value: string | undefined): string {
 
 function getLatestMatches(matches: MatchRecord[]): MatchRecord[] {
   return [...matches]
-    .filter((match) => match.homeTeam.score !== undefined && match.awayTeam.score !== undefined)
+    .filter((match) => match.status === "finished" && match.homeTeam.score !== undefined && match.awayTeam.score !== undefined)
     .sort((a, b) => {
       const aTime = a.kickedOffAt ? new Date(a.kickedOffAt).getTime() : 0;
       const bTime = b.kickedOffAt ? new Date(b.kickedOffAt).getTime() : 0;
@@ -33,11 +33,28 @@ function getLatestMatches(matches: MatchRecord[]): MatchRecord[] {
     .slice(0, 3);
 }
 
+function getTodayMatches(matches: MatchRecord[], now = new Date()): MatchRecord[] {
+  const todayKey = now.toISOString().slice(0, 10);
+  return [...matches]
+    .filter((match) => match.kickedOffAt?.slice(0, 10) === todayKey && match.status !== "finished")
+    .sort((a, b) => (a.kickedOffAt ?? "").localeCompare(b.kickedOffAt ?? ""))
+    .slice(0, 4);
+}
+
+function formatMatchScore(match: MatchRecord): string {
+  if (match.homeTeam.score === undefined || match.awayTeam.score === undefined) {
+    return match.status === "scheduled" ? "offen" : "-:-";
+  }
+
+  return `${match.homeTeam.score}:${match.awayTeam.score}`;
+}
+
 export function HomePage({ leaderboard, goals, scorers, matches, meta }: HomePageProps) {
   const baseUrl = import.meta.env.BASE_URL;
   const latestGoals = goals.slice(-3).reverse();
   const topScorers = scorers.slice(0, 5);
   const latestMatches = getLatestMatches(matches);
+  const todayMatches = getTodayMatches(matches);
   const leader = leaderboard[0];
 
   return (
@@ -112,12 +129,39 @@ export function HomePage({ leaderboard, goals, scorers, matches, meta }: HomePag
 
         <section className="summary-card">
           <div className="section-heading">
-            <h2>Letzte Spiele</h2>
+            <h2>Heute / Live</h2>
             <a className="text-link" href={`${baseUrl}matches`}>Spielplan</a>
           </div>
           <div className="mini-list">
+            {todayMatches.length === 0 ? (
+              <p className="empty-inline">Keine offenen Spiele heute.</p>
+            ) : (
+              todayMatches.map((match) => (
+                <a className="mini-row match-mini-row" href={`${baseUrl}matches`} key={match.matchId}>
+                  <span>
+                    <strong>
+                      {match.homeTeam.name} - {match.awayTeam.name}
+                    </strong>
+                    <small>
+                      {formatKickoff(match.kickedOffAt)}
+                      {match.pointGoals.length > 0 ? ` · ${match.pointGoals.length} Panini-Tore` : ""}
+                    </small>
+                  </span>
+                  <span>{formatMatchScore(match)}</span>
+                </a>
+              ))
+            )}
+          </div>
+        </section>
+
+        <section className="summary-card wide-summary-card">
+          <div className="section-heading">
+            <h2>Letzte Spiele</h2>
+            <a className="text-link" href={`${baseUrl}matches`}>Alle</a>
+          </div>
+          <div className="mini-list">
             {latestMatches.length === 0 ? (
-              <p className="empty-inline">Noch keine Spiele.</p>
+              <p className="empty-inline">Noch keine beendeten Spiele.</p>
             ) : (
               latestMatches.map((match) => (
                 <a className="mini-row match-mini-row" href={`${baseUrl}matches`} key={match.matchId}>
@@ -130,9 +174,7 @@ export function HomePage({ leaderboard, goals, scorers, matches, meta }: HomePag
                       {match.pointGoals.length > 0 ? ` · ${match.pointGoals.length} Panini-Tore` : ""}
                     </small>
                   </span>
-                  <span>
-                    {match.homeTeam.score ?? "-"}:{match.awayTeam.score ?? "-"}
-                  </span>
+                  <span>{formatMatchScore(match)}</span>
                 </a>
               ))
             )}
