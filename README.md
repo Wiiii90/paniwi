@@ -8,6 +8,8 @@ Statische MVP-Webapp fuer eine private WM-2026-Panini-Liga.
 npm install
 npm run sync:data
 npm test
+npm run test:domain
+npm run test:snapshots
 npm run dev
 npm run build
 npm run preview
@@ -79,6 +81,8 @@ Das Frontend ruft keine Sportdaten-API direkt auf. Das Sync-Script schreibt stat
 Aktuell nutzt `npm run sync:data` Mock-Daten. Echte Quellen koennen spaeter ueber die Adapter in `src/sync/sources` ergaenzt werden.
 
 Beim Sync wird `src/config/teams.ts` validiert. Erwartet werden eindeutige Owner, 10 bis 11 Spieler pro Team, Name und Nationalmannschaft pro Spieler sowie keine doppelten Spieler im selben Team.
+
+`npm run test:snapshots` berechnet Leaderboard und Trefferfeed aus `raw-goals.json` neu und prueft, ob die committed Snapshots konsistent sind.
 
 ## Scoring
 
