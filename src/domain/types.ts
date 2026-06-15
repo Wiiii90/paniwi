@@ -4,10 +4,14 @@ export type SourceName = "mock" | "api-football" | "wikipedia";
 
 export type GoalTimeConfidence = "exact" | "estimated" | "match-only" | "unknown";
 
+export type RosterStatus = "nominated" | "not-nominated" | "unknown";
+
 export type PlayerPick = {
   name: string;
   nationalTeam: string;
   position?: "goalkeeper" | "defender" | "midfielder" | "forward";
+  rosterStatus?: RosterStatus;
+  rosterNote?: string;
   apiPlayerId?: number;
   aliases?: string[];
 };
@@ -58,6 +62,9 @@ export type ScoredGoal = GoalRecord & {
 export type PlayerScore = {
   name: string;
   nationalTeam: string;
+  position?: PlayerPick["position"];
+  rosterStatus?: RosterStatus;
+  rosterNote?: string;
   goals: number;
   points: number;
 };

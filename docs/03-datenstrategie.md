@@ -75,3 +75,13 @@ Eigentore und Tore im Elfmeterschiessen bleiben im Rohdaten-Snapshot moeglich, g
 - `meta.json`: Quelle, Status und Sync-Qualitaet
 
 Die App liest keine Rohquelle direkt. Neue Quelladapter sollen weiter interne `GoalRecord`-Daten liefern; falls eine Quelle spaeter strukturierte Fixture-Daten anbietet, kann `matches.json` daraus direkter aufgebaut werden.
+
+## Teilnehmerstatus
+
+`src/config/teams.ts` kann pro Spieler `rosterStatus` enthalten:
+
+- `nominated`
+- `not-nominated`
+- `unknown`
+
+Der Status dient der UI und Datenqualitaet. Er soll nicht als harte Scoring-Bedingung verwendet werden, weil das echte Torereignis aus der Datenquelle staerker ist als eine manuell gepflegte Kader-Markierung. Fuer Performance ist ein Ausschluss nicht noetig; die Datenmenge bleibt klein.

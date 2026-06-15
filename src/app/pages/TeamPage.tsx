@@ -11,6 +11,25 @@ type TeamPageProps = {
   matches: MatchRecord[];
 };
 
+function formatRosterStatus(status: string | undefined): string {
+  if (status === "nominated") {
+    return "nominiert";
+  }
+
+  if (status === "not-nominated") {
+    return "nicht nominiert";
+  }
+
+  return "ungeprueft";
+}
+
+function formatPlayerMeta(player: { position?: string; rosterStatus?: string; rosterNote?: string }): string {
+  const parts = [player.position === "goalkeeper" ? "Torwart" : null, formatRosterStatus(player.rosterStatus), player.rosterNote].filter(
+    Boolean
+  );
+  return parts.join(" · ");
+}
+
 export function TeamPage({ owner, goals, matches }: TeamPageProps) {
   const baseUrl = import.meta.env.BASE_URL;
   const team = teams.find((candidate) => candidate.owner.toLowerCase() === owner.toLowerCase());
@@ -54,14 +73,16 @@ export function TeamPage({ owner, goals, matches }: TeamPageProps) {
         <div className="table-header player-grid">
           <span>Spieler</span>
           <span>Land</span>
-          <span>Tore</span>
-          <span>Punkte</span>
+          <span>Status</span>
+          <span>Pts</span>
         </div>
         {playerScores.map((player) => (
           <div className="player-grid player-row" key={player.name}>
             <strong>{player.name}</strong>
             <span>{player.nationalTeam}</span>
-            <span>{player.goals}</span>
+            <span className={player.rosterStatus === "not-nominated" ? "roster-miss" : "muted"}>
+              {formatPlayerMeta(player)}
+            </span>
             <span>{player.points}</span>
           </div>
         ))}

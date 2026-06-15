@@ -95,6 +95,14 @@ Beim Sync wird `src/config/teams.ts` validiert. Erwartet werden eindeutige Owner
 
 Fuer den MVP werden echte Teams einmalig in `src/config/teams.ts` gepflegt. Teams haben 10 oder 11 Spieler. Nur wer einen Torwart gezogen hat, darf 11 Spieler aufstellen; pro Team ist maximal ein Torwart erlaubt. Ein 10er-Team enthaelt keinen Torwart.
 
+Der Nominierungsstatus kann einmalig pro Spieler gepflegt werden:
+
+- `nominated`: im finalen WM-Kader
+- `not-nominated`: nicht im finalen WM-Kader
+- `unknown`: noch nicht geprueft
+
+Der Status ist eine Anzeige- und Qualitaetsinformation. Die Punktewertung bleibt ereignisbasiert: Wenn ein Spieler in den Tordaten als regulaerer Torschuetze auftaucht, zaehlt das Tor nach den Scoring-Regeln.
+
 Am besten lieferst du sie in diesem Format:
 
 ```text

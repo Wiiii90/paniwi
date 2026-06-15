@@ -6,7 +6,7 @@
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [
-      "Ben"
+      "Anne"
     ],
     "selected": true,
     "rank": 1
@@ -17,10 +17,8 @@
     "nationalTeam": "United States",
     "goals": 1,
     "penaltyGoals": 0,
-    "scoringOwners": [
-      "Anna"
-    ],
-    "selected": true,
+    "scoringOwners": [],
+    "selected": false,
     "rank": 1
   },
   {
@@ -29,10 +27,8 @@
     "nationalTeam": "England",
     "goals": 1,
     "penaltyGoals": 1,
-    "scoringOwners": [
-      "Ben"
-    ],
-    "selected": true,
+    "scoringOwners": [],
+    "selected": false,
     "rank": 1
   },
   {
@@ -41,10 +37,8 @@
     "nationalTeam": "Germany",
     "goals": 1,
     "penaltyGoals": 0,
-    "scoringOwners": [
-      "Anna"
-    ],
-    "selected": true,
+    "scoringOwners": [],
+    "selected": false,
     "rank": 1
   },
   {
@@ -53,10 +47,8 @@
     "nationalTeam": "France",
     "goals": 1,
     "penaltyGoals": 0,
-    "scoringOwners": [
-      "Anna"
-    ],
-    "selected": true,
+    "scoringOwners": [],
+    "selected": false,
     "rank": 1
   }
 ]

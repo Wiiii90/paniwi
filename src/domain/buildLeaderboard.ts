@@ -21,6 +21,9 @@ export function buildPlayerScores(team: ParticipantTeam, scoredGoals: ScoredGoal
     return {
       name: player.name,
       nationalTeam: player.nationalTeam,
+      position: player.position,
+      rosterStatus: player.rosterStatus,
+      rosterNote: player.rosterNote,
       goals: playerGoals.reduce((sum, goal) => sum + goal.goals, 0),
       points: playerGoals.reduce((sum, goal) => sum + goal.points, 0)
     };

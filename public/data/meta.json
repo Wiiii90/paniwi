@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-15T14:44:41.698Z",
+  "lastUpdated": "2026-06-15T14:53:48.322Z",
   "source": "mock",
   "attemptedSources": [
     "mock"
@@ -7,7 +7,7 @@
   "fallbackUsed": false,
   "status": "ok",
   "goalCount": 6,
-  "scoredGoalCount": 5,
+  "scoredGoalCount": 1,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
