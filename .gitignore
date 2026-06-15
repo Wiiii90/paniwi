@@ -3,5 +3,6 @@ dist/
 .vs/
 .env
 .env.*
+!.env.example
 npm-debug.log*
 vite-dev.log

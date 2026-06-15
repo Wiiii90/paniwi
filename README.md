@@ -69,6 +69,8 @@ Fuer Project Pages wird der Base-Pfad aus `GITHUB_REPOSITORY` abgeleitet. Bei Be
 
 Wenn alle Datenquellen fehlschlagen, schreibt der Sync nur `public/data/meta.json` mit `status: "error"`. Die bestehenden Leaderboard- und Goal-Snapshots bleiben erhalten.
 
+Weitere Betriebsdetails stehen in `docs/04-betrieb.md`. Eine Vorlage fuer lokale Umgebungsvariablen liegt in `.env.example`.
+
 ## Datenfluss
 
 Das Frontend ruft keine Sportdaten-API direkt auf. Das Sync-Script schreibt statische JSON-Dateien nach `public/data`.
