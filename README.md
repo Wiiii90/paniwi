@@ -60,6 +60,8 @@ Das Frontend ruft keine Sportdaten-API direkt auf. Das Sync-Script schreibt stat
 
 Aktuell nutzt `npm run sync:data` Mock-Daten. Echte Quellen koennen spaeter ueber die Adapter in `src/sync/sources` ergaenzt werden.
 
+Beim Sync wird `src/config/teams.ts` validiert. Erwartet werden eindeutige Owner, 10 bis 11 Spieler pro Team, Name und Nationalmannschaft pro Spieler sowie keine doppelten Spieler im selben Team.
+
 ## Scoring
 
 - Normale Tore: 1 Punkt

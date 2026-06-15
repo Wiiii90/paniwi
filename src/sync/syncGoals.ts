@@ -5,6 +5,7 @@ import type { GoalSource } from "./sources/types";
 import { teams } from "../config/teams";
 import { normalizeGoals } from "./normalizeGoals";
 import { validateGoals } from "./validateGoals";
+import { formatTeamValidationIssues, validateTeams } from "./validateTeams";
 import { writeStaticData } from "./writeStaticData";
 import { getSourcesFromEnv } from "./sources/sourceSelection";
 
@@ -35,6 +36,11 @@ async function fetchFromFirstWorkingSource(sources: GoalSource[]): Promise<Worki
 }
 
 export async function syncGoals(): Promise<void> {
+  const teamValidation = validateTeams(teams);
+  if (!teamValidation.valid) {
+    throw new Error(`Invalid team configuration: ${formatTeamValidationIssues(teamValidation.issues)}`);
+  }
+
   const sources = getSourcesFromEnv();
   const { result, attemptedSources, sourceErrors } = await fetchFromFirstWorkingSource(sources);
   const normalizedGoals = normalizeGoals(result.goals);

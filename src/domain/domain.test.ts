@@ -8,6 +8,7 @@ import { normalizeGoals } from "../sync/normalizeGoals";
 import { getSourcesForMode, parseSyncSourceMode } from "../sync/sources/sourceSelection";
 import { parseWikipediaGoalscorers } from "../sync/sources/wikipediaSource";
 import { validateGoals } from "../sync/validateGoals";
+import { formatTeamValidationIssues, validateTeams } from "../sync/validateTeams";
 
 const teams: ParticipantTeam[] = [
   {
@@ -152,5 +153,34 @@ assert.deepEqual(
     ["Own Goal Test", 1, "own-goal", "unknown"]
   ]
 );
+
+assert.deepEqual(validateTeams(teams), { valid: false, issues: [{ owner: "Anna", reason: "invalid-team-size" }, { owner: "Ben", reason: "invalid-team-size" }] });
+
+const validTeam = {
+  owner: "Valid",
+  players: Array.from({ length: 10 }, (_, index) => ({
+    name: `Player ${index + 1}`,
+    nationalTeam: "Germany"
+  }))
+};
+assert.equal(validateTeams([validTeam]).valid, true);
+
+const invalidTeams = validateTeams([
+  validTeam,
+  { ...validTeam, owner: "valid" },
+  {
+    owner: "Broken",
+    players: [
+      { name: "", nationalTeam: "Germany" },
+      { name: "Player 1", nationalTeam: "" },
+      { name: "Player 1", nationalTeam: "Germany" }
+    ]
+  }
+]);
+assert.equal(invalidTeams.valid, false);
+assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("duplicate-owner"), true);
+assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("missing-player-name"), true);
+assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("missing-national-team"), true);
+assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("duplicate-player-in-team"), true);
 
 console.log("Domain tests passed.");
