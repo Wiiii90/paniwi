@@ -33,11 +33,47 @@ Wichtige Variablen:
 
 `ci.yml` prueft Pull Requests und Pushes ohne Deploy oder Snapshot-Commit. Er nutzt bewusst `SYNC_SOURCE=mock`.
 
-`sync-data.yml` aktualisiert `public/data/*.json`, prueft Tests und Build und committet nur geaenderte Snapshots. Dazu gehoeren Rangliste, Punkte-Tore, Roh-Tore, Torschuetzenliste, Spiele und Meta-Daten. Der Workflow nutzt standardmaessig:
+`sync-data.yml` aktualisiert `public/data/*.json` nur in definierten Turnier-Fenstern, prueft Tests und Build und committet nur geaenderte Snapshots. Der Workflow nutzt standardmaessig:
 
 ```text
-SYNC_SOURCE=auto
+SYNC_SOURCE=wikipedia
 ```
+
+### Sync-Rhythmus
+
+Der automatische Sync ist bewusst sparsam:
+
+- nur zwischen 11. Juni und 19. Juli 2026
+- nur an Spieltagen laut `src/sync/syncSchedule.ts`
+- hoechstens zwei Zeitfenster pro Spieltag: 05:30 UTC und 22:30 UTC
+- pro Fenster hoechstens zwei Versuche, wenn sich der Snapshot nicht aendert
+- mindestens 120 Minuten Abstand zwischen erfolgreichen Syncs im selben Fenster
+
+Der Workflow ruft `npm run sync:scheduled` auf. Dieses Script prueft den Spielplan und ueberspringt API-Aufrufe ausserhalb der Fenster komplett.
+
+Manuell jederzeit moeglich:
+
+```text
+workflow_dispatch mit force_sync=true
+```
+
+Lokal:
+
+```powershell
+$env:SYNC_FORCE="true"
+$env:SYNC_SOURCE="wikipedia"
+npm run sync:scheduled
+```
+
+### Wikipedia / API-Etikette
+
+Der Wikipedia-Adapter nutzt ausschliesslich die offizielle MediaWiki-API (`action=query`), keine HTML-Scraping-Requests. Pro Sync werden die Turnier- und Gruppenseiten in wenigen Batch-Requests geladen.
+
+Wichtig:
+
+- beschreibender `User-Agent` mit Repo und Kontakt
+- kein Retry-Spam bei HTTP 429; stattdessen im naechsten Fenster erneut versuchen
+- `WIKIPEDIA_MAX_ATTEMPTS=1` als Default
 
 Fuer API-Football in Actions muss mindestens dieses Repository Secret existieren:
 

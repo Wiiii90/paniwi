@@ -1,4 +1,5 @@
 import { pathToFileURL } from "node:url";
+import { readFile } from "node:fs/promises";
 import { buildLeaderboard, scoreGoalsForTeams } from "../domain/buildLeaderboard";
 import { buildMatches } from "../domain/buildMatches";
 import { buildScorers } from "../domain/buildScorers";
@@ -7,10 +8,15 @@ import type { SourceName, StaticMeta } from "../domain/types";
 import type { GoalSource } from "./sources/types";
 import { teams } from "../config/teams";
 import { normalizeGoals } from "./normalizeGoals";
+import { buildSnapshotFingerprint } from "./snapshotFingerprint";
 import { validateGoals } from "./validateGoals";
 import { formatTeamValidationIssues, validateTeams } from "./validateTeams";
 import { writeStaticData, writeStaticMeta } from "./writeStaticData";
 import { getSourcesFromEnv } from "./sources/sourceSelection";
+
+type SyncGoalsOptions = {
+  syncWindowId?: string;
+};
 
 type WorkingSourceResult = {
   result: Awaited<ReturnType<GoalSource["fetchGoals"]>>;
@@ -64,7 +70,55 @@ async function fetchFromFirstWorkingSource(sources: GoalSource[]): Promise<Worki
   throw new SourceFetchError(attemptedSources, errors);
 }
 
-export async function syncGoals(sources: GoalSource[] = getSourcesFromEnv()): Promise<void> {
+async function readExistingMeta(): Promise<StaticMeta | null> {
+  try {
+    return JSON.parse(await readFile("public/data/meta.json", "utf8")) as StaticMeta;
+  } catch {
+    return null;
+  }
+}
+
+function buildSyncMeta(
+  result: WorkingSourceResult["result"],
+  attemptedSources: SourceName[],
+  sourceErrors: string[],
+  goals: ReturnType<typeof validateGoals>["validGoals"],
+  scoredGoals: ReturnType<typeof scoreGoalsForTeams>,
+  skippedGoals: ReturnType<typeof validateGoals>["skippedGoals"],
+  previousMeta: StaticMeta | null,
+  options: SyncGoalsOptions
+): StaticMeta {
+  const duplicateGoalCount = skippedGoals.filter((item) => item.reason === "duplicate-goal").length;
+  const snapshotFingerprint = buildSnapshotFingerprint(goals);
+  const snapshotChanged = previousMeta?.snapshotFingerprint !== snapshotFingerprint;
+  const sameWindow = Boolean(options.syncWindowId && previousMeta?.syncWindowId === options.syncWindowId);
+  const windowSyncAttempts = !sameWindow || snapshotChanged ? 1 : (previousMeta?.windowSyncAttempts ?? 0) + 1;
+
+  return {
+    lastUpdated: result.fetchedAt,
+    source: result.source,
+    attemptedSources,
+    fallbackUsed: attemptedSources.length > 1,
+    status: "ok",
+    goalCount: goals.length,
+    scoredGoalCount: scoredGoals.length,
+    skippedGoalCount: skippedGoals.length,
+    duplicateGoalCount,
+    sourceErrors,
+    message: snapshotChanged
+      ? `Daten-Snapshot mit Quelle ${result.source} erzeugt.`
+      : `Daten-Snapshot unveraendert (${result.source}).`,
+    snapshotFingerprint,
+    snapshotChanged,
+    syncWindowId: options.syncWindowId,
+    windowSyncAttempts
+  };
+}
+
+export async function syncGoals(
+  sources: GoalSource[] = getSourcesFromEnv(),
+  options: SyncGoalsOptions = {}
+): Promise<void> {
   const teamValidation = validateTeams(teams);
   if (!teamValidation.valid) {
     throw new Error(`Invalid team configuration: ${formatTeamValidationIssues(teamValidation.issues)}`);
@@ -83,13 +137,13 @@ export async function syncGoals(sources: GoalSource[] = getSourcesFromEnv()): Pr
   }
 
   const { result, attemptedSources, sourceErrors } = workingSource;
+  const previousMeta = await readExistingMeta();
   const normalizedGoals = normalizeGoals(result.goals);
   const { validGoals: goals, skippedGoals } = validateGoals(normalizedGoals);
   const scoredGoals = sortGoalsChronologically(scoreGoalsForTeams(teams, goals));
   const leaderboard = buildLeaderboard(teams, goals);
   const scorers = buildScorers(goals, teams);
   const matches = buildMatches(goals, scoredGoals);
-  const duplicateGoalCount = skippedGoals.filter((item) => item.reason === "duplicate-goal").length;
 
   await writeStaticData({
     leaderboard,
@@ -97,19 +151,7 @@ export async function syncGoals(sources: GoalSource[] = getSourcesFromEnv()): Pr
     rawGoals: goals,
     scorers,
     matches,
-    meta: {
-      lastUpdated: result.fetchedAt,
-      source: result.source,
-      attemptedSources,
-      fallbackUsed: attemptedSources.length > 1,
-      status: "ok",
-      goalCount: goals.length,
-      scoredGoalCount: scoredGoals.length,
-      skippedGoalCount: skippedGoals.length,
-      duplicateGoalCount,
-      sourceErrors,
-      message: `Daten-Snapshot mit Quelle ${result.source} erzeugt.`
-    }
+    meta: buildSyncMeta(result, attemptedSources, sourceErrors, goals, scoredGoals, skippedGoals, previousMeta, options)
   });
 }
 

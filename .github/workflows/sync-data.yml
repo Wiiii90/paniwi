@@ -2,13 +2,21 @@ name: Sync Data
 
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    # Tournament only: 05:30 UTC after late US games, 22:30 UTC after evening games.
+    - cron: "30 5 11-30 6 *"
+    - cron: "30 22 11-30 6 *"
+    - cron: "30 5 1-19 7 *"
+    - cron: "30 22 1-19 7 *"
   workflow_dispatch:
     inputs:
       sync_source:
         description: "Source mode for this run: auto, mock, wikipedia, or api-football"
         required: false
-        default: "auto"
+        default: "wikipedia"
+      force_sync:
+        description: "Skip schedule gate and sync immediately"
+        required: false
+        default: "false"
 
 permissions:
   contents: write
@@ -21,7 +29,8 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     env:
-      SYNC_SOURCE: ${{ github.event.inputs.sync_source || 'auto' }}
+      SYNC_SOURCE: ${{ github.event.inputs.sync_source || 'wikipedia' }}
+      SYNC_FORCE: ${{ github.event.inputs.force_sync || 'false' }}
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
       API_FOOTBALL_FIXTURE_IDS: ${{ vars.API_FOOTBALL_FIXTURE_IDS }}
       API_FOOTBALL_BASE_URL: ${{ vars.API_FOOTBALL_BASE_URL }}
@@ -29,6 +38,7 @@ jobs:
       WIKIPEDIA_GOALS_PAGE: ${{ vars.WIKIPEDIA_GOALS_PAGE }}
       WIKIPEDIA_API_ENDPOINT: ${{ vars.WIKIPEDIA_API_ENDPOINT }}
       WIKIPEDIA_TIMEOUT_MS: ${{ vars.WIKIPEDIA_TIMEOUT_MS }}
+      WIKIPEDIA_USER_AGENT: wm-2026-panini-liga/0.1 (https://github.com/Wiiii90/paniwi; private hobby project; contact: wilhelmaltemeier@gmail.com)
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
@@ -37,7 +47,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
-      - run: npm run sync:data
+      - run: npm run sync:scheduled
       - run: npm run build
       - name: Commit data snapshot
         uses: stefanzweifel/git-auto-commit-action@v5

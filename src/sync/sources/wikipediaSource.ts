@@ -358,8 +358,11 @@ async function fetchWikipediaPages(
 ): Promise<Array<{ title: string; wikitext: string }>> {
   const endpoint = env.WIKIPEDIA_API_ENDPOINT ?? defaultEndpoint;
   const timeoutMs = Number(env.WIKIPEDIA_TIMEOUT_MS ?? 15_000);
-  const maxAttempts = Number(env.WIKIPEDIA_MAX_ATTEMPTS ?? 3);
+  const maxAttempts = Number(env.WIKIPEDIA_MAX_ATTEMPTS ?? 1);
   const batchSize = Number(env.WIKIPEDIA_BATCH_SIZE ?? 12);
+  const userAgent =
+    env.WIKIPEDIA_USER_AGENT ??
+    "wm-2026-panini-liga/0.1 (https://github.com/Wiiii90/paniwi; private hobby project; contact: wilhelmaltemeier@gmail.com)";
   const results: Array<{ title: string; wikitext: string }> = [];
 
   for (let offset = 0; offset < pages.length; offset += batchSize) {
@@ -382,13 +385,12 @@ async function fetchWikipediaPages(
         const response = await fetch(url, {
           signal: controller.signal,
           headers: {
-            "user-agent": "wm-2026-panini-liga/0.1 (private static sync script)"
+            "user-agent": userAgent
           }
         });
 
-        if (response.status === 429 && attempt < maxAttempts) {
-          await new Promise((resolve) => setTimeout(resolve, attempt * 2000));
-          continue;
+        if (response.status === 429) {
+          throw new Error("Wikipedia API returned HTTP 429 (rate limited). Try again in the next sync window.");
         }
 
         if (!response.ok) {

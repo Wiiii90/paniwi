@@ -119,4 +119,8 @@ export type StaticMeta = {
   duplicateGoalCount?: number;
   sourceErrors?: string[];
   message?: string;
+  snapshotFingerprint?: string;
+  snapshotChanged?: boolean;
+  syncWindowId?: string;
+  windowSyncAttempts?: number;
 };

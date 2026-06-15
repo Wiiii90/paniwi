@@ -8,7 +8,9 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "sync:data": "tsx src/sync/syncGoals.ts",
-    "test": "npm run test:domain && npm run test:snapshots",
+    "sync:scheduled": "tsx src/sync/runScheduledSync.ts",
+    "test": "npm run test:domain && npm run test:snapshots && npm run test:schedule",
+    "test:schedule": "tsx src/sync/syncSchedule.test.ts",
     "test:domain": "tsx src/domain/domain.test.ts",
     "test:snapshots": "tsx src/sync/staticData.test.ts"
   },
