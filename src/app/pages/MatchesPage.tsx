@@ -53,7 +53,7 @@ export function MatchesPage({ matches }: MatchesPageProps) {
                 <span>{formatKickoff(match.kickedOffAt)}</span>
                 <strong>{formatStatus(match.status)}</strong>
               </div>
-              <div className="match-scoreline">
+              <div className={`match-scoreline match-scoreline-${match.status}`}>
                 <span>{match.homeTeam.name}</span>
                 <strong>
                   {match.homeTeam.score ?? "-"}:{match.awayTeam.score ?? "-"}

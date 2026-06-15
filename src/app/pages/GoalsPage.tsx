@@ -9,6 +9,9 @@ type GoalsPageProps = {
 };
 
 export function GoalsPage({ goals, scorers, meta }: GoalsPageProps) {
+  const scorerGoalCount = scorers.reduce((sum, scorer) => sum + scorer.goals, 0);
+  const totalGoalCount = meta.goalCount ?? scorerGoalCount;
+
   return (
     <section className="page-stack">
       <div className="hero-band">
@@ -16,7 +19,7 @@ export function GoalsPage({ goals, scorers, meta }: GoalsPageProps) {
           <p className="eyebrow">Trefferfeed</p>
           <h1>Tore und Torschuetzen</h1>
         </div>
-        <strong>{scorers.reduce((sum, scorer) => sum + scorer.goals, 0)} WM-Tore</strong>
+        <strong>{totalGoalCount} Treffer</strong>
       </div>
 
       <h2>Torschuetzenliste</h2>

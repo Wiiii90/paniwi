@@ -455,8 +455,23 @@ h2 {
 }
 
 .match-scoreline strong {
-  color: #d72638;
   font-size: 1.25rem;
+}
+
+.match-scoreline-finished strong {
+  color: #0f766e;
+}
+
+.match-scoreline-live strong {
+  color: #d72638;
+}
+
+.match-scoreline-scheduled strong {
+  color: #64748b;
+}
+
+.match-scoreline-unknown strong {
+  color: #b45309;
 }
 
 .match-goals {
