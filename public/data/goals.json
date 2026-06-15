@@ -62,21 +62,5 @@
     "owner": "Willi",
     "pickedPlayerName": "Felix Nmecha",
     "points": 1
-  },
-  {
-    "externalGoalId": "wikipedia:2026 fifa world cup group f:sweden-tunisia:2026-06-15T02:00:00.000Z:alexander isak:30:normal",
-    "playerName": "Alexander Isak",
-    "nationalTeam": "Sweden",
-    "goals": 1,
-    "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group f:sweden-tunisia:2026-06-15T02:00:00.000Z",
-    "matchLabel": "Sweden 5–1 Tunisia",
-    "kickedOffAt": "2026-06-15T02:00:00.000Z",
-    "minute": 30,
-    "timeConfidence": "estimated",
-    "detail": "normal",
-    "owner": "Jonas",
-    "pickedPlayerName": "Alexander Isak",
-    "points": 1
   }
 ]

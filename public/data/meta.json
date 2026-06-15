@@ -1,18 +1,18 @@
 {
-  "lastUpdated": "2026-06-15T17:33:33.662Z",
-  "source": "wikipedia",
+  "lastUpdated": "2026-06-15T19:08:48.781Z",
+  "source": "api-football",
   "attemptedSources": [
-    "wikipedia"
+    "api-football"
   ],
   "fallbackUsed": false,
   "status": "ok",
   "goalCount": 38,
-  "scoredGoalCount": 5,
+  "scoredGoalCount": 4,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot mit Quelle wikipedia erzeugt.",
-  "snapshotFingerprint": "85221b588ec3f7c71cc5d5b7c5a0622bad822ad12f0980b80e4737c0ed29c9c1",
+  "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
+  "snapshotFingerprint": "83a3a4660dbdf6338f752d2041e89c4bd5e42573f8e11906a61480d3935cd414",
   "snapshotChanged": true,
   "windowSyncAttempts": 1
 }

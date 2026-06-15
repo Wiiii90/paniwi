@@ -20,8 +20,8 @@
     "rank": 1
   },
   {
-    "playerName": "Yasin Ayari",
-    "normalizedPlayerName": "yasin ayari",
+    "playerName": "Y. Ayari",
+    "normalizedPlayerName": "y ayari",
     "nationalTeam": "Sweden",
     "goals": 2,
     "penaltyGoals": 0,
@@ -30,15 +30,13 @@
     "rank": 1
   },
   {
-    "playerName": "Alexander Isak",
-    "normalizedPlayerName": "alexander isak",
+    "playerName": "A. Isak",
+    "normalizedPlayerName": "a isak",
     "nationalTeam": "Sweden",
     "goals": 1,
     "penaltyGoals": 0,
-    "scoringOwners": [
-      "Jonas"
-    ],
-    "selected": true,
+    "scoringOwners": [],
+    "selected": false,
     "rank": 4
   },
   {
@@ -225,8 +223,8 @@
     "rank": 4
   },
   {
-    "playerName": "Mattias Svanberg",
-    "normalizedPlayerName": "mattias svanberg",
+    "playerName": "M. Svanberg",
+    "normalizedPlayerName": "m svanberg",
     "nationalTeam": "Sweden",
     "goals": 1,
     "penaltyGoals": 0,
@@ -277,9 +275,9 @@
     "rank": 4
   },
   {
-    "playerName": "Oh Hyeon-gyu",
-    "normalizedPlayerName": "oh hyeon gyu",
-    "nationalTeam": "South Korea",
+    "playerName": "O. Rekik",
+    "normalizedPlayerName": "o rekik",
+    "nationalTeam": "Tunisia",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],
@@ -287,9 +285,9 @@
     "rank": 4
   },
   {
-    "playerName": "Omar Rekik",
-    "normalizedPlayerName": "omar rekik",
-    "nationalTeam": "Tunisia",
+    "playerName": "Oh Hyeon-gyu",
+    "normalizedPlayerName": "oh hyeon gyu",
+    "nationalTeam": "South Korea",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],
@@ -307,8 +305,8 @@
     "rank": 4
   },
   {
-    "playerName": "Viktor Gyökeres",
-    "normalizedPlayerName": "viktor gyokeres",
+    "playerName": "V. Gyokeres",
+    "normalizedPlayerName": "v gyokeres",
     "nationalTeam": "Sweden",
     "goals": 1,
     "penaltyGoals": 0,
