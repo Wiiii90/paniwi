@@ -426,21 +426,6 @@
   },
   {
     "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group f:sweden-tunisia:2026-06-15T02:00:00.000Z",
-    "label": "Sweden 5–1 Tunisia",
-    "kickedOffAt": "2026-06-15T02:00:00.000Z",
-    "status": "finished",
-    "homeTeam": {
-      "name": "Sweden",
-      "score": 5
-    },
-    "awayTeam": {
-      "name": "Tunisia",
-      "score": 1
-    }
-  },
-  {
-    "source": "wikipedia",
     "matchId": "wikipedia:2026 fifa world cup group f:netherlands-sweden:2026-06-20T17:00:00.000Z",
     "label": "Netherlands Match 35 Sweden",
     "kickedOffAt": "2026-06-20T17:00:00.000Z",
@@ -489,21 +474,6 @@
     },
     "awayTeam": {
       "name": "Netherlands"
-    }
-  },
-  {
-    "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group g:belgium-egypt:2026-06-15T19:00:00.000Z",
-    "label": "Belgium 1–1 Egypt",
-    "kickedOffAt": "2026-06-15T19:00:00.000Z",
-    "status": "finished",
-    "homeTeam": {
-      "name": "Belgium",
-      "score": 1
-    },
-    "awayTeam": {
-      "name": "Egypt",
-      "score": 1
     }
   },
   {
@@ -569,34 +539,6 @@
     },
     "awayTeam": {
       "name": "Belgium"
-    }
-  },
-  {
-    "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group h:spain-cape verde:2026-06-15T16:00:00.000Z",
-    "label": "Spain 0–0 Cape Verde",
-    "kickedOffAt": "2026-06-15T16:00:00.000Z",
-    "status": "finished",
-    "homeTeam": {
-      "name": "Spain",
-      "score": 0
-    },
-    "awayTeam": {
-      "name": "Cape Verde",
-      "score": 0
-    }
-  },
-  {
-    "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group h:ksa-uruguay:2026-06-15T22:00:00.000Z",
-    "label": "KSA Match 13 Uruguay",
-    "kickedOffAt": "2026-06-15T22:00:00.000Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "name": "KSA"
-    },
-    "awayTeam": {
-      "name": "Uruguay"
     }
   },
   {
@@ -961,6 +903,78 @@
     },
     "awayTeam": {
       "name": "GHA"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1539002",
+    "fixtureId": "1539002",
+    "label": "Sweden 5-1 Tunisia",
+    "kickedOffAt": "2026-06-15T02:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 5,
+      "name": "Sweden",
+      "score": 5
+    },
+    "awayTeam": {
+      "id": 28,
+      "name": "Tunisia",
+      "score": 1
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489380",
+    "fixtureId": "1489380",
+    "label": "Spain 0-0 Cape Verde Islands",
+    "kickedOffAt": "2026-06-15T16:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 9,
+      "name": "Spain",
+      "score": 0
+    },
+    "awayTeam": {
+      "id": 1533,
+      "name": "Cape Verde Islands",
+      "score": 0
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489377",
+    "fixtureId": "1489377",
+    "label": "Belgium 1-1 Egypt",
+    "kickedOffAt": "2026-06-15T19:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 1,
+      "name": "Belgium",
+      "score": 1
+    },
+    "awayTeam": {
+      "id": 32,
+      "name": "Egypt",
+      "score": 1
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489379",
+    "fixtureId": "1489379",
+    "label": "Saudi Arabia 1-0 Uruguay",
+    "kickedOffAt": "2026-06-15T22:00:00+00:00",
+    "status": "live",
+    "homeTeam": {
+      "id": 23,
+      "name": "Saudi Arabia",
+      "score": 1
+    },
+    "awayTeam": {
+      "id": 7,
+      "name": "Uruguay",
+      "score": 0
     }
   }
 ]
