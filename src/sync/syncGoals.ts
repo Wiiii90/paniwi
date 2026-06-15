@@ -1,12 +1,13 @@
+import { pathToFileURL } from "node:url";
 import { buildLeaderboard, scoreGoalsForTeams } from "../domain/buildLeaderboard";
 import { sortGoalsChronologically } from "../domain/sortGoals";
-import type { SourceName } from "../domain/types";
+import type { SourceName, StaticMeta } from "../domain/types";
 import type { GoalSource } from "./sources/types";
 import { teams } from "../config/teams";
 import { normalizeGoals } from "./normalizeGoals";
 import { validateGoals } from "./validateGoals";
 import { formatTeamValidationIssues, validateTeams } from "./validateTeams";
-import { writeStaticData } from "./writeStaticData";
+import { writeStaticData, writeStaticMeta } from "./writeStaticData";
 import { getSourcesFromEnv } from "./sources/sourceSelection";
 
 type WorkingSourceResult = {
@@ -14,6 +15,32 @@ type WorkingSourceResult = {
   attemptedSources: SourceName[];
   sourceErrors: string[];
 };
+
+class SourceFetchError extends Error {
+  constructor(
+    readonly attemptedSources: SourceName[],
+    readonly sourceErrors: string[]
+  ) {
+    super(sourceErrors.join("; "));
+    this.name = "SourceFetchError";
+  }
+}
+
+export function buildSourceErrorMeta(
+  attemptedSources: SourceName[],
+  sourceErrors: string[],
+  now: Date = new Date()
+): StaticMeta {
+  return {
+    lastUpdated: now.toISOString(),
+    source: attemptedSources[0] ?? "mock",
+    attemptedSources,
+    fallbackUsed: attemptedSources.length > 1,
+    status: "error",
+    sourceErrors,
+    message: "Alle Datenquellen sind fehlgeschlagen. Bestehende Snapshot-Dateien wurden nicht ueberschrieben."
+  };
+}
 
 async function fetchFromFirstWorkingSource(sources: GoalSource[]): Promise<WorkingSourceResult> {
   const errors: string[] = [];
@@ -32,17 +59,28 @@ async function fetchFromFirstWorkingSource(sources: GoalSource[]): Promise<Worki
     }
   }
 
-  throw new Error(errors.join("; "));
+  throw new SourceFetchError(attemptedSources, errors);
 }
 
-export async function syncGoals(): Promise<void> {
+export async function syncGoals(sources: GoalSource[] = getSourcesFromEnv()): Promise<void> {
   const teamValidation = validateTeams(teams);
   if (!teamValidation.valid) {
     throw new Error(`Invalid team configuration: ${formatTeamValidationIssues(teamValidation.issues)}`);
   }
 
-  const sources = getSourcesFromEnv();
-  const { result, attemptedSources, sourceErrors } = await fetchFromFirstWorkingSource(sources);
+  let workingSource: WorkingSourceResult;
+  try {
+    workingSource = await fetchFromFirstWorkingSource(sources);
+  } catch (error) {
+    if (error instanceof SourceFetchError) {
+      await writeStaticMeta(buildSourceErrorMeta(error.attemptedSources, error.sourceErrors));
+      return;
+    }
+
+    throw error;
+  }
+
+  const { result, attemptedSources, sourceErrors } = workingSource;
   const normalizedGoals = normalizeGoals(result.goals);
   const { validGoals: goals, skippedGoals } = validateGoals(normalizedGoals);
   const scoredGoals = sortGoalsChronologically(scoreGoalsForTeams(teams, goals));
@@ -69,7 +107,9 @@ export async function syncGoals(): Promise<void> {
   });
 }
 
-syncGoals().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  syncGoals().catch((error) => {
+    console.error(error);
+    process.exitCode = 1;
+  });
+}

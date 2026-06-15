@@ -7,6 +7,7 @@ import type { GoalRecord, ParticipantTeam } from "./types";
 import { normalizeGoals } from "../sync/normalizeGoals";
 import { getSourcesForMode, parseSyncSourceMode } from "../sync/sources/sourceSelection";
 import { parseWikipediaGoalscorers } from "../sync/sources/wikipediaSource";
+import { buildSourceErrorMeta } from "../sync/syncGoals";
 import { validateGoals } from "../sync/validateGoals";
 import { formatTeamValidationIssues, validateTeams } from "../sync/validateTeams";
 
@@ -182,5 +183,22 @@ assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("duplicate
 assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("missing-player-name"), true);
 assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("missing-national-team"), true);
 assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("duplicate-player-in-team"), true);
+
+assert.deepEqual(
+  buildSourceErrorMeta(
+    ["api-football", "wikipedia"],
+    ["api-football: missing key", "wikipedia: no records"],
+    new Date("2026-06-15T12:00:00.000Z")
+  ),
+  {
+    lastUpdated: "2026-06-15T12:00:00.000Z",
+    source: "api-football",
+    attemptedSources: ["api-football", "wikipedia"],
+    fallbackUsed: true,
+    status: "error",
+    sourceErrors: ["api-football: missing key", "wikipedia: no records"],
+    message: "Alle Datenquellen sind fehlgeschlagen. Bestehende Snapshot-Dateien wurden nicht ueberschrieben."
+  }
+);
 
 console.log("Domain tests passed.");

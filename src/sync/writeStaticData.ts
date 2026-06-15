@@ -23,3 +23,7 @@ export async function writeStaticData(payload: StaticPayload): Promise<void> {
     writeJson("public/data/raw-goals.json", payload.rawGoals)
   ]);
 }
+
+export async function writeStaticMeta(meta: StaticMeta): Promise<void> {
+  await writeJson("public/data/meta.json", meta);
+}

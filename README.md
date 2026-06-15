@@ -49,6 +49,8 @@ Die Ports sind bewusst weit weg von ueblichen Defaults wie `3000`, `5173`, `5174
 
 Fuer Project Pages wird der Base-Pfad aus `GITHUB_REPOSITORY` abgeleitet. Bei Bedarf kann er im Workflow mit `GITHUB_PAGES_BASE` ueberschrieben werden.
 
+Wenn alle Datenquellen fehlschlagen, schreibt der Sync nur `public/data/meta.json` mit `status: "error"`. Die bestehenden Leaderboard- und Goal-Snapshots bleiben erhalten.
+
 ## Datenfluss
 
 Das Frontend ruft keine Sportdaten-API direkt auf. Das Sync-Script schreibt statische JSON-Dateien nach `public/data`.
