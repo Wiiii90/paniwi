@@ -1,7 +1,7 @@
 import type { ExternalGoalRecord, ExternalMatchRecord, GoalDetail, MatchStatus } from "../../domain/types";
 import type { GoalSource, GoalSourceResult } from "./types";
 
-export type ApiFootballEvent = {
+type ApiFootballEvent = {
   time?: {
     elapsed?: number;
     extra?: number | null;
@@ -18,7 +18,7 @@ export type ApiFootballEvent = {
   detail?: string;
 };
 
-export type ApiFootballFixture = {
+type ApiFootballFixture = {
   fixture?: {
     id?: number;
     date?: string;
@@ -67,12 +67,12 @@ const liveFixtureStatuses = new Set(["1H", "HT", "2H", "ET", "BT", "P", "SUSP", 
 const finishedFixtureStatuses = new Set(["FT", "AET", "PEN"]);
 const scheduledFixtureStatuses = new Set(["NS", "TBD"]);
 
-export type ApiFootballRequestBudget = {
+type ApiFootballRequestBudget = {
   limit: number;
   used: number;
 };
 
-export function parseCommaSeparated(value: string | undefined): string[] {
+function parseCommaSeparated(value: string | undefined): string[] {
   if (!value) {
     return [];
   }
@@ -102,7 +102,7 @@ export function getApiFootballRequestLimit(env: NodeJS.ProcessEnv = process.env)
   return limit;
 }
 
-export function createRequestBudget(env: NodeJS.ProcessEnv = process.env): ApiFootballRequestBudget {
+function createRequestBudget(env: NodeJS.ProcessEnv = process.env): ApiFootballRequestBudget {
   return {
     limit: getApiFootballRequestLimit(env),
     used: 0
@@ -203,7 +203,7 @@ function hasApiErrors(errors: unknown): boolean {
   return Boolean(errors);
 }
 
-export function getFixtureId(fixture: ApiFootballFixture): string | null {
+function getFixtureId(fixture: ApiFootballFixture): string | null {
   const fixtureId = fixture.fixture?.id;
   return typeof fixtureId === "number" ? String(fixtureId) : null;
 }
@@ -324,7 +324,7 @@ export function parseApiFootballEvents(
   });
 }
 
-export async function fetchApiFootball<T>(
+async function fetchApiFootball<T>(
   path: string,
   params: Record<string, string>,
   env: NodeJS.ProcessEnv = process.env,

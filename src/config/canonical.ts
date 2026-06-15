@@ -384,7 +384,7 @@ export const canonicalPlayers = [
     "playerId": "scotland-billy-gilmour",
     "displayName": "Billy Gilmour",
     "teamId": "scotland",
-    "rosterStatus": "nominated"
+    "rosterStatus": "not-nominated"
   },
   {
     "playerId": "france-bradley-barcola",

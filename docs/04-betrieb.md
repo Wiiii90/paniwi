@@ -23,6 +23,7 @@ Wichtige Variablen:
 
 - `SYNC_SOURCE`: `mock`, `auto`, `wikipedia` oder `api-football`
 - `WIKIPEDIA_GOALS_PAGE`: Wikipedia-Seite fuer den Wikitext-Prototyp
+- `WIKIPEDIA_ROSTERS_PAGE`: Wikipedia-Seite fuer den manuellen Kader-Snapshot
 - `API_FOOTBALL_KEY`: API-Football-Key
 - `API_FOOTBALL_DATES`: optionale kommagetrennte API-Football-Tage
 - `API_FOOTBALL_DATE_FROM` / `API_FOOTBALL_DATE_TO`: optionales API-Football-Backfill-Fenster
@@ -36,7 +37,9 @@ Wichtige Variablen:
 
 `ci.yml` prueft Pull Requests und Pushes ohne Deploy oder Snapshot-Commit. Er nutzt bewusst `SYNC_SOURCE=mock`.
 
-`sync-data.yml` aktualisiert `public/data/*.json` nur in definierten Turnier-Fenstern, prueft Tests und Build und committet nur geaenderte Snapshots.
+`sync-data.yml` aktualisiert `public/data/*.json` nur in definierten Turnier-Fenstern, prueft Tests und Build und committet nur geaenderte Snapshots. Wenn sich Daten aendern, deployed dieser Workflow Pages direkt mit, weil Daten-Commits aus `GITHUB_TOKEN` keinen separaten Push-Deploy zuverlaessig ausloesen.
+
+`sync-rosters.yml` aktualisiert manuell `public/data/rosters.json` per MediaWiki-Kaderseite. Dieser Snapshot ist ein Review-Artefakt fuer `rosterStatus` und laeuft getrennt vom Tore-Sync.
 
 **Aktuell:** `SYNC_SOURCE=auto` (api-football -> wikipedia -> mock). Details: `docs/03-datenstrategie.md`
 
@@ -112,6 +115,7 @@ API_FOOTBALL_BASE_URL
 API_FOOTBALL_TIMEOUT_MS
 API_FOOTBALL_MAX_REQUESTS
 WIKIPEDIA_GOALS_PAGE
+WIKIPEDIA_ROSTERS_PAGE
 WIKIPEDIA_API_ENDPOINT
 WIKIPEDIA_TIMEOUT_MS
 ```

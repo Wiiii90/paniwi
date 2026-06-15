@@ -149,50 +149,26 @@ npm run sync:data
 
 `API_FOOTBALL_FIXTURE_IDS` ist nur fuer gezielte Debug-/Backfill-Faelle gedacht. Gesetzte Fixture-IDs ergaenzen den normalen Datums-Fetch und ersetzen ihn nicht.
 
-### Einmaliger API-Football-Kaderkatalog
+### Einmaliger Wikipedia-/MediaWiki-Kaderabgleich
 
-`fixtures/events` enthaelt `player.id` und `player.name`, aber nur fuer Spieler, die in einem konkreten Spiel ein Event hatten. Das ist perfekt fuer Tore und spaetere ID-Matches, aber nicht vollstaendig genug fuer die Frage: "Ist dieser Panini-Spieler im WM-Kader?"
+API-Football bleibt fuer Fixtures und Torereignisse zustaendig. Vollstaendige WM-Kader werden nicht aus API-Football abgeleitet, weil Free-Plan-Endpunkte fuer komplette Saison-/Team-Kataloge blockiert sein koennen und Fixture-Events nur Spieler zeigen, die bereits ein Spielereignis hatten.
 
-Dafuer gibt es ein separates Einmal-Script:
-
-```powershell
-$env:API_FOOTBALL_KEY="dein_key"
-$env:API_FOOTBALL_MAX_REQUESTS="90"
-npm run sync:api-catalog
-```
-
-Das Script nutzt zuerst `GET /teams?league=1&season=2026`, um alle WM-Teams unabhaengig von bereits gespielten Partien zu bekommen. Danach ruft es pro Team `/players/squads?team=...` ab.
-
-Wenn der Teams-Endpunkt im Free-Plan blockiert ist, darf das Script nicht automatisch ueber Fixtures gehen: Fixtures sind unvollstaendig, solange nicht alle Teams gespielt haben, und historische Datumsfenster koennen im Free-Plan ebenfalls blockiert sein. Dann gibt es zwei bewusste Optionen:
-
-1. Explizite API-Football-Team-IDs setzen:
+Fuer den Kaderstatus gibt es deshalb einen separaten MediaWiki-Snapshot:
 
 ```powershell
-$env:API_FOOTBALL_CATALOG_TEAM_IDS="1:Belgium,9:Spain"
-npm run sync:api-catalog
+npm run sync:rosters
 ```
 
-Die Namen nach dem Doppelpunkt sind optional; wenn `/players/squads` den Teamnamen liefert, wird dieser zurueck in den Katalog geschrieben.
+Das Script liest per offizieller MediaWiki-API die Seite `2026 FIFA World Cup squads`, parst Kader-Templates/Tabellen und schreibt:
 
-2. Fixture-Fallback nur fuer Debugging erlauben:
+- `public/data/rosters.json`
+- alle gefundenen Kaderteams und Spieler
+- Audit-Vorschlaege gegen unsere Panini-Picks
+- `nominated`, `not-nominated` oder `unknown`, falls ein Team nicht im Snapshot gefunden wurde
 
-```powershell
-$env:API_FOOTBALL_CATALOG_ALLOW_FIXTURE_FALLBACK="true"
-$env:API_FOOTBALL_CATALOG_DATE_FROM="2026-06-11"
-$env:API_FOOTBALL_CATALOG_DATE_TO="2026-06-15"
-npm run sync:api-catalog
-```
+Der Abgleich ist absichtlich streng: kanonischer Name plus Alias-Liste, normalisiert ueber `normalizePlayerName`. Keine fuzzy Treffer. Wenn ein echter Spieler nicht matcht, bekommt er einen Alias in `src/config/canonical.ts` statt Sonderlogik im Parser.
 
-Dieser Fallback ist kein vollstaendiger Kaderimport, sondern nur eine Notloesung zum Entdecken einzelner Team-IDs.
-
-Ergebnis:
-
-- `public/data/api-football-catalog.json`
-- enthaltene Squad-Spieler mit API-Football-Spieler-ID
-- Audit-Vorschlaege fuer fehlende `apiFootballPlayerId`
-- Audit-Vorschlaege fuer auffaellige `rosterStatus`-Eintraege
-
-Dieser Katalog ist ein Review-Artefakt. Er soll nicht blind `src/config/canonical.ts` ueberschreiben; wir uebernehmen daraus bewusst die IDs und Status-Korrekturen, die plausibel sind.
+`sync-rosters.yml` ist vorerst ein manueller Workflow. Er kann spaeter gescheduled werden, ist aber nicht Teil des laufenden Tore-Syncs.
 
 ## Event-Modell
 
@@ -245,6 +221,7 @@ Eigentore und Tore im Elfmeterschiessen bleiben im Rohdaten-Snapshot moeglich, g
 - `raw-goals.json`: alle validen normalisierten Treffer aus der Quelle
 - `scorers.json`: Gesamt-Torschuetzenliste, ohne Eigentore und Elfmeterschiessen
 - `matches.json`: Spiele mit Treffern, Scoreline und betroffenen Panini-Teams
+- `rosters.json`: manueller Kader-Snapshot mit Audit gegen Panini-Picks
 - `meta.json`: Quelle, Status und Sync-Qualitaet
 
 Die App liest keine Rohquelle direkt. Neue Quelladapter sollen weiter interne `GoalRecord`-Daten liefern; falls eine Quelle spaeter strukturierte Fixture-Daten anbietet, kann `matches.json` daraus direkter aufgebaut werden.
