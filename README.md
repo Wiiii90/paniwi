@@ -34,6 +34,22 @@ $env:WIKIPEDIA_GOALS_PAGE="2026 FIFA World Cup"
 npm run sync:data
 ```
 
+Der API-Football-Adapter liest Fixture-Events. Dafuer werden ein API-Key und konkrete Fixture-IDs benoetigt:
+
+```powershell
+$env:SYNC_SOURCE="api-football"
+$env:API_FOOTBALL_KEY="..."
+$env:API_FOOTBALL_FIXTURE_IDS="12345,67890"
+npm run sync:data
+```
+
+Optional:
+
+```powershell
+$env:API_FOOTBALL_BASE_URL="https://v3.football.api-sports.io"
+$env:API_FOOTBALL_TIMEOUT_MS="10000"
+```
+
 ## Lokale Ports
 
 - Dev: `http://127.0.0.1:49153`

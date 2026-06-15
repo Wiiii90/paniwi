@@ -19,6 +19,7 @@ Die App arbeitet mit statischen Snapshots. Das Frontend ruft keine externen Spor
    - spaetere Primaerquelle, falls Free Plan und WM-2026-Abdeckung reichen
    - besser fuer strukturierte Match-Events
    - braucht API-Key und Rate-Limit-Handling
+   - der Adapter liest Fixture-Events fuer konfigurierte `API_FOOTBALL_FIXTURE_IDS`
 
 ## Event-Modell
 

@@ -5,6 +5,7 @@ import { getGoalPoints, matchesPlayer } from "./scoring";
 import { sortGoalsChronologically } from "./sortGoals";
 import type { GoalRecord, ParticipantTeam } from "./types";
 import { normalizeGoals } from "../sync/normalizeGoals";
+import { parseApiFootballEvents } from "../sync/sources/apiFootballSource";
 import { getSourcesForMode, parseSyncSourceMode } from "../sync/sources/sourceSelection";
 import { parseWikipediaGoalscorers } from "../sync/sources/wikipediaSource";
 import { buildSourceErrorMeta } from "../sync/syncGoals";
@@ -154,6 +155,47 @@ assert.deepEqual(
     ["Own Goal Test", 1, "own-goal", "unknown"]
   ]
 );
+
+const apiFootballGoals = parseApiFootballEvents("12345", [
+  {
+    time: { elapsed: 12 },
+    team: { id: 1, name: "France" },
+    player: { id: 278, name: "Kylian Mbappé" },
+    type: "Goal",
+    detail: "Normal Goal"
+  },
+  {
+    time: { elapsed: 30 },
+    team: { id: 2, name: "England" },
+    player: { id: 10, name: "Harry Kane" },
+    type: "Goal",
+    detail: "Penalty"
+  },
+  {
+    time: { elapsed: 77, extra: 2 },
+    team: { id: 3, name: "Brazil" },
+    player: { id: 99, name: "Own Goal Test" },
+    type: "Goal",
+    detail: "Own Goal"
+  },
+  {
+    team: { name: "France" },
+    player: { name: "Ignored Assist" },
+    type: "subst",
+    detail: "Substitution 1"
+  }
+]);
+
+assert.deepEqual(
+  apiFootballGoals.map((goal) => [goal.playerName, goal.nationalTeam, goal.minute, goal.detail, goal.timeConfidence]),
+  [
+    ["Kylian Mbappé", "France", 12, "normal", "match-only"],
+    ["Harry Kane", "England", 30, "penalty", "match-only"],
+    ["Own Goal Test", "Brazil", 77, "own-goal", "match-only"]
+  ]
+);
+assert.equal(apiFootballGoals[0].fixtureId, "12345");
+assert.equal(apiFootballGoals[0].apiPlayerId, 278);
 
 assert.deepEqual(validateTeams(teams), { valid: false, issues: [{ owner: "Anna", reason: "invalid-team-size" }, { owner: "Ben", reason: "invalid-team-size" }] });
 
