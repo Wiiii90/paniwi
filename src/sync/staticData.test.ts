@@ -6,6 +6,8 @@ import { buildScorers } from "../domain/buildScorers";
 import { sortGoalsChronologically } from "../domain/sortGoals";
 import type { GoalRecord, LeaderboardEntry, MatchRecord, ScoredGoal, ScorerEntry, StaticMeta } from "../domain/types";
 import { teams } from "../config/teams";
+import { getCanonicalPlayer, getCanonicalTeam } from "../domain/canonicalResolver";
+import { validateCanonicalData } from "./validateCanonicalData";
 import { validateGoals } from "./validateGoals";
 import { validateTeams } from "./validateTeams";
 
@@ -22,6 +24,7 @@ const [leaderboard, goals, rawGoals, scorers, matches, meta] = await Promise.all
   readJson<StaticMeta>("public/data/meta.json")
 ]);
 
+assert.equal(validateCanonicalData().valid, true);
 assert.equal(validateTeams(teams).valid, true);
 
 const goalValidation = validateGoals(rawGoals);
@@ -43,6 +46,25 @@ const owners = new Set(teams.map((team) => team.owner));
 for (const goal of goals) {
   assert.equal(owners.has(goal.owner), true, `Unknown owner in scored goal: ${goal.owner}`);
   assert.equal(goal.points > 0, true, `Scored goal has no points: ${goal.externalGoalId}`);
+  assert.equal(Boolean(goal.playerId), true, `Scored goal has no canonical playerId: ${goal.externalGoalId}`);
+  assert.equal(Boolean(goal.teamId), true, `Scored goal has no canonical teamId: ${goal.externalGoalId}`);
+  assert.equal(Boolean(goal.displayPlayerName), true, `Scored goal has no display player name: ${goal.externalGoalId}`);
+  assert.equal(Boolean(goal.displayNationalTeam), true, `Scored goal has no display national team: ${goal.externalGoalId}`);
+
+  const player = getCanonicalPlayer(goal.playerId);
+  const team = getCanonicalTeam(goal.teamId);
+  assert.equal(Boolean(player), true, `Scored goal points to unknown canonical player: ${goal.playerId}`);
+  assert.equal(Boolean(team), true, `Scored goal points to unknown canonical team: ${goal.teamId}`);
+  assert.equal(goal.displayPlayerName, player?.displayName);
+  assert.equal(goal.displayNationalTeam, team?.displayName);
+}
+
+for (const goal of rawGoals) {
+  if (goal.playerId) {
+    const player = getCanonicalPlayer(goal.playerId);
+    assert.equal(Boolean(player), true, `Raw goal points to unknown canonical player: ${goal.playerId}`);
+    assert.equal(goal.teamId, player?.teamId);
+  }
 }
 
 console.log("Static data tests passed.");

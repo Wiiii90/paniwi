@@ -80,17 +80,17 @@ Jeder Teilnehmer besitzt:
 
 
 
-Das System muss pro ausgewähltem Spieler mindestens folgende Informationen speichern können:
+Das System muss pro ausgewähltem Spieler eine stabile kanonische Spieler-ID speichern können. Die fachlichen Spielerdaten liegen zentral in einem kuratierten Modell.
 
 
 
-\* Anzeigename
+\* Teilnehmerteams speichern `playerId`
 
-\* Nationalmannschaft
+\* kanonische Spieler speichern Anzeigename, Nationalmannschaft/Team-ID, Kaderstatus und optionale Position
 
-\* optionale API-Spieler-ID
+\* kanonische Spieler können optionale Quellen-IDs enthalten, z. B. API-Football-Spieler-ID
 
-\* optionale Aliasnamen zur besseren Zuordnung
+\* kanonische Spieler und Teams können optionale Aliasnamen zur Quellen-Zuordnung enthalten
 
 
 
@@ -102,21 +102,39 @@ Beispiel:
 
 {
 
-&#x20; "owner": "Max",
-
-&#x20; "players": \[
+&#x20; "canonicalPlayers": \[
 
 &#x20;   {
 
-&#x20;     "name": "Kylian Mbappé",
+&#x20;     "playerId": "france-kylian-mbappe",
 
-&#x20;     "team": "France",
+&#x20;     "displayName": "Kylian Mbappé",
 
-&#x20;     "apiPlayerId": 278,
+&#x20;     "teamId": "france",
+
+&#x20;     "apiFootballPlayerId": 278,
 
 &#x20;     "aliases": \["K. Mbappé", "Mbappe"]
 
 &#x20;   }
+
+&#x20; ]
+
+}
+
+```
+
+Teilnehmerteams referenzieren danach nur noch die IDs:
+
+```json
+
+{
+
+&#x20; "owner": "Max",
+
+&#x20; "players": \[
+
+&#x20;   { "playerId": "france-kylian-mbappe" }
 
 &#x20; ]
 
@@ -160,6 +178,10 @@ Ein normalisiertes Torereignis enthält mindestens:
 
 
 
+\* kanonische Spieler-ID, falls der Treffer einem kuratierten Spieler zugeordnet werden kann
+
+\* kanonische Team-ID, falls zugeordnet
+
 \* Spielername
 
 \* Nationalmannschaft
@@ -175,6 +197,8 @@ Ein normalisiertes Torereignis enthält mindestens:
 \* Datenquelle
 
 \* Zeitpunkt des letzten Datenabrufs
+
+\* Rohquellen-Spielername und Rohquellen-Teamname, falls diese von der kanonischen Anzeige abweichen
 
 
 
@@ -433,6 +457,5 @@ Nicht Bestandteil des MVP:
 
 
 Der MVP gilt als erfolgreich, wenn alle Teilnehmer per Link ein mobiles Leaderboard öffnen können und sich die Punkte während der WM automatisch aktualisieren, sobald neue Torschützendaten verfügbar sind.
-
 
 

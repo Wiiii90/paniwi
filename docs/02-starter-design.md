@@ -136,6 +136,8 @@ wm-paniniliga/
 
 │  ├─ config/
 
+│  │  ├─ canonical.ts
+
 │  │  └─ teams.ts
 
 │  └─ sync/
@@ -188,11 +190,29 @@ wm-paniniliga/
 
 
 
-Die Teilnehmerteams werden initial statisch gepflegt.
+Die Teilnehmerteams werden initial statisch gepflegt und referenzieren nur kanonische Spieler-IDs. Das kuratierte Spieler- und Teammodell liegt separat in `src/config/canonical.ts`.
 
 
 
 ```ts
+
+export const canonicalPlayers = \[
+
+&#x20; {
+
+&#x20;   playerId: "france-kylian-mbappe",
+
+&#x20;   displayName: "Kylian Mbappé",
+
+&#x20;   teamId: "france",
+
+&#x20;   apiFootballPlayerId: 278,
+
+&#x20;   aliases: \["K. Mbappé", "Mbappe"]
+
+&#x20; }
+
+];
 
 export const teams = \[
 
@@ -202,17 +222,7 @@ export const teams = \[
 
 &#x20;   players: \[
 
-&#x20;     {
-
-&#x20;       name: "Kylian Mbappé",
-
-&#x20;       team: "France",
-
-&#x20;       apiPlayerId: 278,
-
-&#x20;       aliases: \["K. Mbappé", "Mbappe"]
-
-&#x20;     }
+&#x20;     { playerId: "france-kylian-mbappe" }
 
 &#x20;   ]
 
@@ -250,9 +260,17 @@ Das Script normalisiert die Daten in ein internes Format.
 
 export type GoalRecord = {
 
+&#x20; playerId?: string;
+
+&#x20; teamId?: string;
+
 &#x20; playerName: string;
 
-&#x20; teamName: string;
+&#x20; nationalTeam: string;
+
+&#x20; sourcePlayerName?: string;
+
+&#x20; sourceTeamName?: string;
 
 &#x20; goals: number;
 
@@ -274,7 +292,7 @@ export type GoalRecord = {
 
 
 
-Die Scoring Engine gleicht die normalisierten Torschützen mit den ausgewählten Spielern ab.
+Die Scoring Engine gleicht normalisierte Torschützen mit den ausgewählten `playerId`s ab. Quellenadapter liefern Rohdaten; der Resolver ordnet sie dem kuratierten Modell zu.
 
 
 
@@ -282,13 +300,13 @@ Matching-Reihenfolge:
 
 
 
-1\. API-Spieler-ID
+1\. Quellen-ID, wenn vorhanden und im kanonischen Modell gepflegt
 
-2\. exakter Name
+2\. exakter kanonischer Name innerhalb der erkannten Nationalmannschaft
 
-3\. Aliasname
+3\. explizit gepflegter Alias innerhalb der erkannten Nationalmannschaft
 
-4\. normalisierter Name ohne Akzente und Sonderzeichen
+4\. kein automatisches fuzzy Matching ohne Pflege im kanonischen Modell
 
 
 
