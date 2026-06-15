@@ -74,6 +74,11 @@ function parseCommaSeparated(value: string | undefined): string[] {
     .filter(Boolean);
 }
 
+function getOptionalEnvValue(value: string | undefined): string | undefined {
+  const normalized = value?.trim();
+  return normalized ? normalized : undefined;
+}
+
 function formatDateKey(date: Date): string {
   return date.toISOString().slice(0, 10);
 }
@@ -238,8 +243,8 @@ async function fetchApiFootball<T>(
     throw new Error("API_FOOTBALL_KEY is not set.");
   }
 
-  const baseUrl = env.API_FOOTBALL_BASE_URL ?? defaultBaseUrl;
-  const timeoutMs = Number(env.API_FOOTBALL_TIMEOUT_MS ?? 10_000);
+  const baseUrl = getOptionalEnvValue(env.API_FOOTBALL_BASE_URL) ?? defaultBaseUrl;
+  const timeoutMs = Number(getOptionalEnvValue(env.API_FOOTBALL_TIMEOUT_MS) ?? 10_000);
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), timeoutMs);
   const url = new URL(path, baseUrl);

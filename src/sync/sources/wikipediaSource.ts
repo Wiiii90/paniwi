@@ -13,6 +13,11 @@ export type WikipediaMatchKickoff = {
 const defaultEndpoint = "https://en.wikipedia.org/w/api.php";
 const defaultPage = "2026 FIFA World Cup";
 
+function getOptionalEnvValue(value: string | undefined): string | undefined {
+  const normalized = value?.trim();
+  return normalized ? normalized : undefined;
+}
+
 const FIFA_COUNTRY_NAMES: Record<string, string> = {
   ALG: "Algeria",
   ARG: "Argentina",
@@ -504,12 +509,12 @@ async function fetchWikipediaPages(
   pages: string[],
   env: NodeJS.ProcessEnv = process.env
 ): Promise<Array<{ title: string; wikitext: string }>> {
-  const endpoint = env.WIKIPEDIA_API_ENDPOINT ?? defaultEndpoint;
-  const timeoutMs = Number(env.WIKIPEDIA_TIMEOUT_MS ?? 15_000);
-  const maxAttempts = Number(env.WIKIPEDIA_MAX_ATTEMPTS ?? 1);
-  const batchSize = Number(env.WIKIPEDIA_BATCH_SIZE ?? 12);
+  const endpoint = getOptionalEnvValue(env.WIKIPEDIA_API_ENDPOINT) ?? defaultEndpoint;
+  const timeoutMs = Number(getOptionalEnvValue(env.WIKIPEDIA_TIMEOUT_MS) ?? 15_000);
+  const maxAttempts = Number(getOptionalEnvValue(env.WIKIPEDIA_MAX_ATTEMPTS) ?? 1);
+  const batchSize = Number(getOptionalEnvValue(env.WIKIPEDIA_BATCH_SIZE) ?? 12);
   const userAgent =
-    env.WIKIPEDIA_USER_AGENT ??
+    getOptionalEnvValue(env.WIKIPEDIA_USER_AGENT) ??
     "wm-2026-panini-liga/0.1 (https://github.com/Wiiii90/paniwi; private hobby project; contact: wilhelmaltemeier@gmail.com)";
   const results: Array<{ title: string; wikitext: string }> = [];
 
@@ -581,7 +586,7 @@ function getConfiguredGroupPages(env: NodeJS.ProcessEnv, mainPageTitle: string, 
   }
 
   const discovered = discoverWikipediaGroupPages(tournamentWikitext);
-  const tournamentPage = env.WIKIPEDIA_GOALS_PAGE ?? defaultPage;
+  const tournamentPage = getOptionalEnvValue(env.WIKIPEDIA_GOALS_PAGE) ?? defaultPage;
   if (/2026 FIFA World Cup/i.test(mainPageTitle) || /2026 FIFA World Cup/i.test(tournamentPage)) {
     return [...new Set([...DEFAULT_2026_GROUP_PAGES, ...discovered])].sort();
   }
@@ -593,7 +598,7 @@ export const wikipediaSource: GoalSource = {
   name: "wikipedia",
   async fetchGoals(): Promise<GoalSourceResult> {
     const env = process.env;
-    const mainPageName = env.WIKIPEDIA_GOALS_PAGE ?? defaultPage;
+    const mainPageName = getOptionalEnvValue(env.WIKIPEDIA_GOALS_PAGE) ?? defaultPage;
     const groupPages = getConfiguredGroupPages(env, mainPageName, "");
     const pagesToFetch = [...new Set([mainPageName, ...groupPages])];
     const fetchedPages = await fetchWikipediaPages(pagesToFetch, env);
