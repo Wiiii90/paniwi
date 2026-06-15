@@ -4,6 +4,23 @@ Stand: erste Transkription aus Bildern und `more.txt`.
 
 Bitte pruefen: Schreibweise, Nationalmannschaft, ob 10 oder 11 Spieler gewollt sind, und ob nicht nominierte Spieler ersetzt werden sollen.
 
+## Kadercheck
+
+Quelle: Wikipedia-Liste `2026 FIFA World Cup squads`, die laut Artikel auf den von FIFA am 2. Juni 2026 veroeffentlichten offiziellen Squadlisten basiert. Abgleich am 15. Juni 2026.
+
+Ergebnis in `src/config/teams.ts`:
+
+- 110 Picks: `nominated`
+- 8 Picks: `not-nominated`
+- 0 Picks: `unknown`
+
+Nicht nominierte Eintraege:
+
+- Rafael: Alexis Guendouz, Trent Alexander-Arnold, Youssef En-Nesyri
+- Felix: Youcef Atal
+- Peer: Alejandro Garnacho, Sayfallah Ltaief
+- Marco: Alejandro Garnacho, Sayfallah Ltaief
+
 ## Nina
 
 - Morgan Rogers, England
