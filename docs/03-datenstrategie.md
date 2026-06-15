@@ -12,11 +12,10 @@ Die App arbeitet mit statischen Snapshots. Das Frontend ruft keine externen Spor
 
 **Aktuell in Production** (`sync-data.yml`):
 
-- `SYNC_SOURCE=wikipedia` (direkt, nicht `auto`)
-- Grund: Wikipedia-Adapter ist fuer WM 2026 Gruppenspiele ausgebaut; API-Football braucht noch Key und erfolgreichen Tageslauf in Actions
-- Modus `auto` ist im Code fertig: `api-football` → `wikipedia` → `mock`
-
-**Ziel-Migration:** `SYNC_SOURCE=auto` in GitHub Actions, sobald `API_FOOTBALL_KEY` gesetzt und ein Tageslauf erfolgreich getestet ist. Wikipedia bleibt dann automatischer Fallback.
+- `SYNC_SOURCE=auto`
+- `api-football` ist Primaerquelle, wenn der geplante Sync in einem Post-Match-Fenster laeuft
+- Wikipedia bleibt automatischer Fallback
+- ausserhalb der Sync-Fenster wird kein neuer Datenabruf gemacht; dann bleibt der bestehende Snapshot unveraendert
 
 ## Quellen
 
@@ -149,6 +148,29 @@ npm run sync:data
 - API-Call-Budget ist im Adapter und Meta-Snapshot umgesetzt (`sourceRequestCount` / `sourceRequestLimit`)
 
 `API_FOOTBALL_FIXTURE_IDS` ist nur fuer gezielte Debug-/Backfill-Faelle gedacht. Gesetzte Fixture-IDs ergaenzen den normalen Datums-Fetch und ersetzen ihn nicht.
+
+### Einmaliger API-Football-Kaderkatalog
+
+`fixtures/events` enthaelt `player.id` und `player.name`, aber nur fuer Spieler, die in einem konkreten Spiel ein Event hatten. Das ist perfekt fuer Tore und spaetere ID-Matches, aber nicht vollstaendig genug fuer die Frage: "Ist dieser Panini-Spieler im WM-Kader?"
+
+Dafuer gibt es ein separates Einmal-Script:
+
+```powershell
+$env:API_FOOTBALL_KEY="dein_key"
+$env:API_FOOTBALL_CATALOG_DATE_FROM="2026-06-11"
+$env:API_FOOTBALL_CATALOG_DATE_TO="2026-06-30"
+$env:API_FOOTBALL_MAX_REQUESTS="90"
+npm run sync:api-catalog
+```
+
+Das Script ruft Tagesfixtures ab, sammelt daraus die WM-Team-IDs und versucht dann pro Team `/players/squads?team=...`. Ergebnis:
+
+- `public/data/api-football-catalog.json`
+- enthaltene Squad-Spieler mit API-Football-Spieler-ID
+- Audit-Vorschlaege fuer fehlende `apiFootballPlayerId`
+- Audit-Vorschlaege fuer auffaellige `rosterStatus`-Eintraege
+
+Dieser Katalog ist ein Review-Artefakt. Er soll nicht blind `src/config/canonical.ts` ueberschreiben; wir uebernehmen daraus bewusst die IDs und Status-Korrekturen, die plausibel sind.
 
 ## Event-Modell
 
