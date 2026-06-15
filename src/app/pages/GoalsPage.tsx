@@ -1,7 +1,9 @@
-import type { ScoredGoal } from "../../domain/types";
+import type { ScoredGoal, StaticMeta } from "../../domain/types";
+import { SyncSummary } from "../components/SyncSummary";
 
 type GoalsPageProps = {
   goals: ScoredGoal[];
+  meta: StaticMeta;
 };
 
 function formatTimeConfidence(confidence: ScoredGoal["timeConfidence"]): string {
@@ -20,7 +22,7 @@ function formatTimeConfidence(confidence: ScoredGoal["timeConfidence"]): string 
   return "Zeit offen";
 }
 
-export function GoalsPage({ goals }: GoalsPageProps) {
+export function GoalsPage({ goals, meta }: GoalsPageProps) {
   return (
     <section className="page-stack">
       <div className="hero-band">
@@ -32,20 +34,26 @@ export function GoalsPage({ goals }: GoalsPageProps) {
       </div>
 
       <div className="feed-list">
-        {goals.map((goal) => (
-          <article className="feed-item" key={`${goal.owner}-${goal.pickedPlayerName}-${goal.scoredAt}-${goal.minute}`}>
-            <div className="feed-topline">
-              <strong>{goal.pickedPlayerName}</strong>
-              <span>{goal.points} Pkt.</span>
-            </div>
-            <span>{goal.owner} · {goal.nationalTeam}</span>
-            <span>{goal.matchLabel ?? "Spiel offen"}</span>
-            <span>
-              {goal.minute ? `${goal.minute}. Minute` : "Minute offen"} · {formatTimeConfidence(goal.timeConfidence)}
-            </span>
-          </article>
-        ))}
+        {goals.length === 0 ? (
+          <p className="empty-state">Noch keine punkterelevanten Treffer im Snapshot.</p>
+        ) : (
+          goals.map((goal) => (
+            <article className="feed-item" key={`${goal.externalGoalId}-${goal.owner}`}>
+              <div className="feed-topline">
+                <strong>{goal.pickedPlayerName}</strong>
+                <span>{goal.points} Pkt.</span>
+              </div>
+              <span>{goal.owner} · {goal.nationalTeam}</span>
+              <span>{goal.matchLabel ?? "Spiel offen"}</span>
+              <span>
+                {goal.minute ? `${goal.minute}. Minute` : "Minute offen"} · {formatTimeConfidence(goal.timeConfidence)}
+              </span>
+            </article>
+          ))
+        )}
       </div>
+
+      <SyncSummary meta={meta} />
     </section>
   );
 }

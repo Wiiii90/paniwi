@@ -41,7 +41,9 @@ a {
 .leaderboard-row,
 .hero-band,
 .table-card,
-.feed-item {
+.feed-item,
+.summary-panel,
+.empty-state {
   border: 1px solid rgba(23, 32, 51, 0.12);
   border-radius: 8px;
 }
@@ -169,7 +171,10 @@ h2 {
 
 .small-stat,
 .muted,
-.feed-item span {
+.feed-item span,
+.summary-label,
+.summary-message,
+.source-errors {
   color: #607084;
 }
 
@@ -216,6 +221,52 @@ h2 {
   font-weight: 800;
 }
 
+.button-link {
+  background: #ffffff;
+  border: 1px solid rgba(15, 118, 110, 0.28);
+  border-radius: 8px;
+  display: inline-flex;
+  justify-self: start;
+  padding: 10px 12px;
+}
+
+.summary-panel,
+.empty-state {
+  background: #ffffff;
+  padding: 14px;
+}
+
+.summary-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.summary-grid > div {
+  display: grid;
+  gap: 3px;
+}
+
+.summary-label {
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.source-errors {
+  border-top: 1px solid rgba(23, 32, 51, 0.1);
+  display: grid;
+  font-size: 0.84rem;
+  gap: 6px;
+  margin-top: 12px;
+  padding-top: 12px;
+}
+
+.summary-message {
+  font-size: 0.9rem;
+  margin: 12px 0 0;
+}
+
 .loading,
 .error {
   background: #ffffff;
@@ -254,5 +305,9 @@ h2 {
   .player-grid {
     grid-template-columns: minmax(116px, 1.4fr) minmax(74px, 0.9fr) 42px 52px;
     padding: 10px;
+  }
+
+  .summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

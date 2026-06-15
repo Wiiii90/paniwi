@@ -1,5 +1,6 @@
 import type { LeaderboardEntry, StaticMeta } from "../../domain/types";
 import { StatusPill } from "../components/StatusPill";
+import { SyncSummary } from "../components/SyncSummary";
 
 type LeaderboardPageProps = {
   leaderboard: LeaderboardEntry[];
@@ -20,15 +21,21 @@ export function LeaderboardPage({ leaderboard, meta }: LeaderboardPageProps) {
       </div>
 
       <div className="leaderboard-list">
-        {leaderboard.map((entry) => (
-          <a className="leaderboard-row" href={`${baseUrl}team/${encodeURIComponent(entry.owner)}`} key={entry.owner}>
-            <span className="rank">#{entry.rank}</span>
-            <span className="owner">{entry.owner}</span>
-            <span className="small-stat">{entry.playersWithGoals} Spieler</span>
-            <strong>{entry.points} Pkt.</strong>
-          </a>
-        ))}
+        {leaderboard.length === 0 ? (
+          <p className="empty-state">Noch keine Teams im Snapshot.</p>
+        ) : (
+          leaderboard.map((entry) => (
+            <a className="leaderboard-row" href={`${baseUrl}team/${encodeURIComponent(entry.owner)}`} key={entry.owner}>
+              <span className="rank">#{entry.rank}</span>
+              <span className="owner">{entry.owner}</span>
+              <span className="small-stat">{entry.playersWithGoals} Spieler</span>
+              <strong>{entry.points} Pkt.</strong>
+            </a>
+          ))
+        )}
       </div>
+
+      <SyncSummary meta={meta} />
     </section>
   );
 }

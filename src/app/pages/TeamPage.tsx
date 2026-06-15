@@ -1,6 +1,7 @@
 import { teams } from "../../config/teams";
 import { buildPlayerScores } from "../../domain/buildLeaderboard";
 import type { ScoredGoal } from "../../domain/types";
+import { LinkButton } from "../components/LinkButton";
 
 type TeamPageProps = {
   owner: string;
@@ -14,10 +15,14 @@ export function TeamPage({ owner, goals }: TeamPageProps) {
   if (!team) {
     return (
       <section className="page-stack">
-        <h1>Team nicht gefunden</h1>
-        <a className="text-link" href={baseUrl}>
-          Zurueck zur Tabelle
-        </a>
+        <div className="hero-band">
+          <div>
+            <p className="eyebrow">Teamdetails</p>
+            <h1>Team nicht gefunden</h1>
+          </div>
+        </div>
+        <p className="empty-state">Dieses Team ist nicht in der statischen Teamkonfiguration enthalten.</p>
+        <LinkButton href={baseUrl}>Zurueck zur Tabelle</LinkButton>
       </section>
     );
   }
@@ -55,10 +60,10 @@ export function TeamPage({ owner, goals }: TeamPageProps) {
       <h2>Treffer dieses Teams</h2>
       <div className="feed-list">
         {teamGoals.length === 0 ? (
-          <p className="muted">Noch keine Treffer.</p>
+          <p className="empty-state">Noch keine Treffer fuer dieses Team.</p>
         ) : (
           teamGoals.map((goal) => (
-            <article className="feed-item" key={`${goal.owner}-${goal.pickedPlayerName}-${goal.scoredAt}-${goal.minute}`}>
+            <article className="feed-item" key={`${goal.externalGoalId}-${goal.owner}`}>
               <strong>{goal.pickedPlayerName}</strong>
               <span>{goal.matchLabel}</span>
               <span>
