@@ -23,7 +23,7 @@ Die App arbeitet mit statischen Snapshots. Das Frontend ruft keine externen Spor
 
 ## Event-Modell
 
-Die Pipeline speichert einzelne Torereignisse statt nur aggregierte Summen. Daraus werden Feed, Teamdetails und Leaderboard berechnet.
+Die Pipeline speichert einzelne Torereignisse statt nur aggregierte Summen. Daraus werden Feed, Teamdetails, Leaderboard, Torschuetzenliste und Spiele berechnet.
 
 Wichtige Felder:
 
@@ -64,3 +64,14 @@ Jeder Sync:
 6. JSON-Snapshots schreiben
 
 Eigentore und Tore im Elfmeterschiessen bleiben im Rohdaten-Snapshot moeglich, geben aber keine Punkte.
+
+## Statische Dateien
+
+- `leaderboard.json`: Rangliste der Teilnehmer
+- `goals.json`: nur punkterelevante Treffer ausgewaehlter Spieler
+- `raw-goals.json`: alle validen normalisierten Treffer aus der Quelle
+- `scorers.json`: Gesamt-Torschuetzenliste, ohne Eigentore und Elfmeterschiessen
+- `matches.json`: Spiele mit Treffern, Scoreline und betroffenen Panini-Teams
+- `meta.json`: Quelle, Status und Sync-Qualitaet
+
+Die App liest keine Rohquelle direkt. Neue Quelladapter sollen weiter interne `GoalRecord`-Daten liefern; falls eine Quelle spaeter strukturierte Fixture-Daten anbietet, kann `matches.json` daraus direkter aufgebaut werden.

@@ -1,5 +1,7 @@
 import { pathToFileURL } from "node:url";
 import { buildLeaderboard, scoreGoalsForTeams } from "../domain/buildLeaderboard";
+import { buildMatches } from "../domain/buildMatches";
+import { buildScorers } from "../domain/buildScorers";
 import { sortGoalsChronologically } from "../domain/sortGoals";
 import type { SourceName, StaticMeta } from "../domain/types";
 import type { GoalSource } from "./sources/types";
@@ -85,12 +87,16 @@ export async function syncGoals(sources: GoalSource[] = getSourcesFromEnv()): Pr
   const { validGoals: goals, skippedGoals } = validateGoals(normalizedGoals);
   const scoredGoals = sortGoalsChronologically(scoreGoalsForTeams(teams, goals));
   const leaderboard = buildLeaderboard(teams, goals);
+  const scorers = buildScorers(goals, teams);
+  const matches = buildMatches(goals, scoredGoals);
   const duplicateGoalCount = skippedGoals.filter((item) => item.reason === "duplicate-goal").length;
 
   await writeStaticData({
     leaderboard,
     goals: scoredGoals,
     rawGoals: goals,
+    scorers,
+    matches,
     meta: {
       lastUpdated: result.fetchedAt,
       source: result.source,

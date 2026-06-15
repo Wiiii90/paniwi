@@ -17,6 +17,7 @@ export function AppShell({ children }: AppShellProps) {
         <nav className="nav">
           <a href={baseUrl}>Tabelle</a>
           <a href={`${baseUrl}goals`}>Treffer</a>
+          <a href={`${baseUrl}matches`}>Spiele</a>
         </nav>
       </header>
       <main>{children}</main>

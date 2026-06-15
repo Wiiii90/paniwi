@@ -33,7 +33,7 @@ Wichtige Variablen:
 
 `ci.yml` prueft Pull Requests und Pushes ohne Deploy oder Snapshot-Commit. Er nutzt bewusst `SYNC_SOURCE=mock`.
 
-`sync-data.yml` aktualisiert `public/data/*.json`, prueft Tests und Build und committet nur geaenderte Snapshots. Der Workflow nutzt standardmaessig:
+`sync-data.yml` aktualisiert `public/data/*.json`, prueft Tests und Build und committet nur geaenderte Snapshots. Dazu gehoeren Rangliste, Punkte-Tore, Roh-Tore, Torschuetzenliste, Spiele und Meta-Daten. Der Workflow nutzt standardmaessig:
 
 ```text
 SYNC_SOURCE=auto

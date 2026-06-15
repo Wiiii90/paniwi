@@ -1,16 +1,17 @@
 import { teams } from "../../config/teams";
 import { buildPlayerScores } from "../../domain/buildLeaderboard";
 import { sortGoalsChronologically } from "../../domain/sortGoals";
-import type { ScoredGoal } from "../../domain/types";
+import type { MatchRecord, ScoredGoal } from "../../domain/types";
 import { LinkButton } from "../components/LinkButton";
 import { formatGoalMinute, formatTimeConfidence } from "../formatGoal";
 
 type TeamPageProps = {
   owner: string;
   goals: ScoredGoal[];
+  matches: MatchRecord[];
 };
 
-export function TeamPage({ owner, goals }: TeamPageProps) {
+export function TeamPage({ owner, goals, matches }: TeamPageProps) {
   const baseUrl = import.meta.env.BASE_URL;
   const team = teams.find((candidate) => candidate.owner.toLowerCase() === owner.toLowerCase());
 
@@ -31,6 +32,7 @@ export function TeamPage({ owner, goals }: TeamPageProps) {
 
   const playerScores = buildPlayerScores(team, goals);
   const teamGoals = sortGoalsChronologically(goals.filter((goal) => goal.owner === team.owner));
+  const affectedMatches = matches.filter((match) => match.affectedOwners.includes(team.owner));
   const goalsByPlayer = new Map<string, ScoredGoal[]>();
   for (const goal of teamGoals) {
     const playerGoals = goalsByPlayer.get(goal.pickedPlayerName) ?? [];
@@ -92,6 +94,29 @@ export function TeamPage({ owner, goals }: TeamPageProps) {
                 </div>
               </section>
             ))
+        )}
+      </div>
+
+      <h2>Gespielte Spiele mit Punkten</h2>
+      <div className="match-list">
+        {affectedMatches.length === 0 ? (
+          <p className="empty-state">Noch kein Spiel mit Punkten fuer dieses Team.</p>
+        ) : (
+          affectedMatches.map((match) => (
+            <article className="match-card" key={match.matchId}>
+              <div className="match-card-header">
+                <span>{match.kickedOffAt ? new Date(match.kickedOffAt).toLocaleString("de-DE") : "Termin offen"}</span>
+                <strong>{match.pointGoals.filter((goal) => goal.owner === team.owner).length} Treffer</strong>
+              </div>
+              <div className="match-scoreline">
+                <span>{match.homeTeam.name}</span>
+                <strong>
+                  {match.homeTeam.score ?? "-"}:{match.awayTeam.score ?? "-"}
+                </strong>
+                <span>{match.awayTeam.name}</span>
+              </div>
+            </article>
+          ))
         )}
       </div>
     </section>

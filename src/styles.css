@@ -38,12 +38,13 @@ a {
 .brand,
 .nav,
 .status-pill,
-.leaderboard-row,
-.hero-band,
-.table-card,
-.feed-item,
-.summary-panel,
-.empty-state {
+  .leaderboard-row,
+  .hero-band,
+  .table-card,
+  .feed-item,
+  .match-card,
+  .summary-panel,
+  .empty-state {
   border: 1px solid rgba(23, 32, 51, 0.12);
   border-radius: 8px;
 }
@@ -143,7 +144,8 @@ h2 {
 
 .leaderboard-list,
 .feed-list,
-.player-history-list {
+.player-history-list,
+.match-list {
   display: grid;
   gap: 10px;
 }
@@ -186,12 +188,29 @@ h2 {
   overflow: hidden;
 }
 
-.player-grid {
+.player-grid,
+.scorer-grid {
   align-items: center;
   display: grid;
   gap: 8px;
+}
+
+.player-grid {
   grid-template-columns: minmax(120px, 1.5fr) minmax(90px, 1fr) 52px 64px;
   padding: 12px 14px;
+}
+
+.scorer-grid {
+  grid-template-columns: 52px minmax(140px, 1.5fr) minmax(90px, 1fr) 56px;
+  padding: 12px 14px;
+}
+
+.scorer-grid small {
+  color: #607084;
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 2px;
 }
 
 .table-header {
@@ -265,6 +284,47 @@ h2 {
   padding: 14px;
 }
 
+.match-card {
+  background: #ffffff;
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+}
+
+.match-card-header,
+.match-scoreline {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.match-card-header,
+.match-goals,
+.match-impact {
+  color: #607084;
+  font-size: 0.9rem;
+}
+
+.match-scoreline {
+  font-size: 1.05rem;
+}
+
+.match-scoreline strong {
+  color: #d72638;
+  font-size: 1.25rem;
+}
+
+.match-goals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+}
+
+.match-impact {
+  margin: 0;
+}
+
 .summary-grid {
   display: grid;
   gap: 12px;
@@ -334,6 +394,17 @@ h2 {
   .player-grid {
     grid-template-columns: minmax(116px, 1.4fr) minmax(74px, 0.9fr) 42px 52px;
     padding: 10px;
+  }
+
+  .scorer-grid {
+    grid-template-columns: 42px minmax(112px, 1.5fr) minmax(70px, 0.9fr) 42px;
+    padding: 10px;
+  }
+
+  .match-scoreline {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 6px;
   }
 
   .summary-grid {

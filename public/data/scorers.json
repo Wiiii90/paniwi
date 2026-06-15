@@ -1,0 +1,62 @@
+[
+  {
+    "playerName": "Bruno Fernandes",
+    "normalizedPlayerName": "bruno fernandes",
+    "nationalTeam": "Portugal",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [
+      "Ben"
+    ],
+    "selected": true,
+    "rank": 1
+  },
+  {
+    "playerName": "Christian Pulisic",
+    "normalizedPlayerName": "christian pulisic",
+    "nationalTeam": "United States",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [
+      "Anna"
+    ],
+    "selected": true,
+    "rank": 1
+  },
+  {
+    "playerName": "Harry Kane",
+    "normalizedPlayerName": "harry kane",
+    "nationalTeam": "England",
+    "goals": 1,
+    "penaltyGoals": 1,
+    "scoringOwners": [
+      "Ben"
+    ],
+    "selected": true,
+    "rank": 1
+  },
+  {
+    "playerName": "Jamal Musiala",
+    "normalizedPlayerName": "jamal musiala",
+    "nationalTeam": "Germany",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [
+      "Anna"
+    ],
+    "selected": true,
+    "rank": 1
+  },
+  {
+    "playerName": "Kylian Mbappé",
+    "normalizedPlayerName": "kylian mbappe",
+    "nationalTeam": "France",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [
+      "Anna"
+    ],
+    "selected": true,
+    "rank": 1
+  }
+]

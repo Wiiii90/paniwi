@@ -80,12 +80,29 @@ Das Frontend ruft keine Sportdaten-API direkt auf. Das Sync-Script schreibt stat
 - `public/data/goals.json`
 - `public/data/meta.json`
 - `public/data/raw-goals.json`
+- `public/data/scorers.json`
+- `public/data/matches.json`
 
 Aktuell nutzt `npm run sync:data` Mock-Daten. Echte Quellen koennen spaeter ueber die Adapter in `src/sync/sources` ergaenzt werden.
 
 Beim Sync wird `src/config/teams.ts` validiert. Erwartet werden eindeutige Owner, 10 bis 11 Spieler pro Team, Name und Nationalmannschaft pro Spieler sowie keine doppelten Spieler im selben Team.
 
-`npm run test:snapshots` berechnet Leaderboard und Trefferfeed aus `raw-goals.json` neu und prueft, ob die committed Snapshots konsistent sind.
+`goals.json` ist der punkterelevante Trefferfeed. `raw-goals.json` enthaelt alle validen normalisierten Treffer aus der Quelle. `scorers.json` ist die Gesamt-Torschuetzenliste ohne Eigentore und Elfmeterschiessen. `matches.json` gruppiert die Treffer nach Spielen und markiert betroffene Panini-Teams.
+
+`npm run test:snapshots` berechnet Leaderboard, Trefferfeed, Torschuetzenliste und Spiele aus `raw-goals.json` neu und prueft, ob die committed Snapshots konsistent sind.
+
+## Teilnehmerdaten
+
+Fuer den MVP werden echte Teams einmalig in `src/config/teams.ts` gepflegt. Am besten lieferst du sie in diesem Format:
+
+```text
+Teilnehmer: Name
+- Spielername, Nationalmannschaft
+- Spielername, Nationalmannschaft
+...
+```
+
+Fotos aus WhatsApp gehen auch, sollten aber nach OCR/Abtippen kurz gegengeprueft werden. Wichtig sind pro Team 10 bis 11 Spieler, eindeutige Teilnehmernamen und moeglichst die Nationalmannschaft je Spieler.
 
 ## Scoring
 

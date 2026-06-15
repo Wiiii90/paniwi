@@ -1,8 +1,10 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { buildLeaderboard, scoreGoalsForTeams } from "../domain/buildLeaderboard";
+import { buildMatches } from "../domain/buildMatches";
+import { buildScorers } from "../domain/buildScorers";
 import { sortGoalsChronologically } from "../domain/sortGoals";
-import type { GoalRecord, LeaderboardEntry, ScoredGoal, StaticMeta } from "../domain/types";
+import type { GoalRecord, LeaderboardEntry, MatchRecord, ScoredGoal, ScorerEntry, StaticMeta } from "../domain/types";
 import { teams } from "../config/teams";
 import { validateGoals } from "./validateGoals";
 import { validateTeams } from "./validateTeams";
@@ -11,10 +13,12 @@ async function readJson<T>(path: string): Promise<T> {
   return JSON.parse(await readFile(path, "utf8")) as T;
 }
 
-const [leaderboard, goals, rawGoals, meta] = await Promise.all([
+const [leaderboard, goals, rawGoals, scorers, matches, meta] = await Promise.all([
   readJson<LeaderboardEntry[]>("public/data/leaderboard.json"),
   readJson<ScoredGoal[]>("public/data/goals.json"),
   readJson<GoalRecord[]>("public/data/raw-goals.json"),
+  readJson<ScorerEntry[]>("public/data/scorers.json"),
+  readJson<MatchRecord[]>("public/data/matches.json"),
   readJson<StaticMeta>("public/data/meta.json")
 ]);
 
@@ -26,6 +30,8 @@ assert.equal(goalValidation.skippedGoals.length, 0);
 
 assert.deepEqual(leaderboard, buildLeaderboard(teams, rawGoals));
 assert.deepEqual(goals, sortGoalsChronologically(scoreGoalsForTeams(teams, rawGoals)));
+assert.deepEqual(scorers, buildScorers(rawGoals, teams));
+assert.deepEqual(matches, buildMatches(rawGoals, goals));
 
 assert.equal(meta.status, "ok");
 assert.equal(meta.goalCount, rawGoals.length);

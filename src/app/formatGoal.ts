@@ -1,6 +1,6 @@
-import type { ScoredGoal } from "../domain/types";
+import type { GoalRecord } from "../domain/types";
 
-export function formatTimeConfidence(confidence: ScoredGoal["timeConfidence"]): string {
+export function formatTimeConfidence(confidence: GoalRecord["timeConfidence"]): string {
   if (confidence === "exact") {
     return "exakt";
   }
@@ -16,6 +16,6 @@ export function formatTimeConfidence(confidence: ScoredGoal["timeConfidence"]): 
   return "Zeit offen";
 }
 
-export function formatGoalMinute(goal: ScoredGoal): string {
+export function formatGoalMinute(goal: Pick<GoalRecord, "minute">): string {
   return goal.minute ? `${goal.minute}. Minute` : "Minute offen";
 }

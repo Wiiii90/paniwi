@@ -3,11 +3,13 @@ import { AppShell } from "./components/AppShell";
 import { loadStaticData, type StaticData } from "./data";
 import { GoalsPage } from "./pages/GoalsPage";
 import { LeaderboardPage } from "./pages/LeaderboardPage";
+import { MatchesPage } from "./pages/MatchesPage";
 import { TeamPage } from "./pages/TeamPage";
 
 type Route =
   | { name: "leaderboard" }
   | { name: "goals" }
+  | { name: "matches" }
   | { name: "team"; owner: string };
 
 function parseRoute(pathname: string): Route {
@@ -16,6 +18,10 @@ function parseRoute(pathname: string): Route {
 
   if (appPath === "/goals") {
     return { name: "goals" };
+  }
+
+  if (appPath === "/matches") {
+    return { name: "matches" };
   }
 
   if (appPath.startsWith("/team/")) {
@@ -41,8 +47,9 @@ export function App() {
       {!data && !error ? <p className="loading">Daten werden geladen...</p> : null}
       {error ? <p className="error">Daten konnten nicht geladen werden: {error}</p> : null}
       {data && route.name === "leaderboard" ? <LeaderboardPage leaderboard={data.leaderboard} meta={data.meta} /> : null}
-      {data && route.name === "goals" ? <GoalsPage goals={data.goals} meta={data.meta} /> : null}
-      {data && route.name === "team" ? <TeamPage owner={route.owner} goals={data.goals} /> : null}
+      {data && route.name === "goals" ? <GoalsPage goals={data.goals} scorers={data.scorers} meta={data.meta} /> : null}
+      {data && route.name === "matches" ? <MatchesPage matches={data.matches} /> : null}
+      {data && route.name === "team" ? <TeamPage owner={route.owner} goals={data.goals} matches={data.matches} /> : null}
     </AppShell>
   );
 }

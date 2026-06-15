@@ -69,6 +69,36 @@ export type LeaderboardEntry = {
   playersWithGoals: number;
 };
 
+export type ScorerEntry = {
+  rank: number;
+  playerName: string;
+  normalizedPlayerName: string;
+  nationalTeam: string;
+  goals: number;
+  penaltyGoals: number;
+  scoringOwners: string[];
+  selected: boolean;
+};
+
+export type MatchStatus = "scheduled" | "live" | "finished" | "unknown";
+
+export type MatchTeam = {
+  name: string;
+  score?: number;
+};
+
+export type MatchRecord = {
+  matchId: string;
+  label: string;
+  kickedOffAt?: string;
+  status: MatchStatus;
+  homeTeam: MatchTeam;
+  awayTeam: MatchTeam;
+  goals: GoalRecord[];
+  pointGoals: ScoredGoal[];
+  affectedOwners: string[];
+};
+
 export type StaticMeta = {
   lastUpdated: string;
   source: SourceName;
