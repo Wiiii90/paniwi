@@ -1,19 +1,20 @@
 {
-  "lastUpdated": "2026-06-15T20:11:35.627Z",
-  "source": "wikipedia",
+  "lastUpdated": "2026-06-15T20:53:02.007Z",
+  "source": "api-football",
   "attemptedSources": [
-    "wikipedia"
+    "api-football"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 36,
+  "goalCount": 38,
   "scoredGoalCount": 5,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot mit Quelle wikipedia erzeugt.",
-  "snapshotFingerprint": "2c9064bb0e6b9ee368772e83679681ff3b292d29e764123fded76ff363385d03",
+  "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
+  "snapshotFingerprint": "985252462df7bc57a1c5688020128520be7c4bdad66c9c06cb7015aba6936a40",
   "snapshotChanged": true,
-  "syncWindowId": "2026 fifa world cup group h:spain-cape verde:2026-06-15T16:00:00.000Z-check-3",
-  "windowSyncAttempts": 1
+  "windowSyncAttempts": 1,
+  "sourceRequestCount": 4,
+  "sourceRequestLimit": 90
 }
