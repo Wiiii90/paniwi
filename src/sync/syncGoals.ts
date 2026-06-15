@@ -34,6 +34,9 @@ class SourceFetchError extends Error {
   }
 }
 
+type NormalizedGoal = ReturnType<typeof normalizeGoals>[number];
+type NormalizedGoals = ReturnType<typeof normalizeGoals>;
+
 export function buildSourceErrorMeta(
   attemptedSources: SourceName[],
   sourceErrors: string[],
@@ -76,6 +79,71 @@ async function readExistingMeta(): Promise<StaticMeta | null> {
   } catch {
     return null;
   }
+}
+
+async function readExistingRawGoals(): Promise<NormalizedGoals> {
+  try {
+    return JSON.parse(await readFile("public/data/raw-goals.json", "utf8")) as NormalizedGoals;
+  } catch {
+    return [];
+  }
+}
+
+function getGoalMergeKey(goal: NormalizedGoal): string {
+  return [goal.source, goal.externalGoalId].join(":");
+}
+
+function getGoalDateKey(goal: NormalizedGoal): string | null {
+  const sourceDate = goal.kickedOffAt ?? goal.scoredAt;
+  return sourceDate ? sourceDate.slice(0, 10) : null;
+}
+
+function shouldPreserveExistingGoal(
+  goal: NormalizedGoal,
+  source: SourceName,
+  coveredDateKeys: Set<string> | null
+): boolean {
+  if (!coveredDateKeys) {
+    return goal.source === source;
+  }
+
+  const goalDateKey = getGoalDateKey(goal);
+  if (!goalDateKey) {
+    return goal.source === source;
+  }
+
+  return !coveredDateKeys.has(goalDateKey);
+}
+
+export function mergeGoalSnapshots(
+  source: SourceName,
+  existingGoals: NormalizedGoals,
+  incomingGoals: NormalizedGoals,
+  coveredDateKeys?: string[]
+): NormalizedGoals {
+  const mergedGoals = new Map<string, NormalizedGoal>();
+  const coveredDateKeySet = coveredDateKeys?.length ? new Set(coveredDateKeys) : null;
+
+  for (const goal of existingGoals) {
+    if (shouldPreserveExistingGoal(goal, source, coveredDateKeySet)) {
+      mergedGoals.set(getGoalMergeKey(goal), goal);
+    }
+  }
+
+  for (const goal of incomingGoals) {
+    mergedGoals.set(getGoalMergeKey(goal), goal);
+  }
+
+  return [...mergedGoals.values()];
+}
+
+async function mergeWithExistingGoals(
+  source: SourceName,
+  incomingGoals: NormalizedGoals,
+  coveredDateKeys?: string[]
+): Promise<NormalizedGoals> {
+  const existingGoals = await readExistingRawGoals();
+  return mergeGoalSnapshots(source, existingGoals, incomingGoals, coveredDateKeys);
 }
 
 function buildSyncMeta(
@@ -138,7 +206,10 @@ export async function syncGoals(
 
   const { result, attemptedSources, sourceErrors } = workingSource;
   const previousMeta = await readExistingMeta();
-  const normalizedGoals = normalizeGoals(result.goals);
+  const incomingGoals = normalizeGoals(result.goals);
+  const normalizedGoals = result.mergeWithExisting
+    ? await mergeWithExistingGoals(result.source, incomingGoals, result.coveredDateKeys)
+    : incomingGoals;
   const { validGoals: goals, skippedGoals } = validateGoals(normalizedGoals);
   const scoredGoals = sortGoalsChronologically(scoreGoalsForTeams(teams, goals));
   const leaderboard = buildLeaderboard(teams, goals);

@@ -4,6 +4,8 @@ export type GoalSourceResult = {
   source: SourceName;
   fetchedAt: string;
   goals: ExternalGoalRecord[];
+  mergeWithExisting?: boolean;
+  coveredDateKeys?: string[];
 };
 
 export interface GoalSource {

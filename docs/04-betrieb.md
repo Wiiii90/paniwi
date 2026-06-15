@@ -24,7 +24,9 @@ Wichtige Variablen:
 - `SYNC_SOURCE`: `mock`, `auto`, `wikipedia` oder `api-football`
 - `WIKIPEDIA_GOALS_PAGE`: Wikipedia-Seite fuer den Wikitext-Prototyp
 - `API_FOOTBALL_KEY`: API-Football-Key
-- `API_FOOTBALL_FIXTURE_IDS`: kommagetrennte Fixture-IDs
+- `API_FOOTBALL_DATES`: optionale kommagetrennte API-Football-Tage
+- `API_FOOTBALL_DATE_FROM` / `API_FOOTBALL_DATE_TO`: optionales API-Football-Backfill-Fenster
+- `API_FOOTBALL_FIXTURE_IDS`: optionaler manueller Debug-Override
 - `GITHUB_PAGES_BASE`: optionaler Base-Pfad fuer GitHub Pages
 
 ## GitHub Actions
@@ -33,11 +35,11 @@ Wichtige Variablen:
 
 `ci.yml` prueft Pull Requests und Pushes ohne Deploy oder Snapshot-Commit. Er nutzt bewusst `SYNC_SOURCE=mock`.
 
-`sync-data.yml` aktualisiert `public/data/*.json` nur in definierten Turnier-Fenstern, prueft Tests und Build und committet nur geaenderte Snapshots. Der Workflow nutzt standardmaessig:
+`sync-data.yml` aktualisiert `public/data/*.json` nur in definierten Turnier-Fenstern, prueft Tests und Build und committet nur geaenderte Snapshots.
 
-```text
-SYNC_SOURCE=wikipedia
-```
+**Aktuell:** `SYNC_SOURCE=wikipedia` (temporaer, bis API-Football eingerichtet ist)
+
+**Ziel:** `SYNC_SOURCE=auto` (api-football → wikipedia → mock). Details: `docs/03-datenstrategie.md`
 
 ### Sync-Rhythmus
 
@@ -81,7 +83,7 @@ Aktuell bewusst **kein** Live-Push von FIFA oder Drittanbietern. Gruende:
 - Wikipedia-API bleibt die eine legale Quelle
 - fuer eine Freundes-Liga reichen 3 Checks nach Spielende
 
-Spaeter moeglich: API-Football-Fixture-Events, sobald Fixture-IDs gepflegt sind (`SYNC_SOURCE=api-football`).
+Spaeter: `SYNC_SOURCE=auto` mit API-Football als Primaerquelle; Wikipedia bleibt Fallback (`docs/03-datenstrategie.md`).
 
 ### Wikipedia / API-Etikette
 
@@ -99,9 +101,12 @@ Fuer API-Football in Actions muss mindestens dieses Repository Secret existieren
 API_FOOTBALL_KEY
 ```
 
-Fixture-IDs und nicht-geheime Einstellungen koennen als Repository Variables gepflegt werden:
+Nicht-geheime Einstellungen koennen als Repository Variables gepflegt werden:
 
 ```text
+API_FOOTBALL_DATES
+API_FOOTBALL_DATE_FROM
+API_FOOTBALL_DATE_TO
 API_FOOTBALL_FIXTURE_IDS
 API_FOOTBALL_BASE_URL
 API_FOOTBALL_TIMEOUT_MS
@@ -110,7 +115,7 @@ WIKIPEDIA_API_ENDPOINT
 WIKIPEDIA_TIMEOUT_MS
 ```
 
-Ohne `API_FOOTBALL_FIXTURE_IDS` faellt `auto` auf Wikipedia und danach Mock zurueck.
+Ohne `API_FOOTBALL_DATES` oder Datumsfenster nutzt API-Football den aktuellen UTC-Tag. Diese Tageslaeufe ersetzen nur Treffer des geholten Tages und behalten aeltere Snapshot-Tage bei. `API_FOOTBALL_FIXTURE_IDS` ist nur noch ein manueller Override.
 
 ## Fehlerverhalten
 

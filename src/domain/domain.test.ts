@@ -5,10 +5,15 @@ import { getGoalPoints, matchesPlayer } from "./scoring";
 import { sortGoalsChronologically } from "./sortGoals";
 import type { GoalRecord, ParticipantTeam } from "./types";
 import { normalizeGoals } from "../sync/normalizeGoals";
-import { parseApiFootballEvents } from "../sync/sources/apiFootballSource";
+import {
+  filterWorldCupFixtures,
+  getApiFootballDateKeys,
+  parseApiFootballEvents,
+  shouldFetchFixtureEvents
+} from "../sync/sources/apiFootballSource";
 import { getSourcesForMode, parseSyncSourceMode } from "../sync/sources/sourceSelection";
 import { parseWikipediaFootballBoxes, parseWikipediaGoalscorers } from "../sync/sources/wikipediaSource";
-import { buildSourceErrorMeta } from "../sync/syncGoals";
+import { buildSourceErrorMeta, mergeGoalSnapshots } from "../sync/syncGoals";
 import { validateGoals } from "../sync/validateGoals";
 import { formatTeamValidationIssues, validateTeams } from "../sync/validateTeams";
 
@@ -294,6 +299,105 @@ assert.deepEqual(
 );
 assert.equal(apiFootballGoals[0].fixtureId, "12345");
 assert.equal(apiFootballGoals[0].apiPlayerId, 278);
+
+assert.deepEqual(getApiFootballDateKeys({ API_FOOTBALL_DATES: "2026-06-15, 2026-06-16" }), [
+  "2026-06-15",
+  "2026-06-16"
+]);
+assert.deepEqual(
+  getApiFootballDateKeys({ API_FOOTBALL_DATE_FROM: "2026-06-15", API_FOOTBALL_DATE_TO: "2026-06-17" }),
+  ["2026-06-15", "2026-06-16", "2026-06-17"]
+);
+assert.deepEqual(getApiFootballDateKeys({}, new Date("2026-06-15T12:00:00.000Z")), ["2026-06-15"]);
+
+const apiFootballFixtures = [
+  {
+    fixture: {
+      id: 1539002,
+      date: "2026-06-15T02:00:00+00:00",
+      status: { short: "FT" }
+    },
+    league: { id: 1, name: "World Cup", season: 2026 },
+    teams: {
+      home: { name: "Sweden" },
+      away: { name: "Tunisia" }
+    },
+    goals: { home: 5, away: 1 }
+  },
+  {
+    fixture: {
+      id: 1489377,
+      date: "2026-06-15T19:00:00+00:00",
+      status: { short: "NS" }
+    },
+    league: { id: 1, name: "World Cup", season: 2026 },
+    teams: {
+      home: { name: "Belgium" },
+      away: { name: "Egypt" }
+    },
+    goals: { home: null, away: null }
+  },
+  {
+    fixture: { id: 1524932, status: { short: "FT" } },
+    league: { id: 256, name: "USL League Two", season: 2026 }
+  }
+];
+const worldCupFixtures = filterWorldCupFixtures(apiFootballFixtures);
+assert.equal(worldCupFixtures.length, 2);
+assert.equal(shouldFetchFixtureEvents(worldCupFixtures[0]), true);
+assert.equal(shouldFetchFixtureEvents(worldCupFixtures[1]), false);
+
+const apiFootballFixtureGoals = parseApiFootballEvents(
+  "1539002",
+  [
+    {
+      time: { elapsed: 12 },
+      team: { id: 5, name: "Sweden" },
+      player: { id: 100, name: "Alexander Isak" },
+      type: "Goal",
+      detail: "Normal Goal"
+    }
+  ],
+  worldCupFixtures[0]
+);
+assert.deepEqual(
+  apiFootballFixtureGoals.map((goal) => [goal.matchLabel, goal.kickedOffAt, goal.playerName, goal.nationalTeam]),
+  [["Sweden 5-1 Tunisia", "2026-06-15T02:00:00+00:00", "Alexander Isak", "Sweden"]]
+);
+
+const oldWikipediaGoal: GoalRecord = {
+  ...baseGoal,
+  externalGoalId: "wiki-old",
+  source: "wikipedia",
+  kickedOffAt: "2026-06-14T17:00:00.000Z"
+};
+const sameDayWikipediaGoal: GoalRecord = {
+  ...baseGoal,
+  externalGoalId: "wiki-same-day",
+  source: "wikipedia",
+  kickedOffAt: "2026-06-15T02:00:00.000Z"
+};
+const sameDayApiGoal: GoalRecord = {
+  ...baseGoal,
+  externalGoalId: "api-same-day",
+  source: "api-football",
+  kickedOffAt: "2026-06-15T02:00:00.000Z"
+};
+assert.deepEqual(
+  mergeGoalSnapshots("api-football", [oldWikipediaGoal, sameDayWikipediaGoal], [sameDayApiGoal], ["2026-06-15"]).map(
+    (goal) => goal.externalGoalId
+  ),
+  ["wiki-old", "api-same-day"]
+);
+assert.deepEqual(
+  mergeGoalSnapshots(
+    "api-football",
+    [oldWikipediaGoal, { ...sameDayApiGoal, externalGoalId: "api-existing" }],
+    [],
+    undefined
+  ).map((goal) => goal.externalGoalId),
+  ["api-existing"]
+);
 
 assert.deepEqual(validateTeams(teams), { valid: false, issues: [{ owner: "Anna", reason: "invalid-team-size" }, { owner: "Ben", reason: "invalid-team-size" }] });
 

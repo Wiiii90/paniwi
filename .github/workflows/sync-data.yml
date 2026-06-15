@@ -30,6 +30,9 @@ jobs:
       SYNC_SOURCE: ${{ github.event.inputs.sync_source || 'wikipedia' }}
       SYNC_FORCE: ${{ github.event.inputs.force_sync || 'false' }}
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+      API_FOOTBALL_DATES: ${{ vars.API_FOOTBALL_DATES }}
+      API_FOOTBALL_DATE_FROM: ${{ vars.API_FOOTBALL_DATE_FROM }}
+      API_FOOTBALL_DATE_TO: ${{ vars.API_FOOTBALL_DATE_TO }}
       API_FOOTBALL_FIXTURE_IDS: ${{ vars.API_FOOTBALL_FIXTURE_IDS }}
       API_FOOTBALL_BASE_URL: ${{ vars.API_FOOTBALL_BASE_URL }}
       API_FOOTBALL_TIMEOUT_MS: ${{ vars.API_FOOTBALL_TIMEOUT_MS }}
