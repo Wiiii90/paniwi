@@ -13,6 +13,7 @@ Die App arbeitet mit statischen Snapshots. Das Frontend ruft keine externen Spor
    - kostenloser Fallback
    - gut fuer nachtraeglich gepflegte Spiel- und Torinformationen
    - Zeitangaben koennen unvollstaendig sein
+   - der aktuelle Prototyp liest aggregierte `Goalscorers`-Sektionen aus Wikitext
 
 3. `api-football`
    - spaetere Primaerquelle, falls Free Plan und WM-2026-Abdeckung reichen

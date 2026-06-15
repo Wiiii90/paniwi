@@ -24,7 +24,15 @@ $env:SYNC_SOURCE="wikipedia"; npm run sync:data
 $env:SYNC_SOURCE="api-football"; npm run sync:data
 ```
 
-`auto` versucht spaeter `api-football`, dann `wikipedia`, dann `mock`. Aktuell bleibt `mock` die einzige voll implementierte Quelle.
+`auto` versucht `api-football`, dann `wikipedia`, dann `mock`. Aktuell bleibt `mock` die stabile Default-Quelle; `wikipedia` ist ein vorsichtiger Prototyp fuer aggregierte Goalscorers-Seiten.
+
+Der Wikipedia-Prototyp liest eine `Goalscorers`-Sektion aus MediaWiki-Wikitext. Die Seite kann ueberschrieben werden:
+
+```powershell
+$env:SYNC_SOURCE="wikipedia"
+$env:WIKIPEDIA_GOALS_PAGE="2026 FIFA World Cup"
+npm run sync:data
+```
 
 ## Lokale Ports
 

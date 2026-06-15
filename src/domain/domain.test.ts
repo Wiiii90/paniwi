@@ -6,6 +6,7 @@ import { sortGoalsChronologically } from "./sortGoals";
 import type { GoalRecord, ParticipantTeam } from "./types";
 import { normalizeGoals } from "../sync/normalizeGoals";
 import { getSourcesForMode, parseSyncSourceMode } from "../sync/sources/sourceSelection";
+import { parseWikipediaGoalscorers } from "../sync/sources/wikipediaSource";
 import { validateGoals } from "../sync/validateGoals";
 
 const teams: ParticipantTeam[] = [
@@ -127,6 +128,29 @@ assert.deepEqual(
 assert.deepEqual(
   getSourcesForMode("mock").map((source) => source.name),
   ["mock"]
+);
+
+const wikipediaGoals = parseWikipediaGoalscorers(
+  `
+== Goalscorers ==
+3 goals
+* [[Kylian Mbappé]]
+1 goal
+* [[Harry Kane]]
+1 own goal
+* [[Own Goal Test]]
+== Awards ==
+`,
+  "Example Cup"
+);
+
+assert.deepEqual(
+  wikipediaGoals.map((goal) => [goal.playerName, goal.goals, goal.detail, goal.timeConfidence]),
+  [
+    ["Kylian Mbappé", 3, "normal", "unknown"],
+    ["Harry Kane", 1, "normal", "unknown"],
+    ["Own Goal Test", 1, "own-goal", "unknown"]
+  ]
 );
 
 console.log("Domain tests passed.");
