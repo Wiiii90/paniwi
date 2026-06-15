@@ -1,15 +1,20 @@
 {
-  "lastUpdated": "2026-06-15T15:14:58.911Z",
+  "lastUpdated": "2026-06-15T16:18:20.068Z",
   "source": "mock",
   "attemptedSources": [
+    "api-football",
+    "wikipedia",
     "mock"
   ],
-  "fallbackUsed": false,
+  "fallbackUsed": true,
   "status": "ok",
   "goalCount": 6,
   "scoredGoalCount": 1,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
-  "sourceErrors": [],
+  "sourceErrors": [
+    "api-football: API_FOOTBALL_FIXTURE_IDS is not set.",
+    "wikipedia: Invalid URL"
+  ],
   "message": "Daten-Snapshot mit Quelle mock erzeugt."
 }
