@@ -81,7 +81,7 @@ export function TeamPage({ owner, goals, matches }: TeamPageProps) {
           <span>Pts</span>
         </div>
         {playerScores.map((player) => (
-          <div className="player-grid player-row" key={player.name}>
+          <div className="player-grid player-row" key={`${player.name}-${player.nationalTeam}`}>
             <strong>{player.name}</strong>
             <span>{player.nationalTeam}</span>
             <span className="muted">{formatPosition(player.position)}</span>
@@ -101,7 +101,7 @@ export function TeamPage({ owner, goals, matches }: TeamPageProps) {
           playerScores
             .filter((player) => player.points > 0)
             .map((player) => (
-              <section className="player-history" key={player.name}>
+              <section className="player-history" key={`${player.name}-${player.nationalTeam}`}>
                 <div className="player-history-header">
                   <strong>{player.name}</strong>
                   <span>
@@ -110,7 +110,7 @@ export function TeamPage({ owner, goals, matches }: TeamPageProps) {
                 </div>
                 <div className="feed-list">
                   {(goalsByPlayer.get(player.name) ?? []).map((goal) => (
-                    <article className="feed-item compact-feed-item" key={`${goal.externalGoalId}-${goal.owner}`}>
+                    <article className="feed-item compact-feed-item" key={`${goal.externalGoalId}-${goal.owner}-${goal.playerId}`}>
                       <span>{goal.matchLabel ?? "Spiel offen"}</span>
                       <span>
                         {formatGoalMinute(goal)} · {formatTimeConfidence(goal.timeConfidence)} · {goal.points} Punkt
