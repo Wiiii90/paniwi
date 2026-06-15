@@ -1,7 +1,11 @@
 {
-  "lastUpdated": "2026-06-15T12:27:19.072Z",
+  "lastUpdated": "2026-06-15T13:14:53.554Z",
   "source": "mock",
   "fallbackUsed": false,
   "status": "ok",
+  "goalCount": 6,
+  "scoredGoalCount": 5,
+  "skippedGoalCount": 0,
+  "duplicateGoalCount": 0,
   "message": "Mock-Daten fuer lokales MVP erzeugt."
 }

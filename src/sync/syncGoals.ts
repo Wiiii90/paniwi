@@ -1,7 +1,9 @@
 import { buildLeaderboard, scoreGoalsForTeams } from "../domain/buildLeaderboard";
+import { sortGoalsChronologically } from "../domain/sortGoals";
 import type { GoalSource } from "./sources/types";
 import { teams } from "../config/teams";
 import { normalizeGoals } from "./normalizeGoals";
+import { validateGoals } from "./validateGoals";
 import { writeStaticData } from "./writeStaticData";
 import { mockSource } from "./sources/mockSource";
 
@@ -21,11 +23,11 @@ async function fetchFromFirstWorkingSource(sources: GoalSource[]) {
 
 export async function syncGoals(): Promise<void> {
   const result = await fetchFromFirstWorkingSource([mockSource]);
-  const goals = normalizeGoals(result.goals);
-  const scoredGoals = scoreGoalsForTeams(teams, goals).sort((a, b) =>
-    (a.scoredAt ?? "").localeCompare(b.scoredAt ?? "")
-  );
+  const normalizedGoals = normalizeGoals(result.goals);
+  const { validGoals: goals, skippedGoals } = validateGoals(normalizedGoals);
+  const scoredGoals = sortGoalsChronologically(scoreGoalsForTeams(teams, goals));
   const leaderboard = buildLeaderboard(teams, goals);
+  const duplicateGoalCount = skippedGoals.filter((item) => item.reason === "duplicate-goal").length;
 
   await writeStaticData({
     leaderboard,
@@ -36,6 +38,10 @@ export async function syncGoals(): Promise<void> {
       source: result.source,
       fallbackUsed: false,
       status: "ok",
+      goalCount: goals.length,
+      scoredGoalCount: scoredGoals.length,
+      skippedGoalCount: skippedGoals.length,
+      duplicateGoalCount,
       message: "Mock-Daten fuer lokales MVP erzeugt."
     }
   });

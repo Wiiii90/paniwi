@@ -4,6 +4,22 @@ type GoalsPageProps = {
   goals: ScoredGoal[];
 };
 
+function formatTimeConfidence(confidence: ScoredGoal["timeConfidence"]): string {
+  if (confidence === "exact") {
+    return "exakt";
+  }
+
+  if (confidence === "estimated") {
+    return "geschaetzt";
+  }
+
+  if (confidence === "match-only") {
+    return "nur Spielzeit";
+  }
+
+  return "Zeit offen";
+}
+
 export function GoalsPage({ goals }: GoalsPageProps) {
   return (
     <section className="page-stack">
@@ -24,7 +40,9 @@ export function GoalsPage({ goals }: GoalsPageProps) {
             </div>
             <span>{goal.owner} · {goal.nationalTeam}</span>
             <span>{goal.matchLabel ?? "Spiel offen"}</span>
-            <span>{goal.minute ? `${goal.minute}. Minute` : "Minute offen"}</span>
+            <span>
+              {goal.minute ? `${goal.minute}. Minute` : "Minute offen"} · {formatTimeConfidence(goal.timeConfidence)}
+            </span>
           </article>
         ))}
       </div>

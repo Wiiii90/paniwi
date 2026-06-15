@@ -62,7 +62,7 @@ export function TeamPage({ owner, goals }: TeamPageProps) {
               <strong>{goal.pickedPlayerName}</strong>
               <span>{goal.matchLabel}</span>
               <span>
-                {goal.minute ? `${goal.minute}. Minute` : "Minute offen"} · {goal.points} Punkt
+                {goal.minute ? `${goal.minute}. Minute` : "Minute offen"} · {goal.points} Punkt · {goal.timeConfidence}
               </span>
             </article>
           ))
