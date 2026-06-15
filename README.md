@@ -13,6 +13,19 @@ npm run build
 npm run preview
 ```
 
+## Sync-Quelle
+
+`npm run sync:data` nutzt standardmaessig Mock-Daten.
+
+```powershell
+$env:SYNC_SOURCE="mock"; npm run sync:data
+$env:SYNC_SOURCE="auto"; npm run sync:data
+$env:SYNC_SOURCE="wikipedia"; npm run sync:data
+$env:SYNC_SOURCE="api-football"; npm run sync:data
+```
+
+`auto` versucht spaeter `api-football`, dann `wikipedia`, dann `mock`. Aktuell bleibt `mock` die einzige voll implementierte Quelle.
+
 ## Lokale Ports
 
 - Dev: `http://127.0.0.1:49153`

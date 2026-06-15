@@ -72,11 +72,13 @@ export type LeaderboardEntry = {
 export type StaticMeta = {
   lastUpdated: string;
   source: SourceName;
+  attemptedSources?: SourceName[];
   fallbackUsed: boolean;
   status: "ok" | "error";
   goalCount?: number;
   scoredGoalCount?: number;
   skippedGoalCount?: number;
   duplicateGoalCount?: number;
+  sourceErrors?: string[];
   message?: string;
 };

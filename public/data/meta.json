@@ -1,11 +1,15 @@
 {
-  "lastUpdated": "2026-06-15T13:14:53.554Z",
+  "lastUpdated": "2026-06-15T13:24:51.755Z",
   "source": "mock",
+  "attemptedSources": [
+    "mock"
+  ],
   "fallbackUsed": false,
   "status": "ok",
   "goalCount": 6,
   "scoredGoalCount": 5,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
-  "message": "Mock-Daten fuer lokales MVP erzeugt."
+  "sourceErrors": [],
+  "message": "Daten-Snapshot mit Quelle mock erzeugt."
 }

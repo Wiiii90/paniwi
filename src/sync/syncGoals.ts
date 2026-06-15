@@ -1,18 +1,31 @@
 import { buildLeaderboard, scoreGoalsForTeams } from "../domain/buildLeaderboard";
 import { sortGoalsChronologically } from "../domain/sortGoals";
+import type { SourceName } from "../domain/types";
 import type { GoalSource } from "./sources/types";
 import { teams } from "../config/teams";
 import { normalizeGoals } from "./normalizeGoals";
 import { validateGoals } from "./validateGoals";
 import { writeStaticData } from "./writeStaticData";
-import { mockSource } from "./sources/mockSource";
+import { getSourcesFromEnv } from "./sources/sourceSelection";
 
-async function fetchFromFirstWorkingSource(sources: GoalSource[]) {
+type WorkingSourceResult = {
+  result: Awaited<ReturnType<GoalSource["fetchGoals"]>>;
+  attemptedSources: SourceName[];
+  sourceErrors: string[];
+};
+
+async function fetchFromFirstWorkingSource(sources: GoalSource[]): Promise<WorkingSourceResult> {
   const errors: string[] = [];
+  const attemptedSources: SourceName[] = [];
 
   for (const source of sources) {
+    attemptedSources.push(source.name);
     try {
-      return await source.fetchGoals();
+      return {
+        result: await source.fetchGoals(),
+        attemptedSources,
+        sourceErrors: errors
+      };
     } catch (error) {
       errors.push(`${source.name}: ${error instanceof Error ? error.message : String(error)}`);
     }
@@ -22,7 +35,8 @@ async function fetchFromFirstWorkingSource(sources: GoalSource[]) {
 }
 
 export async function syncGoals(): Promise<void> {
-  const result = await fetchFromFirstWorkingSource([mockSource]);
+  const sources = getSourcesFromEnv();
+  const { result, attemptedSources, sourceErrors } = await fetchFromFirstWorkingSource(sources);
   const normalizedGoals = normalizeGoals(result.goals);
   const { validGoals: goals, skippedGoals } = validateGoals(normalizedGoals);
   const scoredGoals = sortGoalsChronologically(scoreGoalsForTeams(teams, goals));
@@ -36,13 +50,15 @@ export async function syncGoals(): Promise<void> {
     meta: {
       lastUpdated: result.fetchedAt,
       source: result.source,
-      fallbackUsed: false,
+      attemptedSources,
+      fallbackUsed: attemptedSources.length > 1,
       status: "ok",
       goalCount: goals.length,
       scoredGoalCount: scoredGoals.length,
       skippedGoalCount: skippedGoals.length,
       duplicateGoalCount,
-      message: "Mock-Daten fuer lokales MVP erzeugt."
+      sourceErrors,
+      message: `Daten-Snapshot mit Quelle ${result.source} erzeugt.`
     }
   });
 }

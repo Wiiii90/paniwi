@@ -5,6 +5,7 @@ import { getGoalPoints, matchesPlayer } from "./scoring";
 import { sortGoalsChronologically } from "./sortGoals";
 import type { GoalRecord, ParticipantTeam } from "./types";
 import { normalizeGoals } from "../sync/normalizeGoals";
+import { getSourcesForMode, parseSyncSourceMode } from "../sync/sources/sourceSelection";
 import { validateGoals } from "../sync/validateGoals";
 
 const teams: ParticipantTeam[] = [
@@ -114,6 +115,18 @@ assert.equal(validation.validGoals.length, 1);
 assert.deepEqual(
   validation.skippedGoals.map((item) => item.reason),
   ["duplicate-goal", "invalid-minute"]
+);
+
+assert.equal(parseSyncSourceMode(undefined), "mock");
+assert.equal(parseSyncSourceMode("auto"), "auto");
+assert.equal(parseSyncSourceMode("nope"), "mock");
+assert.deepEqual(
+  getSourcesForMode("auto").map((source) => source.name),
+  ["api-football", "wikipedia", "mock"]
+);
+assert.deepEqual(
+  getSourcesForMode("mock").map((source) => source.name),
+  ["mock"]
 );
 
 console.log("Domain tests passed.");
