@@ -52,7 +52,7 @@ export function GoalsPage({ scorers }: GoalsPageProps) {
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [ownershipFilter, setOwnershipFilter] = useState<OwnershipFilter>(() => {
     const params = new URLSearchParams(window.location.search);
-    return params.has("alle") ? "all" : "owned";
+    return params.has("besitzer") || params.has("mit-besitzer") ? "owned" : "all";
   });
   const [ownerFilter, setOwnerFilter] = useState("all");
   const [countryFilter, setCountryFilter] = useState("all");
