@@ -1,8 +1,8 @@
 :root {
-  --color-bg: #f7f1e6;
-  --color-bg-soft: #f3eadb;
-  --color-surface: #fffdf8;
-  --color-surface-muted: #faf4ea;
+  --color-bg: #f7f5ef;
+  --color-bg-soft: #eeece5;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f7f5ef;
   --color-text: #172033;
   --color-muted: #657287;
   --color-border: rgba(23, 32, 51, 0.12);
@@ -24,9 +24,7 @@
   --space-5: 20px;
   --space-6: 24px;
   color: var(--color-text);
-  background:
-    radial-gradient(circle at top left, rgba(215, 38, 56, 0.09), transparent 24rem),
-    linear-gradient(180deg, #fffaf1 0, var(--color-bg) 320px);
+  background: var(--color-bg);
   font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
   font-synthesis: none;
   -webkit-font-smoothing: antialiased;
@@ -78,7 +76,6 @@ a {
 .brand,
 .nav,
 .status-pill,
-.leaderboard-row,
 .hero-band,
 .table-card,
 .feed-item,
@@ -152,8 +149,8 @@ a {
 }
 
 .nav a[aria-current="page"] {
-  background: var(--color-accent-soft);
-  color: var(--color-accent);
+  background: var(--color-text);
+  color: #ffffff;
 }
 
 .page-stack {
@@ -402,8 +399,8 @@ h2 {
   align-items: center;
   display: grid;
   gap: var(--space-2);
-  grid-template-columns: 62px minmax(110px, 1.15fr) 70px minmax(150px, 1.35fr) 105px 76px;
-  min-height: 54px;
+  grid-template-columns: 58px minmax(96px, 0.9fr) 70px minmax(220px, 2fr) 104px 82px;
+  min-height: 50px;
   padding: 12px 16px;
 }
 
@@ -429,9 +426,9 @@ h2 {
 .award-icon {
   display: inline-block;
   flex: 0 0 auto;
-  height: 24px;
+  height: 20px;
   object-fit: contain;
-  width: 24px;
+  width: 20px;
 }
 
 .small-stat,
@@ -461,6 +458,10 @@ h2 {
   overflow: hidden;
 }
 
+.leaderboard-table {
+  overflow-x: auto;
+}
+
 .player-grid,
 .scorer-grid,
 .leaderboard-grid {
@@ -480,9 +481,15 @@ h2 {
 }
 
 .player-grid > :last-child,
-.scorer-grid > :last-child,
-.leaderboard-grid > :last-child {
+.scorer-grid > :last-child {
   text-align: right;
+}
+
+.leaderboard-grid > :nth-child(1),
+.leaderboard-grid > :nth-child(3),
+.leaderboard-grid > :nth-child(5),
+.leaderboard-grid > :nth-child(6) {
+  text-align: center;
 }
 
 .scorer-grid small {
@@ -519,6 +526,14 @@ h2 {
   text-transform: inherit;
 }
 
+.leaderboard-grid > :nth-child(1) .table-sort-button,
+.leaderboard-grid > :nth-child(3) .table-sort-button,
+.leaderboard-grid > :nth-child(5) .table-sort-button,
+.leaderboard-grid > :nth-child(6) .table-sort-button {
+  justify-content: center;
+  width: 100%;
+}
+
 .table-sort-button:hover,
 .table-sort-button:focus-visible {
   color: #ffffff;
@@ -534,6 +549,10 @@ h2 {
   min-height: 54px;
 }
 
+.leaderboard-row {
+  min-height: 50px;
+}
+
 .player-row + .player-row,
 .leaderboard-row + .leaderboard-row {
   border-top: 1px solid var(--color-border);
@@ -542,6 +561,14 @@ h2 {
 .player-row:nth-child(odd):not(.table-header),
 .leaderboard-row:nth-child(odd):not(.table-header) {
   background: rgba(244, 241, 232, 0.45);
+}
+
+.top-scorer-cell {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .feed-item {
@@ -861,8 +888,8 @@ h2 {
   }
 
   .award-icon {
-    height: 22px;
-    width: 22px;
+    height: 20px;
+    width: 20px;
   }
 
   .table-card {
@@ -871,15 +898,22 @@ h2 {
     overflow: visible;
   }
 
+  .leaderboard-table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .leaderboard-table .leaderboard-grid {
+    min-width: 760px;
+  }
+
   .table-header.player-grid,
-  .table-header.scorer-grid,
-  .table-header.leaderboard-grid {
+  .table-header.scorer-grid {
     display: none;
   }
 
   .player-grid,
-  .scorer-grid,
-  .leaderboard-grid {
+  .scorer-grid {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
@@ -889,31 +923,26 @@ h2 {
     padding: var(--space-3);
   }
 
-  .player-row + .player-row,
-  .leaderboard-row + .leaderboard-row {
+  .player-row + .player-row {
     border-top: 0;
   }
 
-  .player-row:nth-child(odd):not(.table-header),
-  .leaderboard-row:nth-child(odd):not(.table-header) {
+  .player-row:nth-child(odd):not(.table-header) {
     background: var(--color-surface);
   }
 
   .player-grid > *,
-  .scorer-grid > *,
-  .leaderboard-grid > * {
+  .scorer-grid > * {
     min-width: 0;
   }
 
   .player-grid > :first-child,
-  .scorer-grid > :nth-child(2),
-  .leaderboard-grid > :nth-child(2) {
+  .scorer-grid > :nth-child(2) {
     grid-column: 1 / -1;
   }
 
   .player-grid > [data-label],
-  .scorer-grid > [data-label],
-  .leaderboard-grid > [data-label] {
+  .scorer-grid > [data-label] {
     align-items: baseline;
     display: flex;
     gap: var(--space-2);
@@ -921,8 +950,7 @@ h2 {
   }
 
   .player-grid > [data-label]::before,
-  .scorer-grid > [data-label]::before,
-  .leaderboard-grid > [data-label]::before {
+  .scorer-grid > [data-label]::before {
     color: var(--color-muted);
     content: attr(data-label);
     font-size: 0.72rem;
@@ -936,8 +964,7 @@ h2 {
   }
 
   .player-grid > :last-child,
-  .scorer-grid > :last-child,
-  .leaderboard-grid > :last-child {
+  .scorer-grid > :last-child {
     color: var(--color-accent);
     font-weight: 900;
     text-align: right;

@@ -13,7 +13,7 @@ type SortDirection = "asc" | "desc";
 
 type LeaderboardRow = LeaderboardEntry & {
   misses: number;
-  topScorer: string;
+  topScorerLabel: string;
   topScorerGoals: number;
 };
 
@@ -49,7 +49,7 @@ function getMissCounts(pickStatuses: PickStatusSnapshot): Map<string, number> {
   return counts;
 }
 
-function getTopScorers(goals: ScoredGoal[]): Map<string, { name: string; goals: number }> {
+function getTopScorers(goals: ScoredGoal[]): Map<string, { names: string[]; goals: number }> {
   const goalsByOwnerAndPlayer = new Map<string, Map<string, number>>();
 
   for (const goal of goals) {
@@ -58,7 +58,7 @@ function getTopScorers(goals: ScoredGoal[]): Map<string, { name: string; goals: 
     goalsByOwnerAndPlayer.set(goal.owner, ownerGoals);
   }
 
-  const topScorers = new Map<string, { name: string; goals: number }>();
+  const topScorers = new Map<string, { names: string[]; goals: number }>();
   for (const [owner, playerGoals] of goalsByOwnerAndPlayer.entries()) {
     const sorted = [...playerGoals.entries()].sort((left, right) => {
       if (right[1] !== left[1]) {
@@ -67,16 +67,23 @@ function getTopScorers(goals: ScoredGoal[]): Map<string, { name: string; goals: 
 
       return left[0].localeCompare(right[0], "de");
     });
-    const [name, goalCount] = sorted[0] ?? ["-", 0];
-    topScorers.set(owner, { name, goals: goalCount });
+    const topGoalCount = sorted[0]?.[1] ?? 0;
+    topScorers.set(owner, {
+      names: sorted.filter(([, goalCount]) => goalCount === topGoalCount).map(([name]) => name),
+      goals: topGoalCount
+    });
   }
 
   return topScorers;
 }
 
 function compareRows(left: LeaderboardRow, right: LeaderboardRow, sortKey: SortKey): number {
-  if (sortKey === "owner" || sortKey === "topScorer") {
-    return left[sortKey].localeCompare(right[sortKey], "de");
+  if (sortKey === "owner") {
+    return left.owner.localeCompare(right.owner, "de");
+  }
+
+  if (sortKey === "topScorer") {
+    return left.topScorerLabel.localeCompare(right.topScorerLabel, "de");
   }
 
   return left[sortKey] - right[sortKey];
@@ -99,7 +106,7 @@ export function LeaderboardPage({ goals, leaderboard, pickStatuses }: Leaderboar
       return {
         ...entry,
         misses: missCounts.get(entry.owner) ?? 0,
-        topScorer: topScorer?.name ?? "-",
+        topScorerLabel: topScorer && topScorer.goals > 0 ? topScorer.names.join(", ") : "-",
         topScorerGoals: topScorer?.goals ?? 0
       };
     });
@@ -164,8 +171,8 @@ export function LeaderboardPage({ goals, leaderboard, pickStatuses }: Leaderboar
                   {hasRedLantern ? <img className="award-icon" src={`${baseUrl}assets/red-lantern.png`} alt="Rote Laterne" /> : null}
                 </span>
                 <span data-label="Nieten">{entry.misses}</span>
-                <span data-label="Toptorschütze">
-                  {entry.topScorerGoals > 0 ? `${entry.topScorer} (${entry.topScorerGoals})` : "-"}
+                <span className="top-scorer-cell" data-label="Toptorschütze" title={entry.topScorerLabel}>
+                  {entry.topScorerGoals > 0 ? `${entry.topScorerLabel} (${entry.topScorerGoals})` : "-"}
                 </span>
                 <span data-label="Torschützen">{entry.playersWithGoals}</span>
                 <strong data-label="Punkte">{entry.points}</strong>
