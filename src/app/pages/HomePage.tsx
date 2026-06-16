@@ -32,6 +32,17 @@ function formatMatchScore(match: MatchRecord): string {
   return `${match.homeTeam.score}:${match.awayTeam.score}`;
 }
 
+function formatMatchImpact(match: MatchRecord): string | null {
+  const selectedParticipants = match.participants.filter((participant) => participant.selected && participant.owners.length > 0);
+  if (selectedParticipants.length === 0) {
+    return null;
+  }
+
+  const visibleParticipants = selectedParticipants.slice(0, 2).map((participant) => `${participant.owners.join("/")} · ${participant.displayPlayerName}`);
+  const remainingCount = selectedParticipants.length - visibleParticipants.length;
+  return remainingCount > 0 ? `${visibleParticipants.join(" · ")} · +${remainingCount}` : visibleParticipants.join(" · ");
+}
+
 export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps) {
   const baseUrl = import.meta.env.BASE_URL;
   const latestGoals = goals.slice().reverse();
@@ -113,28 +124,32 @@ export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps
             {currentMatches.length === 0 ? (
               <p className="empty-inline">Keine aktuellen Spiele.</p>
             ) : (
-              currentMatches.map((match) => (
-                <div className={`mini-row match-mini-row match-mini-row-${match.status}`} key={match.matchId}>
-                  <span>
-                    <strong className="match-name-line">
-                      {match.status === "live" ? (
-                        <span className="live-chip">
-                          <span aria-hidden="true" className="live-dot" />
-                          <span className="live-chip-text">Live</span>
+              currentMatches.map((match) => {
+                const matchImpact = formatMatchImpact(match);
+                return (
+                  <div className={`mini-row match-mini-row match-mini-row-${match.status}`} key={match.matchId}>
+                    <span>
+                      <strong className="match-name-line">
+                        {match.status === "live" ? (
+                          <span className="live-chip">
+                            <span aria-hidden="true" className="live-dot" />
+                            <span className="live-chip-text">Live</span>
+                          </span>
+                        ) : null}
+                        <span className="match-name-text">
+                          {match.homeTeam.name} - {match.awayTeam.name}
                         </span>
-                      ) : null}
-                      <span className="match-name-text">
-                        {match.homeTeam.name} - {match.awayTeam.name}
-                      </span>
-                    </strong>
-                    <small>
-                      {formatKickoff(match.kickedOffAt)}
-                      {match.pointGoals.length > 0 ? ` · ${match.pointGoals.length} Panini-Tore` : ""}
-                    </small>
-                  </span>
-                  <span className="match-mini-score">{formatMatchScore(match)}</span>
-                </div>
-              ))
+                      </strong>
+                      <small>
+                        {formatKickoff(match.kickedOffAt)}
+                        {match.pointGoals.length > 0 ? ` · ${match.pointGoals.length} Panini-Tore` : ""}
+                      </small>
+                      {matchImpact ? <small className="match-impact-line">{matchImpact}</small> : null}
+                    </span>
+                    <span className="match-mini-score">{formatMatchScore(match)}</span>
+                  </div>
+                );
+              })
             )}
           </div>
         </a>

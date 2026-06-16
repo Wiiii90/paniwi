@@ -463,6 +463,11 @@ h2 {
   color: var(--color-accent);
 }
 
+.match-impact-line {
+  color: var(--color-text);
+  font-weight: 800;
+}
+
 .match-name-line {
   align-items: center;
   display: flex;
