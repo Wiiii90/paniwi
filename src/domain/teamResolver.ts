@@ -13,6 +13,7 @@ function createFallbackTeam(teamName: string): TeamCatalogEntry | null {
     teamId: deriveTeamId(teamName),
     sourceName: teamName.trim(),
     displayName: teamName.trim(),
+    flagCode: "",
     aliases: []
   };
 }

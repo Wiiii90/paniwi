@@ -1086,6 +1086,7 @@ h2 {
 }
 
 .match-card-header,
+.match-card-scoreline,
 .match-goals,
 .match-impact {
   color: var(--color-muted);
@@ -1100,28 +1101,57 @@ h2 {
   padding: 4px 9px;
 }
 
-.match-card-title {
-  display: grid;
-  gap: 2px;
+.match-card-meta {
+  align-items: center;
+  display: flex;
   min-width: 0;
 }
 
-.match-card-title > span {
+.match-card-meta > span {
   color: var(--color-muted);
   font-size: 0.78rem;
   font-weight: 800;
 }
 
-.match-card-title > strong {
+.match-card-scoreline {
+  align-items: center;
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+}
+
+.match-team {
+  align-items: center;
   color: var(--color-text);
-  display: block;
+  display: flex;
   font-size: 1rem;
   font-weight: 900;
+  gap: 7px;
+  min-width: 0;
+}
+
+.match-team-home {
+  justify-content: flex-start;
+}
+
+.match-team-away {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.match-team > strong {
   min-width: 0;
   overflow: hidden;
-  padding: 0 0 1px 2px;
+  padding-bottom: 1px;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.match-team-flag {
+  flex: 0 0 auto;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+  font-size: 1.05rem;
+  line-height: 1;
 }
 
 .match-card-status {
@@ -1506,8 +1536,13 @@ h2 {
     justify-content: space-between;
   }
 
-  .match-card-title > strong {
-    white-space: normal;
+  .match-card-scoreline {
+    gap: var(--space-2);
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  }
+
+  .match-team {
+    font-size: 0.9rem;
   }
 
   .relevant-lineup-list {

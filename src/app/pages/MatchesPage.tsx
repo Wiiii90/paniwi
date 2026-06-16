@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { getTeamFlag } from "../../config/teamCatalog";
 import type { MatchParticipantRecord, MatchParticipationStatus, MatchRecord } from "../../domain/types";
 import { formatGoalMinute } from "../formatGoal";
 
@@ -55,10 +56,6 @@ function formatScore(match: MatchRecord): string {
   }
 
   return `${match.homeTeam.score}:${match.awayTeam.score}`;
-}
-
-function formatMatchTitle(match: MatchRecord): string {
-  return `${match.homeTeam.name} - ${match.awayTeam.name}`;
 }
 
 function formatParticipationStatus(status: MatchParticipationStatus, matchStatus: MatchRecord["status"]): string {
@@ -214,16 +211,25 @@ function MatchSection({
             return (
               <article className={`match-card match-card-${match.status}`} key={match.matchId}>
                 <div className="match-card-header">
-                  <div className="match-card-title">
+                  <div className="match-card-meta">
                     <span>{formatKickoff(match.kickedOffAt)}</span>
-                    <strong>{formatMatchTitle(match)}</strong>
                   </div>
                   <div className="match-card-status">
                     <strong className={match.status === "live" ? "live-chip" : undefined}>
                       {match.status === "live" ? <span aria-hidden="true" className="live-dot" /> : null}
                       <span className={match.status === "live" ? "live-chip-text" : undefined}>{formatStatus(match.status, sectionKey)}</span>
                     </strong>
-                    <span className="match-card-score">{formatScore(match)}</span>
+                  </div>
+                </div>
+                <div className="match-card-scoreline">
+                  <div className="match-team match-team-home">
+                    <span aria-hidden="true" className="match-team-flag">{getTeamFlag(match.homeTeam.name)}</span>
+                    <strong>{match.homeTeam.name}</strong>
+                  </div>
+                  <span className="match-card-score">{formatScore(match)}</span>
+                  <div className="match-team match-team-away">
+                    <strong>{match.awayTeam.name}</strong>
+                    <span aria-hidden="true" className="match-team-flag">{getTeamFlag(match.awayTeam.name)}</span>
                   </div>
                 </div>
                 {match.goals.length > 0 ? (
