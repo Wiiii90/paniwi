@@ -44,7 +44,7 @@ export function AppShell({ children, meta }: AppShellProps) {
           })}
         </nav>
       </header>
-      <main>{children}</main>
+      <main className="app-main">{children}</main>
     </div>
   );
 }
