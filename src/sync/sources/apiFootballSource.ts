@@ -31,7 +31,7 @@ type ApiFootballEvent = {
   detail?: string;
 };
 
-type ApiFootballFixture = {
+export type ApiFootballFixture = {
   fixture?: {
     id?: number;
     date?: string;
@@ -445,7 +445,7 @@ function isFixtureInLiveWindow(fixture: ApiFootballFixture, now: Date): boolean 
   return now.getTime() >= kickoffMs && now.getTime() <= until;
 }
 
-function shouldFetchFixtureLineups(fixture: ApiFootballFixture, phase: SyncWindowPhase, now: Date): boolean {
+export function shouldFetchFixtureLineups(fixture: ApiFootballFixture, phase: SyncWindowPhase, now: Date): boolean {
   const fixtureId = getFixtureId(fixture);
   if (!fixtureId) {
     return false;
@@ -462,14 +462,18 @@ function shouldFetchFixtureLineups(fixture: ApiFootballFixture, phase: SyncWindo
     return hasStarted;
   }
 
-  if (phase === "post-match") {
-    return isPostMatchWindow(fixture, now) && hasStarted;
+  if (isFixtureInLiveWindow(fixture, now)) {
+    return true;
   }
 
-  return (phase === "pre-match" && isFixtureInPreMatchWindow(fixture, now)) || (phase === "live" && isFixtureInLiveWindow(fixture, now));
+  if (isPostMatchWindow(fixture, now) && hasStarted) {
+    return true;
+  }
+
+  return phase === "pre-match" && isFixtureInPreMatchWindow(fixture, now);
 }
 
-function shouldFetchFixtureEventsForPhase(fixture: ApiFootballFixture, phase: SyncWindowPhase, now: Date): boolean {
+export function shouldFetchFixtureEventsForPhase(fixture: ApiFootballFixture, phase: SyncWindowPhase, now: Date): boolean {
   if (!shouldFetchFixtureEvents(fixture)) {
     return false;
   }
@@ -478,12 +482,12 @@ function shouldFetchFixtureEventsForPhase(fixture: ApiFootballFixture, phase: Sy
     return true;
   }
 
-  if (phase === "live") {
-    return isFixtureInLiveWindow(fixture, now);
+  if (isFixtureInLiveWindow(fixture, now)) {
+    return true;
   }
 
-  if (phase === "post-match") {
-    return isPostMatchWindow(fixture, now);
+  if (isPostMatchWindow(fixture, now)) {
+    return true;
   }
 
   if (phase === "settlement" || phase === "maintenance") {

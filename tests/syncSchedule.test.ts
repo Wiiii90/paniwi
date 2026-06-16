@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import type { StaticMeta } from "../src/domain/types";
 import { evaluateSyncWindow } from "../src/sync/evaluateSyncWindow";
+import { shouldFetchFixtureEventsForPhase, shouldFetchFixtureLineups, type ApiFootballFixture } from "../src/sync/sources/apiFootballSource";
 import { buildSyncWindowsForKickoff, getActiveSyncWindow, getLastScheduledWindow, getSettlementWindow, syncPolicy } from "../src/sync/syncSchedule";
 
 const sampleKickoff = {
@@ -75,5 +76,44 @@ knockoutWindowStart.setUTCHours(18);
 const knockoutWindow = getActiveSyncWindow(knockoutWindowStart);
 assert.ok(knockoutWindow);
 assert.equal(knockoutWindow.id.startsWith("knockout-maintenance:"), true);
+
+const pickedLiveFixture: ApiFootballFixture = {
+  fixture: {
+    id: 1539016,
+    date: "2026-06-16T22:00:00+00:00",
+    status: { short: "1H" }
+  },
+  teams: {
+    home: { id: 1567, name: "Iraq" },
+    away: { id: 1090, name: "Norway" }
+  }
+};
+const pickedFinishedFixture: ApiFootballFixture = {
+  fixture: {
+    id: 1539001,
+    date: "2026-06-16T19:00:00+00:00",
+    status: { short: "FT" }
+  },
+  teams: {
+    home: { id: 2, name: "France" },
+    away: { id: 13, name: "Senegal" }
+  }
+};
+const notPickedPreMatchFixture: ApiFootballFixture = {
+  fixture: {
+    id: 1539999,
+    date: "2026-06-17T13:00:00+00:00",
+    status: { short: "NS" }
+  },
+  teams: {
+    home: { id: 999, name: "Example A" },
+    away: { id: 998, name: "Example B" }
+  }
+};
+const overlappingPostMatchRun = new Date("2026-06-16T22:10:00.000Z");
+assert.equal(shouldFetchFixtureEventsForPhase(pickedLiveFixture, "post-match", overlappingPostMatchRun), true);
+assert.equal(shouldFetchFixtureLineups(pickedLiveFixture, "post-match", overlappingPostMatchRun), true);
+assert.equal(shouldFetchFixtureEventsForPhase(pickedFinishedFixture, "live", overlappingPostMatchRun), true);
+assert.equal(shouldFetchFixtureLineups(notPickedPreMatchFixture, "pre-match", new Date("2026-06-17T12:10:00.000Z")), false);
 
 console.log("Sync schedule tests passed.");
