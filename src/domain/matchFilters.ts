@@ -38,3 +38,22 @@ export function getTodayOrLiveMatches(matches: MatchRecord[], now = new Date(), 
     .sort((a, b) => (a.kickedOffAt ?? "").localeCompare(b.kickedOffAt ?? ""))
     .slice(0, limit);
 }
+
+export function getLiveAndUpcomingMatches(matches: MatchRecord[], now = new Date(), limit = 3): MatchRecord[] {
+  const timestamp = now.getTime();
+  const liveMatches = matches
+    .filter((match) => match.status === "live")
+    .sort((a, b) => (a.kickedOffAt ?? "").localeCompare(b.kickedOffAt ?? ""));
+
+  const upcomingMatches = matches
+    .filter((match) => {
+      if (match.status !== "scheduled" || !match.kickedOffAt) {
+        return false;
+      }
+
+      return new Date(match.kickedOffAt).getTime() >= timestamp;
+    })
+    .sort((a, b) => (a.kickedOffAt ?? "").localeCompare(b.kickedOffAt ?? ""));
+
+  return [...liveMatches, ...upcomingMatches].slice(0, limit);
+}

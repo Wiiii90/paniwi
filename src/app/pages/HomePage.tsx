@@ -1,5 +1,5 @@
 import type { LeaderboardEntry, MatchRecord, ScoredGoal, ScorerEntry } from "../../domain/types";
-import { getTodayOrLiveMatches } from "../../domain/matchFilters";
+import { getLiveAndUpcomingMatches } from "../../domain/matchFilters";
 import { GoalFeedStrip } from "../components/GoalFeedStrip";
 
 type HomePageProps = {
@@ -38,9 +38,7 @@ export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps
   const latestPointGoals = latestGoals.slice(0, 3);
   const topScorers = scorers.slice(0, 3);
   const tableLeaders = leaderboard.slice(0, 3);
-  const liveMatches = matches.filter((match) => match.status === "live");
-  const scheduledMatches = getTodayOrLiveMatches(matches).filter((match) => match.status !== "live");
-  const currentMatches = [...liveMatches, ...scheduledMatches].slice(0, 3);
+  const currentMatches = getLiveAndUpcomingMatches(matches, new Date(), 3);
   return (
     <section className="page-stack">
       <div className="dashboard-grid">
