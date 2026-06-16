@@ -369,6 +369,13 @@ h2 {
   color: var(--color-accent);
 }
 
+.match-name-line {
+  align-items: center;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
 .live-dot {
   background: var(--color-accent);
   border-radius: 999px;
@@ -379,8 +386,12 @@ h2 {
   width: 9px;
 }
 
-.match-mini-row-scheduled > span:last-child {
-  color: var(--color-primary);
+.live-chip {
+  align-items: center;
+  color: var(--color-accent);
+  display: inline-flex;
+  gap: 7px;
+  white-space: nowrap;
 }
 
 .feed-strip {
@@ -815,25 +826,21 @@ h2 {
 
 .match-card-live .match-card-header strong,
 .match-card-live .match-scoreline strong {
-  background: var(--color-accent-soft);
   color: var(--color-accent);
 }
 
 .match-card-scheduled .match-card-header strong,
 .match-card-scheduled .match-scoreline strong {
-  background: #eef1f5;
-  color: #475569;
+  color: var(--color-text);
 }
 
 .match-card-finished .match-card-header strong,
 .match-card-finished .match-scoreline strong {
-  background: #edf0f2;
   color: var(--color-text);
 }
 
 .match-card-unknown .match-card-header strong,
 .match-card-unknown .match-scoreline strong {
-  background: #fff7ed;
   color: var(--color-warning);
 }
 

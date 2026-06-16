@@ -153,7 +153,13 @@ export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps
               currentMatches.map((match) => (
                 <div className={`mini-row match-mini-row match-mini-row-${match.status}`} key={match.matchId}>
                   <span>
-                    <strong>
+                    <strong className="match-name-line">
+                      {match.status === "live" ? (
+                        <span className="live-chip">
+                          <span aria-hidden="true" className="live-dot" />
+                          Live
+                        </span>
+                      ) : null}
                       {match.homeTeam.name} - {match.awayTeam.name}
                     </strong>
                     <small>
@@ -161,10 +167,7 @@ export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps
                       {match.pointGoals.length > 0 ? ` · ${match.pointGoals.length} Panini-Tore` : ""}
                     </small>
                   </span>
-                  <span className="match-mini-score">
-                    {match.status === "live" ? <span aria-label="Live" className="live-dot" /> : null}
-                    {formatMatchScore(match)}
-                  </span>
+                  <span className="match-mini-score">{formatMatchScore(match)}</span>
                 </div>
               ))
             )}
