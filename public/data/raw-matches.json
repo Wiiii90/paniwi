@@ -478,19 +478,6 @@
   },
   {
     "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group g:iran-nzl:2026-06-16T01:00:00.000Z",
-    "label": "Iran Match 15 NZL",
-    "kickedOffAt": "2026-06-16T01:00:00.000Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "name": "Iran"
-    },
-    "awayTeam": {
-      "name": "NZL"
-    }
-  },
-  {
-    "source": "wikipedia",
     "matchId": "wikipedia:2026 fifa world cup group g:belgium-iran:2026-06-21T19:00:00.000Z",
     "label": "Belgium Match 39 Iran",
     "kickedOffAt": "2026-06-21T19:00:00.000Z",
@@ -591,32 +578,6 @@
     },
     "awayTeam": {
       "name": "Spain"
-    }
-  },
-  {
-    "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group i:france-senegal:2026-06-16T19:00:00.000Z",
-    "label": "France Match 17 Senegal",
-    "kickedOffAt": "2026-06-16T19:00:00.000Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "name": "France"
-    },
-    "awayTeam": {
-      "name": "Senegal"
-    }
-  },
-  {
-    "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group i:iraq-norway:2026-06-16T22:00:00.000Z",
-    "label": "Iraq Match 18 Norway",
-    "kickedOffAt": "2026-06-16T22:00:00.000Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "name": "Iraq"
-    },
-    "awayTeam": {
-      "name": "Norway"
     }
   },
   {
@@ -975,6 +936,56 @@
       "id": 7,
       "name": "Uruguay",
       "score": 0
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489378",
+    "fixtureId": "1489378",
+    "label": "Iran 0-0 New Zealand",
+    "kickedOffAt": "2026-06-16T01:00:00+00:00",
+    "status": "live",
+    "homeTeam": {
+      "id": 22,
+      "name": "Iran",
+      "score": 0
+    },
+    "awayTeam": {
+      "id": 4673,
+      "name": "New Zealand",
+      "score": 0
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489383",
+    "fixtureId": "1489383",
+    "label": "France vs Senegal",
+    "kickedOffAt": "2026-06-16T19:00:00+00:00",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 2,
+      "name": "France"
+    },
+    "awayTeam": {
+      "id": 13,
+      "name": "Senegal"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1539016",
+    "fixtureId": "1539016",
+    "label": "Iraq vs Norway",
+    "kickedOffAt": "2026-06-16T22:00:00+00:00",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 1567,
+      "name": "Iraq"
+    },
+    "awayTeam": {
+      "id": 1090,
+      "name": "Norway"
     }
   }
 ]

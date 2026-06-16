@@ -1036,24 +1036,26 @@
     "affectedOwners": []
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group g:iran-nzl:2026-06-16T01:00:00.000Z",
-    "label": "Iran Match 15 NZL",
-    "kickedOffAt": "2026-06-16T01:00:00.000Z",
-    "status": "scheduled",
+    "matchId": "api-football:1489378",
+    "label": "Iran 0-0 New Zealand",
+    "kickedOffAt": "2026-06-16T01:00:00+00:00",
+    "status": "live",
     "homeTeam": {
-      "name": "Iran"
+      "name": "Iran",
+      "score": 0
     },
     "awayTeam": {
-      "name": "NZL"
+      "name": "New Zealand",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
     "affectedOwners": []
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group i:france-senegal:2026-06-16T19:00:00.000Z",
-    "label": "France Match 17 Senegal",
-    "kickedOffAt": "2026-06-16T19:00:00.000Z",
+    "matchId": "api-football:1489383",
+    "label": "France vs Senegal",
+    "kickedOffAt": "2026-06-16T19:00:00+00:00",
     "status": "scheduled",
     "homeTeam": {
       "name": "Frankreich"
@@ -1066,9 +1068,9 @@
     "affectedOwners": []
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group i:iraq-norway:2026-06-16T22:00:00.000Z",
-    "label": "Iraq Match 18 Norway",
-    "kickedOffAt": "2026-06-16T22:00:00.000Z",
+    "matchId": "api-football:1539016",
+    "label": "Iraq vs Norway",
+    "kickedOffAt": "2026-06-16T22:00:00+00:00",
     "status": "scheduled",
     "homeTeam": {
       "name": "Irak"
