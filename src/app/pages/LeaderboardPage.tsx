@@ -21,7 +21,7 @@ const sortLabels: Record<SortKey, string> = {
   rank: "Pl.",
   owner: "Spieler",
   misses: "Nieten",
-  topScorer: "Toptorschütze",
+  topScorer: "Toptorschütze(n)",
   playersWithGoals: "Torschützen",
   points: "Punkte"
 };
@@ -170,7 +170,7 @@ export function LeaderboardPage({ goals, leaderboard, pickStatuses }: Leaderboar
                   {hasJackpot ? <img className="award-icon" src={`${baseUrl}assets/money-pot.png`} alt="Geldtopf" /> : null}
                   {hasRedLantern ? <img className="award-icon" src={`${baseUrl}assets/red-lantern.png`} alt="Rote Laterne" /> : null}
                 </span>
-                <span className="top-scorer-cell" data-label="Toptorschütze" title={entry.topScorerLabel}>
+                <span className="top-scorer-cell" data-label="Toptorschütze(n)" title={entry.topScorerLabel}>
                   {entry.topScorerGoals > 0 ? `${entry.topScorerLabel} (${entry.topScorerGoals})` : "-"}
                 </span>
                 <span data-label="Nieten">{entry.misses}</span>
