@@ -93,18 +93,76 @@ function groupParticipantsByTeam(match: MatchRecord): [string, MatchParticipantR
 }
 
 type MatchSectionProps = {
+  sectionKey: keyof VisibleMatchCounts;
   title: string;
   emptyText: string;
   matches: MatchRecord[];
-  expanded: boolean;
-  onToggle: () => void;
+  visibleCount: number;
+  initialVisibleCount: number;
+  onShowMore: (section: keyof VisibleMatchCounts, amount: number) => void;
+  onShowAll: (section: keyof VisibleMatchCounts, total: number) => void;
+  onCollapse: (section: keyof VisibleMatchCounts) => void;
   expandedLineups: Set<string>;
   onToggleLineup: (matchId: string) => void;
 };
 
-function MatchSection({ title, emptyText, matches, expanded, onToggle, expandedLineups, onToggleLineup }: MatchSectionProps) {
-  const previewCount = title === "Kommende Spiele" ? 6 : 4;
-  const visibleMatches = expanded ? matches : matches.slice(0, previewCount);
+type VisibleMatchCounts = {
+  live: number;
+  upcoming: number;
+  finished: number;
+};
+
+const initialVisibleCounts: VisibleMatchCounts = {
+  live: Number.MAX_SAFE_INTEGER,
+  upcoming: 1,
+  finished: 1
+};
+
+const preMatchDisplayWindowMinutes = 60;
+const recentlyFinishedDisplayWindowMinutesAfterKickoff = 180;
+
+function isActiveMatch(match: MatchRecord, now: Date): boolean {
+  if (match.status === "live") {
+    return true;
+  }
+
+  if (!match.kickedOffAt) {
+    return false;
+  }
+
+  const kickoffMs = new Date(match.kickedOffAt).getTime();
+  if (!Number.isFinite(kickoffMs)) {
+    return false;
+  }
+
+  const nowMs = now.getTime();
+  if (match.status === "scheduled") {
+    const preMatchStartsMs = kickoffMs - preMatchDisplayWindowMinutes * 60 * 1000;
+    return nowMs >= preMatchStartsMs && nowMs < kickoffMs;
+  }
+
+  if (match.status === "finished") {
+    const activeUntilMs = kickoffMs + recentlyFinishedDisplayWindowMinutesAfterKickoff * 60 * 1000;
+    return nowMs >= kickoffMs && nowMs <= activeUntilMs;
+  }
+
+  return false;
+}
+
+function MatchSection({
+  sectionKey,
+  title,
+  emptyText,
+  matches,
+  visibleCount,
+  initialVisibleCount,
+  onShowMore,
+  onShowAll,
+  onCollapse,
+  expandedLineups,
+  onToggleLineup
+}: MatchSectionProps) {
+  const visibleMatches = matches.slice(0, visibleCount);
   const hiddenCount = matches.length - visibleMatches.length;
 
   return (
@@ -201,12 +259,29 @@ function MatchSection({ title, emptyText, matches, expanded, onToggle, expandedL
           })
         )}
       </div>
-      {matches.length > previewCount ? (
+      {matches.length > initialVisibleCount ? (
         <div className="match-section-footer">
-          <span>{expanded ? `${matches.length} Spiele sichtbar` : `${visibleMatches.length} von ${matches.length} Spielen`}</span>
-          <button className="plain-button compact-button" type="button" onClick={onToggle}>
-            {expanded ? "Einklappen" : `${hiddenCount} weitere`}
-          </button>
+          <span>{visibleMatches.length} von {matches.length} Spielen</span>
+          <div className="match-section-actions">
+            {hiddenCount > 0 ? (
+              <>
+                <button className="plain-button compact-button" type="button" onClick={() => onShowMore(sectionKey, 2)}>
+                  +2
+                </button>
+                <button className="plain-button compact-button" type="button" onClick={() => onShowMore(sectionKey, 5)}>
+                  +5
+                </button>
+                <button className="plain-button compact-button" type="button" onClick={() => onShowAll(sectionKey, matches.length)}>
+                  Alle
+                </button>
+              </>
+            ) : null}
+            {visibleMatches.length > initialVisibleCount ? (
+              <button className="plain-button compact-button" type="button" onClick={() => onCollapse(sectionKey)}>
+                Einklappen
+              </button>
+            ) : null}
+          </div>
         </div>
       ) : null}
     </section>
@@ -214,18 +289,28 @@ function MatchSection({ title, emptyText, matches, expanded, onToggle, expandedL
 }
 
 export function MatchesPage({ matches }: MatchesPageProps) {
-  const [expandedSections, setExpandedSections] = useState({
-    live: false,
-    upcoming: false,
-    finished: false
-  });
+  const [visibleCounts, setVisibleCounts] = useState<VisibleMatchCounts>(initialVisibleCounts);
   const [expandedLineups, setExpandedLineups] = useState<Set<string>>(() => new Set());
-  const liveMatches = matches.filter((match) => match.status === "live").sort(sortByKickoffAscending);
-  const upcomingMatches = matches.filter((match) => match.status === "scheduled").sort(sortByKickoffAscending);
-  const finishedMatches = matches.filter((match) => match.status === "finished").sort(sortByKickoffDescending);
+  const now = new Date();
+  const liveMatches = matches.filter((match) => isActiveMatch(match, now)).sort(sortByKickoffAscending);
+  const activeMatchIds = new Set(liveMatches.map((match) => match.matchId));
+  const upcomingMatches = matches
+    .filter((match) => match.status === "scheduled" && !activeMatchIds.has(match.matchId))
+    .sort(sortByKickoffAscending);
+  const finishedMatches = matches
+    .filter((match) => match.status === "finished" && !activeMatchIds.has(match.matchId))
+    .sort(sortByKickoffDescending);
 
-  function toggleSection(section: keyof typeof expandedSections): void {
-    setExpandedSections((current) => ({ ...current, [section]: !current[section] }));
+  function showMore(section: keyof VisibleMatchCounts, amount: number): void {
+    setVisibleCounts((current) => ({ ...current, [section]: current[section] + amount }));
+  }
+
+  function showAll(section: keyof VisibleMatchCounts, total: number): void {
+    setVisibleCounts((current) => ({ ...current, [section]: total }));
+  }
+
+  function collapseSection(section: keyof VisibleMatchCounts): void {
+    setVisibleCounts((current) => ({ ...current, [section]: initialVisibleCounts[section] }));
   }
 
   function toggleLineup(matchId: string): void {
@@ -243,29 +328,41 @@ export function MatchesPage({ matches }: MatchesPageProps) {
   return (
     <section className="page-stack">
       <MatchSection
+        sectionKey="live"
         title="Live"
         emptyText="Gerade läuft kein Spiel im Snapshot."
         matches={liveMatches}
-        expanded={expandedSections.live}
-        onToggle={() => toggleSection("live")}
+        visibleCount={visibleCounts.live}
+        initialVisibleCount={initialVisibleCounts.live}
+        onShowMore={showMore}
+        onShowAll={showAll}
+        onCollapse={collapseSection}
         expandedLineups={expandedLineups}
         onToggleLineup={toggleLineup}
       />
       <MatchSection
+        sectionKey="upcoming"
         title="Kommende Spiele"
         emptyText="Keine kommenden Spiele im Snapshot."
         matches={upcomingMatches}
-        expanded={expandedSections.upcoming}
-        onToggle={() => toggleSection("upcoming")}
+        visibleCount={visibleCounts.upcoming}
+        initialVisibleCount={initialVisibleCounts.upcoming}
+        onShowMore={showMore}
+        onShowAll={showAll}
+        onCollapse={collapseSection}
         expandedLineups={expandedLineups}
         onToggleLineup={toggleLineup}
       />
       <MatchSection
+        sectionKey="finished"
         title="Vergangene Spiele"
         emptyText="Noch keine vergangenen Spiele im Snapshot."
         matches={finishedMatches}
-        expanded={expandedSections.finished}
-        onToggle={() => toggleSection("finished")}
+        visibleCount={visibleCounts.finished}
+        initialVisibleCount={initialVisibleCounts.finished}
+        onShowMore={showMore}
+        onShowAll={showAll}
+        onCollapse={collapseSection}
         expandedLineups={expandedLineups}
         onToggleLineup={toggleLineup}
       />

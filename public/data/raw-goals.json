@@ -13,7 +13,8 @@
     "minute": 9,
     "timeConfidence": "estimated",
     "detail": "normal",
-    "teamId": "mexico"
+    "teamId": "mexico",
+    "playerId": "mexico-julian-quinones"
   },
   {
     "externalGoalId": "wikipedia:2026 fifa world cup group a:mexico-south africa:2026-06-11T19:00:00.000Z:raul jimenez:67:normal",
@@ -29,7 +30,8 @@
     "minute": 67,
     "timeConfidence": "estimated",
     "detail": "normal",
-    "teamId": "mexico"
+    "teamId": "mexico",
+    "playerId": "mexico-raul-jimenez"
   },
   {
     "externalGoalId": "wikipedia:2026 fifa world cup group a:south korea-czech republic:2026-06-12T02:00:00.000Z:hwang in beom:67:normal",
@@ -45,7 +47,8 @@
     "minute": 67,
     "timeConfidence": "estimated",
     "detail": "normal",
-    "teamId": "south-korea"
+    "teamId": "south-korea",
+    "playerId": "south-korea-hwang-in-beom"
   },
   {
     "externalGoalId": "wikipedia:2026 fifa world cup group a:south korea-czech republic:2026-06-12T02:00:00.000Z:oh hyeon gyu:80:normal",
@@ -61,7 +64,8 @@
     "minute": 80,
     "timeConfidence": "estimated",
     "detail": "normal",
-    "teamId": "south-korea"
+    "teamId": "south-korea",
+    "playerId": "south-korea-oh-hyeon-gyu"
   },
   {
     "externalGoalId": "wikipedia:2026 fifa world cup group a:south korea-czech republic:2026-06-12T02:00:00.000Z:ladislav krejci footballer born 1999:59:normal",
@@ -77,7 +81,8 @@
     "minute": 59,
     "timeConfidence": "estimated",
     "detail": "normal",
-    "teamId": "czech-republic"
+    "teamId": "czech-republic",
+    "playerId": "czech-republic-ladislav-krejci"
   },
   {
     "externalGoalId": "wikipedia:2026 fifa world cup group b:canada-bosnia and herzegovina:2026-06-12T19:00:00.000Z:cyle larin:78:normal",
@@ -93,7 +98,8 @@
     "minute": 78,
     "timeConfidence": "estimated",
     "detail": "normal",
-    "teamId": "canada"
+    "teamId": "canada",
+    "playerId": "canada-cyle-larin"
   },
   {
     "externalGoalId": "wikipedia:2026 fifa world cup group b:canada-bosnia and herzegovina:2026-06-12T19:00:00.000Z:jovo lukic:21:normal",
@@ -109,7 +115,8 @@
     "minute": 21,
     "timeConfidence": "estimated",
     "detail": "normal",
-    "teamId": "bosnia-and-herzegovina"
+    "teamId": "bosnia-and-herzegovina",
+    "playerId": "bosnia-and-herzegovina-jovo-lukic"
   },
   {
     "externalGoalId": "wikipedia:2026 fifa world cup group b:qatar-switzerland:2026-06-13T19:00:00.000Z:miro muheim:94:own-goal",
@@ -124,7 +131,9 @@
     "kickedOffAt": "2026-06-13T19:00:00.000Z",
     "minute": 94,
     "timeConfidence": "estimated",
-    "detail": "own-goal"
+    "detail": "own-goal",
+    "playerId": "switzerland-miro-muheim",
+    "teamId": "switzerland"
   },
   {
     "externalGoalId": "wikipedia:2026 fifa world cup group b:qatar-switzerland:2026-06-13T19:00:00.000Z:breel embolo:17:penalty",
@@ -140,11 +149,12 @@
     "minute": 17,
     "timeConfidence": "estimated",
     "detail": "penalty",
-    "teamId": "switzerland"
+    "teamId": "switzerland",
+    "playerId": "switzerland-breel-embolo"
   },
   {
     "externalGoalId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T22:00:00.000Z:vinicius junior:32:normal",
-    "playerName": "Vinicius Junior",
+    "playerName": "Vinícius Júnior",
     "nationalTeam": "Brazil",
     "sourcePlayerName": "Vinícius Júnior",
     "sourceTeamName": "Brazil",
@@ -173,7 +183,8 @@
     "minute": 21,
     "timeConfidence": "estimated",
     "detail": "normal",
-    "teamId": "morocco"
+    "teamId": "morocco",
+    "playerId": "morocco-ismael-saibari"
   },
   {
     "externalGoalId": "wikipedia:2026 fifa world cup group c:haiti-scotland:2026-06-14T01:00:00.000Z:john mcginn:28:normal",
@@ -189,11 +200,12 @@
     "minute": 28,
     "timeConfidence": "estimated",
     "detail": "normal",
-    "teamId": "scotland"
+    "teamId": "scotland",
+    "playerId": "scotland-john-mcginn"
   },
   {
     "externalGoalId": "wikipedia:2026 fifa world cup group d:united states-paraguay:2026-06-13T01:00:00.000Z:damian bobadilla:7:own-goal",
-    "playerName": "Damian Bobadilla",
+    "playerName": "Damián Bobadilla",
     "nationalTeam": "Paraguay",
     "sourcePlayerName": "Damián Bobadilla",
     "sourceTeamName": "Paraguay",
@@ -222,7 +234,8 @@
     "minute": 31,
     "timeConfidence": "estimated",
     "detail": "normal",
-    "teamId": "united-states"
+    "teamId": "united-states",
+    "playerId": "united-states-folarin-balogun"
   },
   {
     "externalGoalId": "wikipedia:2026 fifa world cup group d:united states-paraguay:2026-06-13T01:00:00.000Z:giovanni reyna:98:normal",
@@ -238,7 +251,8 @@
     "minute": 98,
     "timeConfidence": "estimated",
     "detail": "normal",
-    "teamId": "united-states"
+    "teamId": "united-states",
+    "playerId": "united-states-giovanni-reyna"
   },
   {
     "externalGoalId": "wikipedia:2026 fifa world cup group d:united states-paraguay:2026-06-13T01:00:00.000Z:mauricio footballer born 2001:73:normal",
@@ -254,7 +268,8 @@
     "minute": 73,
     "timeConfidence": "estimated",
     "detail": "normal",
-    "teamId": "paraguay"
+    "teamId": "paraguay",
+    "playerId": "paraguay-mauricio"
   },
   {
     "externalGoalId": "wikipedia:2026 fifa world cup group d:australia-tur:2026-06-14T04:00:00.000Z:nestory irankunda:27:normal",
@@ -287,7 +302,8 @@
     "minute": 75,
     "timeConfidence": "estimated",
     "detail": "normal",
-    "teamId": "australia"
+    "teamId": "australia",
+    "playerId": "australia-connor-metcalfe"
   },
   {
     "externalGoalId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z:felix nmecha:6:normal",
@@ -320,7 +336,8 @@
     "minute": 38,
     "timeConfidence": "estimated",
     "detail": "normal",
-    "teamId": "germany"
+    "teamId": "germany",
+    "playerId": "germany-nico-schlotterbeck"
   },
   {
     "externalGoalId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z:kai havertz:50:penalty",
@@ -336,7 +353,8 @@
     "minute": 50,
     "timeConfidence": "estimated",
     "detail": "penalty",
-    "teamId": "germany"
+    "teamId": "germany",
+    "playerId": "germany-kai-havertz"
   },
   {
     "externalGoalId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z:jamal musiala:47:normal",
@@ -352,7 +370,8 @@
     "minute": 47,
     "timeConfidence": "estimated",
     "detail": "normal",
-    "teamId": "germany"
+    "teamId": "germany",
+    "playerId": "germany-jamal-musiala"
   },
   {
     "externalGoalId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z:nathaniel brown footballer:68:normal",
@@ -368,7 +387,8 @@
     "minute": 68,
     "timeConfidence": "estimated",
     "detail": "normal",
-    "teamId": "germany"
+    "teamId": "germany",
+    "playerId": "germany-nathaniel-brown"
   },
   {
     "externalGoalId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z:deniz undav:78:normal",
@@ -384,7 +404,8 @@
     "minute": 78,
     "timeConfidence": "estimated",
     "detail": "normal",
-    "teamId": "germany"
+    "teamId": "germany",
+    "playerId": "germany-deniz-undav"
   },
   {
     "externalGoalId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z:livano comenencia:21:normal",
@@ -400,12 +421,13 @@
     "minute": 21,
     "timeConfidence": "estimated",
     "detail": "normal",
-    "teamId": "curacao"
+    "teamId": "curacao",
+    "playerId": "curacao-livano-comenencia"
   },
   {
     "externalGoalId": "wikipedia:2026 fifa world cup group e:civ-ecuador:2026-06-14T23:00:00.000Z:amad diallo:90:normal",
     "playerName": "Amad Diallo",
-    "nationalTeam": "CIV",
+    "nationalTeam": "Ivory Coast",
     "sourcePlayerName": "Amad Diallo",
     "sourceTeamName": "CIV",
     "goals": 1,
@@ -416,7 +438,8 @@
     "minute": 90,
     "timeConfidence": "estimated",
     "detail": "normal",
-    "teamId": "ivory-coast"
+    "teamId": "ivory-coast",
+    "playerId": "ivory-coast-amad-diallo"
   },
   {
     "externalGoalId": "wikipedia:2026 fifa world cup group f:netherlands-japan:2026-06-14T20:00:00.000Z:virgil van dijk:50:normal",
@@ -432,7 +455,8 @@
     "minute": 50,
     "timeConfidence": "estimated",
     "detail": "normal",
-    "teamId": "netherlands"
+    "teamId": "netherlands",
+    "playerId": "netherlands-virgil-van-dijk"
   },
   {
     "externalGoalId": "wikipedia:2026 fifa world cup group f:netherlands-japan:2026-06-14T20:00:00.000Z:crysencio summerville:64:normal",
@@ -448,7 +472,8 @@
     "minute": 64,
     "timeConfidence": "estimated",
     "detail": "normal",
-    "teamId": "netherlands"
+    "teamId": "netherlands",
+    "playerId": "netherlands-crysencio-summerville"
   },
   {
     "externalGoalId": "wikipedia:2026 fifa world cup group f:netherlands-japan:2026-06-14T20:00:00.000Z:keito nakamura:57:normal",
@@ -463,7 +488,9 @@
     "kickedOffAt": "2026-06-14T20:00:00.000Z",
     "minute": 57,
     "timeConfidence": "estimated",
-    "detail": "normal"
+    "detail": "normal",
+    "playerId": "japan-keito-nakamura",
+    "teamId": "japan"
   },
   {
     "externalGoalId": "wikipedia:2026 fifa world cup group f:netherlands-japan:2026-06-14T20:00:00.000Z:daichi kamada:88:normal",
@@ -478,7 +505,9 @@
     "kickedOffAt": "2026-06-14T20:00:00.000Z",
     "minute": 88,
     "timeConfidence": "estimated",
-    "detail": "normal"
+    "detail": "normal",
+    "playerId": "japan-daichi-kamada",
+    "teamId": "japan"
   },
   {
     "externalGoalId": "api-football:1539002:265820:7:Normal Goal:0",
@@ -496,7 +525,8 @@
     "minute": 7,
     "timeConfidence": "match-only",
     "detail": "normal",
-    "teamId": "sweden"
+    "teamId": "sweden",
+    "playerId": "sweden-yasin-ayari"
   },
   {
     "externalGoalId": "api-football:1539002:2864:30:Normal Goal:1",
@@ -533,7 +563,8 @@
     "minute": 43,
     "timeConfidence": "match-only",
     "detail": "normal",
-    "teamId": "tunisia"
+    "teamId": "tunisia",
+    "playerId": "tunisia-omar-rekik"
   },
   {
     "externalGoalId": "api-football:1539002:18979:59:Normal Goal:3",
@@ -551,7 +582,8 @@
     "minute": 59,
     "timeConfidence": "match-only",
     "detail": "normal",
-    "teamId": "sweden"
+    "teamId": "sweden",
+    "playerId": "sweden-viktor-gyokeres"
   },
   {
     "externalGoalId": "api-football:1539002:30484:84:Normal Goal:4",
@@ -569,7 +601,8 @@
     "minute": 84,
     "timeConfidence": "match-only",
     "detail": "normal",
-    "teamId": "sweden"
+    "teamId": "sweden",
+    "playerId": "sweden-mattias-svanberg"
   },
   {
     "externalGoalId": "api-football:1539002:265820:90+6:Normal Goal:5",
@@ -587,7 +620,8 @@
     "minute": 90,
     "timeConfidence": "match-only",
     "detail": "normal",
-    "teamId": "sweden"
+    "teamId": "sweden",
+    "playerId": "sweden-yasin-ayari"
   },
   {
     "externalGoalId": "api-football:1489377:17269:19:Normal Goal:0",
@@ -605,12 +639,13 @@
     "minute": 19,
     "timeConfidence": "match-only",
     "detail": "normal",
-    "teamId": "egypt"
+    "teamId": "egypt",
+    "playerId": "egypt-emam-ashour"
   },
   {
     "externalGoalId": "api-football:1489377:2654:66:Own Goal:1",
-    "playerName": "M. Hany",
-    "nationalTeam": "Belgium",
+    "playerName": "Mohamed Hany",
+    "nationalTeam": "Egypt",
     "sourcePlayerName": "M. Hany",
     "sourceTeamName": "Belgium",
     "goals": 1,
@@ -622,11 +657,13 @@
     "kickedOffAt": "2026-06-15T19:00:00+00:00",
     "minute": 66,
     "timeConfidence": "match-only",
-    "detail": "own-goal"
+    "detail": "own-goal",
+    "playerId": "egypt-mohamed-hany",
+    "teamId": "egypt"
   },
   {
     "externalGoalId": "api-football:1489379:44475:41:Normal Goal:0",
-    "playerName": "A. Al Amri",
+    "playerName": "Abdulelah Al-Amri",
     "nationalTeam": "Saudi Arabia",
     "sourcePlayerName": "A. Al Amri",
     "sourceTeamName": "Saudi Arabia",
@@ -639,11 +676,13 @@
     "kickedOffAt": "2026-06-15T22:00:00+00:00",
     "minute": 41,
     "timeConfidence": "match-only",
-    "detail": "normal"
+    "detail": "normal",
+    "playerId": "saudi-arabia-abdulelah-al-amri",
+    "teamId": "saudi-arabia"
   },
   {
     "externalGoalId": "api-football:1489378:94333:7:Normal Goal:0",
-    "playerName": "E. Just",
+    "playerName": "Elijah Just",
     "nationalTeam": "New Zealand",
     "sourcePlayerName": "E. Just",
     "sourceTeamName": "New Zealand",
@@ -656,7 +695,9 @@
     "kickedOffAt": "2026-06-16T01:00:00+00:00",
     "minute": 7,
     "timeConfidence": "match-only",
-    "detail": "normal"
+    "detail": "normal",
+    "playerId": "new-zealand-elijah-just",
+    "teamId": "new-zealand"
   },
   {
     "externalGoalId": "api-football:1489378:2691:32:Normal Goal:1",
@@ -674,11 +715,12 @@
     "minute": 32,
     "timeConfidence": "match-only",
     "detail": "normal",
-    "teamId": "iran"
+    "teamId": "iran",
+    "playerId": "iran-ramin-rezaeian"
   },
   {
     "externalGoalId": "api-football:1489378:94333:54:Normal Goal:2",
-    "playerName": "E. Just",
+    "playerName": "Elijah Just",
     "nationalTeam": "New Zealand",
     "sourcePlayerName": "E. Just",
     "sourceTeamName": "New Zealand",
@@ -691,7 +733,9 @@
     "kickedOffAt": "2026-06-16T01:00:00+00:00",
     "minute": 54,
     "timeConfidence": "match-only",
-    "detail": "normal"
+    "detail": "normal",
+    "playerId": "new-zealand-elijah-just",
+    "teamId": "new-zealand"
   },
   {
     "externalGoalId": "api-football:1489378:134217:64:Normal Goal:3",
@@ -709,6 +753,7 @@
     "minute": 64,
     "timeConfidence": "match-only",
     "detail": "normal",
-    "teamId": "iran"
+    "teamId": "iran",
+    "playerId": "iran-mohammad-mohebi"
   }
 ]

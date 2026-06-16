@@ -47,7 +47,11 @@ function compareRows(left: ScorerRow, right: ScorerRow, sortKey: SortKey): numbe
 }
 
 export function GoalsPage({ scorers }: GoalsPageProps) {
-  const [ownershipFilter, setOwnershipFilter] = useState<OwnershipFilter>("all");
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const [ownershipFilter, setOwnershipFilter] = useState<OwnershipFilter>(() => {
+    const params = new URLSearchParams(window.location.search);
+    return params.has("alle") ? "all" : "owned";
+  });
   const [ownerFilter, setOwnerFilter] = useState("all");
   const [countryFilter, setCountryFilter] = useState("all");
   const [minGoals, setMinGoals] = useState("");
@@ -133,48 +137,62 @@ export function GoalsPage({ scorers }: GoalsPageProps) {
   return (
     <section className="page-stack">
       <div className="table-card">
-        <div className="scorer-filter-row">
-          <div className="segmented-control" aria-label="Besitzer-Filter">
-            <button className={ownershipFilter === "all" ? "active" : ""} onClick={() => { setOwnershipFilter("all"); resetPage(); }} type="button">
-              Alle
-            </button>
-            <button className={ownershipFilter === "owned" ? "active" : ""} onClick={() => { setOwnershipFilter("owned"); resetPage(); }} type="button">
-              Mit Besitzer
-            </button>
+        {filtersOpen ? (
+          <div className="scorer-filter-row">
+            <div className="segmented-control" aria-label="Besitzer-Filter">
+              <button className={ownershipFilter === "all" ? "active" : ""} onClick={() => { setOwnershipFilter("all"); resetPage(); }} type="button">
+                Alle
+              </button>
+              <button className={ownershipFilter === "owned" ? "active" : ""} onClick={() => { setOwnershipFilter("owned"); resetPage(); }} type="button">
+                Mit Besitzer
+              </button>
+            </div>
+            <label>
+              Besitzer
+              <select onChange={(event) => { setOwnerFilter(event.target.value); resetPage(); }} value={ownerFilter}>
+                <option value="all">Alle</option>
+                {owners.map((owner) => (
+                  <option key={owner} value={owner}>{owner}</option>
+                ))}
+              </select>
+            </label>
+            <label>
+              Land
+              <select onChange={(event) => { setCountryFilter(event.target.value); resetPage(); }} value={countryFilter}>
+                <option value="all">Alle</option>
+                {countries.map((country) => (
+                  <option key={country} value={country}>{country}</option>
+                ))}
+              </select>
+            </label>
+            <label>
+              Tore ab
+              <input min="0" onChange={(event) => { setMinGoals(event.target.value); resetPage(); }} type="number" value={minGoals} />
+            </label>
+            <label className="scorer-search">
+              Suche
+              <input onChange={(event) => { setSearch(event.target.value); resetPage(); }} placeholder="Name, Besitzer, Land..." type="search" value={search} />
+            </label>
           </div>
-          <label>
-            Besitzer
-            <select onChange={(event) => { setOwnerFilter(event.target.value); resetPage(); }} value={ownerFilter}>
-              <option value="all">Alle</option>
-              {owners.map((owner) => (
-                <option key={owner} value={owner}>{owner}</option>
-              ))}
-            </select>
-          </label>
-          <label>
-            Land
-            <select onChange={(event) => { setCountryFilter(event.target.value); resetPage(); }} value={countryFilter}>
-              <option value="all">Alle</option>
-              {countries.map((country) => (
-                <option key={country} value={country}>{country}</option>
-              ))}
-            </select>
-          </label>
-          <label>
-            Tore ab
-            <input min="0" onChange={(event) => { setMinGoals(event.target.value); resetPage(); }} type="number" value={minGoals} />
-          </label>
-          <label className="scorer-search">
-            Suche
-            <input onChange={(event) => { setSearch(event.target.value); resetPage(); }} placeholder="Name, Besitzer, Land..." type="search" value={search} />
-          </label>
-        </div>
+        ) : null}
         <div className="table-header scorer-grid">
           <span>{renderSortButton("rank")}</span>
           <span>{renderSortButton("playerName")}</span>
           <span>{renderSortButton("nationalTeam")}</span>
           <span>{renderSortButton("ownerLabel")}</span>
-          <span>{renderSortButton("goals")}</span>
+          <span className="scorer-goals-header">
+            {renderSortButton("goals")}
+            <button
+              aria-expanded={filtersOpen}
+              aria-label={filtersOpen ? "Filter ausblenden" : "Filter öffnen"}
+              className="table-filter-icon"
+              onClick={() => setFiltersOpen((current) => !current)}
+              title={filtersOpen ? "Filter ausblenden" : "Filter"}
+              type="button"
+            >
+              ≡
+            </button>
+          </span>
         </div>
         {pageRows.length === 0 ? (
           <p className="empty-state">Noch keine Torschützendaten im Snapshot.</p>

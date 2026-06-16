@@ -28,7 +28,7 @@ export function AppShell({ children, meta }: AppShellProps) {
         <div className="topbar-main">
           <a className="brand" href={baseUrl}>
             <span className="brand-mark">WM 2026</span>
-            <span>Panini Liga</span>
+            <span className="brand-name">Panini Liga</span>
           </a>
           {meta ? <StatusPill meta={meta} /> : null}
         </div>

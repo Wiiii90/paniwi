@@ -76,9 +76,15 @@ export function TeamPage({ owner, goals, matches, pickStatuses, rosters }: TeamP
 
   return (
     <section className="page-stack">
-      <div className="page-title">
-        <h1>{team.owner}</h1>
-        <strong>{playerScores.reduce((sum, player) => sum + player.points, 0)} Pkt.</strong>
+      <div className="page-title team-title">
+        <div className="team-title-copy">
+          <span>Panini-Team</span>
+          <h1>{team.owner}</h1>
+        </div>
+        <strong className="team-points-chip">
+          <span>{playerScores.reduce((sum, player) => sum + player.points, 0)}</span>
+          Punkte
+        </strong>
       </div>
 
       <div className="table-card">

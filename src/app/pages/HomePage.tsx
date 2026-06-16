@@ -65,7 +65,7 @@ export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps
           )}
         </a>
 
-        <a className="summary-card clickable-card" href={`${baseUrl}goals`}>
+        <a className="summary-card clickable-card" href={`${baseUrl}goals?besitzer=1`}>
           <div className="section-heading">
             <h2>Topspieler</h2>
           </div>
@@ -86,7 +86,7 @@ export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps
           </div>
         </a>
 
-        <a className="summary-card clickable-card" href={`${baseUrl}goals`}>
+        <a className="summary-card clickable-card" href={`${baseUrl}goals?alle=1`}>
           <div className="section-heading">
             <h2>Torjäger</h2>
           </div>

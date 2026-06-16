@@ -23,9 +23,12 @@
   --space-4: 16px;
   --space-5: 20px;
   --space-6: 24px;
+  --font-body: Aptos, "Aptos Display", "Bahnschrift", Arial, sans-serif;
+  --font-display: "Aptos Display", Aptos, "Bahnschrift", Arial, sans-serif;
+  --font-numeric: Aptos, Arial, sans-serif;
   color: var(--color-text);
   background: var(--color-bg);
-  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  font-family: var(--font-body);
   font-synthesis: none;
   -webkit-font-smoothing: antialiased;
   text-rendering: geometricPrecision;
@@ -52,6 +55,13 @@ a {
 button,
 a {
   -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-body);
 }
 
 .app-shell {
@@ -97,6 +107,7 @@ a {
   background: var(--color-surface);
   box-shadow: var(--shadow-soft);
   display: inline-flex;
+  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
   flex: 0 0 auto;
   font-weight: 900;
   gap: var(--space-2);
@@ -109,6 +120,7 @@ a {
   border-radius: var(--radius-sm);
   color: #ffffff;
   display: inline-grid;
+  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
   font-size: 0.68rem;
   font-weight: 900;
   height: 30px;
@@ -117,11 +129,19 @@ a {
   width: auto;
 }
 
+.brand-name {
+  color: var(--color-text);
+  font-size: 0.98rem;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
 .nav {
   align-items: center;
   background: rgba(255, 253, 248, 0.84);
   box-shadow: var(--shadow-soft);
   display: flex;
+  font-family: var(--font-display);
   font-size: 0.92rem;
   gap: var(--space-1);
   min-height: 44px;
@@ -182,6 +202,59 @@ a {
   font-size: clamp(1.8rem, 7vw, 2.8rem);
 }
 
+.team-title {
+  align-items: end;
+}
+
+.team-title-copy {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.team-title-copy > span {
+  color: var(--color-muted);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.team-title h1 {
+  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  font-size: clamp(2.1rem, 8vw, 3.1rem);
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.team-points-chip {
+  align-items: baseline;
+  background: var(--color-primary);
+  border: 1px solid rgba(15, 103, 70, 0.2);
+  border-radius: 999px;
+  box-shadow: 0 10px 22px rgba(15, 103, 70, 0.16);
+  color: #ffffff;
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 900;
+  gap: 6px;
+  justify-content: center;
+  min-height: 38px;
+  min-width: 112px;
+  padding: 8px 14px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.team-points-chip > span {
+  font-family: var(--font-numeric);
+  font-size: 1.22rem;
+  line-height: 1;
+}
+
 .eyebrow {
   color: var(--color-muted);
   font-size: 0.76rem;
@@ -198,12 +271,14 @@ p {
 }
 
 h1 {
+  font-family: var(--font-display);
   font-size: clamp(2rem, 9vw, 3.4rem);
   line-height: 0.95;
   margin-bottom: 0;
 }
 
 h2 {
+  font-family: var(--font-display);
   font-size: 1.08rem;
   line-height: 1.15;
   margin-bottom: 0;
@@ -218,17 +293,35 @@ h2 {
 
 .status-pill {
   align-items: center;
-  background: var(--color-primary-soft);
-  color: var(--color-primary);
-  display: flex;
+  background: rgba(255, 255, 255, 0.76);
+  color: var(--color-muted);
+  display: inline-flex;
   flex-wrap: wrap;
-  font-size: 0.82rem;
-  font-weight: 800;
-  gap: var(--space-2);
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  gap: 7px;
   justify-content: center;
+  line-height: 1;
   min-height: 44px;
   padding: 9px 11px;
   text-align: center;
+}
+
+.status-dot {
+  align-self: center;
+  background: var(--color-primary);
+  border-radius: 999px;
+  box-shadow: 0 0 0 3px rgba(30, 79, 143, 0.12);
+  flex: 0 0 auto;
+  height: 6px;
+  transform: translateY(0);
+  width: 6px;
+}
+
+.status-error .status-dot {
+  background: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(215, 38, 56, 0.12);
 }
 
 .status-error {
@@ -468,7 +561,7 @@ h2 {
 .feed-chip small {
   color: var(--color-muted);
   font-size: 0.76rem;
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .feed-chip span {
@@ -493,6 +586,7 @@ h2 {
 
 .rank {
   color: var(--color-text);
+  font-family: var(--font-numeric);
   font-weight: 900;
 }
 
@@ -638,7 +732,7 @@ h2 {
   color: var(--color-text);
   font: inherit;
   font-size: 0.86rem;
-  font-weight: 750;
+  font-weight: 700;
   min-height: 36px;
   min-width: 0;
   padding: 7px 9px;
@@ -692,7 +786,7 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   font-size: 0.84rem;
-  font-weight: 850;
+  font-weight: 800;
   gap: var(--space-2) var(--space-3);
   justify-content: space-between;
   padding: 9px 16px;
@@ -743,6 +837,7 @@ h2 {
 .table-header {
   background: var(--color-text);
   color: #ffffff;
+  font-family: var(--font-display);
   font-size: 0.76rem;
   font-weight: 900;
   letter-spacing: 0;
@@ -774,6 +869,43 @@ h2 {
 .scorer-grid > :nth-child(5) .table-sort-button {
   justify-content: center;
   width: 100%;
+}
+
+.scorer-goals-header {
+  align-items: center;
+  display: inline-flex;
+  gap: 6px;
+  justify-content: center;
+  min-width: 0;
+}
+
+.scorer-goals-header .table-sort-button {
+  width: auto;
+}
+
+.table-filter-icon {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-size: 0.9rem;
+  font-weight: 900;
+  height: 24px;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  width: 24px;
+}
+
+.table-filter-icon:hover,
+.table-filter-icon:focus-visible {
+  background: rgba(255, 255, 255, 0.24);
+  outline: 1px solid rgba(255, 255, 255, 0.45);
+  outline-offset: 2px;
 }
 
 .table-sort-button:hover,
@@ -896,6 +1028,7 @@ h2 {
 
 .match-section > .section-heading h2 {
   color: inherit;
+  font-family: var(--font-display);
   font-size: 0.92rem;
   letter-spacing: 0;
   text-transform: uppercase;
@@ -933,7 +1066,7 @@ h2 {
   font-size: 0.9rem;
 }
 
-.match-card-header strong {
+.match-card-status > strong {
   align-items: center;
   border-radius: 999px;
   display: inline-flex;
@@ -960,7 +1093,7 @@ h2 {
   font-weight: 900;
   min-width: 0;
   overflow: hidden;
-  padding: 0;
+  padding: 0 0 1px 2px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -976,8 +1109,9 @@ h2 {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   color: var(--color-text);
+  font-family: var(--font-numeric);
   font-size: 1rem;
-  font-weight: 950;
+  font-weight: 900;
   min-width: 54px;
   padding: 5px 8px;
   text-align: center;
@@ -1084,7 +1218,7 @@ h2 {
 .lineup-team h3 {
   color: var(--color-muted);
   font-size: 0.74rem;
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0;
   margin: 0;
   overflow: hidden;
@@ -1132,7 +1266,7 @@ h2 {
   flex: 0 0 auto;
   font-size: 0.68rem;
   font-style: normal;
-  font-weight: 950;
+  font-weight: 900;
   max-width: 96px;
   overflow: hidden;
   padding: 2px 6px;
@@ -1193,10 +1327,18 @@ h2 {
   color: var(--color-muted);
   display: flex;
   font-size: 0.84rem;
-  font-weight: 850;
+  font-weight: 800;
   gap: var(--space-3);
   justify-content: space-between;
   padding: 10px 16px;
+}
+
+.match-section-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: flex-end;
 }
 
 .summary-grid {
@@ -1281,6 +1423,16 @@ h2 {
   .page-title {
     align-items: stretch;
     display: grid;
+  }
+
+  .team-title {
+    align-items: center;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .team-points-chip {
+    min-width: 96px;
+    padding-inline: 12px;
   }
 
   .dashboard-grid,

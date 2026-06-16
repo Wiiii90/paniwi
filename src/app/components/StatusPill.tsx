@@ -12,6 +12,7 @@ export function StatusPill({ meta }: StatusPillProps) {
 
   return (
     <div className={`status-pill status-${meta.status}`}>
+      <span className="status-dot" aria-hidden="true" />
       {meta.status === "ok" ? null : <span>Fehler</span>}
       <span>{updated}</span>
       <span>{meta.source}</span>
