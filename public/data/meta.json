@@ -1,21 +1,20 @@
 {
-  "lastUpdated": "2026-06-16T03:26:31.540Z",
+  "lastUpdated": "2026-06-16T20:42:22.197Z",
   "source": "api-football",
   "attemptedSources": [
     "api-football"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 43,
+  "goalCount": 44,
   "scoredGoalCount": 7,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
   "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
-  "snapshotFingerprint": "027fd115c186051d34c5d0c950ceb192d88e2bcd8bb399cf79a7ee9959dffdb3",
+  "snapshotFingerprint": "40a0f89e9ef2d25ae89fde6fd34d008cd3e8d92c7244d7e032f795902b1b96e8",
   "snapshotChanged": true,
-  "syncWindowId": "2026 fifa world cup group g:iran-nzl:2026-06-16T01:00:00.000Z-check-1",
   "windowSyncAttempts": 1,
-  "sourceRequestCount": 2,
+  "sourceRequestCount": 3,
   "sourceRequestLimit": 90
 }

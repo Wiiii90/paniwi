@@ -960,16 +960,18 @@
     "source": "api-football",
     "matchId": "api-football:1489383",
     "fixtureId": "1489383",
-    "label": "France vs Senegal",
+    "label": "France 1-0 Senegal",
     "kickedOffAt": "2026-06-16T19:00:00+00:00",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 2,
-      "name": "France"
+      "name": "France",
+      "score": 1
     },
     "awayTeam": {
       "id": 13,
-      "name": "Senegal"
+      "name": "Senegal",
+      "score": 0
     }
   },
   {

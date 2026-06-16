@@ -715,8 +715,8 @@
     "minute": 32,
     "timeConfidence": "match-only",
     "detail": "normal",
-    "teamId": "iran",
-    "playerId": "iran-ramin-rezaeian"
+    "playerId": "iran-ramin-rezaeian",
+    "teamId": "iran"
   },
   {
     "externalGoalId": "api-football:1489378:94333:54:Normal Goal:2",
@@ -753,7 +753,26 @@
     "minute": 64,
     "timeConfidence": "match-only",
     "detail": "normal",
-    "teamId": "iran",
-    "playerId": "iran-mohammad-mohebi"
+    "playerId": "iran-mohammad-mohebi",
+    "teamId": "iran"
+  },
+  {
+    "externalGoalId": "api-football:1489383:278:66:Normal Goal:0",
+    "playerName": "Kylian Mbappé",
+    "nationalTeam": "France",
+    "sourcePlayerName": "K. Mbappe",
+    "sourceTeamName": "France",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 278,
+    "matchId": "api-football:1489383",
+    "fixtureId": "1489383",
+    "matchLabel": "France 1-0 Senegal",
+    "kickedOffAt": "2026-06-16T19:00:00+00:00",
+    "minute": 66,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "france-kylian-mbappe",
+    "teamId": "france"
   }
 ]

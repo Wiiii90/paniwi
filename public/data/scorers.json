@@ -235,6 +235,16 @@
     "rank": 3
   },
   {
+    "playerName": "Kylian Mbappé",
+    "normalizedPlayerName": "kylian mbappe",
+    "nationalTeam": "Frankreich",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 3
+  },
+  {
     "playerName": "Ladislav Krejčí",
     "normalizedPlayerName": "ladislav krejci",
     "nationalTeam": "Tschechien",
