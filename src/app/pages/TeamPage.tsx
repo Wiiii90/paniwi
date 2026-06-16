@@ -2,6 +2,7 @@ import { teams } from "../../config/teams";
 import { buildPlayerScores } from "../../domain/buildLeaderboard";
 import { sortGoalsChronologically } from "../../domain/sortGoals";
 import type { MatchRecord, ScoredGoal } from "../../domain/types";
+import type { RosterSnapshot } from "../../domain/rosterTypes";
 import { LinkButton } from "../components/LinkButton";
 import { formatGoalMinute, formatTimeConfidence } from "../formatGoal";
 
@@ -9,6 +10,7 @@ type TeamPageProps = {
   owner: string;
   goals: ScoredGoal[];
   matches: MatchRecord[];
+  rosters: RosterSnapshot;
 };
 
 function formatPosition(position: string | undefined): string {
@@ -31,7 +33,7 @@ function formatRosterStatus(status: string | undefined): string {
   return "ungeprueft";
 }
 
-export function TeamPage({ owner, goals, matches }: TeamPageProps) {
+export function TeamPage({ owner, goals, matches, rosters }: TeamPageProps) {
   const baseUrl = import.meta.env.BASE_URL;
   const team = teams.find((candidate) => candidate.owner.toLowerCase() === owner.toLowerCase());
 
@@ -50,7 +52,7 @@ export function TeamPage({ owner, goals, matches }: TeamPageProps) {
     );
   }
 
-  const playerScores = buildPlayerScores(team, goals);
+  const playerScores = buildPlayerScores(team, goals, rosters);
   const teamGoals = sortGoalsChronologically(goals.filter((goal) => goal.owner === team.owner));
   const affectedMatches = matches.filter((match) => match.affectedOwners.includes(team.owner));
   const goalsByPlayer = new Map<string, ScoredGoal[]>();

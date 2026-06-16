@@ -57,7 +57,6 @@ export function buildRosterAudit(rosterTeams: RosterTeam[]): RosterAuditEntry[] 
         playerName: player.displayName,
         teamId: player.teamId,
         teamName: getTeamDisplayName(team),
-        currentRosterStatus: player.rosterStatus,
         suggestedRosterStatus,
         matched: Boolean(matchedName),
         matchedName,
@@ -83,8 +82,7 @@ export function buildRosterSnapshot(pageTitle: string, rosterTeams: RosterTeam[]
       picks: audit,
       nominatedCount: audit.filter((entry) => entry.suggestedRosterStatus === "nominated").length,
       notNominatedCount: audit.filter((entry) => entry.suggestedRosterStatus === "not-nominated").length,
-      unknownCount: audit.filter((entry) => entry.suggestedRosterStatus === "unknown").length,
-      changedStatusCount: audit.filter((entry) => entry.currentRosterStatus !== entry.suggestedRosterStatus).length
+      unknownCount: audit.filter((entry) => entry.suggestedRosterStatus === "unknown").length
     }
   };
 }
@@ -114,7 +112,7 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
       `Wrote public/data/rosters.json from ${snapshot.pageTitle}: ${snapshot.teamCount} teams, ${snapshot.playerCount} players.`
     );
     console.log(
-      `Audit: ${snapshot.audit.nominatedCount} nominated, ${snapshot.audit.notNominatedCount} not nominated, ${snapshot.audit.unknownCount} unknown, ${snapshot.audit.changedStatusCount} changed suggestions.`
+      `Audit: ${snapshot.audit.nominatedCount} nominated, ${snapshot.audit.notNominatedCount} not nominated, ${snapshot.audit.unknownCount} unknown.`
     );
   } catch (error) {
     console.error(error instanceof Error ? error.message : error);

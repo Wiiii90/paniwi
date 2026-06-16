@@ -88,8 +88,7 @@ const rosterSnapshot: RosterSnapshot = {
     picks: [],
     nominatedCount: 0,
     notNominatedCount: 0,
-    unknownCount: 0,
-    changedStatusCount: 0
+    unknownCount: 0
   }
 };
 

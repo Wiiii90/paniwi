@@ -2,6 +2,7 @@ import type { GoalRecord, LeaderboardEntry, ParticipantTeam, PlayerScore, Scored
 import { getCanonicalPlayer, getCanonicalTeam } from "./canonicalResolver";
 import { scoreGoalForPlayer } from "./scoring";
 import { getTeamDisplayName } from "./teamDisplay";
+import type { RosterSnapshot } from "./rosterTypes";
 
 export function scoreGoalsForTeams(teams: ParticipantTeam[], goals: GoalRecord[]): ScoredGoal[] {
   return goals.flatMap((goal) =>
@@ -14,7 +15,23 @@ export function scoreGoalsForTeams(teams: ParticipantTeam[], goals: GoalRecord[]
   );
 }
 
-export function buildPlayerScores(team: ParticipantTeam, scoredGoals: ScoredGoal[]): PlayerScore[] {
+function getRosterStatusForPick(
+  rosterSnapshot: RosterSnapshot | undefined,
+  owner: string,
+  playerId: string
+): PlayerScore["rosterStatus"] {
+  if (!rosterSnapshot) {
+    return undefined;
+  }
+
+  return rosterSnapshot.audit.picks.find((entry) => entry.owner === owner && entry.playerId === playerId)?.suggestedRosterStatus;
+}
+
+export function buildPlayerScores(
+  team: ParticipantTeam,
+  scoredGoals: ScoredGoal[],
+  rosterSnapshot?: RosterSnapshot
+): PlayerScore[] {
   return team.players.map((pick) => {
     const player = getCanonicalPlayer(pick.playerId);
     if (!player) {
@@ -29,7 +46,7 @@ export function buildPlayerScores(team: ParticipantTeam, scoredGoals: ScoredGoal
       name: player.displayName,
       nationalTeam: canonicalTeam ? getTeamDisplayName(canonicalTeam) : player.teamId,
       position: player.position,
-      rosterStatus: player.rosterStatus,
+      rosterStatus: getRosterStatusForPick(rosterSnapshot, team.owner, player.playerId),
       rosterNote: pick.rosterNote,
       goals: playerGoals.reduce((sum, goal) => sum + goal.goals, 0),
       points: playerGoals.reduce((sum, goal) => sum + goal.points, 0)

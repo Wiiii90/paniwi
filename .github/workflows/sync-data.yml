@@ -53,14 +53,19 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      - id: scheduled_sync
+        run: npm run sync:scheduled
       - run: npm test
-      - run: npm run sync:scheduled
+        if: steps.scheduled_sync.outputs.sync_performed == 'true'
       - run: npm run build
+        if: steps.scheduled_sync.outputs.sync_performed == 'true'
         env:
           GITHUB_PAGES: "true"
       - run: cp dist/index.html dist/404.html
+        if: steps.scheduled_sync.outputs.sync_performed == 'true'
       - name: Commit data snapshot
         id: commit
+        if: steps.scheduled_sync.outputs.sync_performed == 'true'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update static goal data"

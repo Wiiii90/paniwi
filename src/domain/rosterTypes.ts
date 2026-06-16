@@ -22,7 +22,6 @@ export type RosterAuditEntry = {
   playerName: string;
   teamId: string;
   teamName: string;
-  currentRosterStatus?: RosterStatus;
   suggestedRosterStatus: RosterStatus;
   matched: boolean;
   matchedName?: string;
@@ -41,6 +40,5 @@ export type RosterSnapshot = {
     nominatedCount: number;
     notNominatedCount: number;
     unknownCount: number;
-    changedStatusCount: number;
   };
 };

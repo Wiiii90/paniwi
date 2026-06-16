@@ -18,7 +18,6 @@ export type CanonicalPlayer = {
   displayName: string;
   teamId: string;
   position?: "goalkeeper" | "defender" | "midfielder" | "forward";
-  rosterStatus?: RosterStatus;
   aliases?: string[];
   apiFootballPlayerId?: number;
 };
