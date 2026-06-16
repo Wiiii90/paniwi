@@ -128,6 +128,34 @@ const apiResolverRosterSnapshot: RosterSnapshot = {
   ]
 };
 
+const initialLastNameRosterSnapshot: RosterSnapshot = {
+  lastUpdated: "2026-06-16T00:00:00.000Z",
+  source: "wikipedia",
+  pageTitle: "2026 FIFA World Cup squads",
+  teamCount: 1,
+  playerCount: 2,
+  teams: [
+    {
+      teamName: "Iraq",
+      teamId: "iraq",
+      players: [
+        {
+          playerName: "Hussein Ali",
+          normalizedPlayerName: "hussein ali",
+          position: "defender",
+          sourceName: "Hussein Ali"
+        },
+        {
+          playerName: "Aymen Hussein",
+          normalizedPlayerName: "aymen hussein",
+          position: "forward",
+          sourceName: "Aymen Hussein"
+        }
+      ]
+    }
+  ]
+};
+
 assert.equal(normalizePlayerName("Kylian Mbappé"), "kylian mbappe");
 assert.equal(normalizePlayerName("  K.   Mbappe! "), "k mbappe");
 
@@ -344,6 +372,25 @@ const apiAbbreviatedRosterGoals = [
 assert.deepEqual(
   enrichGoalsWithRoster(apiAbbreviatedRosterGoals, rosterSnapshot).map((goal) => goal.playerName),
   ["Yasin Ayari", "Yasin Ayari"]
+);
+assert.deepEqual(
+  enrichGoalsWithRoster(
+    [
+      {
+        ...baseGoal,
+        externalGoalId: "iraq-goal",
+        playerName: "A. Hussein",
+        nationalTeam: "Iraq",
+        sourcePlayerName: "A. Hussein",
+        sourceTeamName: "Iraq",
+        source: "api-football",
+        matchLabel: "Iraq 1-2 Norway"
+      }
+    ],
+    initialLastNameRosterSnapshot,
+    { strictSources: ["api-football"] }
+  ).map((goal) => goal.playerName),
+  ["Aymen Hussein"]
 );
 assert.deepEqual(
   enrichGoalsWithRoster(
