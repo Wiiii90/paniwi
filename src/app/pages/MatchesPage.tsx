@@ -100,6 +100,18 @@ function PlayerChip({ participant, matchStatus }: { participant: MatchParticipan
   );
 }
 
+function formatPointImpact(match: MatchRecord): string {
+  const goalsByOwner = new Map<string, number>();
+  for (const goal of match.pointGoals) {
+    goalsByOwner.set(goal.owner, (goalsByOwner.get(goal.owner) ?? 0) + goal.points);
+  }
+
+  return [...goalsByOwner]
+    .sort(([ownerA], [ownerB]) => ownerA.localeCompare(ownerB))
+    .map(([owner, points]) => `${points}x ${owner}`)
+    .join(", ");
+}
+
 type MatchSectionProps = {
   sectionKey: keyof VisibleMatchCounts;
   title: string;
@@ -166,8 +178,21 @@ function MatchSection({
   onShowAll,
   onCollapse
 }: MatchSectionProps) {
+  const [collapsedLineupIds, setCollapsedLineupIds] = useState<Set<string>>(() => new Set());
   const visibleMatches = matches.slice(0, visibleCount);
   const hiddenCount = matches.length - visibleMatches.length;
+
+  function toggleLineup(matchId: string): void {
+    setCollapsedLineupIds((current) => {
+      const next = new Set(current);
+      if (next.has(matchId)) {
+        next.delete(matchId);
+      } else {
+        next.add(matchId);
+      }
+      return next;
+    });
+  }
 
   return (
     <section className="match-section">
@@ -183,6 +208,8 @@ function MatchSection({
             const visibleGoals = match.goals.slice(0, 8);
             const overflowGoalCount = match.goals.length - visibleGoals.length;
             const pointGoalIds = new Set(match.pointGoals.map((goal) => goal.externalGoalId));
+            const lineupCollapsed = collapsedLineupIds.has(match.matchId);
+            const pointImpact = formatPointImpact(match);
 
             return (
               <article className={`match-card match-card-${match.status}`} key={match.matchId}>
@@ -211,25 +238,39 @@ function MatchSection({
                 ) : null}
                 <div className="match-lineup">
                   <div className="match-lineup-heading">
-                    <span>Panini-Spieler im Spiel</span>
-                    {relevantParticipants.length > 0 ? <strong>{relevantParticipants.length}</strong> : null}
+                    <span>
+                      Panini-Spieler im Spiel
+                      {relevantParticipants.length > 0 ? <strong>{relevantParticipants.length}</strong> : null}
+                    </span>
+                    <button
+                      aria-expanded={!lineupCollapsed}
+                      className="match-lineup-toggle"
+                      type="button"
+                      onClick={() => toggleLineup(match.matchId)}
+                    >
+                      {lineupCollapsed ? "Auf" : "Zu"}
+                    </button>
                   </div>
-                  {relevantParticipants.length === 0 ? (
-                    <p className="match-lineup-empty">{formatNoRelevantPlayers(match)}</p>
-                  ) : (
-                    <div className="lineup-chip-list relevant-lineup-list">
-                      {relevantParticipants.map((participant) => (
-                        <PlayerChip
-                          key={`${participant.fixtureId ?? participant.matchId}-${participant.apiPlayerId ?? participant.playerName}-${participant.status}`}
-                          matchStatus={match.status}
-                          participant={participant}
-                        />
-                      ))}
-                    </div>
-                  )}
+                  {!lineupCollapsed ? (
+                    relevantParticipants.length === 0 ? (
+                      <p className="match-lineup-empty">{formatNoRelevantPlayers(match)}</p>
+                    ) : (
+                      <div className="lineup-chip-list relevant-lineup-list">
+                        {relevantParticipants.map((participant) => (
+                          <PlayerChip
+                            key={`${participant.fixtureId ?? participant.matchId}-${participant.apiPlayerId ?? participant.playerName}-${participant.status}`}
+                            matchStatus={match.status}
+                            participant={participant}
+                          />
+                        ))}
+                      </div>
+                    )
+                  ) : null}
                 </div>
-                {match.affectedOwners.length > 0 ? (
-                  <p className="match-impact">Panini-Punkte für {match.affectedOwners.join(", ")}</p>
+                {pointImpact ? (
+                  <p className="match-impact">
+                    <strong>Panini-Punkte:</strong> {pointImpact}
+                  </p>
                 ) : null}
               </article>
             );

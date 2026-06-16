@@ -1186,17 +1186,21 @@ h2 {
 .match-lineup-heading {
   align-items: center;
   display: flex;
-  flex-wrap: wrap;
   gap: var(--space-2);
+  justify-content: space-between;
 }
 
 .match-lineup-heading > span {
+  align-items: center;
   color: var(--color-text);
+  display: inline-flex;
   font-size: 0.86rem;
   font-weight: 900;
+  gap: var(--space-2);
+  min-width: 0;
 }
 
-.match-lineup-heading > strong {
+.match-lineup-heading strong {
   background: #ffffff;
   border: 1px solid var(--color-border);
   border-radius: 999px;
@@ -1205,6 +1209,32 @@ h2 {
   font-style: normal;
   font-weight: 900;
   padding: 3px 8px;
+}
+
+.match-lineup-toggle {
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-muted);
+  cursor: pointer;
+  display: inline-flex;
+  flex: 0 0 auto;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 900;
+  justify-content: center;
+  line-height: 1;
+  min-height: 24px;
+  min-width: 42px;
+  padding: 4px 9px;
+}
+
+.match-lineup-toggle:hover,
+.match-lineup-toggle:focus-visible {
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
+  outline: none;
 }
 
 .compact-button {
@@ -1219,16 +1249,16 @@ h2 {
 }
 
 .relevant-lineup-list {
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .lineup-chip {
   background: #ffffff;
   border: 1px solid var(--color-border);
-  border-left-width: 4px;
   border-radius: var(--radius-sm);
   display: grid;
   gap: 2px;
+  min-height: 54px;
   min-width: 0;
   padding: 6px 8px;
 }
@@ -1304,10 +1334,15 @@ h2 {
 
 .match-impact {
   border-top: 0;
-  color: var(--color-primary);
+  color: var(--color-text);
   font-size: 0.82rem;
   font-weight: 900;
   margin: 0;
+}
+
+.match-impact strong {
+  color: var(--color-muted);
+  font-weight: 900;
 }
 
 .match-section-footer {
@@ -1467,8 +1502,18 @@ h2 {
     white-space: normal;
   }
 
+  .relevant-lineup-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .match-section-footer {
     align-items: stretch;
     flex-direction: column;
+  }
+}
+
+@media (max-width: 430px) {
+  .relevant-lineup-list {
+    grid-template-columns: 1fr;
   }
 }
