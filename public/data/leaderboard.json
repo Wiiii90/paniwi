@@ -1,34 +1,34 @@
 [
   {
     "rank": 1,
+    "owner": "Nina",
+    "points": 2,
+    "goals": 2,
+    "playersWithGoals": 2
+  },
+  {
+    "rank": 2,
     "owner": "Felix",
     "points": 1,
     "goals": 1,
     "playersWithGoals": 1
   },
   {
-    "rank": 1,
+    "rank": 2,
     "owner": "Jonas",
     "points": 1,
     "goals": 1,
     "playersWithGoals": 1
   },
   {
-    "rank": 1,
+    "rank": 2,
     "owner": "Marco",
     "points": 1,
     "goals": 1,
     "playersWithGoals": 1
   },
   {
-    "rank": 1,
-    "owner": "Nina",
-    "points": 1,
-    "goals": 1,
-    "playersWithGoals": 1
-  },
-  {
-    "rank": 1,
+    "rank": 2,
     "owner": "Willi",
     "points": 1,
     "goals": 1,

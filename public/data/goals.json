@@ -115,5 +115,30 @@
     "displayPlayerName": "Alexander Isak",
     "displayNationalTeam": "Schweden",
     "points": 1
+  },
+  {
+    "externalGoalId": "api-football:1489383:161904:82:Normal Goal:1",
+    "playerName": "Bradley Barcola",
+    "nationalTeam": "France",
+    "sourcePlayerName": "B. Barcola",
+    "sourceTeamName": "France",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 161904,
+    "matchId": "api-football:1489383",
+    "fixtureId": "1489383",
+    "matchLabel": "France 3-1 Senegal",
+    "kickedOffAt": "2026-06-16T19:00:00+00:00",
+    "minute": 82,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "france-bradley-barcola",
+    "teamId": "france",
+    "pickId": "france-bradley-barcola",
+    "owner": "Nina",
+    "pickedPlayerName": "Bradley Barcola",
+    "displayPlayerName": "Bradley Barcola",
+    "displayNationalTeam": "Frankreich",
+    "points": 1
   }
 ]
