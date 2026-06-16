@@ -36,7 +36,7 @@ function formatRosterStatus(status: string | undefined): string {
     return "Niete";
   }
 
-  return "ungeprueft";
+  return "ungeprüft";
 }
 
 function getRosterStatus(
@@ -73,7 +73,7 @@ export function TeamPage({ owner, goals, matches, pickStatuses, rosters }: TeamP
           </div>
         </div>
         <p className="empty-state">Dieses Team ist nicht in der statischen Teamkonfiguration enthalten.</p>
-        <LinkButton href={baseUrl}>Zurueck zur Tabelle</LinkButton>
+        <LinkButton href={baseUrl}>Zurück zur Tabelle</LinkButton>
       </section>
     );
   }
@@ -113,12 +113,12 @@ export function TeamPage({ owner, goals, matches, pickStatuses, rosters }: TeamP
         {playerRows.map((player) => (
           <div className="player-grid player-row" key={`${player.name}-${player.nationalTeam}`}>
             <strong>{player.name}</strong>
-            <span>{player.nationalTeam}</span>
-            <span className="muted">{formatPosition(player.position)}</span>
-            <span className={getRosterStatusClassName(player.rosterStatus)}>
+            <span data-label="Land">{player.nationalTeam}</span>
+            <span className="muted" data-label="Position">{formatPosition(player.position)}</span>
+            <span className={getRosterStatusClassName(player.rosterStatus)} data-label="Kader">
               {formatRosterStatus(player.rosterStatus)}
             </span>
-            <span>{player.points}</span>
+            <span data-label="Pts">{player.points}</span>
           </div>
         ))}
       </div>

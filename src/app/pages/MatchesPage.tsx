@@ -65,7 +65,7 @@ function MatchSection({ title, emptyText, matches, expanded, onToggle }: MatchSe
     <section className="match-section">
       <div className="section-heading">
         <h2>{title}</h2>
-        <span className="muted">{matches.length}</span>
+        <span className="section-count">{matches.length}</span>
       </div>
       <div className="match-list">
         {visibleMatches.length === 0 ? (

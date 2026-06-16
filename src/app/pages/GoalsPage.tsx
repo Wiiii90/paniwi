@@ -33,13 +33,13 @@ export function GoalsPage({ goals, scorers, meta }: GoalsPageProps) {
         ) : (
           scorers.map((scorer) => (
             <div className="scorer-grid player-row" key={`${scorer.normalizedPlayerName}-${scorer.nationalTeam}`}>
-              <strong>#{scorer.rank}</strong>
+              <strong data-label="Rang">#{scorer.rank}</strong>
               <span>
                 <strong>{scorer.playerName}</strong>
                 {scorer.selected ? <small>Panini: {scorer.scoringOwners.join(", ")}</small> : null}
               </span>
-              <span>{scorer.nationalTeam}</span>
-              <span>{scorer.goals}</span>
+              <span data-label="Land">{scorer.nationalTeam}</span>
+              <span data-label="Tore">{scorer.goals}</span>
             </div>
           ))
         )}
