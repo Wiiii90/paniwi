@@ -11,7 +11,7 @@ export function GoalsPage({ goals, scorers }: GoalsPageProps) {
     <section className="page-stack">
       <div className="table-card">
         <div className="table-header scorer-grid">
-          <span>Rang</span>
+          <span>Pl.</span>
           <span>Spieler</span>
           <span>Land</span>
           <span>Tore</span>
@@ -21,7 +21,7 @@ export function GoalsPage({ goals, scorers }: GoalsPageProps) {
         ) : (
           scorers.map((scorer) => (
             <div className="scorer-grid player-row" key={`${scorer.normalizedPlayerName}-${scorer.nationalTeam}`}>
-              <strong data-label="Rang">#{scorer.rank}</strong>
+              <strong data-label="Pl.">{scorer.rank}</strong>
               <span>
                 <strong>{scorer.playerName}</strong>
                 {scorer.selected ? <small>Panini: {scorer.scoringOwners.join(", ")}</small> : null}

@@ -521,18 +521,23 @@ h2 {
 }
 
 .player-grid {
-  grid-template-columns: minmax(150px, 1.45fr) minmax(96px, 0.9fr) minmax(78px, 0.6fr) minmax(112px, 0.9fr) 56px;
-  padding: 13px 16px;
+  grid-template-columns: minmax(220px, 2fr) minmax(130px, 1fr) 96px 120px 76px;
+  min-height: 50px;
+  padding: 12px 16px;
 }
 
 .scorer-grid {
-  grid-template-columns: 58px minmax(160px, 1.5fr) minmax(110px, 1fr) 60px;
-  padding: 13px 16px;
+  grid-template-columns: 54px minmax(260px, 2fr) minmax(150px, 1fr) 92px;
+  min-height: 50px;
+  padding: 12px 16px;
 }
 
-.player-grid > :last-child,
-.scorer-grid > :last-child {
-  text-align: right;
+.player-grid > :nth-child(3),
+.player-grid > :nth-child(4),
+.player-grid > :nth-child(5),
+.scorer-grid > :nth-child(1),
+.scorer-grid > :nth-child(4) {
+  text-align: center;
 }
 
 .leaderboard-grid > :nth-child(1),
@@ -596,7 +601,7 @@ h2 {
 }
 
 .player-row {
-  min-height: 54px;
+  min-height: 50px;
 }
 
 .leaderboard-row {
@@ -953,59 +958,9 @@ h2 {
   }
 
   .leaderboard-table .leaderboard-grid,
+  .table-card .player-grid,
   .table-card .scorer-grid {
     min-width: 760px;
-  }
-
-  .table-header.player-grid {
-    display: none;
-  }
-
-  .player-grid {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-soft);
-    gap: 6px 10px;
-    grid-template-columns: minmax(0, 1fr) auto;
-    padding: var(--space-3);
-  }
-
-  .player-row + .player-row {
-    border-top: 0;
-  }
-
-  .player-row:nth-child(odd):not(.table-header) {
-    background: var(--color-surface);
-  }
-
-  .player-grid > * {
-    min-width: 0;
-  }
-
-  .player-grid > :first-child {
-    grid-column: 1 / -1;
-  }
-
-  .player-grid > [data-label] {
-    align-items: baseline;
-    display: flex;
-    gap: var(--space-2);
-    justify-content: space-between;
-  }
-
-  .player-grid > [data-label]::before {
-    color: var(--color-muted);
-    content: attr(data-label);
-    font-size: 0.72rem;
-    font-weight: 900;
-    text-transform: uppercase;
-  }
-
-  .player-grid > :last-child {
-    color: var(--color-accent);
-    font-weight: 900;
-    text-align: right;
   }
 
   .match-card-header {
