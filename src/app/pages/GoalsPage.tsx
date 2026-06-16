@@ -108,7 +108,7 @@ export function GoalsPage({ rosters, scorers }: GoalsPageProps) {
   const [sortKey, setSortKey] = useState<SortKey>("rank");
   const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
   const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(25);
+  const [pageSize, setPageSize] = useState(10);
 
   const rows = useMemo<ScorerRow[]>(() => {
     const positionIndex = buildPositionIndex(rosters);
@@ -194,14 +194,6 @@ export function GoalsPage({ rosters, scorers }: GoalsPageProps) {
   return (
     <section className="page-stack">
       <div className="table-card">
-        <div className="table-header scorer-grid">
-          <span>{renderSortButton("rank")}</span>
-          <span>{renderSortButton("playerName")}</span>
-          <span>{renderSortButton("nationalTeam")}</span>
-          <span>{renderSortButton("position")}</span>
-          <span>{renderSortButton("ownerLabel")}</span>
-          <span>{renderSortButton("goals")}</span>
-        </div>
         <div className="scorer-filter-row">
           <div className="segmented-control" aria-label="Besitzer-Filter">
             <button className={ownershipFilter === "all" ? "active" : ""} onClick={() => { setOwnershipFilter("all"); resetPage(); }} type="button">
@@ -247,6 +239,30 @@ export function GoalsPage({ rosters, scorers }: GoalsPageProps) {
             <input onChange={(event) => { setSearch(event.target.value); resetPage(); }} placeholder="Name, Besitzer, Land..." type="search" value={search} />
           </label>
         </div>
+        <div className="table-header scorer-grid">
+          <span>{renderSortButton("rank")}</span>
+          <span>{renderSortButton("playerName")}</span>
+          <span>{renderSortButton("nationalTeam")}</span>
+          <span>{renderSortButton("position")}</span>
+          <span>{renderSortButton("ownerLabel")}</span>
+          <span>{renderSortButton("goals")}</span>
+        </div>
+        {pageRows.length === 0 ? (
+          <p className="empty-state">Noch keine Torschützendaten im Snapshot.</p>
+        ) : (
+          pageRows.map((scorer) => (
+            <div className="scorer-grid player-row" key={`${scorer.normalizedPlayerName}-${scorer.nationalTeam}`}>
+              <strong data-label="Pl.">{scorer.rank}</strong>
+              <span>
+                <strong>{scorer.playerName}</strong>
+              </span>
+              <span data-label="Land">{scorer.nationalTeam}</span>
+              <span data-label="Position">{formatPosition(scorer.position)}</span>
+              <span data-label="Besitzer" title={scorer.ownerLabel}>{scorer.ownerLabel}</span>
+              <span data-label="Tore">{scorer.goals}</span>
+            </div>
+          ))
+        )}
         <div className="table-navigation">
           <span>{firstVisibleResult}-{lastVisibleResult} von {sortedRows.length}</span>
           <label>
@@ -273,22 +289,6 @@ export function GoalsPage({ rosters, scorers }: GoalsPageProps) {
             </button>
           </div>
         </div>
-        {pageRows.length === 0 ? (
-          <p className="empty-state">Noch keine Torschützendaten im Snapshot.</p>
-        ) : (
-          pageRows.map((scorer) => (
-            <div className="scorer-grid player-row" key={`${scorer.normalizedPlayerName}-${scorer.nationalTeam}`}>
-              <strong data-label="Pl.">{scorer.rank}</strong>
-              <span>
-                <strong>{scorer.playerName}</strong>
-              </span>
-              <span data-label="Land">{scorer.nationalTeam}</span>
-              <span data-label="Position">{formatPosition(scorer.position)}</span>
-              <span data-label="Besitzer" title={scorer.ownerLabel}>{scorer.ownerLabel}</span>
-              <span data-label="Tore">{scorer.goals}</span>
-            </div>
-          ))
-        )}
       </div>
     </section>
   );

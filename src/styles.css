@@ -671,7 +671,7 @@ h2 {
 .table-navigation {
   align-items: center;
   background: #ffffff;
-  border-bottom: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-border);
   color: var(--color-muted);
   display: flex;
   flex-wrap: wrap;
