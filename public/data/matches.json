@@ -50,7 +50,51 @@
     ],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group a:mexico-south africa:2026-06-11T19:00:00.000Z",
+        "playerName": "Edson Álvarez",
+        "nationalTeam": "Mexiko",
+        "teamId": "mexico",
+        "status": "unknown",
+        "displayPlayerName": "Edson Álvarez",
+        "displayNationalTeam": "Mexiko",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group a:mexico-south africa:2026-06-11T19:00:00.000Z",
+        "playerName": "Israel Reyes",
+        "nationalTeam": "Mexiko",
+        "teamId": "mexico",
+        "status": "unknown",
+        "displayPlayerName": "Israel Reyes",
+        "displayNationalTeam": "Mexiko",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group a:mexico-south africa:2026-06-11T19:00:00.000Z",
+        "playerName": "Lyle Foster",
+        "nationalTeam": "Südafrika",
+        "teamId": "south-africa",
+        "status": "unknown",
+        "displayPlayerName": "Lyle Foster",
+        "displayNationalTeam": "Südafrika",
+        "owners": [
+          "Caro",
+          "Melli"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group a:south korea-czech republic:2026-06-12T02:00:00.000Z",
@@ -120,7 +164,51 @@
     ],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group a:south korea-czech republic:2026-06-12T02:00:00.000Z",
+        "playerName": "Cho Gue-sung",
+        "nationalTeam": "Südkorea",
+        "teamId": "south-korea",
+        "status": "unknown",
+        "displayPlayerName": "Cho Gue-sung",
+        "displayNationalTeam": "Südkorea",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group a:south korea-czech republic:2026-06-12T02:00:00.000Z",
+        "playerName": "Lukáš Provod",
+        "nationalTeam": "Tschechien",
+        "teamId": "czech-republic",
+        "status": "unknown",
+        "displayPlayerName": "Lukáš Provod",
+        "displayNationalTeam": "Tschechien",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group a:south korea-czech republic:2026-06-12T02:00:00.000Z",
+        "playerName": "Pavel Šulc",
+        "nationalTeam": "Tschechien",
+        "teamId": "czech-republic",
+        "status": "unknown",
+        "displayPlayerName": "Pavel Šulc",
+        "displayNationalTeam": "Tschechien",
+        "owners": [
+          "Jonas",
+          "Kim"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group b:canada-bosnia and herzegovina:2026-06-12T19:00:00.000Z",
@@ -173,7 +261,78 @@
     ],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group b:canada-bosnia and herzegovina:2026-06-12T19:00:00.000Z",
+        "playerName": "Haris Tabaković",
+        "nationalTeam": "Bosnien und Herzegowina",
+        "teamId": "bosnia-and-herzegovina",
+        "status": "unknown",
+        "displayPlayerName": "Haris Tabaković",
+        "displayNationalTeam": "Bosnien und Herzegowina",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group b:canada-bosnia and herzegovina:2026-06-12T19:00:00.000Z",
+        "playerName": "Alphonso Davies",
+        "nationalTeam": "Kanada",
+        "teamId": "canada",
+        "status": "unknown",
+        "displayPlayerName": "Alphonso Davies",
+        "displayNationalTeam": "Kanada",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group b:canada-bosnia and herzegovina:2026-06-12T19:00:00.000Z",
+        "playerName": "Jonathan David",
+        "nationalTeam": "Kanada",
+        "teamId": "canada",
+        "status": "unknown",
+        "displayPlayerName": "Jonathan David",
+        "displayNationalTeam": "Kanada",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group b:canada-bosnia and herzegovina:2026-06-12T19:00:00.000Z",
+        "playerName": "Mathieu Choinière",
+        "nationalTeam": "Kanada",
+        "teamId": "canada",
+        "status": "unknown",
+        "displayPlayerName": "Mathieu Choinière",
+        "displayNationalTeam": "Kanada",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group b:canada-bosnia and herzegovina:2026-06-12T19:00:00.000Z",
+        "playerName": "Richie Laryea",
+        "nationalTeam": "Kanada",
+        "teamId": "canada",
+        "status": "unknown",
+        "displayPlayerName": "Richie Laryea",
+        "displayNationalTeam": "Kanada",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group d:united states-paraguay:2026-06-13T01:00:00.000Z",
@@ -260,7 +419,93 @@
     ],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:united states-paraguay:2026-06-13T01:00:00.000Z",
+        "playerName": "Damián Bobadilla",
+        "nationalTeam": "Paraguay",
+        "teamId": "paraguay",
+        "status": "unknown",
+        "displayPlayerName": "Damián Bobadilla",
+        "displayNationalTeam": "Paraguay",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:united states-paraguay:2026-06-13T01:00:00.000Z",
+        "playerName": "Diego Gómez",
+        "nationalTeam": "Paraguay",
+        "teamId": "paraguay",
+        "status": "unknown",
+        "displayPlayerName": "Diego Gómez",
+        "displayNationalTeam": "Paraguay",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:united states-paraguay:2026-06-13T01:00:00.000Z",
+        "playerName": "Julio Enciso",
+        "nationalTeam": "Paraguay",
+        "teamId": "paraguay",
+        "status": "unknown",
+        "displayPlayerName": "Julio Enciso",
+        "displayNationalTeam": "Paraguay",
+        "owners": [
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:united states-paraguay:2026-06-13T01:00:00.000Z",
+        "playerName": "Ramón Sosa",
+        "nationalTeam": "Paraguay",
+        "teamId": "paraguay",
+        "status": "unknown",
+        "displayPlayerName": "Ramón Sosa",
+        "displayNationalTeam": "Paraguay",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:united states-paraguay:2026-06-13T01:00:00.000Z",
+        "playerName": "Timothy Weah",
+        "nationalTeam": "USA",
+        "teamId": "united-states",
+        "status": "unknown",
+        "displayPlayerName": "Timothy Weah",
+        "displayNationalTeam": "USA",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:united states-paraguay:2026-06-13T01:00:00.000Z",
+        "playerName": "Tyler Adams",
+        "nationalTeam": "USA",
+        "teamId": "united-states",
+        "status": "unknown",
+        "displayPlayerName": "Tyler Adams",
+        "displayNationalTeam": "USA",
+        "owners": [
+          "Caro",
+          "Jonas"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group b:qatar-switzerland:2026-06-13T19:00:00.000Z",
@@ -313,7 +558,50 @@
     ],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group b:qatar-switzerland:2026-06-13T19:00:00.000Z",
+        "playerName": "Edmilson Junior",
+        "nationalTeam": "Katar",
+        "teamId": "qatar",
+        "status": "unknown",
+        "displayPlayerName": "Edmilson Junior",
+        "displayNationalTeam": "Katar",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group b:qatar-switzerland:2026-06-13T19:00:00.000Z",
+        "playerName": "Manuel Akanji",
+        "nationalTeam": "Schweiz",
+        "teamId": "switzerland",
+        "status": "unknown",
+        "displayPlayerName": "Manuel Akanji",
+        "displayNationalTeam": "Schweiz",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group b:qatar-switzerland:2026-06-13T19:00:00.000Z",
+        "playerName": "Rubén Vargas",
+        "nationalTeam": "Schweiz",
+        "teamId": "switzerland",
+        "status": "unknown",
+        "displayPlayerName": "Rubén Vargas",
+        "displayNationalTeam": "Schweiz",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T22:00:00.000Z",
@@ -392,7 +680,106 @@
     "affectedOwners": [
       "Felix"
     ],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T22:00:00.000Z",
+        "playerName": "Alisson",
+        "nationalTeam": "Brasilien",
+        "teamId": "brazil",
+        "status": "unknown",
+        "displayPlayerName": "Alisson",
+        "displayNationalTeam": "Brasilien",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T22:00:00.000Z",
+        "playerName": "Gabriel Magalhães",
+        "nationalTeam": "Brasilien",
+        "teamId": "brazil",
+        "status": "unknown",
+        "displayPlayerName": "Gabriel Magalhães",
+        "displayNationalTeam": "Brasilien",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T22:00:00.000Z",
+        "playerName": "Lucas Paquetá",
+        "nationalTeam": "Brasilien",
+        "teamId": "brazil",
+        "status": "unknown",
+        "displayPlayerName": "Lucas Paquetá",
+        "displayNationalTeam": "Brasilien",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T22:00:00.000Z",
+        "playerName": "Matheus Cunha",
+        "nationalTeam": "Brasilien",
+        "teamId": "brazil",
+        "status": "unknown",
+        "displayPlayerName": "Matheus Cunha",
+        "displayNationalTeam": "Brasilien",
+        "owners": [
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T22:00:00.000Z",
+        "playerName": "Vinícius Júnior",
+        "nationalTeam": "Brasilien",
+        "teamId": "brazil",
+        "status": "unknown",
+        "displayPlayerName": "Vinícius Júnior",
+        "displayNationalTeam": "Brasilien",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T22:00:00.000Z",
+        "playerName": "Achraf Hakimi",
+        "nationalTeam": "Marokko",
+        "teamId": "morocco",
+        "status": "unknown",
+        "displayPlayerName": "Achraf Hakimi",
+        "displayNationalTeam": "Marokko",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T22:00:00.000Z",
+        "playerName": "Ayoub El Kaabi",
+        "nationalTeam": "Marokko",
+        "teamId": "morocco",
+        "status": "unknown",
+        "displayPlayerName": "Ayoub El Kaabi",
+        "displayNationalTeam": "Marokko",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group c:haiti-scotland:2026-06-14T01:00:00.000Z",
@@ -428,7 +815,78 @@
     ],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:haiti-scotland:2026-06-14T01:00:00.000Z",
+        "playerName": "Derrick Etienne Jr.",
+        "nationalTeam": "Haiti",
+        "teamId": "haiti",
+        "status": "unknown",
+        "displayPlayerName": "Derrick Etienne Jr.",
+        "displayNationalTeam": "Haiti",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:haiti-scotland:2026-06-14T01:00:00.000Z",
+        "playerName": "Johny Placide",
+        "nationalTeam": "Haiti",
+        "teamId": "haiti",
+        "status": "unknown",
+        "displayPlayerName": "Johny Placide",
+        "displayNationalTeam": "Haiti",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:haiti-scotland:2026-06-14T01:00:00.000Z",
+        "playerName": "Aaron Hickey",
+        "nationalTeam": "Schottland",
+        "teamId": "scotland",
+        "status": "unknown",
+        "displayPlayerName": "Aaron Hickey",
+        "displayNationalTeam": "Schottland",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:haiti-scotland:2026-06-14T01:00:00.000Z",
+        "playerName": "Angus Gunn",
+        "nationalTeam": "Schottland",
+        "teamId": "scotland",
+        "status": "unknown",
+        "displayPlayerName": "Angus Gunn",
+        "displayNationalTeam": "Schottland",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:haiti-scotland:2026-06-14T01:00:00.000Z",
+        "playerName": "Ben Gannon-Doak",
+        "nationalTeam": "Schottland",
+        "teamId": "scotland",
+        "status": "unknown",
+        "displayPlayerName": "Ben Gannon-Doak",
+        "displayNationalTeam": "Schottland",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group d:australia-tur:2026-06-14T04:00:00.000Z",
@@ -507,7 +965,22 @@
     "affectedOwners": [
       "Marco"
     ],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:australia-tur:2026-06-14T04:00:00.000Z",
+        "playerName": "Nestory Irankunda",
+        "nationalTeam": "Australien",
+        "teamId": "australia",
+        "status": "unknown",
+        "displayPlayerName": "Nestory Irankunda",
+        "displayNationalTeam": "Australien",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z",
@@ -695,7 +1168,37 @@
       "Nina",
       "Willi"
     ],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z",
+        "playerName": "David Raum",
+        "nationalTeam": "Deutschland",
+        "teamId": "germany",
+        "status": "unknown",
+        "displayPlayerName": "David Raum",
+        "displayNationalTeam": "Deutschland",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z",
+        "playerName": "Felix Nmecha",
+        "nationalTeam": "Deutschland",
+        "teamId": "germany",
+        "status": "unknown",
+        "displayPlayerName": "Felix Nmecha",
+        "displayNationalTeam": "Deutschland",
+        "owners": [
+          "Nina",
+          "Willi"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group f:netherlands-japan:2026-06-14T20:00:00.000Z",
@@ -782,7 +1285,50 @@
     ],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:netherlands-japan:2026-06-14T20:00:00.000Z",
+        "playerName": "Micky van de Ven",
+        "nationalTeam": "Niederlande",
+        "teamId": "netherlands",
+        "status": "unknown",
+        "displayPlayerName": "Micky van de Ven",
+        "displayNationalTeam": "Niederlande",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:netherlands-japan:2026-06-14T20:00:00.000Z",
+        "playerName": "Ryan Gravenberch",
+        "nationalTeam": "Niederlande",
+        "teamId": "netherlands",
+        "status": "unknown",
+        "displayPlayerName": "Ryan Gravenberch",
+        "displayNationalTeam": "Niederlande",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:netherlands-japan:2026-06-14T20:00:00.000Z",
+        "playerName": "Tijjani Reijnders",
+        "nationalTeam": "Niederlande",
+        "teamId": "netherlands",
+        "status": "unknown",
+        "displayPlayerName": "Tijjani Reijnders",
+        "displayNationalTeam": "Niederlande",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group e:civ-ecuador:2026-06-14T23:00:00.000Z",
@@ -818,7 +1364,93 @@
     ],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:civ-ecuador:2026-06-14T23:00:00.000Z",
+        "playerName": "Ángelo Preciado",
+        "nationalTeam": "Ecuador",
+        "teamId": "ecuador",
+        "status": "unknown",
+        "displayPlayerName": "Ángelo Preciado",
+        "displayNationalTeam": "Ecuador",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:civ-ecuador:2026-06-14T23:00:00.000Z",
+        "playerName": "Kevin Rodríguez",
+        "nationalTeam": "Ecuador",
+        "teamId": "ecuador",
+        "status": "unknown",
+        "displayPlayerName": "Kevin Rodríguez",
+        "displayNationalTeam": "Ecuador",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:civ-ecuador:2026-06-14T23:00:00.000Z",
+        "playerName": "Piero Hincapié",
+        "nationalTeam": "Ecuador",
+        "teamId": "ecuador",
+        "status": "unknown",
+        "displayPlayerName": "Piero Hincapié",
+        "displayNationalTeam": "Ecuador",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:civ-ecuador:2026-06-14T23:00:00.000Z",
+        "playerName": "Oumar Diakité",
+        "nationalTeam": "Elfenbeinküste",
+        "teamId": "ivory-coast",
+        "status": "unknown",
+        "displayPlayerName": "Oumar Diakité",
+        "displayNationalTeam": "Elfenbeinküste",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:civ-ecuador:2026-06-14T23:00:00.000Z",
+        "playerName": "Seko Fofana",
+        "nationalTeam": "Elfenbeinküste",
+        "teamId": "ivory-coast",
+        "status": "unknown",
+        "displayPlayerName": "Seko Fofana",
+        "displayNationalTeam": "Elfenbeinküste",
+        "owners": [
+          "Anne",
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:civ-ecuador:2026-06-14T23:00:00.000Z",
+        "playerName": "Simon Adingra",
+        "nationalTeam": "Elfenbeinküste",
+        "teamId": "ivory-coast",
+        "status": "unknown",
+        "displayPlayerName": "Simon Adingra",
+        "displayNationalTeam": "Elfenbeinküste",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "api-football:1539002",
@@ -994,6 +1626,66 @@
         "displayNationalTeam": "Schweden",
         "owners": [
           "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1539002",
+        "fixtureId": "1539002",
+        "playerName": "Alexander Isak",
+        "nationalTeam": "Schweden",
+        "teamId": "sweden",
+        "status": "unknown",
+        "displayPlayerName": "Alexander Isak",
+        "displayNationalTeam": "Schweden",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1539002",
+        "fixtureId": "1539002",
+        "playerName": "Daniel Svensson",
+        "nationalTeam": "Schweden",
+        "teamId": "sweden",
+        "status": "unknown",
+        "displayPlayerName": "Daniel Svensson",
+        "displayNationalTeam": "Schweden",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1539002",
+        "fixtureId": "1539002",
+        "playerName": "Lucas Bergvall",
+        "nationalTeam": "Schweden",
+        "teamId": "sweden",
+        "status": "unknown",
+        "displayPlayerName": "Lucas Bergvall",
+        "displayNationalTeam": "Schweden",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1539002",
+        "fixtureId": "1539002",
+        "playerName": "Elias Saad",
+        "nationalTeam": "Tunesien",
+        "teamId": "tunisia",
+        "status": "unknown",
+        "displayPlayerName": "Elias Saad",
+        "displayNationalTeam": "Tunesien",
+        "owners": [
+          "Melli"
         ],
         "selected": true
       },
@@ -1795,6 +2487,21 @@
         "displayNationalTeam": "Kap Verde",
         "owners": [
           "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1489380",
+        "fixtureId": "1489380",
+        "playerName": "Dailon Livramento",
+        "nationalTeam": "Kap Verde",
+        "teamId": "cape-verde",
+        "status": "unknown",
+        "displayPlayerName": "Dailon Livramento",
+        "displayNationalTeam": "Kap Verde",
+        "owners": [
+          "Anne"
         ],
         "selected": true
       },
@@ -2653,6 +3360,23 @@
         "source": "api-football",
         "matchId": "api-football:1489377",
         "fixtureId": "1489377",
+        "playerName": "Amadou Onana",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "apiPlayerId": 162714,
+        "status": "starter",
+        "shirtNumber": 24,
+        "displayPlayerName": "Amadou Onana",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1489377",
+        "fixtureId": "1489377",
         "playerName": "Jérémy Doku",
         "nationalTeam": "Belgien",
         "teamId": "belgium",
@@ -2698,6 +3422,23 @@
         "displayNationalTeam": "Belgien",
         "owners": [
           "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1489377",
+        "fixtureId": "1489377",
+        "playerName": "Nicolas Raskin",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "apiPlayerId": 2120,
+        "status": "bench",
+        "shirtNumber": 23,
+        "displayPlayerName": "Nicolas Raskin",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Tjark"
         ],
         "selected": true
       },
@@ -3080,21 +3821,6 @@
         "source": "api-football",
         "matchId": "api-football:1489377",
         "fixtureId": "1489377",
-        "playerName": "Amadou Onana",
-        "nationalTeam": "Belgien",
-        "teamId": "belgium",
-        "apiPlayerId": 162714,
-        "status": "starter",
-        "shirtNumber": 24,
-        "displayPlayerName": "Amadou Onana",
-        "displayNationalTeam": "Belgien",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "api-football:1489377",
-        "fixtureId": "1489377",
         "playerName": "Brandon Mechele",
         "nationalTeam": "Belgien",
         "teamId": "belgium",
@@ -3365,21 +4091,6 @@
         "source": "api-football",
         "matchId": "api-football:1489377",
         "fixtureId": "1489377",
-        "playerName": "Nicolas Raskin",
-        "nationalTeam": "Belgien",
-        "teamId": "belgium",
-        "apiPlayerId": 2120,
-        "status": "bench",
-        "shirtNumber": 23,
-        "displayPlayerName": "Nicolas Raskin",
-        "displayNationalTeam": "Belgien",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "api-football:1489377",
-        "fixtureId": "1489377",
         "playerName": "Romelu Lukaku",
         "nationalTeam": "Belgien",
         "teamId": "belgium",
@@ -3468,6 +4179,23 @@
         "source": "api-football",
         "matchId": "api-football:1489379",
         "fixtureId": "1489379",
+        "playerName": "Saleh Al-Shehri",
+        "nationalTeam": "Saudi-Arabien",
+        "teamId": "saudi-arabia",
+        "apiPlayerId": 44551,
+        "status": "bench",
+        "shirtNumber": 11,
+        "displayPlayerName": "Saleh Al-Shehri",
+        "displayNationalTeam": "Saudi-Arabien",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1489379",
+        "fixtureId": "1489379",
         "playerName": "Federico Viñas",
         "nationalTeam": "Uruguay",
         "teamId": "uruguay",
@@ -3478,6 +4206,23 @@
         "displayNationalTeam": "Uruguay",
         "owners": [
           "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1489379",
+        "fixtureId": "1489379",
+        "playerName": "Manuel Ugarte",
+        "nationalTeam": "Uruguay",
+        "teamId": "uruguay",
+        "apiPlayerId": 51494,
+        "status": "starter",
+        "shirtNumber": 5,
+        "displayPlayerName": "Manuel Ugarte",
+        "displayNationalTeam": "Uruguay",
+        "owners": [
+          "Tjark"
         ],
         "selected": true
       },
@@ -3847,21 +4592,6 @@
         "source": "api-football",
         "matchId": "api-football:1489379",
         "fixtureId": "1489379",
-        "playerName": "Saleh Al-Shehri",
-        "nationalTeam": "Saudi-Arabien",
-        "teamId": "saudi-arabia",
-        "apiPlayerId": 44551,
-        "status": "bench",
-        "shirtNumber": 11,
-        "displayPlayerName": "Saleh Al-Shehri",
-        "displayNationalTeam": "Saudi-Arabien",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "api-football:1489379",
-        "fixtureId": "1489379",
         "playerName": "Sultan Mandash",
         "nationalTeam": "Saudi-Arabien",
         "teamId": "saudi-arabia",
@@ -3944,21 +4674,6 @@
         "status": "starter",
         "shirtNumber": 13,
         "displayPlayerName": "Guillermo Varela",
-        "displayNationalTeam": "Uruguay",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "api-football:1489379",
-        "fixtureId": "1489379",
-        "playerName": "Manuel Ugarte",
-        "nationalTeam": "Uruguay",
-        "teamId": "uruguay",
-        "apiPlayerId": 51494,
-        "status": "starter",
-        "shirtNumber": 5,
-        "displayPlayerName": "Manuel Ugarte",
         "displayNationalTeam": "Uruguay",
         "owners": [],
         "selected": false
@@ -4236,7 +4951,53 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "api-football",
+        "matchId": "api-football:1489378",
+        "fixtureId": "1489378",
+        "playerName": "Mohammad Mohebi",
+        "nationalTeam": "Iran",
+        "teamId": "iran",
+        "status": "unknown",
+        "displayPlayerName": "Mohammad Mohebi",
+        "displayNationalTeam": "Iran",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1489378",
+        "fixtureId": "1489378",
+        "playerName": "Ramin Rezaeian",
+        "nationalTeam": "Iran",
+        "teamId": "iran",
+        "status": "unknown",
+        "displayPlayerName": "Ramin Rezaeian",
+        "displayNationalTeam": "Iran",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1489378",
+        "fixtureId": "1489378",
+        "playerName": "Chris Wood",
+        "nationalTeam": "Neuseeland",
+        "teamId": "new-zealand",
+        "status": "unknown",
+        "displayPlayerName": "Chris Wood",
+        "displayNationalTeam": "Neuseeland",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "api-football:1489383",
@@ -4381,6 +5142,40 @@
         "source": "api-football",
         "matchId": "api-football:1489383",
         "fixtureId": "1489383",
+        "playerName": "Désiré Doué",
+        "nationalTeam": "Frankreich",
+        "teamId": "france",
+        "apiPlayerId": 343027,
+        "status": "starter",
+        "shirtNumber": 20,
+        "displayPlayerName": "Désiré Doué",
+        "displayNationalTeam": "Frankreich",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1489383",
+        "fixtureId": "1489383",
+        "playerName": "Bradley Barcola",
+        "nationalTeam": "Frankreich",
+        "teamId": "france",
+        "apiPlayerId": 161904,
+        "status": "bench",
+        "shirtNumber": 12,
+        "displayPlayerName": "Bradley Barcola",
+        "displayNationalTeam": "Frankreich",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1489383",
+        "fixtureId": "1489383",
         "playerName": "Krépin Diatta",
         "nationalTeam": "Senegal",
         "teamId": "senegal",
@@ -4391,6 +5186,40 @@
         "displayNationalTeam": "Senegal",
         "owners": [
           "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1489383",
+        "fixtureId": "1489383",
+        "playerName": "Nicolas Jackson",
+        "nationalTeam": "Senegal",
+        "teamId": "senegal",
+        "apiPlayerId": 283058,
+        "status": "starter",
+        "shirtNumber": 11,
+        "displayPlayerName": "Nicolas Jackson",
+        "displayNationalTeam": "Senegal",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1489383",
+        "fixtureId": "1489383",
+        "playerName": "Habib Diarra",
+        "nationalTeam": "Senegal",
+        "teamId": "senegal",
+        "apiPlayerId": 327631,
+        "status": "bench",
+        "shirtNumber": 21,
+        "displayPlayerName": "Habib Diarra",
+        "displayNationalTeam": "Senegal",
+        "owners": [
+          "Nina"
         ],
         "selected": true
       },
@@ -4536,6 +5365,21 @@
         "status": "starter",
         "shirtNumber": 16,
         "displayPlayerName": "Mike Maignan",
+        "displayNationalTeam": "Frankreich",
+        "owners": [],
+        "selected": false
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1489383",
+        "fixtureId": "1489383",
+        "playerName": "Ousmane Dembélé",
+        "nationalTeam": "Frankreich",
+        "teamId": "france",
+        "apiPlayerId": 153,
+        "status": "starter",
+        "shirtNumber": 7,
+        "displayPlayerName": "Ousmane Dembélé",
         "displayNationalTeam": "Frankreich",
         "owners": [],
         "selected": false
@@ -4731,6 +5575,21 @@
         "status": "bench",
         "shirtNumber": 13,
         "displayPlayerName": "N'Golo Kanté",
+        "displayNationalTeam": "Frankreich",
+        "owners": [],
+        "selected": false
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1489383",
+        "fixtureId": "1489383",
+        "playerName": "Rayan Cherki",
+        "nationalTeam": "Frankreich",
+        "teamId": "france",
+        "apiPlayerId": 156477,
+        "status": "bench",
+        "shirtNumber": 24,
+        "displayPlayerName": "Rayan Cherki",
         "displayNationalTeam": "Frankreich",
         "owners": [],
         "selected": false
@@ -4939,6 +5798,36 @@
         "source": "api-football",
         "matchId": "api-football:1489383",
         "fixtureId": "1489383",
+        "playerName": "Idrissa Gana Gueye",
+        "nationalTeam": "Senegal",
+        "teamId": "senegal",
+        "apiPlayerId": 2990,
+        "status": "starter",
+        "shirtNumber": 5,
+        "displayPlayerName": "Idrissa Gana Gueye",
+        "displayNationalTeam": "Senegal",
+        "owners": [],
+        "selected": false
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1489383",
+        "fixtureId": "1489383",
+        "playerName": "Ismaïla Sarr",
+        "nationalTeam": "Senegal",
+        "teamId": "senegal",
+        "apiPlayerId": 2218,
+        "status": "starter",
+        "shirtNumber": 18,
+        "displayPlayerName": "Ismaïla Sarr",
+        "displayNationalTeam": "Senegal",
+        "owners": [],
+        "selected": false
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1489383",
+        "fixtureId": "1489383",
         "playerName": "Kalidou Koulibaly",
         "nationalTeam": "Senegal",
         "teamId": "senegal",
@@ -4954,6 +5843,21 @@
         "source": "api-football",
         "matchId": "api-football:1489383",
         "fixtureId": "1489383",
+        "playerName": "Lamine Camara",
+        "nationalTeam": "Senegal",
+        "teamId": "senegal",
+        "apiPlayerId": 374058,
+        "status": "starter",
+        "shirtNumber": 8,
+        "displayPlayerName": "Lamine Camara",
+        "displayNationalTeam": "Senegal",
+        "owners": [],
+        "selected": false
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1489383",
+        "fixtureId": "1489383",
         "playerName": "Moussa Niakhaté",
         "nationalTeam": "Senegal",
         "teamId": "senegal",
@@ -4961,6 +5865,21 @@
         "status": "starter",
         "shirtNumber": 19,
         "displayPlayerName": "Moussa Niakhaté",
+        "displayNationalTeam": "Senegal",
+        "owners": [],
+        "selected": false
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1489383",
+        "fixtureId": "1489383",
+        "playerName": "Pape Gueye",
+        "nationalTeam": "Senegal",
+        "teamId": "senegal",
+        "apiPlayerId": 20696,
+        "status": "starter",
+        "shirtNumber": 26,
+        "displayPlayerName": "Pape Gueye",
         "displayNationalTeam": "Senegal",
         "owners": [],
         "selected": false
@@ -4991,6 +5910,21 @@
         "status": "bench",
         "shirtNumber": 4,
         "displayPlayerName": "Abdoulaye Seck",
+        "displayNationalTeam": "Senegal",
+        "owners": [],
+        "selected": false
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1489383",
+        "fixtureId": "1489383",
+        "playerName": "Ahmadou Bamba Dieng",
+        "nationalTeam": "Senegal",
+        "teamId": "senegal",
+        "apiPlayerId": 284072,
+        "status": "bench",
+        "shirtNumber": 9,
+        "displayPlayerName": "Ahmadou Bamba Dieng",
         "displayNationalTeam": "Senegal",
         "owners": [],
         "selected": false
@@ -5059,6 +5993,36 @@
         "source": "api-football",
         "matchId": "api-football:1489383",
         "fixtureId": "1489383",
+        "playerName": "Ibrahim Mbaye",
+        "nationalTeam": "Senegal",
+        "teamId": "senegal",
+        "apiPlayerId": 446249,
+        "status": "bench",
+        "shirtNumber": 20,
+        "displayPlayerName": "Ibrahim Mbaye",
+        "displayNationalTeam": "Senegal",
+        "owners": [],
+        "selected": false
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1489383",
+        "fixtureId": "1489383",
+        "playerName": "Iliman Ndiaye",
+        "nationalTeam": "Senegal",
+        "teamId": "senegal",
+        "apiPlayerId": 18592,
+        "status": "bench",
+        "shirtNumber": 13,
+        "displayPlayerName": "Iliman Ndiaye",
+        "displayNationalTeam": "Senegal",
+        "owners": [],
+        "selected": false
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1489383",
+        "fixtureId": "1489383",
         "playerName": "Ismail Jakobs",
         "nationalTeam": "Senegal",
         "teamId": "senegal",
@@ -5119,6 +6083,21 @@
         "source": "api-football",
         "matchId": "api-football:1489383",
         "fixtureId": "1489383",
+        "playerName": "Pathé Ismaël Ciss",
+        "nationalTeam": "Senegal",
+        "teamId": "senegal",
+        "apiPlayerId": 41552,
+        "status": "bench",
+        "shirtNumber": 6,
+        "displayPlayerName": "Pathé Ismaël Ciss",
+        "displayNationalTeam": "Senegal",
+        "owners": [],
+        "selected": false
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1489383",
+        "fixtureId": "1489383",
         "playerName": "Yehvann Diouf",
         "nationalTeam": "Senegal",
         "teamId": "senegal",
@@ -5148,7 +6127,83 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "api-football",
+        "matchId": "api-football:1539016",
+        "fixtureId": "1539016",
+        "playerName": "Ali Jasim",
+        "nationalTeam": "Irak",
+        "teamId": "iraq",
+        "status": "unknown",
+        "displayPlayerName": "Ali Jasim",
+        "displayNationalTeam": "Irak",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1539016",
+        "fixtureId": "1539016",
+        "playerName": "Mohanad Ali",
+        "nationalTeam": "Irak",
+        "teamId": "iraq",
+        "status": "unknown",
+        "displayPlayerName": "Mohanad Ali",
+        "displayNationalTeam": "Irak",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1539016",
+        "fixtureId": "1539016",
+        "playerName": "Antonio Nusa",
+        "nationalTeam": "Norwegen",
+        "teamId": "norway",
+        "status": "unknown",
+        "displayPlayerName": "Antonio Nusa",
+        "displayNationalTeam": "Norwegen",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1539016",
+        "fixtureId": "1539016",
+        "playerName": "Erling Haaland",
+        "nationalTeam": "Norwegen",
+        "teamId": "norway",
+        "status": "unknown",
+        "displayPlayerName": "Erling Haaland",
+        "displayNationalTeam": "Norwegen",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1539016",
+        "fixtureId": "1539016",
+        "playerName": "Sander Berge",
+        "nationalTeam": "Norwegen",
+        "teamId": "norway",
+        "status": "unknown",
+        "displayPlayerName": "Sander Berge",
+        "displayNationalTeam": "Norwegen",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group j:argentina-algeria:2026-06-17T01:00:00.000Z",
@@ -5164,7 +6219,50 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group j:argentina-algeria:2026-06-17T01:00:00.000Z",
+        "playerName": "Alexis Mac Allister",
+        "nationalTeam": "Argentinien",
+        "teamId": "argentina",
+        "status": "unknown",
+        "displayPlayerName": "Alexis Mac Allister",
+        "displayNationalTeam": "Argentinien",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group j:argentina-algeria:2026-06-17T01:00:00.000Z",
+        "playerName": "Cristian Romero",
+        "nationalTeam": "Argentinien",
+        "teamId": "argentina",
+        "status": "unknown",
+        "displayPlayerName": "Cristian Romero",
+        "displayNationalTeam": "Argentinien",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group j:argentina-algeria:2026-06-17T01:00:00.000Z",
+        "playerName": "Giuliano Simeone",
+        "nationalTeam": "Argentinien",
+        "teamId": "argentina",
+        "status": "unknown",
+        "displayPlayerName": "Giuliano Simeone",
+        "displayNationalTeam": "Argentinien",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group j:austria-jor:2026-06-17T04:00:00.000Z",
@@ -5180,7 +6278,22 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group j:austria-jor:2026-06-17T04:00:00.000Z",
+        "playerName": "Stefan Posch",
+        "nationalTeam": "Österreich",
+        "teamId": "austria",
+        "status": "unknown",
+        "displayPlayerName": "Stefan Posch",
+        "displayNationalTeam": "Österreich",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group k:portugal-dr congo:2026-06-17T17:00:00.000Z",
@@ -5196,7 +6309,149 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:portugal-dr congo:2026-06-17T17:00:00.000Z",
+        "playerName": "Aaron Wan-Bissaka",
+        "nationalTeam": "DR Kongo",
+        "teamId": "dr-congo",
+        "status": "unknown",
+        "displayPlayerName": "Aaron Wan-Bissaka",
+        "displayNationalTeam": "DR Kongo",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:portugal-dr congo:2026-06-17T17:00:00.000Z",
+        "playerName": "Cédric Bakambu",
+        "nationalTeam": "DR Kongo",
+        "teamId": "dr-congo",
+        "status": "unknown",
+        "displayPlayerName": "Cédric Bakambu",
+        "displayNationalTeam": "DR Kongo",
+        "owners": [
+          "Anne",
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:portugal-dr congo:2026-06-17T17:00:00.000Z",
+        "playerName": "Edo Kayembe",
+        "nationalTeam": "DR Kongo",
+        "teamId": "dr-congo",
+        "status": "unknown",
+        "displayPlayerName": "Edo Kayembe",
+        "displayNationalTeam": "DR Kongo",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:portugal-dr congo:2026-06-17T17:00:00.000Z",
+        "playerName": "Nathanaël Mbuku",
+        "nationalTeam": "DR Kongo",
+        "teamId": "dr-congo",
+        "status": "unknown",
+        "displayPlayerName": "Nathanaël Mbuku",
+        "displayNationalTeam": "DR Kongo",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:portugal-dr congo:2026-06-17T17:00:00.000Z",
+        "playerName": "Yoane Wissa",
+        "nationalTeam": "DR Kongo",
+        "teamId": "dr-congo",
+        "status": "unknown",
+        "displayPlayerName": "Yoane Wissa",
+        "displayNationalTeam": "DR Kongo",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:portugal-dr congo:2026-06-17T17:00:00.000Z",
+        "playerName": "Bruno Fernandes",
+        "nationalTeam": "Portugal",
+        "teamId": "portugal",
+        "status": "unknown",
+        "displayPlayerName": "Bruno Fernandes",
+        "displayNationalTeam": "Portugal",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:portugal-dr congo:2026-06-17T17:00:00.000Z",
+        "playerName": "Gonçalo Ramos",
+        "nationalTeam": "Portugal",
+        "teamId": "portugal",
+        "status": "unknown",
+        "displayPlayerName": "Gonçalo Ramos",
+        "displayNationalTeam": "Portugal",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:portugal-dr congo:2026-06-17T17:00:00.000Z",
+        "playerName": "João Cancelo",
+        "nationalTeam": "Portugal",
+        "teamId": "portugal",
+        "status": "unknown",
+        "displayPlayerName": "João Cancelo",
+        "displayNationalTeam": "Portugal",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:portugal-dr congo:2026-06-17T17:00:00.000Z",
+        "playerName": "João Félix",
+        "nationalTeam": "Portugal",
+        "teamId": "portugal",
+        "status": "unknown",
+        "displayPlayerName": "João Félix",
+        "displayNationalTeam": "Portugal",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:portugal-dr congo:2026-06-17T17:00:00.000Z",
+        "playerName": "Rúben Dias",
+        "nationalTeam": "Portugal",
+        "teamId": "portugal",
+        "status": "unknown",
+        "displayPlayerName": "Rúben Dias",
+        "displayNationalTeam": "Portugal",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group l:england-croatia:2026-06-17T20:00:00.000Z",
@@ -5212,7 +6467,135 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:england-croatia:2026-06-17T20:00:00.000Z",
+        "playerName": "Dan Burn",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Dan Burn",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:england-croatia:2026-06-17T20:00:00.000Z",
+        "playerName": "Jordan Pickford",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Jordan Pickford",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:england-croatia:2026-06-17T20:00:00.000Z",
+        "playerName": "Jude Bellingham",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Jude Bellingham",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:england-croatia:2026-06-17T20:00:00.000Z",
+        "playerName": "Marc Guéhi",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Marc Guéhi",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:england-croatia:2026-06-17T20:00:00.000Z",
+        "playerName": "Marcus Rashford",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Marcus Rashford",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:england-croatia:2026-06-17T20:00:00.000Z",
+        "playerName": "Morgan Rogers",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Morgan Rogers",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:england-croatia:2026-06-17T20:00:00.000Z",
+        "playerName": "Andrej Kramarić",
+        "nationalTeam": "Kroatien",
+        "teamId": "croatia",
+        "status": "unknown",
+        "displayPlayerName": "Andrej Kramarić",
+        "displayNationalTeam": "Kroatien",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:england-croatia:2026-06-17T20:00:00.000Z",
+        "playerName": "Josip Stanišić",
+        "nationalTeam": "Kroatien",
+        "teamId": "croatia",
+        "status": "unknown",
+        "displayPlayerName": "Josip Stanišić",
+        "displayNationalTeam": "Kroatien",
+        "owners": [
+          "Caro",
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:england-croatia:2026-06-17T20:00:00.000Z",
+        "playerName": "Mario Pašalić",
+        "nationalTeam": "Kroatien",
+        "teamId": "croatia",
+        "status": "unknown",
+        "displayPlayerName": "Mario Pašalić",
+        "displayNationalTeam": "Kroatien",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group l:gha-panama:2026-06-17T23:00:00.000Z",
@@ -5228,7 +6611,36 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:gha-panama:2026-06-17T23:00:00.000Z",
+        "playerName": "Luis Mejía",
+        "nationalTeam": "Panama",
+        "teamId": "panama",
+        "status": "unknown",
+        "displayPlayerName": "Luis Mejía",
+        "displayNationalTeam": "Panama",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:gha-panama:2026-06-17T23:00:00.000Z",
+        "playerName": "Orlando Mosquera",
+        "nationalTeam": "Panama",
+        "teamId": "panama",
+        "status": "unknown",
+        "displayPlayerName": "Orlando Mosquera",
+        "displayNationalTeam": "Panama",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group k:uzb-colombia:2026-06-18T02:00:00.000Z",
@@ -5244,7 +6656,51 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:uzb-colombia:2026-06-18T02:00:00.000Z",
+        "playerName": "Davinson Sánchez",
+        "nationalTeam": "Kolumbien",
+        "teamId": "colombia",
+        "status": "unknown",
+        "displayPlayerName": "Davinson Sánchez",
+        "displayNationalTeam": "Kolumbien",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:uzb-colombia:2026-06-18T02:00:00.000Z",
+        "playerName": "Jhon Arias",
+        "nationalTeam": "Kolumbien",
+        "teamId": "colombia",
+        "status": "unknown",
+        "displayPlayerName": "Jhon Arias",
+        "displayNationalTeam": "Kolumbien",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:uzb-colombia:2026-06-18T02:00:00.000Z",
+        "playerName": "Richard Ríos",
+        "nationalTeam": "Kolumbien",
+        "teamId": "colombia",
+        "status": "unknown",
+        "displayPlayerName": "Richard Ríos",
+        "displayNationalTeam": "Kolumbien",
+        "owners": [
+          "Anne",
+          "Rafael"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group a:czech republic-south africa:2026-06-18T16:00:00.000Z",
@@ -5260,7 +6716,52 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group a:czech republic-south africa:2026-06-18T16:00:00.000Z",
+        "playerName": "Lyle Foster",
+        "nationalTeam": "Südafrika",
+        "teamId": "south-africa",
+        "status": "unknown",
+        "displayPlayerName": "Lyle Foster",
+        "displayNationalTeam": "Südafrika",
+        "owners": [
+          "Caro",
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group a:czech republic-south africa:2026-06-18T16:00:00.000Z",
+        "playerName": "Lukáš Provod",
+        "nationalTeam": "Tschechien",
+        "teamId": "czech-republic",
+        "status": "unknown",
+        "displayPlayerName": "Lukáš Provod",
+        "displayNationalTeam": "Tschechien",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group a:czech republic-south africa:2026-06-18T16:00:00.000Z",
+        "playerName": "Pavel Šulc",
+        "nationalTeam": "Tschechien",
+        "teamId": "czech-republic",
+        "status": "unknown",
+        "displayPlayerName": "Pavel Šulc",
+        "displayNationalTeam": "Tschechien",
+        "owners": [
+          "Jonas",
+          "Kim"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group b:switzerland-bosnia and herzegovina:2026-06-18T19:00:00.000Z",
@@ -5276,7 +6777,50 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group b:switzerland-bosnia and herzegovina:2026-06-18T19:00:00.000Z",
+        "playerName": "Haris Tabaković",
+        "nationalTeam": "Bosnien und Herzegowina",
+        "teamId": "bosnia-and-herzegovina",
+        "status": "unknown",
+        "displayPlayerName": "Haris Tabaković",
+        "displayNationalTeam": "Bosnien und Herzegowina",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group b:switzerland-bosnia and herzegovina:2026-06-18T19:00:00.000Z",
+        "playerName": "Manuel Akanji",
+        "nationalTeam": "Schweiz",
+        "teamId": "switzerland",
+        "status": "unknown",
+        "displayPlayerName": "Manuel Akanji",
+        "displayNationalTeam": "Schweiz",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group b:switzerland-bosnia and herzegovina:2026-06-18T19:00:00.000Z",
+        "playerName": "Rubén Vargas",
+        "nationalTeam": "Schweiz",
+        "teamId": "switzerland",
+        "status": "unknown",
+        "displayPlayerName": "Rubén Vargas",
+        "displayNationalTeam": "Schweiz",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group b:canada-qatar:2026-06-18T22:00:00.000Z",
@@ -5292,7 +6836,78 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group b:canada-qatar:2026-06-18T22:00:00.000Z",
+        "playerName": "Alphonso Davies",
+        "nationalTeam": "Kanada",
+        "teamId": "canada",
+        "status": "unknown",
+        "displayPlayerName": "Alphonso Davies",
+        "displayNationalTeam": "Kanada",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group b:canada-qatar:2026-06-18T22:00:00.000Z",
+        "playerName": "Jonathan David",
+        "nationalTeam": "Kanada",
+        "teamId": "canada",
+        "status": "unknown",
+        "displayPlayerName": "Jonathan David",
+        "displayNationalTeam": "Kanada",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group b:canada-qatar:2026-06-18T22:00:00.000Z",
+        "playerName": "Mathieu Choinière",
+        "nationalTeam": "Kanada",
+        "teamId": "canada",
+        "status": "unknown",
+        "displayPlayerName": "Mathieu Choinière",
+        "displayNationalTeam": "Kanada",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group b:canada-qatar:2026-06-18T22:00:00.000Z",
+        "playerName": "Richie Laryea",
+        "nationalTeam": "Kanada",
+        "teamId": "canada",
+        "status": "unknown",
+        "displayPlayerName": "Richie Laryea",
+        "displayNationalTeam": "Kanada",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group b:canada-qatar:2026-06-18T22:00:00.000Z",
+        "playerName": "Edmilson Junior",
+        "nationalTeam": "Katar",
+        "teamId": "qatar",
+        "status": "unknown",
+        "displayPlayerName": "Edmilson Junior",
+        "displayNationalTeam": "Katar",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group a:mexico-south korea:2026-06-19T01:00:00.000Z",
@@ -5308,7 +6923,50 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group a:mexico-south korea:2026-06-19T01:00:00.000Z",
+        "playerName": "Edson Álvarez",
+        "nationalTeam": "Mexiko",
+        "teamId": "mexico",
+        "status": "unknown",
+        "displayPlayerName": "Edson Álvarez",
+        "displayNationalTeam": "Mexiko",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group a:mexico-south korea:2026-06-19T01:00:00.000Z",
+        "playerName": "Israel Reyes",
+        "nationalTeam": "Mexiko",
+        "teamId": "mexico",
+        "status": "unknown",
+        "displayPlayerName": "Israel Reyes",
+        "displayNationalTeam": "Mexiko",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group a:mexico-south korea:2026-06-19T01:00:00.000Z",
+        "playerName": "Cho Gue-sung",
+        "nationalTeam": "Südkorea",
+        "teamId": "south-korea",
+        "status": "unknown",
+        "displayPlayerName": "Cho Gue-sung",
+        "displayNationalTeam": "Südkorea",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group d:united states-australia:2026-06-19T19:00:00.000Z",
@@ -5324,7 +6982,51 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:united states-australia:2026-06-19T19:00:00.000Z",
+        "playerName": "Nestory Irankunda",
+        "nationalTeam": "Australien",
+        "teamId": "australia",
+        "status": "unknown",
+        "displayPlayerName": "Nestory Irankunda",
+        "displayNationalTeam": "Australien",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:united states-australia:2026-06-19T19:00:00.000Z",
+        "playerName": "Timothy Weah",
+        "nationalTeam": "USA",
+        "teamId": "united-states",
+        "status": "unknown",
+        "displayPlayerName": "Timothy Weah",
+        "displayNationalTeam": "USA",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:united states-australia:2026-06-19T19:00:00.000Z",
+        "playerName": "Tyler Adams",
+        "nationalTeam": "USA",
+        "teamId": "united-states",
+        "status": "unknown",
+        "displayPlayerName": "Tyler Adams",
+        "displayNationalTeam": "USA",
+        "owners": [
+          "Caro",
+          "Jonas"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group c:scotland-morocco:2026-06-19T22:00:00.000Z",
@@ -5340,7 +7042,78 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:scotland-morocco:2026-06-19T22:00:00.000Z",
+        "playerName": "Achraf Hakimi",
+        "nationalTeam": "Marokko",
+        "teamId": "morocco",
+        "status": "unknown",
+        "displayPlayerName": "Achraf Hakimi",
+        "displayNationalTeam": "Marokko",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:scotland-morocco:2026-06-19T22:00:00.000Z",
+        "playerName": "Ayoub El Kaabi",
+        "nationalTeam": "Marokko",
+        "teamId": "morocco",
+        "status": "unknown",
+        "displayPlayerName": "Ayoub El Kaabi",
+        "displayNationalTeam": "Marokko",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:scotland-morocco:2026-06-19T22:00:00.000Z",
+        "playerName": "Aaron Hickey",
+        "nationalTeam": "Schottland",
+        "teamId": "scotland",
+        "status": "unknown",
+        "displayPlayerName": "Aaron Hickey",
+        "displayNationalTeam": "Schottland",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:scotland-morocco:2026-06-19T22:00:00.000Z",
+        "playerName": "Angus Gunn",
+        "nationalTeam": "Schottland",
+        "teamId": "scotland",
+        "status": "unknown",
+        "displayPlayerName": "Angus Gunn",
+        "displayNationalTeam": "Schottland",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:scotland-morocco:2026-06-19T22:00:00.000Z",
+        "playerName": "Ben Gannon-Doak",
+        "nationalTeam": "Schottland",
+        "teamId": "scotland",
+        "status": "unknown",
+        "displayPlayerName": "Ben Gannon-Doak",
+        "displayNationalTeam": "Schottland",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group c:brazil-haiti:2026-06-20T00:30:00.000Z",
@@ -5356,7 +7129,106 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:brazil-haiti:2026-06-20T00:30:00.000Z",
+        "playerName": "Alisson",
+        "nationalTeam": "Brasilien",
+        "teamId": "brazil",
+        "status": "unknown",
+        "displayPlayerName": "Alisson",
+        "displayNationalTeam": "Brasilien",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:brazil-haiti:2026-06-20T00:30:00.000Z",
+        "playerName": "Gabriel Magalhães",
+        "nationalTeam": "Brasilien",
+        "teamId": "brazil",
+        "status": "unknown",
+        "displayPlayerName": "Gabriel Magalhães",
+        "displayNationalTeam": "Brasilien",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:brazil-haiti:2026-06-20T00:30:00.000Z",
+        "playerName": "Lucas Paquetá",
+        "nationalTeam": "Brasilien",
+        "teamId": "brazil",
+        "status": "unknown",
+        "displayPlayerName": "Lucas Paquetá",
+        "displayNationalTeam": "Brasilien",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:brazil-haiti:2026-06-20T00:30:00.000Z",
+        "playerName": "Matheus Cunha",
+        "nationalTeam": "Brasilien",
+        "teamId": "brazil",
+        "status": "unknown",
+        "displayPlayerName": "Matheus Cunha",
+        "displayNationalTeam": "Brasilien",
+        "owners": [
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:brazil-haiti:2026-06-20T00:30:00.000Z",
+        "playerName": "Vinícius Júnior",
+        "nationalTeam": "Brasilien",
+        "teamId": "brazil",
+        "status": "unknown",
+        "displayPlayerName": "Vinícius Júnior",
+        "displayNationalTeam": "Brasilien",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:brazil-haiti:2026-06-20T00:30:00.000Z",
+        "playerName": "Derrick Etienne Jr.",
+        "nationalTeam": "Haiti",
+        "teamId": "haiti",
+        "status": "unknown",
+        "displayPlayerName": "Derrick Etienne Jr.",
+        "displayNationalTeam": "Haiti",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:brazil-haiti:2026-06-20T00:30:00.000Z",
+        "playerName": "Johny Placide",
+        "nationalTeam": "Haiti",
+        "teamId": "haiti",
+        "status": "unknown",
+        "displayPlayerName": "Johny Placide",
+        "displayNationalTeam": "Haiti",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group d:tur-paraguay:2026-06-20T03:00:00.000Z",
@@ -5372,7 +7244,64 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:tur-paraguay:2026-06-20T03:00:00.000Z",
+        "playerName": "Damián Bobadilla",
+        "nationalTeam": "Paraguay",
+        "teamId": "paraguay",
+        "status": "unknown",
+        "displayPlayerName": "Damián Bobadilla",
+        "displayNationalTeam": "Paraguay",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:tur-paraguay:2026-06-20T03:00:00.000Z",
+        "playerName": "Diego Gómez",
+        "nationalTeam": "Paraguay",
+        "teamId": "paraguay",
+        "status": "unknown",
+        "displayPlayerName": "Diego Gómez",
+        "displayNationalTeam": "Paraguay",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:tur-paraguay:2026-06-20T03:00:00.000Z",
+        "playerName": "Julio Enciso",
+        "nationalTeam": "Paraguay",
+        "teamId": "paraguay",
+        "status": "unknown",
+        "displayPlayerName": "Julio Enciso",
+        "displayNationalTeam": "Paraguay",
+        "owners": [
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:tur-paraguay:2026-06-20T03:00:00.000Z",
+        "playerName": "Ramón Sosa",
+        "nationalTeam": "Paraguay",
+        "teamId": "paraguay",
+        "status": "unknown",
+        "displayPlayerName": "Ramón Sosa",
+        "displayNationalTeam": "Paraguay",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group f:netherlands-sweden:2026-06-20T17:00:00.000Z",
@@ -5388,7 +7317,92 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:netherlands-sweden:2026-06-20T17:00:00.000Z",
+        "playerName": "Micky van de Ven",
+        "nationalTeam": "Niederlande",
+        "teamId": "netherlands",
+        "status": "unknown",
+        "displayPlayerName": "Micky van de Ven",
+        "displayNationalTeam": "Niederlande",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:netherlands-sweden:2026-06-20T17:00:00.000Z",
+        "playerName": "Ryan Gravenberch",
+        "nationalTeam": "Niederlande",
+        "teamId": "netherlands",
+        "status": "unknown",
+        "displayPlayerName": "Ryan Gravenberch",
+        "displayNationalTeam": "Niederlande",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:netherlands-sweden:2026-06-20T17:00:00.000Z",
+        "playerName": "Tijjani Reijnders",
+        "nationalTeam": "Niederlande",
+        "teamId": "netherlands",
+        "status": "unknown",
+        "displayPlayerName": "Tijjani Reijnders",
+        "displayNationalTeam": "Niederlande",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:netherlands-sweden:2026-06-20T17:00:00.000Z",
+        "playerName": "Alexander Isak",
+        "nationalTeam": "Schweden",
+        "teamId": "sweden",
+        "status": "unknown",
+        "displayPlayerName": "Alexander Isak",
+        "displayNationalTeam": "Schweden",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:netherlands-sweden:2026-06-20T17:00:00.000Z",
+        "playerName": "Daniel Svensson",
+        "nationalTeam": "Schweden",
+        "teamId": "sweden",
+        "status": "unknown",
+        "displayPlayerName": "Daniel Svensson",
+        "displayNationalTeam": "Schweden",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:netherlands-sweden:2026-06-20T17:00:00.000Z",
+        "playerName": "Lucas Bergvall",
+        "nationalTeam": "Schweden",
+        "teamId": "sweden",
+        "status": "unknown",
+        "displayPlayerName": "Lucas Bergvall",
+        "displayNationalTeam": "Schweden",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group e:germany-civ:2026-06-20T20:00:00.000Z",
@@ -5404,7 +7418,80 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:germany-civ:2026-06-20T20:00:00.000Z",
+        "playerName": "David Raum",
+        "nationalTeam": "Deutschland",
+        "teamId": "germany",
+        "status": "unknown",
+        "displayPlayerName": "David Raum",
+        "displayNationalTeam": "Deutschland",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:germany-civ:2026-06-20T20:00:00.000Z",
+        "playerName": "Felix Nmecha",
+        "nationalTeam": "Deutschland",
+        "teamId": "germany",
+        "status": "unknown",
+        "displayPlayerName": "Felix Nmecha",
+        "displayNationalTeam": "Deutschland",
+        "owners": [
+          "Nina",
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:germany-civ:2026-06-20T20:00:00.000Z",
+        "playerName": "Oumar Diakité",
+        "nationalTeam": "Elfenbeinküste",
+        "teamId": "ivory-coast",
+        "status": "unknown",
+        "displayPlayerName": "Oumar Diakité",
+        "displayNationalTeam": "Elfenbeinküste",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:germany-civ:2026-06-20T20:00:00.000Z",
+        "playerName": "Seko Fofana",
+        "nationalTeam": "Elfenbeinküste",
+        "teamId": "ivory-coast",
+        "status": "unknown",
+        "displayPlayerName": "Seko Fofana",
+        "displayNationalTeam": "Elfenbeinküste",
+        "owners": [
+          "Anne",
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:germany-civ:2026-06-20T20:00:00.000Z",
+        "playerName": "Simon Adingra",
+        "nationalTeam": "Elfenbeinküste",
+        "teamId": "ivory-coast",
+        "status": "unknown",
+        "displayPlayerName": "Simon Adingra",
+        "displayNationalTeam": "Elfenbeinküste",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group e:ecuador-curacao:2026-06-21T00:00:00.000Z",
@@ -5420,7 +7507,50 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:ecuador-curacao:2026-06-21T00:00:00.000Z",
+        "playerName": "Ángelo Preciado",
+        "nationalTeam": "Ecuador",
+        "teamId": "ecuador",
+        "status": "unknown",
+        "displayPlayerName": "Ángelo Preciado",
+        "displayNationalTeam": "Ecuador",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:ecuador-curacao:2026-06-21T00:00:00.000Z",
+        "playerName": "Kevin Rodríguez",
+        "nationalTeam": "Ecuador",
+        "teamId": "ecuador",
+        "status": "unknown",
+        "displayPlayerName": "Kevin Rodríguez",
+        "displayNationalTeam": "Ecuador",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:ecuador-curacao:2026-06-21T00:00:00.000Z",
+        "playerName": "Piero Hincapié",
+        "nationalTeam": "Ecuador",
+        "teamId": "ecuador",
+        "status": "unknown",
+        "displayPlayerName": "Piero Hincapié",
+        "displayNationalTeam": "Ecuador",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group f:tunisia-japan:2026-06-21T04:00:00.000Z",
@@ -5436,7 +7566,22 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:tunisia-japan:2026-06-21T04:00:00.000Z",
+        "playerName": "Elias Saad",
+        "nationalTeam": "Tunesien",
+        "teamId": "tunisia",
+        "status": "unknown",
+        "displayPlayerName": "Elias Saad",
+        "displayNationalTeam": "Tunesien",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group h:spain-ksa:2026-06-21T16:00:00.000Z",
@@ -5452,7 +7597,93 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group h:spain-ksa:2026-06-21T16:00:00.000Z",
+        "playerName": "Saleh Al-Shehri",
+        "nationalTeam": "Saudi-Arabien",
+        "teamId": "saudi-arabia",
+        "status": "unknown",
+        "displayPlayerName": "Saleh Al-Shehri",
+        "displayNationalTeam": "Saudi-Arabien",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group h:spain-ksa:2026-06-21T16:00:00.000Z",
+        "playerName": "Aymeric Laporte",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Aymeric Laporte",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group h:spain-ksa:2026-06-21T16:00:00.000Z",
+        "playerName": "Fabián Ruiz",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Fabián Ruiz",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Nina",
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group h:spain-ksa:2026-06-21T16:00:00.000Z",
+        "playerName": "Lamine Yamal",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Lamine Yamal",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group h:spain-ksa:2026-06-21T16:00:00.000Z",
+        "playerName": "Pedri",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Pedri",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group h:spain-ksa:2026-06-21T16:00:00.000Z",
+        "playerName": "Rodri",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Rodri",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group g:belgium-iran:2026-06-21T19:00:00.000Z",
@@ -5468,7 +7699,107 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group g:belgium-iran:2026-06-21T19:00:00.000Z",
+        "playerName": "Amadou Onana",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "status": "unknown",
+        "displayPlayerName": "Amadou Onana",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group g:belgium-iran:2026-06-21T19:00:00.000Z",
+        "playerName": "Jérémy Doku",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "status": "unknown",
+        "displayPlayerName": "Jérémy Doku",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group g:belgium-iran:2026-06-21T19:00:00.000Z",
+        "playerName": "Nicolas Raskin",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "status": "unknown",
+        "displayPlayerName": "Nicolas Raskin",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group g:belgium-iran:2026-06-21T19:00:00.000Z",
+        "playerName": "Thomas Meunier",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "status": "unknown",
+        "displayPlayerName": "Thomas Meunier",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Felix",
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group g:belgium-iran:2026-06-21T19:00:00.000Z",
+        "playerName": "Youri Tielemans",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "status": "unknown",
+        "displayPlayerName": "Youri Tielemans",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group g:belgium-iran:2026-06-21T19:00:00.000Z",
+        "playerName": "Mohammad Mohebi",
+        "nationalTeam": "Iran",
+        "teamId": "iran",
+        "status": "unknown",
+        "displayPlayerName": "Mohammad Mohebi",
+        "displayNationalTeam": "Iran",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group g:belgium-iran:2026-06-21T19:00:00.000Z",
+        "playerName": "Ramin Rezaeian",
+        "nationalTeam": "Iran",
+        "teamId": "iran",
+        "status": "unknown",
+        "displayPlayerName": "Ramin Rezaeian",
+        "displayNationalTeam": "Iran",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group h:uruguay-cape verde:2026-06-21T22:00:00.000Z",
@@ -5484,7 +7815,78 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group h:uruguay-cape verde:2026-06-21T22:00:00.000Z",
+        "playerName": "Dailon Livramento",
+        "nationalTeam": "Kap Verde",
+        "teamId": "cape-verde",
+        "status": "unknown",
+        "displayPlayerName": "Dailon Livramento",
+        "displayNationalTeam": "Kap Verde",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group h:uruguay-cape verde:2026-06-21T22:00:00.000Z",
+        "playerName": "Garry Rodrigues",
+        "nationalTeam": "Kap Verde",
+        "teamId": "cape-verde",
+        "status": "unknown",
+        "displayPlayerName": "Garry Rodrigues",
+        "displayNationalTeam": "Kap Verde",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group h:uruguay-cape verde:2026-06-21T22:00:00.000Z",
+        "playerName": "Federico Viñas",
+        "nationalTeam": "Uruguay",
+        "teamId": "uruguay",
+        "status": "unknown",
+        "displayPlayerName": "Federico Viñas",
+        "displayNationalTeam": "Uruguay",
+        "owners": [
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group h:uruguay-cape verde:2026-06-21T22:00:00.000Z",
+        "playerName": "Manuel Ugarte",
+        "nationalTeam": "Uruguay",
+        "teamId": "uruguay",
+        "status": "unknown",
+        "displayPlayerName": "Manuel Ugarte",
+        "displayNationalTeam": "Uruguay",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group h:uruguay-cape verde:2026-06-21T22:00:00.000Z",
+        "playerName": "Nicolás de la Cruz",
+        "nationalTeam": "Uruguay",
+        "teamId": "uruguay",
+        "status": "unknown",
+        "displayPlayerName": "Nicolás de la Cruz",
+        "displayNationalTeam": "Uruguay",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group g:nzl-egypt:2026-06-22T01:00:00.000Z",
@@ -5500,7 +7902,36 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group g:nzl-egypt:2026-06-22T01:00:00.000Z",
+        "playerName": "Mohamed El Shenawy",
+        "nationalTeam": "Ägypten",
+        "teamId": "egypt",
+        "status": "unknown",
+        "displayPlayerName": "Mohamed El Shenawy",
+        "displayNationalTeam": "Ägypten",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group g:nzl-egypt:2026-06-22T01:00:00.000Z",
+        "playerName": "Chris Wood",
+        "nationalTeam": "Neuseeland",
+        "teamId": "new-zealand",
+        "status": "unknown",
+        "displayPlayerName": "Chris Wood",
+        "displayNationalTeam": "Neuseeland",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group j:argentina-austria:2026-06-22T17:00:00.000Z",
@@ -5516,7 +7947,64 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group j:argentina-austria:2026-06-22T17:00:00.000Z",
+        "playerName": "Alexis Mac Allister",
+        "nationalTeam": "Argentinien",
+        "teamId": "argentina",
+        "status": "unknown",
+        "displayPlayerName": "Alexis Mac Allister",
+        "displayNationalTeam": "Argentinien",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group j:argentina-austria:2026-06-22T17:00:00.000Z",
+        "playerName": "Cristian Romero",
+        "nationalTeam": "Argentinien",
+        "teamId": "argentina",
+        "status": "unknown",
+        "displayPlayerName": "Cristian Romero",
+        "displayNationalTeam": "Argentinien",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group j:argentina-austria:2026-06-22T17:00:00.000Z",
+        "playerName": "Giuliano Simeone",
+        "nationalTeam": "Argentinien",
+        "teamId": "argentina",
+        "status": "unknown",
+        "displayPlayerName": "Giuliano Simeone",
+        "displayNationalTeam": "Argentinien",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group j:argentina-austria:2026-06-22T17:00:00.000Z",
+        "playerName": "Stefan Posch",
+        "nationalTeam": "Österreich",
+        "teamId": "austria",
+        "status": "unknown",
+        "displayPlayerName": "Stefan Posch",
+        "displayNationalTeam": "Österreich",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group i:france-iraq:2026-06-22T21:00:00.000Z",
@@ -5532,7 +8020,78 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group i:france-iraq:2026-06-22T21:00:00.000Z",
+        "playerName": "Adrien Rabiot",
+        "nationalTeam": "Frankreich",
+        "teamId": "france",
+        "status": "unknown",
+        "displayPlayerName": "Adrien Rabiot",
+        "displayNationalTeam": "Frankreich",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group i:france-iraq:2026-06-22T21:00:00.000Z",
+        "playerName": "Bradley Barcola",
+        "nationalTeam": "Frankreich",
+        "teamId": "france",
+        "status": "unknown",
+        "displayPlayerName": "Bradley Barcola",
+        "displayNationalTeam": "Frankreich",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group i:france-iraq:2026-06-22T21:00:00.000Z",
+        "playerName": "Désiré Doué",
+        "nationalTeam": "Frankreich",
+        "teamId": "france",
+        "status": "unknown",
+        "displayPlayerName": "Désiré Doué",
+        "displayNationalTeam": "Frankreich",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group i:france-iraq:2026-06-22T21:00:00.000Z",
+        "playerName": "Ali Jasim",
+        "nationalTeam": "Irak",
+        "teamId": "iraq",
+        "status": "unknown",
+        "displayPlayerName": "Ali Jasim",
+        "displayNationalTeam": "Irak",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group i:france-iraq:2026-06-22T21:00:00.000Z",
+        "playerName": "Mohanad Ali",
+        "nationalTeam": "Irak",
+        "teamId": "iraq",
+        "status": "unknown",
+        "displayPlayerName": "Mohanad Ali",
+        "displayNationalTeam": "Irak",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group i:norway-senegal:2026-06-23T00:00:00.000Z",
@@ -5548,7 +8107,92 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group i:norway-senegal:2026-06-23T00:00:00.000Z",
+        "playerName": "Antonio Nusa",
+        "nationalTeam": "Norwegen",
+        "teamId": "norway",
+        "status": "unknown",
+        "displayPlayerName": "Antonio Nusa",
+        "displayNationalTeam": "Norwegen",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group i:norway-senegal:2026-06-23T00:00:00.000Z",
+        "playerName": "Erling Haaland",
+        "nationalTeam": "Norwegen",
+        "teamId": "norway",
+        "status": "unknown",
+        "displayPlayerName": "Erling Haaland",
+        "displayNationalTeam": "Norwegen",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group i:norway-senegal:2026-06-23T00:00:00.000Z",
+        "playerName": "Sander Berge",
+        "nationalTeam": "Norwegen",
+        "teamId": "norway",
+        "status": "unknown",
+        "displayPlayerName": "Sander Berge",
+        "displayNationalTeam": "Norwegen",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group i:norway-senegal:2026-06-23T00:00:00.000Z",
+        "playerName": "Habib Diarra",
+        "nationalTeam": "Senegal",
+        "teamId": "senegal",
+        "status": "unknown",
+        "displayPlayerName": "Habib Diarra",
+        "displayNationalTeam": "Senegal",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group i:norway-senegal:2026-06-23T00:00:00.000Z",
+        "playerName": "Krépin Diatta",
+        "nationalTeam": "Senegal",
+        "teamId": "senegal",
+        "status": "unknown",
+        "displayPlayerName": "Krépin Diatta",
+        "displayNationalTeam": "Senegal",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group i:norway-senegal:2026-06-23T00:00:00.000Z",
+        "playerName": "Nicolas Jackson",
+        "nationalTeam": "Senegal",
+        "teamId": "senegal",
+        "status": "unknown",
+        "displayPlayerName": "Nicolas Jackson",
+        "displayNationalTeam": "Senegal",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group j:jor-algeria:2026-06-23T03:00:00.000Z",
@@ -5580,7 +8224,78 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:portugal-uzb:2026-06-23T17:00:00.000Z",
+        "playerName": "Bruno Fernandes",
+        "nationalTeam": "Portugal",
+        "teamId": "portugal",
+        "status": "unknown",
+        "displayPlayerName": "Bruno Fernandes",
+        "displayNationalTeam": "Portugal",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:portugal-uzb:2026-06-23T17:00:00.000Z",
+        "playerName": "Gonçalo Ramos",
+        "nationalTeam": "Portugal",
+        "teamId": "portugal",
+        "status": "unknown",
+        "displayPlayerName": "Gonçalo Ramos",
+        "displayNationalTeam": "Portugal",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:portugal-uzb:2026-06-23T17:00:00.000Z",
+        "playerName": "João Cancelo",
+        "nationalTeam": "Portugal",
+        "teamId": "portugal",
+        "status": "unknown",
+        "displayPlayerName": "João Cancelo",
+        "displayNationalTeam": "Portugal",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:portugal-uzb:2026-06-23T17:00:00.000Z",
+        "playerName": "João Félix",
+        "nationalTeam": "Portugal",
+        "teamId": "portugal",
+        "status": "unknown",
+        "displayPlayerName": "João Félix",
+        "displayNationalTeam": "Portugal",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:portugal-uzb:2026-06-23T17:00:00.000Z",
+        "playerName": "Rúben Dias",
+        "nationalTeam": "Portugal",
+        "teamId": "portugal",
+        "status": "unknown",
+        "displayPlayerName": "Rúben Dias",
+        "displayNationalTeam": "Portugal",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group l:england-gha:2026-06-23T20:00:00.000Z",
@@ -5596,7 +8311,92 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:england-gha:2026-06-23T20:00:00.000Z",
+        "playerName": "Dan Burn",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Dan Burn",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:england-gha:2026-06-23T20:00:00.000Z",
+        "playerName": "Jordan Pickford",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Jordan Pickford",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:england-gha:2026-06-23T20:00:00.000Z",
+        "playerName": "Jude Bellingham",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Jude Bellingham",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:england-gha:2026-06-23T20:00:00.000Z",
+        "playerName": "Marc Guéhi",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Marc Guéhi",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:england-gha:2026-06-23T20:00:00.000Z",
+        "playerName": "Marcus Rashford",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Marcus Rashford",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:england-gha:2026-06-23T20:00:00.000Z",
+        "playerName": "Morgan Rogers",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Morgan Rogers",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group l:panama-croatia:2026-06-23T23:00:00.000Z",
@@ -5612,7 +8412,79 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:panama-croatia:2026-06-23T23:00:00.000Z",
+        "playerName": "Andrej Kramarić",
+        "nationalTeam": "Kroatien",
+        "teamId": "croatia",
+        "status": "unknown",
+        "displayPlayerName": "Andrej Kramarić",
+        "displayNationalTeam": "Kroatien",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:panama-croatia:2026-06-23T23:00:00.000Z",
+        "playerName": "Josip Stanišić",
+        "nationalTeam": "Kroatien",
+        "teamId": "croatia",
+        "status": "unknown",
+        "displayPlayerName": "Josip Stanišić",
+        "displayNationalTeam": "Kroatien",
+        "owners": [
+          "Caro",
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:panama-croatia:2026-06-23T23:00:00.000Z",
+        "playerName": "Mario Pašalić",
+        "nationalTeam": "Kroatien",
+        "teamId": "croatia",
+        "status": "unknown",
+        "displayPlayerName": "Mario Pašalić",
+        "displayNationalTeam": "Kroatien",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:panama-croatia:2026-06-23T23:00:00.000Z",
+        "playerName": "Luis Mejía",
+        "nationalTeam": "Panama",
+        "teamId": "panama",
+        "status": "unknown",
+        "displayPlayerName": "Luis Mejía",
+        "displayNationalTeam": "Panama",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:panama-croatia:2026-06-23T23:00:00.000Z",
+        "playerName": "Orlando Mosquera",
+        "nationalTeam": "Panama",
+        "teamId": "panama",
+        "status": "unknown",
+        "displayPlayerName": "Orlando Mosquera",
+        "displayNationalTeam": "Panama",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group k:colombia-dr congo:2026-06-24T02:00:00.000Z",
@@ -5628,7 +8500,122 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:colombia-dr congo:2026-06-24T02:00:00.000Z",
+        "playerName": "Aaron Wan-Bissaka",
+        "nationalTeam": "DR Kongo",
+        "teamId": "dr-congo",
+        "status": "unknown",
+        "displayPlayerName": "Aaron Wan-Bissaka",
+        "displayNationalTeam": "DR Kongo",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:colombia-dr congo:2026-06-24T02:00:00.000Z",
+        "playerName": "Cédric Bakambu",
+        "nationalTeam": "DR Kongo",
+        "teamId": "dr-congo",
+        "status": "unknown",
+        "displayPlayerName": "Cédric Bakambu",
+        "displayNationalTeam": "DR Kongo",
+        "owners": [
+          "Anne",
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:colombia-dr congo:2026-06-24T02:00:00.000Z",
+        "playerName": "Edo Kayembe",
+        "nationalTeam": "DR Kongo",
+        "teamId": "dr-congo",
+        "status": "unknown",
+        "displayPlayerName": "Edo Kayembe",
+        "displayNationalTeam": "DR Kongo",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:colombia-dr congo:2026-06-24T02:00:00.000Z",
+        "playerName": "Nathanaël Mbuku",
+        "nationalTeam": "DR Kongo",
+        "teamId": "dr-congo",
+        "status": "unknown",
+        "displayPlayerName": "Nathanaël Mbuku",
+        "displayNationalTeam": "DR Kongo",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:colombia-dr congo:2026-06-24T02:00:00.000Z",
+        "playerName": "Yoane Wissa",
+        "nationalTeam": "DR Kongo",
+        "teamId": "dr-congo",
+        "status": "unknown",
+        "displayPlayerName": "Yoane Wissa",
+        "displayNationalTeam": "DR Kongo",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:colombia-dr congo:2026-06-24T02:00:00.000Z",
+        "playerName": "Davinson Sánchez",
+        "nationalTeam": "Kolumbien",
+        "teamId": "colombia",
+        "status": "unknown",
+        "displayPlayerName": "Davinson Sánchez",
+        "displayNationalTeam": "Kolumbien",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:colombia-dr congo:2026-06-24T02:00:00.000Z",
+        "playerName": "Jhon Arias",
+        "nationalTeam": "Kolumbien",
+        "teamId": "colombia",
+        "status": "unknown",
+        "displayPlayerName": "Jhon Arias",
+        "displayNationalTeam": "Kolumbien",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:colombia-dr congo:2026-06-24T02:00:00.000Z",
+        "playerName": "Richard Ríos",
+        "nationalTeam": "Kolumbien",
+        "teamId": "colombia",
+        "status": "unknown",
+        "displayPlayerName": "Richard Ríos",
+        "displayNationalTeam": "Kolumbien",
+        "owners": [
+          "Anne",
+          "Rafael"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group b:bosnia and herzegovina-qatar:2026-06-24T19:00:00.000Z",
@@ -5644,7 +8631,36 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group b:bosnia and herzegovina-qatar:2026-06-24T19:00:00.000Z",
+        "playerName": "Haris Tabaković",
+        "nationalTeam": "Bosnien und Herzegowina",
+        "teamId": "bosnia-and-herzegovina",
+        "status": "unknown",
+        "displayPlayerName": "Haris Tabaković",
+        "displayNationalTeam": "Bosnien und Herzegowina",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group b:bosnia and herzegovina-qatar:2026-06-24T19:00:00.000Z",
+        "playerName": "Edmilson Junior",
+        "nationalTeam": "Katar",
+        "teamId": "qatar",
+        "status": "unknown",
+        "displayPlayerName": "Edmilson Junior",
+        "displayNationalTeam": "Katar",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group b:switzerland-canada:2026-06-24T19:00:00.000Z",
@@ -5660,7 +8676,92 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group b:switzerland-canada:2026-06-24T19:00:00.000Z",
+        "playerName": "Alphonso Davies",
+        "nationalTeam": "Kanada",
+        "teamId": "canada",
+        "status": "unknown",
+        "displayPlayerName": "Alphonso Davies",
+        "displayNationalTeam": "Kanada",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group b:switzerland-canada:2026-06-24T19:00:00.000Z",
+        "playerName": "Jonathan David",
+        "nationalTeam": "Kanada",
+        "teamId": "canada",
+        "status": "unknown",
+        "displayPlayerName": "Jonathan David",
+        "displayNationalTeam": "Kanada",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group b:switzerland-canada:2026-06-24T19:00:00.000Z",
+        "playerName": "Mathieu Choinière",
+        "nationalTeam": "Kanada",
+        "teamId": "canada",
+        "status": "unknown",
+        "displayPlayerName": "Mathieu Choinière",
+        "displayNationalTeam": "Kanada",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group b:switzerland-canada:2026-06-24T19:00:00.000Z",
+        "playerName": "Richie Laryea",
+        "nationalTeam": "Kanada",
+        "teamId": "canada",
+        "status": "unknown",
+        "displayPlayerName": "Richie Laryea",
+        "displayNationalTeam": "Kanada",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group b:switzerland-canada:2026-06-24T19:00:00.000Z",
+        "playerName": "Manuel Akanji",
+        "nationalTeam": "Schweiz",
+        "teamId": "switzerland",
+        "status": "unknown",
+        "displayPlayerName": "Manuel Akanji",
+        "displayNationalTeam": "Schweiz",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group b:switzerland-canada:2026-06-24T19:00:00.000Z",
+        "playerName": "Rubén Vargas",
+        "nationalTeam": "Schweiz",
+        "teamId": "switzerland",
+        "status": "unknown",
+        "displayPlayerName": "Rubén Vargas",
+        "displayNationalTeam": "Schweiz",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group c:morocco-haiti:2026-06-24T22:00:00.000Z",
@@ -5676,7 +8777,64 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:morocco-haiti:2026-06-24T22:00:00.000Z",
+        "playerName": "Derrick Etienne Jr.",
+        "nationalTeam": "Haiti",
+        "teamId": "haiti",
+        "status": "unknown",
+        "displayPlayerName": "Derrick Etienne Jr.",
+        "displayNationalTeam": "Haiti",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:morocco-haiti:2026-06-24T22:00:00.000Z",
+        "playerName": "Johny Placide",
+        "nationalTeam": "Haiti",
+        "teamId": "haiti",
+        "status": "unknown",
+        "displayPlayerName": "Johny Placide",
+        "displayNationalTeam": "Haiti",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:morocco-haiti:2026-06-24T22:00:00.000Z",
+        "playerName": "Achraf Hakimi",
+        "nationalTeam": "Marokko",
+        "teamId": "morocco",
+        "status": "unknown",
+        "displayPlayerName": "Achraf Hakimi",
+        "displayNationalTeam": "Marokko",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:morocco-haiti:2026-06-24T22:00:00.000Z",
+        "playerName": "Ayoub El Kaabi",
+        "nationalTeam": "Marokko",
+        "teamId": "morocco",
+        "status": "unknown",
+        "displayPlayerName": "Ayoub El Kaabi",
+        "displayNationalTeam": "Marokko",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group c:scotland-brazil:2026-06-24T22:00:00.000Z",
@@ -5692,7 +8850,120 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:scotland-brazil:2026-06-24T22:00:00.000Z",
+        "playerName": "Alisson",
+        "nationalTeam": "Brasilien",
+        "teamId": "brazil",
+        "status": "unknown",
+        "displayPlayerName": "Alisson",
+        "displayNationalTeam": "Brasilien",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:scotland-brazil:2026-06-24T22:00:00.000Z",
+        "playerName": "Gabriel Magalhães",
+        "nationalTeam": "Brasilien",
+        "teamId": "brazil",
+        "status": "unknown",
+        "displayPlayerName": "Gabriel Magalhães",
+        "displayNationalTeam": "Brasilien",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:scotland-brazil:2026-06-24T22:00:00.000Z",
+        "playerName": "Lucas Paquetá",
+        "nationalTeam": "Brasilien",
+        "teamId": "brazil",
+        "status": "unknown",
+        "displayPlayerName": "Lucas Paquetá",
+        "displayNationalTeam": "Brasilien",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:scotland-brazil:2026-06-24T22:00:00.000Z",
+        "playerName": "Matheus Cunha",
+        "nationalTeam": "Brasilien",
+        "teamId": "brazil",
+        "status": "unknown",
+        "displayPlayerName": "Matheus Cunha",
+        "displayNationalTeam": "Brasilien",
+        "owners": [
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:scotland-brazil:2026-06-24T22:00:00.000Z",
+        "playerName": "Vinícius Júnior",
+        "nationalTeam": "Brasilien",
+        "teamId": "brazil",
+        "status": "unknown",
+        "displayPlayerName": "Vinícius Júnior",
+        "displayNationalTeam": "Brasilien",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:scotland-brazil:2026-06-24T22:00:00.000Z",
+        "playerName": "Aaron Hickey",
+        "nationalTeam": "Schottland",
+        "teamId": "scotland",
+        "status": "unknown",
+        "displayPlayerName": "Aaron Hickey",
+        "displayNationalTeam": "Schottland",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:scotland-brazil:2026-06-24T22:00:00.000Z",
+        "playerName": "Angus Gunn",
+        "nationalTeam": "Schottland",
+        "teamId": "scotland",
+        "status": "unknown",
+        "displayPlayerName": "Angus Gunn",
+        "displayNationalTeam": "Schottland",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group c:scotland-brazil:2026-06-24T22:00:00.000Z",
+        "playerName": "Ben Gannon-Doak",
+        "nationalTeam": "Schottland",
+        "teamId": "scotland",
+        "status": "unknown",
+        "displayPlayerName": "Ben Gannon-Doak",
+        "displayNationalTeam": "Schottland",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group a:czech republic-mexico:2026-06-25T01:00:00.000Z",
@@ -5708,7 +8979,65 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group a:czech republic-mexico:2026-06-25T01:00:00.000Z",
+        "playerName": "Edson Álvarez",
+        "nationalTeam": "Mexiko",
+        "teamId": "mexico",
+        "status": "unknown",
+        "displayPlayerName": "Edson Álvarez",
+        "displayNationalTeam": "Mexiko",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group a:czech republic-mexico:2026-06-25T01:00:00.000Z",
+        "playerName": "Israel Reyes",
+        "nationalTeam": "Mexiko",
+        "teamId": "mexico",
+        "status": "unknown",
+        "displayPlayerName": "Israel Reyes",
+        "displayNationalTeam": "Mexiko",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group a:czech republic-mexico:2026-06-25T01:00:00.000Z",
+        "playerName": "Lukáš Provod",
+        "nationalTeam": "Tschechien",
+        "teamId": "czech-republic",
+        "status": "unknown",
+        "displayPlayerName": "Lukáš Provod",
+        "displayNationalTeam": "Tschechien",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group a:czech republic-mexico:2026-06-25T01:00:00.000Z",
+        "playerName": "Pavel Šulc",
+        "nationalTeam": "Tschechien",
+        "teamId": "czech-republic",
+        "status": "unknown",
+        "displayPlayerName": "Pavel Šulc",
+        "displayNationalTeam": "Tschechien",
+        "owners": [
+          "Jonas",
+          "Kim"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group a:south africa-south korea:2026-06-25T01:00:00.000Z",
@@ -5724,7 +9053,37 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group a:south africa-south korea:2026-06-25T01:00:00.000Z",
+        "playerName": "Lyle Foster",
+        "nationalTeam": "Südafrika",
+        "teamId": "south-africa",
+        "status": "unknown",
+        "displayPlayerName": "Lyle Foster",
+        "displayNationalTeam": "Südafrika",
+        "owners": [
+          "Caro",
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group a:south africa-south korea:2026-06-25T01:00:00.000Z",
+        "playerName": "Cho Gue-sung",
+        "nationalTeam": "Südkorea",
+        "teamId": "south-korea",
+        "status": "unknown",
+        "displayPlayerName": "Cho Gue-sung",
+        "displayNationalTeam": "Südkorea",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group e:curacao-civ:2026-06-25T20:00:00.000Z",
@@ -5740,7 +9099,51 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:curacao-civ:2026-06-25T20:00:00.000Z",
+        "playerName": "Oumar Diakité",
+        "nationalTeam": "Elfenbeinküste",
+        "teamId": "ivory-coast",
+        "status": "unknown",
+        "displayPlayerName": "Oumar Diakité",
+        "displayNationalTeam": "Elfenbeinküste",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:curacao-civ:2026-06-25T20:00:00.000Z",
+        "playerName": "Seko Fofana",
+        "nationalTeam": "Elfenbeinküste",
+        "teamId": "ivory-coast",
+        "status": "unknown",
+        "displayPlayerName": "Seko Fofana",
+        "displayNationalTeam": "Elfenbeinküste",
+        "owners": [
+          "Anne",
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:curacao-civ:2026-06-25T20:00:00.000Z",
+        "playerName": "Simon Adingra",
+        "nationalTeam": "Elfenbeinküste",
+        "teamId": "ivory-coast",
+        "status": "unknown",
+        "displayPlayerName": "Simon Adingra",
+        "displayNationalTeam": "Elfenbeinküste",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group e:ecuador-germany:2026-06-25T20:00:00.000Z",
@@ -5756,7 +9159,79 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:ecuador-germany:2026-06-25T20:00:00.000Z",
+        "playerName": "David Raum",
+        "nationalTeam": "Deutschland",
+        "teamId": "germany",
+        "status": "unknown",
+        "displayPlayerName": "David Raum",
+        "displayNationalTeam": "Deutschland",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:ecuador-germany:2026-06-25T20:00:00.000Z",
+        "playerName": "Felix Nmecha",
+        "nationalTeam": "Deutschland",
+        "teamId": "germany",
+        "status": "unknown",
+        "displayPlayerName": "Felix Nmecha",
+        "displayNationalTeam": "Deutschland",
+        "owners": [
+          "Nina",
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:ecuador-germany:2026-06-25T20:00:00.000Z",
+        "playerName": "Ángelo Preciado",
+        "nationalTeam": "Ecuador",
+        "teamId": "ecuador",
+        "status": "unknown",
+        "displayPlayerName": "Ángelo Preciado",
+        "displayNationalTeam": "Ecuador",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:ecuador-germany:2026-06-25T20:00:00.000Z",
+        "playerName": "Kevin Rodríguez",
+        "nationalTeam": "Ecuador",
+        "teamId": "ecuador",
+        "status": "unknown",
+        "displayPlayerName": "Kevin Rodríguez",
+        "displayNationalTeam": "Ecuador",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group e:ecuador-germany:2026-06-25T20:00:00.000Z",
+        "playerName": "Piero Hincapié",
+        "nationalTeam": "Ecuador",
+        "teamId": "ecuador",
+        "status": "unknown",
+        "displayPlayerName": "Piero Hincapié",
+        "displayNationalTeam": "Ecuador",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group f:japan-sweden:2026-06-25T23:00:00.000Z",
@@ -5772,7 +9247,50 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:japan-sweden:2026-06-25T23:00:00.000Z",
+        "playerName": "Alexander Isak",
+        "nationalTeam": "Schweden",
+        "teamId": "sweden",
+        "status": "unknown",
+        "displayPlayerName": "Alexander Isak",
+        "displayNationalTeam": "Schweden",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:japan-sweden:2026-06-25T23:00:00.000Z",
+        "playerName": "Daniel Svensson",
+        "nationalTeam": "Schweden",
+        "teamId": "sweden",
+        "status": "unknown",
+        "displayPlayerName": "Daniel Svensson",
+        "displayNationalTeam": "Schweden",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:japan-sweden:2026-06-25T23:00:00.000Z",
+        "playerName": "Lucas Bergvall",
+        "nationalTeam": "Schweden",
+        "teamId": "sweden",
+        "status": "unknown",
+        "displayPlayerName": "Lucas Bergvall",
+        "displayNationalTeam": "Schweden",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group f:tunisia-netherlands:2026-06-25T23:00:00.000Z",
@@ -5788,7 +9306,64 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:tunisia-netherlands:2026-06-25T23:00:00.000Z",
+        "playerName": "Micky van de Ven",
+        "nationalTeam": "Niederlande",
+        "teamId": "netherlands",
+        "status": "unknown",
+        "displayPlayerName": "Micky van de Ven",
+        "displayNationalTeam": "Niederlande",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:tunisia-netherlands:2026-06-25T23:00:00.000Z",
+        "playerName": "Ryan Gravenberch",
+        "nationalTeam": "Niederlande",
+        "teamId": "netherlands",
+        "status": "unknown",
+        "displayPlayerName": "Ryan Gravenberch",
+        "displayNationalTeam": "Niederlande",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:tunisia-netherlands:2026-06-25T23:00:00.000Z",
+        "playerName": "Tijjani Reijnders",
+        "nationalTeam": "Niederlande",
+        "teamId": "netherlands",
+        "status": "unknown",
+        "displayPlayerName": "Tijjani Reijnders",
+        "displayNationalTeam": "Niederlande",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group f:tunisia-netherlands:2026-06-25T23:00:00.000Z",
+        "playerName": "Elias Saad",
+        "nationalTeam": "Tunesien",
+        "teamId": "tunisia",
+        "status": "unknown",
+        "displayPlayerName": "Elias Saad",
+        "displayNationalTeam": "Tunesien",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group d:paraguay-australia:2026-06-26T02:00:00.000Z",
@@ -5804,7 +9379,78 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:paraguay-australia:2026-06-26T02:00:00.000Z",
+        "playerName": "Nestory Irankunda",
+        "nationalTeam": "Australien",
+        "teamId": "australia",
+        "status": "unknown",
+        "displayPlayerName": "Nestory Irankunda",
+        "displayNationalTeam": "Australien",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:paraguay-australia:2026-06-26T02:00:00.000Z",
+        "playerName": "Damián Bobadilla",
+        "nationalTeam": "Paraguay",
+        "teamId": "paraguay",
+        "status": "unknown",
+        "displayPlayerName": "Damián Bobadilla",
+        "displayNationalTeam": "Paraguay",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:paraguay-australia:2026-06-26T02:00:00.000Z",
+        "playerName": "Diego Gómez",
+        "nationalTeam": "Paraguay",
+        "teamId": "paraguay",
+        "status": "unknown",
+        "displayPlayerName": "Diego Gómez",
+        "displayNationalTeam": "Paraguay",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:paraguay-australia:2026-06-26T02:00:00.000Z",
+        "playerName": "Julio Enciso",
+        "nationalTeam": "Paraguay",
+        "teamId": "paraguay",
+        "status": "unknown",
+        "displayPlayerName": "Julio Enciso",
+        "displayNationalTeam": "Paraguay",
+        "owners": [
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:paraguay-australia:2026-06-26T02:00:00.000Z",
+        "playerName": "Ramón Sosa",
+        "nationalTeam": "Paraguay",
+        "teamId": "paraguay",
+        "status": "unknown",
+        "displayPlayerName": "Ramón Sosa",
+        "displayNationalTeam": "Paraguay",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group d:tur-united states:2026-06-26T02:00:00.000Z",
@@ -5820,7 +9466,37 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:tur-united states:2026-06-26T02:00:00.000Z",
+        "playerName": "Timothy Weah",
+        "nationalTeam": "USA",
+        "teamId": "united-states",
+        "status": "unknown",
+        "displayPlayerName": "Timothy Weah",
+        "displayNationalTeam": "USA",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group d:tur-united states:2026-06-26T02:00:00.000Z",
+        "playerName": "Tyler Adams",
+        "nationalTeam": "USA",
+        "teamId": "united-states",
+        "status": "unknown",
+        "displayPlayerName": "Tyler Adams",
+        "displayNationalTeam": "USA",
+        "owners": [
+          "Caro",
+          "Jonas"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group i:norway-france:2026-06-26T19:00:00.000Z",
@@ -5836,7 +9512,92 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group i:norway-france:2026-06-26T19:00:00.000Z",
+        "playerName": "Adrien Rabiot",
+        "nationalTeam": "Frankreich",
+        "teamId": "france",
+        "status": "unknown",
+        "displayPlayerName": "Adrien Rabiot",
+        "displayNationalTeam": "Frankreich",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group i:norway-france:2026-06-26T19:00:00.000Z",
+        "playerName": "Bradley Barcola",
+        "nationalTeam": "Frankreich",
+        "teamId": "france",
+        "status": "unknown",
+        "displayPlayerName": "Bradley Barcola",
+        "displayNationalTeam": "Frankreich",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group i:norway-france:2026-06-26T19:00:00.000Z",
+        "playerName": "Désiré Doué",
+        "nationalTeam": "Frankreich",
+        "teamId": "france",
+        "status": "unknown",
+        "displayPlayerName": "Désiré Doué",
+        "displayNationalTeam": "Frankreich",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group i:norway-france:2026-06-26T19:00:00.000Z",
+        "playerName": "Antonio Nusa",
+        "nationalTeam": "Norwegen",
+        "teamId": "norway",
+        "status": "unknown",
+        "displayPlayerName": "Antonio Nusa",
+        "displayNationalTeam": "Norwegen",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group i:norway-france:2026-06-26T19:00:00.000Z",
+        "playerName": "Erling Haaland",
+        "nationalTeam": "Norwegen",
+        "teamId": "norway",
+        "status": "unknown",
+        "displayPlayerName": "Erling Haaland",
+        "displayNationalTeam": "Norwegen",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group i:norway-france:2026-06-26T19:00:00.000Z",
+        "playerName": "Sander Berge",
+        "nationalTeam": "Norwegen",
+        "teamId": "norway",
+        "status": "unknown",
+        "displayPlayerName": "Sander Berge",
+        "displayNationalTeam": "Norwegen",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group i:senegal-iraq:2026-06-26T19:00:00.000Z",
@@ -5852,7 +9613,78 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group i:senegal-iraq:2026-06-26T19:00:00.000Z",
+        "playerName": "Ali Jasim",
+        "nationalTeam": "Irak",
+        "teamId": "iraq",
+        "status": "unknown",
+        "displayPlayerName": "Ali Jasim",
+        "displayNationalTeam": "Irak",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group i:senegal-iraq:2026-06-26T19:00:00.000Z",
+        "playerName": "Mohanad Ali",
+        "nationalTeam": "Irak",
+        "teamId": "iraq",
+        "status": "unknown",
+        "displayPlayerName": "Mohanad Ali",
+        "displayNationalTeam": "Irak",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group i:senegal-iraq:2026-06-26T19:00:00.000Z",
+        "playerName": "Habib Diarra",
+        "nationalTeam": "Senegal",
+        "teamId": "senegal",
+        "status": "unknown",
+        "displayPlayerName": "Habib Diarra",
+        "displayNationalTeam": "Senegal",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group i:senegal-iraq:2026-06-26T19:00:00.000Z",
+        "playerName": "Krépin Diatta",
+        "nationalTeam": "Senegal",
+        "teamId": "senegal",
+        "status": "unknown",
+        "displayPlayerName": "Krépin Diatta",
+        "displayNationalTeam": "Senegal",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group i:senegal-iraq:2026-06-26T19:00:00.000Z",
+        "playerName": "Nicolas Jackson",
+        "nationalTeam": "Senegal",
+        "teamId": "senegal",
+        "status": "unknown",
+        "displayPlayerName": "Nicolas Jackson",
+        "displayNationalTeam": "Senegal",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group h:cape verde-ksa:2026-06-27T00:00:00.000Z",
@@ -5868,7 +9700,50 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group h:cape verde-ksa:2026-06-27T00:00:00.000Z",
+        "playerName": "Dailon Livramento",
+        "nationalTeam": "Kap Verde",
+        "teamId": "cape-verde",
+        "status": "unknown",
+        "displayPlayerName": "Dailon Livramento",
+        "displayNationalTeam": "Kap Verde",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group h:cape verde-ksa:2026-06-27T00:00:00.000Z",
+        "playerName": "Garry Rodrigues",
+        "nationalTeam": "Kap Verde",
+        "teamId": "cape-verde",
+        "status": "unknown",
+        "displayPlayerName": "Garry Rodrigues",
+        "displayNationalTeam": "Kap Verde",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group h:cape verde-ksa:2026-06-27T00:00:00.000Z",
+        "playerName": "Saleh Al-Shehri",
+        "nationalTeam": "Saudi-Arabien",
+        "teamId": "saudi-arabia",
+        "status": "unknown",
+        "displayPlayerName": "Saleh Al-Shehri",
+        "displayNationalTeam": "Saudi-Arabien",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group h:uruguay-spain:2026-06-27T00:00:00.000Z",
@@ -5884,7 +9759,121 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group h:uruguay-spain:2026-06-27T00:00:00.000Z",
+        "playerName": "Aymeric Laporte",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Aymeric Laporte",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group h:uruguay-spain:2026-06-27T00:00:00.000Z",
+        "playerName": "Fabián Ruiz",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Fabián Ruiz",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Nina",
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group h:uruguay-spain:2026-06-27T00:00:00.000Z",
+        "playerName": "Lamine Yamal",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Lamine Yamal",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group h:uruguay-spain:2026-06-27T00:00:00.000Z",
+        "playerName": "Pedri",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Pedri",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group h:uruguay-spain:2026-06-27T00:00:00.000Z",
+        "playerName": "Rodri",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Rodri",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group h:uruguay-spain:2026-06-27T00:00:00.000Z",
+        "playerName": "Federico Viñas",
+        "nationalTeam": "Uruguay",
+        "teamId": "uruguay",
+        "status": "unknown",
+        "displayPlayerName": "Federico Viñas",
+        "displayNationalTeam": "Uruguay",
+        "owners": [
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group h:uruguay-spain:2026-06-27T00:00:00.000Z",
+        "playerName": "Manuel Ugarte",
+        "nationalTeam": "Uruguay",
+        "teamId": "uruguay",
+        "status": "unknown",
+        "displayPlayerName": "Manuel Ugarte",
+        "displayNationalTeam": "Uruguay",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group h:uruguay-spain:2026-06-27T00:00:00.000Z",
+        "playerName": "Nicolás de la Cruz",
+        "nationalTeam": "Uruguay",
+        "teamId": "uruguay",
+        "status": "unknown",
+        "displayPlayerName": "Nicolás de la Cruz",
+        "displayNationalTeam": "Uruguay",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group g:egypt-iran:2026-06-27T03:00:00.000Z",
@@ -5900,7 +9889,50 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group g:egypt-iran:2026-06-27T03:00:00.000Z",
+        "playerName": "Mohamed El Shenawy",
+        "nationalTeam": "Ägypten",
+        "teamId": "egypt",
+        "status": "unknown",
+        "displayPlayerName": "Mohamed El Shenawy",
+        "displayNationalTeam": "Ägypten",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group g:egypt-iran:2026-06-27T03:00:00.000Z",
+        "playerName": "Mohammad Mohebi",
+        "nationalTeam": "Iran",
+        "teamId": "iran",
+        "status": "unknown",
+        "displayPlayerName": "Mohammad Mohebi",
+        "displayNationalTeam": "Iran",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group g:egypt-iran:2026-06-27T03:00:00.000Z",
+        "playerName": "Ramin Rezaeian",
+        "nationalTeam": "Iran",
+        "teamId": "iran",
+        "status": "unknown",
+        "displayPlayerName": "Ramin Rezaeian",
+        "displayNationalTeam": "Iran",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group g:nzl-belgium:2026-06-27T03:00:00.000Z",
@@ -5916,7 +9948,93 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group g:nzl-belgium:2026-06-27T03:00:00.000Z",
+        "playerName": "Amadou Onana",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "status": "unknown",
+        "displayPlayerName": "Amadou Onana",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group g:nzl-belgium:2026-06-27T03:00:00.000Z",
+        "playerName": "Jérémy Doku",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "status": "unknown",
+        "displayPlayerName": "Jérémy Doku",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group g:nzl-belgium:2026-06-27T03:00:00.000Z",
+        "playerName": "Nicolas Raskin",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "status": "unknown",
+        "displayPlayerName": "Nicolas Raskin",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group g:nzl-belgium:2026-06-27T03:00:00.000Z",
+        "playerName": "Thomas Meunier",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "status": "unknown",
+        "displayPlayerName": "Thomas Meunier",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Felix",
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group g:nzl-belgium:2026-06-27T03:00:00.000Z",
+        "playerName": "Youri Tielemans",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "status": "unknown",
+        "displayPlayerName": "Youri Tielemans",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group g:nzl-belgium:2026-06-27T03:00:00.000Z",
+        "playerName": "Chris Wood",
+        "nationalTeam": "Neuseeland",
+        "teamId": "new-zealand",
+        "status": "unknown",
+        "displayPlayerName": "Chris Wood",
+        "displayNationalTeam": "Neuseeland",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group l:croatia-gha:2026-06-27T21:00:00.000Z",
@@ -5932,7 +10050,51 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:croatia-gha:2026-06-27T21:00:00.000Z",
+        "playerName": "Andrej Kramarić",
+        "nationalTeam": "Kroatien",
+        "teamId": "croatia",
+        "status": "unknown",
+        "displayPlayerName": "Andrej Kramarić",
+        "displayNationalTeam": "Kroatien",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:croatia-gha:2026-06-27T21:00:00.000Z",
+        "playerName": "Josip Stanišić",
+        "nationalTeam": "Kroatien",
+        "teamId": "croatia",
+        "status": "unknown",
+        "displayPlayerName": "Josip Stanišić",
+        "displayNationalTeam": "Kroatien",
+        "owners": [
+          "Caro",
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:croatia-gha:2026-06-27T21:00:00.000Z",
+        "playerName": "Mario Pašalić",
+        "nationalTeam": "Kroatien",
+        "teamId": "croatia",
+        "status": "unknown",
+        "displayPlayerName": "Mario Pašalić",
+        "displayNationalTeam": "Kroatien",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group l:panama-england:2026-06-27T21:00:00.000Z",
@@ -5948,7 +10110,120 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:panama-england:2026-06-27T21:00:00.000Z",
+        "playerName": "Dan Burn",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Dan Burn",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:panama-england:2026-06-27T21:00:00.000Z",
+        "playerName": "Jordan Pickford",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Jordan Pickford",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:panama-england:2026-06-27T21:00:00.000Z",
+        "playerName": "Jude Bellingham",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Jude Bellingham",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:panama-england:2026-06-27T21:00:00.000Z",
+        "playerName": "Marc Guéhi",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Marc Guéhi",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:panama-england:2026-06-27T21:00:00.000Z",
+        "playerName": "Marcus Rashford",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Marcus Rashford",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:panama-england:2026-06-27T21:00:00.000Z",
+        "playerName": "Morgan Rogers",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Morgan Rogers",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:panama-england:2026-06-27T21:00:00.000Z",
+        "playerName": "Luis Mejía",
+        "nationalTeam": "Panama",
+        "teamId": "panama",
+        "status": "unknown",
+        "displayPlayerName": "Luis Mejía",
+        "displayNationalTeam": "Panama",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group l:panama-england:2026-06-27T21:00:00.000Z",
+        "playerName": "Orlando Mosquera",
+        "nationalTeam": "Panama",
+        "teamId": "panama",
+        "status": "unknown",
+        "displayPlayerName": "Orlando Mosquera",
+        "displayNationalTeam": "Panama",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group k:colombia-portugal:2026-06-27T23:30:00.000Z",
@@ -5964,7 +10239,121 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:colombia-portugal:2026-06-27T23:30:00.000Z",
+        "playerName": "Davinson Sánchez",
+        "nationalTeam": "Kolumbien",
+        "teamId": "colombia",
+        "status": "unknown",
+        "displayPlayerName": "Davinson Sánchez",
+        "displayNationalTeam": "Kolumbien",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:colombia-portugal:2026-06-27T23:30:00.000Z",
+        "playerName": "Jhon Arias",
+        "nationalTeam": "Kolumbien",
+        "teamId": "colombia",
+        "status": "unknown",
+        "displayPlayerName": "Jhon Arias",
+        "displayNationalTeam": "Kolumbien",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:colombia-portugal:2026-06-27T23:30:00.000Z",
+        "playerName": "Richard Ríos",
+        "nationalTeam": "Kolumbien",
+        "teamId": "colombia",
+        "status": "unknown",
+        "displayPlayerName": "Richard Ríos",
+        "displayNationalTeam": "Kolumbien",
+        "owners": [
+          "Anne",
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:colombia-portugal:2026-06-27T23:30:00.000Z",
+        "playerName": "Bruno Fernandes",
+        "nationalTeam": "Portugal",
+        "teamId": "portugal",
+        "status": "unknown",
+        "displayPlayerName": "Bruno Fernandes",
+        "displayNationalTeam": "Portugal",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:colombia-portugal:2026-06-27T23:30:00.000Z",
+        "playerName": "Gonçalo Ramos",
+        "nationalTeam": "Portugal",
+        "teamId": "portugal",
+        "status": "unknown",
+        "displayPlayerName": "Gonçalo Ramos",
+        "displayNationalTeam": "Portugal",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:colombia-portugal:2026-06-27T23:30:00.000Z",
+        "playerName": "João Cancelo",
+        "nationalTeam": "Portugal",
+        "teamId": "portugal",
+        "status": "unknown",
+        "displayPlayerName": "João Cancelo",
+        "displayNationalTeam": "Portugal",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:colombia-portugal:2026-06-27T23:30:00.000Z",
+        "playerName": "João Félix",
+        "nationalTeam": "Portugal",
+        "teamId": "portugal",
+        "status": "unknown",
+        "displayPlayerName": "João Félix",
+        "displayNationalTeam": "Portugal",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:colombia-portugal:2026-06-27T23:30:00.000Z",
+        "playerName": "Rúben Dias",
+        "nationalTeam": "Portugal",
+        "teamId": "portugal",
+        "status": "unknown",
+        "displayPlayerName": "Rúben Dias",
+        "displayNationalTeam": "Portugal",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group k:dr congo-uzb:2026-06-27T23:30:00.000Z",
@@ -5980,7 +10369,79 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:dr congo-uzb:2026-06-27T23:30:00.000Z",
+        "playerName": "Aaron Wan-Bissaka",
+        "nationalTeam": "DR Kongo",
+        "teamId": "dr-congo",
+        "status": "unknown",
+        "displayPlayerName": "Aaron Wan-Bissaka",
+        "displayNationalTeam": "DR Kongo",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:dr congo-uzb:2026-06-27T23:30:00.000Z",
+        "playerName": "Cédric Bakambu",
+        "nationalTeam": "DR Kongo",
+        "teamId": "dr-congo",
+        "status": "unknown",
+        "displayPlayerName": "Cédric Bakambu",
+        "displayNationalTeam": "DR Kongo",
+        "owners": [
+          "Anne",
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:dr congo-uzb:2026-06-27T23:30:00.000Z",
+        "playerName": "Edo Kayembe",
+        "nationalTeam": "DR Kongo",
+        "teamId": "dr-congo",
+        "status": "unknown",
+        "displayPlayerName": "Edo Kayembe",
+        "displayNationalTeam": "DR Kongo",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:dr congo-uzb:2026-06-27T23:30:00.000Z",
+        "playerName": "Nathanaël Mbuku",
+        "nationalTeam": "DR Kongo",
+        "teamId": "dr-congo",
+        "status": "unknown",
+        "displayPlayerName": "Nathanaël Mbuku",
+        "displayNationalTeam": "DR Kongo",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:dr congo-uzb:2026-06-27T23:30:00.000Z",
+        "playerName": "Yoane Wissa",
+        "nationalTeam": "DR Kongo",
+        "teamId": "dr-congo",
+        "status": "unknown",
+        "displayPlayerName": "Yoane Wissa",
+        "displayNationalTeam": "DR Kongo",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group j:algeria-austria:2026-06-28T02:00:00.000Z",
@@ -5996,7 +10457,22 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group j:algeria-austria:2026-06-28T02:00:00.000Z",
+        "playerName": "Stefan Posch",
+        "nationalTeam": "Österreich",
+        "teamId": "austria",
+        "status": "unknown",
+        "displayPlayerName": "Stefan Posch",
+        "displayNationalTeam": "Österreich",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      }
+    ]
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group j:jor-argentina:2026-06-28T02:00:00.000Z",
@@ -6012,6 +10488,49 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group j:jor-argentina:2026-06-28T02:00:00.000Z",
+        "playerName": "Alexis Mac Allister",
+        "nationalTeam": "Argentinien",
+        "teamId": "argentina",
+        "status": "unknown",
+        "displayPlayerName": "Alexis Mac Allister",
+        "displayNationalTeam": "Argentinien",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group j:jor-argentina:2026-06-28T02:00:00.000Z",
+        "playerName": "Cristian Romero",
+        "nationalTeam": "Argentinien",
+        "teamId": "argentina",
+        "status": "unknown",
+        "displayPlayerName": "Cristian Romero",
+        "displayNationalTeam": "Argentinien",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group j:jor-argentina:2026-06-28T02:00:00.000Z",
+        "playerName": "Giuliano Simeone",
+        "nationalTeam": "Argentinien",
+        "teamId": "argentina",
+        "status": "unknown",
+        "displayPlayerName": "Giuliano Simeone",
+        "displayNationalTeam": "Argentinien",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      }
+    ]
   }
 ]
