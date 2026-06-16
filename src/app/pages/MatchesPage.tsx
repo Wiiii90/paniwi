@@ -17,7 +17,15 @@ function formatKickoff(value: string | undefined): string {
   }).format(new Date(value));
 }
 
-function formatStatus(status: MatchRecord["status"]): string {
+function formatStatus(status: MatchRecord["status"], sectionKey?: keyof VisibleMatchCounts): string {
+  if (sectionKey === "live" && status === "scheduled") {
+    return "Aufwärmen";
+  }
+
+  if (sectionKey === "live" && status === "finished") {
+    return "Auslaufen";
+  }
+
   if (status === "finished") {
     return "Beendet";
   }
@@ -186,7 +194,7 @@ function MatchSection({
                   <div className="match-card-status">
                     <strong className={match.status === "live" ? "live-chip" : undefined}>
                       {match.status === "live" ? <span aria-hidden="true" className="live-dot" /> : null}
-                      <span className={match.status === "live" ? "live-chip-text" : undefined}>{formatStatus(match.status)}</span>
+                      <span className={match.status === "live" ? "live-chip-text" : undefined}>{formatStatus(match.status, sectionKey)}</span>
                     </strong>
                     <span className="match-card-score">{formatScore(match)}</span>
                   </div>
