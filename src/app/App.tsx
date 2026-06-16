@@ -59,7 +59,9 @@ export function App() {
       {data && route.name === "home" ? (
         <HomePage leaderboard={data.leaderboard} goals={data.goals} scorers={data.scorers} matches={data.matches} />
       ) : null}
-      {data && route.name === "leaderboard" ? <LeaderboardPage leaderboard={data.leaderboard} /> : null}
+      {data && route.name === "leaderboard" ? (
+        <LeaderboardPage goals={data.goals} leaderboard={data.leaderboard} pickStatuses={data.pickStatuses} />
+      ) : null}
       {data && route.name === "goals" ? <GoalsPage goals={data.goals} scorers={data.scorers} /> : null}
       {data && route.name === "matches" ? <MatchesPage matches={data.matches} /> : null}
       {data && route.name === "team" ? (
