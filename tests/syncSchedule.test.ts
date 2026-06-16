@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import type { StaticMeta } from "../src/domain/types";
 import { evaluateSyncWindow } from "../src/sync/evaluateSyncWindow";
-import { buildSyncWindowsForKickoff, getActiveSyncWindow, getLastScheduledWindow, syncPolicy } from "../src/sync/syncSchedule";
+import { buildSyncWindowsForKickoff, getActiveSyncWindow, getLastScheduledWindow, getSettlementWindow, syncPolicy } from "../src/sync/syncSchedule";
 
 const sampleKickoff = {
   id: "sample:brazil-morocco:2026-06-13T16:00:00.000Z",
@@ -61,14 +61,17 @@ assert.equal(evaluateSyncWindow(liveMeta, new Date("2026-06-13T16:08:00.000Z"), 
 assert.equal(evaluateSyncWindow(liveMeta, new Date("2026-06-13T16:09:00.000Z"), false, liveWindow).shouldRun, true);
 assert.equal(evaluateSyncWindow(null, new Date("2026-06-13T15:20:00.000Z"), false, preMatchWindow).windowPhase, "pre-match");
 
+const settlementWindow = getSettlementWindow(new Date("2026-06-16T06:05:00.000Z"));
+assert.ok(settlementWindow);
+assert.equal(settlementWindow.phase, "settlement");
+assert.equal(settlementWindow.id, "settlement:2026-06-16:06");
+assert.equal(evaluateSyncWindow(null, new Date("2026-06-16T06:05:00.000Z"), false, settlementWindow).windowPhase, "settlement");
+
 const lastScheduledWindow = getLastScheduledWindow();
 assert.ok(lastScheduledWindow);
 const knockoutWindowStart = new Date(Math.max(new Date(lastScheduledWindow.until).getTime() + 60 * 60 * 1000, new Date("2026-06-29T00:00:00.000Z").getTime()));
 knockoutWindowStart.setUTCMinutes(5, 0, 0);
-knockoutWindowStart.setUTCHours(
-  Math.ceil(knockoutWindowStart.getUTCHours() / syncPolicy.knockoutMaintenanceIntervalHours) *
-    syncPolicy.knockoutMaintenanceIntervalHours
-);
+knockoutWindowStart.setUTCHours(18);
 const knockoutWindow = getActiveSyncWindow(knockoutWindowStart);
 assert.ok(knockoutWindow);
 assert.equal(knockoutWindow.id.startsWith("knockout-maintenance:"), true);

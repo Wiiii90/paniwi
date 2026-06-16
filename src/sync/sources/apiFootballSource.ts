@@ -107,7 +107,7 @@ const expectedMatchMinutes = 105;
 const postMatchWindowOffsets = [15, 60, 120] as const;
 const postMatchWindowDurationMinutes = 30;
 
-type SyncWindowPhase = "pre-match" | "live" | "post-match" | "maintenance" | "forced" | "settled";
+type SyncWindowPhase = "pre-match" | "live" | "post-match" | "settlement" | "maintenance" | "forced" | "settled";
 
 type ApiFootballRequestBudget = {
   limit: number;
@@ -132,7 +132,14 @@ function getOptionalEnvValue(value: string | undefined): string | undefined {
 
 function getSyncWindowPhase(env: NodeJS.ProcessEnv = process.env): SyncWindowPhase {
   const phase = env.SYNC_WINDOW_PHASE;
-  if (phase === "pre-match" || phase === "live" || phase === "post-match" || phase === "maintenance" || phase === "forced") {
+  if (
+    phase === "pre-match" ||
+    phase === "live" ||
+    phase === "post-match" ||
+    phase === "settlement" ||
+    phase === "maintenance" ||
+    phase === "forced"
+  ) {
     return phase;
   }
 
@@ -198,6 +205,12 @@ function enumerateDateRange(from: string, to: string): string[] {
   return dates;
 }
 
+function getTodayAndYesterdayDateKeys(now: Date): string[] {
+  const yesterday = new Date(now);
+  yesterday.setUTCDate(yesterday.getUTCDate() - 1);
+  return [formatDateKey(yesterday), formatDateKey(now)];
+}
+
 export function getApiFootballDateKeys(env: NodeJS.ProcessEnv = process.env, now: Date = new Date()): string[] {
   const explicitDates = parseCommaSeparated(env.API_FOOTBALL_DATES);
   if (explicitDates.length > 0) {
@@ -211,6 +224,11 @@ export function getApiFootballDateKeys(env: NodeJS.ProcessEnv = process.env, now
       throw new Error("Both API_FOOTBALL_DATE_FROM and API_FOOTBALL_DATE_TO could not be resolved.");
     }
     return enumerateDateRange(from, to);
+  }
+
+  const phase = getSyncWindowPhase(env);
+  if (phase === "forced" || phase === "settlement") {
+    return getTodayAndYesterdayDateKeys(now);
   }
 
   return [formatDateKey(now)];
@@ -388,8 +406,15 @@ function shouldFetchFixtureLineups(fixture: ApiFootballFixture, phase: SyncWindo
     return false;
   }
 
-  if (phase === "forced") {
-    return false;
+  const status = fixture.fixture?.status?.short;
+  const hasStarted = status ? !scheduledFixtureStatuses.has(status) && !skippedFixtureStatuses.has(status) : false;
+
+  if (phase === "forced" || phase === "settlement" || phase === "maintenance") {
+    return hasStarted;
+  }
+
+  if (phase === "post-match") {
+    return isPostMatchWindow(fixture, now) && hasStarted;
   }
 
   return (phase === "pre-match" && isFixtureInPreMatchWindow(fixture, now)) || (phase === "live" && isFixtureInLiveWindow(fixture, now));
@@ -412,7 +437,7 @@ function shouldFetchFixtureEventsForPhase(fixture: ApiFootballFixture, phase: Sy
     return isPostMatchWindow(fixture, now);
   }
 
-  if (phase === "maintenance") {
+  if (phase === "settlement" || phase === "maintenance") {
     return fixture.fixture?.status?.short ? !scheduledFixtureStatuses.has(fixture.fixture.status.short) : false;
   }
 
@@ -620,6 +645,8 @@ async function fetchGoalsAndMatchesForFixtureIds(
   const goals: ExternalGoalRecord[] = [];
   const fixtures: ApiFootballFixture[] = [];
   const participants: ExternalMatchParticipantRecord[] = [];
+  const phase = getSyncWindowPhase();
+  const now = new Date();
   for (const fixtureId of fixtureIds) {
     const fixture = await fetchFixtureById(fixtureId, process.env, budget);
     if (fixture) {
@@ -629,6 +656,9 @@ async function fetchGoalsAndMatchesForFixtureIds(
     const events = await fetchFixtureEvents(fixtureId, process.env, budget);
     goals.push(...parseApiFootballEvents(fixtureId, events, fixture ?? undefined));
     participants.push(...parseApiFootballSubstitutions(fixtureId, events));
+    if (!fixture || shouldFetchFixtureLineups(fixture, phase, now)) {
+      participants.push(...parseApiFootballLineups(fixtureId, await fetchFixtureLineups(fixtureId, process.env, budget)));
+    }
   }
 
   return { goals, fixtures, participants };

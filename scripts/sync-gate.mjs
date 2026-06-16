@@ -9,6 +9,8 @@ const policy = {
   liveWindowMinutesAfterKickoff: 120,
   checkOffsetsAfterExpectedEndMinutes: [15, 60, 120],
   windowDurationMinutes: 30,
+  settlementHoursUtc: [0, 6, 12],
+  settlementWindowDurationMinutes: 30,
   knockoutMaintenanceIntervalHours: 6,
   knockoutMaintenanceWindowDurationMinutes: 30
 };
@@ -88,11 +90,39 @@ function getMaintenanceWindow(now, windows) {
   };
 }
 
+function getSettlementWindow(now) {
+  if (!isTournamentDay(now)) {
+    return null;
+  }
+
+  if (!policy.settlementHoursUtc.includes(now.getUTCHours())) {
+    return null;
+  }
+
+  const start = new Date(now);
+  start.setUTCMinutes(0, 0, 0);
+  const until = new Date(start.getTime() + policy.settlementWindowDurationMinutes * 60 * 1000);
+  if (now.getTime() > until.getTime()) {
+    return null;
+  }
+
+  const dateKey = start.toISOString().slice(0, 10);
+  const hour = String(start.getUTCHours()).padStart(2, "0");
+
+  return {
+    id: `settlement:${dateKey}:${hour}`,
+    phase: "settlement",
+    from: start,
+    until,
+    label: `Settlement Sync ${dateKey} ${hour}:00 UTC`
+  };
+}
+
 function getActiveWindow(now) {
   const kickoffs = readJson("src/config/matchKickoffs.json", []);
   const windows = kickoffs.flatMap(buildWindows);
   const active = windows.find((window) => now.getTime() >= window.from.getTime() && now.getTime() <= window.until.getTime());
-  return active ?? getMaintenanceWindow(now, windows);
+  return active ?? getSettlementWindow(now) ?? getMaintenanceWindow(now, windows);
 }
 
 function setOutput(name, value) {

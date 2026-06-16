@@ -5,7 +5,7 @@ export type SyncWindow = {
   from: string;
   until: string;
   label: string;
-  phase: "pre-match" | "live" | "post-match" | "maintenance";
+  phase: "pre-match" | "live" | "post-match" | "settlement" | "maintenance";
 };
 
 export type MatchKickoff = {
@@ -35,6 +35,9 @@ export const syncPolicy = {
   liveMinMinutesBetweenSyncs: 5,
   postMatchMinMinutesBetweenSyncs: 45,
   unchangedFollowUpMinutes: 45,
+  /** Safety sweeps for yesterday/today reconciliation. UTC because GitHub cron runs in UTC. */
+  settlementHoursUtc: [0, 6, 12],
+  settlementWindowDurationMinutes: 30,
   knockoutMaintenanceIntervalHours: 6,
   knockoutMaintenanceWindowDurationMinutes: 30
 } as const;
@@ -96,7 +99,7 @@ export function getActiveSyncWindow(now: Date = new Date()): SyncWindow | null {
     }
   }
 
-  return getKnockoutMaintenanceWindow(now);
+  return getSettlementWindow(now) ?? getKnockoutMaintenanceWindow(now);
 }
 
 export function isTournamentDay(now: Date = new Date()): boolean {
@@ -141,6 +144,35 @@ export function getKnockoutMaintenanceWindow(now: Date = new Date()): SyncWindow
     until: windowEnd.toISOString(),
     label: `KO-Runden Sync ${dateKey} ${hour}:00 UTC`,
     phase: "maintenance"
+  };
+}
+
+export function getSettlementWindow(now: Date = new Date()): SyncWindow | null {
+  if (!isTournamentDay(now)) {
+    return null;
+  }
+
+  if (!syncPolicy.settlementHoursUtc.includes(now.getUTCHours() as (typeof syncPolicy.settlementHoursUtc)[number])) {
+    return null;
+  }
+
+  const windowStart = new Date(now);
+  windowStart.setUTCMinutes(0, 0, 0);
+  const windowEnd = new Date(windowStart.getTime() + syncPolicy.settlementWindowDurationMinutes * 60 * 1000);
+
+  if (now.getTime() > windowEnd.getTime()) {
+    return null;
+  }
+
+  const dateKey = windowStart.toISOString().slice(0, 10);
+  const hour = String(windowStart.getUTCHours()).padStart(2, "0");
+
+  return {
+    id: `settlement:${dateKey}:${hour}`,
+    from: windowStart.toISOString(),
+    until: windowEnd.toISOString(),
+    label: `Settlement Sync ${dateKey} ${hour}:00 UTC`,
+    phase: "settlement"
   };
 }
 

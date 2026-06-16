@@ -601,6 +601,14 @@ assert.deepEqual(
   ["2026-06-15", "2026-06-16", "2026-06-17"]
 );
 assert.deepEqual(getApiFootballDateKeys({}, new Date("2026-06-15T12:00:00.000Z")), ["2026-06-15"]);
+assert.deepEqual(getApiFootballDateKeys({ SYNC_WINDOW_PHASE: "forced" }, new Date("2026-06-15T12:00:00.000Z")), [
+  "2026-06-14",
+  "2026-06-15"
+]);
+assert.deepEqual(getApiFootballDateKeys({ SYNC_WINDOW_PHASE: "settlement" }, new Date("2026-06-16T06:05:00.000Z")), [
+  "2026-06-15",
+  "2026-06-16"
+]);
 assert.equal(getApiFootballRequestLimit({}), 90);
 assert.equal(getApiFootballRequestLimit({ API_FOOTBALL_MAX_REQUESTS: "12" }), 12);
 assert.throws(() => getApiFootballRequestLimit({ API_FOOTBALL_MAX_REQUESTS: "0" }), /positive integer/);
