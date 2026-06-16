@@ -49,6 +49,10 @@ function formatScore(match: MatchRecord): string {
   return `${match.homeTeam.score}:${match.awayTeam.score}`;
 }
 
+function formatMatchTitle(match: MatchRecord): string {
+  return `${match.homeTeam.name} - ${match.awayTeam.name}`;
+}
+
 function formatParticipationStatus(status: MatchParticipationStatus): string {
   switch (status) {
     case "starter":
@@ -64,18 +68,28 @@ function formatParticipationStatus(status: MatchParticipationStatus): string {
   }
 }
 
-function PlayerChip({ participant }: { participant: MatchParticipantRecord }) {
-  const ownerLabel = participant.owners.length > 0 ? ` · ${participant.owners.join(", ")}` : "";
+function PlayerChip({ participant, compact = false }: { participant: MatchParticipantRecord; compact?: boolean }) {
+  const ownerLabel = participant.owners.length > 0 ? participant.owners.join(", ") : null;
 
   return (
-    <span className={`lineup-chip lineup-chip-${participant.status}`}>
-      <strong>{participant.displayPlayerName}</strong>
-      <span>
-        {participant.displayNationalTeam}
-        {ownerLabel} · {formatParticipationStatus(participant.status)}
+    <span className={`lineup-chip lineup-chip-${participant.status} ${participant.selected ? "lineup-chip-selected" : ""}`}>
+      <span className="lineup-chip-main">
+        <strong>{participant.displayPlayerName}</strong>
+        {ownerLabel ? <em>{ownerLabel}</em> : null}
+      </span>
+      <span className="lineup-chip-meta">
+        {compact ? formatParticipationStatus(participant.status) : `${participant.displayNationalTeam} · ${formatParticipationStatus(participant.status)}`}
       </span>
     </span>
   );
+}
+
+function groupParticipantsByTeam(match: MatchRecord): [string, MatchParticipantRecord[]][] {
+  const teams = [match.homeTeam.name, match.awayTeam.name];
+  return teams.map((teamName) => [
+    teamName,
+    match.participants.filter((participant) => participant.displayNationalTeam === teamName || participant.nationalTeam === teamName)
+  ]);
 }
 
 type MatchSectionProps = {
@@ -89,14 +103,14 @@ type MatchSectionProps = {
 };
 
 function MatchSection({ title, emptyText, matches, expanded, onToggle, expandedLineups, onToggleLineup }: MatchSectionProps) {
-  const visibleMatches = expanded ? matches : matches.slice(0, 3);
+  const previewCount = title === "Kommende Spiele" ? 6 : 4;
+  const visibleMatches = expanded ? matches : matches.slice(0, previewCount);
   const hiddenCount = matches.length - visibleMatches.length;
 
   return (
     <section className="match-section">
       <div className="section-heading">
         <h2>{title}</h2>
-        <span className="section-count">{matches.length}</span>
       </div>
       <div className="match-list">
         {visibleMatches.length === 0 ? (
@@ -105,63 +119,79 @@ function MatchSection({ title, emptyText, matches, expanded, onToggle, expandedL
           visibleMatches.map((match) => {
             const relevantParticipants = match.participants.filter((participant) => participant.selected);
             const isLineupExpanded = expandedLineups.has(match.matchId);
+            const lineupTeams = groupParticipantsByTeam(match);
+            const visibleGoals = match.goals.slice(0, 8);
+            const overflowGoalCount = match.goals.length - visibleGoals.length;
 
             return (
               <article className={`match-card match-card-${match.status}`} key={match.matchId}>
                 <div className="match-card-header">
-                  <span>{formatKickoff(match.kickedOffAt)}</span>
-                  <strong className={match.status === "live" ? "live-chip" : undefined}>
-                    {match.status === "live" ? <span aria-hidden="true" className="live-dot" /> : null}
-                    <span className={match.status === "live" ? "live-chip-text" : undefined}>{formatStatus(match.status)}</span>
-                  </strong>
+                  <div className="match-card-title">
+                    <span>{formatKickoff(match.kickedOffAt)}</span>
+                    <strong>{formatMatchTitle(match)}</strong>
+                  </div>
+                  <div className="match-card-status">
+                    <strong className={match.status === "live" ? "live-chip" : undefined}>
+                      {match.status === "live" ? <span aria-hidden="true" className="live-dot" /> : null}
+                      <span className={match.status === "live" ? "live-chip-text" : undefined}>{formatStatus(match.status)}</span>
+                    </strong>
+                    <span className="match-card-score">{formatScore(match)}</span>
+                  </div>
                 </div>
-                <div className="match-scoreline">
-                  <span>{match.homeTeam.name}</span>
-                  <strong>{formatScore(match)}</strong>
-                  <span>{match.awayTeam.name}</span>
-                </div>
-                <div className="match-goals">
+                <div className={`match-goals ${match.goals.length > 0 ? "" : "match-goals-empty"}`}>
                   {match.goals.length === 0 ? (
-                    <span>Keine Treffer im Snapshot.</span>
+                    <span>Keine Treffer</span>
                   ) : (
-                    match.goals.map((goal) => (
+                    visibleGoals.map((goal) => (
                       <span key={goal.externalGoalId}>
                         {formatGoalMinute(goal)} {goal.playerName}
                       </span>
                     ))
                   )}
+                  {overflowGoalCount > 0 ? <span>+{overflowGoalCount}</span> : null}
                 </div>
                 <div className="match-lineup">
                   <div className="match-lineup-heading">
-                    <span>Relevante Panini-Spieler</span>
+                    <span>Aufstellung</span>
+                    {relevantParticipants.length > 0 ? <strong>{relevantParticipants.length} Panini-Spieler</strong> : null}
                     {match.participants.length > 0 ? (
                       <button className="plain-button compact-button" type="button" onClick={() => onToggleLineup(match.matchId)}>
-                        {isLineupExpanded ? "Aufstellung schließen" : "Aufstellung anzeigen"}
+                        {isLineupExpanded ? "Weniger" : "Alle anzeigen"}
                       </button>
                     ) : null}
                   </div>
-                  {relevantParticipants.length > 0 ? (
-                    <div className="lineup-chip-list">
-                      {relevantParticipants.map((participant) => (
-                        <PlayerChip
-                          key={`${participant.fixtureId ?? participant.matchId}-${participant.apiPlayerId ?? participant.playerName}-${participant.status}`}
-                          participant={participant}
-                        />
-                      ))}
-                    </div>
+                  {match.participants.length === 0 ? (
+                    <p className="match-lineup-empty">Aufstellung offen.</p>
                   ) : (
-                    <p className="match-lineup-empty">{match.participants.length > 0 ? "Keine Panini-Spieler in der Aufstellung." : "Aufstellung offen."}</p>
-                  )}
-                  {isLineupExpanded ? (
-                    <div className="lineup-chip-list lineup-chip-list-all">
-                      {match.participants.map((participant) => (
-                        <PlayerChip
-                          key={`all-${participant.fixtureId ?? participant.matchId}-${participant.apiPlayerId ?? participant.playerName}-${participant.status}`}
-                          participant={participant}
-                        />
-                      ))}
+                    <div className={`lineup-team-grid ${isLineupExpanded ? "lineup-team-grid-expanded" : ""}`}>
+                      {lineupTeams.map(([teamName, participants]) => {
+                        const priorityParticipants = participants.filter((participant) => participant.selected);
+                        const regularParticipants = participants.filter((participant) => !participant.selected);
+                        const visibleParticipants = isLineupExpanded
+                          ? [...priorityParticipants, ...regularParticipants]
+                          : [...priorityParticipants, ...regularParticipants].slice(0, Math.max(priorityParticipants.length, 6));
+
+                        return (
+                          <div className="lineup-team" key={teamName}>
+                            <h3>{teamName}</h3>
+                            {visibleParticipants.length > 0 ? (
+                              <div className="lineup-chip-list">
+                                {visibleParticipants.map((participant) => (
+                                  <PlayerChip
+                                    compact={!isLineupExpanded}
+                                    key={`${participant.fixtureId ?? participant.matchId}-${participant.apiPlayerId ?? participant.playerName}-${participant.status}`}
+                                    participant={participant}
+                                  />
+                                ))}
+                              </div>
+                            ) : (
+                              <span className="match-lineup-empty">Keine Daten</span>
+                            )}
+                          </div>
+                        );
+                      })}
                     </div>
-                  ) : null}
+                  )}
                 </div>
                 {match.affectedOwners.length > 0 ? (
                   <p className="match-impact">Panini-Punkte für {match.affectedOwners.join(", ")}</p>
@@ -171,10 +201,13 @@ function MatchSection({ title, emptyText, matches, expanded, onToggle, expandedL
           })
         )}
       </div>
-      {matches.length > 3 ? (
-        <button className="plain-button" type="button" onClick={onToggle}>
-          {expanded ? "Weniger anzeigen" : `${hiddenCount} weitere anzeigen`}
-        </button>
+      {matches.length > previewCount ? (
+        <div className="match-section-footer">
+          <span>{expanded ? `${matches.length} Spiele sichtbar` : `${visibleMatches.length} von ${matches.length} Spielen`}</span>
+          <button className="plain-button compact-button" type="button" onClick={onToggle}>
+            {expanded ? "Einklappen" : `${hiddenCount} weitere`}
+          </button>
+        </div>
       ) : null}
     </section>
   );
