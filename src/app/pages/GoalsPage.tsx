@@ -64,7 +64,7 @@ export function GoalsPage({ scorers }: GoalsPageProps) {
   });
   const [ownerFilter, setOwnerFilter] = useState("all");
   const [countryFilter, setCountryFilter] = useState("all");
-  const [minGoals, setMinGoals] = useState("");
+  const [minGoals, setMinGoals] = useState("1");
   const [search, setSearch] = useState("");
   const [sortKey, setSortKey] = useState<SortKey>("rank");
   const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
@@ -84,7 +84,7 @@ export function GoalsPage({ scorers }: GoalsPageProps) {
   );
   const countries = useMemo(() => teamCatalog.map((team) => team.displayName).sort((a, b) => a.localeCompare(b, "de")), []);
   const filteredRows = rows.filter((row) => {
-    const parsedMinGoals = minGoals === "" ? 0 : Number(minGoals);
+    const parsedMinGoals = minGoals === "" ? 1 : Number(minGoals);
     return (
       (ownershipFilter === "all" || row.selected) &&
       (ownerFilter === "all" || row.scoringOwners.includes(ownerFilter)) &&
@@ -175,7 +175,7 @@ export function GoalsPage({ scorers }: GoalsPageProps) {
             </label>
             <label>
               Tore ab
-              <input min="0" onChange={(event) => { setMinGoals(event.target.value); resetPage(); }} type="number" value={minGoals} />
+              <input min="1" onChange={(event) => { setMinGoals(event.target.value); resetPage(); }} type="number" value={minGoals} />
             </label>
             <label className="scorer-search">
               Suche
