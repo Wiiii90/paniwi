@@ -5175,7 +5175,7 @@
       "name": "Österreich"
     },
     "awayTeam": {
-      "name": "JOR"
+      "name": "Jordanien"
     },
     "goals": [],
     "pointGoals": [],
@@ -5220,7 +5220,7 @@
     "kickedOffAt": "2026-06-17T23:00:00.000Z",
     "status": "scheduled",
     "homeTeam": {
-      "name": "GHA"
+      "name": "Ghana"
     },
     "awayTeam": {
       "name": "Panama"
@@ -5236,7 +5236,7 @@
     "kickedOffAt": "2026-06-18T02:00:00.000Z",
     "status": "scheduled",
     "homeTeam": {
-      "name": "UZB"
+      "name": "Usbekistan"
     },
     "awayTeam": {
       "name": "Kolumbien"
@@ -5447,7 +5447,7 @@
       "name": "Spanien"
     },
     "awayTeam": {
-      "name": "KSA"
+      "name": "Saudi-Arabien"
     },
     "goals": [],
     "pointGoals": [],
@@ -5492,7 +5492,7 @@
     "kickedOffAt": "2026-06-22T01:00:00.000Z",
     "status": "scheduled",
     "homeTeam": {
-      "name": "NZL"
+      "name": "Neuseeland"
     },
     "awayTeam": {
       "name": "Ägypten"
@@ -5556,7 +5556,7 @@
     "kickedOffAt": "2026-06-23T03:00:00.000Z",
     "status": "scheduled",
     "homeTeam": {
-      "name": "JOR"
+      "name": "Jordanien"
     },
     "awayTeam": {
       "name": "Algerien"
@@ -5575,7 +5575,7 @@
       "name": "Portugal"
     },
     "awayTeam": {
-      "name": "UZB"
+      "name": "Usbekistan"
     },
     "goals": [],
     "pointGoals": [],
@@ -5591,7 +5591,7 @@
       "name": "England"
     },
     "awayTeam": {
-      "name": "GHA"
+      "name": "Ghana"
     },
     "goals": [],
     "pointGoals": [],
@@ -5863,7 +5863,7 @@
       "name": "Kap Verde"
     },
     "awayTeam": {
-      "name": "KSA"
+      "name": "Saudi-Arabien"
     },
     "goals": [],
     "pointGoals": [],
@@ -5908,7 +5908,7 @@
     "kickedOffAt": "2026-06-27T03:00:00.000Z",
     "status": "scheduled",
     "homeTeam": {
-      "name": "NZL"
+      "name": "Neuseeland"
     },
     "awayTeam": {
       "name": "Belgien"
@@ -5927,7 +5927,7 @@
       "name": "Kroatien"
     },
     "awayTeam": {
-      "name": "GHA"
+      "name": "Ghana"
     },
     "goals": [],
     "pointGoals": [],
@@ -5975,7 +5975,7 @@
       "name": "DR Kongo"
     },
     "awayTeam": {
-      "name": "UZB"
+      "name": "Usbekistan"
     },
     "goals": [],
     "pointGoals": [],
@@ -6004,7 +6004,7 @@
     "kickedOffAt": "2026-06-28T02:00:00.000Z",
     "status": "scheduled",
     "homeTeam": {
-      "name": "JOR"
+      "name": "Jordanien"
     },
     "awayTeam": {
       "name": "Argentinien"

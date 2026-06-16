@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import type { ScorerEntry } from "../../domain/types";
 import { teams } from "../../config/teams";
+import { teamCatalog } from "../../config/teamCatalog";
 
 type GoalsPageProps = {
   scorers: ScorerEntry[];
@@ -73,10 +74,7 @@ export function GoalsPage({ scorers }: GoalsPageProps) {
     () => [...new Set(teams.map((team) => team.owner))].sort((a, b) => a.localeCompare(b, "de")),
     []
   );
-  const countries = useMemo(
-    () => [...new Set(rows.map((row) => row.nationalTeam))].sort((a, b) => a.localeCompare(b, "de")),
-    [rows]
-  );
+  const countries = useMemo(() => teamCatalog.map((team) => team.displayName).sort((a, b) => a.localeCompare(b, "de")), []);
   const filteredRows = rows.filter((row) => {
     const parsedMinGoals = minGoals === "" ? 0 : Number(minGoals);
     return (
