@@ -156,6 +156,8 @@ a {
 .page-stack {
   display: grid;
   gap: var(--space-4);
+  min-width: 0;
+  width: 100%;
 }
 
 .page-title {
@@ -230,6 +232,8 @@ h2 {
 .match-list {
   display: grid;
   gap: var(--space-3);
+  min-width: 0;
+  width: 100%;
 }
 
 .dashboard-grid {
@@ -456,6 +460,14 @@ h2 {
   background: var(--color-surface);
   box-shadow: var(--shadow-soft);
   overflow: hidden;
+}
+
+.table-card,
+.match-section,
+.match-card,
+.summary-card {
+  min-width: 0;
+  width: 100%;
 }
 
 .leaderboard-table {
@@ -893,27 +905,23 @@ h2 {
   }
 
   .table-card {
-    display: grid;
-    gap: var(--space-2);
-    overflow: visible;
-  }
-
-  .leaderboard-table {
-    display: block;
     overflow-x: auto;
   }
 
-  .leaderboard-table .leaderboard-grid {
+  .leaderboard-table {
+    overflow-x: auto;
+  }
+
+  .leaderboard-table .leaderboard-grid,
+  .table-card .scorer-grid {
     min-width: 760px;
   }
 
-  .table-header.player-grid,
-  .table-header.scorer-grid {
+  .table-header.player-grid {
     display: none;
   }
 
-  .player-grid,
-  .scorer-grid {
+  .player-grid {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
@@ -931,26 +939,22 @@ h2 {
     background: var(--color-surface);
   }
 
-  .player-grid > *,
-  .scorer-grid > * {
+  .player-grid > * {
     min-width: 0;
   }
 
-  .player-grid > :first-child,
-  .scorer-grid > :nth-child(2) {
+  .player-grid > :first-child {
     grid-column: 1 / -1;
   }
 
-  .player-grid > [data-label],
-  .scorer-grid > [data-label] {
+  .player-grid > [data-label] {
     align-items: baseline;
     display: flex;
     gap: var(--space-2);
     justify-content: space-between;
   }
 
-  .player-grid > [data-label]::before,
-  .scorer-grid > [data-label]::before {
+  .player-grid > [data-label]::before {
     color: var(--color-muted);
     content: attr(data-label);
     font-size: 0.72rem;
@@ -958,13 +962,7 @@ h2 {
     text-transform: uppercase;
   }
 
-  .scorer-grid > :first-child {
-    color: var(--color-accent);
-    font-weight: 900;
-  }
-
-  .player-grid > :last-child,
-  .scorer-grid > :last-child {
+  .player-grid > :last-child {
     color: var(--color-accent);
     font-weight: 900;
     text-align: right;
