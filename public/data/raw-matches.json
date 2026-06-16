@@ -924,9 +924,9 @@
     "source": "api-football",
     "matchId": "api-football:1489379",
     "fixtureId": "1489379",
-    "label": "Saudi Arabia 1-0 Uruguay",
+    "label": "Saudi Arabia 1-1 Uruguay",
     "kickedOffAt": "2026-06-15T22:00:00+00:00",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 23,
       "name": "Saudi Arabia",
@@ -935,7 +935,7 @@
     "awayTeam": {
       "id": 7,
       "name": "Uruguay",
-      "score": 0
+      "score": 1
     }
   },
   {
@@ -960,18 +960,18 @@
     "source": "api-football",
     "matchId": "api-football:1489383",
     "fixtureId": "1489383",
-    "label": "France 1-0 Senegal",
+    "label": "France 3-1 Senegal",
     "kickedOffAt": "2026-06-16T19:00:00+00:00",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 2,
       "name": "France",
-      "score": 1
+      "score": 3
     },
     "awayTeam": {
       "id": 13,
       "name": "Senegal",
-      "score": 0
+      "score": 1
     }
   },
   {
