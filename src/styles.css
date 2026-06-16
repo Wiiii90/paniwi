@@ -371,9 +371,17 @@ h2 {
 
 .match-name-line {
   align-items: center;
-  display: inline-flex;
-  flex-wrap: wrap;
+  display: flex;
   gap: 6px;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.match-name-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .live-dot {
@@ -388,9 +396,14 @@ h2 {
 
 .live-chip {
   align-items: center;
+  border: 1px solid rgba(215, 38, 56, 0.22);
+  border-radius: 999px;
   color: var(--color-accent);
   display: inline-flex;
-  gap: 7px;
+  flex: 0 0 auto;
+  gap: 6px;
+  line-height: 1;
+  padding: 3px 6px;
   white-space: nowrap;
 }
 

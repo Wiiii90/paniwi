@@ -160,7 +160,9 @@ export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps
                           Live
                         </span>
                       ) : null}
-                      {match.homeTeam.name} - {match.awayTeam.name}
+                      <span className="match-name-text">
+                        {match.homeTeam.name} - {match.awayTeam.name}
+                      </span>
                     </strong>
                     <small>
                       {formatKickoff(match.kickedOffAt)}
