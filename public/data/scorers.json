@@ -1,12 +1,14 @@
 [
   {
-    "playerName": "Kylian Mbappé",
-    "normalizedPlayerName": "kylian mbappe",
-    "nationalTeam": "Frankreich",
+    "playerName": "Erling Haaland",
+    "normalizedPlayerName": "erling haaland",
+    "nationalTeam": "Norwegen",
     "goals": 2,
     "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
+    "scoringOwners": [
+      "Caro"
+    ],
+    "selected": true,
     "rank": 1
   },
   {
@@ -52,15 +54,13 @@
     "rank": 3
   },
   {
-    "playerName": "Bradley Barcola",
-    "normalizedPlayerName": "bradley barcola",
-    "nationalTeam": "Frankreich",
+    "playerName": "Aymen Hussein",
+    "normalizedPlayerName": "aymen hussein",
+    "nationalTeam": "Irak",
     "goals": 1,
     "penaltyGoals": 0,
-    "scoringOwners": [
-      "Nina"
-    ],
-    "selected": true,
+    "scoringOwners": [],
+    "selected": false,
     "rank": 3
   },
   {
@@ -170,16 +170,6 @@
     "playerName": "Hwang In-beom",
     "normalizedPlayerName": "hwang in beom",
     "nationalTeam": "Südkorea",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 3
-  },
-  {
-    "playerName": "Ibrahim Mbaye",
-    "normalizedPlayerName": "ibrahim mbaye",
-    "nationalTeam": "Senegal",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],
