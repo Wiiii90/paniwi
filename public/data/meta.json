@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-16T21:35:22.170Z",
+  "lastUpdated": "2026-06-16T22:22:19.428Z",
   "source": "api-football",
   "attemptedSources": [
     "api-football"
@@ -12,10 +12,10 @@
   "duplicateGoalCount": 0,
   "sourceErrors": [],
   "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
-  "snapshotFingerprint": "9ddd779228b5f05a954ee1f41c66477c78d0a7eade9c5f6fc9196a0cabe5775f",
+  "snapshotFingerprint": "8aecc164442158e12358af103f6922783d326a603ce46be83d781ca1b502702e",
   "snapshotChanged": true,
-  "syncWindowId": "2026 fifa world cup group i:iraq-norway:2026-06-16T22:00:00.000Z-pre-match",
+  "syncWindowId": "2026 fifa world cup group i:iraq-norway:2026-06-16T22:00:00.000Z-live",
   "windowSyncAttempts": 1,
-  "sourceRequestCount": 2,
+  "sourceRequestCount": 3,
   "sourceRequestLimit": 90
 }

@@ -2324,23 +2324,23 @@
     "source": "api-football",
     "matchId": "api-football:1539016",
     "fixtureId": "1539016",
-    "playerName": "Amir Al-Ammari",
-    "nationalTeam": "Iraq",
-    "teamId": "iraq",
-    "apiPlayerId": 47792,
-    "status": "starter",
-    "shirtNumber": 16
-  },
-  {
-    "source": "api-football",
-    "matchId": "api-football:1539016",
-    "fixtureId": "1539016",
     "playerName": "Zaid Ismail",
     "nationalTeam": "Iraq",
     "teamId": "iraq",
     "apiPlayerId": 626479,
     "status": "starter",
     "shirtNumber": 24
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1539016",
+    "fixtureId": "1539016",
+    "playerName": "Amir Al-Ammari",
+    "nationalTeam": "Iraq",
+    "teamId": "iraq",
+    "apiPlayerId": 47792,
+    "status": "starter",
+    "shirtNumber": 16
   },
   {
     "source": "api-football",

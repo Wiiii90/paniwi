@@ -4258,14 +4258,16 @@
   },
   {
     "matchId": "api-football:1539016",
-    "label": "Iraq vs Norway",
+    "label": "Iraq 0-0 Norway",
     "kickedOffAt": "2026-06-16T22:00:00+00:00",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
-      "name": "Irak"
+      "name": "Irak",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Norwegen"
+      "name": "Norwegen",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
