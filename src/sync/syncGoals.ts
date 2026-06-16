@@ -3,8 +3,10 @@ import { readFile } from "node:fs/promises";
 import { buildLeaderboard, scoreGoalsForTeams } from "../domain/buildLeaderboard";
 import { buildMatches } from "../domain/buildMatches";
 import { buildScorers } from "../domain/buildScorers";
+import { enrichGoalsWithRoster } from "../domain/rosterResolver";
 import { sortGoalsChronologically } from "../domain/sortGoals";
 import type { ExternalMatchRecord, SourceName, StaticMeta } from "../domain/types";
+import type { RosterSnapshot } from "../domain/rosterTypes";
 import type { GoalSource } from "./sources/types";
 import { teams } from "../config/teams";
 import { normalizeGoals } from "./normalizeGoals";
@@ -96,6 +98,14 @@ async function readExistingRawMatches(): Promise<NormalizedMatches> {
     return JSON.parse(await readFile("public/data/raw-matches.json", "utf8")) as NormalizedMatches;
   } catch {
     return [];
+  }
+}
+
+async function readExistingRosterSnapshot(): Promise<RosterSnapshot | undefined> {
+  try {
+    return JSON.parse(await readFile("public/data/rosters.json", "utf8")) as RosterSnapshot;
+  } catch {
+    return undefined;
   }
 }
 
@@ -287,10 +297,12 @@ export async function syncGoals(
   const normalizedMatches = result.mergeWithExisting
     ? await mergeWithExistingMatches(result.source, incomingMatches, result.coveredDateKeys)
     : incomingMatches;
-  const { validGoals: goals, skippedGoals } = validateGoals(normalizedGoals);
+  const rosterSnapshot = await readExistingRosterSnapshot();
+  const rosterEnrichedGoals = enrichGoalsWithRoster(normalizedGoals, rosterSnapshot);
+  const { validGoals: goals, skippedGoals } = validateGoals(rosterEnrichedGoals);
   const scoredGoals = sortGoalsChronologically(scoreGoalsForTeams(teams, goals));
   const leaderboard = buildLeaderboard(teams, goals);
-  const scorers = buildScorers(goals, teams);
+  const scorers = buildScorers(goals, teams, rosterSnapshot);
   const matches = buildMatches(goals, scoredGoals, normalizedMatches);
 
   await writeStaticData({

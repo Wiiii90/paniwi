@@ -1,8 +1,10 @@
 import type { GoalRecord, ParticipantTeam, ScorerEntry } from "./types";
 import { getCanonicalTeam, resolveGoalPlayer } from "./canonicalResolver";
 import { normalizePlayerName } from "./normalizePlayerName";
+import { resolveRosterPlayerForGoal } from "./rosterResolver";
 import { getGoalPoints } from "./scoring";
 import { getTeamDisplayName, resolveTeamDisplayName } from "./teamDisplay";
+import type { RosterSnapshot } from "./rosterTypes";
 
 type MutableScorer = Omit<ScorerEntry, "rank" | "selected"> & {
   selected: boolean;
@@ -22,7 +24,7 @@ function getScoringOwners(goal: GoalRecord, teams: ParticipantTeam[]): string[] 
   return [...new Set(owners)].sort((a, b) => a.localeCompare(b));
 }
 
-export function buildScorers(goals: GoalRecord[], teams: ParticipantTeam[]): ScorerEntry[] {
+export function buildScorers(goals: GoalRecord[], teams: ParticipantTeam[], rosterSnapshot?: RosterSnapshot): ScorerEntry[] {
   const scorers = new Map<string, MutableScorer>();
 
   for (const goal of goals) {
@@ -31,11 +33,14 @@ export function buildScorers(goals: GoalRecord[], teams: ParticipantTeam[]): Sco
     }
 
     const resolved = resolveGoalPlayer(goal);
+    const rosterMatch = resolved ? null : resolveRosterPlayerForGoal(goal, rosterSnapshot);
     const canonicalTeam = resolved ? getCanonicalTeam(resolved.teamId) : null;
-    const playerName = resolved?.displayName ?? goal.playerName;
-    const nationalTeam = canonicalTeam ? getTeamDisplayName(canonicalTeam) : resolveTeamDisplayName(goal.nationalTeam, goal.source);
+    const playerName = resolved?.displayName ?? rosterMatch?.player.playerName ?? goal.playerName;
+    const nationalTeam = canonicalTeam
+      ? getTeamDisplayName(canonicalTeam)
+      : rosterMatch?.displayTeamName ?? resolveTeamDisplayName(goal.nationalTeam, goal.source);
     const normalizedPlayerName = normalizePlayerName(playerName);
-    const key = resolved?.playerId ?? `${normalizedPlayerName}|${goal.nationalTeam.toLowerCase()}`;
+    const key = resolved?.playerId ?? rosterMatch?.key ?? `${normalizedPlayerName}|${goal.nationalTeam.toLowerCase()}`;
     const current = scorers.get(key) ?? {
       playerName,
       normalizedPlayerName,

@@ -1,7 +1,7 @@
 import { canonicalTeams } from "../../config/canonical";
 import { normalizePlayerName } from "../../domain/normalizePlayerName";
 import { resolveTeamFromWikipedia } from "../../domain/canonicalResolver";
-import type { RosterPlayer, RosterPosition, RosterTeam } from "../rosterTypes";
+import type { RosterPlayer, RosterPosition, RosterTeam } from "../../domain/rosterTypes";
 
 const defaultEndpoint = "https://en.wikipedia.org/w/api.php";
 const defaultPage = "2026 FIFA World Cup squads";

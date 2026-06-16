@@ -1,7 +1,7 @@
 [
   {
-    "playerName": "Y. Ayari",
-    "normalizedPlayerName": "y ayari",
+    "playerName": "Yasin Ayari",
+    "normalizedPlayerName": "yasin ayari",
     "nationalTeam": "Schweden",
     "goals": 2,
     "penaltyGoals": 0,
@@ -102,8 +102,8 @@
     "rank": 2
   },
   {
-    "playerName": "E. Ashour",
-    "normalizedPlayerName": "e ashour",
+    "playerName": "Emam Ashour",
+    "normalizedPlayerName": "emam ashour",
     "nationalTeam": "Aegypten",
     "goals": 1,
     "penaltyGoals": 0,
@@ -245,8 +245,8 @@
     "rank": 2
   },
   {
-    "playerName": "M. Svanberg",
-    "normalizedPlayerName": "m svanberg",
+    "playerName": "Mattias Svanberg",
+    "normalizedPlayerName": "mattias svanberg",
     "nationalTeam": "Schweden",
     "goals": 1,
     "penaltyGoals": 0,
@@ -297,9 +297,9 @@
     "rank": 2
   },
   {
-    "playerName": "O. Rekik",
-    "normalizedPlayerName": "o rekik",
-    "nationalTeam": "Tunesien",
+    "playerName": "Oh Hyeon-gyu",
+    "normalizedPlayerName": "oh hyeon gyu",
+    "nationalTeam": "Suedkorea",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],
@@ -307,9 +307,9 @@
     "rank": 2
   },
   {
-    "playerName": "Oh Hyeon-gyu",
-    "normalizedPlayerName": "oh hyeon gyu",
-    "nationalTeam": "Suedkorea",
+    "playerName": "Omar Rekik",
+    "normalizedPlayerName": "omar rekik",
+    "nationalTeam": "Tunesien",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],
@@ -327,8 +327,8 @@
     "rank": 2
   },
   {
-    "playerName": "V. Gyokeres",
-    "normalizedPlayerName": "v gyokeres",
+    "playerName": "Viktor Gyökeres",
+    "normalizedPlayerName": "viktor gyokeres",
     "nationalTeam": "Schweden",
     "goals": 1,
     "penaltyGoals": 0,

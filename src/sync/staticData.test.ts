@@ -6,6 +6,7 @@ import { buildScorers } from "../domain/buildScorers";
 import { sortGoalsChronologically } from "../domain/sortGoals";
 import { getTeamDisplayName } from "../domain/teamDisplay";
 import type { ExternalMatchRecord, GoalRecord, LeaderboardEntry, MatchRecord, ScoredGoal, ScorerEntry, StaticMeta } from "../domain/types";
+import type { RosterSnapshot } from "../domain/rosterTypes";
 import { teams } from "../config/teams";
 import { getCanonicalPlayer, getCanonicalTeam } from "../domain/canonicalResolver";
 import { validateCanonicalData } from "./validateCanonicalData";
@@ -16,14 +17,15 @@ async function readJson<T>(path: string): Promise<T> {
   return JSON.parse(await readFile(path, "utf8")) as T;
 }
 
-const [leaderboard, goals, rawGoals, rawMatches, scorers, matches, meta] = await Promise.all([
+const [leaderboard, goals, rawGoals, rawMatches, scorers, matches, meta, rosters] = await Promise.all([
   readJson<LeaderboardEntry[]>("public/data/leaderboard.json"),
   readJson<ScoredGoal[]>("public/data/goals.json"),
   readJson<GoalRecord[]>("public/data/raw-goals.json"),
   readJson<ExternalMatchRecord[]>("public/data/raw-matches.json"),
   readJson<ScorerEntry[]>("public/data/scorers.json"),
   readJson<MatchRecord[]>("public/data/matches.json"),
-  readJson<StaticMeta>("public/data/meta.json")
+  readJson<StaticMeta>("public/data/meta.json"),
+  readJson<RosterSnapshot>("public/data/rosters.json")
 ]);
 
 assert.equal(validateCanonicalData().valid, true);
@@ -35,7 +37,7 @@ assert.equal(goalValidation.skippedGoals.length, 0);
 
 assert.deepEqual(leaderboard, buildLeaderboard(teams, rawGoals));
 assert.deepEqual(goals, sortGoalsChronologically(scoreGoalsForTeams(teams, rawGoals)));
-assert.deepEqual(scorers, buildScorers(rawGoals, teams));
+assert.deepEqual(scorers, buildScorers(rawGoals, teams, rosters));
 assert.deepEqual(matches, buildMatches(rawGoals, goals, rawMatches));
 
 assert.equal(meta.status, "ok");

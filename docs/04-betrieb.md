@@ -62,6 +62,12 @@ Spielplan aktualisieren (selten noetig):
 npm run sync:export-kickoffs
 ```
 
+Abgeleitete Snapshots aus vorhandenen Rohdaten neu bauen, ohne externe APIs zu rufen:
+
+```powershell
+npm run sync:rebuild
+```
+
 Der Workflow ruft `npm run sync:scheduled` auf. Ausserhalb der Fenster bricht das Script sofort ab und loggt die naechsten Fenster.
 
 Manuell jederzeit moeglich:

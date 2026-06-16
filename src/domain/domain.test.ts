@@ -1,11 +1,14 @@
 import assert from "node:assert/strict";
 import { buildLeaderboard, scoreGoalsForTeams } from "./buildLeaderboard";
 import { buildMatches } from "./buildMatches";
+import { buildScorers } from "./buildScorers";
 import { normalizePlayerName } from "./normalizePlayerName";
+import { enrichGoalsWithRoster } from "./rosterResolver";
 import { getGoalPoints, matchesPlayer } from "./scoring";
 import { sortGoalsChronologically } from "./sortGoals";
 import { getLatestFinishedMatches, getTodayOrLiveMatches } from "./matchFilters";
 import type { GoalRecord, ParticipantTeam } from "./types";
+import type { RosterSnapshot } from "./rosterTypes";
 import { normalizeGoals } from "../sync/normalizeGoals";
 import {
   filterWorldCupFixtures,
@@ -51,6 +54,43 @@ const baseGoal: GoalRecord = {
   apiPlayerId: 2864,
   timeConfidence: "exact",
   detail: "normal"
+};
+
+const rosterSnapshot: RosterSnapshot = {
+  lastUpdated: "2026-06-16T00:00:00.000Z",
+  source: "wikipedia",
+  pageTitle: "2026 FIFA World Cup squads",
+  teamCount: 1,
+  playerCount: 2,
+  teams: [
+    {
+      teamName: "Sweden",
+      teamId: "sweden",
+      players: [
+        {
+          playerName: "Yasin Ayari",
+          normalizedPlayerName: "yasin ayari",
+          position: "midfielder",
+          shirtNumber: 18,
+          sourceName: "Yasin Ayari"
+        },
+        {
+          playerName: "Mattias Svanberg",
+          normalizedPlayerName: "mattias svanberg",
+          position: "midfielder",
+          shirtNumber: 8,
+          sourceName: "Mattias Svanberg"
+        }
+      ]
+    }
+  ],
+  audit: {
+    picks: [],
+    nominatedCount: 0,
+    notNominatedCount: 0,
+    unknownCount: 0,
+    changedStatusCount: 0
+  }
 };
 
 assert.equal(normalizePlayerName("Kylian Mbappé"), "kylian mbappe");
@@ -246,6 +286,37 @@ assert.deepEqual(
     { ...baseGoal, externalGoalId: "early", scoredAt: "2026-06-12T19:00:00.000Z" }
   ]).map((goal) => goal.externalGoalId),
   ["early", "late"]
+);
+
+const apiAbbreviatedRosterGoals = [
+  {
+    ...baseGoal,
+    externalGoalId: "ayari-1",
+    playerName: "Y. Ayari",
+    sourcePlayerName: "Y. Ayari",
+    nationalTeam: "Sweden",
+    apiPlayerId: 265820
+  },
+  {
+    ...baseGoal,
+    externalGoalId: "ayari-2",
+    playerName: "Y. Ayari",
+    sourcePlayerName: "Y. Ayari",
+    nationalTeam: "Sweden",
+    apiPlayerId: 265820
+  }
+];
+assert.deepEqual(
+  enrichGoalsWithRoster(apiAbbreviatedRosterGoals, rosterSnapshot).map((goal) => goal.playerName),
+  ["Yasin Ayari", "Yasin Ayari"]
+);
+assert.deepEqual(
+  buildScorers(apiAbbreviatedRosterGoals, teams, rosterSnapshot).map((scorer) => [
+    scorer.playerName,
+    scorer.nationalTeam,
+    scorer.goals
+  ]),
+  [["Yasin Ayari", "Schweden", 2]]
 );
 
 const validation = validateGoals([

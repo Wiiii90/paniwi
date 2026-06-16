@@ -6,7 +6,7 @@ import { getCanonicalPlayer, getCanonicalTeam } from "../domain/canonicalResolve
 import { normalizePlayerName } from "../domain/normalizePlayerName";
 import { getTeamDisplayName } from "../domain/teamDisplay";
 import type { CanonicalPlayer, RosterStatus } from "../domain/types";
-import type { RosterAuditEntry, RosterSnapshot, RosterTeam } from "./rosterTypes";
+import type { RosterAuditEntry, RosterSnapshot, RosterTeam } from "../domain/rosterTypes";
 import { fetchWikipediaRosterPage, parseWikipediaSquads } from "./sources/wikipediaRosterSource";
 
 function getPlayerNameKeys(player: CanonicalPlayer): Set<string> {

@@ -1,4 +1,4 @@
-import type { RosterStatus } from "../domain/types";
+import type { RosterStatus } from "./types";
 
 export type RosterPosition = "goalkeeper" | "defender" | "midfielder" | "forward" | "unknown";
 
