@@ -88,10 +88,10 @@ export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps
               {tableLeaders.map((entry) => (
                 <div className="mini-row" key={entry.owner}>
                   <span>
-                    <strong>{entry.rank} {entry.owner}</strong>
-                    <small>{entry.goals} Tore · {entry.playersWithGoals} Torschützen</small>
+                    <strong>{entry.owner}</strong>
+                    <small>{entry.playersWithGoals} Torschützen</small>
                   </span>
-                  <span>{entry.points} Punkte</span>
+                  <span>{entry.rank}. Platz</span>
                 </div>
               ))}
             </div>
