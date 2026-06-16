@@ -102,6 +102,16 @@
     "rank": 2
   },
   {
+    "playerName": "E. Just",
+    "normalizedPlayerName": "e just",
+    "nationalTeam": "New Zealand",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 2
+  },
+  {
     "playerName": "Emam Ashour",
     "normalizedPlayerName": "emam ashour",
     "nationalTeam": "Aegypten",
@@ -314,6 +324,18 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
+    "rank": 2
+  },
+  {
+    "playerName": "Ramin Rezaeian",
+    "normalizedPlayerName": "ramin rezaeian",
+    "nationalTeam": "Iran",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [
+      "Felix"
+    ],
+    "selected": true,
     "rank": 2
   },
   {

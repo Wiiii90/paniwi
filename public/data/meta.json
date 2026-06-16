@@ -1,20 +1,20 @@
 {
-  "lastUpdated": "2026-06-16T01:04:58.165Z",
+  "lastUpdated": "2026-06-16T02:09:32.599Z",
   "source": "api-football",
   "attemptedSources": [
     "api-football"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 39,
-  "scoredGoalCount": 5,
+  "goalCount": 41,
+  "scoredGoalCount": 6,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot unveraendert (api-football).",
-  "snapshotFingerprint": "b626b5254a201894fcd165f334a05e209f08b0d84f7747c4a3c644db30601ab9",
-  "snapshotChanged": false,
-  "syncWindowId": "2026 fifa world cup group h:ksa-uruguay:2026-06-15T22:00:00.000Z-check-2",
+  "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
+  "snapshotFingerprint": "4f9e3b60138217e04805bf2afc99cf1ffb5c5f379bd8c4aa48822d301a0f8e9b",
+  "snapshotChanged": true,
+  "syncWindowId": "2026 fifa world cup group h:ksa-uruguay:2026-06-15T22:00:00.000Z-check-3",
   "windowSyncAttempts": 1,
   "sourceRequestCount": 2,
   "sourceRequestLimit": 90

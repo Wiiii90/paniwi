@@ -1037,20 +1037,83 @@
   },
   {
     "matchId": "api-football:1489378",
-    "label": "Iran 0-0 New Zealand",
+    "label": "Iran 1-1 New Zealand",
     "kickedOffAt": "2026-06-16T01:00:00+00:00",
     "status": "live",
     "homeTeam": {
       "name": "Iran",
-      "score": 0
+      "score": 1
     },
     "awayTeam": {
       "name": "New Zealand",
-      "score": 0
+      "score": 1
     },
-    "goals": [],
-    "pointGoals": [],
-    "affectedOwners": []
+    "goals": [
+      {
+        "externalGoalId": "api-football:1489378:94333:7:Normal Goal:0",
+        "playerName": "E. Just",
+        "nationalTeam": "New Zealand",
+        "sourcePlayerName": "E. Just",
+        "sourceTeamName": "New Zealand",
+        "goals": 1,
+        "source": "api-football",
+        "apiPlayerId": 94333,
+        "matchId": "api-football:1489378",
+        "fixtureId": "1489378",
+        "matchLabel": "Iran 1-1 New Zealand",
+        "kickedOffAt": "2026-06-16T01:00:00+00:00",
+        "minute": 7,
+        "timeConfidence": "match-only",
+        "detail": "normal"
+      },
+      {
+        "externalGoalId": "api-football:1489378:2691:32:Normal Goal:1",
+        "playerName": "Ramin Rezaeian",
+        "nationalTeam": "Iran",
+        "sourcePlayerName": "R. Rezaeian",
+        "sourceTeamName": "Iran",
+        "goals": 1,
+        "source": "api-football",
+        "apiPlayerId": 2691,
+        "matchId": "api-football:1489378",
+        "fixtureId": "1489378",
+        "matchLabel": "Iran 1-1 New Zealand",
+        "kickedOffAt": "2026-06-16T01:00:00+00:00",
+        "minute": 32,
+        "timeConfidence": "match-only",
+        "detail": "normal",
+        "teamId": "iran"
+      }
+    ],
+    "pointGoals": [
+      {
+        "externalGoalId": "api-football:1489378:2691:32:Normal Goal:1",
+        "playerName": "Ramin Rezaeian",
+        "nationalTeam": "Iran",
+        "sourcePlayerName": "R. Rezaeian",
+        "sourceTeamName": "Iran",
+        "goals": 1,
+        "source": "api-football",
+        "apiPlayerId": 2691,
+        "matchId": "api-football:1489378",
+        "fixtureId": "1489378",
+        "matchLabel": "Iran 1-1 New Zealand",
+        "kickedOffAt": "2026-06-16T01:00:00+00:00",
+        "minute": 32,
+        "timeConfidence": "match-only",
+        "detail": "normal",
+        "teamId": "iran",
+        "playerId": "iran-ramin-rezaeian",
+        "owner": "Felix",
+        "pickedPlayerName": "Ramin Rezaeian",
+        "displayPlayerName": "Ramin Rezaeian",
+        "displayNationalTeam": "Iran",
+        "points": 1
+      }
+    ],
+    "affectedOwners": [
+      "Felix"
+    ]
   },
   {
     "matchId": "api-football:1489383",

@@ -110,5 +110,29 @@
     "displayPlayerName": "Alexander Isak",
     "displayNationalTeam": "Schweden",
     "points": 1
+  },
+  {
+    "externalGoalId": "api-football:1489378:2691:32:Normal Goal:1",
+    "playerName": "Ramin Rezaeian",
+    "nationalTeam": "Iran",
+    "sourcePlayerName": "R. Rezaeian",
+    "sourceTeamName": "Iran",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 2691,
+    "matchId": "api-football:1489378",
+    "fixtureId": "1489378",
+    "matchLabel": "Iran 1-1 New Zealand",
+    "kickedOffAt": "2026-06-16T01:00:00+00:00",
+    "minute": 32,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "teamId": "iran",
+    "playerId": "iran-ramin-rezaeian",
+    "owner": "Felix",
+    "pickedPlayerName": "Ramin Rezaeian",
+    "displayPlayerName": "Ramin Rezaeian",
+    "displayNationalTeam": "Iran",
+    "points": 1
   }
 ]

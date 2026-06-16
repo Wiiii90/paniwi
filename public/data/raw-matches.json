@@ -942,18 +942,18 @@
     "source": "api-football",
     "matchId": "api-football:1489378",
     "fixtureId": "1489378",
-    "label": "Iran 0-0 New Zealand",
+    "label": "Iran 1-1 New Zealand",
     "kickedOffAt": "2026-06-16T01:00:00+00:00",
     "status": "live",
     "homeTeam": {
       "id": 22,
       "name": "Iran",
-      "score": 0
+      "score": 1
     },
     "awayTeam": {
       "id": 4673,
       "name": "New Zealand",
-      "score": 0
+      "score": 1
     }
   },
   {
