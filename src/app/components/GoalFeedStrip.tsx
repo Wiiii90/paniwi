@@ -16,7 +16,9 @@ function formatGoalDate(goal: ScoredGoal): string {
 
   const date = new Date(value);
   const dateLabel = new Intl.DateTimeFormat("de-DE", {
-    dateStyle: "medium",
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
     weekday: "short"
   }).format(date);
 
