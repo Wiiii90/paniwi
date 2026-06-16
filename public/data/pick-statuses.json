@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-16T20:29:59.612Z",
+  "lastUpdated": "2026-06-16T22:31:32.406Z",
   "rosterSnapshotUpdatedAt": "2026-06-15T23:48:37.445Z",
   "picks": [
     {
@@ -1538,11 +1538,140 @@
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Alphonso Davies",
       "reason": "found-in-current-roster"
+    },
+    {
+      "owner": "Tjark",
+      "pickId": "belgium-nicolas-raskin",
+      "playerName": "Nicolas Raskin",
+      "teamId": "belgium",
+      "teamName": "Belgien",
+      "baselineRosterStatus": "nominated",
+      "currentRosterStatus": "nominated",
+      "displayStatus": "nominated",
+      "matchedCurrentRoster": true,
+      "matchedCurrentRosterName": "Nicolas Raskin",
+      "reason": "found-in-current-roster"
+    },
+    {
+      "owner": "Tjark",
+      "pickId": "ecuador-kevin-rodriguez",
+      "playerName": "Kevin Rodriguez",
+      "teamId": "ecuador",
+      "teamName": "Ecuador",
+      "baselineRosterStatus": "nominated",
+      "currentRosterStatus": "nominated",
+      "displayStatus": "nominated",
+      "matchedCurrentRoster": true,
+      "matchedCurrentRosterName": "Kevin Rodríguez",
+      "reason": "found-in-current-roster"
+    },
+    {
+      "owner": "Tjark",
+      "pickId": "paraguay-ramon-sosa",
+      "playerName": "Ramon Sosa",
+      "teamId": "paraguay",
+      "teamName": "Paraguay",
+      "baselineRosterStatus": "nominated",
+      "currentRosterStatus": "nominated",
+      "displayStatus": "nominated",
+      "matchedCurrentRoster": true,
+      "matchedCurrentRosterName": "Ramón Sosa",
+      "reason": "found-in-current-roster"
+    },
+    {
+      "owner": "Tjark",
+      "pickId": "saudi-arabia-saleh-al-shehri",
+      "playerName": "Saleh Al-Shehri",
+      "teamId": "saudi-arabia",
+      "teamName": "Saudi-Arabien",
+      "baselineRosterStatus": "nominated",
+      "currentRosterStatus": "nominated",
+      "displayStatus": "nominated",
+      "matchedCurrentRoster": true,
+      "matchedCurrentRosterName": "Saleh Al-Shehri",
+      "reason": "found-in-current-roster"
+    },
+    {
+      "owner": "Tjark",
+      "pickId": "england-dan-burn",
+      "playerName": "Dan Burn",
+      "teamId": "england",
+      "teamName": "England",
+      "baselineRosterStatus": "nominated",
+      "currentRosterStatus": "nominated",
+      "displayStatus": "nominated",
+      "matchedCurrentRoster": true,
+      "matchedCurrentRosterName": "Dan Burn",
+      "reason": "found-in-current-roster"
+    },
+    {
+      "owner": "Tjark",
+      "pickId": "sweden-dejan-kulusevski",
+      "playerName": "Dejan Kulusevski",
+      "teamId": "sweden",
+      "teamName": "Schweden",
+      "baselineRosterStatus": "not-nominated",
+      "currentRosterStatus": "not-nominated",
+      "displayStatus": "not-nominated",
+      "matchedCurrentRoster": false,
+      "reason": "not-found-in-current-team-roster"
+    },
+    {
+      "owner": "Tjark",
+      "pickId": "belgium-amadou-onana",
+      "playerName": "Amadou Onana",
+      "teamId": "belgium",
+      "teamName": "Belgien",
+      "baselineRosterStatus": "nominated",
+      "currentRosterStatus": "nominated",
+      "displayStatus": "nominated",
+      "matchedCurrentRoster": true,
+      "matchedCurrentRosterName": "Amadou Onana",
+      "reason": "found-in-current-roster"
+    },
+    {
+      "owner": "Tjark",
+      "pickId": "portugal-joao-felix",
+      "playerName": "Joao Felix",
+      "teamId": "portugal",
+      "teamName": "Portugal",
+      "baselineRosterStatus": "nominated",
+      "currentRosterStatus": "nominated",
+      "displayStatus": "nominated",
+      "matchedCurrentRoster": true,
+      "matchedCurrentRosterName": "João Félix",
+      "reason": "found-in-current-roster"
+    },
+    {
+      "owner": "Tjark",
+      "pickId": "uruguay-manuel-ugarte",
+      "playerName": "Manuel Ugarte",
+      "teamId": "uruguay",
+      "teamName": "Uruguay",
+      "baselineRosterStatus": "nominated",
+      "currentRosterStatus": "nominated",
+      "displayStatus": "nominated",
+      "matchedCurrentRoster": true,
+      "matchedCurrentRosterName": "Manuel Ugarte",
+      "reason": "found-in-current-roster"
+    },
+    {
+      "owner": "Tjark",
+      "pickId": "new-zealand-chris-wood",
+      "playerName": "Chris Wood",
+      "teamId": "new-zealand",
+      "teamName": "Neuseeland",
+      "baselineRosterStatus": "nominated",
+      "currentRosterStatus": "nominated",
+      "displayStatus": "nominated",
+      "matchedCurrentRoster": true,
+      "matchedCurrentRosterName": "Chris Wood",
+      "reason": "found-in-current-roster"
     }
   ],
   "summary": {
-    "nominatedCount": 109,
-    "notNominatedCount": 10,
+    "nominatedCount": 118,
+    "notNominatedCount": 11,
     "lateCallupCount": 0,
     "unknownCount": 0
   }

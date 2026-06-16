@@ -693,5 +693,60 @@ export const teams = [
         "teamId": "canada"
       }
     ]
+  },
+  {
+    "owner": "Tjark",
+    "color": "#4f46e5",
+    "players": [
+      {
+        "playerName": "Nicolas Raskin",
+        "teamId": "belgium"
+      },
+      {
+        "playerName": "Kevin Rodriguez",
+        "teamId": "ecuador",
+        "aliases": [
+          "Kevin Rodríguez"
+        ]
+      },
+      {
+        "playerName": "Ramon Sosa",
+        "teamId": "paraguay",
+        "aliases": [
+          "Ramón Sosa"
+        ]
+      },
+      {
+        "playerName": "Saleh Al-Shehri",
+        "teamId": "saudi-arabia"
+      },
+      {
+        "playerName": "Dan Burn",
+        "teamId": "england"
+      },
+      {
+        "playerName": "Dejan Kulusevski",
+        "teamId": "sweden"
+      },
+      {
+        "playerName": "Amadou Onana",
+        "teamId": "belgium"
+      },
+      {
+        "playerName": "Joao Felix",
+        "teamId": "portugal",
+        "aliases": [
+          "João Félix"
+        ]
+      },
+      {
+        "playerName": "Manuel Ugarte",
+        "teamId": "uruguay"
+      },
+      {
+        "playerName": "Chris Wood",
+        "teamId": "new-zealand"
+      }
+    ]
   }
 ] satisfies ParticipantTeam[];

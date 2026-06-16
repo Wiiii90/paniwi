@@ -12,16 +12,18 @@ Quelle: Wikipedia-Liste `2026 FIFA World Cup squads`, die laut Artikel auf den v
 
 Ergebnis in `src/config/teams.ts`:
 
-- 111 Picks: `nominated`
-- 8 Picks: `not-nominated`
+- 118 Picks: `nominated`
+- 11 Picks: `not-nominated`
 - 0 Picks: `unknown`
 
 Nicht nominierte Eintraege:
 
 - Rafael: Alexis Guendouz, Trent Alexander-Arnold, Youssef En-Nesyri
-- Felix: Youcef Atal
+- Anne: Emil Holm
+- Felix: Billy Gilmour, Youcef Atal
 - Peer: Alejandro Garnacho, Sayfallah Ltaief
 - Marco: Luis Malagon, Alejandro Romero Gamarra
+- Tjark: Dejan Kulusevski
 
 ## Nina
 
@@ -174,3 +176,16 @@ Nicht nominierte Eintraege:
 - Lucas Bergvall, Sweden
 - Ngalayel Mukau, DR Congo
 - Alphonso Davies, Canada
+
+## Tjark
+
+- Nicolas Raskin, Belgium
+- Kevin Rodriguez, Ecuador
+- Ramon Sosa, Paraguay
+- Saleh Al-Shehri, Saudi Arabia
+- Dan Burn, England
+- Dejan Kulusevski, Sweden
+- Amadou Onana, Belgium
+- Joao Felix, Portugal
+- Manuel Ugarte, Uruguay
+- Chris Wood, New Zealand
