@@ -9,11 +9,24 @@ type GoalsPageProps = {
 };
 
 type OwnershipFilter = "all" | "owned";
+type SortDirection = "asc" | "desc";
+type SortKey = "rank" | "playerName" | "nationalTeam" | "position" | "ownerLabel" | "goals";
 
 type ScorerRow = ScorerEntry & {
   position?: PlayerPosition;
   ownerLabel: string;
 };
+
+const sortLabels: Record<SortKey, string> = {
+  rank: "Pl.",
+  playerName: "Spieler",
+  nationalTeam: "Land",
+  position: "Position",
+  ownerLabel: "Besitzer",
+  goals: "Tore"
+};
+
+const pageSizeOptions = [10, 25, 50, 100];
 
 function formatPosition(position: PlayerPosition | undefined): string {
   if (position === "goalkeeper") {
@@ -73,6 +86,18 @@ function matchesSearch(row: ScorerRow, searchTerm: string): boolean {
   return haystack.includes(searchTerm);
 }
 
+function compareRows(left: ScorerRow, right: ScorerRow, sortKey: SortKey): number {
+  if (sortKey === "rank" || sortKey === "goals") {
+    return left[sortKey] - right[sortKey];
+  }
+
+  if (sortKey === "position") {
+    return formatPosition(left.position).localeCompare(formatPosition(right.position), "de");
+  }
+
+  return left[sortKey].localeCompare(right[sortKey], "de");
+}
+
 export function GoalsPage({ rosters, scorers }: GoalsPageProps) {
   const [ownershipFilter, setOwnershipFilter] = useState<OwnershipFilter>("all");
   const [ownerFilter, setOwnerFilter] = useState("all");
@@ -80,6 +105,10 @@ export function GoalsPage({ rosters, scorers }: GoalsPageProps) {
   const [countryFilter, setCountryFilter] = useState("all");
   const [minGoals, setMinGoals] = useState("");
   const [search, setSearch] = useState("");
+  const [sortKey, setSortKey] = useState<SortKey>("rank");
+  const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(25);
 
   const rows = useMemo<ScorerRow[]>(() => {
     const positionIndex = buildPositionIndex(rosters);
@@ -103,7 +132,7 @@ export function GoalsPage({ rosters, scorers }: GoalsPageProps) {
     [rows]
   );
 
-  const visibleRows = rows.filter((row) => {
+  const filteredRows = rows.filter((row) => {
     const parsedMinGoals = minGoals === "" ? 0 : Number(minGoals);
     return (
       (ownershipFilter === "all" || row.selected) &&
@@ -114,30 +143,77 @@ export function GoalsPage({ rosters, scorers }: GoalsPageProps) {
       matchesSearch(row, search.trim().toLowerCase())
     );
   });
+  const sortedRows = filteredRows.slice().sort((left, right) => {
+    const result = compareRows(left, right, sortKey);
+    if (result !== 0) {
+      return sortDirection === "asc" ? result : -result;
+    }
+
+    return left.playerName.localeCompare(right.playerName, "de") || left.nationalTeam.localeCompare(right.nationalTeam, "de");
+  });
+  const pageCount = Math.max(1, Math.ceil(sortedRows.length / pageSize));
+  const safePage = Math.min(page, pageCount);
+  const pageStart = (safePage - 1) * pageSize;
+  const pageRows = sortedRows.slice(pageStart, pageStart + pageSize);
+  const firstVisibleResult = sortedRows.length === 0 ? 0 : pageStart + 1;
+  const lastVisibleResult = Math.min(pageStart + pageSize, sortedRows.length);
+
+  function resetPage(): void {
+    setPage(1);
+  }
+
+  function updateSort(nextSortKey: SortKey): void {
+    resetPage();
+    if (nextSortKey === sortKey) {
+      setSortDirection((current) => (current === "asc" ? "desc" : "asc"));
+      return;
+    }
+
+    setSortKey(nextSortKey);
+    setSortDirection(nextSortKey === "rank" || nextSortKey === "playerName" || nextSortKey === "nationalTeam" ? "asc" : "desc");
+  }
+
+  function renderSortButton(nextSortKey: SortKey) {
+    const isActive = sortKey === nextSortKey;
+    const directionLabel = sortDirection === "asc" ? "aufsteigend" : "absteigend";
+
+    return (
+      <button
+        aria-label={`${sortLabels[nextSortKey]} sortieren${isActive ? `, aktuell ${directionLabel}` : ""}`}
+        aria-sort={isActive ? (sortDirection === "asc" ? "ascending" : "descending") : undefined}
+        className="table-sort-button"
+        onClick={() => updateSort(nextSortKey)}
+        type="button"
+      >
+        {sortLabels[nextSortKey]}
+        {isActive ? <span>{sortDirection === "asc" ? "▲" : "▼"}</span> : null}
+      </button>
+    );
+  }
 
   return (
     <section className="page-stack">
       <div className="table-card">
         <div className="table-header scorer-grid">
-          <span>Pl.</span>
-          <span>Spieler</span>
-          <span>Land</span>
-          <span>Position</span>
-          <span>Besitzer</span>
-          <span>Tore</span>
+          <span>{renderSortButton("rank")}</span>
+          <span>{renderSortButton("playerName")}</span>
+          <span>{renderSortButton("nationalTeam")}</span>
+          <span>{renderSortButton("position")}</span>
+          <span>{renderSortButton("ownerLabel")}</span>
+          <span>{renderSortButton("goals")}</span>
         </div>
         <div className="scorer-filter-row">
           <div className="segmented-control" aria-label="Besitzer-Filter">
-            <button className={ownershipFilter === "all" ? "active" : ""} onClick={() => setOwnershipFilter("all")} type="button">
+            <button className={ownershipFilter === "all" ? "active" : ""} onClick={() => { setOwnershipFilter("all"); resetPage(); }} type="button">
               Alle
             </button>
-            <button className={ownershipFilter === "owned" ? "active" : ""} onClick={() => setOwnershipFilter("owned")} type="button">
+            <button className={ownershipFilter === "owned" ? "active" : ""} onClick={() => { setOwnershipFilter("owned"); resetPage(); }} type="button">
               Mit Besitzer
             </button>
           </div>
           <label>
             Besitzer
-            <select onChange={(event) => setOwnerFilter(event.target.value)} value={ownerFilter}>
+            <select onChange={(event) => { setOwnerFilter(event.target.value); resetPage(); }} value={ownerFilter}>
               <option value="all">Alle</option>
               {owners.map((owner) => (
                 <option key={owner} value={owner}>{owner}</option>
@@ -146,7 +222,7 @@ export function GoalsPage({ rosters, scorers }: GoalsPageProps) {
           </label>
           <label>
             Position
-            <select onChange={(event) => setPositionFilter(event.target.value)} value={positionFilter}>
+            <select onChange={(event) => { setPositionFilter(event.target.value); resetPage(); }} value={positionFilter}>
               <option value="all">Alle</option>
               {positions.map((position) => (
                 <option key={position} value={position}>{formatPosition(position)}</option>
@@ -155,7 +231,7 @@ export function GoalsPage({ rosters, scorers }: GoalsPageProps) {
           </label>
           <label>
             Land
-            <select onChange={(event) => setCountryFilter(event.target.value)} value={countryFilter}>
+            <select onChange={(event) => { setCountryFilter(event.target.value); resetPage(); }} value={countryFilter}>
               <option value="all">Alle</option>
               {countries.map((country) => (
                 <option key={country} value={country}>{country}</option>
@@ -164,17 +240,43 @@ export function GoalsPage({ rosters, scorers }: GoalsPageProps) {
           </label>
           <label>
             Tore ab
-            <input min="0" onChange={(event) => setMinGoals(event.target.value)} type="number" value={minGoals} />
+            <input min="0" onChange={(event) => { setMinGoals(event.target.value); resetPage(); }} type="number" value={minGoals} />
           </label>
           <label className="scorer-search">
             Suche
-            <input onChange={(event) => setSearch(event.target.value)} placeholder="Name, Besitzer, Land..." type="search" value={search} />
+            <input onChange={(event) => { setSearch(event.target.value); resetPage(); }} placeholder="Name, Besitzer, Land..." type="search" value={search} />
           </label>
         </div>
-        {visibleRows.length === 0 ? (
+        <div className="table-navigation">
+          <span>{firstVisibleResult}-{lastVisibleResult} von {sortedRows.length}</span>
+          <label>
+            Zeilen
+            <select
+              onChange={(event) => {
+                setPageSize(Number(event.target.value));
+                resetPage();
+              }}
+              value={pageSize}
+            >
+              {pageSizeOptions.map((option) => (
+                <option key={option} value={option}>{option}</option>
+              ))}
+            </select>
+          </label>
+          <div className="table-page-buttons">
+            <button disabled={safePage <= 1} onClick={() => setPage((current) => Math.max(1, current - 1))} type="button">
+              Zurück
+            </button>
+            <span>{safePage} / {pageCount}</span>
+            <button disabled={safePage >= pageCount} onClick={() => setPage((current) => Math.min(pageCount, current + 1))} type="button">
+              Weiter
+            </button>
+          </div>
+        </div>
+        {pageRows.length === 0 ? (
           <p className="empty-state">Noch keine Torschützendaten im Snapshot.</p>
         ) : (
-          visibleRows.map((scorer) => (
+          pageRows.map((scorer) => (
             <div className="scorer-grid player-row" key={`${scorer.normalizedPlayerName}-${scorer.nationalTeam}`}>
               <strong data-label="Pl.">{scorer.rank}</strong>
               <span>
