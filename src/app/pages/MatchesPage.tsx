@@ -137,7 +137,7 @@ const initialVisibleCounts: VisibleMatchCounts = {
 };
 
 const preMatchDisplayWindowMinutes = 60;
-const recentlyFinishedDisplayWindowMinutesAfterKickoff = 180;
+const recentlyFinishedDisplayWindowMinutesAfterKickoff = 240;
 
 function isActiveMatch(match: MatchRecord, now: Date): boolean {
   if (match.status === "live") {
