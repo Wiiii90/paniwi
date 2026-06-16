@@ -123,7 +123,7 @@ export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps
 
         <a className="summary-card clickable-card" href={`${baseUrl}goals`}>
           <div className="section-heading">
-            <h2>Torschützenliste</h2>
+            <h2>Torjäger</h2>
           </div>
           <div className="mini-list">
             {topScorers.length === 0 ? (
@@ -161,7 +161,10 @@ export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps
                       {match.pointGoals.length > 0 ? ` · ${match.pointGoals.length} Panini-Tore` : ""}
                     </small>
                   </span>
-                  <span>{formatMatchScore(match)}</span>
+                  <span className="match-mini-score">
+                    {match.status === "live" ? <span aria-label="Live" className="live-dot" /> : null}
+                    {formatMatchScore(match)}
+                  </span>
                 </div>
               ))
             )}

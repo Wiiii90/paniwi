@@ -75,7 +75,10 @@ function MatchSection({ title, emptyText, matches, expanded, onToggle }: MatchSe
             <article className={`match-card match-card-${match.status}`} key={match.matchId}>
               <div className="match-card-header">
                 <span>{formatKickoff(match.kickedOffAt)}</span>
-                <strong>{formatStatus(match.status)}</strong>
+                <strong>
+                  {match.status === "live" ? <span aria-label="Live" className="live-dot" /> : null}
+                  {formatStatus(match.status)}
+                </strong>
               </div>
               <div className="match-scoreline">
                 <span>{match.homeTeam.name}</span>
