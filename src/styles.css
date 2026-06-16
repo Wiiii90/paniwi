@@ -498,7 +498,7 @@ h2 {
 }
 
 .leaderboard-grid > :nth-child(1),
-.leaderboard-grid > :nth-child(3),
+.leaderboard-grid > :nth-child(4),
 .leaderboard-grid > :nth-child(5),
 .leaderboard-grid > :nth-child(6) {
   text-align: center;
@@ -539,7 +539,7 @@ h2 {
 }
 
 .leaderboard-grid > :nth-child(1) .table-sort-button,
-.leaderboard-grid > :nth-child(3) .table-sort-button,
+.leaderboard-grid > :nth-child(4) .table-sort-button,
 .leaderboard-grid > :nth-child(5) .table-sort-button,
 .leaderboard-grid > :nth-child(6) .table-sort-button {
   justify-content: center;
