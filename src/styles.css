@@ -399,12 +399,18 @@ h2 {
   border: 1px solid rgba(215, 38, 56, 0.22);
   border-radius: 999px;
   color: var(--color-accent);
-  display: inline-flex;
+  display: inline-grid;
   flex: 0 0 auto;
-  gap: 6px;
+  font-size: 0.72rem;
+  grid-auto-flow: column;
+  grid-template-columns: 9px auto;
+  gap: 7px;
   line-height: 1;
-  padding: 3px 6px;
+  place-items: center;
+  padding: 3px 7px;
+  text-transform: uppercase;
   white-space: nowrap;
+  width: max-content;
 }
 
 .feed-strip {
