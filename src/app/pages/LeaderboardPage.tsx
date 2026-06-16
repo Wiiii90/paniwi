@@ -18,7 +18,7 @@ type LeaderboardRow = LeaderboardEntry & {
 };
 
 const sortLabels: Record<SortKey, string> = {
-  rank: "Rang",
+  rank: "Pl.",
   owner: "Spieler",
   misses: "Nieten",
   topScorer: "Toptorschütze",
@@ -150,8 +150,8 @@ export function LeaderboardPage({ goals, leaderboard, pickStatuses }: Leaderboar
         <div className="table-header leaderboard-grid">
           <span>{renderSortButton("rank")}</span>
           <span>{renderSortButton("owner")}</span>
-          <span>{renderSortButton("misses")}</span>
           <span>{renderSortButton("topScorer")}</span>
+          <span>{renderSortButton("misses")}</span>
           <span>{renderSortButton("playersWithGoals")}</span>
           <span>{renderSortButton("points")}</span>
         </div>
@@ -164,16 +164,16 @@ export function LeaderboardPage({ goals, leaderboard, pickStatuses }: Leaderboar
 
             return (
               <a className="leaderboard-grid leaderboard-row" href={`${baseUrl}team/${encodeURIComponent(entry.owner)}`} key={entry.owner}>
-                <span className="rank" data-label="Rang">{entry.rank}</span>
+                <span className="rank" data-label="Pl.">{entry.rank}</span>
                 <span className="owner">
                   {entry.owner}
                   {hasJackpot ? <img className="award-icon" src={`${baseUrl}assets/money-pot.png`} alt="Geldtopf" /> : null}
                   {hasRedLantern ? <img className="award-icon" src={`${baseUrl}assets/red-lantern.png`} alt="Rote Laterne" /> : null}
                 </span>
-                <span data-label="Nieten">{entry.misses}</span>
                 <span className="top-scorer-cell" data-label="Toptorschütze" title={entry.topScorerLabel}>
                   {entry.topScorerGoals > 0 ? `${entry.topScorerLabel} (${entry.topScorerGoals})` : "-"}
                 </span>
+                <span data-label="Nieten">{entry.misses}</span>
                 <span data-label="Torschützen">{entry.playersWithGoals}</span>
                 <strong data-label="Punkte">{entry.points}</strong>
               </a>
