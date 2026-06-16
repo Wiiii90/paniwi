@@ -15,14 +15,6 @@ type TeamPageProps = {
   rosters: RosterSnapshot;
 };
 
-function formatPosition(position: string | undefined): string {
-  if (position === "goalkeeper") {
-    return "Torwart";
-  }
-
-  return "—";
-}
-
 function formatRosterStatus(status: string | undefined): string {
   if (status === "nominated") {
     return "nominiert";
@@ -100,7 +92,6 @@ export function TeamPage({ owner, goals, matches, pickStatuses, rosters }: TeamP
         <div className="table-header player-grid">
           <span>Spieler</span>
           <span>Land</span>
-          <span>Position</span>
           <span>Kader</span>
           <span>Pts</span>
         </div>
@@ -108,7 +99,6 @@ export function TeamPage({ owner, goals, matches, pickStatuses, rosters }: TeamP
           <div className="player-grid player-row" key={`${player.name}-${player.nationalTeam}`}>
             <strong>{player.name}</strong>
             <span data-label="Land">{player.nationalTeam}</span>
-            <span className="muted" data-label="Position">{formatPosition(player.position)}</span>
             <span className={getRosterStatusClassName(player.rosterStatus)} data-label="Kader">
               {formatRosterStatus(player.rosterStatus)}
             </span>
