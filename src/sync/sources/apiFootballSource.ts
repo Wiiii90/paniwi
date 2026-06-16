@@ -94,6 +94,7 @@ type ApiFootballFixturesResponse = {
 
 const defaultBaseUrl = "https://v3.football.api-sports.io";
 const defaultRequestLimit = 90;
+const defaultLineupRequestLimit = 4;
 const worldCupLeagueId = 1;
 const worldCupSeason = 2026;
 const skippedFixtureStatuses = new Set(["NS", "TBD", "PST", "CANC", "ABD", "AWD", "WO"]);
@@ -110,6 +111,11 @@ const postMatchWindowDurationMinutes = 30;
 type SyncWindowPhase = "pre-match" | "live" | "post-match" | "settlement" | "maintenance" | "forced" | "settled";
 
 type ApiFootballRequestBudget = {
+  limit: number;
+  used: number;
+};
+
+type ApiFootballLineupRequestBudget = {
   limit: number;
   used: number;
 };
@@ -160,9 +166,30 @@ export function getApiFootballRequestLimit(env: NodeJS.ProcessEnv = process.env)
   return limit;
 }
 
+export function getApiFootballLineupRequestLimit(env: NodeJS.ProcessEnv = process.env): number {
+  const configured = getOptionalEnvValue(env.API_FOOTBALL_MAX_LINEUP_REQUESTS);
+  if (!configured) {
+    return defaultLineupRequestLimit;
+  }
+
+  const limit = Number(configured);
+  if (!Number.isInteger(limit) || limit < 0) {
+    throw new Error("API_FOOTBALL_MAX_LINEUP_REQUESTS must be zero or a positive integer.");
+  }
+
+  return limit;
+}
+
 function createRequestBudget(env: NodeJS.ProcessEnv = process.env): ApiFootballRequestBudget {
   return {
     limit: getApiFootballRequestLimit(env),
+    used: 0
+  };
+}
+
+function createLineupRequestBudget(env: NodeJS.ProcessEnv = process.env): ApiFootballLineupRequestBudget {
+  return {
+    limit: getApiFootballLineupRequestLimit(env),
     used: 0
   };
 }
@@ -173,6 +200,15 @@ function claimRequestBudget(budget: ApiFootballRequestBudget): void {
   }
 
   budget.used += 1;
+}
+
+function claimLineupRequestBudget(budget: ApiFootballLineupRequestBudget): boolean {
+  if (budget.used >= budget.limit) {
+    return false;
+  }
+
+  budget.used += 1;
+  return true;
 }
 
 function formatDateKey(date: Date): string {
@@ -612,6 +648,27 @@ async function fetchFixtureLineups(
   return body.response ?? [];
 }
 
+async function fetchOptionalFixtureLineups(
+  fixtureId: string,
+  requestBudget: ApiFootballRequestBudget,
+  lineupBudget: ApiFootballLineupRequestBudget
+): Promise<ApiFootballLineup[]> {
+  if (!claimLineupRequestBudget(lineupBudget)) {
+    return [];
+  }
+
+  try {
+    return await fetchFixtureLineups(fixtureId, process.env, requestBudget);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    if (message.includes("HTTP 429") || message.includes("request budget exhausted")) {
+      return [];
+    }
+
+    throw error;
+  }
+}
+
 async function fetchFixturesByDate(
   date: string,
   env: NodeJS.ProcessEnv = process.env,
@@ -640,7 +697,8 @@ async function fetchFixtureById(
 
 async function fetchGoalsAndMatchesForFixtureIds(
   fixtureIds: string[],
-  budget: ApiFootballRequestBudget
+  budget: ApiFootballRequestBudget,
+  lineupBudget: ApiFootballLineupRequestBudget
 ): Promise<{ goals: ExternalGoalRecord[]; fixtures: ApiFootballFixture[]; participants: ExternalMatchParticipantRecord[] }> {
   const goals: ExternalGoalRecord[] = [];
   const fixtures: ApiFootballFixture[] = [];
@@ -657,7 +715,7 @@ async function fetchGoalsAndMatchesForFixtureIds(
     goals.push(...parseApiFootballEvents(fixtureId, events, fixture ?? undefined));
     participants.push(...parseApiFootballSubstitutions(fixtureId, events));
     if (!fixture || shouldFetchFixtureLineups(fixture, phase, now)) {
-      participants.push(...parseApiFootballLineups(fixtureId, await fetchFixtureLineups(fixtureId, process.env, budget)));
+      participants.push(...parseApiFootballLineups(fixtureId, await fetchOptionalFixtureLineups(fixtureId, budget, lineupBudget)));
     }
   }
 
@@ -692,6 +750,7 @@ async function fetchFixturesForDates(dateKeys: string[], budget: ApiFootballRequ
 async function fetchGoalsAndParticipantsForFixtures(
   fixtures: ApiFootballFixture[],
   budget: ApiFootballRequestBudget,
+  lineupBudget: ApiFootballLineupRequestBudget,
   phase: SyncWindowPhase,
   now: Date
 ): Promise<{ goals: ExternalGoalRecord[]; participants: ExternalMatchParticipantRecord[] }> {
@@ -702,7 +761,7 @@ async function fetchGoalsAndParticipantsForFixtures(
     for (const fixture of fixturesWithLineups) {
       const fixtureId = getFixtureId(fixture);
       if (fixtureId) {
-        participants.push(...parseApiFootballLineups(fixtureId, await fetchFixtureLineups(fixtureId, process.env, budget)));
+        participants.push(...parseApiFootballLineups(fixtureId, await fetchOptionalFixtureLineups(fixtureId, budget, lineupBudget)));
       }
     }
 
@@ -722,7 +781,7 @@ async function fetchGoalsAndParticipantsForFixtures(
   for (const fixture of fixturesWithLineups) {
     const fixtureId = getFixtureId(fixture);
     if (fixtureId) {
-      participants.push(...parseApiFootballLineups(fixtureId, await fetchFixtureLineups(fixtureId, process.env, budget)));
+      participants.push(...parseApiFootballLineups(fixtureId, await fetchOptionalFixtureLineups(fixtureId, budget, lineupBudget)));
     }
   }
 
@@ -733,6 +792,7 @@ export const apiFootballSource: GoalSource = {
   name: "api-football",
   async fetchGoals(): Promise<GoalSourceResult> {
     const budget = createRequestBudget();
+    const lineupBudget = createLineupRequestBudget();
     const now = new Date();
     const phase = getSyncWindowPhase();
     const fixtureIds = parseCommaSeparated(process.env.API_FOOTBALL_FIXTURE_IDS);
@@ -747,7 +807,7 @@ export const apiFootballSource: GoalSource = {
     }
 
     const explicitFixtureResult =
-      fixtureIds.length > 0 ? await fetchGoalsAndMatchesForFixtureIds(fixtureIds, budget) : { goals: [], fixtures: [], participants: [] };
+      fixtureIds.length > 0 ? await fetchGoalsAndMatchesForFixtureIds(fixtureIds, budget, lineupBudget) : { goals: [], fixtures: [], participants: [] };
     const fixtures = mergeFixtures([...dateFixtures, ...explicitFixtureResult.fixtures]);
     const explicitFixtureIds = new Set(explicitFixtureResult.fixtures.map((fixture) => getFixtureId(fixture)).filter(Boolean));
     const dateResult = await fetchGoalsAndParticipantsForFixtures(
@@ -756,6 +816,7 @@ export const apiFootballSource: GoalSource = {
         return !fixtureId || !explicitFixtureIds.has(fixtureId);
       }),
       budget,
+      lineupBudget,
       phase,
       now
     );

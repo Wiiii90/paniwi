@@ -14,6 +14,7 @@ import {
   filterWorldCupFixtures,
   getApiFootballRequestLimit,
   getApiFootballDateKeys,
+  getApiFootballLineupRequestLimit,
   parseApiFootballFixture,
   parseApiFootballEvents,
   parseApiFootballLineups,
@@ -612,6 +613,10 @@ assert.deepEqual(getApiFootballDateKeys({ SYNC_WINDOW_PHASE: "settlement" }, new
 assert.equal(getApiFootballRequestLimit({}), 90);
 assert.equal(getApiFootballRequestLimit({ API_FOOTBALL_MAX_REQUESTS: "12" }), 12);
 assert.throws(() => getApiFootballRequestLimit({ API_FOOTBALL_MAX_REQUESTS: "0" }), /positive integer/);
+assert.equal(getApiFootballLineupRequestLimit({}), 4);
+assert.equal(getApiFootballLineupRequestLimit({ API_FOOTBALL_MAX_LINEUP_REQUESTS: "0" }), 0);
+assert.equal(getApiFootballLineupRequestLimit({ API_FOOTBALL_MAX_LINEUP_REQUESTS: "2" }), 2);
+assert.throws(() => getApiFootballLineupRequestLimit({ API_FOOTBALL_MAX_LINEUP_REQUESTS: "-1" }), /zero or a positive integer/);
 
 const apiFootballFixtures = [
   {
@@ -739,6 +744,7 @@ const originalEnv = {
   API_FOOTBALL_KEY: process.env.API_FOOTBALL_KEY,
   API_FOOTBALL_DATES: process.env.API_FOOTBALL_DATES,
   API_FOOTBALL_MAX_REQUESTS: process.env.API_FOOTBALL_MAX_REQUESTS,
+  API_FOOTBALL_MAX_LINEUP_REQUESTS: process.env.API_FOOTBALL_MAX_LINEUP_REQUESTS,
   API_FOOTBALL_FIXTURE_IDS: process.env.API_FOOTBALL_FIXTURE_IDS,
   SYNC_WINDOW_PHASE: process.env.SYNC_WINDOW_PHASE
 };
@@ -807,6 +813,7 @@ try {
   restoreEnvValue("API_FOOTBALL_KEY");
   restoreEnvValue("API_FOOTBALL_DATES");
   restoreEnvValue("API_FOOTBALL_MAX_REQUESTS");
+  restoreEnvValue("API_FOOTBALL_MAX_LINEUP_REQUESTS");
   restoreEnvValue("API_FOOTBALL_FIXTURE_IDS");
 }
 
@@ -836,6 +843,7 @@ try {
   restoreEnvValue("API_FOOTBALL_KEY");
   restoreEnvValue("API_FOOTBALL_DATES");
   restoreEnvValue("API_FOOTBALL_MAX_REQUESTS");
+  restoreEnvValue("API_FOOTBALL_MAX_LINEUP_REQUESTS");
   restoreEnvValue("API_FOOTBALL_FIXTURE_IDS");
   restoreEnvValue("SYNC_WINDOW_PHASE");
 }
