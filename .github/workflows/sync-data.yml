@@ -8,9 +8,9 @@ on:
   workflow_dispatch:
     inputs:
       sync_source:
-        description: "Source mode for this run: auto, mock, wikipedia, or api-football"
+        description: "Source mode for this run: api-football, wikipedia, or mock"
         required: false
-        default: "auto"
+        default: "api-football"
       force_sync:
         description: "Skip schedule gate and sync immediately"
         required: false
@@ -32,7 +32,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     env:
-      SYNC_SOURCE: ${{ github.event.inputs.sync_source || 'auto' }}
+      SYNC_SOURCE: ${{ github.event.inputs.sync_source || 'api-football' }}
       SYNC_FORCE: ${{ github.event.inputs.force_sync || 'false' }}
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
       API_FOOTBALL_DATES: ${{ vars.API_FOOTBALL_DATES }}

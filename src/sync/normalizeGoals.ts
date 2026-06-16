@@ -1,5 +1,4 @@
 import type { ExternalGoalRecord, GoalRecord } from "../domain/types";
-import { resolveGoalPlayer } from "../domain/canonicalResolver";
 import { normalizePlayerName } from "../domain/normalizePlayerName";
 
 function makeExternalGoalId(record: ExternalGoalRecord, index: number): string {
@@ -39,7 +38,7 @@ function inferTimeConfidence(record: ExternalGoalRecord) {
 
 export function normalizeGoals(records: ExternalGoalRecord[]): GoalRecord[] {
   return records.map((record, index) => {
-    const baseGoal: GoalRecord = {
+    return {
       externalGoalId: makeExternalGoalId(record, index),
       playerName: record.playerName.trim(),
       nationalTeam: record.nationalTeam.trim(),
@@ -57,15 +56,5 @@ export function normalizeGoals(records: ExternalGoalRecord[]): GoalRecord[] {
       timeConfidence: inferTimeConfidence(record),
       detail: record.detail ?? "normal"
     };
-    const player = resolveGoalPlayer(baseGoal);
-
-    return player
-      ? {
-          ...baseGoal,
-          playerId: player.playerId,
-          teamId: player.teamId,
-          playerName: player.displayName
-        }
-      : baseGoal;
   });
 }

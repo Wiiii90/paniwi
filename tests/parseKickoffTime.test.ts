@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { parseKickoffUtc } from "./parseKickoffTime";
+import { parseKickoffUtc } from "../src/sync/parseKickoffTime";
 
 const block = `{{#invoke:football box|main
 |date={{Start date|2026|6|11}}

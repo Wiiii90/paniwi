@@ -65,7 +65,13 @@ export function App() {
       {data && route.name === "goals" ? <GoalsPage goals={data.goals} scorers={data.scorers} meta={data.meta} /> : null}
       {data && route.name === "matches" ? <MatchesPage matches={data.matches} /> : null}
       {data && route.name === "team" ? (
-        <TeamPage owner={route.owner} goals={data.goals} matches={data.matches} rosters={data.rosters} />
+        <TeamPage
+          owner={route.owner}
+          goals={data.goals}
+          matches={data.matches}
+          pickStatuses={data.pickStatuses}
+          rosters={data.rosters}
+        />
       ) : null}
     </AppShell>
   );

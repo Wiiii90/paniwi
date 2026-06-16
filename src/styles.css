@@ -75,12 +75,14 @@ a {
   display: flex;
   font-size: 0.92rem;
   gap: 4px;
+  overflow-x: auto;
   padding: 4px;
 }
 
 .nav a {
   border-radius: 6px;
   padding: 8px 10px;
+  white-space: nowrap;
 }
 
 .nav a:hover {
@@ -99,6 +101,7 @@ a {
   display: flex;
   gap: 16px;
   justify-content: space-between;
+  min-height: 118px;
   padding: 20px;
 }
 
@@ -248,15 +251,20 @@ h2 {
 }
 
 .feed-strip {
-  display: grid;
+  display: flex;
   gap: 8px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  padding: 0 2px 8px;
+  scroll-padding-left: 2px;
 }
 
 .feed-chip {
   background: #f7f5ef;
   border-radius: 8px;
   display: grid;
+  flex: 0 0 min(280px, 82vw);
   gap: 4px;
   padding: 10px;
 }
@@ -278,7 +286,7 @@ h2 {
   background: #ffffff;
   display: grid;
   gap: 10px;
-  grid-template-columns: 54px minmax(0, 1fr) auto auto auto;
+  grid-template-columns: 54px minmax(0, 1fr) auto auto;
   padding: 14px;
 }
 
@@ -292,7 +300,19 @@ h2 {
 }
 
 .owner {
+  align-items: center;
+  display: inline-flex;
+  gap: 6px;
   font-weight: 800;
+  min-width: 0;
+}
+
+.award-icon {
+  display: inline-block;
+  flex: 0 0 auto;
+  height: 28px;
+  object-fit: contain;
+  width: 28px;
 }
 
 .small-stat,
@@ -304,24 +324,13 @@ h2 {
   color: #607084;
 }
 
-.lantern-badge {
-  background: #fff1f2;
-  border: 1px solid rgba(215, 38, 56, 0.28);
-  border-radius: 999px;
-  color: #b42318;
-  font-size: 0.78rem;
-  font-weight: 900;
-  padding: 5px 8px;
-  white-space: nowrap;
-}
-
-.lantern-spacer {
-  display: block;
-  min-width: 1px;
-}
-
 .roster-miss {
   color: #b42318;
+  font-weight: 700;
+}
+
+.roster-late-callup {
+  color: #0f766e;
   font-weight: 700;
 }
 
@@ -422,10 +431,35 @@ h2 {
   padding: 10px 12px;
 }
 
+.plain-button,
+.hero-action {
+  background: #ffffff;
+  border: 1px solid rgba(23, 32, 51, 0.14);
+  border-radius: 8px;
+  color: #172033;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+  padding: 9px 12px;
+}
+
+.plain-button {
+  justify-self: start;
+}
+
+.hero-action {
+  align-self: end;
+}
+
 .summary-panel,
 .empty-state {
   background: #ffffff;
   padding: 14px;
+}
+
+.match-section {
+  display: grid;
+  gap: 10px;
 }
 
 .match-card {
@@ -435,8 +469,23 @@ h2 {
   padding: 14px;
 }
 
-.match-card-header,
-.match-scoreline {
+.match-card-live {
+  border-left: 6px solid #d72638;
+}
+
+.match-card-scheduled {
+  border-left: 6px solid #607084;
+}
+
+.match-card-finished {
+  border-left: 6px solid #172033;
+}
+
+.match-card-unknown {
+  border-left: 6px solid #b45309;
+}
+
+.match-card-header {
   align-items: center;
   display: flex;
   gap: 12px;
@@ -451,26 +500,47 @@ h2 {
 }
 
 .match-scoreline {
+  align-items: center;
+  display: grid;
   font-size: 1.05rem;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) 72px minmax(0, 1fr);
+}
+
+.match-scoreline span {
+  min-width: 0;
+}
+
+.match-scoreline span:first-child {
+  text-align: right;
+}
+
+.match-scoreline span:last-child {
+  text-align: left;
 }
 
 .match-scoreline strong {
   font-size: 1.25rem;
+  text-align: center;
 }
 
-.match-scoreline-finished strong {
-  color: #0f766e;
-}
-
-.match-scoreline-live strong {
+.match-card-live .match-card-header strong,
+.match-card-live .match-scoreline strong {
   color: #d72638;
 }
 
-.match-scoreline-scheduled strong {
+.match-card-scheduled .match-card-header strong,
+.match-card-scheduled .match-scoreline strong {
   color: #64748b;
 }
 
-.match-scoreline-unknown strong {
+.match-card-finished .match-card-header strong,
+.match-card-finished .match-scoreline strong {
+  color: #172033;
+}
+
+.match-card-unknown .match-card-header strong,
+.match-card-unknown .match-scoreline strong {
   color: #b45309;
 }
 
@@ -543,24 +613,15 @@ h2 {
   }
 
   .leaderboard-row {
-    grid-template-columns: 48px 1fr auto;
+    grid-template-columns: 42px minmax(0, 1fr) auto;
   }
 
   .leaderboard-row .small-stat {
     display: none;
   }
 
-  .leaderboard-row .lantern-badge {
-    grid-column: 2 / -1;
-    justify-self: start;
-  }
-
-  .leaderboard-row .lantern-spacer {
-    display: none;
-  }
-
   .dashboard-grid,
-  .feed-strip {
+  .summary-grid {
     grid-template-columns: 1fr;
   }
 
@@ -575,9 +636,7 @@ h2 {
   }
 
   .match-scoreline {
-    align-items: stretch;
-    flex-direction: column;
-    gap: 6px;
+    grid-template-columns: minmax(0, 1fr) 58px minmax(0, 1fr);
   }
 
   .summary-grid {

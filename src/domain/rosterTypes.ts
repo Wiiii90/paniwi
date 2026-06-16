@@ -1,6 +1,8 @@
-import type { RosterStatus } from "./types";
+export type RosterStatus = "nominated" | "not-nominated" | "unknown";
 
-export type RosterPosition = "goalkeeper" | "defender" | "midfielder" | "forward" | "unknown";
+export type PlayerPosition = "goalkeeper" | "defender" | "midfielder" | "forward";
+
+export type RosterPosition = PlayerPosition | "unknown";
 
 export type RosterPlayer = {
   playerName: string;
@@ -16,18 +18,6 @@ export type RosterTeam = {
   players: RosterPlayer[];
 };
 
-export type RosterAuditEntry = {
-  owner: string;
-  playerId: string;
-  playerName: string;
-  teamId: string;
-  teamName: string;
-  suggestedRosterStatus: RosterStatus;
-  matched: boolean;
-  matchedName?: string;
-  reason: "found-in-roster" | "not-found-in-team-roster" | "team-roster-missing";
-};
-
 export type RosterSnapshot = {
   lastUpdated: string;
   source: "wikipedia";
@@ -35,10 +25,4 @@ export type RosterSnapshot = {
   teamCount: number;
   playerCount: number;
   teams: RosterTeam[];
-  audit: {
-    picks: RosterAuditEntry[];
-    nominatedCount: number;
-    notNominatedCount: number;
-    unknownCount: number;
-  };
 };

@@ -1,30 +1,26 @@
 import type { GoalRecord, LeaderboardEntry, ParticipantTeam, PlayerScore, ScoredGoal } from "./types";
-import { getCanonicalPlayer, getCanonicalTeam } from "./canonicalResolver";
+import {
+  getParticipantPickDisplayName,
+  getParticipantPickId,
+  getParticipantPickPosition
+} from "./participantPick";
 import { scoreGoalForPlayer } from "./scoring";
 import { getTeamDisplayName } from "./teamDisplay";
 import type { RosterSnapshot } from "./rosterTypes";
 
-export function scoreGoalsForTeams(teams: ParticipantTeam[], goals: GoalRecord[]): ScoredGoal[] {
+export function scoreGoalsForTeams(
+  teams: ParticipantTeam[],
+  goals: GoalRecord[],
+  rosterSnapshot?: RosterSnapshot
+): ScoredGoal[] {
   return goals.flatMap((goal) =>
     teams.flatMap((team) =>
       team.players.flatMap((player) => {
-        const scored = scoreGoalForPlayer(goal, team.owner, player);
+        const scored = scoreGoalForPlayer(goal, team.owner, player, rosterSnapshot);
         return scored ? [scored] : [];
       })
     )
   );
-}
-
-function getRosterStatusForPick(
-  rosterSnapshot: RosterSnapshot | undefined,
-  owner: string,
-  playerId: string
-): PlayerScore["rosterStatus"] {
-  if (!rosterSnapshot) {
-    return undefined;
-  }
-
-  return rosterSnapshot.audit.picks.find((entry) => entry.owner === owner && entry.playerId === playerId)?.suggestedRosterStatus;
 }
 
 export function buildPlayerScores(
@@ -33,31 +29,31 @@ export function buildPlayerScores(
   rosterSnapshot?: RosterSnapshot
 ): PlayerScore[] {
   return team.players.map((pick) => {
-    const player = getCanonicalPlayer(pick.playerId);
-    if (!player) {
-      throw new Error(`Unknown canonical playerId in team "${team.owner}": ${pick.playerId}`);
-    }
-    const canonicalTeam = getCanonicalTeam(player.teamId);
+    const pickId = getParticipantPickId(pick);
+    const playerName = getParticipantPickDisplayName(pick, rosterSnapshot);
     const playerGoals = scoredGoals.filter(
-      (goal) => goal.owner === team.owner && goal.playerId === player.playerId
+      (goal) => goal.owner === team.owner && goal.pickId === pickId
     );
 
     return {
-      name: player.displayName,
-      nationalTeam: canonicalTeam ? getTeamDisplayName(canonicalTeam) : player.teamId,
-      position: player.position,
-      rosterStatus: getRosterStatusForPick(rosterSnapshot, team.owner, player.playerId),
-      rosterNote: pick.rosterNote,
+      pickId,
+      name: playerName,
+      nationalTeam: getTeamDisplayName(pick.teamId),
+      position: getParticipantPickPosition(pick, rosterSnapshot),
       goals: playerGoals.reduce((sum, goal) => sum + goal.goals, 0),
       points: playerGoals.reduce((sum, goal) => sum + goal.points, 0)
     };
   });
 }
 
-export function buildLeaderboard(teams: ParticipantTeam[], goals: GoalRecord[]): LeaderboardEntry[] {
-  const scoredGoals = scoreGoalsForTeams(teams, goals);
+export function buildLeaderboard(
+  teams: ParticipantTeam[],
+  goals: GoalRecord[],
+  rosterSnapshot?: RosterSnapshot
+): LeaderboardEntry[] {
+  const scoredGoals = scoreGoalsForTeams(teams, goals, rosterSnapshot);
   const entries = teams.map((team) => {
-    const playerScores = buildPlayerScores(team, scoredGoals);
+    const playerScores = buildPlayerScores(team, scoredGoals, rosterSnapshot);
     const points = playerScores.reduce((sum, player) => sum + player.points, 0);
     const goalsTotal = playerScores.reduce((sum, player) => sum + player.goals, 0);
 

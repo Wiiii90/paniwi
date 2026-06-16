@@ -1,5 +1,4 @@
 import type { ScoredGoal, ScorerEntry, StaticMeta } from "../../domain/types";
-import { SyncSummary } from "../components/SyncSummary";
 import { formatGoalMinute, formatTimeConfidence } from "../formatGoal";
 
 type GoalsPageProps = {
@@ -16,13 +15,12 @@ export function GoalsPage({ goals, scorers, meta }: GoalsPageProps) {
     <section className="page-stack">
       <div className="hero-band">
         <div>
-          <p className="eyebrow">Trefferfeed</p>
-          <h1>Tore und Torschuetzen</h1>
+          <h1>Torschützenliste</h1>
         </div>
         <strong>{totalGoalCount} Treffer</strong>
       </div>
 
-      <h2>Torschuetzenliste</h2>
+      <h2>Torschützenliste</h2>
       <div className="table-card">
         <div className="table-header scorer-grid">
           <span>Rang</span>
@@ -31,7 +29,7 @@ export function GoalsPage({ goals, scorers, meta }: GoalsPageProps) {
           <span>Tore</span>
         </div>
         {scorers.length === 0 ? (
-          <p className="empty-state">Noch keine Torschuetzendaten im Snapshot.</p>
+          <p className="empty-state">Noch keine Torschützendaten im Snapshot.</p>
         ) : (
           scorers.map((scorer) => (
             <div className="scorer-grid player-row" key={`${scorer.normalizedPlayerName}-${scorer.nationalTeam}`}>
@@ -67,8 +65,6 @@ export function GoalsPage({ goals, scorers, meta }: GoalsPageProps) {
           ))
         )}
       </div>
-
-      <SyncSummary meta={meta} />
     </section>
   );
 }

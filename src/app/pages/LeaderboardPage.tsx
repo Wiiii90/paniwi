@@ -1,6 +1,4 @@
 import type { LeaderboardEntry, StaticMeta } from "../../domain/types";
-import { StatusPill } from "../components/StatusPill";
-import { SyncSummary } from "../components/SyncSummary";
 
 type LeaderboardPageProps = {
   leaderboard: LeaderboardEntry[];
@@ -19,15 +17,17 @@ function getLastPlaceOwners(leaderboard: LeaderboardEntry[]): Set<string> {
 export function LeaderboardPage({ leaderboard, meta }: LeaderboardPageProps) {
   const baseUrl = import.meta.env.BASE_URL;
   const lastPlaceOwners = getLastPlaceOwners(leaderboard);
+  const maxPoints = leaderboard.length > 0 ? Math.max(...leaderboard.map((entry) => entry.points)) : 0;
+  const jackpotOwners = new Set(leaderboard.filter((entry) => entry.points === maxPoints).map((entry) => entry.owner));
+  const totalPickedGoals = leaderboard.reduce((sum, entry) => sum + entry.points, 0);
 
   return (
     <section className="page-stack">
       <div className="hero-band compact-hero-band">
         <div>
-          <p className="eyebrow">Rangliste</p>
           <h1>Tabelle</h1>
         </div>
-        <StatusPill meta={meta} />
+        <strong>{totalPickedGoals} Punkte-Tore</strong>
       </div>
 
       <div className="leaderboard-list">
@@ -36,21 +36,23 @@ export function LeaderboardPage({ leaderboard, meta }: LeaderboardPageProps) {
         ) : (
           leaderboard.map((entry) => {
             const hasRedLantern = lastPlaceOwners.has(entry.owner);
+            const hasJackpot = jackpotOwners.has(entry.owner);
 
             return (
               <a className="leaderboard-row" href={`${baseUrl}team/${encodeURIComponent(entry.owner)}`} key={entry.owner}>
                 <span className="rank">#{entry.rank}</span>
-                <span className="owner">{entry.owner}</span>
-                <span className="small-stat">{entry.playersWithGoals} Spieler</span>
-                {hasRedLantern ? <span className="lantern-badge">Rote Laterne</span> : <span className="lantern-spacer" />}
+                <span className="owner">
+                  {entry.owner}
+                  {hasJackpot ? <img className="award-icon" src={`${baseUrl}assets/money-pot.png`} alt="Geldtopf" /> : null}
+                  {hasRedLantern ? <img className="award-icon" src={`${baseUrl}assets/red-lantern.png`} alt="Rote Laterne" /> : null}
+                </span>
+                <span className="small-stat">{entry.playersWithGoals} Torschützen</span>
                 <strong>{entry.points} Pkt.</strong>
               </a>
             );
           })
         )}
       </div>
-
-      <SyncSummary meta={meta} />
     </section>
   );
 }

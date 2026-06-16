@@ -79,8 +79,6 @@ Nicht nominierte Eintraege:
 - Emil Holm, Sweden
 - Israel Reyes, Mexico
 
-Hinweis: `Erick Sanchez, Mexico` war auf dem Foto, wurde laut `more.txt` aber gegen `Seko Fofana, Ivory Coast` getauscht.
-
 ## Caro
 
 - Nicolas Jackson, Senegal

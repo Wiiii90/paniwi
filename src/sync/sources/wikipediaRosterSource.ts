@@ -1,6 +1,6 @@
-import { canonicalTeams } from "../../config/canonical";
 import { normalizePlayerName } from "../../domain/normalizePlayerName";
-import { resolveTeamFromWikipedia } from "../../domain/canonicalResolver";
+import { deriveTeamId } from "../../domain/deriveTeamId";
+import { resolveTeamFromWikipedia } from "../../domain/teamResolver";
 import type { RosterPlayer, RosterPosition, RosterTeam } from "../../domain/rosterTypes";
 
 const defaultEndpoint = "https://en.wikipedia.org/w/api.php";
@@ -247,7 +247,7 @@ function isTerminalHeading(text: string): boolean {
 }
 
 function resolveTeamId(teamName: string): string | undefined {
-  return resolveTeamFromWikipedia(teamName)?.teamId ?? canonicalTeams.find((team) => team.displayName === teamName)?.teamId;
+  return resolveTeamFromWikipedia(teamName)?.teamId ?? deriveTeamId(teamName);
 }
 
 export function parseWikipediaSquads(wikitext: string): RosterTeam[] {

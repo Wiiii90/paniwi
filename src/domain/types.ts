@@ -1,30 +1,16 @@
+import type { PlayerPosition } from "./rosterTypes";
+
 export type GoalDetail = "normal" | "penalty" | "own-goal" | "penalty-shootout";
 
 export type SourceName = "mock" | "api-football" | "wikipedia";
 
 export type GoalTimeConfidence = "exact" | "estimated" | "match-only" | "unknown";
 
-export type RosterStatus = "nominated" | "not-nominated" | "unknown";
-
-export type CanonicalTeam = {
-  teamId: string;
-  displayName: string;
-  aliases?: string[];
-  apiFootballTeamId?: number;
-};
-
-export type CanonicalPlayer = {
-  playerId: string;
-  displayName: string;
-  teamId: string;
-  position?: "goalkeeper" | "defender" | "midfielder" | "forward";
-  aliases?: string[];
-  apiFootballPlayerId?: number;
-};
-
 export type ParticipantPick = {
-  playerId: string;
-  rosterNote?: string;
+  playerName: string;
+  teamId: string;
+  position?: PlayerPosition;
+  aliases?: string[];
 };
 
 export type ParticipantTeam = {
@@ -87,6 +73,7 @@ export type GoalRecord = Required<Pick<ExternalGoalRecord, "playerName" | "natio
 
 export type ScoredGoal = GoalRecord & {
   playerId: string;
+  pickId: string;
   teamId: string;
   owner: string;
   pickedPlayerName: string;
@@ -96,11 +83,10 @@ export type ScoredGoal = GoalRecord & {
 };
 
 export type PlayerScore = {
+  pickId: string;
   name: string;
   nationalTeam: string;
-  position?: CanonicalPlayer["position"];
-  rosterStatus?: RosterStatus;
-  rosterNote?: string;
+  position?: PlayerPosition;
   goals: number;
   points: number;
 };

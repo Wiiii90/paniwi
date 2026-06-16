@@ -1,5 +1,5 @@
 import type { GoalRecord, ParticipantTeam, ScorerEntry } from "./types";
-import { getCanonicalTeam, resolveGoalPlayer } from "./canonicalResolver";
+import { matchesParticipantPickGoal } from "./participantPick";
 import { normalizePlayerName } from "./normalizePlayerName";
 import { resolveRosterPlayerForGoal } from "./rosterResolver";
 import { getGoalPoints } from "./scoring";
@@ -10,20 +10,6 @@ type MutableScorer = Omit<ScorerEntry, "rank" | "selected"> & {
   selected: boolean;
 };
 
-function getScoringOwners(goal: GoalRecord, teams: ParticipantTeam[]): string[] {
-  const resolved = resolveGoalPlayer(goal);
-  if (!resolved) {
-    return [];
-  }
-
-  const owners = teams.flatMap((team) => {
-    const picked = team.players.some((pick) => pick.playerId === resolved.playerId);
-    return picked ? [team.owner] : [];
-  });
-
-  return [...new Set(owners)].sort((a, b) => a.localeCompare(b));
-}
-
 export function buildScorers(goals: GoalRecord[], teams: ParticipantTeam[], rosterSnapshot?: RosterSnapshot): ScorerEntry[] {
   const scorers = new Map<string, MutableScorer>();
 
@@ -32,15 +18,13 @@ export function buildScorers(goals: GoalRecord[], teams: ParticipantTeam[], rost
       continue;
     }
 
-    const resolved = resolveGoalPlayer(goal);
-    const rosterMatch = resolved ? null : resolveRosterPlayerForGoal(goal, rosterSnapshot);
-    const canonicalTeam = resolved ? getCanonicalTeam(resolved.teamId) : null;
-    const playerName = resolved?.displayName ?? rosterMatch?.player.playerName ?? goal.playerName;
-    const nationalTeam = canonicalTeam
-      ? getTeamDisplayName(canonicalTeam)
+    const rosterMatch = goal.playerId && goal.teamId ? null : resolveRosterPlayerForGoal(goal, rosterSnapshot);
+    const playerName = goal.playerId ? goal.playerName : rosterMatch?.player.playerName ?? goal.playerName;
+    const nationalTeam = goal.teamId
+      ? getTeamDisplayName(goal.teamId)
       : rosterMatch?.displayTeamName ?? resolveTeamDisplayName(goal.nationalTeam, goal.source);
     const normalizedPlayerName = normalizePlayerName(playerName);
-    const key = resolved?.playerId ?? rosterMatch?.key ?? `${normalizedPlayerName}|${goal.nationalTeam.toLowerCase()}`;
+    const key = goal.playerId ?? rosterMatch?.playerId ?? `${normalizedPlayerName}|${goal.nationalTeam.toLowerCase()}`;
     const current = scorers.get(key) ?? {
       playerName,
       normalizedPlayerName,
@@ -50,7 +34,11 @@ export function buildScorers(goals: GoalRecord[], teams: ParticipantTeam[], rost
       scoringOwners: [],
       selected: false
     };
-    const scoringOwners = getScoringOwners(goal, teams);
+    const scoringOwners = [...new Set(
+      teams.flatMap((team) =>
+        team.players.some((pick) => matchesParticipantPickGoal(goal, pick, rosterSnapshot)) ? [team.owner] : []
+      )
+    )].sort((a, b) => a.localeCompare(b));
 
     current.goals += goal.goals;
     current.penaltyGoals += goal.detail === "penalty" ? goal.goals : 0;

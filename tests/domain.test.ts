@@ -1,15 +1,15 @@
 import assert from "node:assert/strict";
-import { buildLeaderboard, scoreGoalsForTeams } from "./buildLeaderboard";
-import { buildMatches } from "./buildMatches";
-import { buildScorers } from "./buildScorers";
-import { normalizePlayerName } from "./normalizePlayerName";
-import { enrichGoalsWithRoster } from "./rosterResolver";
-import { getGoalPoints, matchesPlayer } from "./scoring";
-import { sortGoalsChronologically } from "./sortGoals";
-import { getLatestFinishedMatches, getTodayOrLiveMatches } from "./matchFilters";
-import type { GoalRecord, ParticipantTeam } from "./types";
-import type { RosterSnapshot } from "./rosterTypes";
-import { normalizeGoals } from "../sync/normalizeGoals";
+import { buildLeaderboard, scoreGoalsForTeams } from "../src/domain/buildLeaderboard";
+import { buildMatches } from "../src/domain/buildMatches";
+import { buildScorers } from "../src/domain/buildScorers";
+import { normalizePlayerName } from "../src/domain/normalizePlayerName";
+import { enrichGoalsWithRoster } from "../src/domain/rosterResolver";
+import { getGoalPoints, matchesPlayer } from "../src/domain/scoring";
+import { sortGoalsChronologically } from "../src/domain/sortGoals";
+import { getLatestFinishedMatches, getTodayOrLiveMatches } from "../src/domain/matchFilters";
+import type { GoalRecord, ParticipantTeam } from "../src/domain/types";
+import type { RosterSnapshot } from "../src/domain/rosterTypes";
+import { normalizeGoals } from "../src/sync/normalizeGoals";
 import {
   filterWorldCupFixtures,
   getApiFootballRequestLimit,
@@ -17,21 +17,22 @@ import {
   parseApiFootballFixture,
   parseApiFootballEvents,
   shouldFetchFixtureEvents
-} from "../sync/sources/apiFootballSource";
-import { apiFootballSource } from "../sync/sources/apiFootballSource";
-import { getSourcesForMode, parseSyncSourceMode } from "../sync/sources/sourceSelection";
-import { parseWikipediaFootballBoxes, parseWikipediaGoalscorers } from "../sync/sources/wikipediaSource";
-import { buildSourceErrorMeta, mergeGoalSnapshots } from "../sync/syncGoals";
-import { formatCanonicalValidationIssues, validateCanonicalData } from "../sync/validateCanonicalData";
-import { validateGoals } from "../sync/validateGoals";
-import { formatTeamValidationIssues, validateTeams } from "../sync/validateTeams";
+} from "../src/sync/sources/apiFootballSource";
+import { apiFootballSource } from "../src/sync/sources/apiFootballSource";
+import { getSourcesForMode, parseSyncSourceMode } from "../src/sync/sources/sourceSelection";
+import { parseWikipediaFootballBoxes, parseWikipediaGoalscorers } from "../src/sync/sources/wikipediaSource";
+import { buildSourceErrorMeta, mergeGoalSnapshots } from "../src/sync/syncGoals";
+import { validateGoals } from "../src/sync/validateGoals";
+import { formatTeamValidationIssues, validateTeams } from "../src/sync/validateTeams";
 
 const teams: ParticipantTeam[] = [
   {
     owner: "Anna",
     players: [
       {
-        playerId: "sweden-alexander-isak"
+        playerName: "Alexander Isak",
+        teamId: "sweden",
+        aliases: ["A. Isak"]
       }
     ]
   },
@@ -39,7 +40,8 @@ const teams: ParticipantTeam[] = [
     owner: "Ben",
     players: [
       {
-        playerId: "germany-felix-nmecha"
+        playerName: "Felix Nmecha",
+        teamId: "germany"
       }
     ]
   }
@@ -83,13 +85,43 @@ const rosterSnapshot: RosterSnapshot = {
         }
       ]
     }
-  ],
-  audit: {
-    picks: [],
-    nominatedCount: 0,
-    notNominatedCount: 0,
-    unknownCount: 0
-  }
+  ]
+};
+
+const apiResolverRosterSnapshot: RosterSnapshot = {
+  lastUpdated: "2026-06-16T00:00:00.000Z",
+  source: "wikipedia",
+  pageTitle: "2026 FIFA World Cup squads",
+  teamCount: 2,
+  playerCount: 2,
+  teams: [
+    {
+      teamName: "Egypt",
+      teamId: "egypt",
+      players: [
+        {
+          playerName: "Mohamed Hany",
+          normalizedPlayerName: "mohamed hany",
+          position: "defender",
+          shirtNumber: 4,
+          sourceName: "Mohamed Hany"
+        }
+      ]
+    },
+    {
+      teamName: "Saudi Arabia",
+      teamId: "saudi-arabia",
+      players: [
+        {
+          playerName: "Abdulelah Al-Amri",
+          normalizedPlayerName: "abdulelah al amri",
+          position: "defender",
+          shirtNumber: 4,
+          sourceName: "Abdulelah Al-Amri"
+        }
+      ]
+    }
+  ]
 };
 
 assert.equal(normalizePlayerName("Kylian Mbappé"), "kylian mbappe");
@@ -137,7 +169,7 @@ const parsedMatches = buildMatches(
 );
 assert.deepEqual(
   [parsedMatches[0].homeTeam.name, parsedMatches[0].homeTeam.score, parsedMatches[0].awayTeam.name, parsedMatches[0].awayTeam.score],
-  ["Elfenbeinkueste", 1, "Ecuador", 0]
+  ["Elfenbeinküste", 1, "Ecuador", 0]
 );
 
 const fixtureGoal = { ...baseGoal, matchId: "api-football:fixture-with-goal", fixtureId: "fixture-with-goal" };
@@ -310,6 +342,39 @@ assert.deepEqual(
   ["Yasin Ayari", "Yasin Ayari"]
 );
 assert.deepEqual(
+  enrichGoalsWithRoster(
+    [
+      {
+        ...baseGoal,
+        externalGoalId: "egypt-own-goal",
+        playerName: "M. Hany",
+        nationalTeam: "Belgium",
+        sourcePlayerName: "M. Hany",
+        sourceTeamName: "Belgium",
+        source: "api-football",
+        detail: "own-goal",
+        matchLabel: "Belgium 1-1 Egypt"
+      },
+      {
+        ...baseGoal,
+        externalGoalId: "saudi-goal",
+        playerName: "A. Al Amri",
+        nationalTeam: "Saudi Arabia",
+        sourcePlayerName: "A. Al Amri",
+        sourceTeamName: "Saudi Arabia",
+        source: "api-football",
+        matchLabel: "Saudi Arabia 1-0 Uruguay"
+      }
+    ],
+    apiResolverRosterSnapshot,
+    { strictSources: ["api-football"] }
+  ).map((goal) => [goal.playerName, goal.nationalTeam, goal.teamId, goal.detail]),
+  [
+    ["Mohamed Hany", "Egypt", "egypt", "own-goal"],
+    ["Abdulelah Al-Amri", "Saudi Arabia", "saudi-arabia", "normal"]
+  ]
+);
+assert.deepEqual(
   buildScorers(apiAbbreviatedRosterGoals, teams, rosterSnapshot).map((scorer) => [
     scorer.playerName,
     scorer.nationalTeam,
@@ -331,15 +396,15 @@ assert.deepEqual(
 );
 
 assert.equal(parseSyncSourceMode(undefined), "mock");
-assert.equal(parseSyncSourceMode("auto"), "auto");
 assert.equal(parseSyncSourceMode("nope"), "mock");
-assert.deepEqual(
-  getSourcesForMode("auto").map((source) => source.name),
-  ["api-football", "wikipedia", "mock"]
-);
+assert.equal(parseSyncSourceMode("api-football"), "api-football");
 assert.deepEqual(
   getSourcesForMode("mock").map((source) => source.name),
   ["mock"]
+);
+assert.deepEqual(
+  getSourcesForMode("api-football").map((source) => source.name),
+  ["api-football"]
 );
 
 const wikipediaGoals = parseWikipediaGoalscorers(
@@ -751,21 +816,21 @@ assert.deepEqual(
 
 assert.deepEqual(validateTeams(teams), { valid: false, issues: [{ owner: "Anna", reason: "invalid-team-size" }, { owner: "Ben", reason: "invalid-team-size" }] });
 
-const validPlayerIds = [
-  "sweden-alexander-isak",
-  "germany-felix-nmecha",
-  "brazil-vinicius-junior",
-  "australia-nestory-irankunda",
-  "spain-fabian-ruiz",
-  "portugal-bruno-fernandes",
-  "england-jude-bellingham",
-  "morocco-achraf-hakimi",
-  "canada-jonathan-david",
-  "mexico-edson-alvarez"
+const validPlayers = [
+  { playerName: "Player One", teamId: "sweden" },
+  { playerName: "Player Two", teamId: "germany" },
+  { playerName: "Player Three", teamId: "brazil" },
+  { playerName: "Player Four", teamId: "australia" },
+  { playerName: "Player Five", teamId: "spain" },
+  { playerName: "Player Six", teamId: "portugal" },
+  { playerName: "Player Seven", teamId: "england" },
+  { playerName: "Player Eight", teamId: "morocco" },
+  { playerName: "Player Nine", teamId: "canada" },
+  { playerName: "Player Ten", teamId: "mexico" }
 ];
 const validTeam: ParticipantTeam = {
   owner: "Valid",
-  players: validPlayerIds.map((playerId) => ({ playerId }))
+  players: validPlayers
 };
 assert.equal(validateTeams([validTeam]).valid, true);
 assert.equal(
@@ -773,8 +838,8 @@ assert.equal(
     {
       owner: "ValidWithGoalkeeper",
       players: [
-        { playerId: "scotland-angus-gunn" },
-        ...validPlayerIds.map((playerId) => ({ playerId }))
+        { playerName: "Goalkeeper One", teamId: "scotland", position: "goalkeeper" },
+        ...validPlayers
       ]
     }
   ]).valid,
@@ -784,7 +849,7 @@ assert.equal(
   validateTeams([
     {
       ...validTeam,
-      players: [{ playerId: "scotland-angus-gunn" }, ...validTeam.players.slice(1)]
+      players: [{ playerName: "Goalkeeper One", teamId: "scotland", position: "goalkeeper" }, ...validTeam.players.slice(1)]
     }
   ]).issues.some((issue) => issue.reason === "ten-player-team-cannot-include-goalkeeper"),
   true
@@ -796,47 +861,18 @@ const invalidTeams = validateTeams([
   {
     owner: "Broken",
     players: [
-      { playerId: "" },
-      { playerId: "unknown-player" },
-      { playerId: "sweden-alexander-isak" },
-      { playerId: "sweden-alexander-isak" }
+      { playerName: "", teamId: "sweden" },
+      { playerName: "Ghost Player", teamId: "unknown-team" },
+      { playerName: "Repeat Player", teamId: "sweden" },
+      { playerName: "Repeat Player", teamId: "sweden" }
     ]
   }
 ]);
 assert.equal(invalidTeams.valid, false);
 assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("duplicate-owner"), true);
-assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("missing-player-id"), true);
-assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("unknown-player-id"), true);
+assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("missing-player-name"), true);
+assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("unknown-team-id"), true);
 assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("duplicate-player-id-in-team"), true);
-
-const canonicalValidation = validateCanonicalData();
-assert.equal(
-  canonicalValidation.valid,
-  true,
-  `Canonical model should be valid: ${formatCanonicalValidationIssues(canonicalValidation.issues)}`
-);
-const invalidCanonical = validateCanonicalData(
-  [
-    { teamId: "alpha", displayName: "Alpha" },
-    { teamId: "alpha", displayName: "Alpha Duplicate" },
-    { teamId: "beta", displayName: "Beta", aliases: ["Alpha"] }
-  ],
-  [
-    { playerId: "alpha-player", displayName: "Player One", teamId: "alpha", apiFootballPlayerId: 7 },
-    { playerId: "alpha-player", displayName: "Player One Copy", teamId: "alpha" },
-    { playerId: "api-duplicate-player", displayName: "Player Two", teamId: "alpha", apiFootballPlayerId: 7 },
-    { playerId: "ghost-player", displayName: "Ghost", teamId: "ghost" },
-    { playerId: "alias-player", displayName: "Another", teamId: "alpha", aliases: ["Player One"] }
-  ]
-);
-const invalidCanonicalMessage = formatCanonicalValidationIssues(invalidCanonical.issues);
-assert.equal(invalidCanonical.valid, false);
-assert.equal(invalidCanonicalMessage.includes("duplicate-team-id"), true);
-assert.equal(invalidCanonicalMessage.includes("duplicate-team-name-key"), true);
-assert.equal(invalidCanonicalMessage.includes("duplicate-player-id"), true);
-assert.equal(invalidCanonicalMessage.includes("duplicate-api-football-player-id"), true);
-assert.equal(invalidCanonicalMessage.includes("unknown-player-team-id"), true);
-assert.equal(invalidCanonicalMessage.includes("duplicate-player-name-key-in-team"), true);
 
 assert.deepEqual(
   buildSourceErrorMeta(

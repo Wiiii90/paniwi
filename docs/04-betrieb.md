@@ -21,7 +21,7 @@ Lokale Ports:
 
 Wichtige Variablen:
 
-- `SYNC_SOURCE`: `mock`, `auto`, `wikipedia` oder `api-football`
+- `SYNC_SOURCE`: `mock`, `wikipedia` oder `api-football`
 - `WIKIPEDIA_GOALS_PAGE`: Wikipedia-Seite fuer den Wikitext-Prototyp
 - `WIKIPEDIA_ROSTERS_PAGE`: Wikipedia-Seite fuer den manuellen Kader-Snapshot
 - `API_FOOTBALL_KEY`: API-Football-Key
@@ -39,9 +39,9 @@ Wichtige Variablen:
 
 `sync-data.yml` aktualisiert `public/data/*.json` nur in definierten Turnier-Fenstern, prueft Tests und Build und committet nur geaenderte Snapshots. Wenn sich Daten aendern, deployed dieser Workflow Pages direkt mit, weil Daten-Commits aus `GITHUB_TOKEN` keinen separaten Push-Deploy zuverlaessig ausloesen.
 
-`sync-rosters.yml` aktualisiert manuell `public/data/rosters.json` per MediaWiki-Kaderseite. Dieser Snapshot ist ein Review-Artefakt fuer `rosterStatus` und laeuft getrennt vom Tore-Sync.
+`sync-rosters.yml` aktualisiert manuell `public/data/rosters.json` per MediaWiki-Kaderseite und leitet daraus `public/data/pick-statuses.json` ab. `rosters.json` ist die Turnierwahrheit, `pick-statuses.json` der Teilnehmerstatus. Beides laeuft getrennt vom Tore-Sync.
 
-**Aktuell:** `SYNC_SOURCE=auto` (api-football -> wikipedia -> mock). Details: `docs/03-datenstrategie.md`
+**Aktuell:** `sync-data.yml` nutzt `SYNC_SOURCE=api-football`. Details: `docs/03-datenstrategie.md`
 
 ### Sync-Rhythmus
 
@@ -52,7 +52,7 @@ Der automatische Sync orientiert sich am **Spielplan**, nicht an festen Tageszei
   - +15 Minuten
   - +60 Minuten
   - +120 Minuten
-- Jedes Fenster ist 30 Minuten breit; GitHub Actions pollt alle 15 Minuten, ruft Wikipedia aber **nur innerhalb eines Fensters** auf
+- Jedes Fenster ist 30 Minuten breit; GitHub Actions prueft alle 15 Minuten, ruft externe Daten aber **nur innerhalb eines Fensters** ab
 - Pro Fenster maximal **1** Sync, wenn sich der Snapshot nicht aendert
 - Nach dem letzten bekannten Gruppenphasenfenster gibt es bis Turnierende alle 6 Stunden ein 30-Minuten-Wartungsfenster, damit K.o.-Runden-Fixtures per API-Football automatisch in den Snapshot kommen
 
@@ -80,7 +80,7 @@ Lokal:
 
 ```powershell
 $env:SYNC_FORCE="true"
-$env:SYNC_SOURCE="auto"
+$env:SYNC_SOURCE="api-football"
 npm run sync:scheduled
 ```
 
@@ -92,7 +92,7 @@ Aktuell bewusst **kein** Live-Push von FIFA oder Drittanbietern. Gruende:
 - Wikipedia-API bleibt die eine legale Quelle
 - fuer eine Freundes-Liga reichen 3 Checks nach Spielende
 
-API-Football ist die Primaerquelle; Wikipedia bleibt Fallback (`docs/03-datenstrategie.md`).
+API-Football ist die regulaere Live-Quelle. Wikipedia laeuft getrennt fuer Roster-Imports (`docs/03-datenstrategie.md`).
 
 ### Wikipedia / API-Etikette
 

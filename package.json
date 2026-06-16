@@ -13,10 +13,10 @@
     "sync:rosters": "tsx src/sync/syncRosters.ts",
     "sync:export-kickoffs": "tsx src/sync/exportKickoffs.ts",
     "test": "npm run test:domain && npm run test:snapshots && npm run test:schedule && npm run test:rosters",
-    "test:schedule": "tsx src/sync/syncSchedule.test.ts && tsx src/sync/parseKickoffTime.test.ts",
-    "test:domain": "tsx src/domain/domain.test.ts",
-    "test:snapshots": "tsx src/sync/staticData.test.ts",
-    "test:rosters": "tsx src/sync/syncRosters.test.ts"
+    "test:schedule": "tsx tests/syncSchedule.test.ts && tsx tests/parseKickoffTime.test.ts",
+    "test:domain": "tsx tests/domain.test.ts",
+    "test:snapshots": "tsx tests/staticData.test.ts",
+    "test:rosters": "tsx tests/syncRosters.test.ts"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.6.0",

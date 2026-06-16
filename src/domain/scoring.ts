@@ -1,6 +1,13 @@
-import { getCanonicalPlayer, getCanonicalTeam, resolveGoalPlayer } from "./canonicalResolver";
+import {
+  getParticipantPickDisplayName,
+  getParticipantPickId,
+  getParticipantPickResolvedPlayerId,
+  matchesParticipantPickGoal
+} from "./participantPick";
 import { getTeamDisplayName } from "./teamDisplay";
+import { resolveGoalTeamId } from "./teamResolver";
 import type { GoalRecord, ParticipantPick, ScoredGoal } from "./types";
+import type { RosterSnapshot } from "./rosterTypes";
 
 export function getGoalPoints(goal: GoalRecord): number {
   if (goal.detail === "own-goal" || goal.detail === "penalty-shootout") {
@@ -10,14 +17,18 @@ export function getGoalPoints(goal: GoalRecord): number {
   return goal.goals;
 }
 
-export function matchesPlayer(goal: GoalRecord, pick: ParticipantPick): boolean {
-  return resolveGoalPlayer(goal)?.playerId === pick.playerId;
+export function matchesPlayer(goal: GoalRecord, pick: ParticipantPick, rosterSnapshot?: RosterSnapshot): boolean {
+  return matchesParticipantPickGoal(goal, pick, rosterSnapshot);
 }
 
-export function scoreGoalForPlayer(goal: GoalRecord, owner: string, pick: ParticipantPick): ScoredGoal | null {
-  const player = getCanonicalPlayer(pick.playerId);
-  const team = player ? getCanonicalTeam(player.teamId) : null;
-  if (!player || !matchesPlayer(goal, pick)) {
+export function scoreGoalForPlayer(
+  goal: GoalRecord,
+  owner: string,
+  pick: ParticipantPick,
+  rosterSnapshot?: RosterSnapshot
+): ScoredGoal | null {
+  const goalTeamId = resolveGoalTeamId(goal);
+  if (!goalTeamId || !matchesPlayer(goal, pick, rosterSnapshot)) {
     return null;
   }
 
@@ -28,12 +39,13 @@ export function scoreGoalForPlayer(goal: GoalRecord, owner: string, pick: Partic
 
   return {
     ...goal,
-    playerId: player.playerId,
-    teamId: player.teamId,
+    playerId: goal.playerId ?? getParticipantPickResolvedPlayerId(pick, rosterSnapshot),
+    teamId: goal.teamId ?? goalTeamId,
+    pickId: getParticipantPickId(pick),
     owner,
-    pickedPlayerName: player.displayName,
-    displayPlayerName: player.displayName,
-    displayNationalTeam: team ? getTeamDisplayName(team) : goal.nationalTeam,
+    pickedPlayerName: getParticipantPickDisplayName(pick, rosterSnapshot),
+    displayPlayerName: goal.playerId ? goal.playerName : getParticipantPickDisplayName(pick, rosterSnapshot),
+    displayNationalTeam: getTeamDisplayName(goalTeamId, goal.nationalTeam),
     points
   };
 }

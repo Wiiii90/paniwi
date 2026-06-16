@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
-import type { StaticMeta } from "../domain/types";
-import { evaluateSyncWindow } from "./evaluateSyncWindow";
-import { buildSyncWindowsForKickoff, getActiveSyncWindow, getLastScheduledWindow, syncPolicy } from "./syncSchedule";
+import type { StaticMeta } from "../src/domain/types";
+import { evaluateSyncWindow } from "../src/sync/evaluateSyncWindow";
+import { buildSyncWindowsForKickoff, getActiveSyncWindow, getLastScheduledWindow, syncPolicy } from "../src/sync/syncSchedule";
 
 const sampleKickoff = {
   id: "sample:brazil-morocco:2026-06-13T16:00:00.000Z",

@@ -9,7 +9,7 @@
       "score": 2
     },
     "awayTeam": {
-      "name": "Suedafrika",
+      "name": "Südafrika",
       "score": 0
     },
     "goals": [
@@ -27,7 +27,8 @@
         "minute": 9,
         "timeConfidence": "estimated",
         "detail": "normal",
-        "teamId": "mexico"
+        "teamId": "mexico",
+        "playerId": "mexico-julian-quinones"
       },
       {
         "externalGoalId": "wikipedia:2026 fifa world cup group a:mexico-south africa:2026-06-11T19:00:00.000Z:raul jimenez:67:normal",
@@ -43,7 +44,8 @@
         "minute": 67,
         "timeConfidence": "estimated",
         "detail": "normal",
-        "teamId": "mexico"
+        "teamId": "mexico",
+        "playerId": "mexico-raul-jimenez"
       }
     ],
     "pointGoals": [],
@@ -55,7 +57,7 @@
     "kickedOffAt": "2026-06-12T02:00:00.000Z",
     "status": "finished",
     "homeTeam": {
-      "name": "Suedkorea",
+      "name": "Südkorea",
       "score": 2
     },
     "awayTeam": {
@@ -77,7 +79,8 @@
         "minute": 59,
         "timeConfidence": "estimated",
         "detail": "normal",
-        "teamId": "czech-republic"
+        "teamId": "czech-republic",
+        "playerId": "czech-republic-ladislav-krejci"
       },
       {
         "externalGoalId": "wikipedia:2026 fifa world cup group a:south korea-czech republic:2026-06-12T02:00:00.000Z:hwang in beom:67:normal",
@@ -93,7 +96,8 @@
         "minute": 67,
         "timeConfidence": "estimated",
         "detail": "normal",
-        "teamId": "south-korea"
+        "teamId": "south-korea",
+        "playerId": "south-korea-hwang-in-beom"
       },
       {
         "externalGoalId": "wikipedia:2026 fifa world cup group a:south korea-czech republic:2026-06-12T02:00:00.000Z:oh hyeon gyu:80:normal",
@@ -109,7 +113,8 @@
         "minute": 80,
         "timeConfidence": "estimated",
         "detail": "normal",
-        "teamId": "south-korea"
+        "teamId": "south-korea",
+        "playerId": "south-korea-oh-hyeon-gyu"
       }
     ],
     "pointGoals": [],
@@ -143,7 +148,8 @@
         "minute": 21,
         "timeConfidence": "estimated",
         "detail": "normal",
-        "teamId": "bosnia-and-herzegovina"
+        "teamId": "bosnia-and-herzegovina",
+        "playerId": "bosnia-and-herzegovina-jovo-lukic"
       },
       {
         "externalGoalId": "wikipedia:2026 fifa world cup group b:canada-bosnia and herzegovina:2026-06-12T19:00:00.000Z:cyle larin:78:normal",
@@ -159,7 +165,8 @@
         "minute": 78,
         "timeConfidence": "estimated",
         "detail": "normal",
-        "teamId": "canada"
+        "teamId": "canada",
+        "playerId": "canada-cyle-larin"
       }
     ],
     "pointGoals": [],
@@ -181,7 +188,7 @@
     "goals": [
       {
         "externalGoalId": "wikipedia:2026 fifa world cup group d:united states-paraguay:2026-06-13T01:00:00.000Z:damian bobadilla:7:own-goal",
-        "playerName": "Damian Bobadilla",
+        "playerName": "Damián Bobadilla",
         "nationalTeam": "Paraguay",
         "sourcePlayerName": "Damián Bobadilla",
         "sourceTeamName": "Paraguay",
@@ -210,7 +217,8 @@
         "minute": 31,
         "timeConfidence": "estimated",
         "detail": "normal",
-        "teamId": "united-states"
+        "teamId": "united-states",
+        "playerId": "united-states-folarin-balogun"
       },
       {
         "externalGoalId": "wikipedia:2026 fifa world cup group d:united states-paraguay:2026-06-13T01:00:00.000Z:mauricio footballer born 2001:73:normal",
@@ -226,7 +234,8 @@
         "minute": 73,
         "timeConfidence": "estimated",
         "detail": "normal",
-        "teamId": "paraguay"
+        "teamId": "paraguay",
+        "playerId": "paraguay-mauricio"
       },
       {
         "externalGoalId": "wikipedia:2026 fifa world cup group d:united states-paraguay:2026-06-13T01:00:00.000Z:giovanni reyna:98:normal",
@@ -242,7 +251,8 @@
         "minute": 98,
         "timeConfidence": "estimated",
         "detail": "normal",
-        "teamId": "united-states"
+        "teamId": "united-states",
+        "playerId": "united-states-giovanni-reyna"
       }
     ],
     "pointGoals": [],
@@ -276,7 +286,8 @@
         "minute": 17,
         "timeConfidence": "estimated",
         "detail": "penalty",
-        "teamId": "switzerland"
+        "teamId": "switzerland",
+        "playerId": "switzerland-breel-embolo"
       },
       {
         "externalGoalId": "wikipedia:2026 fifa world cup group b:qatar-switzerland:2026-06-13T19:00:00.000Z:miro muheim:94:own-goal",
@@ -291,7 +302,9 @@
         "kickedOffAt": "2026-06-13T19:00:00.000Z",
         "minute": 94,
         "timeConfidence": "estimated",
-        "detail": "own-goal"
+        "detail": "own-goal",
+        "teamId": "switzerland",
+        "playerId": "switzerland-miro-muheim"
       }
     ],
     "pointGoals": [],
@@ -325,11 +338,12 @@
         "minute": 21,
         "timeConfidence": "estimated",
         "detail": "normal",
-        "teamId": "morocco"
+        "teamId": "morocco",
+        "playerId": "morocco-ismael-saibari"
       },
       {
         "externalGoalId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T22:00:00.000Z:vinicius junior:32:normal",
-        "playerName": "Vinicius Junior",
+        "playerName": "Vinícius Júnior",
         "nationalTeam": "Brazil",
         "sourcePlayerName": "Vinícius Júnior",
         "sourceTeamName": "Brazil",
@@ -348,7 +362,7 @@
     "pointGoals": [
       {
         "externalGoalId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T22:00:00.000Z:vinicius junior:32:normal",
-        "playerName": "Vinicius Junior",
+        "playerName": "Vinícius Júnior",
         "nationalTeam": "Brazil",
         "sourcePlayerName": "Vinícius Júnior",
         "sourceTeamName": "Brazil",
@@ -362,9 +376,10 @@
         "detail": "normal",
         "playerId": "brazil-vinicius-junior",
         "teamId": "brazil",
+        "pickId": "brazil-vinicius-junior",
         "owner": "Felix",
-        "pickedPlayerName": "Vinicius Junior",
-        "displayPlayerName": "Vinicius Junior",
+        "pickedPlayerName": "Vinícius Júnior",
+        "displayPlayerName": "Vinícius Júnior",
         "displayNationalTeam": "Brasilien",
         "points": 1
       }
@@ -401,7 +416,8 @@
         "minute": 28,
         "timeConfidence": "estimated",
         "detail": "normal",
-        "teamId": "scotland"
+        "teamId": "scotland",
+        "playerId": "scotland-john-mcginn"
       }
     ],
     "pointGoals": [],
@@ -417,7 +433,7 @@
       "score": 2
     },
     "awayTeam": {
-      "name": "Tuerkei",
+      "name": "Türkei",
       "score": 0
     },
     "goals": [
@@ -452,7 +468,8 @@
         "minute": 75,
         "timeConfidence": "estimated",
         "detail": "normal",
-        "teamId": "australia"
+        "teamId": "australia",
+        "playerId": "australia-connor-metcalfe"
       }
     ],
     "pointGoals": [
@@ -472,6 +489,7 @@
         "detail": "normal",
         "playerId": "australia-nestory-irankunda",
         "teamId": "australia",
+        "pickId": "australia-nestory-irankunda",
         "owner": "Marco",
         "pickedPlayerName": "Nestory Irankunda",
         "displayPlayerName": "Nestory Irankunda",
@@ -528,7 +546,8 @@
         "minute": 21,
         "timeConfidence": "estimated",
         "detail": "normal",
-        "teamId": "curacao"
+        "teamId": "curacao",
+        "playerId": "curacao-livano-comenencia"
       },
       {
         "externalGoalId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z:nico schlotterbeck:38:normal",
@@ -544,7 +563,8 @@
         "minute": 38,
         "timeConfidence": "estimated",
         "detail": "normal",
-        "teamId": "germany"
+        "teamId": "germany",
+        "playerId": "germany-nico-schlotterbeck"
       },
       {
         "externalGoalId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z:jamal musiala:47:normal",
@@ -560,7 +580,8 @@
         "minute": 47,
         "timeConfidence": "estimated",
         "detail": "normal",
-        "teamId": "germany"
+        "teamId": "germany",
+        "playerId": "germany-jamal-musiala"
       },
       {
         "externalGoalId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z:kai havertz:50:penalty",
@@ -576,7 +597,8 @@
         "minute": 50,
         "timeConfidence": "estimated",
         "detail": "penalty",
-        "teamId": "germany"
+        "teamId": "germany",
+        "playerId": "germany-kai-havertz"
       },
       {
         "externalGoalId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z:nathaniel brown footballer:68:normal",
@@ -592,7 +614,8 @@
         "minute": 68,
         "timeConfidence": "estimated",
         "detail": "normal",
-        "teamId": "germany"
+        "teamId": "germany",
+        "playerId": "germany-nathaniel-brown"
       },
       {
         "externalGoalId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z:deniz undav:78:normal",
@@ -608,7 +631,8 @@
         "minute": 78,
         "timeConfidence": "estimated",
         "detail": "normal",
-        "teamId": "germany"
+        "teamId": "germany",
+        "playerId": "germany-deniz-undav"
       }
     ],
     "pointGoals": [
@@ -628,6 +652,7 @@
         "detail": "normal",
         "playerId": "germany-felix-nmecha",
         "teamId": "germany",
+        "pickId": "germany-felix-nmecha",
         "owner": "Nina",
         "pickedPlayerName": "Felix Nmecha",
         "displayPlayerName": "Felix Nmecha",
@@ -650,6 +675,7 @@
         "detail": "normal",
         "playerId": "germany-felix-nmecha",
         "teamId": "germany",
+        "pickId": "germany-felix-nmecha",
         "owner": "Willi",
         "pickedPlayerName": "Felix Nmecha",
         "displayPlayerName": "Felix Nmecha",
@@ -690,7 +716,8 @@
         "minute": 50,
         "timeConfidence": "estimated",
         "detail": "normal",
-        "teamId": "netherlands"
+        "teamId": "netherlands",
+        "playerId": "netherlands-virgil-van-dijk"
       },
       {
         "externalGoalId": "wikipedia:2026 fifa world cup group f:netherlands-japan:2026-06-14T20:00:00.000Z:keito nakamura:57:normal",
@@ -705,7 +732,9 @@
         "kickedOffAt": "2026-06-14T20:00:00.000Z",
         "minute": 57,
         "timeConfidence": "estimated",
-        "detail": "normal"
+        "detail": "normal",
+        "teamId": "japan",
+        "playerId": "japan-keito-nakamura"
       },
       {
         "externalGoalId": "wikipedia:2026 fifa world cup group f:netherlands-japan:2026-06-14T20:00:00.000Z:crysencio summerville:64:normal",
@@ -721,7 +750,8 @@
         "minute": 64,
         "timeConfidence": "estimated",
         "detail": "normal",
-        "teamId": "netherlands"
+        "teamId": "netherlands",
+        "playerId": "netherlands-crysencio-summerville"
       },
       {
         "externalGoalId": "wikipedia:2026 fifa world cup group f:netherlands-japan:2026-06-14T20:00:00.000Z:daichi kamada:88:normal",
@@ -736,7 +766,9 @@
         "kickedOffAt": "2026-06-14T20:00:00.000Z",
         "minute": 88,
         "timeConfidence": "estimated",
-        "detail": "normal"
+        "detail": "normal",
+        "teamId": "japan",
+        "playerId": "japan-daichi-kamada"
       }
     ],
     "pointGoals": [],
@@ -748,7 +780,7 @@
     "kickedOffAt": "2026-06-14T23:00:00.000Z",
     "status": "finished",
     "homeTeam": {
-      "name": "Elfenbeinkueste",
+      "name": "Elfenbeinküste",
       "score": 1
     },
     "awayTeam": {
@@ -759,7 +791,7 @@
       {
         "externalGoalId": "wikipedia:2026 fifa world cup group e:civ-ecuador:2026-06-14T23:00:00.000Z:amad diallo:90:normal",
         "playerName": "Amad Diallo",
-        "nationalTeam": "CIV",
+        "nationalTeam": "Ivory Coast",
         "sourcePlayerName": "Amad Diallo",
         "sourceTeamName": "CIV",
         "goals": 1,
@@ -770,7 +802,8 @@
         "minute": 90,
         "timeConfidence": "estimated",
         "detail": "normal",
-        "teamId": "ivory-coast"
+        "teamId": "ivory-coast",
+        "playerId": "ivory-coast-amad-diallo"
       }
     ],
     "pointGoals": [],
@@ -806,7 +839,8 @@
         "minute": 7,
         "timeConfidence": "match-only",
         "detail": "normal",
-        "teamId": "sweden"
+        "teamId": "sweden",
+        "playerId": "sweden-yasin-ayari"
       },
       {
         "externalGoalId": "api-football:1539002:2864:30:Normal Goal:1",
@@ -843,7 +877,8 @@
         "minute": 43,
         "timeConfidence": "match-only",
         "detail": "normal",
-        "teamId": "tunisia"
+        "teamId": "tunisia",
+        "playerId": "tunisia-omar-rekik"
       },
       {
         "externalGoalId": "api-football:1539002:18979:59:Normal Goal:3",
@@ -861,7 +896,8 @@
         "minute": 59,
         "timeConfidence": "match-only",
         "detail": "normal",
-        "teamId": "sweden"
+        "teamId": "sweden",
+        "playerId": "sweden-viktor-gyokeres"
       },
       {
         "externalGoalId": "api-football:1539002:30484:84:Normal Goal:4",
@@ -879,7 +915,8 @@
         "minute": 84,
         "timeConfidence": "match-only",
         "detail": "normal",
-        "teamId": "sweden"
+        "teamId": "sweden",
+        "playerId": "sweden-mattias-svanberg"
       },
       {
         "externalGoalId": "api-football:1539002:265820:90+6:Normal Goal:5",
@@ -897,7 +934,8 @@
         "minute": 90,
         "timeConfidence": "match-only",
         "detail": "normal",
-        "teamId": "sweden"
+        "teamId": "sweden",
+        "playerId": "sweden-yasin-ayari"
       }
     ],
     "pointGoals": [
@@ -919,6 +957,7 @@
         "detail": "normal",
         "playerId": "sweden-alexander-isak",
         "teamId": "sweden",
+        "pickId": "sweden-alexander-isak",
         "owner": "Jonas",
         "pickedPlayerName": "Alexander Isak",
         "displayPlayerName": "Alexander Isak",
@@ -957,7 +996,7 @@
       "score": 1
     },
     "awayTeam": {
-      "name": "Aegypten",
+      "name": "Ägypten",
       "score": 1
     },
     "goals": [
@@ -977,12 +1016,13 @@
         "minute": 19,
         "timeConfidence": "match-only",
         "detail": "normal",
-        "teamId": "egypt"
+        "teamId": "egypt",
+        "playerId": "egypt-emam-ashour"
       },
       {
         "externalGoalId": "api-football:1489377:2654:66:Own Goal:1",
-        "playerName": "M. Hany",
-        "nationalTeam": "Belgium",
+        "playerName": "Mohamed Hany",
+        "nationalTeam": "Egypt",
         "sourcePlayerName": "M. Hany",
         "sourceTeamName": "Belgium",
         "goals": 1,
@@ -994,7 +1034,9 @@
         "kickedOffAt": "2026-06-15T19:00:00+00:00",
         "minute": 66,
         "timeConfidence": "match-only",
-        "detail": "own-goal"
+        "detail": "own-goal",
+        "teamId": "egypt",
+        "playerId": "egypt-mohamed-hany"
       }
     ],
     "pointGoals": [],
@@ -1006,7 +1048,7 @@
     "kickedOffAt": "2026-06-15T22:00:00+00:00",
     "status": "live",
     "homeTeam": {
-      "name": "Saudi Arabia",
+      "name": "Saudi-Arabien",
       "score": 1
     },
     "awayTeam": {
@@ -1016,7 +1058,7 @@
     "goals": [
       {
         "externalGoalId": "api-football:1489379:44475:41:Normal Goal:0",
-        "playerName": "A. Al Amri",
+        "playerName": "Abdulelah Al-Amri",
         "nationalTeam": "Saudi Arabia",
         "sourcePlayerName": "A. Al Amri",
         "sourceTeamName": "Saudi Arabia",
@@ -1029,7 +1071,9 @@
         "kickedOffAt": "2026-06-15T22:00:00+00:00",
         "minute": 41,
         "timeConfidence": "match-only",
-        "detail": "normal"
+        "detail": "normal",
+        "teamId": "saudi-arabia",
+        "playerId": "saudi-arabia-abdulelah-al-amri"
       }
     ],
     "pointGoals": [],
@@ -1225,7 +1269,7 @@
     "kickedOffAt": "2026-06-17T04:00:00.000Z",
     "status": "scheduled",
     "homeTeam": {
-      "name": "Oesterreich"
+      "name": "Österreich"
     },
     "awayTeam": {
       "name": "JOR"
@@ -1303,7 +1347,7 @@
       "name": "Tschechien"
     },
     "awayTeam": {
-      "name": "Suedafrika"
+      "name": "Südafrika"
     },
     "goals": [],
     "pointGoals": [],
@@ -1348,7 +1392,7 @@
       "name": "Mexiko"
     },
     "awayTeam": {
-      "name": "Suedkorea"
+      "name": "Südkorea"
     },
     "goals": [],
     "pointGoals": [],
@@ -1405,7 +1449,7 @@
     "kickedOffAt": "2026-06-20T03:00:00.000Z",
     "status": "scheduled",
     "homeTeam": {
-      "name": "Tuerkei"
+      "name": "Türkei"
     },
     "awayTeam": {
       "name": "Paraguay"
@@ -1438,7 +1482,7 @@
       "name": "Deutschland"
     },
     "awayTeam": {
-      "name": "Elfenbeinkueste"
+      "name": "Elfenbeinküste"
     },
     "goals": [],
     "pointGoals": [],
@@ -1528,7 +1572,7 @@
       "name": "NZL"
     },
     "awayTeam": {
-      "name": "Aegypten"
+      "name": "Ägypten"
     },
     "goals": [],
     "pointGoals": [],
@@ -1543,7 +1587,7 @@
       "name": "Argentinien"
     },
     "awayTeam": {
-      "name": "Oesterreich"
+      "name": "Österreich"
     },
     "goals": [],
     "pointGoals": [],
@@ -1735,10 +1779,10 @@
     "kickedOffAt": "2026-06-25T01:00:00.000Z",
     "status": "scheduled",
     "homeTeam": {
-      "name": "Suedafrika"
+      "name": "Südafrika"
     },
     "awayTeam": {
-      "name": "Suedkorea"
+      "name": "Südkorea"
     },
     "goals": [],
     "pointGoals": [],
@@ -1753,7 +1797,7 @@
       "name": "Curacao"
     },
     "awayTeam": {
-      "name": "Elfenbeinkueste"
+      "name": "Elfenbeinküste"
     },
     "goals": [],
     "pointGoals": [],
@@ -1825,7 +1869,7 @@
     "kickedOffAt": "2026-06-26T02:00:00.000Z",
     "status": "scheduled",
     "homeTeam": {
-      "name": "Tuerkei"
+      "name": "Türkei"
     },
     "awayTeam": {
       "name": "USA"
@@ -1900,7 +1944,7 @@
     "kickedOffAt": "2026-06-27T03:00:00.000Z",
     "status": "scheduled",
     "homeTeam": {
-      "name": "Aegypten"
+      "name": "Ägypten"
     },
     "awayTeam": {
       "name": "Iran"
@@ -1993,7 +2037,7 @@
       "name": "Algerien"
     },
     "awayTeam": {
-      "name": "Oesterreich"
+      "name": "Österreich"
     },
     "goals": [],
     "pointGoals": [],

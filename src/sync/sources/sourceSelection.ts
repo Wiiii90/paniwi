@@ -4,7 +4,7 @@ import { mockSource } from "./mockSource";
 import type { GoalSource } from "./types";
 import { wikipediaSource } from "./wikipediaSource";
 
-export type SyncSourceMode = SourceName | "auto";
+export type SyncSourceMode = SourceName;
 
 const sourceMap: Record<SourceName, GoalSource> = {
   mock: mockSource,
@@ -13,7 +13,7 @@ const sourceMap: Record<SourceName, GoalSource> = {
 };
 
 export function parseSyncSourceMode(value: string | undefined): SyncSourceMode {
-  if (value === "api-football" || value === "wikipedia" || value === "mock" || value === "auto") {
+  if (value === "api-football" || value === "wikipedia" || value === "mock") {
     return value;
   }
 
@@ -21,10 +21,6 @@ export function parseSyncSourceMode(value: string | undefined): SyncSourceMode {
 }
 
 export function getSourcesForMode(mode: SyncSourceMode): GoalSource[] {
-  if (mode === "auto") {
-    return [apiFootballSource, wikipediaSource, mockSource];
-  }
-
   return [sourceMap[mode]];
 }
 

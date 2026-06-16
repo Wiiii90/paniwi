@@ -6,37 +6,55 @@ export const teams = [
     "color": "#0f766e",
     "players": [
       {
-        "playerId": "england-morgan-rogers"
+        "playerName": "Morgan Rogers",
+        "teamId": "england"
       },
       {
-        "playerId": "germany-felix-nmecha"
+        "playerName": "Felix Nmecha",
+        "teamId": "germany"
       },
       {
-        "playerId": "senegal-habib-diarra"
+        "playerName": "Habib Diarra",
+        "teamId": "senegal"
       },
       {
-        "playerId": "france-bradley-barcola"
+        "playerName": "Bradley Barcola",
+        "teamId": "france"
       },
       {
-        "playerId": "argentina-cristian-romero"
+        "playerName": "Cristian Romero",
+        "teamId": "argentina"
       },
       {
-        "playerId": "spain-rodri"
+        "playerName": "Rodri",
+        "teamId": "spain"
       },
       {
-        "playerId": "spain-fabian-ruiz"
+        "playerName": "Fabian Ruiz",
+        "teamId": "spain",
+        "aliases": [
+          "Fabián Ruiz"
+        ]
       },
       {
-        "playerId": "scotland-aaron-hickey"
+        "playerName": "Aaron Hickey",
+        "teamId": "scotland"
       },
       {
-        "playerId": "canada-richie-laryea"
+        "playerName": "Richie Laryea",
+        "teamId": "canada"
       },
       {
-        "playerId": "england-marc-guehi"
+        "playerName": "Marc Guehi",
+        "teamId": "england",
+        "aliases": [
+          "Marc Guéhi"
+        ]
       },
       {
-        "playerId": "panama-orlando-mosquera"
+        "playerName": "Orlando Mosquera",
+        "teamId": "panama",
+        "position": "goalkeeper"
       }
     ]
   },
@@ -45,37 +63,68 @@ export const teams = [
     "color": "#b45309",
     "players": [
       {
-        "playerId": "brazil-alisson"
+        "playerName": "Alisson",
+        "teamId": "brazil",
+        "position": "goalkeeper",
+        "aliases": [
+          "Alisson Becker"
+        ]
       },
       {
-        "playerId": "colombia-davinson-sanchez"
+        "playerName": "Davinson Sanchez",
+        "teamId": "colombia",
+        "aliases": [
+          "Dávinson Sánchez"
+        ]
       },
       {
-        "playerId": "austria-stefan-posch"
+        "playerName": "Stefan Posch",
+        "teamId": "austria"
       },
       {
-        "playerId": "brazil-gabriel-magalhaes"
+        "playerName": "Gabriel Magalhaes",
+        "teamId": "brazil",
+        "aliases": [
+          "Gabriel Magalhães"
+        ]
       },
       {
-        "playerId": "belgium-thomas-meunier"
+        "playerName": "Thomas Meunier",
+        "teamId": "belgium"
       },
       {
-        "playerId": "paraguay-diego-gomez"
+        "playerName": "Diego Gomez",
+        "teamId": "paraguay",
+        "aliases": [
+          "Diego Gómez"
+        ]
       },
       {
-        "playerId": "portugal-ruben-dias"
+        "playerName": "Ruben Dias",
+        "teamId": "portugal",
+        "aliases": [
+          "Rúben Dias"
+        ]
       },
       {
-        "playerId": "cape-verde-garry-rodrigues"
+        "playerName": "Garry Rodrigues",
+        "teamId": "cape-verde"
       },
       {
-        "playerId": "south-korea-cho-gue-sung"
+        "playerName": "Cho Gue-sung",
+        "teamId": "south-korea",
+        "aliases": [
+          "Guesung Cho",
+          "Cho Gue Sung"
+        ]
       },
       {
-        "playerId": "germany-felix-nmecha"
+        "playerName": "Felix Nmecha",
+        "teamId": "germany"
       },
       {
-        "playerId": "morocco-ayoub-el-kaabi"
+        "playerName": "Ayoub El Kaabi",
+        "teamId": "morocco"
       }
     ]
   },
@@ -84,37 +133,61 @@ export const teams = [
     "color": "#7c3aed",
     "players": [
       {
-        "playerId": "algeria-alexis-guendouz"
+        "playerName": "Alexis Guendouz",
+        "teamId": "algeria",
+        "position": "goalkeeper"
       },
       {
-        "playerId": "england-trent-alexander-arnold"
+        "playerName": "Trent Alexander-Arnold",
+        "teamId": "england"
       },
       {
-        "playerId": "colombia-richard-rios"
+        "playerName": "Richard Rios",
+        "teamId": "colombia",
+        "aliases": [
+          "Richard Ríos"
+        ]
       },
       {
-        "playerId": "ivory-coast-seko-fofana"
+        "playerName": "Seko Fofana",
+        "teamId": "ivory-coast"
       },
       {
-        "playerId": "croatia-josip-stanisic"
+        "playerName": "Josip Stanisic",
+        "teamId": "croatia",
+        "aliases": [
+          "Josip Stanišić"
+        ]
       },
       {
-        "playerId": "morocco-youssef-en-nesyri"
+        "playerName": "Youssef En-Nesyri",
+        "teamId": "morocco"
       },
       {
-        "playerId": "spain-fabian-ruiz"
+        "playerName": "Fabian Ruiz",
+        "teamId": "spain",
+        "aliases": [
+          "Fabián Ruiz"
+        ]
       },
       {
-        "playerId": "paraguay-julio-enciso"
+        "playerName": "Julio Enciso",
+        "teamId": "paraguay"
       },
       {
-        "playerId": "spain-lamine-yamal"
+        "playerName": "Lamine Yamal",
+        "teamId": "spain"
       },
       {
-        "playerId": "uruguay-federico-vinas"
+        "playerName": "Federico Vinas",
+        "teamId": "uruguay",
+        "aliases": [
+          "Federico Viñas"
+        ]
       },
       {
-        "playerId": "brazil-matheus-cunha"
+        "playerName": "Matheus Cunha",
+        "teamId": "brazil"
       }
     ]
   },
@@ -123,38 +196,55 @@ export const teams = [
     "color": "#d72638",
     "players": [
       {
-        "playerId": "haiti-johny-placide"
+        "playerName": "Johny Placide",
+        "teamId": "haiti",
+        "position": "goalkeeper"
       },
       {
-        "playerId": "spain-pedri"
+        "playerName": "Pedri",
+        "teamId": "spain"
       },
       {
-        "playerId": "portugal-bruno-fernandes"
+        "playerName": "Bruno Fernandes",
+        "teamId": "portugal"
       },
       {
-        "playerId": "netherlands-ryan-gravenberch"
+        "playerName": "Ryan Gravenberch",
+        "teamId": "netherlands"
       },
       {
-        "playerId": "dr-congo-cedric-bakambu"
+        "playerName": "Cedric Bakambu",
+        "teamId": "dr-congo",
+        "aliases": [
+          "Cédric Bakambu"
+        ]
       },
       {
-        "playerId": "colombia-richard-rios"
+        "playerName": "Richard Rios",
+        "teamId": "colombia",
+        "aliases": [
+          "Richard Ríos"
+        ]
       },
       {
-        "playerId": "argentina-giuliano-simeone"
+        "playerName": "Giuliano Simeone",
+        "teamId": "argentina"
       },
       {
-        "playerId": "cape-verde-dailon-livramento"
+        "playerName": "Dailon Livramento",
+        "teamId": "cape-verde"
       },
       {
-        "playerId": "ivory-coast-seko-fofana",
-        "rosterNote": "Tausch fuer Erick Sanchez"
+        "playerName": "Seko Fofana",
+        "teamId": "ivory-coast"
       },
       {
-        "playerId": "sweden-emil-holm"
+        "playerName": "Emil Holm",
+        "teamId": "sweden"
       },
       {
-        "playerId": "mexico-israel-reyes"
+        "playerName": "Israel Reyes",
+        "teamId": "mexico"
       }
     ]
   },
@@ -163,37 +253,61 @@ export const teams = [
     "color": "#2563eb",
     "players": [
       {
-        "playerId": "senegal-nicolas-jackson"
+        "playerName": "Nicolas Jackson",
+        "teamId": "senegal",
+        "aliases": [
+          "Nicolas Jackson"
+        ]
       },
       {
-        "playerId": "norway-erling-haaland"
+        "playerName": "Erling Haaland",
+        "teamId": "norway"
       },
       {
-        "playerId": "south-africa-lyle-foster"
+        "playerName": "Lyle Foster",
+        "teamId": "south-africa"
       },
       {
-        "playerId": "united-states-tyler-adams"
+        "playerName": "Tyler Adams",
+        "teamId": "united-states"
       },
       {
-        "playerId": "netherlands-tijjani-reijnders"
+        "playerName": "Tijjani Reijnders",
+        "teamId": "netherlands"
       },
       {
-        "playerId": "haiti-derrick-etienne-jr"
+        "playerName": "Derrick Etienne Jr",
+        "teamId": "haiti",
+        "aliases": [
+          "Derrick Etienne"
+        ]
       },
       {
-        "playerId": "dr-congo-edo-kayembe"
+        "playerName": "Edo Kayembe",
+        "teamId": "dr-congo"
       },
       {
-        "playerId": "croatia-josip-stanisic"
+        "playerName": "Josip Stanisic",
+        "teamId": "croatia",
+        "aliases": [
+          "Josip Stanišić"
+        ]
       },
       {
-        "playerId": "switzerland-manuel-akanji"
+        "playerName": "Manuel Akanji",
+        "teamId": "switzerland"
       },
       {
-        "playerId": "ecuador-piero-hincapie"
+        "playerName": "Piero Hincapie",
+        "teamId": "ecuador",
+        "aliases": [
+          "Piero Hincapié"
+        ]
       },
       {
-        "playerId": "england-jordan-pickford"
+        "playerName": "Jordan Pickford",
+        "teamId": "england",
+        "position": "goalkeeper"
       }
     ]
   },
@@ -202,37 +316,59 @@ export const teams = [
     "color": "#059669",
     "players": [
       {
-        "playerId": "brazil-vinicius-junior"
+        "playerName": "Vinicius Junior",
+        "teamId": "brazil",
+        "aliases": [
+          "Vinícius Júnior",
+          "Vini Jr."
+        ]
       },
       {
-        "playerId": "croatia-andrej-kramaric"
+        "playerName": "Andrej Kramaric",
+        "teamId": "croatia",
+        "aliases": [
+          "Andrej Kramarić"
+        ]
       },
       {
-        "playerId": "ecuador-angelo-preciado"
+        "playerName": "Angelo Preciado",
+        "teamId": "ecuador",
+        "aliases": [
+          "Ángelo Preciado"
+        ]
       },
       {
-        "playerId": "ivory-coast-simon-adingra"
+        "playerName": "Simon Adingra",
+        "teamId": "ivory-coast"
       },
       {
-        "playerId": "iran-mohammad-mohebi"
+        "playerName": "Mohammad Mohebi",
+        "teamId": "iran"
       },
       {
-        "playerId": "iran-ramin-rezaeian"
+        "playerName": "Ramin Rezaeian",
+        "teamId": "iran"
       },
       {
-        "playerId": "norway-sander-berge"
+        "playerName": "Sander Berge",
+        "teamId": "norway"
       },
       {
-        "playerId": "belgium-thomas-meunier"
+        "playerName": "Thomas Meunier",
+        "teamId": "belgium"
       },
       {
-        "playerId": "scotland-billy-gilmour"
+        "playerName": "Billy Gilmour",
+        "teamId": "scotland"
       },
       {
-        "playerId": "algeria-youcef-atal"
+        "playerName": "Youcef Atal",
+        "teamId": "algeria"
       },
       {
-        "playerId": "scotland-angus-gunn"
+        "playerName": "Angus Gunn",
+        "teamId": "scotland",
+        "position": "goalkeeper"
       }
     ]
   },
@@ -241,37 +377,67 @@ export const teams = [
     "color": "#9333ea",
     "players": [
       {
-        "playerId": "panama-luis-mejia"
+        "playerName": "Luis Mejia",
+        "teamId": "panama",
+        "position": "goalkeeper",
+        "aliases": [
+          "Luis Mejía"
+        ]
       },
       {
-        "playerId": "portugal-joao-cancelo"
+        "playerName": "Joao Cancelo",
+        "teamId": "portugal",
+        "aliases": [
+          "João Cancelo"
+        ]
       },
       {
-        "playerId": "spain-aymeric-laporte"
+        "playerName": "Aymeric Laporte",
+        "teamId": "spain"
       },
       {
-        "playerId": "morocco-achraf-hakimi"
+        "playerName": "Achraf Hakimi",
+        "teamId": "morocco"
       },
       {
-        "playerId": "czech-republic-pavel-sulc"
+        "playerName": "Pavel Sulc",
+        "teamId": "czech-republic",
+        "aliases": [
+          "Pavel Šulc"
+        ]
       },
       {
-        "playerId": "england-jude-bellingham"
+        "playerName": "Jude Bellingham",
+        "teamId": "england"
       },
       {
-        "playerId": "mexico-edson-alvarez"
+        "playerName": "Edson Alvarez",
+        "teamId": "mexico",
+        "aliases": [
+          "Edson Álvarez"
+        ]
       },
       {
-        "playerId": "united-states-tyler-adams"
+        "playerName": "Tyler Adams",
+        "teamId": "united-states"
       },
       {
-        "playerId": "sweden-alexander-isak"
+        "playerName": "Alexander Isak",
+        "teamId": "sweden",
+        "aliases": [
+          "A. Isak"
+        ]
       },
       {
-        "playerId": "ivory-coast-oumar-diakite"
+        "playerName": "Oumar Diakite",
+        "teamId": "ivory-coast",
+        "aliases": [
+          "Oumar Diakité"
+        ]
       },
       {
-        "playerId": "canada-jonathan-david"
+        "playerName": "Jonathan David",
+        "teamId": "canada"
       }
     ]
   },
@@ -280,34 +446,59 @@ export const teams = [
     "color": "#0891b2",
     "players": [
       {
-        "playerId": "qatar-edmilson-junior"
+        "playerName": "Edmilson Junior",
+        "teamId": "qatar"
       },
       {
-        "playerId": "england-marcus-rashford"
+        "playerName": "Marcus Rashford",
+        "teamId": "england"
       },
       {
-        "playerId": "dr-congo-cedric-bakambu"
+        "playerName": "Cedric Bakambu",
+        "teamId": "dr-congo",
+        "aliases": [
+          "Cédric Bakambu"
+        ]
       },
       {
-        "playerId": "czech-republic-pavel-sulc"
+        "playerName": "Pavel Sulc",
+        "teamId": "czech-republic",
+        "aliases": [
+          "Pavel Šulc"
+        ]
       },
       {
-        "playerId": "czech-republic-lukas-provod"
+        "playerName": "Lukas Provod",
+        "teamId": "czech-republic",
+        "aliases": [
+          "Lukáš Provod"
+        ]
       },
       {
-        "playerId": "united-states-timothy-weah"
+        "playerName": "Timothy Weah",
+        "teamId": "united-states"
       },
       {
-        "playerId": "paraguay-damian-bobadilla"
+        "playerName": "Damian Bobadilla",
+        "teamId": "paraguay",
+        "aliases": [
+          "Damián Bobadilla"
+        ]
       },
       {
-        "playerId": "germany-david-raum"
+        "playerName": "David Raum",
+        "teamId": "germany"
       },
       {
-        "playerId": "canada-mathieu-choiniere"
+        "playerName": "Mathieu Choiniere",
+        "teamId": "canada",
+        "aliases": [
+          "Mathieu Choinière"
+        ]
       },
       {
-        "playerId": "dr-congo-aaron-wan-bissaka"
+        "playerName": "Aaron Wan-Bissaka",
+        "teamId": "dr-congo"
       }
     ]
   },
@@ -316,37 +507,58 @@ export const teams = [
     "color": "#db2777",
     "players": [
       {
-        "playerId": "belgium-youri-tielemans"
+        "playerName": "Youri Tielemans",
+        "teamId": "belgium"
       },
       {
-        "playerId": "argentina-alexis-mac-allister"
+        "playerName": "Alexis Mac Allister",
+        "teamId": "argentina"
       },
       {
-        "playerId": "belgium-jeremy-doku"
+        "playerName": "Jeremy Doku",
+        "teamId": "belgium",
+        "aliases": [
+          "Jérémy Doku"
+        ]
       },
       {
-        "playerId": "croatia-mario-pasalic"
+        "playerName": "Mario Pasalic",
+        "teamId": "croatia",
+        "aliases": [
+          "Mario Pašalić"
+        ]
       },
       {
-        "playerId": "egypt-mohamed-el-shenawy"
+        "playerName": "Mohamed El Shenawy",
+        "teamId": "egypt",
+        "position": "goalkeeper"
       },
       {
-        "playerId": "netherlands-micky-van-de-ven"
+        "playerName": "Micky van de Ven",
+        "teamId": "netherlands"
       },
       {
-        "playerId": "france-adrien-rabiot"
+        "playerName": "Adrien Rabiot",
+        "teamId": "france"
       },
       {
-        "playerId": "sweden-daniel-svensson"
+        "playerName": "Daniel Svensson",
+        "teamId": "sweden"
       },
       {
-        "playerId": "south-africa-lyle-foster"
+        "playerName": "Lyle Foster",
+        "teamId": "south-africa"
       },
       {
-        "playerId": "senegal-krepin-diatta"
+        "playerName": "Krepin Diatta",
+        "teamId": "senegal",
+        "aliases": [
+          "Krépin Diatta"
+        ]
       },
       {
-        "playerId": "tunisia-elias-saad"
+        "playerName": "Elias Saad",
+        "teamId": "tunisia"
       }
     ]
   },
@@ -355,34 +567,57 @@ export const teams = [
     "color": "#ea580c",
     "players": [
       {
-        "playerId": "portugal-goncalo-ramos"
+        "playerName": "Goncalo Ramos",
+        "teamId": "portugal",
+        "aliases": [
+          "Gonçalo Ramos"
+        ]
       },
       {
-        "playerId": "colombia-jhon-arias"
+        "playerName": "Jhon Arias",
+        "teamId": "colombia"
       },
       {
-        "playerId": "iraq-mohanad-ali"
+        "playerName": "Mohanad Ali",
+        "teamId": "iraq"
       },
       {
-        "playerId": "argentina-alejandro-garnacho"
+        "playerName": "Alejandro Garnacho",
+        "teamId": "argentina"
       },
       {
-        "playerId": "brazil-lucas-paqueta"
+        "playerName": "Lucas Paqueta",
+        "teamId": "brazil",
+        "aliases": [
+          "Lucas Paquetá"
+        ]
       },
       {
-        "playerId": "switzerland-ruben-vargas"
+        "playerName": "Ruben Vargas",
+        "teamId": "switzerland"
       },
       {
-        "playerId": "norway-antonio-nusa"
+        "playerName": "Antonio Nusa",
+        "teamId": "norway"
       },
       {
-        "playerId": "france-desire-doue"
+        "playerName": "Desire Doue",
+        "teamId": "france",
+        "aliases": [
+          "Désiré Doué",
+          "Desiré Doué"
+        ]
       },
       {
-        "playerId": "scotland-ben-doak"
+        "playerName": "Ben Doak",
+        "teamId": "scotland",
+        "aliases": [
+          "Ben Gannon-Doak"
+        ]
       },
       {
-        "playerId": "tunisia-sayfallah-ltaief"
+        "playerName": "Sayfallah Ltaief",
+        "teamId": "tunisia"
       }
     ]
   },
@@ -391,37 +626,71 @@ export const teams = [
     "color": "#64748b",
     "players": [
       {
-        "playerId": "mexico-luis-malagon"
+        "playerName": "Luis Malagon",
+        "teamId": "mexico",
+        "position": "goalkeeper",
+        "aliases": [
+          "Luis Malagón"
+        ]
       },
       {
-        "playerId": "dr-congo-yoane-wissa"
+        "playerName": "Yoane Wissa",
+        "teamId": "dr-congo"
       },
       {
-        "playerId": "australia-nestory-irankunda"
+        "playerName": "Nestory Irankunda",
+        "teamId": "australia"
       },
       {
-        "playerId": "dr-congo-nathanael-mbuku"
+        "playerName": "Nathanael Mbuku",
+        "teamId": "dr-congo",
+        "aliases": [
+          "Nathanaël Mbuku"
+        ]
       },
       {
-        "playerId": "bosnia-and-herzegovina-haris-tabakovic"
+        "playerName": "Haris Tabakovic",
+        "teamId": "bosnia-and-herzegovina",
+        "aliases": [
+          "Haris Tabaković"
+        ]
       },
       {
-        "playerId": "iraq-ali-jasim"
+        "playerName": "Ali Jasim",
+        "teamId": "iraq",
+        "aliases": [
+          "Ali Jassim"
+        ]
       },
       {
-        "playerId": "uruguay-nicolas-de-la-cruz"
+        "playerName": "Nicolas de la Cruz",
+        "teamId": "uruguay",
+        "aliases": [
+          "Nicolás de la Cruz"
+        ]
       },
       {
-        "playerId": "paraguay-alejandro-romero-gamarra"
+        "playerName": "Alejandro Romero Gamarra",
+        "teamId": "paraguay",
+        "aliases": [
+          "Gamarra"
+        ]
       },
       {
-        "playerId": "sweden-lucas-bergvall"
+        "playerName": "Lucas Bergvall",
+        "teamId": "sweden"
       },
       {
-        "playerId": "dr-congo-ngalayel-mukau"
+        "playerName": "Ngalayel Mukau",
+        "teamId": "dr-congo",
+        "aliases": [
+          "Ngal'ayel Mukau",
+          "Christopher Mukau"
+        ]
       },
       {
-        "playerId": "canada-alphonso-davies"
+        "playerName": "Alphonso Davies",
+        "teamId": "canada"
       }
     ]
   }

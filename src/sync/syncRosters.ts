@@ -1,89 +1,19 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { teams } from "../config/teams";
-import { getCanonicalPlayer, getCanonicalTeam } from "../domain/canonicalResolver";
-import { normalizePlayerName } from "../domain/normalizePlayerName";
-import { getTeamDisplayName } from "../domain/teamDisplay";
-import type { CanonicalPlayer, RosterStatus } from "../domain/types";
-import type { RosterAuditEntry, RosterSnapshot, RosterTeam } from "../domain/rosterTypes";
+import type { PickStatusSnapshot } from "../domain/pickStatusTypes";
+import type { RosterSnapshot, RosterTeam } from "../domain/rosterTypes";
+import { buildPickStatusSnapshot, writePickStatusSnapshot } from "./pickStatuses";
 import { fetchWikipediaRosterPage, parseWikipediaSquads } from "./sources/wikipediaRosterSource";
 
-function getPlayerNameKeys(player: CanonicalPlayer): Set<string> {
-  return new Set([player.displayName, ...(player.aliases ?? [])].map(normalizePlayerName));
-}
-
-function buildRosterIndex(rosterTeams: RosterTeam[]): Map<string, RosterTeam> {
-  const index = new Map<string, RosterTeam>();
-
-  for (const team of rosterTeams) {
-    if (team.teamId) {
-      index.set(team.teamId, team);
-    }
-  }
-
-  return index;
-}
-
-function findRosterMatch(player: CanonicalPlayer, rosterTeam: RosterTeam): string | undefined {
-  const playerKeys = getPlayerNameKeys(player);
-  const matchedPlayer = rosterTeam.players.find((rosterPlayer) => playerKeys.has(rosterPlayer.normalizedPlayerName));
-  return matchedPlayer?.playerName;
-}
-
-export function buildRosterAudit(rosterTeams: RosterTeam[]): RosterAuditEntry[] {
-  const rosterByTeamId = buildRosterIndex(rosterTeams);
-  const audit: RosterAuditEntry[] = [];
-
-  for (const participantTeam of teams) {
-    for (const pick of participantTeam.players) {
-      const player = getCanonicalPlayer(pick.playerId);
-      if (!player) {
-        throw new Error(`Unknown canonical playerId in participant pick: ${pick.playerId}`);
-      }
-
-      const team = getCanonicalTeam(player.teamId);
-      if (!team) {
-        throw new Error(`Unknown canonical teamId for ${player.playerId}: ${player.teamId}`);
-      }
-
-      const rosterTeam = rosterByTeamId.get(player.teamId);
-      const matchedName = rosterTeam ? findRosterMatch(player, rosterTeam) : undefined;
-      const suggestedRosterStatus: RosterStatus = rosterTeam ? (matchedName ? "nominated" : "not-nominated") : "unknown";
-
-      audit.push({
-        owner: participantTeam.owner,
-        playerId: player.playerId,
-        playerName: player.displayName,
-        teamId: player.teamId,
-        teamName: getTeamDisplayName(team),
-        suggestedRosterStatus,
-        matched: Boolean(matchedName),
-        matchedName,
-        reason: rosterTeam ? (matchedName ? "found-in-roster" : "not-found-in-team-roster") : "team-roster-missing"
-      });
-    }
-  }
-
-  return audit;
-}
-
 export function buildRosterSnapshot(pageTitle: string, rosterTeams: RosterTeam[], now = new Date()): RosterSnapshot {
-  const audit = buildRosterAudit(rosterTeams);
-
   return {
     lastUpdated: now.toISOString(),
     source: "wikipedia",
     pageTitle,
     teamCount: rosterTeams.length,
     playerCount: rosterTeams.reduce((sum, team) => sum + team.players.length, 0),
-    teams: rosterTeams,
-    audit: {
-      picks: audit,
-      nominatedCount: audit.filter((entry) => entry.suggestedRosterStatus === "nominated").length,
-      notNominatedCount: audit.filter((entry) => entry.suggestedRosterStatus === "not-nominated").length,
-      unknownCount: audit.filter((entry) => entry.suggestedRosterStatus === "unknown").length
-    }
+    teams: rosterTeams
   };
 }
 
@@ -93,26 +23,36 @@ async function writeRosterSnapshot(snapshot: RosterSnapshot, path = "public/data
   await writeFile(target, `${JSON.stringify(snapshot, null, 2)}\n`, "utf8");
 }
 
-export async function syncRosters(): Promise<RosterSnapshot> {
+async function readOptionalJson<T>(path: string): Promise<T | undefined> {
+  try {
+    return JSON.parse(await readFile(path, "utf8")) as T;
+  } catch {
+    return undefined;
+  }
+}
+
+export async function syncRosters(): Promise<{ rosterSnapshot: RosterSnapshot; pickStatusSnapshot: PickStatusSnapshot }> {
   const page = await fetchWikipediaRosterPage();
   const rosterTeams = parseWikipediaSquads(page.wikitext);
   if (rosterTeams.length === 0) {
     throw new Error(`Wikipedia roster page "${page.title}" did not yield any roster teams.`);
   }
 
-  const snapshot = buildRosterSnapshot(page.title, rosterTeams);
-  await writeRosterSnapshot(snapshot);
-  return snapshot;
+  const rosterSnapshot = buildRosterSnapshot(page.title, rosterTeams);
+  const previousPickStatusSnapshot = await readOptionalJson<PickStatusSnapshot>("public/data/pick-statuses.json");
+  const pickStatusSnapshot = buildPickStatusSnapshot(rosterSnapshot, { previousSnapshot: previousPickStatusSnapshot });
+  await Promise.all([writeRosterSnapshot(rosterSnapshot), writePickStatusSnapshot(pickStatusSnapshot)]);
+  return { rosterSnapshot, pickStatusSnapshot };
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   try {
-    const snapshot = await syncRosters();
+    const { rosterSnapshot, pickStatusSnapshot } = await syncRosters();
     console.log(
-      `Wrote public/data/rosters.json from ${snapshot.pageTitle}: ${snapshot.teamCount} teams, ${snapshot.playerCount} players.`
+      `Wrote public/data/rosters.json from ${rosterSnapshot.pageTitle}: ${rosterSnapshot.teamCount} teams, ${rosterSnapshot.playerCount} players.`
     );
     console.log(
-      `Audit: ${snapshot.audit.nominatedCount} nominated, ${snapshot.audit.notNominatedCount} not nominated, ${snapshot.audit.unknownCount} unknown.`
+      `Pick statuses: ${pickStatusSnapshot.summary.nominatedCount} nominated, ${pickStatusSnapshot.summary.notNominatedCount} not nominated, ${pickStatusSnapshot.summary.lateCallupCount} late callups, ${pickStatusSnapshot.summary.unknownCount} unknown.`
     );
   } catch (error) {
     console.error(error instanceof Error ? error.message : error);

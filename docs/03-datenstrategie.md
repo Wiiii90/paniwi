@@ -2,20 +2,18 @@
 
 Die App arbeitet mit statischen Snapshots. Das Frontend ruft keine externen Sportdatenquellen auf.
 
-## Quellen-Prioritaet (Soll vs. Ist)
+## Quellen-Trennung
 
-**Geplant** (Lastenheft, Starter-Design, Modus `auto`):
+Die App nutzt bewusst **keinen automatischen Multi-Source-Fallback** mehr.
 
-1. `api-football` — Primaerquelle (strukturierte Fixture-Events)
-2. `wikipedia` — Fallback (kostenlos, nachtraeglich gepflegt)
-3. `mock` — nur Dev/CI
-
-**Aktuell in Production** (`sync-data.yml`):
-
-- `SYNC_SOURCE=auto`
-- `api-football` ist Primaerquelle, wenn der geplante Sync in einem Post-Match-Fenster laeuft
-- Wikipedia bleibt automatischer Fallback
-- ausserhalb der Sync-Fenster wird kein neuer Datenabruf gemacht; dann bleibt der bestehende Snapshot unveraendert
+1. `api-football`
+   - einzige regulaere Quelle fuer `sync:data` und `sync:scheduled`
+   - liefert Fixture- und Goal-Events
+2. `wikipedia`
+   - nur fuer separate Import-Jobs wie `sync:rosters`
+   - kein automatischer Fallback fuer laufende Tore-Snapshots
+3. `mock`
+   - nur Dev/CI
 
 ## Quellen
 
@@ -25,14 +23,12 @@ Die App arbeitet mit statischen Snapshots. Das Frontend ruft keine externen Spor
    - stabile Demo-Daten
 
 2. `wikipedia`
-   - kostenloser Fallback
-   - gut fuer nachtraeglich gepflegte Spiel- und Torinformationen
-   - Zeitangaben koennen unvollstaendig sein
-   - der Prototyp liest aggregierte `Goalscorers`-Sektionen aus Wikitext
-   - fuer WM 2026 zusaetzlich Einzeltore aus `#invoke:football box` auf den Gruppenseiten
+   - separate Datenquelle fuer manuelle oder eigene Imports
+   - aktuell relevant fuer den Kader-Snapshot
+   - kein automatischer Tore-Fallback in Production
 
 3. `api-football`
-   - geplante Primaerquelle (Modus `auto` versucht sie zuerst)
+   - Primaerquelle fuer laufende Tore- und Match-Snapshots
    - besser fuer strukturierte Match-Events (Minute, Torart, Spieler-ID)
    - braucht API-Key
    - Free-Plan-tauglicher Weg: `/fixtures?date=YYYY-MM-DD`, danach lokal `league.id=1` und `season=2026` filtern
@@ -40,9 +36,7 @@ Die App arbeitet mit statischen Snapshots. Das Frontend ruft keine externen Spor
    - `API_FOOTBALL_FIXTURE_IDS` bleibt als manueller Debug-Override moeglich
    - `API_FOOTBALL_MAX_REQUESTS` begrenzt HTTP-Calls pro Sync-Lauf hart (Default `90`)
 
-## Wikipedia-Fallback — Stand & Grenzen
-
-Dokumentiert, damit der Fallback bei Umstellung auf `auto` nicht vergessen wird.
+## Wikipedia-Roster-Import — Stand & Grenzen
 
 ### Was funktioniert (Stand nach Parser-Fix Juni 2026)
 
@@ -65,12 +59,6 @@ Dokumentiert, damit der Fallback bei Umstellung auf `auto` nicht vergessen wird.
 | Format-Aenderungen Wikipedia | Parser an Wikitext gekoppelt | Tore fehlen bis Parser-Update |
 | Rate Limits | 429 → Sync in naechstem Fenster | Verzoegerung, kein Datenverlust |
 | Knockout-Seiten | Football-Boxes noch nicht importiert | Wie Gruppenphase manuell erweiterbar |
-
-### Fallback-Stabilitaet: Empfehlung
-
-- **Jetzt:** Wikipedia reicht fuer laufende Gruppenphase; dokumentierte Luecken sind akzeptabel
-- **Vor API-Umstellung:** nicht alles fixen — aber K.o.-Kickoffs und Disambiguierung priorisieren, wenn Wikipedia laenger allein laeuft
-- **Mit `auto`:** Wikipedia muss nicht perfekt sein; sie muss bei API-Ausfall weiterhin *irgendwelche* korrekten Tore liefern
 
 ## API-Football — Dashboard & Ersteinrichtung
 
@@ -127,19 +115,11 @@ npm run sync:data
 
 API-Football-Snapshots werden nach Datumsfenster gemerged: vorhandene Treffer ausserhalb der geholten Tage bleiben erhalten, Treffer innerhalb der geholten Tage werden durch die frische API-Antwort ersetzt. Ein normaler Tageslauf kann dadurch Historie fortschreiben, ein bewusst gesetztes Backfill-Fenster kann einen Zeitraum sauber neu aufbauen.
 
-Modus `auto` testen:
-
-```powershell
-SYNC_SOURCE=auto
-# gleicher Key; API nutzt Tagesfixtures, Wikipedia bleibt Fallback
-npm run sync:data
-```
-
 ### GitHub (wenn lokal OK)
 
 1. Repository -> Settings -> Secrets -> `API_FOOTBALL_KEY`
 2. Optional Repository -> Settings -> Variables -> `API_FOOTBALL_DATES` oder `API_FOOTBALL_DATE_FROM` / `API_FOOTBALL_DATE_TO` fuer manuelle Backfills
-3. `sync-data.yml` nutzt `auto`: API-Football ist Primaerquelle, Wikipedia bleibt Fallback
+3. `sync-data.yml` nutzt `api-football` direkt
 
 ### Offen fuer API-Football (Code, nicht Dashboard)
 
@@ -162,13 +142,25 @@ npm run sync:rosters
 Das Script liest per offizieller MediaWiki-API die Seite `2026 FIFA World Cup squads`, parst Kader-Templates/Tabellen und schreibt:
 
 - `public/data/rosters.json`
-- alle gefundenen Kaderteams und Spieler
-- Audit-Vorschlaege gegen unsere Panini-Picks
-- `nominated`, `not-nominated` oder `unknown`, falls ein Team nicht im Snapshot gefunden wurde
+- `public/data/pick-statuses.json`
+- `rosters.json` enthaelt nur den echten Turnierkader: Teams, Spieler, Positionen
+- `pick-statuses.json` enthaelt den Teilnehmer-Abgleich gegen diesen Kader
 
 Der Abgleich ist absichtlich streng: kanonischer Name plus Alias-Liste, normalisiert ueber `normalizePlayerName`. Keine fuzzy Treffer. Wenn ein echter Spieler nicht matcht, bekommt er einen Alias in `src/config/canonical.ts` statt Sonderlogik im Parser.
 
-`sync-rosters.yml` ist vorerst ein manueller Workflow. Er kann spaeter gescheduled werden, ist aber nicht Teil des laufenden Tore-Syncs.
+`pick-statuses.json` trennt drei Dinge sauber:
+
+- `baselineRosterStatus`: erster festgestellter Status eines Teilnehmer-Picks
+- `currentRosterStatus`: aktueller Status im letzten Roster-Snapshot
+- `displayStatus`: UI-Status (`nominated`, `not-nominated`, `late-callup`, `unknown`)
+
+Damit gilt:
+
+- ein anfangs nominierter Spieler bleibt fuer die Anzeige nominert
+- eine anfangs gesetzte Niete bleibt Niete
+- taucht eine fruehere Niete spaeter im echten WM-Kader auf, wird sie als `late-callup` / `nachnominiert` markiert
+
+`sync-rosters.yml` ist ein separater manueller Workflow. Er ist nicht Teil des laufenden Tore-Syncs.
 
 ## Event-Modell
 
@@ -221,17 +213,23 @@ Eigentore und Tore im Elfmeterschiessen bleiben im Rohdaten-Snapshot moeglich, g
 - `raw-goals.json`: alle validen normalisierten Treffer aus der Quelle
 - `scorers.json`: Gesamt-Torschuetzenliste, ohne Eigentore und Elfmeterschiessen
 - `matches.json`: Spiele mit Treffern, Scoreline und betroffenen Panini-Teams
-- `rosters.json`: manueller Kader-Snapshot mit Audit gegen Panini-Picks
+- `rosters.json`: echter WM-Kader-Snapshot
+- `pick-statuses.json`: Teilnehmer-Abgleich gegen den WM-Kader
 - `meta.json`: Quelle, Status und Sync-Qualitaet
 
 Die App liest keine Rohquelle direkt. Neue Quelladapter sollen weiter interne `GoalRecord`-Daten liefern; falls eine Quelle spaeter strukturierte Fixture-Daten anbietet, kann `matches.json` daraus direkter aufgebaut werden.
 
 ## Teilnehmerstatus
 
-`src/config/teams.ts` kann pro Spieler `rosterStatus` enthalten:
+Die Teilnehmer-Picks enthalten nur feste `playerId`s. Der Kaderstatus kommt ausschliesslich aus `public/data/pick-statuses.json`, das aus `rosters.json` abgeleitet wird.
 
-- `nominated`
-- `not-nominated`
-- `unknown`
+Nicht nominierte Spieler bleiben als Nieten im Team und werden nicht ersetzt. Der Kaderstatus ist reine Anzeige- und Review-Information und keine Scoring-Regel.
 
-Der Status dient der UI und Datenqualitaet. Nicht nominierte Spieler (`not-nominated`) bleiben als Nieten im Team und werden nicht ersetzt. Er soll nicht als harte Scoring-Bedingung verwendet werden, weil das echte Torereignis aus der Datenquelle staerker ist als eine manuell gepflegte Kader-Markierung. Fuer Performance ist ein Ausschluss nicht noetig; die Datenmenge bleibt klein.
+## API-Football gegen Roster
+
+Fuer `api-football` gilt absichtlich ein haerterer Vertrag als fuer Mock- oder Wikipedia-Daten:
+
+- jeder Goal-Event muss einem Spieler aus `rosters.json` eindeutig zugeordnet werden koennen
+- leichte Namensabweichungen wie Akzente, Bindestriche oder Initial + Nachname werden generisch normalisiert
+- Eigentore werden ebenfalls gegen den echten Roster gemappt, notfalls ueber die Gegenmannschaft aus dem Match-Label
+- wenn ein API-Football-Torschuetze nicht eindeutig gegen `rosters.json` gematcht werden kann, bricht der Rebuild/Snapshot bewusst mit Fehler ab

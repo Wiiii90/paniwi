@@ -1,7 +1,6 @@
 import type { LeaderboardEntry, MatchRecord, ScoredGoal, ScorerEntry, StaticMeta } from "../../domain/types";
-import { getLatestFinishedMatches, getTodayOrLiveMatches } from "../../domain/matchFilters";
+import { getTodayOrLiveMatches } from "../../domain/matchFilters";
 import { StatusPill } from "../components/StatusPill";
-import { SyncSummary } from "../components/SyncSummary";
 import { formatGoalMinute } from "../formatGoal";
 
 type HomePageProps = {
@@ -33,11 +32,13 @@ function formatMatchScore(match: MatchRecord): string {
 
 export function HomePage({ leaderboard, goals, scorers, matches, meta }: HomePageProps) {
   const baseUrl = import.meta.env.BASE_URL;
-  const latestGoals = goals.slice(-3).reverse();
-  const topScorers = scorers.slice(0, 5);
-  const latestMatches = getLatestFinishedMatches(matches);
-  const todayMatches = getTodayOrLiveMatches(matches);
-  const leader = leaderboard[0];
+  const latestGoals = goals.slice().reverse();
+  const latestPointGoals = latestGoals.slice(0, 3);
+  const topScorers = scorers.slice(0, 3);
+  const tableLeaders = leaderboard.slice(0, 3);
+  const liveMatches = matches.filter((match) => match.status === "live");
+  const scheduledMatches = getTodayOrLiveMatches(matches).filter((match) => match.status !== "live");
+  const currentMatches = [...liveMatches, ...scheduledMatches].slice(0, 3);
 
   return (
     <section className="page-stack">
@@ -52,14 +53,21 @@ export function HomePage({ leaderboard, goals, scorers, matches, meta }: HomePag
       <div className="dashboard-grid">
         <section className="summary-card">
           <div className="section-heading">
-            <h2>Spitze</h2>
+            <h2>Tabellenspitze</h2>
             <a className="text-link" href={`${baseUrl}table`}>Tabelle</a>
           </div>
-          {leader ? (
-            <a className="headline-stat" href={`${baseUrl}team/${encodeURIComponent(leader.owner)}`}>
-              <span>{leader.owner}</span>
-              <strong>{leader.points} Pkt.</strong>
-            </a>
+          {tableLeaders.length > 0 ? (
+            <div className="mini-list">
+              {tableLeaders.map((entry) => (
+                <a className="mini-row" href={`${baseUrl}team/${encodeURIComponent(entry.owner)}`} key={entry.owner}>
+                  <span>
+                    <strong>#{entry.rank} {entry.owner}</strong>
+                    <small>{entry.goals} Tore · {entry.playersWithGoals} Torschützen</small>
+                  </span>
+                  <span>{entry.points} Pkt.</span>
+                </a>
+              ))}
+            </div>
           ) : (
             <p className="empty-inline">Noch keine Teams.</p>
           )}
@@ -67,18 +75,18 @@ export function HomePage({ leaderboard, goals, scorers, matches, meta }: HomePag
 
         <section className="summary-card">
           <div className="section-heading">
-            <h2>Punkte-Tore</h2>
+            <h2>Topspieler</h2>
             <a className="text-link" href={`${baseUrl}goals`}>Alle</a>
           </div>
           <div className="mini-list">
-            {latestGoals.length === 0 ? (
+            {latestPointGoals.length === 0 ? (
               <p className="empty-inline">Noch keine Punkte.</p>
             ) : (
-              latestGoals.map((goal) => (
+              latestPointGoals.map((goal) => (
                 <a className="mini-row" href={`${baseUrl}team/${encodeURIComponent(goal.owner)}`} key={`${goal.externalGoalId}-${goal.owner}`}>
                   <span>
-                    <strong>{goal.displayPlayerName}</strong>
-                    <small>{goal.owner} · {goal.displayNationalTeam}</small>
+                    <strong>{goal.displayPlayerName} · {goal.displayNationalTeam}</strong>
+                    <small>{goal.owner}</small>
                   </span>
                   <span>{goal.points} Pkt.</span>
                 </a>
@@ -89,7 +97,7 @@ export function HomePage({ leaderboard, goals, scorers, matches, meta }: HomePag
 
         <section className="summary-card">
           <div className="section-heading">
-            <h2>Top-Torschuetzen</h2>
+            <h2>Torschützenliste</h2>
             <a className="text-link" href={`${baseUrl}goals`}>Liste</a>
           </div>
           <div className="mini-list">
@@ -111,41 +119,14 @@ export function HomePage({ leaderboard, goals, scorers, matches, meta }: HomePag
 
         <section className="summary-card">
           <div className="section-heading">
-            <h2>Heute / Live</h2>
+            <h2>Aktuelle / Kommende Spiele</h2>
             <a className="text-link" href={`${baseUrl}matches`}>Spielplan</a>
           </div>
           <div className="mini-list">
-            {todayMatches.length === 0 ? (
-              <p className="empty-inline">Keine offenen Spiele heute.</p>
+            {currentMatches.length === 0 ? (
+              <p className="empty-inline">Keine aktuellen Spiele.</p>
             ) : (
-              todayMatches.map((match) => (
-                <a className="mini-row match-mini-row" href={`${baseUrl}matches`} key={match.matchId}>
-                  <span>
-                    <strong>
-                      {match.homeTeam.name} - {match.awayTeam.name}
-                    </strong>
-                    <small>
-                      {formatKickoff(match.kickedOffAt)}
-                      {match.pointGoals.length > 0 ? ` · ${match.pointGoals.length} Panini-Tore` : ""}
-                    </small>
-                  </span>
-                  <span>{formatMatchScore(match)}</span>
-                </a>
-              ))
-            )}
-          </div>
-        </section>
-
-        <section className="summary-card wide-summary-card">
-          <div className="section-heading">
-            <h2>Letzte Spiele</h2>
-            <a className="text-link" href={`${baseUrl}matches`}>Alle</a>
-          </div>
-          <div className="mini-list">
-            {latestMatches.length === 0 ? (
-              <p className="empty-inline">Noch keine beendeten Spiele.</p>
-            ) : (
-              latestMatches.map((match) => (
+              currentMatches.map((match) => (
                 <a className="mini-row match-mini-row" href={`${baseUrl}matches`} key={match.matchId}>
                   <span>
                     <strong>
@@ -168,7 +149,7 @@ export function HomePage({ leaderboard, goals, scorers, matches, meta }: HomePag
         <section className="summary-card">
           <div className="section-heading">
             <h2>Aktueller Feed</h2>
-            <a className="text-link" href={`${baseUrl}goals`}>Treffer</a>
+            <a className="text-link" href={`${baseUrl}goals`}>Torschützenliste</a>
           </div>
           <div className="feed-strip">
             {latestGoals.map((goal) => (
@@ -182,8 +163,6 @@ export function HomePage({ leaderboard, goals, scorers, matches, meta }: HomePag
           </div>
         </section>
       ) : null}
-
-      <SyncSummary meta={meta} />
     </section>
   );
 }

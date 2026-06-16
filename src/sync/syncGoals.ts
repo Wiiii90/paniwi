@@ -12,7 +12,6 @@ import { teams } from "../config/teams";
 import { normalizeGoals } from "./normalizeGoals";
 import { buildSnapshotFingerprint } from "./snapshotFingerprint";
 import { validateGoals } from "./validateGoals";
-import { formatCanonicalValidationIssues, validateCanonicalData } from "./validateCanonicalData";
 import { formatTeamValidationIssues, validateTeams } from "./validateTeams";
 import { writeStaticData, writeStaticMeta } from "./writeStaticData";
 import { getSourcesFromEnv } from "./sources/sourceSelection";
@@ -265,11 +264,6 @@ export async function syncGoals(
   sources: GoalSource[] = getSourcesFromEnv(),
   options: SyncGoalsOptions = {}
 ): Promise<void> {
-  const canonicalValidation = validateCanonicalData();
-  if (!canonicalValidation.valid) {
-    throw new Error(`Invalid canonical data: ${formatCanonicalValidationIssues(canonicalValidation.issues)}`);
-  }
-
   const teamValidation = validateTeams(teams);
   if (!teamValidation.valid) {
     throw new Error(`Invalid team configuration: ${formatTeamValidationIssues(teamValidation.issues)}`);
@@ -298,10 +292,12 @@ export async function syncGoals(
     ? await mergeWithExistingMatches(result.source, incomingMatches, result.coveredDateKeys)
     : incomingMatches;
   const rosterSnapshot = await readExistingRosterSnapshot();
-  const rosterEnrichedGoals = enrichGoalsWithRoster(normalizedGoals, rosterSnapshot);
+  const rosterEnrichedGoals = enrichGoalsWithRoster(normalizedGoals, rosterSnapshot, {
+    strictSources: result.source === "api-football" ? ["api-football"] : []
+  });
   const { validGoals: goals, skippedGoals } = validateGoals(rosterEnrichedGoals);
-  const scoredGoals = sortGoalsChronologically(scoreGoalsForTeams(teams, goals));
-  const leaderboard = buildLeaderboard(teams, goals);
+  const scoredGoals = sortGoalsChronologically(scoreGoalsForTeams(teams, goals, rosterSnapshot));
+  const leaderboard = buildLeaderboard(teams, goals, rosterSnapshot);
   const scorers = buildScorers(goals, teams, rosterSnapshot);
   const matches = buildMatches(goals, scoredGoals, normalizedMatches);
 

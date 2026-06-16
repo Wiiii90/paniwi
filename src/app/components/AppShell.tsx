@@ -15,10 +15,10 @@ export function AppShell({ children }: AppShellProps) {
           <span>Panini Liga</span>
         </a>
         <nav className="nav">
-          <a href={baseUrl}>Start</a>
+          <a href={baseUrl}>Home</a>
           <a href={`${baseUrl}table`}>Tabelle</a>
-          <a href={`${baseUrl}goals`}>Treffer</a>
-          <a href={`${baseUrl}matches`}>Spiele</a>
+          <a href={`${baseUrl}goals`}>Torschützenliste</a>
+          <a href={`${baseUrl}matches`}>Spielplan</a>
         </nav>
       </header>
       <main>{children}</main>
