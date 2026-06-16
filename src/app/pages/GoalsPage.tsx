@@ -23,7 +23,7 @@ const sortLabels: Record<SortKey, string> = {
   goals: "Tore"
 };
 
-const pageSizeOptions = [10, 25, 50, 100];
+const basePageSizeOptions = [10, 20, 50, 100];
 
 function matchesSearch(row: ScorerRow, searchTerm: string): boolean {
   if (!searchTerm) {
@@ -48,6 +48,14 @@ function compareRows(left: ScorerRow, right: ScorerRow, sortKey: SortKey): numbe
   return left[sortKey].localeCompare(right[sortKey], "de");
 }
 
+function getPageSizeOptions(resultCount: number, currentPageSize: number): number[] {
+  const visibleOptions = basePageSizeOptions.filter((option) => option <= 20 || option <= resultCount);
+  const allRowsOption = basePageSizeOptions.find((option) => option >= resultCount);
+  const options = new Set([...visibleOptions, allRowsOption ?? basePageSizeOptions.at(-1), currentPageSize]);
+
+  return [...options].filter((option): option is number => typeof option === "number").sort((left, right) => left - right);
+}
+
 export function GoalsPage({ scorers }: GoalsPageProps) {
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [ownershipFilter, setOwnershipFilter] = useState<OwnershipFilter>(() => {
@@ -61,7 +69,7 @@ export function GoalsPage({ scorers }: GoalsPageProps) {
   const [sortKey, setSortKey] = useState<SortKey>("rank");
   const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
   const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(20);
 
   const rows = useMemo<ScorerRow[]>(() => {
     return scorers.map((scorer) => ({
@@ -99,6 +107,7 @@ export function GoalsPage({ scorers }: GoalsPageProps) {
   const pageRows = sortedRows.slice(pageStart, pageStart + pageSize);
   const firstVisibleResult = sortedRows.length === 0 ? 0 : pageStart + 1;
   const lastVisibleResult = Math.min(pageStart + pageSize, sortedRows.length);
+  const pageSizeOptions = getPageSizeOptions(sortedRows.length, pageSize);
 
   function resetPage(): void {
     setPage(1);
