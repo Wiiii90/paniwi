@@ -1308,6 +1308,7 @@ h2 {
 }
 
 .lineup-chip-list {
+  align-items: start;
   display: grid;
   gap: 5px;
 }
@@ -1315,9 +1316,10 @@ h2 {
 .relevant-lineup-sides {
   align-items: start;
   display: grid;
-  gap: 9px;
+  column-gap: 14px;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   position: relative;
+  row-gap: 7px;
 }
 
 .relevant-lineup-sides::before {
@@ -1332,6 +1334,7 @@ h2 {
 
 .relevant-lineup-list {
   align-content: start;
+  align-items: start;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   position: relative;
 }
@@ -1353,11 +1356,13 @@ h2 {
   background: #ffffff;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
+  box-sizing: border-box;
   display: grid;
   gap: 2px;
   height: 54px;
   min-width: 0;
   padding: 6px 8px;
+  width: 100%;
 }
 
 .lineup-chip-main {
