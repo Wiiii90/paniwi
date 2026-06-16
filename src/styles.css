@@ -1056,6 +1056,14 @@ h2 {
   gap: 0;
 }
 
+.match-section-empty {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  font-weight: 800;
+  margin: 0;
+  padding: 14px 16px;
+}
+
 .match-card {
   background: #ffffff;
   border: 0;

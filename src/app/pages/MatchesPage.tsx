@@ -201,7 +201,7 @@ function MatchSection({
       </div>
       <div className="match-list">
         {visibleMatches.length === 0 ? (
-          <p className="empty-state">{emptyText}</p>
+          <p className="match-section-empty">{emptyText}</p>
         ) : (
           visibleMatches.map((match) => {
             const relevantParticipants = match.participants.filter((participant) => participant.selected);
@@ -332,21 +332,23 @@ export function MatchesPage({ matches }: MatchesPageProps) {
 
   return (
     <section className="page-stack">
-      <MatchSection
-        sectionKey="live"
-        title="Live"
-        emptyText="Gerade läuft kein Spiel im Snapshot."
-        matches={liveMatches}
-        visibleCount={visibleCounts.live}
-        initialVisibleCount={initialVisibleCounts.live}
-        onShowMore={showMore}
-        onShowAll={showAll}
-        onCollapse={collapseSection}
-      />
+      {liveMatches.length > 0 ? (
+        <MatchSection
+          sectionKey="live"
+          title="Live"
+          emptyText=""
+          matches={liveMatches}
+          visibleCount={visibleCounts.live}
+          initialVisibleCount={initialVisibleCounts.live}
+          onShowMore={showMore}
+          onShowAll={showAll}
+          onCollapse={collapseSection}
+        />
+      ) : null}
       <MatchSection
         sectionKey="upcoming"
         title="Kommende Spiele"
-        emptyText="Keine kommenden Spiele im Snapshot."
+        emptyText="Daten konnten nicht geladen werden."
         matches={upcomingMatches}
         visibleCount={visibleCounts.upcoming}
         initialVisibleCount={initialVisibleCounts.upcoming}
@@ -357,7 +359,7 @@ export function MatchesPage({ matches }: MatchesPageProps) {
       <MatchSection
         sectionKey="finished"
         title="Vergangene Spiele"
-        emptyText="Noch keine vergangenen Spiele im Snapshot."
+        emptyText="Daten konnten nicht geladen werden."
         matches={finishedMatches}
         visibleCount={visibleCounts.finished}
         initialVisibleCount={initialVisibleCounts.finished}
