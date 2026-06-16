@@ -10,8 +10,8 @@ type AppShellProps = {
 const navItems = [
   { href: "", label: "Home", match: (path: string) => path === "/" },
   { href: "table", label: "Tabelle", match: (path: string) => path === "/table" || path === "/leaderboard" },
-  { href: "goals", label: "Torschützenliste", match: (path: string) => path === "/goals" },
-  { href: "matches", label: "Spielplan", match: (path: string) => path === "/matches" }
+  { href: "goals", label: "Torjäger", match: (path: string) => path === "/goals" },
+  { href: "matches", label: "Spiele", match: (path: string) => path === "/matches" }
 ];
 
 export function AppShell({ children, meta }: AppShellProps) {
