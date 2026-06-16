@@ -358,9 +358,12 @@ h2 {
 
 .match-mini-score {
   align-items: center;
+  align-self: start;
   display: inline-flex;
   gap: 6px;
   justify-content: flex-end;
+  min-height: 22px;
+  padding-top: 1px;
 }
 
 .match-mini-row-live > span:last-child {
@@ -371,6 +374,7 @@ h2 {
   align-items: center;
   display: flex;
   gap: 6px;
+  min-height: 22px;
   min-width: 0;
   white-space: nowrap;
 }
@@ -403,11 +407,11 @@ h2 {
   grid-auto-flow: column;
   grid-template-columns: 8px auto;
   gap: 6px;
+  height: 20px;
   line-height: 1.1;
   place-items: center;
-  padding: 4px 7px;
+  padding: 0 7px;
   text-transform: uppercase;
-  transform: translateY(-1px);
   white-space: nowrap;
   width: max-content;
 }
