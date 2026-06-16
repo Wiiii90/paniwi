@@ -558,10 +558,23 @@ h2 {
   white-space: nowrap;
 }
 
+.feed-chip-topline {
+  align-items: center;
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
 .feed-chip small {
   color: var(--color-muted);
   font-size: 0.76rem;
   font-weight: 800;
+}
+
+.feed-chip-owner {
+  color: var(--color-ink);
+  max-width: 96px;
+  text-align: right;
 }
 
 .feed-chip span {

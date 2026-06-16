@@ -111,7 +111,10 @@ export function GoalFeedStrip({ goals, matches, title }: GoalFeedStripProps) {
 
           return (
             <article className="feed-chip" key={`feed-${goal.externalGoalId}-${goal.owner}`}>
-              <small>{formatGoalDate(goal)}</small>
+              <div className="feed-chip-topline">
+                <small>{formatGoalDate(goal)}</small>
+                <small className="feed-chip-owner">{goal.owner}</small>
+              </div>
               <strong>{goal.displayPlayerName}</strong>
               <span>
                 {formatGoalMinute(goal)} · {goal.matchLabel ?? "Spiel offen"} · {formatMatchScore(match)}
