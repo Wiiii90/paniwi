@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import type { LeaderboardEntry, MatchRecord, ScoredGoal, ScorerEntry, StaticMeta } from "../../domain/types";
 import { getTodayOrLiveMatches } from "../../domain/matchFilters";
 import { StatusPill } from "../components/StatusPill";
@@ -31,6 +32,8 @@ function formatMatchScore(match: MatchRecord): string {
 }
 
 export function HomePage({ leaderboard, goals, scorers, matches, meta }: HomePageProps) {
+  const feedStripRef = useRef<HTMLDivElement>(null);
+  const feedDragRef = useRef({ isDragging: false, startX: 0, scrollLeft: 0 });
   const baseUrl = import.meta.env.BASE_URL;
   const latestGoals = goals.slice().reverse();
   const latestPointGoals = latestGoals.slice(0, 3);
@@ -39,6 +42,41 @@ export function HomePage({ leaderboard, goals, scorers, matches, meta }: HomePag
   const liveMatches = matches.filter((match) => match.status === "live");
   const scheduledMatches = getTodayOrLiveMatches(matches).filter((match) => match.status !== "live");
   const currentMatches = [...liveMatches, ...scheduledMatches].slice(0, 3);
+  const handleFeedPointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (event.pointerType === "touch" || !feedStripRef.current) {
+      return;
+    }
+
+    feedDragRef.current = {
+      isDragging: true,
+      startX: event.clientX,
+      scrollLeft: feedStripRef.current.scrollLeft
+    };
+    feedStripRef.current.setPointerCapture(event.pointerId);
+    feedStripRef.current.classList.add("is-dragging");
+  };
+
+  const handleFeedPointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (!feedDragRef.current.isDragging || !feedStripRef.current) {
+      return;
+    }
+
+    event.preventDefault();
+    const deltaX = event.clientX - feedDragRef.current.startX;
+    feedStripRef.current.scrollLeft = feedDragRef.current.scrollLeft - deltaX;
+  };
+
+  const stopFeedDrag = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (!feedStripRef.current) {
+      return;
+    }
+
+    feedDragRef.current.isDragging = false;
+    feedStripRef.current.classList.remove("is-dragging");
+    if (feedStripRef.current.hasPointerCapture(event.pointerId)) {
+      feedStripRef.current.releasePointerCapture(event.pointerId);
+    }
+  };
 
   return (
     <section className="page-stack">
@@ -151,7 +189,15 @@ export function HomePage({ leaderboard, goals, scorers, matches, meta }: HomePag
             <h2>Aktueller Feed</h2>
             <a className="text-link" href={`${baseUrl}goals`}>Torschützenliste</a>
           </div>
-          <div className="feed-strip">
+          <div
+            className="feed-strip"
+            onPointerCancel={stopFeedDrag}
+            onPointerDown={handleFeedPointerDown}
+            onPointerLeave={stopFeedDrag}
+            onPointerMove={handleFeedPointerMove}
+            onPointerUp={stopFeedDrag}
+            ref={feedStripRef}
+          >
             {latestGoals.map((goal) => (
               <article className="feed-chip" key={`feed-${goal.externalGoalId}-${goal.owner}`}>
                 <strong>{goal.displayPlayerName}</strong>

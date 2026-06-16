@@ -251,6 +251,7 @@ h2 {
 }
 
 .feed-strip {
+  cursor: grab;
   display: flex;
   gap: 8px;
   margin: 0;
@@ -258,6 +259,17 @@ h2 {
   overscroll-behavior-x: contain;
   padding: 0 2px 8px;
   scroll-padding-left: 2px;
+  scrollbar-width: none;
+  touch-action: pan-x;
+  user-select: none;
+}
+
+.feed-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.feed-strip.is-dragging {
+  cursor: grabbing;
 }
 
 .feed-chip {
