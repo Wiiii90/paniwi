@@ -1,4 +1,5 @@
 import { resolveTeamFromApiFootball } from "../../domain/teamResolver";
+import { teams } from "../../config/teams";
 import type {
   ExternalGoalRecord,
   ExternalMatchParticipantRecord,
@@ -359,6 +360,14 @@ function getApiTeamId(teamName: string | undefined): string | undefined {
   return teamName ? (resolveTeamFromApiFootball(teamName)?.teamId ?? undefined) : undefined;
 }
 
+const pickedTeamIds = new Set(teams.flatMap((team) => team.players.map((player) => player.teamId)));
+
+function fixtureHasPickedTeam(fixture: ApiFootballFixture): boolean {
+  const homeTeamId = getApiTeamId(fixture.teams?.home?.name);
+  const awayTeamId = getApiTeamId(fixture.teams?.away?.name);
+  return Boolean((homeTeamId && pickedTeamIds.has(homeTeamId)) || (awayTeamId && pickedTeamIds.has(awayTeamId)));
+}
+
 export function parseApiFootballFixture(fixture: ApiFootballFixture): ExternalMatchRecord | null {
   const fixtureId = getFixtureId(fixture);
   const homeTeam = fixture.teams?.home?.name?.trim();
@@ -439,6 +448,10 @@ function isFixtureInLiveWindow(fixture: ApiFootballFixture, now: Date): boolean 
 function shouldFetchFixtureLineups(fixture: ApiFootballFixture, phase: SyncWindowPhase, now: Date): boolean {
   const fixtureId = getFixtureId(fixture);
   if (!fixtureId) {
+    return false;
+  }
+
+  if (!fixtureHasPickedTeam(fixture)) {
     return false;
   }
 

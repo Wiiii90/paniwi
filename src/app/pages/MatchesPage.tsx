@@ -53,10 +53,10 @@ function formatMatchTitle(match: MatchRecord): string {
   return `${match.homeTeam.name} - ${match.awayTeam.name}`;
 }
 
-function formatParticipationStatus(status: MatchParticipationStatus): string {
+function formatParticipationStatus(status: MatchParticipationStatus, matchStatus: MatchRecord["status"]): string {
   switch (status) {
     case "starter":
-      return "spielt";
+      return matchStatus === "finished" ? "durchgespielt" : "spielt";
     case "bench":
       return "Bank";
     case "subbed-in":
@@ -68,7 +68,7 @@ function formatParticipationStatus(status: MatchParticipationStatus): string {
   }
 }
 
-function PlayerChip({ participant, compact = false }: { participant: MatchParticipantRecord; compact?: boolean }) {
+function PlayerChip({ participant, matchStatus }: { participant: MatchParticipantRecord; matchStatus: MatchRecord["status"] }) {
   const ownerLabel = participant.owners.length > 0 ? participant.owners.join(", ") : null;
 
   return (
@@ -78,18 +78,10 @@ function PlayerChip({ participant, compact = false }: { participant: MatchPartic
         {ownerLabel ? <em>{ownerLabel}</em> : null}
       </span>
       <span className="lineup-chip-meta">
-        {compact ? formatParticipationStatus(participant.status) : `${participant.displayNationalTeam} · ${formatParticipationStatus(participant.status)}`}
+        {participant.displayNationalTeam} · {formatParticipationStatus(participant.status, matchStatus)}
       </span>
     </span>
   );
-}
-
-function groupParticipantsByTeam(match: MatchRecord): [string, MatchParticipantRecord[]][] {
-  const teams = [match.homeTeam.name, match.awayTeam.name];
-  return teams.map((teamName) => [
-    teamName,
-    match.participants.filter((participant) => participant.displayNationalTeam === teamName || participant.nationalTeam === teamName)
-  ]);
 }
 
 type MatchSectionProps = {
@@ -102,8 +94,6 @@ type MatchSectionProps = {
   onShowMore: (section: keyof VisibleMatchCounts, amount: number) => void;
   onShowAll: (section: keyof VisibleMatchCounts, total: number) => void;
   onCollapse: (section: keyof VisibleMatchCounts) => void;
-  expandedLineups: Set<string>;
-  onToggleLineup: (matchId: string) => void;
 };
 
 type VisibleMatchCounts = {
@@ -158,9 +148,7 @@ function MatchSection({
   initialVisibleCount,
   onShowMore,
   onShowAll,
-  onCollapse,
-  expandedLineups,
-  onToggleLineup
+  onCollapse
 }: MatchSectionProps) {
   const visibleMatches = matches.slice(0, visibleCount);
   const hiddenCount = matches.length - visibleMatches.length;
@@ -176,8 +164,6 @@ function MatchSection({
         ) : (
           visibleMatches.map((match) => {
             const relevantParticipants = match.participants.filter((participant) => participant.selected);
-            const isLineupExpanded = expandedLineups.has(match.matchId);
-            const lineupTeams = groupParticipantsByTeam(match);
             const visibleGoals = match.goals.slice(0, 8);
             const overflowGoalCount = match.goals.length - visibleGoals.length;
 
@@ -210,44 +196,20 @@ function MatchSection({
                 </div>
                 <div className="match-lineup">
                   <div className="match-lineup-heading">
-                    <span>Aufstellung</span>
-                    {relevantParticipants.length > 0 ? <strong>{relevantParticipants.length} Panini-Spieler</strong> : null}
-                    {match.participants.length > 0 ? (
-                      <button className="plain-button compact-button" type="button" onClick={() => onToggleLineup(match.matchId)}>
-                        {isLineupExpanded ? "Weniger" : "Alle anzeigen"}
-                      </button>
-                    ) : null}
+                    <span>Panini-Spieler im Spiel</span>
+                    {relevantParticipants.length > 0 ? <strong>{relevantParticipants.length}</strong> : null}
                   </div>
-                  {match.participants.length === 0 ? (
-                    <p className="match-lineup-empty">Aufstellung offen.</p>
+                  {relevantParticipants.length === 0 ? (
+                    <p className="match-lineup-empty">{match.participants.length === 0 ? "Aufstellung offen." : "Keine Panini-Spieler in der Aufstellung."}</p>
                   ) : (
-                    <div className={`lineup-team-grid ${isLineupExpanded ? "lineup-team-grid-expanded" : ""}`}>
-                      {lineupTeams.map(([teamName, participants]) => {
-                        const priorityParticipants = participants.filter((participant) => participant.selected);
-                        const regularParticipants = participants.filter((participant) => !participant.selected);
-                        const visibleParticipants = isLineupExpanded
-                          ? [...priorityParticipants, ...regularParticipants]
-                          : [...priorityParticipants, ...regularParticipants].slice(0, Math.max(priorityParticipants.length, 6));
-
-                        return (
-                          <div className="lineup-team" key={teamName}>
-                            <h3>{teamName}</h3>
-                            {visibleParticipants.length > 0 ? (
-                              <div className="lineup-chip-list">
-                                {visibleParticipants.map((participant) => (
-                                  <PlayerChip
-                                    compact={!isLineupExpanded}
-                                    key={`${participant.fixtureId ?? participant.matchId}-${participant.apiPlayerId ?? participant.playerName}-${participant.status}`}
-                                    participant={participant}
-                                  />
-                                ))}
-                              </div>
-                            ) : (
-                              <span className="match-lineup-empty">Keine Daten</span>
-                            )}
-                          </div>
-                        );
-                      })}
+                    <div className="lineup-chip-list relevant-lineup-list">
+                      {relevantParticipants.map((participant) => (
+                        <PlayerChip
+                          key={`${participant.fixtureId ?? participant.matchId}-${participant.apiPlayerId ?? participant.playerName}-${participant.status}`}
+                          matchStatus={match.status}
+                          participant={participant}
+                        />
+                      ))}
                     </div>
                   )}
                 </div>
@@ -290,7 +252,6 @@ function MatchSection({
 
 export function MatchesPage({ matches }: MatchesPageProps) {
   const [visibleCounts, setVisibleCounts] = useState<VisibleMatchCounts>(initialVisibleCounts);
-  const [expandedLineups, setExpandedLineups] = useState<Set<string>>(() => new Set());
   const now = new Date();
   const liveMatches = matches.filter((match) => isActiveMatch(match, now)).sort(sortByKickoffAscending);
   const activeMatchIds = new Set(liveMatches.map((match) => match.matchId));
@@ -313,18 +274,6 @@ export function MatchesPage({ matches }: MatchesPageProps) {
     setVisibleCounts((current) => ({ ...current, [section]: initialVisibleCounts[section] }));
   }
 
-  function toggleLineup(matchId: string): void {
-    setExpandedLineups((current) => {
-      const next = new Set(current);
-      if (next.has(matchId)) {
-        next.delete(matchId);
-      } else {
-        next.add(matchId);
-      }
-      return next;
-    });
-  }
-
   return (
     <section className="page-stack">
       <MatchSection
@@ -337,8 +286,6 @@ export function MatchesPage({ matches }: MatchesPageProps) {
         onShowMore={showMore}
         onShowAll={showAll}
         onCollapse={collapseSection}
-        expandedLineups={expandedLineups}
-        onToggleLineup={toggleLineup}
       />
       <MatchSection
         sectionKey="upcoming"
@@ -350,8 +297,6 @@ export function MatchesPage({ matches }: MatchesPageProps) {
         onShowMore={showMore}
         onShowAll={showAll}
         onCollapse={collapseSection}
-        expandedLineups={expandedLineups}
-        onToggleLineup={toggleLineup}
       />
       <MatchSection
         sectionKey="finished"
@@ -363,8 +308,6 @@ export function MatchesPage({ matches }: MatchesPageProps) {
         onShowMore={showMore}
         onShowAll={showAll}
         onCollapse={collapseSection}
-        expandedLineups={expandedLineups}
-        onToggleLineup={toggleLineup}
       />
     </section>
   );
