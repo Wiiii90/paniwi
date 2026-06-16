@@ -1037,16 +1037,16 @@
   },
   {
     "matchId": "api-football:1489378",
-    "label": "Iran 1-1 New Zealand",
+    "label": "Iran 2-2 New Zealand",
     "kickedOffAt": "2026-06-16T01:00:00+00:00",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "name": "Iran",
-      "score": 1
+      "score": 2
     },
     "awayTeam": {
       "name": "New Zealand",
-      "score": 1
+      "score": 2
     },
     "goals": [
       {
@@ -1060,7 +1060,7 @@
         "apiPlayerId": 94333,
         "matchId": "api-football:1489378",
         "fixtureId": "1489378",
-        "matchLabel": "Iran 1-1 New Zealand",
+        "matchLabel": "Iran 2-2 New Zealand",
         "kickedOffAt": "2026-06-16T01:00:00+00:00",
         "minute": 7,
         "timeConfidence": "match-only",
@@ -1077,9 +1077,44 @@
         "apiPlayerId": 2691,
         "matchId": "api-football:1489378",
         "fixtureId": "1489378",
-        "matchLabel": "Iran 1-1 New Zealand",
+        "matchLabel": "Iran 2-2 New Zealand",
         "kickedOffAt": "2026-06-16T01:00:00+00:00",
         "minute": 32,
+        "timeConfidence": "match-only",
+        "detail": "normal",
+        "teamId": "iran"
+      },
+      {
+        "externalGoalId": "api-football:1489378:94333:54:Normal Goal:2",
+        "playerName": "E. Just",
+        "nationalTeam": "New Zealand",
+        "sourcePlayerName": "E. Just",
+        "sourceTeamName": "New Zealand",
+        "goals": 1,
+        "source": "api-football",
+        "apiPlayerId": 94333,
+        "matchId": "api-football:1489378",
+        "fixtureId": "1489378",
+        "matchLabel": "Iran 2-2 New Zealand",
+        "kickedOffAt": "2026-06-16T01:00:00+00:00",
+        "minute": 54,
+        "timeConfidence": "match-only",
+        "detail": "normal"
+      },
+      {
+        "externalGoalId": "api-football:1489378:134217:64:Normal Goal:3",
+        "playerName": "Mohammad Mohebi",
+        "nationalTeam": "Iran",
+        "sourcePlayerName": "M. Mohebi",
+        "sourceTeamName": "Iran",
+        "goals": 1,
+        "source": "api-football",
+        "apiPlayerId": 134217,
+        "matchId": "api-football:1489378",
+        "fixtureId": "1489378",
+        "matchLabel": "Iran 2-2 New Zealand",
+        "kickedOffAt": "2026-06-16T01:00:00+00:00",
+        "minute": 64,
         "timeConfidence": "match-only",
         "detail": "normal",
         "teamId": "iran"
@@ -1097,7 +1132,7 @@
         "apiPlayerId": 2691,
         "matchId": "api-football:1489378",
         "fixtureId": "1489378",
-        "matchLabel": "Iran 1-1 New Zealand",
+        "matchLabel": "Iran 2-2 New Zealand",
         "kickedOffAt": "2026-06-16T01:00:00+00:00",
         "minute": 32,
         "timeConfidence": "match-only",
@@ -1107,6 +1142,30 @@
         "owner": "Felix",
         "pickedPlayerName": "Ramin Rezaeian",
         "displayPlayerName": "Ramin Rezaeian",
+        "displayNationalTeam": "Iran",
+        "points": 1
+      },
+      {
+        "externalGoalId": "api-football:1489378:134217:64:Normal Goal:3",
+        "playerName": "Mohammad Mohebi",
+        "nationalTeam": "Iran",
+        "sourcePlayerName": "M. Mohebi",
+        "sourceTeamName": "Iran",
+        "goals": 1,
+        "source": "api-football",
+        "apiPlayerId": 134217,
+        "matchId": "api-football:1489378",
+        "fixtureId": "1489378",
+        "matchLabel": "Iran 2-2 New Zealand",
+        "kickedOffAt": "2026-06-16T01:00:00+00:00",
+        "minute": 64,
+        "timeConfidence": "match-only",
+        "detail": "normal",
+        "teamId": "iran",
+        "playerId": "iran-mohammad-mohebi",
+        "owner": "Felix",
+        "pickedPlayerName": "Mohammad Mohebi",
+        "displayPlayerName": "Mohammad Mohebi",
         "displayNationalTeam": "Iran",
         "points": 1
       }
