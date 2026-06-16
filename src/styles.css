@@ -1259,13 +1259,13 @@ h2 {
   display: inline-flex;
   flex: 0 0 auto;
   font: inherit;
-  font-size: 0.72rem;
+  font-size: 1rem;
   font-weight: 900;
   justify-content: center;
   line-height: 1;
-  min-height: 24px;
-  min-width: 42px;
-  padding: 4px 9px;
+  min-height: 26px;
+  min-width: 26px;
+  padding: 0;
 }
 
 .match-lineup-toggle:hover,

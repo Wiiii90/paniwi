@@ -175,12 +175,12 @@ function MatchSection({
   onShowAll,
   onCollapse
 }: MatchSectionProps) {
-  const [collapsedLineupIds, setCollapsedLineupIds] = useState<Set<string>>(() => new Set());
+  const [expandedLineupIds, setExpandedLineupIds] = useState<Set<string>>(() => new Set());
   const visibleMatches = matches.slice(0, visibleCount);
   const hiddenCount = matches.length - visibleMatches.length;
 
   function toggleLineup(matchId: string): void {
-    setCollapsedLineupIds((current) => {
+    setExpandedLineupIds((current) => {
       const next = new Set(current);
       if (next.has(matchId)) {
         next.delete(matchId);
@@ -205,7 +205,7 @@ function MatchSection({
             const visibleGoals = match.goals.slice(0, 8);
             const overflowGoalCount = match.goals.length - visibleGoals.length;
             const pointGoalIds = new Set(match.pointGoals.map((goal) => goal.externalGoalId));
-            const lineupCollapsed = collapsedLineupIds.has(match.matchId);
+            const lineupExpanded = expandedLineupIds.has(match.matchId);
             const pointImpact = formatPointImpact(match);
 
             return (
@@ -249,15 +249,16 @@ function MatchSection({
                       {relevantParticipants.length > 0 ? <strong>{relevantParticipants.length}</strong> : null}
                     </span>
                     <button
-                      aria-expanded={!lineupCollapsed}
+                      aria-label={lineupExpanded ? "Panini-Spieler einklappen" : "Panini-Spieler aufklappen"}
+                      aria-expanded={lineupExpanded}
                       className="match-lineup-toggle"
                       type="button"
                       onClick={() => toggleLineup(match.matchId)}
                     >
-                      {lineupCollapsed ? "Auf" : "Zu"}
+                      {lineupExpanded ? "−" : "+"}
                     </button>
                   </div>
-                  {!lineupCollapsed ? (
+                  {lineupExpanded ? (
                     relevantParticipants.length === 0 ? (
                       <p className="match-lineup-empty">{formatNoRelevantPlayers(match)}</p>
                     ) : (
