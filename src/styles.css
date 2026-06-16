@@ -1167,10 +1167,10 @@ h2 {
   white-space: nowrap;
 }
 
-.match-goals-empty span {
-  background: transparent;
-  border-color: transparent;
-  padding-left: 0;
+.match-goals .match-goal-chip-scored {
+  background: rgba(15, 118, 110, 0.08);
+  border-color: rgba(15, 118, 110, 0.55);
+  color: var(--color-primary);
 }
 
 .match-lineup {

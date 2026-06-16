@@ -218,8 +218,56 @@ function getParticipantStatusRank(status: MatchParticipationStatus): number {
 
 function buildParticipantMergeKey(participant: ExternalMatchParticipantRecord): string {
   const teamId = resolveParticipantTeamId(participant) ?? normalizeMatchTeamKey(participant.nationalTeam);
-  const playerKey = participant.apiPlayerId ? `api:${participant.apiPlayerId}` : normalizePlayerName(participant.playerName);
+  const playerKey = normalizePlayerName(participant.playerName);
   return [getParticipantMatchKey(participant), teamId, playerKey].join("|");
+}
+
+function getFixtureTeamIds(fixture: ExternalMatchRecord): Set<string> {
+  return new Set(
+    [resolveTeamFromApiFootball(fixture.homeTeam.name), resolveTeamFromApiFootball(fixture.awayTeam.name)]
+      .map((team) => team?.teamId)
+      .filter((teamId): teamId is string => Boolean(teamId))
+  );
+}
+
+function isPickInRoster(pickTeamId: string, pickName: string, rosterSnapshot: RosterSnapshot | undefined): boolean {
+  const rosterTeam = rosterSnapshot?.teams.find((team) => team.teamId === pickTeamId);
+  if (!rosterTeam) {
+    return true;
+  }
+
+  return Boolean(findUniqueRosterPlayer(rosterTeam.players, [pickName]));
+}
+
+function buildPickedFixtureParticipants(
+  fixture: ExternalMatchRecord,
+  teams: ParticipantTeam[],
+  rosterSnapshot: RosterSnapshot | undefined
+): ExternalMatchParticipantRecord[] {
+  const fixtureTeamIds = getFixtureTeamIds(fixture);
+  if (fixtureTeamIds.size === 0) {
+    return [];
+  }
+
+  return teams.flatMap((team) =>
+    team.players.flatMap((pick) => {
+      if (!fixtureTeamIds.has(pick.teamId) || !isPickInRoster(pick.teamId, pick.playerName, rosterSnapshot)) {
+        return [];
+      }
+
+      return [
+        {
+          source: fixture.source,
+          matchId: fixture.matchId,
+          ...(fixture.fixtureId ? { fixtureId: fixture.fixtureId } : {}),
+          playerName: getParticipantPickDisplayName(pick, rosterSnapshot),
+          nationalTeam: getTeamDisplayName(pick.teamId),
+          teamId: pick.teamId,
+          status: "unknown"
+        } satisfies ExternalMatchParticipantRecord
+      ];
+    })
+  );
 }
 
 function dedupeParticipants(participants: ExternalMatchParticipantRecord[]): ExternalMatchParticipantRecord[] {
@@ -279,7 +327,10 @@ export function buildMatches(
   const fixtureMatches = dedupeFixtures(fixtures).map((fixture) => {
     const matchGoals = sortGoalsChronologically(goals.filter((goal) => goalBelongsToFixture(goal, fixture)));
     const pointGoals = sortGoalsChronologically(scoredGoals.filter((goal) => goalBelongsToFixture(goal, fixture)));
-    const matchParticipants = participants.filter((participant) => participantBelongsToFixture(participant, fixture));
+    const matchParticipants = [
+      ...participants.filter((participant) => participantBelongsToFixture(participant, fixture)),
+      ...buildPickedFixtureParticipants(fixture, teams, rosterSnapshot)
+    ];
 
     return {
       matchId: fixture.matchId,

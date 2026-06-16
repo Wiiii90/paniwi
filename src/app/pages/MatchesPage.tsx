@@ -68,6 +68,14 @@ function formatParticipationStatus(status: MatchParticipationStatus, matchStatus
   }
 }
 
+function formatNoRelevantPlayers(match: MatchRecord): string {
+  if (match.status === "live" || match.status === "scheduled") {
+    return "Fehlanzeige";
+  }
+
+  return "Keine Panini-Spieler in der Aufstellung.";
+}
+
 function PlayerChip({ participant, matchStatus }: { participant: MatchParticipantRecord; matchStatus: MatchRecord["status"] }) {
   const ownerLabel = participant.owners.length > 0 ? participant.owners.join(", ") : null;
 
@@ -166,6 +174,7 @@ function MatchSection({
             const relevantParticipants = match.participants.filter((participant) => participant.selected);
             const visibleGoals = match.goals.slice(0, 8);
             const overflowGoalCount = match.goals.length - visibleGoals.length;
+            const pointGoalIds = new Set(match.pointGoals.map((goal) => goal.externalGoalId));
 
             return (
               <article className={`match-card match-card-${match.status}`} key={match.matchId}>
@@ -182,25 +191,23 @@ function MatchSection({
                     <span className="match-card-score">{formatScore(match)}</span>
                   </div>
                 </div>
-                <div className={`match-goals ${match.goals.length > 0 ? "" : "match-goals-empty"}`}>
-                  {match.goals.length === 0 ? (
-                    <span>Keine Treffer</span>
-                  ) : (
-                    visibleGoals.map((goal) => (
-                      <span key={goal.externalGoalId}>
+                {match.goals.length > 0 ? (
+                  <div className="match-goals">
+                    {visibleGoals.map((goal) => (
+                      <span className={pointGoalIds.has(goal.externalGoalId) ? "match-goal-chip-scored" : undefined} key={goal.externalGoalId}>
                         {formatGoalMinute(goal)} {goal.playerName}
                       </span>
-                    ))
-                  )}
-                  {overflowGoalCount > 0 ? <span>+{overflowGoalCount}</span> : null}
-                </div>
+                    ))}
+                    {overflowGoalCount > 0 ? <span>+{overflowGoalCount}</span> : null}
+                  </div>
+                ) : null}
                 <div className="match-lineup">
                   <div className="match-lineup-heading">
                     <span>Panini-Spieler im Spiel</span>
                     {relevantParticipants.length > 0 ? <strong>{relevantParticipants.length}</strong> : null}
                   </div>
                   {relevantParticipants.length === 0 ? (
-                    <p className="match-lineup-empty">{match.participants.length === 0 ? "Aufstellung offen." : "Keine Panini-Spieler in der Aufstellung."}</p>
+                    <p className="match-lineup-empty">{formatNoRelevantPlayers(match)}</p>
                   ) : (
                     <div className="lineup-chip-list relevant-lineup-list">
                       {relevantParticipants.map((participant) => (
