@@ -118,29 +118,13 @@ export function MatchesPage({ matches }: MatchesPageProps) {
   const liveMatches = matches.filter((match) => match.status === "live").sort(sortByKickoffAscending);
   const upcomingMatches = matches.filter((match) => match.status === "scheduled").sort(sortByKickoffAscending);
   const finishedMatches = matches.filter((match) => match.status === "finished").sort(sortByKickoffDescending);
-  const allExpanded = expandedSections.live && expandedSections.upcoming && expandedSections.finished;
 
   function toggleSection(section: keyof typeof expandedSections): void {
     setExpandedSections((current) => ({ ...current, [section]: !current[section] }));
   }
 
-  function toggleAll(): void {
-    setExpandedSections({
-      live: !allExpanded,
-      upcoming: !allExpanded,
-      finished: !allExpanded
-    });
-  }
-
   return (
     <section className="page-stack">
-      <div className="page-title">
-        <h1>Spielplan</h1>
-        <button className="hero-action" type="button" onClick={toggleAll}>
-          {allExpanded ? "Alle einklappen" : "Alles anzeigen"}
-        </button>
-      </div>
-
       <MatchSection
         title="Live"
         emptyText="Gerade läuft kein Spiel im Snapshot."

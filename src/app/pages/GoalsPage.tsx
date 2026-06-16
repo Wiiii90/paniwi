@@ -1,24 +1,14 @@
-import type { ScoredGoal, ScorerEntry, StaticMeta } from "../../domain/types";
+import type { ScoredGoal, ScorerEntry } from "../../domain/types";
 import { formatGoalMinute, formatTimeConfidence } from "../formatGoal";
 
 type GoalsPageProps = {
   goals: ScoredGoal[];
   scorers: ScorerEntry[];
-  meta: StaticMeta;
 };
 
-export function GoalsPage({ goals, scorers, meta }: GoalsPageProps) {
-  const scorerGoalCount = scorers.reduce((sum, scorer) => sum + scorer.goals, 0);
-  const totalGoalCount = meta.goalCount ?? scorerGoalCount;
-
+export function GoalsPage({ goals, scorers }: GoalsPageProps) {
   return (
     <section className="page-stack">
-      <div className="page-title">
-        <h1>Torschützenliste</h1>
-        <strong>{totalGoalCount} Treffer</strong>
-      </div>
-
-      <h2>Torschützenliste</h2>
       <div className="table-card">
         <div className="table-header scorer-grid">
           <span>Rang</span>
@@ -43,7 +33,6 @@ export function GoalsPage({ goals, scorers, meta }: GoalsPageProps) {
         )}
       </div>
 
-      <h2>Punkte-Tore</h2>
       <div className="feed-list">
         {goals.length === 0 ? (
           <p className="empty-state">Noch keine punkterelevanten Treffer im Snapshot.</p>

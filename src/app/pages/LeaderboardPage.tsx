@@ -1,8 +1,7 @@
-import type { LeaderboardEntry, StaticMeta } from "../../domain/types";
+import type { LeaderboardEntry } from "../../domain/types";
 
 type LeaderboardPageProps = {
   leaderboard: LeaderboardEntry[];
-  meta: StaticMeta;
 };
 
 function getLastPlaceOwners(leaderboard: LeaderboardEntry[]): Set<string> {
@@ -14,20 +13,14 @@ function getLastPlaceOwners(leaderboard: LeaderboardEntry[]): Set<string> {
   return new Set(leaderboard.filter((entry) => entry.points === minPoints).map((entry) => entry.owner));
 }
 
-export function LeaderboardPage({ leaderboard, meta }: LeaderboardPageProps) {
+export function LeaderboardPage({ leaderboard }: LeaderboardPageProps) {
   const baseUrl = import.meta.env.BASE_URL;
   const lastPlaceOwners = getLastPlaceOwners(leaderboard);
   const maxPoints = leaderboard.length > 0 ? Math.max(...leaderboard.map((entry) => entry.points)) : 0;
   const jackpotOwners = new Set(leaderboard.filter((entry) => entry.points === maxPoints).map((entry) => entry.owner));
-  const totalPickedGoals = leaderboard.reduce((sum, entry) => sum + entry.points, 0);
 
   return (
     <section className="page-stack">
-      <div className="page-title">
-        <h1>Tabelle</h1>
-        <strong>{totalPickedGoals} Punkte-Tore</strong>
-      </div>
-
       <div className="leaderboard-list">
         {leaderboard.length === 0 ? (
           <p className="empty-state">Noch keine Teams im Snapshot.</p>
