@@ -1,6 +1,21 @@
-import type { ExternalMatchRecord, GoalRecord, MatchRecord, MatchTeam, ScoredGoal } from "./types";
+import type {
+  ExternalMatchParticipantRecord,
+  ExternalMatchRecord,
+  GoalRecord,
+  MatchParticipantRecord,
+  MatchParticipationStatus,
+  MatchRecord,
+  MatchTeam,
+  ParticipantTeam,
+  ScoredGoal
+} from "./types";
+import type { RosterSnapshot } from "./rosterTypes";
 import { sortGoalsChronologically } from "./sortGoals";
-import { resolveTeamDisplayName } from "./teamDisplay";
+import { getTeamDisplayName, resolveTeamDisplayName } from "./teamDisplay";
+import { resolveTeamFromApiFootball, resolveTeamFromWikipedia } from "./teamResolver";
+import { findUniqueRosterPlayer } from "./rosterNameMatcher";
+import { getParticipantPickCandidateNames, getParticipantPickDisplayName } from "./participantPick";
+import { normalizePlayerName } from "./normalizePlayerName";
 
 function normalizeScoreLabel(label: string): string {
   return label.replace(/[–—]/g, "-");
@@ -125,16 +140,146 @@ function buildFallbackMatches(goals: GoalRecord[], scoredGoals: ScoredGoal[]): M
         awayTeam,
         goals: sortGoalsChronologically(matchGoals),
         pointGoals: sortGoalsChronologically(pointGoals),
-        affectedOwners: [...new Set(pointGoals.map((goal) => goal.owner))].sort((a, b) => a.localeCompare(b))
+        affectedOwners: [...new Set(pointGoals.map((goal) => goal.owner))].sort((a, b) => a.localeCompare(b)),
+        participants: []
       };
     });
 }
 
-export function buildMatches(goals: GoalRecord[], scoredGoals: ScoredGoal[], fixtures: ExternalMatchRecord[] = []): MatchRecord[] {
+function getParticipantMatchKey(participant: ExternalMatchParticipantRecord): string {
+  return participant.matchId || (participant.fixtureId ? `api-football:${participant.fixtureId}` : "unknown");
+}
+
+function participantBelongsToFixture(participant: ExternalMatchParticipantRecord, fixture: ExternalMatchRecord): boolean {
+  return participant.matchId === fixture.matchId || Boolean(fixture.fixtureId && participant.fixtureId === fixture.fixtureId);
+}
+
+function resolveParticipantTeamId(participant: ExternalMatchParticipantRecord): string | undefined {
+  if (participant.teamId) {
+    return participant.teamId;
+  }
+
+  const team =
+    participant.source === "api-football"
+      ? resolveTeamFromApiFootball(participant.nationalTeam)
+      : resolveTeamFromWikipedia(participant.nationalTeam) ?? resolveTeamFromApiFootball(participant.nationalTeam);
+
+  return team?.teamId;
+}
+
+function getRosterDisplayName(
+  participant: ExternalMatchParticipantRecord,
+  teamId: string | undefined,
+  rosterSnapshot: RosterSnapshot | undefined
+): string {
+  const rosterTeam = teamId ? rosterSnapshot?.teams.find((team) => team.teamId === teamId) : undefined;
+  const rosterPlayer = rosterTeam ? findUniqueRosterPlayer(rosterTeam.players, [participant.playerName]) : null;
+  return rosterPlayer?.playerName ?? participant.playerName;
+}
+
+function getPickOwners(
+  participant: ExternalMatchParticipantRecord,
+  teams: ParticipantTeam[],
+  rosterSnapshot: RosterSnapshot | undefined
+): string[] {
+  const teamId = resolveParticipantTeamId(participant);
+  const normalizedParticipantName = normalizePlayerName(participant.playerName);
+  const owners = teams.flatMap((team) => {
+    const hasPlayer = team.players.some((pick) => {
+      if (teamId && pick.teamId !== teamId) {
+        return false;
+      }
+
+      return [...getParticipantPickCandidateNames(pick), getParticipantPickDisplayName(pick, rosterSnapshot)].some((candidateName) => {
+        return normalizePlayerName(candidateName) === normalizedParticipantName;
+      });
+    });
+
+    return hasPlayer ? [team.owner] : [];
+  });
+
+  return [...new Set(owners)].sort((left, right) => left.localeCompare(right));
+}
+
+function getParticipantStatusRank(status: MatchParticipationStatus): number {
+  switch (status) {
+    case "subbed-out":
+      return 4;
+    case "subbed-in":
+      return 3;
+    case "starter":
+      return 2;
+    case "bench":
+      return 1;
+    case "unknown":
+      return 0;
+  }
+}
+
+function buildParticipantMergeKey(participant: ExternalMatchParticipantRecord): string {
+  const teamId = resolveParticipantTeamId(participant) ?? normalizeMatchTeamKey(participant.nationalTeam);
+  const playerKey = participant.apiPlayerId ? `api:${participant.apiPlayerId}` : normalizePlayerName(participant.playerName);
+  return [getParticipantMatchKey(participant), teamId, playerKey].join("|");
+}
+
+function dedupeParticipants(participants: ExternalMatchParticipantRecord[]): ExternalMatchParticipantRecord[] {
+  const participantsByKey = new Map<string, ExternalMatchParticipantRecord>();
+
+  for (const participant of participants) {
+    const key = buildParticipantMergeKey(participant);
+    const existing = participantsByKey.get(key);
+    if (!existing || getParticipantStatusRank(participant.status) > getParticipantStatusRank(existing.status)) {
+      participantsByKey.set(key, participant);
+    }
+  }
+
+  return [...participantsByKey.values()];
+}
+
+function enrichParticipants(
+  participants: ExternalMatchParticipantRecord[],
+  teams: ParticipantTeam[] = [],
+  rosterSnapshot?: RosterSnapshot
+): MatchParticipantRecord[] {
+  return dedupeParticipants(participants)
+    .map((participant) => {
+      const teamId = resolveParticipantTeamId(participant);
+      const owners = getPickOwners(participant, teams, rosterSnapshot);
+
+      return {
+        ...participant,
+        teamId,
+        nationalTeam: teamId ? getTeamDisplayName(teamId, participant.nationalTeam) : resolveTeamDisplayName(participant.nationalTeam, participant.source),
+        displayPlayerName: getRosterDisplayName(participant, teamId, rosterSnapshot),
+        displayNationalTeam: teamId ? getTeamDisplayName(teamId, participant.nationalTeam) : resolveTeamDisplayName(participant.nationalTeam, participant.source),
+        owners,
+        selected: owners.length > 0
+      } satisfies MatchParticipantRecord;
+    })
+    .sort((left, right) => {
+      const selectedSort = Number(right.selected) - Number(left.selected);
+      return (
+        selectedSort ||
+        left.displayNationalTeam.localeCompare(right.displayNationalTeam) ||
+        getParticipantStatusRank(right.status) - getParticipantStatusRank(left.status) ||
+        left.displayPlayerName.localeCompare(right.displayPlayerName)
+      );
+    });
+}
+
+export function buildMatches(
+  goals: GoalRecord[],
+  scoredGoals: ScoredGoal[],
+  fixtures: ExternalMatchRecord[] = [],
+  participants: ExternalMatchParticipantRecord[] = [],
+  teams: ParticipantTeam[] = [],
+  rosterSnapshot?: RosterSnapshot
+): MatchRecord[] {
   const fallbackMatches = buildFallbackMatches(goals, scoredGoals);
   const fixtureMatches = dedupeFixtures(fixtures).map((fixture) => {
     const matchGoals = sortGoalsChronologically(goals.filter((goal) => goalBelongsToFixture(goal, fixture)));
     const pointGoals = sortGoalsChronologically(scoredGoals.filter((goal) => goalBelongsToFixture(goal, fixture)));
+    const matchParticipants = participants.filter((participant) => participantBelongsToFixture(participant, fixture));
 
     return {
       matchId: fixture.matchId,
@@ -145,7 +290,8 @@ export function buildMatches(goals: GoalRecord[], scoredGoals: ScoredGoal[], fix
       awayTeam: buildMatchTeam(fixture.awayTeam, fixture.source),
       goals: matchGoals,
       pointGoals,
-      affectedOwners: [...new Set(pointGoals.map((goal) => goal.owner))].sort((a, b) => a.localeCompare(b))
+      affectedOwners: [...new Set(pointGoals.map((goal) => goal.owner))].sort((a, b) => a.localeCompare(b)),
+      participants: enrichParticipants(matchParticipants, teams, rosterSnapshot)
     } satisfies MatchRecord;
   });
   const fixtureIds = new Set(fixtureMatches.map((match) => match.matchId));

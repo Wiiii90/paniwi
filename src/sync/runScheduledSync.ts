@@ -45,6 +45,15 @@ export async function runScheduledSync(force = parseForceFlag(process.argv)): Pr
   }
 
   console.log(`Sync allowed: ${decision.reason}`);
+  if (decision.windowPhase) {
+    process.env.SYNC_WINDOW_PHASE = decision.windowPhase;
+  }
+  if (decision.windowFrom) {
+    process.env.SYNC_WINDOW_FROM = decision.windowFrom;
+  }
+  if (decision.windowUntil) {
+    process.env.SYNC_WINDOW_UNTIL = decision.windowUntil;
+  }
   await syncGoals(undefined, { syncWindowId: decision.windowId });
   await setGithubOutput("sync_performed", "true");
   await setGithubOutput("sync_reason", decision.reason);

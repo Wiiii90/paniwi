@@ -1,10 +1,15 @@
 import { createHash } from "node:crypto";
-import type { GoalRecord } from "../domain/types";
+import type { ExternalMatchParticipantRecord, ExternalMatchRecord, GoalRecord } from "../domain/types";
 
-export function buildSnapshotFingerprint(rawGoals: GoalRecord[]): string {
-  const payload = rawGoals
+export function buildSnapshotFingerprint(
+  rawGoals: GoalRecord[],
+  rawMatches: ExternalMatchRecord[] = [],
+  rawParticipants: ExternalMatchParticipantRecord[] = []
+): string {
+  const goalPayload = rawGoals
     .map((goal) =>
       [
+        "goal",
         goal.externalGoalId,
         goal.playerName,
         goal.nationalTeam,
@@ -14,8 +19,41 @@ export function buildSnapshotFingerprint(rawGoals: GoalRecord[]): string {
         goal.detail
       ].join("|")
     )
-    .sort()
-    .join("\n");
+    .sort();
+  const matchPayload = rawMatches
+    .map((match) =>
+      [
+        "match",
+        match.source,
+        match.matchId,
+        match.fixtureId ?? "",
+        match.status,
+        match.homeTeam.name,
+        match.homeTeam.score ?? "",
+        match.awayTeam.name,
+        match.awayTeam.score ?? "",
+        match.kickedOffAt ?? ""
+      ].join("|")
+    )
+    .sort();
+  const participantPayload = rawParticipants
+    .map((participant) =>
+      [
+        "participant",
+        participant.source,
+        participant.matchId,
+        participant.fixtureId ?? "",
+        participant.teamId ?? "",
+        participant.apiPlayerId ?? "",
+        participant.playerName,
+        participant.nationalTeam,
+        participant.status,
+        participant.shirtNumber ?? ""
+      ].join("|")
+    )
+    .sort();
+
+  const payload = [...goalPayload, ...matchPayload, ...participantPayload].join("\n");
 
   return createHash("sha256").update(payload).digest("hex");
 }

@@ -5,7 +5,7 @@ import { buildMatches } from "../domain/buildMatches";
 import { buildScorers } from "../domain/buildScorers";
 import { enrichGoalsWithRoster } from "../domain/rosterResolver";
 import type { PickStatusSnapshot } from "../domain/pickStatusTypes";
-import type { ExternalMatchRecord, GoalRecord, StaticMeta } from "../domain/types";
+import type { ExternalMatchParticipantRecord, ExternalMatchRecord, GoalRecord, StaticMeta } from "../domain/types";
 import type { RosterSnapshot } from "../domain/rosterTypes";
 import { sortGoalsChronologically } from "../domain/sortGoals";
 import { teams } from "../config/teams";
@@ -27,9 +27,10 @@ async function readOptionalJson<T>(path: string): Promise<T | undefined> {
 }
 
 export async function rebuildStaticData(): Promise<void> {
-  const [rawGoals, rawMatches, meta, rosters, previousPickStatuses] = await Promise.all([
+  const [rawGoals, rawMatches, rawParticipants, meta, rosters, previousPickStatuses] = await Promise.all([
     readJson<GoalRecord[]>("public/data/raw-goals.json"),
     readJson<ExternalMatchRecord[]>("public/data/raw-matches.json"),
+    readOptionalJson<ExternalMatchParticipantRecord[]>("public/data/raw-participants.json"),
     readJson<StaticMeta>("public/data/meta.json"),
     readOptionalJson<RosterSnapshot>("public/data/rosters.json"),
     readOptionalJson<PickStatusSnapshot>("public/data/pick-statuses.json")
@@ -41,14 +42,15 @@ export async function rebuildStaticData(): Promise<void> {
   const scoredGoals = sortGoalsChronologically(scoreGoalsForTeams(teams, validGoals, rosters));
   const leaderboard = buildLeaderboard(teams, validGoals, rosters);
   const scorers = buildScorers(validGoals, teams, rosters);
-  const matches = buildMatches(validGoals, scoredGoals, rawMatches);
-  const snapshotFingerprint = buildSnapshotFingerprint(validGoals);
+  const matches = buildMatches(validGoals, scoredGoals, rawMatches, rawParticipants ?? [], teams, rosters);
+  const snapshotFingerprint = buildSnapshotFingerprint(validGoals, rawMatches, rawParticipants ?? []);
 
   await writeStaticData({
     leaderboard,
     goals: scoredGoals,
     rawGoals: validGoals,
     rawMatches,
+    rawParticipants: rawParticipants ?? [],
     scorers,
     matches,
     meta: {

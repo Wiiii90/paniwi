@@ -1,4 +1,12 @@
-import type { ExternalGoalRecord, ExternalMatchRecord, GoalDetail, MatchStatus } from "../../domain/types";
+import { resolveTeamFromApiFootball } from "../../domain/teamResolver";
+import type {
+  ExternalGoalRecord,
+  ExternalMatchParticipantRecord,
+  ExternalMatchRecord,
+  GoalDetail,
+  MatchParticipationStatus,
+  MatchStatus
+} from "../../domain/types";
 import type { GoalSource, GoalSourceResult } from "./types";
 
 type ApiFootballEvent = {
@@ -11,6 +19,10 @@ type ApiFootballEvent = {
     name?: string;
   };
   player?: {
+    id?: number;
+    name?: string;
+  };
+  assist?: {
     id?: number;
     name?: string;
   };
@@ -53,6 +65,28 @@ type ApiFootballEventsResponse = {
   errors?: unknown;
 };
 
+type ApiFootballLineupPlayer = {
+  player?: {
+    id?: number;
+    name?: string;
+    number?: number | null;
+  };
+};
+
+type ApiFootballLineup = {
+  team?: {
+    id?: number;
+    name?: string;
+  };
+  startXI?: ApiFootballLineupPlayer[];
+  substitutes?: ApiFootballLineupPlayer[];
+};
+
+type ApiFootballLineupsResponse = {
+  response?: ApiFootballLineup[];
+  errors?: unknown;
+};
+
 type ApiFootballFixturesResponse = {
   response?: ApiFootballFixture[];
   errors?: unknown;
@@ -66,6 +100,14 @@ const skippedFixtureStatuses = new Set(["NS", "TBD", "PST", "CANC", "ABD", "AWD"
 const liveFixtureStatuses = new Set(["1H", "HT", "2H", "ET", "BT", "P", "SUSP", "INT", "LIVE"]);
 const finishedFixtureStatuses = new Set(["FT", "AET", "PEN"]);
 const scheduledFixtureStatuses = new Set(["NS", "TBD"]);
+const preMatchLineupMinutesBefore = 60;
+const preMatchLineupEndMinutesBefore = 5;
+const liveWindowMinutesAfterKickoff = 120;
+const expectedMatchMinutes = 105;
+const postMatchWindowOffsets = [15, 60, 120] as const;
+const postMatchWindowDurationMinutes = 30;
+
+type SyncWindowPhase = "pre-match" | "live" | "post-match" | "maintenance" | "forced" | "settled";
 
 type ApiFootballRequestBudget = {
   limit: number;
@@ -86,6 +128,15 @@ function parseCommaSeparated(value: string | undefined): string[] {
 function getOptionalEnvValue(value: string | undefined): string | undefined {
   const normalized = value?.trim();
   return normalized ? normalized : undefined;
+}
+
+function getSyncWindowPhase(env: NodeJS.ProcessEnv = process.env): SyncWindowPhase {
+  const phase = env.SYNC_WINDOW_PHASE;
+  if (phase === "pre-match" || phase === "live" || phase === "post-match" || phase === "maintenance" || phase === "forced") {
+    return phase;
+  }
+
+  return "settled";
 }
 
 export function getApiFootballRequestLimit(env: NodeJS.ProcessEnv = process.env): number {
@@ -250,6 +301,10 @@ function getTeamScore(value: number | null | undefined): number | undefined {
   return typeof value === "number" ? value : undefined;
 }
 
+function getApiTeamId(teamName: string | undefined): string | undefined {
+  return teamName ? (resolveTeamFromApiFootball(teamName)?.teamId ?? undefined) : undefined;
+}
+
 export function parseApiFootballFixture(fixture: ApiFootballFixture): ExternalMatchRecord | null {
   const fixtureId = getFixtureId(fixture);
   const homeTeam = fixture.teams?.home?.name?.trim();
@@ -287,6 +342,83 @@ export function shouldFetchFixtureEvents(fixture: ApiFootballFixture): boolean {
   return Boolean(getFixtureId(fixture) && status && !skippedFixtureStatuses.has(status));
 }
 
+function getFixtureKickoffMs(fixture: ApiFootballFixture): number | null {
+  const kickoff = fixture.fixture?.date ? Date.parse(fixture.fixture.date) : Number.NaN;
+  return Number.isNaN(kickoff) ? null : kickoff;
+}
+
+function isPostMatchWindow(fixture: ApiFootballFixture, now: Date): boolean {
+  const kickoffMs = getFixtureKickoffMs(fixture);
+  if (!kickoffMs) {
+    return false;
+  }
+
+  const expectedEndMs = kickoffMs + expectedMatchMinutes * 60 * 1000;
+  return postMatchWindowOffsets.some((offsetMinutes) => {
+    const from = expectedEndMs + offsetMinutes * 60 * 1000;
+    const until = from + postMatchWindowDurationMinutes * 60 * 1000;
+    return now.getTime() >= from && now.getTime() <= until;
+  });
+}
+
+function isFixtureInPreMatchWindow(fixture: ApiFootballFixture, now: Date): boolean {
+  const kickoffMs = getFixtureKickoffMs(fixture);
+  if (!kickoffMs) {
+    return false;
+  }
+
+  const from = kickoffMs - preMatchLineupMinutesBefore * 60 * 1000;
+  const until = kickoffMs - preMatchLineupEndMinutesBefore * 60 * 1000;
+  return now.getTime() >= from && now.getTime() <= until;
+}
+
+function isFixtureInLiveWindow(fixture: ApiFootballFixture, now: Date): boolean {
+  const kickoffMs = getFixtureKickoffMs(fixture);
+  if (!kickoffMs) {
+    return liveFixtureStatuses.has(fixture.fixture?.status?.short ?? "");
+  }
+
+  const until = kickoffMs + liveWindowMinutesAfterKickoff * 60 * 1000;
+  return now.getTime() >= kickoffMs && now.getTime() <= until;
+}
+
+function shouldFetchFixtureLineups(fixture: ApiFootballFixture, phase: SyncWindowPhase, now: Date): boolean {
+  const fixtureId = getFixtureId(fixture);
+  if (!fixtureId) {
+    return false;
+  }
+
+  if (phase === "forced") {
+    return false;
+  }
+
+  return (phase === "pre-match" && isFixtureInPreMatchWindow(fixture, now)) || (phase === "live" && isFixtureInLiveWindow(fixture, now));
+}
+
+function shouldFetchFixtureEventsForPhase(fixture: ApiFootballFixture, phase: SyncWindowPhase, now: Date): boolean {
+  if (!shouldFetchFixtureEvents(fixture)) {
+    return false;
+  }
+
+  if (phase === "forced") {
+    return true;
+  }
+
+  if (phase === "live") {
+    return isFixtureInLiveWindow(fixture, now);
+  }
+
+  if (phase === "post-match") {
+    return isPostMatchWindow(fixture, now);
+  }
+
+  if (phase === "maintenance") {
+    return fixture.fixture?.status?.short ? !scheduledFixtureStatuses.has(fixture.fixture.status.short) : false;
+  }
+
+  return false;
+}
+
 export function parseApiFootballEvents(
   fixtureId: string,
   events: ApiFootballEvent[],
@@ -320,6 +452,70 @@ export function parseApiFootballEvents(
         timeConfidence: typeof minute === "number" ? "match-only" : "unknown",
         detail: normalizeGoalDetail(event.detail)
       }
+    ];
+  });
+}
+
+function isSubstitutionEvent(event: ApiFootballEvent): boolean {
+  const type = event.type?.toLowerCase() ?? "";
+  return type === "subst" || type === "substitution";
+}
+
+function buildParticipantRecord(
+  fixtureId: string,
+  playerName: string | undefined,
+  nationalTeam: string | undefined,
+  status: MatchParticipationStatus,
+  apiPlayerId?: number,
+  shirtNumber?: number | null
+): ExternalMatchParticipantRecord[] {
+  const normalizedPlayerName = playerName?.trim();
+  const normalizedTeamName = nationalTeam?.trim();
+  if (!normalizedPlayerName || !normalizedTeamName) {
+    return [];
+  }
+
+  return [
+    {
+      source: "api-football",
+      matchId: `api-football:${fixtureId}`,
+      fixtureId,
+      playerName: normalizedPlayerName,
+      nationalTeam: normalizedTeamName,
+      teamId: getApiTeamId(normalizedTeamName),
+      apiPlayerId,
+      status,
+      shirtNumber: typeof shirtNumber === "number" ? shirtNumber : undefined
+    }
+  ];
+}
+
+export function parseApiFootballLineups(
+  fixtureId: string,
+  lineups: ApiFootballLineup[]
+): ExternalMatchParticipantRecord[] {
+  return lineups.flatMap((lineup) => {
+    const nationalTeam = lineup.team?.name;
+    const starters = (lineup.startXI ?? []).flatMap((entry) =>
+      buildParticipantRecord(fixtureId, entry.player?.name, nationalTeam, "starter", entry.player?.id, entry.player?.number)
+    );
+    const substitutes = (lineup.substitutes ?? []).flatMap((entry) =>
+      buildParticipantRecord(fixtureId, entry.player?.name, nationalTeam, "bench", entry.player?.id, entry.player?.number)
+    );
+
+    return [...starters, ...substitutes];
+  });
+}
+
+export function parseApiFootballSubstitutions(
+  fixtureId: string,
+  events: ApiFootballEvent[]
+): ExternalMatchParticipantRecord[] {
+  return events.filter(isSubstitutionEvent).flatMap((event) => {
+    const nationalTeam = event.team?.name;
+    return [
+      ...buildParticipantRecord(fixtureId, event.player?.name, nationalTeam, "subbed-out", event.player?.id),
+      ...buildParticipantRecord(fixtureId, event.assist?.name, nationalTeam, "subbed-in", event.assist?.id)
     ];
   });
 }
@@ -378,6 +574,19 @@ async function fetchFixtureEvents(
   return body.response ?? [];
 }
 
+async function fetchFixtureLineups(
+  fixtureId: string,
+  env: NodeJS.ProcessEnv = process.env,
+  budget: ApiFootballRequestBudget = createRequestBudget(env)
+): Promise<ApiFootballLineup[]> {
+  const body = await fetchApiFootball<ApiFootballLineupsResponse>("/fixtures/lineups", { fixture: fixtureId }, env, budget);
+  if (hasApiErrors(body.errors)) {
+    throw new Error(`API-Football returned lineup errors for fixture ${fixtureId}: ${JSON.stringify(body.errors)}`);
+  }
+
+  return body.response ?? [];
+}
+
 async function fetchFixturesByDate(
   date: string,
   env: NodeJS.ProcessEnv = process.env,
@@ -407,19 +616,22 @@ async function fetchFixtureById(
 async function fetchGoalsAndMatchesForFixtureIds(
   fixtureIds: string[],
   budget: ApiFootballRequestBudget
-): Promise<{ goals: ExternalGoalRecord[]; fixtures: ApiFootballFixture[] }> {
+): Promise<{ goals: ExternalGoalRecord[]; fixtures: ApiFootballFixture[]; participants: ExternalMatchParticipantRecord[] }> {
   const goals: ExternalGoalRecord[] = [];
   const fixtures: ApiFootballFixture[] = [];
+  const participants: ExternalMatchParticipantRecord[] = [];
   for (const fixtureId of fixtureIds) {
     const fixture = await fetchFixtureById(fixtureId, process.env, budget);
     if (fixture) {
       fixtures.push(fixture);
     }
 
-    goals.push(...parseApiFootballEvents(fixtureId, await fetchFixtureEvents(fixtureId, process.env, budget), fixture ?? undefined));
+    const events = await fetchFixtureEvents(fixtureId, process.env, budget);
+    goals.push(...parseApiFootballEvents(fixtureId, events, fixture ?? undefined));
+    participants.push(...parseApiFootballSubstitutions(fixtureId, events));
   }
 
-  return { goals, fixtures };
+  return { goals, fixtures, participants };
 }
 
 function mergeFixtures(fixtures: ApiFootballFixture[]): ApiFootballFixture[] {
@@ -447,29 +659,54 @@ async function fetchFixturesForDates(dateKeys: string[], budget: ApiFootballRequ
   return fixtures;
 }
 
-async function fetchGoalsForFixtures(fixtures: ApiFootballFixture[], budget: ApiFootballRequestBudget): Promise<ExternalGoalRecord[]> {
-  const fixturesWithEvents = fixtures.filter(shouldFetchFixtureEvents);
+async function fetchGoalsAndParticipantsForFixtures(
+  fixtures: ApiFootballFixture[],
+  budget: ApiFootballRequestBudget,
+  phase: SyncWindowPhase,
+  now: Date
+): Promise<{ goals: ExternalGoalRecord[]; participants: ExternalMatchParticipantRecord[] }> {
+  const fixturesWithEvents = fixtures.filter((fixture) => shouldFetchFixtureEventsForPhase(fixture, phase, now));
+  const fixturesWithLineups = fixtures.filter((fixture) => shouldFetchFixtureLineups(fixture, phase, now));
+  const participants: ExternalMatchParticipantRecord[] = [];
   if (fixturesWithEvents.length === 0) {
-    return [];
+    for (const fixture of fixturesWithLineups) {
+      const fixtureId = getFixtureId(fixture);
+      if (fixtureId) {
+        participants.push(...parseApiFootballLineups(fixtureId, await fetchFixtureLineups(fixtureId, process.env, budget)));
+      }
+    }
+
+    return { goals: [], participants };
   }
 
   const goals: ExternalGoalRecord[] = [];
   for (const fixture of fixturesWithEvents) {
     const fixtureId = getFixtureId(fixture);
     if (fixtureId) {
-      goals.push(...parseApiFootballEvents(fixtureId, await fetchFixtureEvents(fixtureId, process.env, budget), fixture));
+      const events = await fetchFixtureEvents(fixtureId, process.env, budget);
+      goals.push(...parseApiFootballEvents(fixtureId, events, fixture));
+      participants.push(...parseApiFootballSubstitutions(fixtureId, events));
     }
   }
 
-  return goals;
+  for (const fixture of fixturesWithLineups) {
+    const fixtureId = getFixtureId(fixture);
+    if (fixtureId) {
+      participants.push(...parseApiFootballLineups(fixtureId, await fetchFixtureLineups(fixtureId, process.env, budget)));
+    }
+  }
+
+  return { goals, participants };
 }
 
 export const apiFootballSource: GoalSource = {
   name: "api-football",
   async fetchGoals(): Promise<GoalSourceResult> {
     const budget = createRequestBudget();
+    const now = new Date();
+    const phase = getSyncWindowPhase();
     const fixtureIds = parseCommaSeparated(process.env.API_FOOTBALL_FIXTURE_IDS);
-    const dateKeys = getApiFootballDateKeys();
+    const dateKeys = getApiFootballDateKeys(process.env, now);
     let dateFixtures: ApiFootballFixture[] = [];
     try {
       dateFixtures = await fetchFixturesForDates(dateKeys, budget);
@@ -480,22 +717,25 @@ export const apiFootballSource: GoalSource = {
     }
 
     const explicitFixtureResult =
-      fixtureIds.length > 0 ? await fetchGoalsAndMatchesForFixtureIds(fixtureIds, budget) : { goals: [], fixtures: [] };
+      fixtureIds.length > 0 ? await fetchGoalsAndMatchesForFixtureIds(fixtureIds, budget) : { goals: [], fixtures: [], participants: [] };
     const fixtures = mergeFixtures([...dateFixtures, ...explicitFixtureResult.fixtures]);
     const explicitFixtureIds = new Set(explicitFixtureResult.fixtures.map((fixture) => getFixtureId(fixture)).filter(Boolean));
-    const dateGoals = await fetchGoalsForFixtures(
+    const dateResult = await fetchGoalsAndParticipantsForFixtures(
       fixtures.filter((fixture) => {
         const fixtureId = getFixtureId(fixture);
         return !fixtureId || !explicitFixtureIds.has(fixtureId);
       }),
-      budget
+      budget,
+      phase,
+      now
     );
 
     return {
       source: "api-football",
-      fetchedAt: new Date().toISOString(),
-      goals: [...dateGoals, ...explicitFixtureResult.goals],
+      fetchedAt: now.toISOString(),
+      goals: [...dateResult.goals, ...explicitFixtureResult.goals],
       matches: fixtures.flatMap((fixture) => parseApiFootballFixture(fixture) ?? []),
+      participants: [...dateResult.participants, ...explicitFixtureResult.participants],
       coveredDateKeys: dateFixtures.length > 0 ? dateKeys : undefined,
       mergeWithExisting: true,
       sourceRequestCount: budget.used,

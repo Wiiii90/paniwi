@@ -2,9 +2,9 @@ name: Sync Data
 
 on:
   schedule:
-    # Poll every 15 minutes during the tournament; Wikipedia is only called inside post-match windows.
-    - cron: "*/15 * 11-30 6 *"
-    - cron: "*/15 * 1-19 7 *"
+    # Cron wakes up often; scripts/sync-gate.mjs exits before npm ci outside active windows.
+    - cron: "*/5 * 11-30 6 *"
+    - cron: "*/5 * 1-19 7 *"
   workflow_dispatch:
     inputs:
       sync_source:
@@ -48,13 +48,18 @@ jobs:
       WIKIPEDIA_USER_AGENT: "wm-2026-panini-liga/0.1 (https://github.com/Wiiii90/paniwi; private hobby project; contact: wilhelmaltemeier@gmail.com)"
     steps:
       - uses: actions/checkout@v6
+      - id: early_gate
+        run: node scripts/sync-gate.mjs
       - uses: actions/setup-node@v6
+        if: steps.early_gate.outputs.should_run == 'true'
         with:
           node-version: 20
           cache: npm
       - run: npm ci
+        if: steps.early_gate.outputs.should_run == 'true'
       - id: scheduled_sync
         run: npm run sync:scheduled
+        if: steps.early_gate.outputs.should_run == 'true'
       - run: npm test
         if: steps.scheduled_sync.outputs.sync_performed == 'true'
       - run: npm run build

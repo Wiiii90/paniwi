@@ -16,12 +16,15 @@ import {
   getApiFootballDateKeys,
   parseApiFootballFixture,
   parseApiFootballEvents,
+  parseApiFootballLineups,
+  parseApiFootballSubstitutions,
   shouldFetchFixtureEvents
 } from "../src/sync/sources/apiFootballSource";
 import { apiFootballSource } from "../src/sync/sources/apiFootballSource";
 import { getSourcesForMode, parseSyncSourceMode } from "../src/sync/sources/sourceSelection";
 import { parseWikipediaFootballBoxes, parseWikipediaGoalscorers } from "../src/sync/sources/wikipediaSource";
 import { buildSourceErrorMeta, mergeGoalSnapshots } from "../src/sync/syncGoals";
+import { buildSnapshotFingerprint } from "../src/sync/snapshotFingerprint";
 import { validateGoals } from "../src/sync/validateGoals";
 import { formatTeamValidationIssues, validateTeams } from "../src/sync/validateTeams";
 
@@ -677,12 +680,59 @@ assert.deepEqual(
   [["Sweden 5-1 Tunisia", "2026-06-15T02:00:00+00:00", "Alexander Isak", "Sweden"]]
 );
 
+const apiFootballLineupParticipants = parseApiFootballLineups("1539002", [
+  {
+    team: { name: "Sweden" },
+    startXI: [{ player: { id: 100, name: "Alexander Isak", number: 9 } }],
+    substitutes: [{ player: { id: 101, name: "Squad Player", number: 19 } }]
+  }
+]);
+assert.deepEqual(
+  apiFootballLineupParticipants.map((participant) => [participant.playerName, participant.teamId, participant.status, participant.shirtNumber]),
+  [
+    ["Alexander Isak", "sweden", "starter", 9],
+    ["Squad Player", "sweden", "bench", 19]
+  ]
+);
+
+const apiFootballSubstitutionParticipants = parseApiFootballSubstitutions("1539002", [
+  {
+    team: { name: "Sweden" },
+    player: { id: 100, name: "Alexander Isak" },
+    assist: { id: 101, name: "Squad Player" },
+    type: "subst",
+    detail: "Substitution 1"
+  }
+]);
+assert.deepEqual(
+  apiFootballSubstitutionParticipants.map((participant) => [participant.playerName, participant.teamId, participant.status]),
+  [
+    ["Alexander Isak", "sweden", "subbed-out"],
+    ["Squad Player", "sweden", "subbed-in"]
+  ]
+);
+
+const matchWithParticipants = buildMatches(
+  [],
+  [],
+  [parseApiFootballFixture(worldCupFixtures[0])!],
+  [...apiFootballLineupParticipants, ...apiFootballSubstitutionParticipants],
+  teams
+);
+const selectedParticipants = matchWithParticipants[0]?.participants.filter((participant) => participant.selected) ?? [];
+assert.deepEqual(
+  selectedParticipants.map((participant) => [participant.displayPlayerName, participant.owners, participant.status]),
+  [["Alexander Isak", ["Anna"], "subbed-out"]]
+);
+assert.notEqual(buildSnapshotFingerprint([], [], []), buildSnapshotFingerprint([], [], apiFootballLineupParticipants));
+
 const originalFetch = globalThis.fetch;
 const originalEnv = {
   API_FOOTBALL_KEY: process.env.API_FOOTBALL_KEY,
   API_FOOTBALL_DATES: process.env.API_FOOTBALL_DATES,
   API_FOOTBALL_MAX_REQUESTS: process.env.API_FOOTBALL_MAX_REQUESTS,
-  API_FOOTBALL_FIXTURE_IDS: process.env.API_FOOTBALL_FIXTURE_IDS
+  API_FOOTBALL_FIXTURE_IDS: process.env.API_FOOTBALL_FIXTURE_IDS,
+  SYNC_WINDOW_PHASE: process.env.SYNC_WINDOW_PHASE
 };
 function restoreEnvValue(key: keyof typeof originalEnv): void {
   const value = originalEnv[key];
@@ -755,6 +805,7 @@ try {
 process.env.API_FOOTBALL_KEY = "test-key";
 process.env.API_FOOTBALL_DATES = "2026-06-15";
 process.env.API_FOOTBALL_MAX_REQUESTS = "1";
+process.env.SYNC_WINDOW_PHASE = "forced";
 delete process.env.API_FOOTBALL_FIXTURE_IDS;
 try {
   globalThis.fetch = (async (input: string | URL | Request) => {
@@ -778,6 +829,7 @@ try {
   restoreEnvValue("API_FOOTBALL_DATES");
   restoreEnvValue("API_FOOTBALL_MAX_REQUESTS");
   restoreEnvValue("API_FOOTBALL_FIXTURE_IDS");
+  restoreEnvValue("SYNC_WINDOW_PHASE");
 }
 
 const oldWikipediaGoal: GoalRecord = {

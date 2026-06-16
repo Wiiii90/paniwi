@@ -112,9 +112,30 @@ export type ScorerEntry = {
 
 export type MatchStatus = "scheduled" | "live" | "finished" | "unknown";
 
+export type MatchParticipationStatus = "starter" | "bench" | "subbed-in" | "subbed-out" | "unknown";
+
 export type MatchTeam = {
   name: string;
   score?: number;
+};
+
+export type ExternalMatchParticipantRecord = {
+  source: SourceName;
+  matchId: string;
+  fixtureId?: string;
+  playerName: string;
+  nationalTeam: string;
+  teamId?: string;
+  apiPlayerId?: number;
+  status: MatchParticipationStatus;
+  shirtNumber?: number;
+};
+
+export type MatchParticipantRecord = ExternalMatchParticipantRecord & {
+  displayPlayerName: string;
+  displayNationalTeam: string;
+  owners: string[];
+  selected: boolean;
 };
 
 export type MatchRecord = {
@@ -127,6 +148,7 @@ export type MatchRecord = {
   goals: GoalRecord[];
   pointGoals: ScoredGoal[];
   affectedOwners: string[];
+  participants: MatchParticipantRecord[];
 };
 
 export type StaticMeta = {

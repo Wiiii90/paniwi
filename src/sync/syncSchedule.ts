@@ -5,6 +5,7 @@ export type SyncWindow = {
   from: string;
   until: string;
   label: string;
+  phase: "pre-match" | "live" | "post-match" | "maintenance";
 };
 
 export type MatchKickoff = {
@@ -19,13 +20,20 @@ export const syncPolicy = {
   tournamentEnd: "2026-07-19",
   /** Regular time plus half-time break. */
   expectedMatchMinutes: 105,
+  /** Lineup window before kick-off. */
+  preMatchStartsMinutesBefore: 60,
+  preMatchEndsMinutesBefore: 5,
+  /** Live polling window after kick-off. */
+  liveWindowMinutesAfterKickoff: 120,
   /** Sync checks after the expected full-time whistle. */
   checkOffsetsAfterExpectedEndMinutes: [15, 60, 120],
-  /** Width of each check window. Cron runs every 15 minutes. */
+  /** Width of each post-match check window. Cron may run every 5 minutes. */
   windowDurationMinutes: 30,
   /** One Wikipedia fetch per check window if the snapshot stays unchanged. */
   maxSyncAttemptsPerWindow: 1,
-  minMinutesBetweenSyncs: 45,
+  preMatchMinMinutesBetweenSyncs: 15,
+  liveMinMinutesBetweenSyncs: 5,
+  postMatchMinMinutesBetweenSyncs: 45,
   unchangedFollowUpMinutes: 45,
   knockoutMaintenanceIntervalHours: 6,
   knockoutMaintenanceWindowDurationMinutes: 30
@@ -36,8 +44,11 @@ export const scheduledKickoffs = kickoffs as MatchKickoff[];
 export function buildSyncWindowsForKickoff(kickoff: MatchKickoff): SyncWindow[] {
   const kickoffMs = new Date(kickoff.kickedOffAt).getTime();
   const expectedEndMs = kickoffMs + syncPolicy.expectedMatchMinutes * 60 * 1000;
+  const preMatchFrom = new Date(kickoffMs - syncPolicy.preMatchStartsMinutesBefore * 60 * 1000);
+  const preMatchUntil = new Date(kickoffMs - syncPolicy.preMatchEndsMinutesBefore * 60 * 1000);
+  const liveUntil = new Date(kickoffMs + syncPolicy.liveWindowMinutesAfterKickoff * 60 * 1000);
 
-  return syncPolicy.checkOffsetsAfterExpectedEndMinutes.map((offsetMinutes, index) => {
+  const postMatchWindows = syncPolicy.checkOffsetsAfterExpectedEndMinutes.map((offsetMinutes, index) => {
     const from = new Date(expectedEndMs + offsetMinutes * 60 * 1000);
     const until = new Date(from.getTime() + syncPolicy.windowDurationMinutes * 60 * 1000);
 
@@ -45,9 +56,28 @@ export function buildSyncWindowsForKickoff(kickoff: MatchKickoff): SyncWindow[] 
       id: `${kickoff.id}-check-${index + 1}`,
       from: from.toISOString(),
       until: until.toISOString(),
-      label: `${kickoff.label} (+${offsetMinutes}m after expected FT)`
+      label: `${kickoff.label} (+${offsetMinutes}m nach erwartetem Abpfiff)`,
+      phase: "post-match" as const
     };
   });
+
+  return [
+    {
+      id: `${kickoff.id}-pre-match`,
+      from: preMatchFrom.toISOString(),
+      until: preMatchUntil.toISOString(),
+      label: `${kickoff.label} (Aufstellung vor Anpfiff)`,
+      phase: "pre-match"
+    },
+    {
+      id: `${kickoff.id}-live`,
+      from: new Date(kickoffMs).toISOString(),
+      until: liveUntil.toISOString(),
+      label: `${kickoff.label} (Live-Fenster)`,
+      phase: "live"
+    },
+    ...postMatchWindows
+  ];
 }
 
 export function getAllSyncWindows(): SyncWindow[] {
@@ -109,7 +139,8 @@ export function getKnockoutMaintenanceWindow(now: Date = new Date()): SyncWindow
     id: `knockout-maintenance:${dateKey}:${hour}`,
     from: windowStart.toISOString(),
     until: windowEnd.toISOString(),
-    label: `KO-Runden Sync ${dateKey} ${hour}:00 UTC`
+    label: `KO-Runden Sync ${dateKey} ${hour}:00 UTC`,
+    phase: "maintenance"
   };
 }
 

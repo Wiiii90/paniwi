@@ -6,7 +6,16 @@ import { buildScorers } from "../src/domain/buildScorers";
 import { sortGoalsChronologically } from "../src/domain/sortGoals";
 import { getTeamDisplayName } from "../src/domain/teamDisplay";
 import type { PickStatusSnapshot } from "../src/domain/pickStatusTypes";
-import type { ExternalMatchRecord, GoalRecord, LeaderboardEntry, MatchRecord, ScoredGoal, ScorerEntry, StaticMeta } from "../src/domain/types";
+import type {
+  ExternalMatchParticipantRecord,
+  ExternalMatchRecord,
+  GoalRecord,
+  LeaderboardEntry,
+  MatchRecord,
+  ScoredGoal,
+  ScorerEntry,
+  StaticMeta
+} from "../src/domain/types";
 import type { RosterSnapshot } from "../src/domain/rosterTypes";
 import { teams } from "../src/config/teams";
 import { validateGoals } from "../src/sync/validateGoals";
@@ -27,6 +36,7 @@ const [leaderboard, goals, rawGoals, rawMatches, scorers, matches, meta, rosters
   readJson<RosterSnapshot>("public/data/rosters.json"),
   readJson<PickStatusSnapshot>("public/data/pick-statuses.json")
 ]);
+const rawParticipants = await readJson<ExternalMatchParticipantRecord[]>("public/data/raw-participants.json").catch(() => []);
 
 assert.equal(validateTeams(teams).valid, true);
 
@@ -37,7 +47,7 @@ assert.equal(goalValidation.skippedGoals.length, 0);
 assert.deepEqual(leaderboard, buildLeaderboard(teams, rawGoals, rosters));
 assert.deepEqual(goals, sortGoalsChronologically(scoreGoalsForTeams(teams, rawGoals, rosters)));
 assert.deepEqual(scorers, buildScorers(rawGoals, teams, rosters));
-assert.deepEqual(matches, buildMatches(rawGoals, goals, rawMatches));
+assert.deepEqual(matches, buildMatches(rawGoals, goals, rawMatches, rawParticipants, teams, rosters));
 
 assert.equal(meta.status, "ok");
 assert.equal(meta.goalCount, rawGoals.length);

@@ -5,7 +5,7 @@ import { buildMatches } from "../domain/buildMatches";
 import { buildScorers } from "../domain/buildScorers";
 import { enrichGoalsWithRoster } from "../domain/rosterResolver";
 import { sortGoalsChronologically } from "../domain/sortGoals";
-import type { ExternalMatchRecord, SourceName, StaticMeta } from "../domain/types";
+import type { ExternalMatchParticipantRecord, ExternalMatchRecord, SourceName, StaticMeta } from "../domain/types";
 import type { RosterSnapshot } from "../domain/rosterTypes";
 import type { GoalSource } from "./sources/types";
 import { teams } from "../config/teams";
@@ -39,6 +39,7 @@ class SourceFetchError extends Error {
 type NormalizedGoal = ReturnType<typeof normalizeGoals>[number];
 type NormalizedGoals = ReturnType<typeof normalizeGoals>;
 type NormalizedMatches = ExternalMatchRecord[];
+type NormalizedParticipants = ExternalMatchParticipantRecord[];
 
 export function buildSourceErrorMeta(
   attemptedSources: SourceName[],
@@ -100,6 +101,14 @@ async function readExistingRawMatches(): Promise<NormalizedMatches> {
   }
 }
 
+async function readExistingRawParticipants(): Promise<NormalizedParticipants> {
+  try {
+    return JSON.parse(await readFile("public/data/raw-participants.json", "utf8")) as NormalizedParticipants;
+  } catch {
+    return [];
+  }
+}
+
 async function readExistingRosterSnapshot(): Promise<RosterSnapshot | undefined> {
   try {
     return JSON.parse(await readFile("public/data/rosters.json", "utf8")) as RosterSnapshot;
@@ -116,6 +125,17 @@ function getMatchMergeKey(match: ExternalMatchRecord): string {
   return [match.source, match.matchId].join(":");
 }
 
+function getParticipantMergeKey(participant: ExternalMatchParticipantRecord): string {
+  return [
+    participant.source,
+    participant.matchId,
+    participant.fixtureId ?? "",
+    participant.teamId ?? "",
+    participant.apiPlayerId ?? "",
+    participant.playerName
+  ].join(":");
+}
+
 function getGoalDateKey(goal: NormalizedGoal): string | null {
   const sourceDate = goal.kickedOffAt ?? goal.scoredAt;
   return sourceDate ? sourceDate.slice(0, 10) : null;
@@ -123,6 +143,11 @@ function getGoalDateKey(goal: NormalizedGoal): string | null {
 
 function getMatchDateKey(match: ExternalMatchRecord): string | null {
   return match.kickedOffAt ? match.kickedOffAt.slice(0, 10) : null;
+}
+
+function getParticipantDateKey(participant: ExternalMatchParticipantRecord, matchesById: Map<string, ExternalMatchRecord>): string | null {
+  const match = matchesById.get(participant.matchId) ?? (participant.fixtureId ? matchesById.get(`api-football:${participant.fixtureId}`) : undefined);
+  return match?.kickedOffAt ? match.kickedOffAt.slice(0, 10) : null;
 }
 
 function shouldPreserveExistingGoal(
@@ -157,6 +182,24 @@ function shouldPreserveExistingMatch(
   }
 
   return !coveredDateKeys.has(matchDateKey);
+}
+
+function shouldPreserveExistingParticipant(
+  participant: ExternalMatchParticipantRecord,
+  source: SourceName,
+  coveredDateKeys: Set<string> | null,
+  matchesById: Map<string, ExternalMatchRecord>
+): boolean {
+  if (!coveredDateKeys) {
+    return participant.source === source;
+  }
+
+  const participantDateKey = getParticipantDateKey(participant, matchesById);
+  if (!participantDateKey) {
+    return participant.source === source;
+  }
+
+  return !coveredDateKeys.has(participantDateKey);
 }
 
 export function mergeGoalSnapshots(
@@ -203,6 +246,30 @@ export function mergeMatchSnapshots(
   return [...mergedMatches.values()];
 }
 
+export function mergeParticipantSnapshots(
+  source: SourceName,
+  existingParticipants: NormalizedParticipants,
+  incomingParticipants: NormalizedParticipants,
+  matches: NormalizedMatches,
+  coveredDateKeys?: string[]
+): NormalizedParticipants {
+  const mergedParticipants = new Map<string, ExternalMatchParticipantRecord>();
+  const coveredDateKeySet = coveredDateKeys?.length ? new Set(coveredDateKeys) : null;
+  const matchesById = new Map(matches.flatMap((match) => [[match.matchId, match], ...(match.fixtureId ? [[`api-football:${match.fixtureId}`, match] as const] : [])]));
+
+  for (const participant of existingParticipants) {
+    if (shouldPreserveExistingParticipant(participant, source, coveredDateKeySet, matchesById)) {
+      mergedParticipants.set(getParticipantMergeKey(participant), participant);
+    }
+  }
+
+  for (const participant of incomingParticipants) {
+    mergedParticipants.set(getParticipantMergeKey(participant), participant);
+  }
+
+  return [...mergedParticipants.values()];
+}
+
 async function mergeWithExistingGoals(
   source: SourceName,
   incomingGoals: NormalizedGoals,
@@ -221,6 +288,16 @@ async function mergeWithExistingMatches(
   return mergeMatchSnapshots(source, existingMatches, incomingMatches, coveredDateKeys);
 }
 
+async function mergeWithExistingParticipants(
+  source: SourceName,
+  incomingParticipants: NormalizedParticipants,
+  matches: NormalizedMatches,
+  coveredDateKeys?: string[]
+): Promise<NormalizedParticipants> {
+  const existingParticipants = await readExistingRawParticipants();
+  return mergeParticipantSnapshots(source, existingParticipants, incomingParticipants, matches, coveredDateKeys);
+}
+
 function buildSyncMeta(
   result: WorkingSourceResult["result"],
   attemptedSources: SourceName[],
@@ -229,10 +306,12 @@ function buildSyncMeta(
   scoredGoals: ReturnType<typeof scoreGoalsForTeams>,
   skippedGoals: ReturnType<typeof validateGoals>["skippedGoals"],
   previousMeta: StaticMeta | null,
-  options: SyncGoalsOptions
+  options: SyncGoalsOptions,
+  matches: ExternalMatchRecord[],
+  participants: ExternalMatchParticipantRecord[]
 ): StaticMeta {
   const duplicateGoalCount = skippedGoals.filter((item) => item.reason === "duplicate-goal").length;
-  const snapshotFingerprint = buildSnapshotFingerprint(goals);
+  const snapshotFingerprint = buildSnapshotFingerprint(goals, matches, participants);
   const snapshotChanged = previousMeta?.snapshotFingerprint !== snapshotFingerprint;
   const sameWindow = Boolean(options.syncWindowId && previousMeta?.syncWindowId === options.syncWindowId);
   const windowSyncAttempts = !sameWindow || snapshotChanged ? 1 : (previousMeta?.windowSyncAttempts ?? 0) + 1;
@@ -285,12 +364,16 @@ export async function syncGoals(
   const previousMeta = await readExistingMeta();
   const incomingGoals = normalizeGoals(result.goals);
   const incomingMatches = result.matches ?? [];
+  const incomingParticipants = result.participants ?? [];
   const normalizedGoals = result.mergeWithExisting
     ? await mergeWithExistingGoals(result.source, incomingGoals, result.coveredDateKeys)
     : incomingGoals;
   const normalizedMatches = result.mergeWithExisting
     ? await mergeWithExistingMatches(result.source, incomingMatches, result.coveredDateKeys)
     : incomingMatches;
+  const normalizedParticipants = result.mergeWithExisting
+    ? await mergeWithExistingParticipants(result.source, incomingParticipants, normalizedMatches, result.coveredDateKeys)
+    : incomingParticipants;
   const rosterSnapshot = await readExistingRosterSnapshot();
   const rosterEnrichedGoals = enrichGoalsWithRoster(normalizedGoals, rosterSnapshot, {
     strictSources: result.source === "api-football" ? ["api-football"] : []
@@ -299,16 +382,28 @@ export async function syncGoals(
   const scoredGoals = sortGoalsChronologically(scoreGoalsForTeams(teams, goals, rosterSnapshot));
   const leaderboard = buildLeaderboard(teams, goals, rosterSnapshot);
   const scorers = buildScorers(goals, teams, rosterSnapshot);
-  const matches = buildMatches(goals, scoredGoals, normalizedMatches);
+  const matches = buildMatches(goals, scoredGoals, normalizedMatches, normalizedParticipants, teams, rosterSnapshot);
 
   await writeStaticData({
     leaderboard,
     goals: scoredGoals,
     rawGoals: goals,
     rawMatches: normalizedMatches,
+    rawParticipants: normalizedParticipants,
     scorers,
     matches,
-    meta: buildSyncMeta(result, attemptedSources, sourceErrors, goals, scoredGoals, skippedGoals, previousMeta, options)
+    meta: buildSyncMeta(
+      result,
+      attemptedSources,
+      sourceErrors,
+      goals,
+      scoredGoals,
+      skippedGoals,
+      previousMeta,
+      options,
+      normalizedMatches,
+      normalizedParticipants
+    )
   });
 }
 
