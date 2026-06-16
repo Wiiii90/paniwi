@@ -1313,13 +1313,27 @@ h2 {
 }
 
 .relevant-lineup-sides {
+  align-items: start;
   display: grid;
-  gap: 5px;
+  gap: 9px;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  position: relative;
+}
+
+.relevant-lineup-sides::before {
+  background: var(--color-border);
+  bottom: 0;
+  content: "";
+  left: 50%;
+  position: absolute;
+  top: 0;
+  width: 1px;
 }
 
 .relevant-lineup-list {
+  align-content: start;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  position: relative;
 }
 
 .relevant-lineup-list-away {
@@ -1341,7 +1355,7 @@ h2 {
   border-radius: var(--radius-sm);
   display: grid;
   gap: 2px;
-  min-height: 54px;
+  height: 54px;
   min-width: 0;
   padding: 6px 8px;
 }
