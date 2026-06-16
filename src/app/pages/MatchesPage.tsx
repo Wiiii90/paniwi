@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getTeamFlag } from "../../config/teamCatalog";
+import { resolveKnownTeamId } from "../../config/teamCatalog";
 import type { MatchParticipantRecord, MatchParticipationStatus, MatchRecord } from "../../domain/types";
 import { formatGoalMinute } from "../formatGoal";
 
@@ -79,6 +79,41 @@ function formatNoRelevantPlayers(match: MatchRecord): string {
   }
 
   return "Keine Panini-Spieler in der Aufstellung.";
+}
+
+function getMatchTeamIds(match: MatchRecord): { homeTeamId: string | null; awayTeamId: string | null } {
+  return {
+    homeTeamId: resolveKnownTeamId(match.homeTeam.name),
+    awayTeamId: resolveKnownTeamId(match.awayTeam.name)
+  };
+}
+
+function getGoalSide(goal: MatchRecord["goals"][number], match: MatchRecord): "home" | "away" | "unknown" {
+  const { homeTeamId, awayTeamId } = getMatchTeamIds(match);
+  const goalTeamId = goal.teamId ?? resolveKnownTeamId(goal.nationalTeam);
+  if (goalTeamId && goalTeamId === homeTeamId) {
+    return "home";
+  }
+
+  if (goalTeamId && goalTeamId === awayTeamId) {
+    return "away";
+  }
+
+  return "unknown";
+}
+
+function getParticipantSide(participant: MatchParticipantRecord, match: MatchRecord): "home" | "away" | "unknown" {
+  const { homeTeamId, awayTeamId } = getMatchTeamIds(match);
+  const participantTeamId = participant.teamId ?? resolveKnownTeamId(participant.nationalTeam);
+  if (participantTeamId && participantTeamId === homeTeamId) {
+    return "home";
+  }
+
+  if (participantTeamId && participantTeamId === awayTeamId) {
+    return "away";
+  }
+
+  return "unknown";
 }
 
 function PlayerChip({ participant, matchStatus }: { participant: MatchParticipantRecord; matchStatus: MatchRecord["status"] }) {
@@ -202,12 +237,15 @@ function MatchSection({
         ) : (
           visibleMatches.map((match) => {
             const relevantParticipants = match.participants.filter((participant) => participant.selected);
-            const visibleGoals = match.goals.slice(0, 8);
-            const overflowGoalCount = match.goals.length - visibleGoals.length;
+            const homeGoals = match.goals.filter((goal) => getGoalSide(goal, match) === "home");
+            const awayGoals = match.goals.filter((goal) => getGoalSide(goal, match) === "away");
+            const unknownGoals = match.goals.filter((goal) => getGoalSide(goal, match) === "unknown");
+            const homeParticipants = relevantParticipants.filter((participant) => getParticipantSide(participant, match) === "home");
+            const awayParticipants = relevantParticipants.filter((participant) => getParticipantSide(participant, match) === "away");
+            const unknownParticipants = relevantParticipants.filter((participant) => getParticipantSide(participant, match) === "unknown");
             const pointGoalIds = new Set(match.pointGoals.map((goal) => goal.externalGoalId));
             const lineupExpanded = expandedLineupIds.has(match.matchId);
             const pointImpact = formatPointImpact(match);
-
             return (
               <article className={`match-card match-card-${match.status}`} key={match.matchId}>
                 <div className="match-card-header">
@@ -223,23 +261,38 @@ function MatchSection({
                 </div>
                 <div className="match-card-scoreline">
                   <div className="match-team match-team-home">
-                    <span aria-hidden="true" className="match-team-flag">{getTeamFlag(match.homeTeam.name)}</span>
                     <strong>{match.homeTeam.name}</strong>
                   </div>
                   <span className="match-card-score">{formatScore(match)}</span>
                   <div className="match-team match-team-away">
                     <strong>{match.awayTeam.name}</strong>
-                    <span aria-hidden="true" className="match-team-flag">{getTeamFlag(match.awayTeam.name)}</span>
                   </div>
                 </div>
                 {match.goals.length > 0 ? (
                   <div className="match-goals">
-                    {visibleGoals.map((goal) => (
-                      <span className={pointGoalIds.has(goal.externalGoalId) ? "match-goal-chip-scored" : undefined} key={goal.externalGoalId}>
-                        {formatGoalMinute(goal)} {goal.playerName}
-                      </span>
-                    ))}
-                    {overflowGoalCount > 0 ? <span>+{overflowGoalCount}</span> : null}
+                    <div className="match-goal-side match-goal-side-home">
+                      {homeGoals.map((goal) => (
+                        <span className={pointGoalIds.has(goal.externalGoalId) ? "match-goal-chip-scored" : undefined} key={goal.externalGoalId}>
+                          {formatGoalMinute(goal)} {goal.playerName}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="match-goal-side match-goal-side-away">
+                      {awayGoals.map((goal) => (
+                        <span className={pointGoalIds.has(goal.externalGoalId) ? "match-goal-chip-scored" : undefined} key={goal.externalGoalId}>
+                          {formatGoalMinute(goal)} {goal.playerName}
+                        </span>
+                      ))}
+                    </div>
+                    {unknownGoals.length > 0 ? (
+                      <div className="match-goal-side match-goal-side-unknown">
+                        {unknownGoals.map((goal) => (
+                          <span className={pointGoalIds.has(goal.externalGoalId) ? "match-goal-chip-scored" : undefined} key={goal.externalGoalId}>
+                            {formatGoalMinute(goal)} {goal.playerName}
+                          </span>
+                        ))}
+                      </div>
+                    ) : null}
                   </div>
                 ) : null}
                 <div className="match-lineup">
@@ -262,14 +315,36 @@ function MatchSection({
                     relevantParticipants.length === 0 ? (
                       <p className="match-lineup-empty">{formatNoRelevantPlayers(match)}</p>
                     ) : (
-                      <div className="lineup-chip-list relevant-lineup-list">
-                        {relevantParticipants.map((participant) => (
-                          <PlayerChip
-                            key={`${participant.fixtureId ?? participant.matchId}-${participant.apiPlayerId ?? participant.playerName}-${participant.status}`}
-                            matchStatus={match.status}
-                            participant={participant}
-                          />
-                        ))}
+                      <div className="relevant-lineup-sides">
+                        <div className="lineup-chip-list relevant-lineup-list relevant-lineup-list-home">
+                          {homeParticipants.map((participant) => (
+                            <PlayerChip
+                              key={`${participant.fixtureId ?? participant.matchId}-${participant.apiPlayerId ?? participant.playerName}-${participant.status}`}
+                              matchStatus={match.status}
+                              participant={participant}
+                            />
+                          ))}
+                        </div>
+                        <div className="lineup-chip-list relevant-lineup-list relevant-lineup-list-away">
+                          {awayParticipants.map((participant) => (
+                            <PlayerChip
+                              key={`${participant.fixtureId ?? participant.matchId}-${participant.apiPlayerId ?? participant.playerName}-${participant.status}`}
+                              matchStatus={match.status}
+                              participant={participant}
+                            />
+                          ))}
+                        </div>
+                        {unknownParticipants.length > 0 ? (
+                          <div className="lineup-chip-list relevant-lineup-list relevant-lineup-list-unknown">
+                            {unknownParticipants.map((participant) => (
+                              <PlayerChip
+                                key={`${participant.fixtureId ?? participant.matchId}-${participant.apiPlayerId ?? participant.playerName}-${participant.status}`}
+                                matchStatus={match.status}
+                                participant={participant}
+                              />
+                            ))}
+                          </div>
+                        ) : null}
                       </div>
                     )
                   ) : null}

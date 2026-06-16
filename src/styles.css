@@ -1070,7 +1070,7 @@ h2 {
   border-radius: 0;
   box-shadow: none;
   display: grid;
-  gap: var(--space-2);
+  gap: 6px;
   padding: 14px 16px;
 }
 
@@ -1116,8 +1116,11 @@ h2 {
 .match-card-scoreline {
   align-items: center;
   display: grid;
-  gap: var(--space-3);
+  gap: var(--space-2);
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  margin: -2px auto 0;
+  max-width: 620px;
+  width: min(100%, 620px);
 }
 
 .match-team {
@@ -1131,12 +1134,13 @@ h2 {
 }
 
 .match-team-home {
-  justify-content: flex-start;
+  justify-content: flex-end;
+  text-align: right;
 }
 
 .match-team-away {
-  justify-content: flex-end;
-  text-align: right;
+  justify-content: flex-start;
+  text-align: left;
 }
 
 .match-team > strong {
@@ -1184,6 +1188,14 @@ h2 {
 }
 
 .match-goals {
+  align-items: start;
+  display: grid;
+  gap: var(--space-1);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  min-width: 0;
+}
+
+.match-goal-side {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
@@ -1191,7 +1203,21 @@ h2 {
   min-width: 0;
 }
 
-.match-goals span {
+.match-goal-side-home {
+  justify-content: flex-start;
+}
+
+.match-goal-side-away {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+
+.match-goal-side-unknown {
+  grid-column: 1 / -1;
+  justify-content: center;
+}
+
+.match-goal-side span {
   background: var(--color-surface-muted);
   border: 1px solid var(--color-border);
   border-radius: 999px;
@@ -1205,7 +1231,7 @@ h2 {
   white-space: nowrap;
 }
 
-.match-goals .match-goal-chip-scored {
+.match-goal-side .match-goal-chip-scored {
   background: rgba(15, 118, 110, 0.08);
   border-color: rgba(15, 118, 110, 0.55);
   color: var(--color-primary);
@@ -1286,7 +1312,26 @@ h2 {
   gap: 5px;
 }
 
+.relevant-lineup-sides {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
 .relevant-lineup-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.relevant-lineup-list-away {
+  direction: rtl;
+}
+
+.relevant-lineup-list-away .lineup-chip {
+  direction: ltr;
+}
+
+.relevant-lineup-list-unknown {
+  grid-column: 1 / -1;
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
