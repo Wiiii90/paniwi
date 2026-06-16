@@ -390,30 +390,39 @@ h2 {
   background: var(--color-accent);
   border-radius: 999px;
   box-shadow: 0 0 0 3px rgba(215, 38, 56, 0.14);
-  display: inline-block;
-  flex: 0 0 auto;
+  display: block;
   height: 8px;
+  left: 8px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   width: 8px;
 }
 
 .live-chip {
-  align-items: center;
   border: 1px solid rgba(215, 38, 56, 0.22);
   border-radius: 999px;
   color: var(--color-accent);
-  display: inline-grid;
+  display: inline-block;
   flex: 0 0 auto;
   font-size: 0.72rem;
-  grid-auto-flow: column;
-  grid-template-columns: 8px auto;
-  gap: 6px;
   height: 20px;
-  line-height: 1.1;
-  place-items: center;
+  line-height: 1;
   padding: 0 7px;
+  position: relative;
   text-transform: uppercase;
   white-space: nowrap;
-  width: max-content;
+  width: 54px;
+}
+
+.live-chip-text {
+  display: block;
+  left: 22px;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
 }
 
 .feed-strip {

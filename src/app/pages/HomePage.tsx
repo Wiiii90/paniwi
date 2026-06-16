@@ -122,7 +122,7 @@ export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps
                       {match.status === "live" ? (
                         <span className="live-chip">
                           <span aria-hidden="true" className="live-dot" />
-                          Live
+                          <span className="live-chip-text">Live</span>
                         </span>
                       ) : null}
                       <span className="match-name-text">

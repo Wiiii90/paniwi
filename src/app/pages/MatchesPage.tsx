@@ -77,7 +77,7 @@ function MatchSection({ title, emptyText, matches, expanded, onToggle }: MatchSe
                 <span>{formatKickoff(match.kickedOffAt)}</span>
                 <strong className={match.status === "live" ? "live-chip" : undefined}>
                   {match.status === "live" ? <span aria-hidden="true" className="live-dot" /> : null}
-                  {formatStatus(match.status)}
+                  <span className={match.status === "live" ? "live-chip-text" : undefined}>{formatStatus(match.status)}</span>
                 </strong>
               </div>
               <div className="match-scoreline">
