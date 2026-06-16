@@ -1,14 +1,14 @@
 :root {
-  --color-bg: #f4f1e8;
-  --color-bg-soft: #ebe5d7;
-  --color-surface: #fffdf8;
-  --color-surface-muted: #f8f5ed;
+  --color-bg: #f6f1e3;
+  --color-bg-soft: #f1d24b;
+  --color-surface: #fffdf7;
+  --color-surface-muted: #f7f4ec;
   --color-text: #172033;
   --color-muted: #657287;
   --color-border: rgba(23, 32, 51, 0.12);
   --color-border-strong: rgba(23, 32, 51, 0.2);
-  --color-primary: #0f766e;
-  --color-primary-soft: #e3f2ee;
+  --color-primary: #1e4f8f;
+  --color-primary-soft: #eaf1fb;
   --color-accent: #d72638;
   --color-accent-soft: #fff0f2;
   --color-gold: #c58a18;
@@ -24,7 +24,10 @@
   --space-5: 20px;
   --space-6: 24px;
   color: var(--color-text);
-  background: radial-gradient(circle at top left, rgba(15, 118, 110, 0.1), transparent 28rem), var(--color-bg);
+  background:
+    radial-gradient(circle at top left, rgba(241, 210, 75, 0.38), transparent 28rem),
+    radial-gradient(circle at top right, rgba(215, 38, 56, 0.1), transparent 22rem),
+    var(--color-bg);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -64,6 +67,13 @@ a {
   margin-bottom: var(--space-6);
 }
 
+.topbar-main {
+  align-items: center;
+  display: flex;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
 .brand,
 .nav,
 .status-pill,
@@ -97,10 +107,12 @@ a {
   border-radius: var(--radius-sm);
   color: #ffffff;
   display: inline-grid;
-  font-size: 0.8rem;
+  font-size: 0.68rem;
+  font-weight: 900;
   height: 30px;
   place-items: center;
-  width: 30px;
+  padding: 0 8px;
+  width: auto;
 }
 
 .nav {
@@ -144,22 +156,16 @@ a {
   gap: var(--space-4);
 }
 
-.hero-band {
-  align-items: end;
-  background:
-    linear-gradient(90deg, rgba(15, 118, 110, 0.1), transparent 42%),
-    var(--color-surface);
-  border-left: 6px solid var(--color-primary);
-  box-shadow: var(--shadow-card);
+.page-title {
+  align-items: center;
   display: flex;
   gap: var(--space-4);
   justify-content: space-between;
-  min-height: 122px;
-  padding: var(--space-5);
+  min-height: 42px;
 }
 
-.compact-hero-band h1 {
-  font-size: clamp(2rem, 8vw, 3rem);
+.page-title h1 {
+  font-size: clamp(1.8rem, 7vw, 2.8rem);
 }
 
 .eyebrow {
@@ -262,11 +268,9 @@ h2 {
 
 .section-heading {
   align-items: center;
-  border-bottom: 1px solid var(--color-border);
   display: flex;
   gap: var(--space-3);
   justify-content: space-between;
-  padding-bottom: var(--space-2);
 }
 
 .section-count {
@@ -296,9 +300,14 @@ h2 {
   padding: 7px 8px;
 }
 
-a.mini-row:hover,
-a.mini-row:focus-visible {
-  background: var(--color-surface-muted);
+.clickable-card {
+  color: inherit;
+}
+
+.clickable-card:hover,
+.clickable-card:focus-visible {
+  border-color: var(--color-border-strong);
+  box-shadow: 0 12px 30px rgba(23, 32, 51, 0.12);
   outline: none;
 }
 
@@ -322,12 +331,20 @@ a.mini-row:focus-visible {
 }
 
 .mini-row > span:last-child {
-  color: var(--color-accent);
+  color: var(--color-text);
   font-weight: 900;
 }
 
 .match-mini-row > span:last-child {
   color: var(--color-text);
+}
+
+.match-mini-row-live > span:last-child {
+  color: var(--color-accent);
+}
+
+.match-mini-row-scheduled > span:last-child {
+  color: var(--color-primary);
 }
 
 .feed-strip {
@@ -355,7 +372,6 @@ a.mini-row:focus-visible {
 .feed-chip {
   background: linear-gradient(180deg, #ffffff, var(--color-surface-muted));
   border: 1px solid var(--color-border);
-  border-left: 4px solid var(--color-accent);
   border-radius: var(--radius-md);
   display: grid;
   flex: 0 0 min(280px, 82vw);
@@ -610,19 +626,19 @@ a.mini-row:focus-visible {
 }
 
 .match-card-live {
-  border-left: 6px solid var(--color-accent);
+  border-color: rgba(215, 38, 56, 0.22);
 }
 
 .match-card-scheduled {
-  border-left: 6px solid var(--color-muted);
+  border-color: rgba(30, 79, 143, 0.2);
 }
 
 .match-card-finished {
-  border-left: 6px solid var(--color-text);
+  border-color: var(--color-border);
 }
 
 .match-card-unknown {
-  border-left: 6px solid var(--color-warning);
+  border-color: rgba(180, 83, 9, 0.22);
 }
 
 .match-card-header {
@@ -769,6 +785,11 @@ a.mini-row:focus-visible {
     gap: var(--space-3);
   }
 
+  .topbar-main {
+    align-items: stretch;
+    display: grid;
+  }
+
   .brand {
     justify-content: center;
   }
@@ -785,16 +806,15 @@ a.mini-row:focus-visible {
     text-align: center;
   }
 
-  .hero-band {
-    align-items: stretch;
-    flex-direction: column;
-    min-height: 118px;
-  }
-
   .status-pill,
   .hero-action {
     align-self: stretch;
     justify-content: center;
+  }
+
+  .page-title {
+    align-items: stretch;
+    display: grid;
   }
 
   .dashboard-grid,

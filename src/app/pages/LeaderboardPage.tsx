@@ -23,10 +23,8 @@ export function LeaderboardPage({ leaderboard, meta }: LeaderboardPageProps) {
 
   return (
     <section className="page-stack">
-      <div className="hero-band compact-hero-band">
-        <div>
-          <h1>Tabelle</h1>
-        </div>
+      <div className="page-title">
+        <h1>Tabelle</h1>
         <strong>{totalPickedGoals} Punkte-Tore</strong>
       </div>
 

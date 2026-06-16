@@ -134,11 +134,8 @@ export function MatchesPage({ matches }: MatchesPageProps) {
 
   return (
     <section className="page-stack">
-      <div className="hero-band">
-        <div>
-          <p className="eyebrow">WM 2026</p>
-          <h1>Spielplan</h1>
-        </div>
+      <div className="page-title">
+        <h1>Spielplan</h1>
         <button className="hero-action" type="button" onClick={toggleAll}>
           {allExpanded ? "Alle einklappen" : "Alles anzeigen"}
         </button>

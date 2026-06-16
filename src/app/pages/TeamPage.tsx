@@ -66,11 +66,8 @@ export function TeamPage({ owner, goals, matches, pickStatuses, rosters }: TeamP
   if (!team) {
     return (
       <section className="page-stack">
-        <div className="hero-band">
-          <div>
-            <p className="eyebrow">Teamdetails</p>
-            <h1>Team nicht gefunden</h1>
-          </div>
+        <div className="page-title">
+          <h1>Team nicht gefunden</h1>
         </div>
         <p className="empty-state">Dieses Team ist nicht in der statischen Teamkonfiguration enthalten.</p>
         <LinkButton href={baseUrl}>Zurück zur Tabelle</LinkButton>
@@ -94,11 +91,8 @@ export function TeamPage({ owner, goals, matches, pickStatuses, rosters }: TeamP
 
   return (
     <section className="page-stack">
-      <div className="hero-band" style={{ borderColor: team.color }}>
-        <div>
-          <p className="eyebrow">Teamdetails</p>
-          <h1>{team.owner}</h1>
-        </div>
+      <div className="page-title">
+        <h1>{team.owner}</h1>
         <strong>{playerScores.reduce((sum, player) => sum + player.points, 0)} Pkt.</strong>
       </div>
 

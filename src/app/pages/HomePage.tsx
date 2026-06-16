@@ -1,7 +1,6 @@
 import { useRef } from "react";
-import type { LeaderboardEntry, MatchRecord, ScoredGoal, ScorerEntry, StaticMeta } from "../../domain/types";
+import type { LeaderboardEntry, MatchRecord, ScoredGoal, ScorerEntry } from "../../domain/types";
 import { getTodayOrLiveMatches } from "../../domain/matchFilters";
-import { StatusPill } from "../components/StatusPill";
 import { formatGoalMinute } from "../formatGoal";
 
 type HomePageProps = {
@@ -9,7 +8,6 @@ type HomePageProps = {
   goals: ScoredGoal[];
   scorers: ScorerEntry[];
   matches: MatchRecord[];
-  meta: StaticMeta;
 };
 
 function formatKickoff(value: string | undefined): string {
@@ -31,7 +29,7 @@ function formatMatchScore(match: MatchRecord): string {
   return `${match.homeTeam.score}:${match.awayTeam.score}`;
 }
 
-export function HomePage({ leaderboard, goals, scorers, matches, meta }: HomePageProps) {
+export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps) {
   const feedStripRef = useRef<HTMLDivElement>(null);
   const feedDragRef = useRef({ isDragging: false, startX: 0, scrollLeft: 0 });
   const baseUrl = import.meta.env.BASE_URL;
@@ -80,63 +78,52 @@ export function HomePage({ leaderboard, goals, scorers, matches, meta }: HomePag
 
   return (
     <section className="page-stack">
-      <div className="hero-band">
-        <div>
-          <p className="eyebrow">WM 2026</p>
-          <h1>Panini Liga</h1>
-        </div>
-        <StatusPill meta={meta} />
-      </div>
-
       <div className="dashboard-grid">
-        <section className="summary-card">
+        <a className="summary-card clickable-card" href={`${baseUrl}table`}>
           <div className="section-heading">
             <h2>Tabellenspitze</h2>
-            <a className="text-link" href={`${baseUrl}table`}>Tabelle</a>
           </div>
           {tableLeaders.length > 0 ? (
             <div className="mini-list">
               {tableLeaders.map((entry) => (
-                <a className="mini-row" href={`${baseUrl}team/${encodeURIComponent(entry.owner)}`} key={entry.owner}>
+                <div className="mini-row" key={entry.owner}>
                   <span>
                     <strong>#{entry.rank} {entry.owner}</strong>
                     <small>{entry.goals} Tore · {entry.playersWithGoals} Torschützen</small>
                   </span>
-                  <span>{entry.points} Pkt.</span>
-                </a>
+                  <span>{entry.points} Punkte</span>
+                </div>
               ))}
             </div>
           ) : (
             <p className="empty-inline">Noch keine Teams.</p>
           )}
-        </section>
+        </a>
 
-        <section className="summary-card">
+        <a className="summary-card clickable-card" href={`${baseUrl}goals`}>
           <div className="section-heading">
             <h2>Topspieler</h2>
-            <a className="text-link" href={`${baseUrl}goals`}>Alle</a>
           </div>
           <div className="mini-list">
             {latestPointGoals.length === 0 ? (
               <p className="empty-inline">Noch keine Punkte.</p>
             ) : (
               latestPointGoals.map((goal) => (
-                <a className="mini-row" href={`${baseUrl}team/${encodeURIComponent(goal.owner)}`} key={`${goal.externalGoalId}-${goal.owner}`}>
+                <div className="mini-row" key={`${goal.externalGoalId}-${goal.owner}`}>
                   <span>
                     <strong>{goal.displayPlayerName} · {goal.displayNationalTeam}</strong>
                     <small>{goal.owner}</small>
                   </span>
-                  <span>{goal.points} Pkt.</span>
-                </a>
+                  <span>{goal.points} Punkte</span>
+                </div>
               ))
             )}
           </div>
-        </section>
+        </a>
 
-        <section className="summary-card">
+        <a className="summary-card clickable-card" href={`${baseUrl}goals`}>
           <div className="section-heading">
             <h2>Torschützenliste</h2>
-            <a className="text-link" href={`${baseUrl}goals`}>Liste</a>
           </div>
           <div className="mini-list">
             {topScorers.length === 0 ? (
@@ -148,24 +135,23 @@ export function HomePage({ leaderboard, goals, scorers, matches, meta }: HomePag
                     <strong>{scorer.playerName}</strong>
                     <small>{scorer.nationalTeam}</small>
                   </span>
-                  <span>{scorer.goals}</span>
+                  <span>{scorer.goals} Tore</span>
                 </div>
               ))
             )}
           </div>
-        </section>
+        </a>
 
-        <section className="summary-card">
+        <a className="summary-card clickable-card" href={`${baseUrl}matches`}>
           <div className="section-heading">
             <h2>Aktuelle / Kommende Spiele</h2>
-            <a className="text-link" href={`${baseUrl}matches`}>Spielplan</a>
           </div>
           <div className="mini-list">
             {currentMatches.length === 0 ? (
               <p className="empty-inline">Keine aktuellen Spiele.</p>
             ) : (
               currentMatches.map((match) => (
-                <a className="mini-row match-mini-row" href={`${baseUrl}matches`} key={match.matchId}>
+                <div className={`mini-row match-mini-row match-mini-row-${match.status}`} key={match.matchId}>
                   <span>
                     <strong>
                       {match.homeTeam.name} - {match.awayTeam.name}
@@ -176,18 +162,17 @@ export function HomePage({ leaderboard, goals, scorers, matches, meta }: HomePag
                     </small>
                   </span>
                   <span>{formatMatchScore(match)}</span>
-                </a>
+                </div>
               ))
             )}
           </div>
-        </section>
+        </a>
       </div>
 
       {latestGoals.length > 0 ? (
         <section className="summary-card">
           <div className="section-heading">
             <h2>Aktueller Feed</h2>
-            <a className="text-link" href={`${baseUrl}goals`}>Torschützenliste</a>
           </div>
           <div
             className="feed-strip"

@@ -53,11 +53,11 @@ export function App() {
   }, []);
 
   return (
-    <AppShell>
+    <AppShell meta={data?.meta}>
       {!data && !error ? <p className="loading">Daten werden geladen...</p> : null}
       {error ? <p className="error">Daten konnten nicht geladen werden: {error}</p> : null}
       {data && route.name === "home" ? (
-        <HomePage leaderboard={data.leaderboard} goals={data.goals} scorers={data.scorers} matches={data.matches} meta={data.meta} />
+        <HomePage leaderboard={data.leaderboard} goals={data.goals} scorers={data.scorers} matches={data.matches} />
       ) : null}
       {data && route.name === "leaderboard" ? (
         <LeaderboardPage leaderboard={data.leaderboard} meta={data.meta} />

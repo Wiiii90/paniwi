@@ -13,10 +13,8 @@ export function GoalsPage({ goals, scorers, meta }: GoalsPageProps) {
 
   return (
     <section className="page-stack">
-      <div className="hero-band">
-        <div>
-          <h1>Torschützenliste</h1>
-        </div>
+      <div className="page-title">
+        <h1>Torschützenliste</h1>
         <strong>{totalGoalCount} Treffer</strong>
       </div>
 

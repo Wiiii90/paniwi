@@ -1,7 +1,10 @@
 import type { ReactNode } from "react";
+import type { StaticMeta } from "../../domain/types";
+import { StatusPill } from "./StatusPill";
 
 type AppShellProps = {
   children: ReactNode;
+  meta?: StaticMeta;
 };
 
 const navItems = [
@@ -11,7 +14,7 @@ const navItems = [
   { href: "matches", label: "Spielplan", match: (path: string) => path === "/matches" }
 ];
 
-export function AppShell({ children }: AppShellProps) {
+export function AppShell({ children, meta }: AppShellProps) {
   const baseUrl = import.meta.env.BASE_URL;
   const basePath = baseUrl.replace(/\/$/, "");
   const appPath =
@@ -22,10 +25,13 @@ export function AppShell({ children }: AppShellProps) {
   return (
     <div className="app-shell">
       <header className="topbar">
-        <a className="brand" href={baseUrl}>
-          <span className="brand-mark">26</span>
-          <span>Panini Liga</span>
-        </a>
+        <div className="topbar-main">
+          <a className="brand" href={baseUrl}>
+            <span className="brand-mark">WM 2026</span>
+            <span>Panini Liga</span>
+          </a>
+          {meta ? <StatusPill meta={meta} /> : null}
+        </div>
         <nav className="nav" aria-label="Hauptnavigation">
           {navItems.map((item) => {
             const isActive = item.match(appPath);
