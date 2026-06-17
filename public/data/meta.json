@@ -1,21 +1,21 @@
 {
-  "lastUpdated": "2026-06-17T02:14:09.738Z",
+  "lastUpdated": "2026-06-17T14:34:26.904Z",
   "source": "api-football",
   "attemptedSources": [
     "api-football"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 54,
+  "goalCount": 60,
   "scoredGoalCount": 10,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
   "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
-  "snapshotFingerprint": "8572268d67bd10eb7d08584d027bb0d62edec15f0718da1869b363b787e556aa",
+  "snapshotFingerprint": "2996c44496a8d903a8466aac5f10dc09dda9b8052e11b2c7ceac17ead38f035e",
   "snapshotChanged": true,
   "windowSyncAttempts": 1,
-  "liveMatchCount": 1,
-  "sourceRequestCount": 12,
-  "sourceRequestLimit": 90
+  "liveMatchCount": 0,
+  "sourceRequestCount": 5,
+  "sourceRequestLimit": 15
 }
