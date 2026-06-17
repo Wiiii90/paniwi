@@ -1,83 +1,83 @@
 [
   {
     "rank": 1,
-    "owner": "Felix",
-    "points": 3,
-    "goals": 3,
-    "playersWithGoals": 3
-  },
-  {
-    "rank": 2,
-    "owner": "Caro",
-    "points": 2,
-    "goals": 2,
-    "playersWithGoals": 1
-  },
-  {
-    "rank": 2,
     "owner": "Nina",
     "points": 2,
     "goals": 2,
     "playersWithGoals": 2
   },
   {
-    "rank": 4,
+    "rank": 2,
+    "owner": "Felix",
+    "points": 1,
+    "goals": 1,
+    "playersWithGoals": 1
+  },
+  {
+    "rank": 2,
     "owner": "Jonas",
     "points": 1,
     "goals": 1,
     "playersWithGoals": 1
   },
   {
-    "rank": 4,
+    "rank": 2,
     "owner": "Marco",
     "points": 1,
     "goals": 1,
     "playersWithGoals": 1
   },
   {
-    "rank": 4,
+    "rank": 2,
     "owner": "Willi",
     "points": 1,
     "goals": 1,
     "playersWithGoals": 1
   },
   {
-    "rank": 7,
+    "rank": 6,
     "owner": "Anne",
     "points": 0,
     "goals": 0,
     "playersWithGoals": 0
   },
   {
-    "rank": 7,
+    "rank": 6,
+    "owner": "Caro",
+    "points": 0,
+    "goals": 0,
+    "playersWithGoals": 0
+  },
+  {
+    "rank": 6,
     "owner": "Kim",
     "points": 0,
     "goals": 0,
     "playersWithGoals": 0
   },
   {
-    "rank": 7,
+    "rank": 6,
     "owner": "Melli",
     "points": 0,
     "goals": 0,
     "playersWithGoals": 0
   },
   {
-    "rank": 7,
+    "rank": 6,
     "owner": "Peer",
     "points": 0,
     "goals": 0,
     "playersWithGoals": 0
   },
   {
-    "rank": 7,
+    "rank": 6,
     "owner": "Rafael",
     "points": 0,
     "goals": 0,
     "playersWithGoals": 0
   },
   {
-    "rank": 7,
+    "rank": 6,
     "owner": "Tjark",
     "points": 0,
     "goals": 0,
