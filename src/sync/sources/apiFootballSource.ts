@@ -328,6 +328,20 @@ async function getMissingEventBackfillFixtureIds(env: NodeJS.ProcessEnv = proces
   return [...new Set(missingFixtureIds)];
 }
 
+export function getLiveCarryoverFixtureIds(matches: ExternalMatchRecord[]): string[] {
+  return [
+    ...new Set(
+      matches
+        .filter((match) => match.source === "api-football" && match.status === "live" && match.fixtureId)
+        .map((match) => match.fixtureId!)
+    )
+  ];
+}
+
+async function getExistingLiveCarryoverFixtureIds(): Promise<string[]> {
+  return getLiveCarryoverFixtureIds(await readExistingApiFootballMatches());
+}
+
 function normalizeGoalDetail(detail: string | undefined): GoalDetail {
   const normalized = detail?.toLowerCase() ?? "";
 
@@ -885,7 +899,8 @@ export const apiFootballSource: GoalSource = {
     const phase = getSyncWindowPhase();
     const configuredFixtureIds = parseCommaSeparated(process.env.API_FOOTBALL_FIXTURE_IDS);
     const missingEventBackfillFixtureIds = await getMissingEventBackfillFixtureIds();
-    const fixtureIds = [...new Set([...configuredFixtureIds, ...missingEventBackfillFixtureIds])];
+    const liveCarryoverFixtureIds = await getExistingLiveCarryoverFixtureIds();
+    const fixtureIds = [...new Set([...configuredFixtureIds, ...missingEventBackfillFixtureIds, ...liveCarryoverFixtureIds])];
     const dateKeys = getApiFootballDateKeys(process.env, now);
     let dateFixtures: ApiFootballFixture[] = [];
     try {

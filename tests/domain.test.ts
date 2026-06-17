@@ -14,6 +14,7 @@ import {
   filterWorldCupFixtures,
   getApiFootballRequestLimit,
   getApiFootballDateKeys,
+  getLiveCarryoverFixtureIds,
   getApiFootballLineupRequestLimit,
   parseApiFootballFixture,
   parseApiFootballEvents,
@@ -657,6 +658,39 @@ assert.deepEqual(getApiFootballDateKeys({ SYNC_WINDOW_PHASE: "settlement" }, new
   "2026-06-15",
   "2026-06-16"
 ]);
+assert.deepEqual(
+  getLiveCarryoverFixtureIds([
+    {
+      source: "api-football",
+      matchId: "api-football:1539016",
+      fixtureId: "1539016",
+      label: "Iraq 1-2 Norway",
+      kickedOffAt: "2026-06-16T22:00:00+00:00",
+      status: "live",
+      homeTeam: { name: "Iraq", score: 1 },
+      awayTeam: { name: "Norway", score: 2 }
+    },
+    {
+      source: "api-football",
+      matchId: "api-football:1489383",
+      fixtureId: "1489383",
+      label: "France 3-1 Senegal",
+      kickedOffAt: "2026-06-16T19:00:00+00:00",
+      status: "finished",
+      homeTeam: { name: "France", score: 3 },
+      awayTeam: { name: "Senegal", score: 1 }
+    },
+    {
+      source: "wikipedia",
+      matchId: "wikipedia:future",
+      label: "Future",
+      status: "live",
+      homeTeam: { name: "A" },
+      awayTeam: { name: "B" }
+    }
+  ]),
+  ["1539016"]
+);
 assert.equal(getApiFootballRequestLimit({}), 90);
 assert.equal(getApiFootballRequestLimit({ API_FOOTBALL_MAX_REQUESTS: "12" }), 12);
 assert.throws(() => getApiFootballRequestLimit({ API_FOOTBALL_MAX_REQUESTS: "0" }), /positive integer/);
