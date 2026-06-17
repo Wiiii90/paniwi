@@ -31,19 +31,6 @@
   },
   {
     "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group a:czech republic-south africa:2026-06-18T16:00:00.000Z",
-    "label": "Czech Republic Match 25 South Africa",
-    "kickedOffAt": "2026-06-18T16:00:00.000Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "name": "Czech Republic"
-    },
-    "awayTeam": {
-      "name": "South Africa"
-    }
-  },
-  {
-    "source": "wikipedia",
     "matchId": "wikipedia:2026 fifa world cup group a:mexico-south korea:2026-06-19T01:00:00.000Z",
     "label": "Mexico Match 28 South Korea",
     "kickedOffAt": "2026-06-19T01:00:00.000Z",
@@ -109,32 +96,6 @@
     "awayTeam": {
       "name": "Switzerland",
       "score": 1
-    }
-  },
-  {
-    "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group b:switzerland-bosnia and herzegovina:2026-06-18T19:00:00.000Z",
-    "label": "Switzerland Match 26 Bosnia and Herzegovina",
-    "kickedOffAt": "2026-06-18T19:00:00.000Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "name": "Switzerland"
-    },
-    "awayTeam": {
-      "name": "Bosnia and Herzegovina"
-    }
-  },
-  {
-    "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group b:canada-qatar:2026-06-18T22:00:00.000Z",
-    "label": "Canada Match 27 Qatar",
-    "kickedOffAt": "2026-06-18T22:00:00.000Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "name": "Canada"
-    },
-    "awayTeam": {
-      "name": "Qatar"
     }
   },
   {
@@ -686,19 +647,6 @@
   },
   {
     "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group k:uzb-colombia:2026-06-18T02:00:00.000Z",
-    "label": "UZB Match 24 Colombia",
-    "kickedOffAt": "2026-06-18T02:00:00.000Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "name": "UZB"
-    },
-    "awayTeam": {
-      "name": "Colombia"
-    }
-  },
-  {
-    "source": "wikipedia",
     "matchId": "wikipedia:2026 fifa world cup group k:portugal-uzb:2026-06-23T17:00:00.000Z",
     "label": "Portugal Match 47 UZB",
     "kickedOffAt": "2026-06-23T17:00:00.000Z",
@@ -874,141 +822,259 @@
     }
   },
   {
-    "source": "api-football",
-    "matchId": "api-football:1489378",
-    "fixtureId": "1489378",
+    "source": "football-data",
+    "matchId": "football-data:537364",
+    "fixtureId": "537364",
     "label": "Iran 2-2 New Zealand",
-    "kickedOffAt": "2026-06-16T01:00:00+00:00",
+    "kickedOffAt": "2026-06-16T01:00:00Z",
     "status": "finished",
     "homeTeam": {
-      "id": 22,
+      "id": 840,
       "name": "Iran",
       "score": 2
     },
     "awayTeam": {
-      "id": 4673,
+      "id": 783,
       "name": "New Zealand",
       "score": 2
     }
   },
   {
-    "source": "api-football",
-    "matchId": "api-football:1489383",
-    "fixtureId": "1489383",
+    "source": "football-data",
+    "matchId": "football-data:537391",
+    "fixtureId": "537391",
     "label": "France 3-1 Senegal",
-    "kickedOffAt": "2026-06-16T19:00:00+00:00",
+    "kickedOffAt": "2026-06-16T19:00:00Z",
     "status": "finished",
     "homeTeam": {
-      "id": 2,
+      "id": 773,
       "name": "France",
       "score": 3
     },
     "awayTeam": {
-      "id": 13,
+      "id": 804,
       "name": "Senegal",
       "score": 1
     }
   },
   {
-    "source": "api-football",
-    "matchId": "api-football:1539016",
-    "fixtureId": "1539016",
+    "source": "football-data",
+    "matchId": "football-data:537392",
+    "fixtureId": "537392",
     "label": "Iraq 1-4 Norway",
-    "kickedOffAt": "2026-06-16T22:00:00+00:00",
+    "kickedOffAt": "2026-06-16T22:00:00Z",
     "status": "finished",
     "homeTeam": {
-      "id": 1567,
+      "id": 8062,
       "name": "Iraq",
       "score": 1
     },
     "awayTeam": {
-      "id": 1090,
+      "id": 8872,
       "name": "Norway",
       "score": 4
     }
   },
   {
-    "source": "api-football",
-    "matchId": "api-football:1489381",
-    "fixtureId": "1489381",
+    "source": "football-data",
+    "matchId": "football-data:537397",
+    "fixtureId": "537397",
     "label": "Argentina 3-0 Algeria",
-    "kickedOffAt": "2026-06-17T01:00:00+00:00",
+    "kickedOffAt": "2026-06-17T01:00:00Z",
     "status": "finished",
     "homeTeam": {
-      "id": 26,
+      "id": 762,
       "name": "Argentina",
       "score": 3
     },
     "awayTeam": {
-      "id": 1532,
+      "id": 778,
       "name": "Algeria",
       "score": 0
     }
   },
   {
-    "source": "api-football",
-    "matchId": "api-football:1489382",
-    "fixtureId": "1489382",
+    "source": "football-data",
+    "matchId": "football-data:537398",
+    "fixtureId": "537398",
     "label": "Austria 3-1 Jordan",
-    "kickedOffAt": "2026-06-17T04:00:00+00:00",
+    "kickedOffAt": "2026-06-17T04:00:00Z",
     "status": "finished",
     "homeTeam": {
-      "id": 775,
+      "id": 816,
       "name": "Austria",
       "score": 3
     },
     "awayTeam": {
-      "id": 1548,
+      "id": 8049,
       "name": "Jordan",
       "score": 1
     }
   },
   {
-    "source": "api-football",
-    "matchId": "api-football:1539003",
-    "fixtureId": "1539003",
-    "label": "Portugal vs Congo DR",
-    "kickedOffAt": "2026-06-17T17:00:00+00:00",
-    "status": "scheduled",
+    "source": "football-data",
+    "matchId": "football-data:537403",
+    "fixtureId": "537403",
+    "label": "Portugal 1-1 Congo DR",
+    "kickedOffAt": "2026-06-17T17:00:00Z",
+    "status": "finished",
     "homeTeam": {
-      "id": 27,
-      "name": "Portugal"
+      "id": 765,
+      "name": "Portugal",
+      "score": 1
     },
     "awayTeam": {
-      "id": 1508,
-      "name": "Congo DR"
+      "id": 1934,
+      "name": "Congo DR",
+      "score": 1
     }
   },
   {
-    "source": "api-football",
-    "matchId": "api-football:1489384",
-    "fixtureId": "1489384",
-    "label": "England vs Croatia",
-    "kickedOffAt": "2026-06-17T20:00:00+00:00",
-    "status": "scheduled",
+    "source": "football-data",
+    "matchId": "football-data:537409",
+    "fixtureId": "537409",
+    "label": "England 4-2 Croatia",
+    "kickedOffAt": "2026-06-17T20:00:00Z",
+    "status": "finished",
     "homeTeam": {
-      "id": 10,
-      "name": "England"
+      "id": 770,
+      "name": "England",
+      "score": 4
     },
     "awayTeam": {
-      "id": 3,
-      "name": "Croatia"
+      "id": 799,
+      "name": "Croatia",
+      "score": 2
     }
   },
   {
-    "source": "api-football",
-    "matchId": "api-football:1489385",
-    "fixtureId": "1489385",
-    "label": "Ghana vs Panama",
-    "kickedOffAt": "2026-06-17T23:00:00+00:00",
-    "status": "scheduled",
+    "source": "football-data",
+    "matchId": "football-data:537410",
+    "fixtureId": "537410",
+    "label": "Ghana 0-0 Panama",
+    "kickedOffAt": "2026-06-17T23:00:00Z",
+    "status": "live",
     "homeTeam": {
-      "id": 1504,
-      "name": "Ghana"
+      "id": 763,
+      "name": "Ghana",
+      "score": 0
     },
     "awayTeam": {
-      "id": 11,
-      "name": "Panama"
+      "id": 1836,
+      "name": "Panama",
+      "score": 0
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537404",
+    "fixtureId": "537404",
+    "label": "Uzbekistan vs Colombia",
+    "kickedOffAt": "2026-06-18T02:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 8070,
+      "name": "Uzbekistan"
+    },
+    "awayTeam": {
+      "id": 818,
+      "name": "Colombia"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537329",
+    "fixtureId": "537329",
+    "label": "Czechia vs South Africa",
+    "kickedOffAt": "2026-06-18T16:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 798,
+      "name": "Czechia"
+    },
+    "awayTeam": {
+      "id": 774,
+      "name": "South Africa"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537335",
+    "fixtureId": "537335",
+    "label": "Switzerland vs Bosnia-Herzegovina",
+    "kickedOffAt": "2026-06-18T19:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 788,
+      "name": "Switzerland"
+    },
+    "awayTeam": {
+      "id": 1060,
+      "name": "Bosnia-Herzegovina"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537336",
+    "fixtureId": "537336",
+    "label": "Canada vs Qatar",
+    "kickedOffAt": "2026-06-18T22:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 828,
+      "name": "Canada"
+    },
+    "awayTeam": {
+      "id": 8030,
+      "name": "Qatar"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537330",
+    "fixtureId": "537330",
+    "label": "Mexico vs South Korea",
+    "kickedOffAt": "2026-06-19T01:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 769,
+      "name": "Mexico"
+    },
+    "awayTeam": {
+      "id": 772,
+      "name": "South Korea"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537348",
+    "fixtureId": "537348",
+    "label": "United States vs Australia",
+    "kickedOffAt": "2026-06-19T19:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 771,
+      "name": "United States"
+    },
+    "awayTeam": {
+      "id": 779,
+      "name": "Australia"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537342",
+    "fixtureId": "537342",
+    "label": "Scotland vs Morocco",
+    "kickedOffAt": "2026-06-19T22:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 8873,
+      "name": "Scotland"
+    },
+    "awayTeam": {
+      "id": 815,
+      "name": "Morocco"
     }
   }
 ]
