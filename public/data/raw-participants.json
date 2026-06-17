@@ -3557,5 +3557,325 @@
     "apiPlayerId": 334915,
     "status": "bench",
     "shirtNumber": 25
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489378",
+    "fixtureId": "1489378",
+    "playerName": "A. Yousefi",
+    "nationalTeam": "Iran",
+    "teamId": "iran",
+    "apiPlayerId": 343405,
+    "status": "subbed-out"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489378",
+    "fixtureId": "1489378",
+    "playerName": "M. Ghaedi",
+    "nationalTeam": "Iran",
+    "teamId": "iran",
+    "apiPlayerId": 643918,
+    "status": "subbed-in"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489378",
+    "fixtureId": "1489378",
+    "playerName": "S. Moghanlou",
+    "nationalTeam": "Iran",
+    "teamId": "iran",
+    "apiPlayerId": 89982,
+    "status": "subbed-out"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489378",
+    "fixtureId": "1489378",
+    "playerName": "A. Alipour",
+    "nationalTeam": "Iran",
+    "teamId": "iran",
+    "apiPlayerId": 29720,
+    "status": "subbed-in"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489378",
+    "fixtureId": "1489378",
+    "playerName": "S. Ghoddos",
+    "nationalTeam": "Iran",
+    "teamId": "iran",
+    "apiPlayerId": 2699,
+    "status": "subbed-out"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489378",
+    "fixtureId": "1489378",
+    "playerName": "E. Hajsafi",
+    "nationalTeam": "Iran",
+    "teamId": "iran",
+    "apiPlayerId": 2685,
+    "status": "subbed-in"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489378",
+    "fixtureId": "1489378",
+    "playerName": "L. Cacace",
+    "nationalTeam": "New Zealand",
+    "teamId": "new-zealand",
+    "apiPlayerId": 6931,
+    "status": "subbed-out"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489378",
+    "fixtureId": "1489378",
+    "playerName": "B. Old",
+    "nationalTeam": "New Zealand",
+    "teamId": "new-zealand",
+    "apiPlayerId": 179856,
+    "status": "subbed-in"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489378",
+    "fixtureId": "1489378",
+    "playerName": "C. McCowatt",
+    "nationalTeam": "New Zealand",
+    "teamId": "new-zealand",
+    "apiPlayerId": 94322,
+    "status": "subbed-out"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489378",
+    "fixtureId": "1489378",
+    "playerName": "R. Thomas",
+    "nationalTeam": "New Zealand",
+    "teamId": "new-zealand",
+    "apiPlayerId": 242,
+    "status": "subbed-in"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489378",
+    "fixtureId": "1489378",
+    "playerName": "T. Payne",
+    "nationalTeam": "New Zealand",
+    "teamId": "new-zealand",
+    "apiPlayerId": 94346,
+    "status": "subbed-out"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489378",
+    "fixtureId": "1489378",
+    "playerName": "C. Elliot",
+    "nationalTeam": "New Zealand",
+    "teamId": "new-zealand",
+    "apiPlayerId": 6932,
+    "status": "subbed-in"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489378",
+    "fixtureId": "1489378",
+    "playerName": "M. Taremi",
+    "nationalTeam": "Iran",
+    "teamId": "iran",
+    "apiPlayerId": 42315,
+    "status": "subbed-out"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489378",
+    "fixtureId": "1489378",
+    "playerName": "A. Hosseinzadeh",
+    "nationalTeam": "Iran",
+    "teamId": "iran",
+    "apiPlayerId": 29937,
+    "status": "subbed-in"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489378",
+    "fixtureId": "1489378",
+    "playerName": "S. Singh",
+    "nationalTeam": "New Zealand",
+    "teamId": "new-zealand",
+    "apiPlayerId": 6935,
+    "status": "subbed-out"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489378",
+    "fixtureId": "1489378",
+    "playerName": "J. Randall",
+    "nationalTeam": "New Zealand",
+    "teamId": "new-zealand",
+    "apiPlayerId": 158688,
+    "status": "subbed-in"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489378",
+    "fixtureId": "1489378",
+    "playerName": "M. Stamenic",
+    "nationalTeam": "New Zealand",
+    "teamId": "new-zealand",
+    "apiPlayerId": 179862,
+    "status": "subbed-out"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489378",
+    "fixtureId": "1489378",
+    "playerName": "T. Bindon",
+    "nationalTeam": "New Zealand",
+    "teamId": "new-zealand",
+    "apiPlayerId": 430835,
+    "status": "subbed-in"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489383",
+    "fixtureId": "1489383",
+    "playerName": "I. Sarr",
+    "nationalTeam": "Senegal",
+    "teamId": "senegal",
+    "apiPlayerId": 2218,
+    "status": "subbed-out"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489383",
+    "fixtureId": "1489383",
+    "playerName": "I. Mbaye",
+    "nationalTeam": "Senegal",
+    "teamId": "senegal",
+    "apiPlayerId": 446249,
+    "status": "subbed-in"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489383",
+    "fixtureId": "1489383",
+    "playerName": "L. Camara",
+    "nationalTeam": "Senegal",
+    "teamId": "senegal",
+    "apiPlayerId": 374058,
+    "status": "subbed-out"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489383",
+    "fixtureId": "1489383",
+    "playerName": "H. Diarra",
+    "nationalTeam": "Senegal",
+    "teamId": "senegal",
+    "apiPlayerId": 327631,
+    "status": "subbed-in"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489383",
+    "fixtureId": "1489383",
+    "playerName": "O. Dembele",
+    "nationalTeam": "France",
+    "teamId": "france",
+    "apiPlayerId": 153,
+    "status": "subbed-out"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489383",
+    "fixtureId": "1489383",
+    "playerName": "B. Barcola",
+    "nationalTeam": "France",
+    "teamId": "france",
+    "apiPlayerId": 161904,
+    "status": "subbed-in"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489383",
+    "fixtureId": "1489383",
+    "playerName": "P. Gueye",
+    "nationalTeam": "Senegal",
+    "teamId": "senegal",
+    "apiPlayerId": 20696,
+    "status": "subbed-out"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489383",
+    "fixtureId": "1489383",
+    "playerName": "I. Ndiaye",
+    "nationalTeam": "Senegal",
+    "teamId": "senegal",
+    "apiPlayerId": 18592,
+    "status": "subbed-in"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489383",
+    "fixtureId": "1489383",
+    "playerName": "N. Jackson",
+    "nationalTeam": "Senegal",
+    "teamId": "senegal",
+    "apiPlayerId": 283058,
+    "status": "subbed-out"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489383",
+    "fixtureId": "1489383",
+    "playerName": "B. Dieng",
+    "nationalTeam": "Senegal",
+    "teamId": "senegal",
+    "apiPlayerId": 284072,
+    "status": "subbed-in"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489383",
+    "fixtureId": "1489383",
+    "playerName": "D. Doue",
+    "nationalTeam": "France",
+    "teamId": "france",
+    "apiPlayerId": 343027,
+    "status": "subbed-out"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489383",
+    "fixtureId": "1489383",
+    "playerName": "R. Cherki",
+    "nationalTeam": "France",
+    "teamId": "france",
+    "apiPlayerId": 156477,
+    "status": "subbed-in"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489383",
+    "fixtureId": "1489383",
+    "playerName": "I. Gueye",
+    "nationalTeam": "Senegal",
+    "teamId": "senegal",
+    "apiPlayerId": 2990,
+    "status": "subbed-out"
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489383",
+    "fixtureId": "1489383",
+    "playerName": "P. Ciss",
+    "nationalTeam": "Senegal",
+    "teamId": "senegal",
+    "apiPlayerId": 41552,
+    "status": "subbed-in"
   }
 ]
