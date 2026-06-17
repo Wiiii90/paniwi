@@ -1139,6 +1139,48 @@ h2 {
   text-transform: uppercase;
 }
 
+.section-toggle-button {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 999px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 0 0 auto;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 900;
+  height: 28px;
+  justify-content: center;
+  line-height: 1;
+  padding: 0 0 2px;
+  width: 28px;
+}
+
+.section-toggle-icon {
+  border-right: 2px solid currentColor;
+  border-top: 2px solid currentColor;
+  display: block;
+  height: 7px;
+  margin-top: 4px;
+  transform: rotate(-45deg);
+  width: 7px;
+}
+
+.section-toggle-icon-down {
+  margin-bottom: 4px;
+  margin-top: 0;
+  transform: rotate(135deg);
+}
+
+.section-toggle-button:hover,
+.section-toggle-button:focus-visible {
+  background: #ffffff;
+  color: var(--color-text);
+  outline: none;
+}
+
 .match-section > .section-heading .live-chip {
   background: rgba(255, 255, 255, 0.96);
   color: var(--color-accent);
@@ -1557,19 +1599,31 @@ h2 {
   background: var(--color-surface-muted);
   border-top: 1px solid var(--color-border);
   color: var(--color-muted);
-  display: flex;
+  display: grid;
   font-size: 0.84rem;
   font-weight: 800;
   gap: var(--space-3);
-  justify-content: space-between;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   padding: 10px 16px;
+}
+
+.match-section-footer > span {
+  justify-self: center;
+  white-space: nowrap;
 }
 
 .match-section-actions {
   align-items: center;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: var(--space-2);
+}
+
+.match-section-actions-left {
+  justify-content: flex-start;
+}
+
+.match-section-actions-right {
   justify-content: flex-end;
 }
 
@@ -1719,8 +1773,13 @@ h2 {
   }
 
   .match-section-footer {
-    align-items: stretch;
-    flex-direction: column;
+    gap: var(--space-2);
+    grid-template-columns: minmax(96px, 1fr) auto minmax(96px, 1fr);
+    padding-inline: 12px;
+  }
+
+  .match-section-actions {
+    gap: 6px;
   }
 }
 

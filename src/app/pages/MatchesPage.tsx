@@ -5,9 +5,10 @@ import {
   groupSelectedParticipantsBySide,
   type MatchSectionKey
 } from "../../domain/matchGrouping";
+import type { GoalRecord } from "../../domain/goalTypes";
 import type { MatchParticipantRecord, MatchParticipationStatus, MatchRecord } from "../../domain/matchTypes";
 import { TeamFlag } from "../components/TeamFlag";
-import { formatGoalMinute } from "../formatters/goalFormat";
+import { formatCompactGoalMinute } from "../formatters/goalFormat";
 import { formatKickoff, formatMatchScore } from "../formatters/matchFormat";
 
 type MatchesPageProps = {
@@ -91,6 +92,55 @@ function formatPointImpact(match: MatchRecord): string {
     .join(", ");
 }
 
+function formatGoalDetailShort(goal: GoalRecord): string {
+  if (goal.detail === "own-goal") {
+    return "ET";
+  }
+
+  if (goal.detail === "penalty") {
+    return "FE";
+  }
+
+  if (goal.detail === "penalty-shootout") {
+    return "i.E.";
+  }
+
+  return "";
+}
+
+function getGoalChipKey(goal: GoalRecord): string {
+  return [goal.playerId ?? goal.apiPlayerId ?? goal.playerName, goal.teamId ?? goal.nationalTeam].join("|");
+}
+
+function groupGoalChips(goals: GoalRecord[]): GoalRecord[][] {
+  const groups = new Map<string, GoalRecord[]>();
+  for (const goal of goals) {
+    const key = getGoalChipKey(goal);
+    groups.set(key, [...(groups.get(key) ?? []), goal]);
+  }
+
+  return [...groups.values()];
+}
+
+function formatGoalChipMinute(goal: GoalRecord): string {
+  const detail = formatGoalDetailShort(goal);
+  return detail ? `${formatCompactGoalMinute(goal)} (${detail})` : formatCompactGoalMinute(goal);
+}
+
+function GoalChip({ goals, scoredGoalIds }: { goals: GoalRecord[]; scoredGoalIds: Set<string> }) {
+  const firstGoal = goals[0];
+  const detailClass = goals.some((goal) => goal.detail === "own-goal") ? "match-goal-chip-own-goal" : "";
+  const scoredClass = goals.some((goal) => scoredGoalIds.has(goal.externalGoalId)) ? "match-goal-chip-scored" : "";
+  const minutes = goals.map(formatGoalChipMinute).join(", ");
+  const title = goals.map((goal) => `${formatGoalChipMinute(goal)} ${goal.playerName}`).join(", ");
+
+  return (
+    <span className={[scoredClass, detailClass].filter(Boolean).join(" ")} title={title}>
+      {minutes} {firstGoal.playerName}
+    </span>
+  );
+}
+
 type MatchSectionProps = {
   sectionKey: MatchSectionKey;
   title: string;
@@ -99,6 +149,7 @@ type MatchSectionProps = {
   visibleCount: number;
   initialVisibleCount: number;
   onShowMore: (section: MatchSectionKey, amount: number) => void;
+  onShowLess: (section: MatchSectionKey, amount: number) => void;
   onShowAll: (section: MatchSectionKey, total: number) => void;
   onCollapse: (section: MatchSectionKey) => void;
 };
@@ -119,6 +170,7 @@ function MatchSection({
   visibleCount,
   initialVisibleCount,
   onShowMore,
+  onShowLess,
   onShowAll,
   onCollapse
 }: MatchSectionProps) {
@@ -151,6 +203,16 @@ function MatchSection({
             title
           )}
         </h2>
+        {matches.length > initialVisibleCount ? (
+          <button
+            aria-label={hiddenCount > 0 ? `${title} vollständig anzeigen` : `${title} einklappen`}
+            className="section-toggle-button"
+            type="button"
+            onClick={() => (hiddenCount > 0 ? onShowAll(sectionKey, matches.length) : onCollapse(sectionKey))}
+          >
+            <span aria-hidden="true" className={hiddenCount > 0 ? "section-toggle-icon section-toggle-icon-down" : "section-toggle-icon"} />
+          </button>
+        ) : null}
       </div>
       <div className="match-list">
         {visibleMatches.length === 0 ? (
@@ -187,52 +249,19 @@ function MatchSection({
                 {match.goals.length > 0 ? (
                   <div className="match-goals">
                     <div className="match-goal-side match-goal-side-home">
-                      {goalsBySide.home.map((goal) => (
-                        <span
-                          className={[
-                            pointGoalIds.has(goal.externalGoalId) ? "match-goal-chip-scored" : "",
-                            goal.detail === "own-goal" ? "match-goal-chip-own-goal" : ""
-                          ]
-                            .filter(Boolean)
-                            .join(" ")}
-                          key={goal.externalGoalId}
-                        >
-                          {formatGoalMinute(goal)} {goal.playerName}
-                          {goal.detail === "own-goal" ? " Eigentor" : ""}
-                        </span>
+                      {groupGoalChips(goalsBySide.home).map((goals) => (
+                        <GoalChip goals={goals} key={goals.map((goal) => goal.externalGoalId).join("|")} scoredGoalIds={pointGoalIds} />
                       ))}
                     </div>
                     <div className="match-goal-side match-goal-side-away">
-                      {goalsBySide.away.map((goal) => (
-                        <span
-                          className={[
-                            pointGoalIds.has(goal.externalGoalId) ? "match-goal-chip-scored" : "",
-                            goal.detail === "own-goal" ? "match-goal-chip-own-goal" : ""
-                          ]
-                            .filter(Boolean)
-                            .join(" ")}
-                          key={goal.externalGoalId}
-                        >
-                          {formatGoalMinute(goal)} {goal.playerName}
-                          {goal.detail === "own-goal" ? " Eigentor" : ""}
-                        </span>
+                      {groupGoalChips(goalsBySide.away).map((goals) => (
+                        <GoalChip goals={goals} key={goals.map((goal) => goal.externalGoalId).join("|")} scoredGoalIds={pointGoalIds} />
                       ))}
                     </div>
                     {goalsBySide.unknown.length > 0 ? (
                       <div className="match-goal-side match-goal-side-unknown">
-                        {goalsBySide.unknown.map((goal) => (
-                          <span
-                            className={[
-                              pointGoalIds.has(goal.externalGoalId) ? "match-goal-chip-scored" : "",
-                              goal.detail === "own-goal" ? "match-goal-chip-own-goal" : ""
-                            ]
-                              .filter(Boolean)
-                              .join(" ")}
-                            key={goal.externalGoalId}
-                          >
-                            {formatGoalMinute(goal)} {goal.playerName}
-                            {goal.detail === "own-goal" ? " Eigentor" : ""}
-                          </span>
+                        {groupGoalChips(goalsBySide.unknown).map((goals) => (
+                          <GoalChip goals={goals} key={goals.map((goal) => goal.externalGoalId).join("|")} scoredGoalIds={pointGoalIds} />
                         ))}
                       </div>
                     ) : null}
@@ -304,24 +333,38 @@ function MatchSection({
       </div>
       {matches.length > initialVisibleCount ? (
         <div className="match-section-footer">
+          <div className="match-section-actions match-section-actions-left">
+            {hiddenCount >= 1 ? (
+              <button className="plain-button compact-button" type="button" onClick={() => onShowMore(sectionKey, 1)}>
+                +1
+              </button>
+            ) : null}
+            {hiddenCount >= 2 ? (
+              <button className="plain-button compact-button" type="button" onClick={() => onShowMore(sectionKey, 2)}>
+                +2
+              </button>
+            ) : null}
+            {hiddenCount >= 5 ? (
+              <button className="plain-button compact-button" type="button" onClick={() => onShowMore(sectionKey, 5)}>
+                +5
+              </button>
+            ) : null}
+          </div>
           <span>{visibleMatches.length} von {matches.length} Spielen</span>
-          <div className="match-section-actions">
-            {hiddenCount > 0 ? (
-              <>
-                <button className="plain-button compact-button" type="button" onClick={() => onShowMore(sectionKey, 2)}>
-                  +2
-                </button>
-                <button className="plain-button compact-button" type="button" onClick={() => onShowMore(sectionKey, 5)}>
-                  +5
-                </button>
-                <button className="plain-button compact-button" type="button" onClick={() => onShowAll(sectionKey, matches.length)}>
-                  Alle
-                </button>
-              </>
+          <div className="match-section-actions match-section-actions-right">
+            {visibleMatches.length - initialVisibleCount >= 5 ? (
+              <button className="plain-button compact-button" type="button" onClick={() => onShowLess(sectionKey, 5)}>
+                -5
+              </button>
+            ) : null}
+            {visibleMatches.length - initialVisibleCount >= 2 ? (
+              <button className="plain-button compact-button" type="button" onClick={() => onShowLess(sectionKey, 2)}>
+                -2
+              </button>
             ) : null}
             {visibleMatches.length > initialVisibleCount ? (
-              <button className="plain-button compact-button" type="button" onClick={() => onCollapse(sectionKey)}>
-                Einklappen
+              <button className="plain-button compact-button" type="button" onClick={() => onShowLess(sectionKey, 1)}>
+                -1
               </button>
             ) : null}
           </div>
@@ -336,7 +379,12 @@ export function MatchesPage({ matches }: MatchesPageProps) {
   const { live: liveMatches, upcoming: upcomingMatches, finished: finishedMatches } = groupMatchesBySection(matches, new Date());
 
   function showMore(section: MatchSectionKey, amount: number): void {
-    setVisibleCounts((current) => ({ ...current, [section]: current[section] + amount }));
+    const totalBySection = { live: liveMatches.length, upcoming: upcomingMatches.length, finished: finishedMatches.length };
+    setVisibleCounts((current) => ({ ...current, [section]: Math.min(current[section] + amount, totalBySection[section]) }));
+  }
+
+  function showLess(section: MatchSectionKey, amount: number): void {
+    setVisibleCounts((current) => ({ ...current, [section]: Math.max(current[section] - amount, initialVisibleCounts[section]) }));
   }
 
   function showAll(section: MatchSectionKey, total: number): void {
@@ -358,6 +406,7 @@ export function MatchesPage({ matches }: MatchesPageProps) {
           visibleCount={visibleCounts.live}
           initialVisibleCount={initialVisibleCounts.live}
           onShowMore={showMore}
+          onShowLess={showLess}
           onShowAll={showAll}
           onCollapse={collapseSection}
         />
@@ -370,6 +419,7 @@ export function MatchesPage({ matches }: MatchesPageProps) {
         visibleCount={visibleCounts.upcoming}
         initialVisibleCount={initialVisibleCounts.upcoming}
         onShowMore={showMore}
+        onShowLess={showLess}
         onShowAll={showAll}
         onCollapse={collapseSection}
       />
@@ -381,6 +431,7 @@ export function MatchesPage({ matches }: MatchesPageProps) {
         visibleCount={visibleCounts.finished}
         initialVisibleCount={initialVisibleCounts.finished}
         onShowMore={showMore}
+        onShowLess={showLess}
         onShowAll={showAll}
         onCollapse={collapseSection}
       />

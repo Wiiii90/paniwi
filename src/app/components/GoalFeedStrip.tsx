@@ -36,9 +36,9 @@ function formatGoalDate(goal: ScoredGoal): string {
   return dateLabel;
 }
 
-function formatGoalMatchLabel(goal: ScoredGoal, match: MatchRecord | undefined): string {
+function formatGoalMatchLabel(goal: ScoredGoal, match: MatchRecord | undefined, runningScore: string | undefined): string {
   if (match) {
-    return `${match.homeTeam.name} - ${match.awayTeam.name}`;
+    return runningScore ? `${match.homeTeam.name} ${runningScore} ${match.awayTeam.name}` : `${match.homeTeam.name} - ${match.awayTeam.name}`;
   }
 
   return goal.matchLabel?.replace(/\s+\d+\s*[-–—]\s*\d+\s+/u, " - ") ?? "Spiel offen";
@@ -131,7 +131,7 @@ export function GoalFeedStrip({ goals, matches, title }: GoalFeedStripProps) {
                 <span>{goal.displayPlayerName}</span>
               </strong>
               <span>
-                {formatGoalMinute(goal)} · {runningScore ? `${runningScore} · ` : ""}{formatGoalMatchLabel(goal, match)}
+                {formatGoalMinute(goal)} · {formatGoalMatchLabel(goal, match, runningScore)}
               </span>
             </article>
           );
