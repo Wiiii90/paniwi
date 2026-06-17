@@ -1,4 +1,5 @@
 import type { MatchRecord } from "./matchTypes";
+import { isActiveMatch } from "./matchGrouping";
 
 function getLocalDateKey(value: Date): string {
   const year = value.getFullYear();
@@ -41,9 +42,10 @@ export function getTodayOrLiveMatches(matches: MatchRecord[], now = new Date(), 
 
 export function getLiveAndUpcomingMatches(matches: MatchRecord[], now = new Date(), limit = 3): MatchRecord[] {
   const timestamp = now.getTime();
-  const liveMatches = matches
-    .filter((match) => match.status === "live")
+  const activeMatches = matches
+    .filter((match) => match.status === "live" || (match.status === "scheduled" && isActiveMatch(match, now)))
     .sort((a, b) => (a.kickedOffAt ?? "").localeCompare(b.kickedOffAt ?? ""));
+  const activeMatchIds = new Set(activeMatches.map((match) => match.matchId));
 
   const upcomingMatches = matches
     .filter((match) => {
@@ -51,9 +53,9 @@ export function getLiveAndUpcomingMatches(matches: MatchRecord[], now = new Date
         return false;
       }
 
-      return new Date(match.kickedOffAt).getTime() >= timestamp;
+      return !activeMatchIds.has(match.matchId) && new Date(match.kickedOffAt).getTime() >= timestamp;
     })
     .sort((a, b) => (a.kickedOffAt ?? "").localeCompare(b.kickedOffAt ?? ""));
 
-  return [...liveMatches, ...upcomingMatches].slice(0, limit);
+  return [...activeMatches, ...upcomingMatches].slice(0, limit);
 }

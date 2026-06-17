@@ -10,8 +10,8 @@ import { normalizePlayerName } from "../../src/domain/normalizePlayerName";
 import { enrichGoalsWithRoster } from "../../src/domain/rosterResolver";
 import { getGoalPoints, matchesPlayer } from "../../src/domain/scoring";
 import { sortGoalsChronologically } from "../../src/domain/sortGoals";
-import { getLatestFinishedMatches, getTodayOrLiveMatches } from "../../src/domain/matchFilters";
-import { buildRunningGoalScores, groupGoalsBySide } from "../../src/domain/matchGrouping";
+import { getLatestFinishedMatches, getLiveAndUpcomingMatches, getTodayOrLiveMatches } from "../../src/domain/matchFilters";
+import { buildRunningGoalScores, groupGoalsBySide, groupMatchesBySection } from "../../src/domain/matchGrouping";
 import type { GoalRecord } from "../../src/domain/goalTypes";
 import type { ParticipantTeam } from "../../src/domain/participantTypes";
 import type { RosterSnapshot } from "../../src/domain/rosterTypes";
@@ -260,6 +260,39 @@ const dedupedFixtureMatches = buildMatches(
 assert.deepEqual(
   dedupedFixtureMatches.map((match) => match.matchId),
   ["api-football:1539002"]
+);
+
+const scheduledAfterKickoffMatch = buildMatches(
+  [],
+  [],
+  [
+    {
+      source: "api-football",
+      matchId: "api-football:scheduled-after-kickoff",
+      fixtureId: "scheduled-after-kickoff",
+      label: "Portugal 0-0 DR Congo",
+      kickedOffAt: "2026-06-17T17:00:00+00:00",
+      status: "scheduled",
+      homeTeam: { name: "Portugal", score: 0 },
+      awayTeam: { name: "DR Congo", score: 0 }
+    }
+  ]
+)[0];
+assert.deepEqual(
+  groupMatchesBySection([scheduledAfterKickoffMatch], new Date("2026-06-17T15:30:00.000Z")).upcoming.map((match) => match.matchId),
+  ["api-football:scheduled-after-kickoff"]
+);
+assert.deepEqual(
+  groupMatchesBySection([scheduledAfterKickoffMatch], new Date("2026-06-17T16:15:00.000Z")).live.map((match) => match.matchId),
+  ["api-football:scheduled-after-kickoff"]
+);
+assert.deepEqual(
+  groupMatchesBySection([scheduledAfterKickoffMatch], new Date("2026-06-17T17:11:00.000Z")).live.map((match) => match.matchId),
+  ["api-football:scheduled-after-kickoff"]
+);
+assert.deepEqual(
+  getLiveAndUpcomingMatches([scheduledAfterKickoffMatch], new Date("2026-06-17T17:11:00.000Z")).map((match) => match.matchId),
+  ["api-football:scheduled-after-kickoff"]
 );
 
 const matchFilterSample = buildMatches(

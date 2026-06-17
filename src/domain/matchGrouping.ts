@@ -33,7 +33,7 @@ export function isActiveMatch(match: MatchRecord, now: Date): boolean {
 
   const nowMs = now.getTime();
   if (match.status === "scheduled") {
-    return nowMs >= kickoffMs - preMatchDisplayWindowMinutes * 60 * 1000 && nowMs < kickoffMs;
+    return nowMs >= kickoffMs - preMatchDisplayWindowMinutes * 60 * 1000;
   }
 
   if (match.status === "finished") {
