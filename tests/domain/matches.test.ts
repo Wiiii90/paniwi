@@ -295,6 +295,57 @@ assert.deepEqual(
   ["api-football:scheduled-after-kickoff"]
 );
 
+const homePreviewMatches = buildMatches(
+  [],
+  [],
+  [
+    {
+      source: "api-football",
+      matchId: "api-football:upcoming-later",
+      fixtureId: "upcoming-later",
+      label: "Argentina vs Algeria",
+      kickedOffAt: "2026-06-17T21:00:00+00:00",
+      status: "scheduled",
+      homeTeam: { name: "Argentina" },
+      awayTeam: { name: "Algeria" }
+    },
+    {
+      source: "api-football",
+      matchId: "api-football:scheduled-active",
+      fixtureId: "scheduled-active",
+      label: "Portugal 0-0 DR Congo",
+      kickedOffAt: "2026-06-17T17:00:00+00:00",
+      status: "scheduled",
+      homeTeam: { name: "Portugal", score: 0 },
+      awayTeam: { name: "DR Congo", score: 0 }
+    },
+    {
+      source: "api-football",
+      matchId: "api-football:live-active",
+      fixtureId: "live-active",
+      label: "Mexico 1-1 Japan",
+      kickedOffAt: "2026-06-17T18:00:00+00:00",
+      status: "live",
+      homeTeam: { name: "Mexico", score: 1 },
+      awayTeam: { name: "Japan", score: 1 }
+    },
+    {
+      source: "api-football",
+      matchId: "api-football:upcoming-sooner",
+      fixtureId: "upcoming-sooner",
+      label: "France vs Australia",
+      kickedOffAt: "2026-06-17T20:00:00+00:00",
+      status: "scheduled",
+      homeTeam: { name: "France" },
+      awayTeam: { name: "Australia" }
+    }
+  ]
+);
+assert.deepEqual(
+  getLiveAndUpcomingMatches(homePreviewMatches, new Date("2026-06-17T17:11:00.000Z")).map((match) => match.matchId),
+  ["api-football:scheduled-active", "api-football:live-active", "api-football:upcoming-sooner"]
+);
+
 const matchFilterSample = buildMatches(
   [],
   [],
