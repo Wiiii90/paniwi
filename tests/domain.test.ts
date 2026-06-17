@@ -1,4 +1,7 @@
 import assert from "node:assert/strict";
+import { mkdirSync, mkdtempSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { buildLeaderboard, scoreGoalsForTeams } from "../src/domain/buildLeaderboard";
 import { buildMatches } from "../src/domain/buildMatches";
 import { buildScorers } from "../src/domain/buildScorers";
@@ -12,10 +15,12 @@ import type { RosterSnapshot } from "../src/domain/rosterTypes";
 import { normalizeGoals } from "../src/sync/normalizeGoals";
 import {
   filterWorldCupFixtures,
+  getExistingFixtureIdsWithLineups,
   getApiFootballRequestLimit,
   getApiFootballDateKeys,
   getLiveCarryoverFixtureIds,
   getApiFootballLineupRequestLimit,
+  getMissingLineupBackfillFixtureIds,
   parseApiFootballFixture,
   parseApiFootballEvents,
   parseApiFootballLineups,
@@ -789,6 +794,93 @@ assert.equal(getApiFootballLineupRequestLimit({}), 4);
 assert.equal(getApiFootballLineupRequestLimit({ API_FOOTBALL_MAX_LINEUP_REQUESTS: "0" }), 0);
 assert.equal(getApiFootballLineupRequestLimit({ API_FOOTBALL_MAX_LINEUP_REQUESTS: "2" }), 2);
 assert.throws(() => getApiFootballLineupRequestLimit({ API_FOOTBALL_MAX_LINEUP_REQUESTS: "-1" }), /zero or a positive integer/);
+assert.deepEqual(
+  [...getExistingFixtureIdsWithLineups([
+    {
+      source: "api-football",
+      matchId: "api-football:with-sub-only",
+      fixtureId: "with-sub-only",
+      playerName: "Subbed Player",
+      nationalTeam: "Norway",
+      status: "subbed-in"
+    },
+    {
+      source: "api-football",
+      matchId: "api-football:with-lineup",
+      fixtureId: "with-lineup",
+      playerName: "Starter Player",
+      nationalTeam: "Norway",
+      status: "starter"
+    }
+  ])],
+  ["with-lineup"]
+);
+assert.deepEqual(
+  getMissingLineupBackfillFixtureIds(
+    [
+      {
+        source: "api-football",
+        matchId: "api-football:finished-old",
+        fixtureId: "finished-old",
+        label: "Sweden 5-1 Tunisia",
+        kickedOffAt: "2026-06-15T02:00:00+00:00",
+        status: "finished",
+        homeTeam: { name: "Sweden", score: 5 },
+        awayTeam: { name: "Tunisia", score: 1 }
+      },
+      {
+        source: "api-football",
+        matchId: "api-football:finished-new",
+        fixtureId: "finished-new",
+        label: "Iraq 1-4 Norway",
+        kickedOffAt: "2026-06-16T22:00:00+00:00",
+        status: "finished",
+        homeTeam: { name: "Iraq", score: 1 },
+        awayTeam: { name: "Norway", score: 4 }
+      },
+      {
+        source: "api-football",
+        matchId: "api-football:live",
+        fixtureId: "live",
+        label: "Norway 0-0 Senegal",
+        kickedOffAt: "2026-06-17T18:00:00+00:00",
+        status: "live",
+        homeTeam: { name: "Norway", score: 0 },
+        awayTeam: { name: "Senegal", score: 0 }
+      },
+      {
+        source: "api-football",
+        matchId: "api-football:already-filled",
+        fixtureId: "already-filled",
+        label: "France 3-1 Senegal",
+        kickedOffAt: "2026-06-16T19:00:00+00:00",
+        status: "finished",
+        homeTeam: { name: "France", score: 3 },
+        awayTeam: { name: "Senegal", score: 1 }
+      }
+    ],
+    [
+      {
+        source: "api-football",
+        matchId: "api-football:already-filled",
+        fixtureId: "already-filled",
+        playerName: "Starter Player",
+        nationalTeam: "France",
+        status: "starter"
+      },
+      {
+        source: "api-football",
+        matchId: "api-football:finished-new",
+        fixtureId: "finished-new",
+        playerName: "Subbed Player",
+        nationalTeam: "Norway",
+        status: "subbed-out"
+      }
+    ],
+    3
+  ),
+  ["live", "finished-new", "finished-old"]
+);
 
 const apiFootballFixtures = [
   {
@@ -953,6 +1045,7 @@ process.env.API_FOOTBALL_KEY = "test-key";
 process.env.API_FOOTBALL_DATES = "2026-06-15";
 process.env.API_FOOTBALL_FIXTURE_IDS = "1489377";
 process.env.API_FOOTBALL_MAX_REQUESTS = "8";
+process.env.API_FOOTBALL_MAX_LINEUP_REQUESTS = "0";
 try {
   globalThis.fetch = (async (input: string | URL | Request) => {
     const url = new URL(input.toString());
@@ -1010,7 +1103,93 @@ try {
 
 process.env.API_FOOTBALL_KEY = "test-key";
 process.env.API_FOOTBALL_DATES = "2026-06-15";
+process.env.API_FOOTBALL_MAX_REQUESTS = "8";
+process.env.API_FOOTBALL_MAX_LINEUP_REQUESTS = "1";
+process.env.SYNC_WINDOW_PHASE = "forced";
+delete process.env.API_FOOTBALL_FIXTURE_IDS;
+const originalCwdForLineupLimitTest = process.cwd();
+try {
+  const tempCwd = mkdtempSync(join(tmpdir(), "paniwi-api-football-"));
+  mkdirSync(join(tempCwd, "public", "data"), { recursive: true });
+  process.chdir(tempCwd);
+  const lineupFixtureIds: string[] = [];
+  globalThis.fetch = (async (input: string | URL | Request) => {
+    const url = new URL(input.toString());
+    if (url.pathname.endsWith("/fixtures") && url.searchParams.get("date") === "2026-06-15") {
+      return Response.json({
+        errors: {},
+        response: [
+          {
+            fixture: {
+              id: 3000001,
+              date: "2026-06-15T16:00:00+00:00",
+              status: { short: "FT" }
+            },
+            league: { id: 1, name: "World Cup", season: 2026 },
+            teams: {
+              home: { name: "Iraq" },
+              away: { name: "Norway" }
+            },
+            goals: { home: 1, away: 4 }
+          },
+          {
+            fixture: {
+              id: 3000002,
+              date: "2026-06-15T19:00:00+00:00",
+              status: { short: "FT" }
+            },
+            league: { id: 1, name: "World Cup", season: 2026 },
+            teams: {
+              home: { name: "France" },
+              away: { name: "Senegal" }
+            },
+            goals: { home: 3, away: 1 }
+          }
+        ]
+      });
+    }
+
+    if (url.pathname.endsWith("/fixtures/events")) {
+      return Response.json({ errors: {}, response: [] });
+    }
+
+    if (url.pathname.endsWith("/fixtures/lineups")) {
+      lineupFixtureIds.push(url.searchParams.get("fixture") ?? "");
+      return Response.json({
+        errors: {},
+        response: [
+          {
+            team: { name: "Norway" },
+            startXI: [{ player: { id: 1100, name: "Erling Haaland", number: 9 } }],
+            substitutes: []
+          }
+        ]
+      });
+    }
+
+    return Response.json({ errors: {}, response: [] });
+  }) as typeof fetch;
+
+  const sourceResult = await apiFootballSource.fetchGoals();
+  assert.deepEqual(lineupFixtureIds, ["3000001"]);
+  assert.deepEqual(sourceResult.participants?.map((participant) => [participant.fixtureId, participant.playerName, participant.status]), [
+    ["3000001", "Erling Haaland", "starter"]
+  ]);
+} finally {
+  process.chdir(originalCwdForLineupLimitTest);
+  globalThis.fetch = originalFetch;
+  restoreEnvValue("API_FOOTBALL_KEY");
+  restoreEnvValue("API_FOOTBALL_DATES");
+  restoreEnvValue("API_FOOTBALL_MAX_REQUESTS");
+  restoreEnvValue("API_FOOTBALL_MAX_LINEUP_REQUESTS");
+  restoreEnvValue("API_FOOTBALL_FIXTURE_IDS");
+  restoreEnvValue("SYNC_WINDOW_PHASE");
+}
+
+process.env.API_FOOTBALL_KEY = "test-key";
+process.env.API_FOOTBALL_DATES = "2026-06-15";
 process.env.API_FOOTBALL_MAX_REQUESTS = "1";
+process.env.API_FOOTBALL_MAX_LINEUP_REQUESTS = "0";
 process.env.SYNC_WINDOW_PHASE = "forced";
 delete process.env.API_FOOTBALL_FIXTURE_IDS;
 try {
