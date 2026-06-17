@@ -78,10 +78,19 @@ jobs:
       - name: Commit data snapshot
         id: commit
         if: steps.scheduled_sync.outputs.sync_performed == 'true'
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore: update static goal data"
-          file_pattern: public/data/*.json
+        shell: pwsh
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- public/data/*.json
+          if (git diff --cached --quiet) {
+            "changes_detected=false" >> $env:GITHUB_OUTPUT
+            Write-Host "No data snapshot changes to commit."
+          } else {
+            git commit -m "chore: update static goal data"
+            git push
+            "changes_detected=true" >> $env:GITHUB_OUTPUT
+          }
       - uses: actions/configure-pages@v6
         if: steps.commit.outputs.changes_detected == 'true'
       - uses: actions/upload-pages-artifact@v4
