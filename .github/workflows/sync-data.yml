@@ -97,12 +97,15 @@ jobs:
         if: steps.scheduled_sync.outputs.sync_performed == 'true'
         shell: pwsh
         run: |
-          tar --dereference --hard-dereference --directory dist --exclude=.git --exclude=.github --exclude=".[^/]*" --force-local -cvf "$env:RUNNER_TEMP\artifact.tar" "."
+          if (Test-Path artifact.tar) {
+            Remove-Item artifact.tar
+          }
+          tar -cf artifact.tar -C dist .
       - uses: actions/upload-artifact@v4
         if: steps.scheduled_sync.outputs.sync_performed == 'true'
         with:
           name: github-pages
-          path: ${{ runner.temp }}/artifact.tar
+          path: artifact.tar
           retention-days: 1
           if-no-files-found: error
       - id: deployment
