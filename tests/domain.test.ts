@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { mkdirSync, mkdtempSync } from "node:fs";
+import { mkdirSync, mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { buildLeaderboard, scoreGoalsForTeams } from "../src/domain/buildLeaderboard";
@@ -15,11 +15,13 @@ import type { RosterSnapshot } from "../src/domain/rosterTypes";
 import { normalizeGoals } from "../src/sync/normalizeGoals";
 import {
   filterWorldCupFixtures,
+  fixtureNeedsGoalEvents,
   getExistingFixtureIdsWithLineups,
   getApiFootballRequestLimit,
   getApiFootballDateKeys,
   getLiveCarryoverFixtureIds,
   getApiFootballLineupRequestLimit,
+  getMissingEventBackfillFixtureIds,
   getMissingLineupBackfillFixtureIds,
   parseApiFootballFixture,
   parseApiFootballEvents,
@@ -881,6 +883,49 @@ assert.deepEqual(
   ),
   ["live", "finished-new", "finished-old"]
 );
+assert.deepEqual(
+  getMissingEventBackfillFixtureIds(
+    [
+      {
+        source: "api-football",
+        matchId: "api-football:complete",
+        fixtureId: "complete",
+        label: "Norway 2-1 Iraq",
+        kickedOffAt: "2026-06-16T22:00:00+00:00",
+        status: "finished",
+        homeTeam: { name: "Norway", score: 2 },
+        awayTeam: { name: "Iraq", score: 1 }
+      },
+      {
+        source: "api-football",
+        matchId: "api-football:missing",
+        fixtureId: "missing",
+        label: "Argentina 1-0 Algeria",
+        kickedOffAt: "2026-06-17T02:00:00+00:00",
+        status: "live",
+        homeTeam: { name: "Argentina", score: 1 },
+        awayTeam: { name: "Algeria", score: 0 }
+      },
+      {
+        source: "api-football",
+        matchId: "api-football:nil-nil",
+        fixtureId: "nil-nil",
+        label: "Germany 0-0 Egypt",
+        kickedOffAt: "2026-06-17T19:00:00+00:00",
+        status: "live",
+        homeTeam: { name: "Germany", score: 0 },
+        awayTeam: { name: "Egypt", score: 0 }
+      }
+    ],
+    new Map([
+      ["complete", 3],
+      ["missing", 0],
+      ["nil-nil", 0]
+    ]),
+    10
+  ),
+  ["missing"]
+);
 
 const apiFootballFixtures = [
   {
@@ -918,6 +963,20 @@ const worldCupFixtures = filterWorldCupFixtures(apiFootballFixtures);
 assert.equal(worldCupFixtures.length, 2);
 assert.equal(shouldFetchFixtureEvents(worldCupFixtures[0]), true);
 assert.equal(shouldFetchFixtureEvents(worldCupFixtures[1]), false);
+assert.equal(fixtureNeedsGoalEvents(worldCupFixtures[0], new Map([["1539002", 6]])), false);
+assert.equal(fixtureNeedsGoalEvents(worldCupFixtures[0], new Map([["1539002", 5]])), true);
+assert.equal(fixtureNeedsGoalEvents(worldCupFixtures[1], new Map()), false);
+assert.equal(
+  fixtureNeedsGoalEvents(
+    {
+      ...worldCupFixtures[0],
+      fixture: { id: 1539003, status: { short: "FT" } },
+      goals: { home: null, away: null }
+    },
+    new Map()
+  ),
+  true
+);
 assert.deepEqual(parseApiFootballFixture(worldCupFixtures[0]), {
   source: "api-football",
   matchId: "api-football:1539002",
@@ -1028,6 +1087,7 @@ const originalEnv = {
   API_FOOTBALL_DATES: process.env.API_FOOTBALL_DATES,
   API_FOOTBALL_MAX_REQUESTS: process.env.API_FOOTBALL_MAX_REQUESTS,
   API_FOOTBALL_MAX_LINEUP_REQUESTS: process.env.API_FOOTBALL_MAX_LINEUP_REQUESTS,
+  API_FOOTBALL_MISSING_EVENT_BACKFILL_LIMIT: process.env.API_FOOTBALL_MISSING_EVENT_BACKFILL_LIMIT,
   API_FOOTBALL_FIXTURE_IDS: process.env.API_FOOTBALL_FIXTURE_IDS,
   SYNC_WINDOW_PHASE: process.env.SYNC_WINDOW_PHASE
 };
@@ -1046,6 +1106,7 @@ process.env.API_FOOTBALL_DATES = "2026-06-15";
 process.env.API_FOOTBALL_FIXTURE_IDS = "1489377";
 process.env.API_FOOTBALL_MAX_REQUESTS = "8";
 process.env.API_FOOTBALL_MAX_LINEUP_REQUESTS = "0";
+process.env.API_FOOTBALL_MISSING_EVENT_BACKFILL_LIMIT = "0";
 try {
   globalThis.fetch = (async (input: string | URL | Request) => {
     const url = new URL(input.toString());
@@ -1098,7 +1159,217 @@ try {
   restoreEnvValue("API_FOOTBALL_DATES");
   restoreEnvValue("API_FOOTBALL_MAX_REQUESTS");
   restoreEnvValue("API_FOOTBALL_MAX_LINEUP_REQUESTS");
+  restoreEnvValue("API_FOOTBALL_MISSING_EVENT_BACKFILL_LIMIT");
   restoreEnvValue("API_FOOTBALL_FIXTURE_IDS");
+}
+
+process.env.API_FOOTBALL_KEY = "test-key";
+process.env.API_FOOTBALL_DATES = "2026-06-18";
+process.env.API_FOOTBALL_MAX_REQUESTS = "8";
+process.env.API_FOOTBALL_MAX_LINEUP_REQUESTS = "0";
+process.env.API_FOOTBALL_MISSING_EVENT_BACKFILL_LIMIT = "0";
+process.env.SYNC_WINDOW_PHASE = "forced";
+delete process.env.API_FOOTBALL_FIXTURE_IDS;
+const originalCwdForScoreAwareEventsTest = process.cwd();
+try {
+  const tempCwd = mkdtempSync(join(tmpdir(), "paniwi-api-football-events-"));
+  mkdirSync(join(tempCwd, "public", "data"), { recursive: true });
+  writeFileSync(
+    join(tempCwd, "public", "data", "raw-goals.json"),
+    JSON.stringify([
+      {
+        externalGoalId: "api-football:4100001:known",
+        playerName: "Known Scorer",
+        nationalTeam: "Norway",
+        goals: 1,
+        source: "api-football",
+        fixtureId: "4100001",
+        matchId: "api-football:4100001",
+        detail: "normal"
+      }
+    ])
+  );
+  process.chdir(tempCwd);
+  const eventFixtureIds: string[] = [];
+  globalThis.fetch = (async (input: string | URL | Request) => {
+    const url = new URL(input.toString());
+    if (url.pathname.endsWith("/fixtures") && url.searchParams.get("date") === "2026-06-18") {
+      return Response.json({
+        errors: {},
+        response: [
+          {
+            fixture: {
+              id: 4100001,
+              date: "2026-06-18T16:00:00+00:00",
+              status: { short: "FT" }
+            },
+            league: { id: 1, name: "World Cup", season: 2026 },
+            teams: {
+              home: { name: "Norway" },
+              away: { name: "Iraq" }
+            },
+            goals: { home: 1, away: 0 }
+          },
+          {
+            fixture: {
+              id: 4100002,
+              date: "2026-06-18T19:00:00+00:00",
+              status: { short: "FT" }
+            },
+            league: { id: 1, name: "World Cup", season: 2026 },
+            teams: {
+              home: { name: "Argentina" },
+              away: { name: "Algeria" }
+            },
+            goals: { home: 2, away: 0 }
+          }
+        ]
+      });
+    }
+
+    if (url.pathname.endsWith("/fixtures/events")) {
+      eventFixtureIds.push(url.searchParams.get("fixture") ?? "");
+      return Response.json({
+        errors: {},
+        response: [
+          {
+            time: { elapsed: 12 },
+            team: { name: "Argentina" },
+            player: { id: 200, name: "Missing Scorer" },
+            type: "Goal",
+            detail: "Normal Goal"
+          }
+        ]
+      });
+    }
+
+    return Response.json({ errors: {}, response: [] });
+  }) as typeof fetch;
+
+  const sourceResult = await apiFootballSource.fetchGoals();
+  assert.deepEqual(eventFixtureIds, ["4100002"]);
+  assert.deepEqual(sourceResult.goals.map((goal) => goal.fixtureId), ["4100002"]);
+} finally {
+  process.chdir(originalCwdForScoreAwareEventsTest);
+  globalThis.fetch = originalFetch;
+  restoreEnvValue("API_FOOTBALL_KEY");
+  restoreEnvValue("API_FOOTBALL_DATES");
+  restoreEnvValue("API_FOOTBALL_MAX_REQUESTS");
+  restoreEnvValue("API_FOOTBALL_MAX_LINEUP_REQUESTS");
+  restoreEnvValue("API_FOOTBALL_MISSING_EVENT_BACKFILL_LIMIT");
+  restoreEnvValue("API_FOOTBALL_FIXTURE_IDS");
+  restoreEnvValue("SYNC_WINDOW_PHASE");
+}
+
+process.env.API_FOOTBALL_KEY = "test-key";
+process.env.API_FOOTBALL_DATES = "2026-06-20";
+process.env.API_FOOTBALL_MAX_REQUESTS = "8";
+process.env.API_FOOTBALL_MAX_LINEUP_REQUESTS = "1";
+process.env.API_FOOTBALL_MISSING_EVENT_BACKFILL_LIMIT = "0";
+process.env.SYNC_WINDOW_PHASE = "settled";
+delete process.env.API_FOOTBALL_FIXTURE_IDS;
+const originalCwdForLineupOnlyBackfillTest = process.cwd();
+try {
+  const tempCwd = mkdtempSync(join(tmpdir(), "paniwi-api-football-lineup-only-"));
+  mkdirSync(join(tempCwd, "public", "data"), { recursive: true });
+  writeFileSync(
+    join(tempCwd, "public", "data", "raw-matches.json"),
+    JSON.stringify([
+      {
+        source: "api-football",
+        matchId: "api-football:4200001",
+        fixtureId: "4200001",
+        label: "Iraq 0-1 Norway",
+        kickedOffAt: "2026-06-15T19:00:00+00:00",
+        status: "finished",
+        homeTeam: { name: "Iraq", score: 0 },
+        awayTeam: { name: "Norway", score: 1 }
+      }
+    ])
+  );
+  writeFileSync(
+    join(tempCwd, "public", "data", "raw-goals.json"),
+    JSON.stringify([
+      {
+        externalGoalId: "api-football:4200001:known",
+        playerName: "Known Scorer",
+        nationalTeam: "Norway",
+        goals: 1,
+        source: "api-football",
+        fixtureId: "4200001",
+        matchId: "api-football:4200001",
+        detail: "normal"
+      }
+    ])
+  );
+  process.chdir(tempCwd);
+  const eventFixtureIds: string[] = [];
+  const lineupFixtureIds: string[] = [];
+  globalThis.fetch = (async (input: string | URL | Request) => {
+    const url = new URL(input.toString());
+    if (url.pathname.endsWith("/fixtures") && url.searchParams.get("date") === "2026-06-20") {
+      return Response.json({ errors: {}, response: [] });
+    }
+
+    if (url.pathname.endsWith("/fixtures") && url.searchParams.get("id") === "4200001") {
+      return Response.json({
+        errors: {},
+        response: [
+          {
+            fixture: {
+              id: 4200001,
+              date: "2026-06-15T19:00:00+00:00",
+              status: { short: "FT" }
+            },
+            league: { id: 1, name: "World Cup", season: 2026 },
+            teams: {
+              home: { name: "Iraq" },
+              away: { name: "Norway" }
+            },
+            goals: { home: 0, away: 1 }
+          }
+        ]
+      });
+    }
+
+    if (url.pathname.endsWith("/fixtures/events")) {
+      eventFixtureIds.push(url.searchParams.get("fixture") ?? "");
+      return Response.json({ errors: {}, response: [] });
+    }
+
+    if (url.pathname.endsWith("/fixtures/lineups")) {
+      lineupFixtureIds.push(url.searchParams.get("fixture") ?? "");
+      return Response.json({
+        errors: {},
+        response: [
+          {
+            team: { name: "Norway" },
+            startXI: [{ player: { id: 1100, name: "Erling Haaland", number: 9 } }],
+            substitutes: []
+          }
+        ]
+      });
+    }
+
+    return Response.json({ errors: {}, response: [] });
+  }) as typeof fetch;
+
+  const sourceResult = await apiFootballSource.fetchGoals();
+  assert.deepEqual(eventFixtureIds, []);
+  assert.deepEqual(lineupFixtureIds, ["4200001"]);
+  assert.deepEqual(sourceResult.participants?.map((participant) => [participant.fixtureId, participant.playerName, participant.status]), [
+    ["4200001", "Erling Haaland", "starter"]
+  ]);
+} finally {
+  process.chdir(originalCwdForLineupOnlyBackfillTest);
+  globalThis.fetch = originalFetch;
+  restoreEnvValue("API_FOOTBALL_KEY");
+  restoreEnvValue("API_FOOTBALL_DATES");
+  restoreEnvValue("API_FOOTBALL_MAX_REQUESTS");
+  restoreEnvValue("API_FOOTBALL_MAX_LINEUP_REQUESTS");
+  restoreEnvValue("API_FOOTBALL_MISSING_EVENT_BACKFILL_LIMIT");
+  restoreEnvValue("API_FOOTBALL_FIXTURE_IDS");
+  restoreEnvValue("SYNC_WINDOW_PHASE");
 }
 
 process.env.API_FOOTBALL_KEY = "test-key";
@@ -1190,9 +1461,14 @@ process.env.API_FOOTBALL_KEY = "test-key";
 process.env.API_FOOTBALL_DATES = "2026-06-15";
 process.env.API_FOOTBALL_MAX_REQUESTS = "1";
 process.env.API_FOOTBALL_MAX_LINEUP_REQUESTS = "0";
+process.env.API_FOOTBALL_MISSING_EVENT_BACKFILL_LIMIT = "0";
 process.env.SYNC_WINDOW_PHASE = "forced";
 delete process.env.API_FOOTBALL_FIXTURE_IDS;
+const originalCwdForRequestBudgetTest = process.cwd();
 try {
+  const tempCwd = mkdtempSync(join(tmpdir(), "paniwi-api-football-budget-"));
+  mkdirSync(join(tempCwd, "public", "data"), { recursive: true });
+  process.chdir(tempCwd);
   globalThis.fetch = (async (input: string | URL | Request) => {
     const url = new URL(input.toString());
     if (url.pathname.endsWith("/fixtures")) {
@@ -1209,11 +1485,13 @@ try {
   }) as typeof fetch;
   await assert.rejects(() => apiFootballSource.fetchGoals(), /request budget exhausted/);
 } finally {
+  process.chdir(originalCwdForRequestBudgetTest);
   globalThis.fetch = originalFetch;
   restoreEnvValue("API_FOOTBALL_KEY");
   restoreEnvValue("API_FOOTBALL_DATES");
   restoreEnvValue("API_FOOTBALL_MAX_REQUESTS");
   restoreEnvValue("API_FOOTBALL_MAX_LINEUP_REQUESTS");
+  restoreEnvValue("API_FOOTBALL_MISSING_EVENT_BACKFILL_LIMIT");
   restoreEnvValue("API_FOOTBALL_FIXTURE_IDS");
   restoreEnvValue("SYNC_WINDOW_PHASE");
 }

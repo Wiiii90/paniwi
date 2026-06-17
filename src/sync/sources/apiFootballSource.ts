@@ -319,18 +319,20 @@ function getKnownScoreTotal(match: ExternalMatchRecord): number | null {
   return match.homeTeam.score + match.awayTeam.score;
 }
 
-async function getMissingEventBackfillFixtureIds(env: NodeJS.ProcessEnv = process.env): Promise<string[]> {
-  const limit = getMissingEventBackfillLimit(env);
-  if (limit === 0) {
+export function getMissingEventBackfillFixtureIds(
+  matches: ExternalMatchRecord[],
+  goalCountsByFixture: Map<string, number>,
+  limit: number
+): string[] {
+  if (limit <= 0) {
     return [];
   }
 
-  const [matches, goalCounts] = await Promise.all([readExistingApiFootballMatches(), readExistingApiFootballGoalCountsByFixture()]);
   const missingFixtureIds = matches
     .filter((match) => match.fixtureId && (match.status === "finished" || match.status === "live"))
     .filter((match) => {
       const scoreTotal = getKnownScoreTotal(match);
-      return scoreTotal !== null && scoreTotal > 0 && (goalCounts.get(match.fixtureId!) ?? 0) < scoreTotal;
+      return scoreTotal !== null && scoreTotal > 0 && (goalCountsByFixture.get(match.fixtureId!) ?? 0) < scoreTotal;
     })
     .sort((left, right) => (left.kickedOffAt ?? "").localeCompare(right.kickedOffAt ?? ""))
     .map((match) => match.fixtureId!)
@@ -386,16 +388,6 @@ export function getMissingLineupBackfillFixtureIds(
   return [...new Set(candidates)].slice(0, limit);
 }
 
-async function getMissingLineupBackfillFixtureIdsFromSnapshot(env: NodeJS.ProcessEnv = process.env): Promise<string[]> {
-  const limit = getLineupBackfillLimit(env);
-  if (limit === 0) {
-    return [];
-  }
-
-  const [matches, participants] = await Promise.all([readExistingApiFootballMatches(), readExistingApiFootballParticipants()]);
-  return getMissingLineupBackfillFixtureIds(matches, participants, limit);
-}
-
 export function getLineupBackfillLimit(env: NodeJS.ProcessEnv = process.env): number {
   return getApiFootballLineupRequestLimit(env);
 }
@@ -410,8 +402,36 @@ export function getLiveCarryoverFixtureIds(matches: ExternalMatchRecord[]): stri
   ];
 }
 
-async function getExistingLiveCarryoverFixtureIds(): Promise<string[]> {
-  return getLiveCarryoverFixtureIds(await readExistingApiFootballMatches());
+function getMatchesByFixtureId(matches: ExternalMatchRecord[]): Map<string, ExternalMatchRecord> {
+  const matchesByFixtureId = new Map<string, ExternalMatchRecord>();
+  for (const match of matches) {
+    if (match.fixtureId) {
+      matchesByFixtureId.set(match.fixtureId, match);
+    }
+  }
+
+  return matchesByFixtureId;
+}
+
+function getMatchDateKey(match: ExternalMatchRecord): string | null {
+  if (!match.kickedOffAt) {
+    return null;
+  }
+
+  const date = new Date(match.kickedOffAt);
+  return Number.isNaN(date.getTime()) ? null : formatDateKey(date);
+}
+
+function getFixtureIdsOutsideDateKeys(
+  fixtureIds: string[],
+  matchesByFixtureId: Map<string, ExternalMatchRecord>,
+  dateKeys: Set<string>
+): string[] {
+  return fixtureIds.filter((fixtureId) => {
+    const match = matchesByFixtureId.get(fixtureId);
+    const dateKey = match ? getMatchDateKey(match) : null;
+    return !dateKey || !dateKeys.has(dateKey);
+  });
 }
 
 function normalizeGoalDetail(detail: string | undefined): GoalDetail {
@@ -472,6 +492,37 @@ function getFixtureLabel(fixture: ApiFootballFixture, fixtureId: string): string
   }
 
   return `Fixture ${fixtureId}`;
+}
+
+function getFixtureScoreTotal(fixture: ApiFootballFixture): number | null {
+  const homeGoals = fixture.goals?.home;
+  const awayGoals = fixture.goals?.away;
+  if (typeof homeGoals !== "number" || typeof awayGoals !== "number") {
+    return null;
+  }
+
+  return homeGoals + awayGoals;
+}
+
+export function fixtureNeedsGoalEvents(
+  fixture: ApiFootballFixture,
+  goalCountsByFixture: Map<string, number>
+): boolean {
+  const fixtureId = getFixtureId(fixture);
+  if (!fixtureId || !shouldFetchFixtureEvents(fixture)) {
+    return false;
+  }
+
+  const scoreTotal = getFixtureScoreTotal(fixture);
+  if (scoreTotal === null) {
+    return true;
+  }
+
+  if (scoreTotal <= 0) {
+    return false;
+  }
+
+  return (goalCountsByFixture.get(fixtureId) ?? 0) < scoreTotal;
 }
 
 function isStaleLiveFixture(fixture: ApiFootballFixture, now: Date): boolean {
@@ -882,27 +933,76 @@ async function fetchFixtureById(
   return body.response?.[0] ?? null;
 }
 
+type FixtureFetchPlan = {
+  manualEventFixtureIds: Set<string>;
+  scoreAwareEventFixtureIds: Set<string>;
+  lineupFixtureIds: Set<string>;
+  goalCountsByFixture: Map<string, number>;
+};
+
+function shouldFetchEventsForFixturePlan(fixture: ApiFootballFixture, plan: FixtureFetchPlan): boolean {
+  const fixtureId = getFixtureId(fixture);
+  if (!fixtureId) {
+    return false;
+  }
+
+  if (plan.manualEventFixtureIds.has(fixtureId)) {
+    return shouldFetchFixtureEvents(fixture);
+  }
+
+  if (!plan.scoreAwareEventFixtureIds.has(fixtureId)) {
+    return false;
+  }
+
+  return fixtureNeedsGoalEvents(fixture, plan.goalCountsByFixture);
+}
+
+function shouldFetchEventsForDateFixture(
+  fixture: ApiFootballFixture,
+  phase: SyncWindowPhase,
+  now: Date,
+  plan: FixtureFetchPlan
+): boolean {
+  const fixtureId = getFixtureId(fixture);
+  if (!fixtureId) {
+    return false;
+  }
+
+  if (plan.manualEventFixtureIds.has(fixtureId)) {
+    return shouldFetchFixtureEvents(fixture);
+  }
+
+  const isQueuedBackfill = plan.scoreAwareEventFixtureIds.has(fixtureId);
+  const isActiveWindow = shouldFetchFixtureEventsForPhase(fixture, phase, now);
+  if (!isQueuedBackfill && !isActiveWindow) {
+    return false;
+  }
+
+  return fixtureNeedsGoalEvents(fixture, plan.goalCountsByFixture);
+}
+
 async function fetchGoalsAndMatchesForFixtureIds(
   fixtureIds: string[],
   budget: ApiFootballRequestBudget,
   lineupBudget: ApiFootballLineupRequestBudget,
-  lineupFixtureIds: Set<string> = new Set()
+  plan: FixtureFetchPlan
 ): Promise<{ goals: ExternalGoalRecord[]; fixtures: ApiFootballFixture[]; participants: ExternalMatchParticipantRecord[] }> {
   const goals: ExternalGoalRecord[] = [];
   const fixtures: ApiFootballFixture[] = [];
   const participants: ExternalMatchParticipantRecord[] = [];
-  const phase = getSyncWindowPhase();
-  const now = new Date();
   for (const fixtureId of fixtureIds) {
     const fixture = await fetchFixtureById(fixtureId, process.env, budget);
     if (fixture) {
       fixtures.push(fixture);
     }
 
-    const events = await fetchFixtureEvents(fixtureId, process.env, budget);
-    goals.push(...parseApiFootballEvents(fixtureId, events, fixture ?? undefined));
-    participants.push(...parseApiFootballSubstitutions(fixtureId, events));
-    if (lineupFixtureIds.has(fixtureId)) {
+    if (fixture && shouldFetchEventsForFixturePlan(fixture, plan)) {
+      const events = await fetchFixtureEvents(fixtureId, process.env, budget);
+      goals.push(...parseApiFootballEvents(fixtureId, events, fixture));
+      participants.push(...parseApiFootballSubstitutions(fixtureId, events));
+    }
+
+    if (plan.lineupFixtureIds.has(fixtureId)) {
       participants.push(...parseApiFootballLineups(fixtureId, await fetchOptionalFixtureLineups(fixtureId, budget, lineupBudget)));
     }
   }
@@ -941,12 +1041,17 @@ async function fetchGoalsAndParticipantsForFixtures(
   lineupBudget: ApiFootballLineupRequestBudget,
   phase: SyncWindowPhase,
   now: Date,
-  fixtureIdsWithLineups: Set<string> = new Set()
+  fixtureIdsWithLineups: Set<string>,
+  plan: FixtureFetchPlan
 ): Promise<{ goals: ExternalGoalRecord[]; participants: ExternalMatchParticipantRecord[] }> {
-  const fixturesWithEvents = fixtures.filter((fixture) => shouldFetchFixtureEventsForPhase(fixture, phase, now));
+  const fixturesWithEvents = fixtures.filter((fixture) => shouldFetchEventsForDateFixture(fixture, phase, now, plan));
   const fixturesWithLineups = fixtures.filter((fixture) => {
     const fixtureId = getFixtureId(fixture);
-    return Boolean(fixtureId && !fixtureIdsWithLineups.has(fixtureId) && shouldFetchFixtureLineups(fixture, phase, now));
+    return Boolean(
+      fixtureId &&
+        !fixtureIdsWithLineups.has(fixtureId) &&
+        (plan.lineupFixtureIds.has(fixtureId) || shouldFetchFixtureLineups(fixture, phase, now))
+    );
   });
   const participants: ExternalMatchParticipantRecord[] = [];
   if (fixturesWithEvents.length === 0) {
@@ -988,14 +1093,39 @@ export const apiFootballSource: GoalSource = {
     const now = new Date();
     const phase = getSyncWindowPhase();
     const configuredFixtureIds = parseCommaSeparated(process.env.API_FOOTBALL_FIXTURE_IDS);
-    const missingEventBackfillFixtureIds = await getMissingEventBackfillFixtureIds();
-    const liveCarryoverFixtureIds = await getExistingLiveCarryoverFixtureIds();
-    const existingApiFootballParticipants = await readExistingApiFootballParticipants();
-    const existingFixtureIdsWithLineups = getExistingFixtureIdsWithLineups(existingApiFootballParticipants);
-    const missingLineupBackfillFixtureIds = await getMissingLineupBackfillFixtureIdsFromSnapshot();
-    const lineupBackfillFixtureIdSet = new Set(missingLineupBackfillFixtureIds);
-    const fixtureIds = [...new Set([...configuredFixtureIds, ...missingEventBackfillFixtureIds, ...liveCarryoverFixtureIds, ...missingLineupBackfillFixtureIds])];
     const dateKeys = getApiFootballDateKeys(process.env, now);
+    const dateKeySet = new Set(dateKeys);
+    const [existingApiFootballMatches, existingApiFootballGoalCountsByFixture, existingApiFootballParticipants] = await Promise.all([
+      readExistingApiFootballMatches(),
+      readExistingApiFootballGoalCountsByFixture(),
+      readExistingApiFootballParticipants()
+    ]);
+    const existingFixtureIdsWithLineups = getExistingFixtureIdsWithLineups(existingApiFootballParticipants);
+    const missingEventBackfillFixtureIds = getMissingEventBackfillFixtureIds(
+      existingApiFootballMatches,
+      existingApiFootballGoalCountsByFixture,
+      getMissingEventBackfillLimit()
+    );
+    const liveCarryoverFixtureIds = getLiveCarryoverFixtureIds(existingApiFootballMatches);
+    const missingLineupBackfillFixtureIds = getMissingLineupBackfillFixtureIds(
+      existingApiFootballMatches,
+      existingApiFootballParticipants,
+      getLineupBackfillLimit()
+    );
+    const existingMatchesByFixtureId = getMatchesByFixtureId(existingApiFootballMatches);
+    const automaticFixtureIdsOutsideDateKeys = [
+      ...getFixtureIdsOutsideDateKeys(missingEventBackfillFixtureIds, existingMatchesByFixtureId, dateKeySet),
+      ...getFixtureIdsOutsideDateKeys(liveCarryoverFixtureIds, existingMatchesByFixtureId, dateKeySet),
+      ...getFixtureIdsOutsideDateKeys(missingLineupBackfillFixtureIds, existingMatchesByFixtureId, dateKeySet)
+    ];
+    const lineupBackfillFixtureIdSet = new Set(missingLineupBackfillFixtureIds);
+    const fetchPlan: FixtureFetchPlan = {
+      manualEventFixtureIds: new Set(configuredFixtureIds),
+      scoreAwareEventFixtureIds: new Set([...missingEventBackfillFixtureIds, ...liveCarryoverFixtureIds]),
+      lineupFixtureIds: lineupBackfillFixtureIdSet,
+      goalCountsByFixture: existingApiFootballGoalCountsByFixture
+    };
+    const fixtureIds = [...new Set([...configuredFixtureIds, ...automaticFixtureIdsOutsideDateKeys])];
     let dateFixtures: ApiFootballFixture[] = [];
     try {
       dateFixtures = await fetchFixturesForDates(dateKeys, budget);
@@ -1007,7 +1137,7 @@ export const apiFootballSource: GoalSource = {
 
     const explicitFixtureResult =
       fixtureIds.length > 0
-        ? await fetchGoalsAndMatchesForFixtureIds(fixtureIds, budget, lineupBudget, lineupBackfillFixtureIdSet)
+        ? await fetchGoalsAndMatchesForFixtureIds(fixtureIds, budget, lineupBudget, fetchPlan)
         : { goals: [], fixtures: [], participants: [] };
     const fixtures = mergeFixtures([...dateFixtures, ...explicitFixtureResult.fixtures]);
     const explicitFixtureIdSet = new Set(explicitFixtureResult.fixtures.map((fixture) => getFixtureId(fixture)).filter(Boolean));
@@ -1020,7 +1150,8 @@ export const apiFootballSource: GoalSource = {
       lineupBudget,
       phase,
       now,
-      existingFixtureIdsWithLineups
+      existingFixtureIdsWithLineups,
+      fetchPlan
     );
 
     return {
