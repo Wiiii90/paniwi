@@ -6253,9 +6253,9 @@
     ]
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group j:argentina-algeria:2026-06-17T01:00:00.000Z",
-    "label": "Argentina Match 19 Algeria",
-    "kickedOffAt": "2026-06-17T01:00:00.000Z",
+    "matchId": "api-football:1489381",
+    "label": "Argentina vs Algeria",
+    "kickedOffAt": "2026-06-17T01:00:00+00:00",
     "status": "scheduled",
     "homeTeam": {
       "name": "Argentinien"
@@ -6268,8 +6268,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group j:argentina-algeria:2026-06-17T01:00:00.000Z",
+        "source": "api-football",
+        "matchId": "api-football:1489381",
+        "fixtureId": "1489381",
         "playerName": "Alexis Mac Allister",
         "nationalTeam": "Argentinien",
         "teamId": "argentina",
@@ -6282,8 +6283,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group j:argentina-algeria:2026-06-17T01:00:00.000Z",
+        "source": "api-football",
+        "matchId": "api-football:1489381",
+        "fixtureId": "1489381",
         "playerName": "Cristian Romero",
         "nationalTeam": "Argentinien",
         "teamId": "argentina",
@@ -6296,8 +6298,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group j:argentina-algeria:2026-06-17T01:00:00.000Z",
+        "source": "api-football",
+        "matchId": "api-football:1489381",
+        "fixtureId": "1489381",
         "playerName": "Giuliano Simeone",
         "nationalTeam": "Argentinien",
         "teamId": "argentina",
@@ -6312,9 +6315,9 @@
     ]
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group j:austria-jor:2026-06-17T04:00:00.000Z",
-    "label": "Austria Match 20 JOR",
-    "kickedOffAt": "2026-06-17T04:00:00.000Z",
+    "matchId": "api-football:1489382",
+    "label": "Austria vs Jordan",
+    "kickedOffAt": "2026-06-17T04:00:00+00:00",
     "status": "scheduled",
     "homeTeam": {
       "name": "Österreich"
@@ -6327,8 +6330,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group j:austria-jor:2026-06-17T04:00:00.000Z",
+        "source": "api-football",
+        "matchId": "api-football:1489382",
+        "fixtureId": "1489382",
         "playerName": "Stefan Posch",
         "nationalTeam": "Österreich",
         "teamId": "austria",
@@ -6343,94 +6347,24 @@
     ]
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group k:portugal-dr congo:2026-06-17T17:00:00.000Z",
-    "label": "Portugal Match 23 DR Congo",
-    "kickedOffAt": "2026-06-17T17:00:00.000Z",
+    "matchId": "api-football:1539003",
+    "label": "Portugal vs Congo DR",
+    "kickedOffAt": "2026-06-17T17:00:00+00:00",
     "status": "scheduled",
     "homeTeam": {
       "name": "Portugal"
     },
     "awayTeam": {
-      "name": "DR Kongo"
+      "name": "Congo DR"
     },
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group k:portugal-dr congo:2026-06-17T17:00:00.000Z",
-        "playerName": "Aaron Wan-Bissaka",
-        "nationalTeam": "DR Kongo",
-        "teamId": "dr-congo",
-        "status": "unknown",
-        "displayPlayerName": "Aaron Wan-Bissaka",
-        "displayNationalTeam": "DR Kongo",
-        "owners": [
-          "Kim"
-        ],
-        "selected": true
-      },
-      {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group k:portugal-dr congo:2026-06-17T17:00:00.000Z",
-        "playerName": "Cédric Bakambu",
-        "nationalTeam": "DR Kongo",
-        "teamId": "dr-congo",
-        "status": "unknown",
-        "displayPlayerName": "Cédric Bakambu",
-        "displayNationalTeam": "DR Kongo",
-        "owners": [
-          "Anne",
-          "Kim"
-        ],
-        "selected": true
-      },
-      {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group k:portugal-dr congo:2026-06-17T17:00:00.000Z",
-        "playerName": "Edo Kayembe",
-        "nationalTeam": "DR Kongo",
-        "teamId": "dr-congo",
-        "status": "unknown",
-        "displayPlayerName": "Edo Kayembe",
-        "displayNationalTeam": "DR Kongo",
-        "owners": [
-          "Caro"
-        ],
-        "selected": true
-      },
-      {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group k:portugal-dr congo:2026-06-17T17:00:00.000Z",
-        "playerName": "Nathanaël Mbuku",
-        "nationalTeam": "DR Kongo",
-        "teamId": "dr-congo",
-        "status": "unknown",
-        "displayPlayerName": "Nathanaël Mbuku",
-        "displayNationalTeam": "DR Kongo",
-        "owners": [
-          "Marco"
-        ],
-        "selected": true
-      },
-      {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group k:portugal-dr congo:2026-06-17T17:00:00.000Z",
-        "playerName": "Yoane Wissa",
-        "nationalTeam": "DR Kongo",
-        "teamId": "dr-congo",
-        "status": "unknown",
-        "displayPlayerName": "Yoane Wissa",
-        "displayNationalTeam": "DR Kongo",
-        "owners": [
-          "Marco"
-        ],
-        "selected": true
-      },
-      {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group k:portugal-dr congo:2026-06-17T17:00:00.000Z",
+        "source": "api-football",
+        "matchId": "api-football:1539003",
+        "fixtureId": "1539003",
         "playerName": "Bruno Fernandes",
         "nationalTeam": "Portugal",
         "teamId": "portugal",
@@ -6443,8 +6377,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group k:portugal-dr congo:2026-06-17T17:00:00.000Z",
+        "source": "api-football",
+        "matchId": "api-football:1539003",
+        "fixtureId": "1539003",
         "playerName": "Gonçalo Ramos",
         "nationalTeam": "Portugal",
         "teamId": "portugal",
@@ -6457,8 +6392,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group k:portugal-dr congo:2026-06-17T17:00:00.000Z",
+        "source": "api-football",
+        "matchId": "api-football:1539003",
+        "fixtureId": "1539003",
         "playerName": "João Cancelo",
         "nationalTeam": "Portugal",
         "teamId": "portugal",
@@ -6471,8 +6407,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group k:portugal-dr congo:2026-06-17T17:00:00.000Z",
+        "source": "api-football",
+        "matchId": "api-football:1539003",
+        "fixtureId": "1539003",
         "playerName": "João Félix",
         "nationalTeam": "Portugal",
         "teamId": "portugal",
@@ -6485,8 +6422,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group k:portugal-dr congo:2026-06-17T17:00:00.000Z",
+        "source": "api-football",
+        "matchId": "api-football:1539003",
+        "fixtureId": "1539003",
         "playerName": "Rúben Dias",
         "nationalTeam": "Portugal",
         "teamId": "portugal",
@@ -6501,9 +6439,9 @@
     ]
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group l:england-croatia:2026-06-17T20:00:00.000Z",
-    "label": "England Match 22 Croatia",
-    "kickedOffAt": "2026-06-17T20:00:00.000Z",
+    "matchId": "api-football:1489384",
+    "label": "England vs Croatia",
+    "kickedOffAt": "2026-06-17T20:00:00+00:00",
     "status": "scheduled",
     "homeTeam": {
       "name": "England"
@@ -6516,8 +6454,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group l:england-croatia:2026-06-17T20:00:00.000Z",
+        "source": "api-football",
+        "matchId": "api-football:1489384",
+        "fixtureId": "1489384",
         "playerName": "Dan Burn",
         "nationalTeam": "England",
         "teamId": "england",
@@ -6530,8 +6469,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group l:england-croatia:2026-06-17T20:00:00.000Z",
+        "source": "api-football",
+        "matchId": "api-football:1489384",
+        "fixtureId": "1489384",
         "playerName": "Jordan Pickford",
         "nationalTeam": "England",
         "teamId": "england",
@@ -6544,8 +6484,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group l:england-croatia:2026-06-17T20:00:00.000Z",
+        "source": "api-football",
+        "matchId": "api-football:1489384",
+        "fixtureId": "1489384",
         "playerName": "Jude Bellingham",
         "nationalTeam": "England",
         "teamId": "england",
@@ -6558,8 +6499,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group l:england-croatia:2026-06-17T20:00:00.000Z",
+        "source": "api-football",
+        "matchId": "api-football:1489384",
+        "fixtureId": "1489384",
         "playerName": "Marc Guéhi",
         "nationalTeam": "England",
         "teamId": "england",
@@ -6572,8 +6514,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group l:england-croatia:2026-06-17T20:00:00.000Z",
+        "source": "api-football",
+        "matchId": "api-football:1489384",
+        "fixtureId": "1489384",
         "playerName": "Marcus Rashford",
         "nationalTeam": "England",
         "teamId": "england",
@@ -6586,8 +6529,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group l:england-croatia:2026-06-17T20:00:00.000Z",
+        "source": "api-football",
+        "matchId": "api-football:1489384",
+        "fixtureId": "1489384",
         "playerName": "Morgan Rogers",
         "nationalTeam": "England",
         "teamId": "england",
@@ -6600,8 +6544,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group l:england-croatia:2026-06-17T20:00:00.000Z",
+        "source": "api-football",
+        "matchId": "api-football:1489384",
+        "fixtureId": "1489384",
         "playerName": "Andrej Kramarić",
         "nationalTeam": "Kroatien",
         "teamId": "croatia",
@@ -6614,8 +6559,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group l:england-croatia:2026-06-17T20:00:00.000Z",
+        "source": "api-football",
+        "matchId": "api-football:1489384",
+        "fixtureId": "1489384",
         "playerName": "Josip Stanišić",
         "nationalTeam": "Kroatien",
         "teamId": "croatia",
@@ -6629,8 +6575,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group l:england-croatia:2026-06-17T20:00:00.000Z",
+        "source": "api-football",
+        "matchId": "api-football:1489384",
+        "fixtureId": "1489384",
         "playerName": "Mario Pašalić",
         "nationalTeam": "Kroatien",
         "teamId": "croatia",
@@ -6645,9 +6592,9 @@
     ]
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group l:gha-panama:2026-06-17T23:00:00.000Z",
-    "label": "GHA Match 21 Panama",
-    "kickedOffAt": "2026-06-17T23:00:00.000Z",
+    "matchId": "api-football:1489385",
+    "label": "Ghana vs Panama",
+    "kickedOffAt": "2026-06-17T23:00:00+00:00",
     "status": "scheduled",
     "homeTeam": {
       "name": "Ghana"
@@ -6660,8 +6607,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group l:gha-panama:2026-06-17T23:00:00.000Z",
+        "source": "api-football",
+        "matchId": "api-football:1489385",
+        "fixtureId": "1489385",
         "playerName": "Luis Mejía",
         "nationalTeam": "Panama",
         "teamId": "panama",
@@ -6674,8 +6622,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group l:gha-panama:2026-06-17T23:00:00.000Z",
+        "source": "api-football",
+        "matchId": "api-football:1489385",
+        "fixtureId": "1489385",
         "playerName": "Orlando Mosquera",
         "nationalTeam": "Panama",
         "teamId": "panama",

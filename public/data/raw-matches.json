@@ -634,32 +634,6 @@
   },
   {
     "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group j:argentina-algeria:2026-06-17T01:00:00.000Z",
-    "label": "Argentina Match 19 Algeria",
-    "kickedOffAt": "2026-06-17T01:00:00.000Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "name": "Argentina"
-    },
-    "awayTeam": {
-      "name": "Algeria"
-    }
-  },
-  {
-    "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group j:austria-jor:2026-06-17T04:00:00.000Z",
-    "label": "Austria Match 20 JOR",
-    "kickedOffAt": "2026-06-17T04:00:00.000Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "name": "Austria"
-    },
-    "awayTeam": {
-      "name": "JOR"
-    }
-  },
-  {
-    "source": "wikipedia",
     "matchId": "wikipedia:2026 fifa world cup group j:argentina-austria:2026-06-22T17:00:00.000Z",
     "label": "Argentina Match 43 Austria",
     "kickedOffAt": "2026-06-22T17:00:00.000Z",
@@ -708,19 +682,6 @@
     },
     "awayTeam": {
       "name": "Argentina"
-    }
-  },
-  {
-    "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group k:portugal-dr congo:2026-06-17T17:00:00.000Z",
-    "label": "Portugal Match 23 DR Congo",
-    "kickedOffAt": "2026-06-17T17:00:00.000Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "name": "Portugal"
-    },
-    "awayTeam": {
-      "name": "DR Congo"
     }
   },
   {
@@ -786,32 +747,6 @@
     },
     "awayTeam": {
       "name": "UZB"
-    }
-  },
-  {
-    "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group l:england-croatia:2026-06-17T20:00:00.000Z",
-    "label": "England Match 22 Croatia",
-    "kickedOffAt": "2026-06-17T20:00:00.000Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "name": "England"
-    },
-    "awayTeam": {
-      "name": "Croatia"
-    }
-  },
-  {
-    "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group l:gha-panama:2026-06-17T23:00:00.000Z",
-    "label": "GHA Match 21 Panama",
-    "kickedOffAt": "2026-06-17T23:00:00.000Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "name": "GHA"
-    },
-    "awayTeam": {
-      "name": "Panama"
     }
   },
   {
@@ -990,6 +925,86 @@
       "id": 1090,
       "name": "Norway",
       "score": 2
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489381",
+    "fixtureId": "1489381",
+    "label": "Argentina vs Algeria",
+    "kickedOffAt": "2026-06-17T01:00:00+00:00",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 26,
+      "name": "Argentina"
+    },
+    "awayTeam": {
+      "id": 1532,
+      "name": "Algeria"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489382",
+    "fixtureId": "1489382",
+    "label": "Austria vs Jordan",
+    "kickedOffAt": "2026-06-17T04:00:00+00:00",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 775,
+      "name": "Austria"
+    },
+    "awayTeam": {
+      "id": 1548,
+      "name": "Jordan"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1539003",
+    "fixtureId": "1539003",
+    "label": "Portugal vs Congo DR",
+    "kickedOffAt": "2026-06-17T17:00:00+00:00",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 27,
+      "name": "Portugal"
+    },
+    "awayTeam": {
+      "id": 1508,
+      "name": "Congo DR"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489384",
+    "fixtureId": "1489384",
+    "label": "England vs Croatia",
+    "kickedOffAt": "2026-06-17T20:00:00+00:00",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 10,
+      "name": "England"
+    },
+    "awayTeam": {
+      "id": 3,
+      "name": "Croatia"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489385",
+    "fixtureId": "1489385",
+    "label": "Ghana vs Panama",
+    "kickedOffAt": "2026-06-17T23:00:00+00:00",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 1504,
+      "name": "Ghana"
+    },
+    "awayTeam": {
+      "id": 11,
+      "name": "Panama"
     }
   }
 ]
