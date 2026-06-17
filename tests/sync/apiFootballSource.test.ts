@@ -820,6 +820,109 @@ try {
 }
 
 process.env.API_FOOTBALL_KEY = "test-key";
+const nowForLineupPriorityTest = new Date();
+const dateKeyForLineupPriorityTest = nowForLineupPriorityTest.toISOString().slice(0, 10);
+const historicalKickoffForLineupPriorityTest = new Date(nowForLineupPriorityTest.getTime() - 6 * 60 * 60 * 1000).toISOString();
+const preMatchKickoffForLineupPriorityTest = new Date(nowForLineupPriorityTest.getTime() + 45 * 60 * 1000).toISOString();
+process.env.API_FOOTBALL_DATES = dateKeyForLineupPriorityTest;
+process.env.API_FOOTBALL_MAX_REQUESTS = "8";
+process.env.API_FOOTBALL_MAX_LINEUP_REQUESTS = "1";
+process.env.API_FOOTBALL_MISSING_EVENT_BACKFILL_LIMIT = "0";
+process.env.SYNC_WINDOW_PHASE = "pre-match";
+delete process.env.API_FOOTBALL_FIXTURE_IDS;
+const originalCwdForLineupPriorityTest = process.cwd();
+try {
+  const tempCwd = mkdtempSync(join(tmpdir(), "paniwi-api-football-lineup-priority-"));
+  mkdirSync(join(tempCwd, "public", "data"), { recursive: true });
+  writeFileSync(
+    join(tempCwd, "public", "data", "raw-matches.json"),
+    JSON.stringify([
+      {
+        source: "api-football",
+        matchId: "api-football:4300001",
+        fixtureId: "4300001",
+        label: "Iraq 0-1 Norway",
+        kickedOffAt: historicalKickoffForLineupPriorityTest,
+        status: "finished",
+        homeTeam: { name: "Iraq", score: 0 },
+        awayTeam: { name: "Norway", score: 1 }
+      }
+    ])
+  );
+  process.chdir(tempCwd);
+  const lineupFixtureIds: string[] = [];
+  globalThis.fetch = (async (input: string | URL | Request) => {
+    const url = new URL(input.toString());
+    if (url.pathname.endsWith("/fixtures") && url.searchParams.get("date") === dateKeyForLineupPriorityTest) {
+      return Response.json({
+        errors: {},
+        response: [
+          {
+            fixture: {
+              id: 4300001,
+              date: historicalKickoffForLineupPriorityTest,
+              status: { short: "FT" }
+            },
+            league: { id: 1, name: "World Cup", season: 2026 },
+            teams: {
+              home: { name: "Iraq" },
+              away: { name: "Norway" }
+            },
+            goals: { home: 0, away: 1 }
+          },
+          {
+            fixture: {
+              id: 4300002,
+              date: preMatchKickoffForLineupPriorityTest,
+              status: { short: "NS" }
+            },
+            league: { id: 1, name: "World Cup", season: 2026 },
+            teams: {
+              home: { name: "Portugal" },
+              away: { name: "Congo DR" }
+            },
+            goals: { home: null, away: null }
+          }
+        ]
+      });
+    }
+
+    if (url.pathname.endsWith("/fixtures/lineups")) {
+      const fixtureId = url.searchParams.get("fixture") ?? "";
+      lineupFixtureIds.push(fixtureId);
+      return Response.json({
+        errors: {},
+        response: [
+          {
+            team: { name: "Portugal" },
+            startXI: [{ player: { id: 211, name: "Joao Felix", number: 11 } }],
+            substitutes: []
+          }
+        ]
+      });
+    }
+
+    return Response.json({ errors: {}, response: [] });
+  }) as typeof fetch;
+
+  const sourceResult = await apiFootballSource.fetchGoals();
+  assert.deepEqual(lineupFixtureIds, ["4300002"]);
+  assert.deepEqual(sourceResult.participants?.map((participant) => [participant.fixtureId, participant.playerName, participant.status]), [
+    ["4300002", "Joao Felix", "starter"]
+  ]);
+} finally {
+  process.chdir(originalCwdForLineupPriorityTest);
+  globalThis.fetch = originalFetch;
+  restoreEnvValue("API_FOOTBALL_KEY");
+  restoreEnvValue("API_FOOTBALL_DATES");
+  restoreEnvValue("API_FOOTBALL_MAX_REQUESTS");
+  restoreEnvValue("API_FOOTBALL_MAX_LINEUP_REQUESTS");
+  restoreEnvValue("API_FOOTBALL_MISSING_EVENT_BACKFILL_LIMIT");
+  restoreEnvValue("API_FOOTBALL_FIXTURE_IDS");
+  restoreEnvValue("SYNC_WINDOW_PHASE");
+}
+
+process.env.API_FOOTBALL_KEY = "test-key";
 process.env.API_FOOTBALL_DATES = "2026-06-15";
 process.env.API_FOOTBALL_MAX_REQUESTS = "8";
 process.env.API_FOOTBALL_MAX_LINEUP_REQUESTS = "1";

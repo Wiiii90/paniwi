@@ -18,8 +18,12 @@ import {
   getApiFootballDateKeys,
   getFixtureId,
   getFixtureIdsOutsideDateKeys,
+  getFixtureKickoffMs,
   getLiveCarryoverFixtureIds,
   getMatchesByFixtureId,
+  isFixtureInLiveWindow,
+  isFixtureInPreMatchWindow,
+  isPostMatchWindow,
   mergeFixtures,
   parseApiFootballFixture,
   shouldFetchFixtureEvents,
@@ -86,6 +90,20 @@ type FixtureFetchPlan = {
   goalCountsByFixture: Map<string, number>;
 };
 
+type ExplicitFixtureFetchResult = {
+  goals: ExternalGoalRecord[];
+  fixtures: ApiFootballFixture[];
+  participants: ExternalMatchParticipantRecord[];
+  eventFixtureIds: Set<string>;
+};
+
+type LineupFetchCandidate = {
+  fixture: ApiFootballFixture;
+  fixtureId: string;
+  rank: number;
+  sortTime: number;
+};
+
 function shouldFetchEventsForFixturePlan(fixture: ApiFootballFixture, plan: FixtureFetchPlan): boolean {
   const fixtureId = getFixtureId(fixture);
   if (!fixtureId) {
@@ -130,12 +148,12 @@ function shouldFetchEventsForDateFixture(
 async function fetchGoalsAndMatchesForFixtureIds(
   fixtureIds: string[],
   budget: ApiFootballRequestBudget,
-  lineupBudget: ApiFootballLineupRequestBudget,
   plan: FixtureFetchPlan
-): Promise<{ goals: ExternalGoalRecord[]; fixtures: ApiFootballFixture[]; participants: ExternalMatchParticipantRecord[] }> {
+): Promise<ExplicitFixtureFetchResult> {
   const goals: ExternalGoalRecord[] = [];
   const fixtures: ApiFootballFixture[] = [];
   const participants: ExternalMatchParticipantRecord[] = [];
+  const eventFixtureIds = new Set<string>();
   for (const fixtureId of fixtureIds) {
     const fixture = await fetchFixtureById(fixtureId, process.env, budget);
     if (fixture) {
@@ -144,16 +162,13 @@ async function fetchGoalsAndMatchesForFixtureIds(
 
     if (fixture && shouldFetchEventsForFixturePlan(fixture, plan)) {
       const events = await fetchFixtureEvents(fixtureId, process.env, budget);
+      eventFixtureIds.add(fixtureId);
       goals.push(...parseApiFootballEvents(fixtureId, events, fixture));
       participants.push(...parseApiFootballSubstitutions(fixtureId, events));
     }
-
-    if (plan.lineupFixtureIds.has(fixtureId)) {
-      participants.push(...parseApiFootballLineups(fixtureId, await fetchOptionalFixtureLineups(fixtureId, budget, lineupBudget)));
-    }
   }
 
-  return { goals, fixtures, participants };
+  return { goals, fixtures, participants, eventFixtureIds };
 }
 
 async function fetchFixturesForDates(dateKeys: string[], budget: ApiFootballRequestBudget): Promise<ApiFootballFixture[]> {
@@ -169,6 +184,82 @@ async function fetchFixturesForDates(dateKeys: string[], budget: ApiFootballRequ
   return fixtures;
 }
 
+function getLineupCandidateRank(
+  fixture: ApiFootballFixture,
+  phase: SyncWindowPhase,
+  now: Date,
+  plan: FixtureFetchPlan
+): number | null {
+  const fixtureId = getFixtureId(fixture);
+  if (!fixtureId) {
+    return null;
+  }
+
+  if (isFixtureInLiveWindow(fixture, now)) {
+    return 0;
+  }
+
+  if (phase === "pre-match" && isFixtureInPreMatchWindow(fixture, now)) {
+    return 1;
+  }
+
+  if (isPostMatchWindow(fixture, now)) {
+    return 2;
+  }
+
+  const match = parseApiFootballFixture(fixture, now);
+  if (plan.lineupFixtureIds.has(fixtureId) && match?.status === "live") {
+    return 3;
+  }
+
+  if (shouldFetchFixtureLineups(fixture, phase, now)) {
+    return 4;
+  }
+
+  return plan.lineupFixtureIds.has(fixtureId) ? 5 : null;
+}
+
+function getLineupSortTime(fixture: ApiFootballFixture, rank: number): number {
+  const kickoffMs = getFixtureKickoffMs(fixture) ?? 0;
+  return rank === 5 ? -kickoffMs : kickoffMs;
+}
+
+function getLineupFetchCandidates(
+  fixtures: ApiFootballFixture[],
+  fixtureIdsWithLineups: Set<string>,
+  phase: SyncWindowPhase,
+  now: Date,
+  plan: FixtureFetchPlan
+): LineupFetchCandidate[] {
+  return fixtures
+    .flatMap((fixture): LineupFetchCandidate[] => {
+      const fixtureId = getFixtureId(fixture);
+      if (!fixtureId || fixtureIdsWithLineups.has(fixtureId)) {
+        return [];
+      }
+
+      const shouldFetchLineup = plan.lineupFixtureIds.has(fixtureId) || shouldFetchFixtureLineups(fixture, phase, now);
+      if (!shouldFetchLineup) {
+        return [];
+      }
+
+      const rank = getLineupCandidateRank(fixture, phase, now, plan);
+      if (rank === null) {
+        return [];
+      }
+
+      return [
+        {
+          fixture,
+          fixtureId,
+          rank,
+          sortTime: getLineupSortTime(fixture, rank)
+        }
+      ];
+    })
+    .sort((left, right) => left.rank - right.rank || left.sortTime - right.sortTime || left.fixtureId.localeCompare(right.fixtureId));
+}
+
 async function fetchGoalsAndParticipantsForFixtures(
   fixtures: ApiFootballFixture[],
   budget: ApiFootballRequestBudget,
@@ -176,24 +267,20 @@ async function fetchGoalsAndParticipantsForFixtures(
   phase: SyncWindowPhase,
   now: Date,
   fixtureIdsWithLineups: Set<string>,
-  plan: FixtureFetchPlan
+  plan: FixtureFetchPlan,
+  eventFixtureIdsAlreadyFetched: Set<string>
 ): Promise<{ goals: ExternalGoalRecord[]; participants: ExternalMatchParticipantRecord[] }> {
-  const fixturesWithEvents = fixtures.filter((fixture) => shouldFetchEventsForDateFixture(fixture, phase, now, plan));
-  const fixturesWithLineups = fixtures.filter((fixture) => {
+  const fixturesWithEvents = fixtures.filter((fixture) => {
     const fixtureId = getFixtureId(fixture);
-    return Boolean(
-      fixtureId &&
-        !fixtureIdsWithLineups.has(fixtureId) &&
-        (plan.lineupFixtureIds.has(fixtureId) || shouldFetchFixtureLineups(fixture, phase, now))
-    );
+    return Boolean(fixtureId && !eventFixtureIdsAlreadyFetched.has(fixtureId) && shouldFetchEventsForDateFixture(fixture, phase, now, plan));
   });
+  const lineupCandidates = getLineupFetchCandidates(fixtures, fixtureIdsWithLineups, phase, now, plan);
   const participants: ExternalMatchParticipantRecord[] = [];
   if (fixturesWithEvents.length === 0) {
-    for (const fixture of fixturesWithLineups) {
-      const fixtureId = getFixtureId(fixture);
-      if (fixtureId) {
-        participants.push(...parseApiFootballLineups(fixtureId, await fetchOptionalFixtureLineups(fixtureId, budget, lineupBudget)));
-      }
+    for (const candidate of lineupCandidates) {
+      participants.push(
+        ...parseApiFootballLineups(candidate.fixtureId, await fetchOptionalFixtureLineups(candidate.fixtureId, budget, lineupBudget))
+      );
     }
 
     return { goals: [], participants };
@@ -209,11 +296,10 @@ async function fetchGoalsAndParticipantsForFixtures(
     }
   }
 
-  for (const fixture of fixturesWithLineups) {
-    const fixtureId = getFixtureId(fixture);
-    if (fixtureId) {
-      participants.push(...parseApiFootballLineups(fixtureId, await fetchOptionalFixtureLineups(fixtureId, budget, lineupBudget)));
-    }
+  for (const candidate of lineupCandidates) {
+    participants.push(
+      ...parseApiFootballLineups(candidate.fixtureId, await fetchOptionalFixtureLineups(candidate.fixtureId, budget, lineupBudget))
+    );
   }
 
   return { goals, participants };
@@ -271,21 +357,18 @@ export const apiFootballSource: GoalSource = {
 
     const explicitFixtureResult =
       fixtureIds.length > 0
-        ? await fetchGoalsAndMatchesForFixtureIds(fixtureIds, budget, lineupBudget, fetchPlan)
-        : { goals: [], fixtures: [], participants: [] };
+        ? await fetchGoalsAndMatchesForFixtureIds(fixtureIds, budget, fetchPlan)
+        : { goals: [], fixtures: [], participants: [], eventFixtureIds: new Set<string>() };
     const fixtures = mergeFixtures([...dateFixtures, ...explicitFixtureResult.fixtures]);
-    const explicitFixtureIdSet = new Set(explicitFixtureResult.fixtures.map((fixture) => getFixtureId(fixture)).filter(Boolean));
     const dateResult = await fetchGoalsAndParticipantsForFixtures(
-      fixtures.filter((fixture) => {
-        const fixtureId = getFixtureId(fixture);
-        return !fixtureId || !explicitFixtureIdSet.has(fixtureId);
-      }),
+      fixtures,
       budget,
       lineupBudget,
       phase,
       now,
       existingFixtureIdsWithLineups,
-      fetchPlan
+      fetchPlan,
+      explicitFixtureResult.eventFixtureIds
     );
 
     return {

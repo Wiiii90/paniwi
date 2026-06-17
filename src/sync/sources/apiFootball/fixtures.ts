@@ -241,7 +241,7 @@ export function getFixtureKickoffMs(fixture: ApiFootballFixture): number | null 
   return Number.isNaN(kickoff) ? null : kickoff;
 }
 
-function isPostMatchWindow(fixture: ApiFootballFixture, now: Date): boolean {
+export function isPostMatchWindow(fixture: ApiFootballFixture, now: Date): boolean {
   const kickoffMs = getFixtureKickoffMs(fixture);
   if (!kickoffMs) {
     return false;
@@ -255,7 +255,7 @@ function isPostMatchWindow(fixture: ApiFootballFixture, now: Date): boolean {
   });
 }
 
-function isFixtureInPreMatchWindow(fixture: ApiFootballFixture, now: Date): boolean {
+export function isFixtureInPreMatchWindow(fixture: ApiFootballFixture, now: Date): boolean {
   const kickoffMs = getFixtureKickoffMs(fixture);
   if (!kickoffMs) {
     return false;
@@ -266,7 +266,7 @@ function isFixtureInPreMatchWindow(fixture: ApiFootballFixture, now: Date): bool
   return now.getTime() >= from && now.getTime() <= until;
 }
 
-function isFixtureInLiveWindow(fixture: ApiFootballFixture, now: Date): boolean {
+export function isFixtureInLiveWindow(fixture: ApiFootballFixture, now: Date): boolean {
   const kickoffMs = getFixtureKickoffMs(fixture);
   if (!kickoffMs) {
     return liveFixtureStatuses.has(fixture.fixture?.status?.short ?? "");
