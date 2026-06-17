@@ -27,7 +27,7 @@ export const teamCatalog = [
     sourceName: "DR Congo",
     displayName: "DR Kongo",
     flagCode: "CD",
-    aliases: ["Democratic Republic of the Congo", "COD"]
+    aliases: ["Congo DR", "Democratic Republic of the Congo", "COD"]
   },
   { teamId: "ecuador", sourceName: "Ecuador", displayName: "Ecuador", flagCode: "EC" },
   { teamId: "egypt", sourceName: "Egypt", displayName: "Ägypten", flagCode: "EG" },
