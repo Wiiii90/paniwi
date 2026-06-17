@@ -41,6 +41,24 @@ assert.equal(
   false
 );
 
+const postMatchStillLiveMeta: StaticMeta = {
+  ...baseMeta,
+  lastUpdated: new Date(firstCheckStart).toISOString(),
+  snapshotChanged: false,
+  liveMatchCount: 1,
+  windowSyncAttempts: 3
+};
+
+assert.equal(
+  evaluateSyncWindow(postMatchStillLiveMeta, new Date(firstCheckStart + 4 * 60 * 1000), false, postMatchWindows[0] ?? null).shouldRun,
+  false
+);
+
+assert.equal(
+  evaluateSyncWindow(postMatchStillLiveMeta, new Date(firstCheckStart + 5 * 60 * 1000), false, postMatchWindows[0] ?? null).shouldRun,
+  true
+);
+
 assert.equal(
   evaluateSyncWindow(baseMeta, new Date(firstCheckStart + 5 * 60 * 1000), false, null).shouldRun,
   false

@@ -167,6 +167,7 @@ export type StaticMeta = {
   snapshotChanged?: boolean;
   syncWindowId?: string;
   windowSyncAttempts?: number;
+  liveMatchCount?: number;
   sourceRequestCount?: number;
   sourceRequestLimit?: number;
 };

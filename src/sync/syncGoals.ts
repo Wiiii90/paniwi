@@ -334,6 +334,7 @@ function buildSyncMeta(
     snapshotChanged,
     syncWindowId: options.syncWindowId,
     windowSyncAttempts,
+    liveMatchCount: matches.filter((match) => match.status === "live").length,
     sourceRequestCount: result.sourceRequestCount,
     sourceRequestLimit: result.sourceRequestLimit
   };
