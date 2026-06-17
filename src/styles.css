@@ -1038,6 +1038,11 @@ h2 {
   padding: 0;
 }
 
+.match-section-live {
+  border: 2px solid rgba(215, 38, 56, 0.68);
+  box-shadow: 0 0 0 3px rgba(215, 38, 56, 0.08);
+}
+
 .match-section > .section-heading {
   background: var(--color-text);
   color: #ffffff;
@@ -1045,11 +1050,19 @@ h2 {
 }
 
 .match-section > .section-heading h2 {
+  align-items: center;
   color: inherit;
+  display: flex;
   font-family: var(--font-display);
   font-size: 0.92rem;
+  gap: var(--space-2);
   letter-spacing: 0;
   text-transform: uppercase;
+}
+
+.match-section > .section-heading .live-chip {
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--color-danger);
 }
 
 .match-list {

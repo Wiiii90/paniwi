@@ -32,7 +32,7 @@ function formatStatus(status: MatchRecord["status"], sectionKey?: keyof VisibleM
   }
 
   if (status === "live") {
-    return "Live";
+    return "Läuft";
   }
 
   if (status === "scheduled") {
@@ -236,9 +236,18 @@ function MatchSection({
   }
 
   return (
-    <section className="match-section">
+    <section className={`match-section ${sectionKey === "live" ? "match-section-live" : ""}`}>
       <div className="section-heading">
-        <h2>{title}</h2>
+        <h2>
+          {sectionKey === "live" ? (
+            <span className="live-chip">
+              <span aria-hidden="true" className="live-dot" />
+              <span className="live-chip-text">{title}</span>
+            </span>
+          ) : (
+            title
+          )}
+        </h2>
       </div>
       <div className="match-list">
         {visibleMatches.length === 0 ? (
@@ -262,10 +271,7 @@ function MatchSection({
                     <span>{formatKickoff(match.kickedOffAt)}</span>
                   </div>
                   <div className="match-card-status">
-                    <strong className={match.status === "live" ? "live-chip" : undefined}>
-                      {match.status === "live" ? <span aria-hidden="true" className="live-dot" /> : null}
-                      <span className={match.status === "live" ? "live-chip-text" : undefined}>{formatStatus(match.status, sectionKey)}</span>
-                    </strong>
+                    <strong>{formatStatus(match.status, sectionKey)}</strong>
                   </div>
                 </div>
                 <div className="match-card-scoreline">

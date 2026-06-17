@@ -1,3 +1,4 @@
+import { readFile } from "node:fs/promises";
 import { resolveTeamFromApiFootball } from "../../domain/teamResolver";
 import { teams } from "../../config/teams";
 import type {
@@ -96,6 +97,7 @@ type ApiFootballFixturesResponse = {
 const defaultBaseUrl = "https://v3.football.api-sports.io";
 const defaultRequestLimit = 90;
 const defaultLineupRequestLimit = 4;
+const defaultMissingEventBackfillLimit = 6;
 const worldCupLeagueId = 1;
 const worldCupSeason = 2026;
 const skippedFixtureStatuses = new Set(["NS", "TBD", "PST", "CANC", "ABD", "AWD", "WO"]);
@@ -269,6 +271,61 @@ export function getApiFootballDateKeys(env: NodeJS.ProcessEnv = process.env, now
   }
 
   return [formatDateKey(now)];
+}
+
+async function readExistingApiFootballMatches(): Promise<ExternalMatchRecord[]> {
+  try {
+    const matches = JSON.parse(await readFile("public/data/raw-matches.json", "utf8")) as ExternalMatchRecord[];
+    return matches.filter((match) => match.source === "api-football" && match.fixtureId);
+  } catch {
+    return [];
+  }
+}
+
+async function readExistingApiFootballGoalCountsByFixture(): Promise<Map<string, number>> {
+  const counts = new Map<string, number>();
+  try {
+    const goals = JSON.parse(await readFile("public/data/raw-goals.json", "utf8")) as ExternalGoalRecord[];
+    for (const goal of goals) {
+      if (goal.source !== "api-football" || !goal.fixtureId) {
+        continue;
+      }
+
+      counts.set(goal.fixtureId, (counts.get(goal.fixtureId) ?? 0) + 1);
+    }
+  } catch {
+    return counts;
+  }
+
+  return counts;
+}
+
+function getKnownScoreTotal(match: ExternalMatchRecord): number | null {
+  if (typeof match.homeTeam.score !== "number" || typeof match.awayTeam.score !== "number") {
+    return null;
+  }
+
+  return match.homeTeam.score + match.awayTeam.score;
+}
+
+async function getMissingEventBackfillFixtureIds(env: NodeJS.ProcessEnv = process.env): Promise<string[]> {
+  const limit = getMissingEventBackfillLimit(env);
+  if (limit === 0) {
+    return [];
+  }
+
+  const [matches, goalCounts] = await Promise.all([readExistingApiFootballMatches(), readExistingApiFootballGoalCountsByFixture()]);
+  const missingFixtureIds = matches
+    .filter((match) => match.fixtureId && (match.status === "finished" || match.status === "live"))
+    .filter((match) => {
+      const scoreTotal = getKnownScoreTotal(match);
+      return scoreTotal !== null && scoreTotal > 0 && (goalCounts.get(match.fixtureId!) ?? 0) < scoreTotal;
+    })
+    .sort((left, right) => (left.kickedOffAt ?? "").localeCompare(right.kickedOffAt ?? ""))
+    .map((match) => match.fixtureId!)
+    .slice(0, limit);
+
+  return [...new Set(missingFixtureIds)];
 }
 
 function normalizeGoalDetail(detail: string | undefined): GoalDetail {
@@ -471,6 +528,20 @@ export function shouldFetchFixtureLineups(fixture: ApiFootballFixture, phase: Sy
   }
 
   return phase === "pre-match" && isFixtureInPreMatchWindow(fixture, now);
+}
+
+function getMissingEventBackfillLimit(env: NodeJS.ProcessEnv = process.env): number {
+  const configured = getOptionalEnvValue(env.API_FOOTBALL_MISSING_EVENT_BACKFILL_LIMIT);
+  if (!configured) {
+    return defaultMissingEventBackfillLimit;
+  }
+
+  const limit = Number(configured);
+  if (!Number.isInteger(limit) || limit < 0) {
+    throw new Error("API_FOOTBALL_MISSING_EVENT_BACKFILL_LIMIT must be zero or a positive integer.");
+  }
+
+  return limit;
 }
 
 export function shouldFetchFixtureEventsForPhase(fixture: ApiFootballFixture, phase: SyncWindowPhase, now: Date): boolean {
@@ -812,7 +883,9 @@ export const apiFootballSource: GoalSource = {
     const lineupBudget = createLineupRequestBudget();
     const now = new Date();
     const phase = getSyncWindowPhase();
-    const fixtureIds = parseCommaSeparated(process.env.API_FOOTBALL_FIXTURE_IDS);
+    const configuredFixtureIds = parseCommaSeparated(process.env.API_FOOTBALL_FIXTURE_IDS);
+    const missingEventBackfillFixtureIds = await getMissingEventBackfillFixtureIds();
+    const fixtureIds = [...new Set([...configuredFixtureIds, ...missingEventBackfillFixtureIds])];
     const dateKeys = getApiFootballDateKeys(process.env, now);
     let dateFixtures: ApiFootballFixture[] = [];
     try {
@@ -826,11 +899,11 @@ export const apiFootballSource: GoalSource = {
     const explicitFixtureResult =
       fixtureIds.length > 0 ? await fetchGoalsAndMatchesForFixtureIds(fixtureIds, budget, lineupBudget) : { goals: [], fixtures: [], participants: [] };
     const fixtures = mergeFixtures([...dateFixtures, ...explicitFixtureResult.fixtures]);
-    const explicitFixtureIds = new Set(explicitFixtureResult.fixtures.map((fixture) => getFixtureId(fixture)).filter(Boolean));
+    const explicitFixtureIdSet = new Set(explicitFixtureResult.fixtures.map((fixture) => getFixtureId(fixture)).filter(Boolean));
     const dateResult = await fetchGoalsAndParticipantsForFixtures(
       fixtures.filter((fixture) => {
         const fixtureId = getFixtureId(fixture);
-        return !fixtureId || !explicitFixtureIds.has(fixtureId);
+        return !fixtureId || !explicitFixtureIdSet.has(fixtureId);
       }),
       budget,
       lineupBudget,
