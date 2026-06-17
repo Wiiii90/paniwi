@@ -1,6 +1,7 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import type { PickStatusSnapshot } from "../../domain/pickStatusTypes";
 import type { LeaderboardEntry, ScoredGoal } from "../../domain/types";
+import { useTableSort } from "../useTableSort";
 
 type LeaderboardPageProps = {
   goals: ScoredGoal[];
@@ -9,7 +10,6 @@ type LeaderboardPageProps = {
 };
 
 type SortKey = "rank" | "owner" | "misses" | "topScorer" | "playersWithGoals" | "points";
-type SortDirection = "asc" | "desc";
 
 type LeaderboardRow = LeaderboardEntry & {
   misses: number;
@@ -91,8 +91,11 @@ function compareRows(left: LeaderboardRow, right: LeaderboardRow, sortKey: SortK
 
 export function LeaderboardPage({ goals, leaderboard, pickStatuses }: LeaderboardPageProps) {
   const baseUrl = import.meta.env.BASE_URL;
-  const [sortKey, setSortKey] = useState<SortKey>("rank");
-  const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
+  const { renderSortButton, sortDirection, sortKey } = useTableSort<SortKey>({
+    initialKey: "rank",
+    labels: sortLabels,
+    getInitialDirection: (key) => (key === "rank" || key === "owner" || key === "topScorer" ? "asc" : "desc")
+  });
   const lastPlaceOwners = getLastPlaceOwners(leaderboard);
   const maxPoints = leaderboard.length > 0 ? Math.max(...leaderboard.map((entry) => entry.points)) : 0;
   const jackpotOwners = new Set(leaderboard.filter((entry) => entry.points === maxPoints).map((entry) => entry.owner));
@@ -115,34 +118,6 @@ export function LeaderboardPage({ goals, leaderboard, pickStatuses }: Leaderboar
     const result = compareRows(left, right, sortKey);
     return sortDirection === "asc" ? result : -result;
   });
-
-  function updateSort(nextSortKey: SortKey): void {
-    if (nextSortKey === sortKey) {
-      setSortDirection((current) => (current === "asc" ? "desc" : "asc"));
-      return;
-    }
-
-    setSortKey(nextSortKey);
-    setSortDirection(nextSortKey === "rank" || nextSortKey === "owner" || nextSortKey === "topScorer" ? "asc" : "desc");
-  }
-
-  function renderSortButton(nextSortKey: SortKey) {
-    const isActive = sortKey === nextSortKey;
-    const directionLabel = sortDirection === "asc" ? "aufsteigend" : "absteigend";
-
-    return (
-      <button
-        aria-label={`${sortLabels[nextSortKey]} sortieren${isActive ? `, aktuell ${directionLabel}` : ""}`}
-        aria-sort={isActive ? (sortDirection === "asc" ? "ascending" : "descending") : undefined}
-        className="table-sort-button"
-        onClick={() => updateSort(nextSortKey)}
-        type="button"
-      >
-        {sortLabels[nextSortKey]}
-        {isActive ? <span>{sortDirection === "asc" ? "▲" : "▼"}</span> : null}
-      </button>
-    );
-  }
 
   return (
     <section className="page-stack">

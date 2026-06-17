@@ -12,16 +12,34 @@ export type StaticData = {
   pickStatuses: PickStatusSnapshot;
 };
 
+const staticDataFiles = {
+  leaderboard: "leaderboard.json",
+  goals: "goals.json",
+  scorers: "scorers.json",
+  matches: "matches.json",
+  meta: "meta.json",
+  rosters: "rosters.json",
+  pickStatuses: "pick-statuses.json"
+} satisfies Record<keyof StaticData, string>;
+
+async function fetchStaticDataFile<Key extends keyof StaticData>(key: Key): Promise<StaticData[Key]> {
+  const response = await fetch(`${import.meta.env.BASE_URL}data/${staticDataFiles[key]}`);
+  if (!response.ok) {
+    throw new Error(`${staticDataFiles[key]} konnte nicht geladen werden (${response.status})`);
+  }
+
+  return response.json() as Promise<StaticData[Key]>;
+}
+
 export async function loadStaticData(): Promise<StaticData> {
-  const baseUrl = import.meta.env.BASE_URL;
   const [leaderboard, goals, scorers, matches, meta, rosters, pickStatuses] = await Promise.all([
-    fetch(`${baseUrl}data/leaderboard.json`).then((response) => response.json() as Promise<LeaderboardEntry[]>),
-    fetch(`${baseUrl}data/goals.json`).then((response) => response.json() as Promise<ScoredGoal[]>),
-    fetch(`${baseUrl}data/scorers.json`).then((response) => response.json() as Promise<ScorerEntry[]>),
-    fetch(`${baseUrl}data/matches.json`).then((response) => response.json() as Promise<MatchRecord[]>),
-    fetch(`${baseUrl}data/meta.json`).then((response) => response.json() as Promise<StaticMeta>),
-    fetch(`${baseUrl}data/rosters.json`).then((response) => response.json() as Promise<RosterSnapshot>),
-    fetch(`${baseUrl}data/pick-statuses.json`).then((response) => response.json() as Promise<PickStatusSnapshot>)
+    fetchStaticDataFile("leaderboard"),
+    fetchStaticDataFile("goals"),
+    fetchStaticDataFile("scorers"),
+    fetchStaticDataFile("matches"),
+    fetchStaticDataFile("meta"),
+    fetchStaticDataFile("rosters"),
+    fetchStaticDataFile("pickStatuses")
   ]);
 
   return { leaderboard, goals, scorers, matches, meta, rosters, pickStatuses };

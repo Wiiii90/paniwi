@@ -1,14 +1,15 @@
 import { useMemo, useState } from "react";
 import type { ScorerEntry } from "../../domain/types";
 import { teams } from "../../config/teams";
-import { getTeamFlagUrl, teamCatalog } from "../../config/teamCatalog";
+import { teamCatalog } from "../../config/teamCatalog";
+import { TeamFlag } from "../components/TeamFlag";
+import { useTableSort } from "../useTableSort";
 
 type GoalsPageProps = {
   scorers: ScorerEntry[];
 };
 
 type OwnershipFilter = "all" | "owned";
-type SortDirection = "asc" | "desc";
 type SortKey = "rank" | "playerName" | "nationalTeam" | "ownerLabel" | "goals";
 
 type ScorerRow = ScorerEntry & {
@@ -56,15 +57,6 @@ function getPageSizeOptions(resultCount: number, currentPageSize: number): numbe
   return [...options].filter((option): option is number => typeof option === "number").sort((left, right) => left - right);
 }
 
-function TeamFlag({ teamName }: { teamName: string }) {
-  const flagUrl = getTeamFlagUrl(teamName);
-  if (!flagUrl) {
-    return null;
-  }
-
-  return <img alt="" aria-hidden="true" className="match-team-flag team-roster-flag" loading="lazy" src={flagUrl} />;
-}
-
 export function GoalsPage({ scorers }: GoalsPageProps) {
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [ownershipFilter, setOwnershipFilter] = useState<OwnershipFilter>(() => {
@@ -75,10 +67,14 @@ export function GoalsPage({ scorers }: GoalsPageProps) {
   const [countryFilter, setCountryFilter] = useState("all");
   const [minGoals, setMinGoals] = useState("1");
   const [search, setSearch] = useState("");
-  const [sortKey, setSortKey] = useState<SortKey>("rank");
-  const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(20);
+  const { renderSortButton, sortDirection, sortKey } = useTableSort<SortKey>({
+    initialKey: "rank",
+    labels: sortLabels,
+    getInitialDirection: (key) => (key === "goals" ? "desc" : "asc"),
+    onSortChange: () => setPage(1)
+  });
 
   const rows = useMemo<ScorerRow[]>(() => {
     return scorers.map((scorer) => ({
@@ -120,35 +116,6 @@ export function GoalsPage({ scorers }: GoalsPageProps) {
 
   function resetPage(): void {
     setPage(1);
-  }
-
-  function updateSort(nextSortKey: SortKey): void {
-    resetPage();
-    if (nextSortKey === sortKey) {
-      setSortDirection((current) => (current === "asc" ? "desc" : "asc"));
-      return;
-    }
-
-    setSortKey(nextSortKey);
-    setSortDirection(nextSortKey === "rank" || nextSortKey === "playerName" || nextSortKey === "nationalTeam" || nextSortKey === "ownerLabel" ? "asc" : "desc");
-  }
-
-  function renderSortButton(nextSortKey: SortKey) {
-    const isActive = sortKey === nextSortKey;
-    const directionLabel = sortDirection === "asc" ? "aufsteigend" : "absteigend";
-
-    return (
-      <button
-        aria-label={`${sortLabels[nextSortKey]} sortieren${isActive ? `, aktuell ${directionLabel}` : ""}`}
-        aria-sort={isActive ? (sortDirection === "asc" ? "ascending" : "descending") : undefined}
-        className="table-sort-button"
-        onClick={() => updateSort(nextSortKey)}
-        type="button"
-      >
-        {sortLabels[nextSortKey]}
-        {isActive ? <span>{sortDirection === "asc" ? "▲" : "▼"}</span> : null}
-      </button>
-    );
   }
 
   return (
@@ -221,7 +188,7 @@ export function GoalsPage({ scorers }: GoalsPageProps) {
                 <strong>{scorer.playerName}</strong>
               </span>
               <span className="team-roster-country" data-label="Land">
-                <TeamFlag teamName={scorer.nationalTeam} />
+                <TeamFlag className="team-roster-flag" teamName={scorer.nationalTeam} />
                 <span>{scorer.nationalTeam}</span>
               </span>
               <span data-label="Besitzer" title={scorer.ownerLabel}>{scorer.ownerLabel}</span>

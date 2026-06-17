@@ -1,7 +1,8 @@
 import { useMemo, useRef } from "react";
-import { getTeamFlagUrl } from "../../config/teamCatalog";
 import type { MatchRecord, ScoredGoal } from "../../domain/types";
 import { formatGoalMinute } from "../formatGoal";
+import { formatMatchScore } from "../matchDisplay";
+import { TeamFlag } from "./TeamFlag";
 
 type GoalFeedStripProps = {
   goals: ScoredGoal[];
@@ -32,23 +33,6 @@ function formatGoalDate(goal: ScoredGoal): string {
   }
 
   return dateLabel;
-}
-
-function formatMatchScore(match: MatchRecord | undefined): string {
-  if (!match || match.homeTeam.score === undefined || match.awayTeam.score === undefined) {
-    return "-:-";
-  }
-
-  return `${match.homeTeam.score}:${match.awayTeam.score}`;
-}
-
-function TeamFlag({ teamName }: { teamName: string }) {
-  const flagUrl = getTeamFlagUrl(teamName);
-  if (!flagUrl) {
-    return null;
-  }
-
-  return <img alt="" aria-hidden="true" className="match-team-flag feed-chip-flag" loading="lazy" src={flagUrl} />;
 }
 
 export function GoalFeedStrip({ goals, matches, title }: GoalFeedStripProps) {
@@ -126,7 +110,7 @@ export function GoalFeedStrip({ goals, matches, title }: GoalFeedStripProps) {
                 <small className="feed-chip-owner">{goal.owner}</small>
               </div>
               <strong className="feed-chip-player">
-                <TeamFlag teamName={goal.displayNationalTeam} />
+                <TeamFlag className="feed-chip-flag" teamName={goal.displayNationalTeam} />
                 <span>{goal.displayPlayerName}</span>
               </strong>
               <span>

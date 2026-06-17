@@ -1,7 +1,8 @@
 import type { LeaderboardEntry, MatchRecord, ScoredGoal, ScorerEntry } from "../../domain/types";
-import { getTeamFlagUrl } from "../../config/teamCatalog";
 import { getLiveAndUpcomingMatches } from "../../domain/matchFilters";
 import { GoalFeedStrip } from "../components/GoalFeedStrip";
+import { TeamFlag } from "../components/TeamFlag";
+import { formatKickoff, formatMatchScore } from "../matchDisplay";
 
 type HomePageProps = {
   leaderboard: LeaderboardEntry[];
@@ -9,29 +10,6 @@ type HomePageProps = {
   scorers: ScorerEntry[];
   matches: MatchRecord[];
 };
-
-function formatKickoff(value: string | undefined): string {
-  if (!value) {
-    return "Termin offen";
-  }
-
-  return new Intl.DateTimeFormat("de-DE", {
-    weekday: "short",
-    day: "2-digit",
-    month: "2-digit",
-    year: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit"
-  }).format(new Date(value));
-}
-
-function formatMatchScore(match: MatchRecord): string {
-  if (match.homeTeam.score === undefined || match.awayTeam.score === undefined) {
-    return match.status === "scheduled" ? "offen" : "-:-";
-  }
-
-  return `${match.homeTeam.score}:${match.awayTeam.score}`;
-}
 
 function formatMatchImpact(match: MatchRecord): string | null {
   const selectedParticipants = match.participants.filter((participant) => participant.selected && participant.owners.length > 0);
@@ -44,19 +22,10 @@ function formatMatchImpact(match: MatchRecord): string | null {
   return remainingCount > 0 ? `${visibleParticipants.join(" · ")} · +${remainingCount}` : visibleParticipants.join(" · ");
 }
 
-function TeamFlag({ teamName }: { teamName: string }) {
-  const flagUrl = getTeamFlagUrl(teamName);
-  if (!flagUrl) {
-    return null;
-  }
-
-  return <img alt="" aria-hidden="true" className="match-team-flag home-match-flag" loading="lazy" src={flagUrl} />;
-}
-
 function FlaggedName({ name, teamName }: { name: string; teamName: string }) {
   return (
     <span className="home-flagged-name">
-      <TeamFlag teamName={teamName} />
+      <TeamFlag className="home-match-flag" teamName={teamName} />
       <span>{name}</span>
     </span>
   );
@@ -155,23 +124,30 @@ export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps
                       <strong className="match-name-line">
                         <span className="match-name-text">
                           <span className="home-match-team">
-                            <TeamFlag teamName={match.homeTeam.name} />
+                            <TeamFlag className="home-match-flag" teamName={match.homeTeam.name} />
                             <span>{match.homeTeam.name}</span>
                           </span>
                           <span aria-hidden="true">-</span>
                           <span className="home-match-team">
-                            <TeamFlag teamName={match.awayTeam.name} />
+                            <TeamFlag className="home-match-flag" teamName={match.awayTeam.name} />
                             <span>{match.awayTeam.name}</span>
                           </span>
                         </span>
                       </strong>
                       <small>
-                        {formatKickoff(match.kickedOffAt)}
+                        {formatKickoff(match.kickedOffAt, {
+                          weekday: "short",
+                          day: "2-digit",
+                          month: "2-digit",
+                          year: "2-digit",
+                          hour: "2-digit",
+                          minute: "2-digit"
+                        })}
                         {match.pointGoals.length > 0 ? ` · ${match.pointGoals.length} Panini-Tore` : ""}
                       </small>
                       {matchImpact ? <small className="match-impact-line">{matchImpact}</small> : null}
                     </span>
-                    <span className="match-mini-score">{formatMatchScore(match)}</span>
+                    <span className="match-mini-score">{formatMatchScore(match, "offen")}</span>
                   </div>
                 );
               })
