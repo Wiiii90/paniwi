@@ -51,7 +51,7 @@ export function buildFixtureSyncState(
   };
 }
 
-export function countFixtureGoals(goals: Pick<GoalRecord, "fixtureId" | "matchId">[], match: ExternalMatchRecord): number {
+function countFixtureGoals(goals: Pick<GoalRecord, "fixtureId" | "matchId">[], match: ExternalMatchRecord): number {
   return goals.filter((goal) => {
     if (match.fixtureId && goal.fixtureId === match.fixtureId) {
       return true;
@@ -61,7 +61,7 @@ export function countFixtureGoals(goals: Pick<GoalRecord, "fixtureId" | "matchId
   }).length;
 }
 
-export function fixtureHasLineups(participants: ExternalMatchParticipantRecord[], match: ExternalMatchRecord): boolean {
+function fixtureHasLineups(participants: ExternalMatchParticipantRecord[], match: ExternalMatchRecord): boolean {
   return participants.some((participant) => {
     const belongsToFixture = match.fixtureId
       ? participant.fixtureId === match.fixtureId || participant.matchId === match.matchId
@@ -84,4 +84,3 @@ export function buildFixtureSyncStateForMatch(
     matchHasPickedTeam(match, pickedTeamIds)
   );
 }
-
