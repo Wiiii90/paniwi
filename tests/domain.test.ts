@@ -157,6 +157,56 @@ const initialLastNameRosterSnapshot: RosterSnapshot = {
   ]
 };
 
+const legacyNormalizedNorwayRosterSnapshot: RosterSnapshot = {
+  lastUpdated: "2026-06-16T00:00:00.000Z",
+  source: "wikipedia",
+  pageTitle: "2026 FIFA World Cup squads",
+  teamCount: 1,
+  playerCount: 1,
+  teams: [
+    {
+      teamName: "Norway",
+      teamId: "norway",
+      players: [
+        {
+          playerName: "Leo Østigård",
+          normalizedPlayerName: "leo stigard",
+          position: "defender",
+          sourceName: "Leo Østigård"
+        }
+      ]
+    }
+  ]
+};
+
+const ambiguousNorwayRosterSnapshot: RosterSnapshot = {
+  lastUpdated: "2026-06-16T00:00:00.000Z",
+  source: "wikipedia",
+  pageTitle: "2026 FIFA World Cup squads",
+  teamCount: 1,
+  playerCount: 2,
+  teams: [
+    {
+      teamName: "Norway",
+      teamId: "norway",
+      players: [
+        {
+          playerName: "Leo Østigård",
+          normalizedPlayerName: "leo stigard",
+          position: "defender",
+          sourceName: "Leo Østigård"
+        },
+        {
+          playerName: "Lars Ostigard",
+          normalizedPlayerName: "lars ostigard",
+          position: "defender",
+          sourceName: "Lars Ostigard"
+        }
+      ]
+    }
+  ]
+};
+
 assert.equal(normalizePlayerName("Kylian Mbappé"), "kylian mbappe");
 assert.equal(normalizePlayerName("  K.   Mbappe! "), "k mbappe");
 
@@ -392,6 +442,45 @@ assert.deepEqual(
     { strictSources: ["api-football"] }
   ).map((goal) => goal.playerName),
   ["Aymen Hussein"]
+);
+assert.deepEqual(
+  enrichGoalsWithRoster(
+    [
+      {
+        ...baseGoal,
+        externalGoalId: "norway-goal",
+        playerName: "L. Ostigard",
+        nationalTeam: "Norway",
+        sourcePlayerName: "L. Ostigard",
+        sourceTeamName: "Norway",
+        source: "api-football",
+        matchLabel: "Iraq 1-4 Norway"
+      }
+    ],
+    legacyNormalizedNorwayRosterSnapshot,
+    { strictSources: ["api-football"] }
+  ).map((goal) => [goal.playerName, goal.teamId]),
+  [["Leo Østigård", "norway"]]
+);
+assert.throws(
+  () =>
+    enrichGoalsWithRoster(
+      [
+        {
+          ...baseGoal,
+          externalGoalId: "ambiguous-norway-goal",
+          playerName: "L. Ostigard",
+          nationalTeam: "Norway",
+          sourcePlayerName: "L. Ostigard",
+          sourceTeamName: "Norway",
+          source: "api-football",
+          matchLabel: "Iraq 1-4 Norway"
+        }
+      ],
+      ambiguousNorwayRosterSnapshot,
+      { strictSources: ["api-football"] }
+    ),
+  /Roster-Match fehlgeschlagen/
 );
 assert.deepEqual(
   enrichGoalsWithRoster(

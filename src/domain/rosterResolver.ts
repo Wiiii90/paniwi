@@ -1,5 +1,5 @@
 import { buildPlayerId } from "./playerId";
-import { findUniqueRosterPlayer } from "./rosterNameMatcher";
+import { normalizePlayerName } from "./normalizePlayerName";
 import { getTeamDisplayName } from "./teamDisplay";
 import { resolveGoalTeamId, resolveTeamFromApiFootball, resolveTeamFromWikipedia } from "./teamResolver";
 import type { SourceName } from "./types";
@@ -63,7 +63,143 @@ function getOwnGoalCandidateTeams(goal: GoalRecord, rosterSnapshot: RosterSnapsh
 }
 
 function resolveRosterPlayer(goal: GoalRecord, rosterTeam: RosterTeam): RosterPlayer | null {
-  return findUniqueRosterPlayer(rosterTeam.players, [goal.playerName]);
+  return findUniqueGoalRosterPlayer(goal.playerName, rosterTeam.players);
+}
+
+function normalizeTransliteratedPlayerName(name: string): string {
+  return normalizePlayerName(
+    name
+      .replace(/[Øø]/g, "o")
+      .replace(/[Ææ]/g, "ae")
+      .replace(/[Œœ]/g, "oe")
+      .replace(/[Ðð]/g, "d")
+      .replace(/[Þþ]/g, "th")
+      .replace(/[Łł]/g, "l")
+  );
+}
+
+function getNameTokens(name: string): string[] {
+  return normalizeTransliteratedPlayerName(name)
+    .split(" ")
+    .map((token) => token.trim())
+    .filter(Boolean);
+}
+
+function getRosterPlayerNames(player: RosterPlayer): string[] {
+  return [player.playerName, player.sourceName, player.normalizedPlayerName].filter(
+    (name, index, names): name is string => Boolean(name) && names.indexOf(name) === index
+  );
+}
+
+function levenshteinDistance(left: string, right: string): number {
+  const previous = Array.from({ length: right.length + 1 }, (_, index) => index);
+
+  for (let leftIndex = 1; leftIndex <= left.length; leftIndex += 1) {
+    const current = [leftIndex];
+    for (let rightIndex = 1; rightIndex <= right.length; rightIndex += 1) {
+      const substitutionCost = left[leftIndex - 1] === right[rightIndex - 1] ? 0 : 1;
+      current[rightIndex] = Math.min(
+        current[rightIndex - 1] + 1,
+        previous[rightIndex] + 1,
+        previous[rightIndex - 1] + substitutionCost
+      );
+    }
+    previous.splice(0, previous.length, ...current);
+  }
+
+  return previous[right.length];
+}
+
+function getMaxAcceptedDistance(searchName: string): number {
+  const normalizedLength = normalizeTransliteratedPlayerName(searchName).length;
+  return normalizedLength <= 10 ? 2 : 3;
+}
+
+function getTokenSignature(name: string): string {
+  return [...getNameTokens(name)].sort((left, right) => left.localeCompare(right)).join(" ");
+}
+
+function matchesInitialAndLastName(searchName: string, candidateName: string): boolean {
+  const searchTokens = getNameTokens(searchName);
+  const candidateTokens = getNameTokens(candidateName);
+  if (searchTokens.length !== 2 || searchTokens[0].length !== 1 || candidateTokens.length < 2) {
+    return false;
+  }
+
+  const [initial, lastName] = searchTokens;
+  const candidateLastNameIndex = candidateTokens.lastIndexOf(lastName);
+  return candidateLastNameIndex > 0 && candidateTokens[candidateLastNameIndex - 1].startsWith(initial);
+}
+
+function matchesSingleInitialAndFullTokens(searchName: string, candidateName: string): boolean {
+  const searchTokens = getNameTokens(searchName);
+  const candidateTokens = getNameTokens(candidateName);
+  const initials = searchTokens.filter((token) => token.length === 1);
+  const fullTokens = searchTokens.filter((token) => token.length > 1);
+
+  if (initials.length !== 1 || fullTokens.length === 0 || searchTokens.length > candidateTokens.length) {
+    return false;
+  }
+
+  let cursor = 0;
+  const matchedIndexes: number[] = [];
+  for (const token of fullTokens) {
+    const index = candidateTokens.findIndex((candidateToken, candidateIndex) => candidateIndex >= cursor && candidateToken === token);
+    if (index < 0) {
+      return false;
+    }
+
+    matchedIndexes.push(index);
+    cursor = index + 1;
+  }
+
+  const firstFullTokenIndex = matchedIndexes[0];
+  return candidateTokens.slice(0, firstFullTokenIndex).some((token) => token.startsWith(initials[0]));
+}
+
+function getGoalRosterMatchScore(searchName: string, player: RosterPlayer): number {
+  const normalizedSearchName = normalizeTransliteratedPlayerName(searchName);
+  const searchSignature = getTokenSignature(searchName);
+  const candidateNames = getRosterPlayerNames(player);
+
+  if (candidateNames.some((name) => normalizeTransliteratedPlayerName(name) === normalizedSearchName)) {
+    return 0;
+  }
+
+  if (candidateNames.some((name) => getTokenSignature(name) === searchSignature)) {
+    return 0;
+  }
+
+  if (candidateNames.some((name) => matchesInitialAndLastName(searchName, name) || matchesSingleInitialAndFullTokens(searchName, name))) {
+    return 1;
+  }
+
+  const distance = Math.min(
+    ...candidateNames.map((name) => levenshteinDistance(normalizedSearchName, normalizeTransliteratedPlayerName(name)))
+  );
+  return 10 + distance;
+}
+
+function findUniqueGoalRosterPlayer(searchName: string, rosterPlayers: RosterPlayer[]): RosterPlayer | null {
+  const ranked = rosterPlayers
+    .map((player) => ({ player, score: getGoalRosterMatchScore(searchName, player) }))
+    .sort((left, right) => left.score - right.score);
+  const best = ranked[0];
+  const second = ranked[1];
+  if (!best) {
+    return null;
+  }
+
+  if (best.score >= 10 && best.score - 10 > getMaxAcceptedDistance(searchName)) {
+    return null;
+  }
+
+  const requiredMargin = best.score < 10 ? 1 : 2;
+  if (second && second.score - best.score < requiredMargin) {
+    return null;
+  }
+
+  return best.player;
 }
 
 export function resolveRosterPlayerForGoal(
