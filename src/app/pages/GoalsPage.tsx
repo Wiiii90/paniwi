@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import type { ScorerEntry } from "../../domain/types";
 import { teams } from "../../config/teams";
-import { teamCatalog } from "../../config/teamCatalog";
+import { getTeamFlagUrl, teamCatalog } from "../../config/teamCatalog";
 
 type GoalsPageProps = {
   scorers: ScorerEntry[];
@@ -54,6 +54,15 @@ function getPageSizeOptions(resultCount: number, currentPageSize: number): numbe
   const options = new Set([...visibleOptions, allRowsOption ?? basePageSizeOptions.at(-1), currentPageSize]);
 
   return [...options].filter((option): option is number => typeof option === "number").sort((left, right) => left - right);
+}
+
+function TeamFlag({ teamName }: { teamName: string }) {
+  const flagUrl = getTeamFlagUrl(teamName);
+  if (!flagUrl) {
+    return null;
+  }
+
+  return <img alt="" aria-hidden="true" className="match-team-flag team-roster-flag" loading="lazy" src={flagUrl} />;
 }
 
 export function GoalsPage({ scorers }: GoalsPageProps) {
@@ -211,7 +220,10 @@ export function GoalsPage({ scorers }: GoalsPageProps) {
               <span>
                 <strong>{scorer.playerName}</strong>
               </span>
-              <span data-label="Land">{scorer.nationalTeam}</span>
+              <span className="team-roster-country" data-label="Land">
+                <TeamFlag teamName={scorer.nationalTeam} />
+                <span>{scorer.nationalTeam}</span>
+              </span>
               <span data-label="Besitzer" title={scorer.ownerLabel}>{scorer.ownerLabel}</span>
               <span data-label="Tore">{scorer.goals}</span>
             </div>
