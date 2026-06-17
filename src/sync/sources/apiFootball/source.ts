@@ -148,14 +148,26 @@ function shouldFetchEventsForDateFixture(
 async function fetchGoalsAndMatchesForFixtureIds(
   fixtureIds: string[],
   budget: ApiFootballRequestBudget,
-  plan: FixtureFetchPlan
+  plan: FixtureFetchPlan,
+  optionalFixtureIds = new Set<string>()
 ): Promise<ExplicitFixtureFetchResult> {
   const goals: ExternalGoalRecord[] = [];
   const fixtures: ApiFootballFixture[] = [];
   const participants: ExternalMatchParticipantRecord[] = [];
   const eventFixtureIds = new Set<string>();
   for (const fixtureId of fixtureIds) {
-    const fixture = await fetchFixtureById(fixtureId, process.env, budget);
+    let fixture: ApiFootballFixture | null = null;
+    try {
+      fixture = await fetchFixtureById(fixtureId, process.env, budget);
+    } catch (error) {
+      if (!optionalFixtureIds.has(fixtureId)) {
+        throw error;
+      }
+
+      console.warn(`Skipping optional API-Football fixture ${fixtureId}: ${error instanceof Error ? error.message : String(error)}`);
+      continue;
+    }
+
     if (fixture) {
       fixtures.push(fixture);
     }
@@ -346,6 +358,8 @@ export const apiFootballSource: GoalSource = {
       goalCountsByFixture: existingApiFootballGoalCountsByFixture
     };
     const fixtureIds = [...new Set([...configuredFixtureIds, ...automaticFixtureIdsOutsideDateKeys])];
+    const configuredFixtureIdSet = new Set(configuredFixtureIds);
+    const optionalFixtureIds = new Set(automaticFixtureIdsOutsideDateKeys.filter((fixtureId) => !configuredFixtureIdSet.has(fixtureId)));
     let dateFixtures: ApiFootballFixture[] = [];
     try {
       dateFixtures = await fetchFixturesForDates(dateKeys, budget);
@@ -357,7 +371,7 @@ export const apiFootballSource: GoalSource = {
 
     const explicitFixtureResult =
       fixtureIds.length > 0
-        ? await fetchGoalsAndMatchesForFixtureIds(fixtureIds, budget, fetchPlan)
+        ? await fetchGoalsAndMatchesForFixtureIds(fixtureIds, budget, fetchPlan, optionalFixtureIds)
         : { goals: [], fixtures: [], participants: [], eventFixtureIds: new Set<string>() };
     const fixtures = mergeFixtures([...dateFixtures, ...explicitFixtureResult.fixtures]);
     const dateResult = await fetchGoalsAndParticipantsForFixtures(

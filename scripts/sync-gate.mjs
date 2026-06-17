@@ -133,7 +133,7 @@ function setOutput(name, value) {
   appendFileSync(process.env.GITHUB_OUTPUT, `${name}=${value}\n`, "utf8");
 }
 
-const force = process.env.SYNC_FORCE === "true" || process.env.GITHUB_EVENT_NAME === "workflow_dispatch";
+const force = process.env.SYNC_FORCE === "true";
 const now = new Date();
 const activeWindow = getActiveWindow(now);
 const shouldRun = force || Boolean(activeWindow);
