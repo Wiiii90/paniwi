@@ -907,5 +907,24 @@
     "detail": "normal",
     "playerId": "france-kylian-mbappe",
     "teamId": "france"
+  },
+  {
+    "externalGoalId": "api-football:1489381:154:17:Normal Goal:0",
+    "playerName": "Lionel Messi",
+    "nationalTeam": "Argentina",
+    "sourcePlayerName": "L. Messi",
+    "sourceTeamName": "Argentina",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 154,
+    "matchId": "api-football:1489381",
+    "fixtureId": "1489381",
+    "matchLabel": "Argentina 1-0 Algeria",
+    "kickedOffAt": "2026-06-17T01:00:00+00:00",
+    "minute": 17,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "argentina-lionel-messi",
+    "teamId": "argentina"
   }
 ]

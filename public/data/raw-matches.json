@@ -931,13 +931,13 @@
     "source": "api-football",
     "matchId": "api-football:1489381",
     "fixtureId": "1489381",
-    "label": "Argentina 0-0 Algeria",
+    "label": "Argentina 1-0 Algeria",
     "kickedOffAt": "2026-06-17T01:00:00+00:00",
     "status": "live",
     "homeTeam": {
       "id": 26,
       "name": "Argentina",
-      "score": 0
+      "score": 1
     },
     "awayTeam": {
       "id": 1532,
