@@ -913,9 +913,9 @@
     "source": "api-football",
     "matchId": "api-football:1539016",
     "fixtureId": "1539016",
-    "label": "Iraq 1-2 Norway",
+    "label": "Iraq 1-4 Norway",
     "kickedOffAt": "2026-06-16T22:00:00+00:00",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 1567,
       "name": "Iraq",
@@ -924,7 +924,7 @@
     "awayTeam": {
       "id": 1090,
       "name": "Norway",
-      "score": 2
+      "score": 4
     }
   },
   {
