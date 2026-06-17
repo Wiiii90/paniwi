@@ -65,7 +65,7 @@ function FlaggedName({ name, teamName }: { name: string; teamName: string }) {
 export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps) {
   const baseUrl = import.meta.env.BASE_URL;
   const latestGoals = goals.slice().reverse();
-  const latestPointGoals = latestGoals.slice(0, 3);
+  const topOwnedScorers = scorers.filter((scorer) => scorer.selected).slice(0, 3);
   const topScorers = scorers.slice(0, 4);
   const tableLeaders = leaderboard.slice(0, 3);
   const currentMatches = getLiveAndUpcomingMatches(matches, new Date(), 3);
@@ -98,18 +98,18 @@ export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps
             <h2>Topspieler</h2>
           </div>
           <div className="mini-list">
-            {latestPointGoals.length === 0 ? (
+            {topOwnedScorers.length === 0 ? (
               <p className="empty-inline">Noch keine Punkte.</p>
             ) : (
-              latestPointGoals.map((goal) => (
-                <div className="mini-row" key={`${goal.externalGoalId}-${goal.owner}`}>
+              topOwnedScorers.map((scorer) => (
+                <div className="mini-row" key={`${scorer.normalizedPlayerName}-${scorer.nationalTeam}`}>
                   <span>
                     <strong>
-                      <FlaggedName name={goal.displayPlayerName} teamName={goal.displayNationalTeam} />
+                      <FlaggedName name={scorer.playerName} teamName={scorer.nationalTeam} />
                     </strong>
-                    <small>{goal.owner}</small>
+                    <small>{scorer.scoringOwners.join(", ")}</small>
                   </span>
-                  <span>{goal.points} Punkte</span>
+                  <span>{scorer.goals} Punkte</span>
                 </div>
               ))
             )}
