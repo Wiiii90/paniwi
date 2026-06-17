@@ -80,6 +80,11 @@ assert.equal(evaluateSyncWindow(liveMeta, new Date("2026-06-13T16:08:00.000Z"), 
 assert.equal(evaluateSyncWindow(liveMeta, new Date("2026-06-13T16:09:00.000Z"), false, liveWindow).shouldRun, true);
 assert.equal(evaluateSyncWindow(null, new Date("2026-06-13T15:20:00.000Z"), false, preMatchWindow).windowPhase, "pre-match");
 
+const overlappingLiveWindow = getActiveSyncWindow(new Date("2026-06-17T01:05:00.000Z"));
+assert.ok(overlappingLiveWindow);
+assert.equal(overlappingLiveWindow.phase, "live");
+assert.equal(overlappingLiveWindow.id, "2026 fifa world cup group j:argentina-algeria:2026-06-17T01:00:00.000Z-live");
+
 const settlementWindow = getSettlementWindow(new Date("2026-06-16T06:05:00.000Z"));
 assert.ok(settlementWindow);
 assert.equal(settlementWindow.phase, "settlement");

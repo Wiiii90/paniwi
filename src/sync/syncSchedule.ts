@@ -87,16 +87,29 @@ export function getAllSyncWindows(): SyncWindow[] {
   return scheduledKickoffs.flatMap(buildSyncWindowsForKickoff);
 }
 
+const activeWindowPhasePriority: Record<SyncWindow["phase"], number> = {
+  live: 0,
+  "pre-match": 1,
+  "post-match": 2,
+  settlement: 3,
+  maintenance: 4
+};
+
 export function getActiveSyncWindow(now: Date = new Date()): SyncWindow | null {
   const timestamp = now.getTime();
-
-  for (const window of getAllSyncWindows()) {
+  const activeWindows = getAllSyncWindows().filter((window) => {
     const from = new Date(window.from).getTime();
     const until = new Date(window.until).getTime();
 
-    if (timestamp >= from && timestamp <= until) {
-      return window;
-    }
+    return timestamp >= from && timestamp <= until;
+  });
+
+  if (activeWindows.length > 0) {
+    return activeWindows.sort(
+      (left, right) =>
+        activeWindowPhasePriority[left.phase] - activeWindowPhasePriority[right.phase] ||
+        left.from.localeCompare(right.from)
+    )[0]!;
   }
 
   return getSettlementWindow(now) ?? getKnockoutMaintenanceWindow(now);
