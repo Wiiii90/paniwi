@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { resolveKnownTeamId } from "../../config/teamCatalog";
+import { getTeamFlagUrl, resolveKnownTeamId } from "../../config/teamCatalog";
 import type { MatchParticipantRecord, MatchParticipationStatus, MatchRecord } from "../../domain/types";
 import { formatGoalMinute } from "../formatGoal";
 
@@ -114,6 +114,15 @@ function getParticipantSide(participant: MatchParticipantRecord, match: MatchRec
   }
 
   return "unknown";
+}
+
+function TeamFlag({ teamName }: { teamName: string }) {
+  const flagUrl = getTeamFlagUrl(teamName);
+  if (!flagUrl) {
+    return null;
+  }
+
+  return <img alt="" aria-hidden="true" className="match-team-flag" loading="lazy" src={flagUrl} />;
 }
 
 function PlayerChip({ participant, matchStatus }: { participant: MatchParticipantRecord; matchStatus: MatchRecord["status"] }) {
@@ -261,11 +270,13 @@ function MatchSection({
                 </div>
                 <div className="match-card-scoreline">
                   <div className="match-team match-team-home">
+                    <TeamFlag teamName={match.homeTeam.name} />
                     <strong>{match.homeTeam.name}</strong>
                   </div>
                   <span className="match-card-score">{formatScore(match)}</span>
                   <div className="match-team match-team-away">
                     <strong>{match.awayTeam.name}</strong>
+                    <TeamFlag teamName={match.awayTeam.name} />
                   </div>
                 </div>
                 {match.goals.length > 0 ? (

@@ -94,6 +94,16 @@ export function getTeamFlag(teamName: string): string {
   return flagCodeToEmoji(flagCode);
 }
 
+export function getTeamFlagUrl(teamName: string): string {
+  const teamId = resolveKnownTeamId(teamName);
+  const flagCode = teamId ? teamCatalogById.get(teamId)?.flagCode : undefined;
+  if (!flagCode) {
+    return "";
+  }
+
+  return `https://flagcdn.com/${flagCode.toLowerCase()}.svg`;
+}
+
 function flagCodeToEmoji(flagCode: string): string {
   if (flagCode === "GB-ENG") {
     return String.fromCodePoint(0x1f3f4, 0xe0067, 0xe0062, 0xe0065, 0xe006e, 0xe0067, 0xe007f);

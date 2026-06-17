@@ -1152,10 +1152,13 @@ h2 {
 }
 
 .match-team-flag {
+  aspect-ratio: 4 / 3;
+  border: 1px solid rgba(17, 24, 39, 0.16);
+  border-radius: 2px;
   flex: 0 0 auto;
-  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
-  font-size: 1.05rem;
-  line-height: 1;
+  height: 16px;
+  object-fit: cover;
+  width: 22px;
 }
 
 .match-card-status {
