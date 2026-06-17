@@ -16,6 +16,7 @@ import { resolveTeamFromApiFootball, resolveTeamFromWikipedia } from "./teamReso
 import { findUniqueRosterPlayer } from "./rosterNameMatcher";
 import { getParticipantPickCandidateNames, getParticipantPickDisplayName } from "./participantPick";
 import { normalizePlayerName } from "./normalizePlayerName";
+import { buildFixtureSyncStateForMatch } from "./fixtureSyncState";
 
 function normalizeScoreLabel(label: string): string {
   return label.replace(/[–—]/g, "-");
@@ -230,6 +231,10 @@ function getFixtureTeamIds(fixture: ExternalMatchRecord): Set<string> {
   );
 }
 
+function getPickedTeamIds(teams: ParticipantTeam[]): Set<string> {
+  return new Set(teams.flatMap((team) => team.players.map((player) => player.teamId)));
+}
+
 function isPickInRoster(pickTeamId: string, pickName: string, rosterSnapshot: RosterSnapshot | undefined): boolean {
   const rosterTeam = rosterSnapshot?.teams.find((team) => team.teamId === pickTeamId);
   if (!rosterTeam) {
@@ -324,6 +329,7 @@ export function buildMatches(
   rosterSnapshot?: RosterSnapshot
 ): MatchRecord[] {
   const fallbackMatches = buildFallbackMatches(goals, scoredGoals);
+  const pickedTeamIds = getPickedTeamIds(teams);
   const fixtureMatches = dedupeFixtures(fixtures).map((fixture) => {
     const matchGoals = sortGoalsChronologically(goals.filter((goal) => goalBelongsToFixture(goal, fixture)));
     const pointGoals = sortGoalsChronologically(scoredGoals.filter((goal) => goalBelongsToFixture(goal, fixture)));
@@ -342,7 +348,8 @@ export function buildMatches(
       goals: matchGoals,
       pointGoals,
       affectedOwners: [...new Set(pointGoals.map((goal) => goal.owner))].sort((a, b) => a.localeCompare(b)),
-      participants: enrichParticipants(matchParticipants, teams, rosterSnapshot)
+      participants: enrichParticipants(matchParticipants, teams, rosterSnapshot),
+      syncState: buildFixtureSyncStateForMatch(fixture, goals, participants, pickedTeamIds)
     } satisfies MatchRecord;
   });
   const fixtureIds = new Set(fixtureMatches.map((match) => match.matchId));

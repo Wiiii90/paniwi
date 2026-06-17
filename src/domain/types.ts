@@ -138,6 +138,15 @@ export type MatchParticipantRecord = ExternalMatchParticipantRecord & {
   selected: boolean;
 };
 
+export type FixtureSyncState = {
+  scoreTotal: number | null;
+  goalEventCount: number;
+  eventsComplete: boolean;
+  lineupsComplete: boolean;
+  needsEventBackfill: boolean;
+  needsLineupBackfill: boolean;
+};
+
 export type MatchRecord = {
   matchId: string;
   label: string;
@@ -149,6 +158,7 @@ export type MatchRecord = {
   pointGoals: ScoredGoal[];
   affectedOwners: string[];
   participants: MatchParticipantRecord[];
+  syncState?: FixtureSyncState;
 };
 
 export type StaticMeta = {

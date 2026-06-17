@@ -1,4 +1,5 @@
 import { readFile } from "node:fs/promises";
+import { buildFixtureSyncState, matchHasPickedTeam as rawMatchHasPickedTeam } from "../../domain/fixtureSyncState";
 import { resolveTeamFromApiFootball } from "../../domain/teamResolver";
 import { teams } from "../../config/teams";
 import type {
@@ -311,14 +312,6 @@ async function readExistingApiFootballParticipants(): Promise<ExternalMatchParti
   }
 }
 
-function getKnownScoreTotal(match: ExternalMatchRecord): number | null {
-  if (typeof match.homeTeam.score !== "number" || typeof match.awayTeam.score !== "number") {
-    return null;
-  }
-
-  return match.homeTeam.score + match.awayTeam.score;
-}
-
 export function getMissingEventBackfillFixtureIds(
   matches: ExternalMatchRecord[],
   goalCountsByFixture: Map<string, number>,
@@ -330,10 +323,9 @@ export function getMissingEventBackfillFixtureIds(
 
   const missingFixtureIds = matches
     .filter((match) => match.fixtureId && (match.status === "finished" || match.status === "live"))
-    .filter((match) => {
-      const scoreTotal = getKnownScoreTotal(match);
-      return scoreTotal !== null && scoreTotal > 0 && (goalCountsByFixture.get(match.fixtureId!) ?? 0) < scoreTotal;
-    })
+    .filter((match) =>
+      buildFixtureSyncState(match, goalCountsByFixture.get(match.fixtureId!) ?? 0, true, false).needsEventBackfill
+    )
     .sort((left, right) => (left.kickedOffAt ?? "").localeCompare(right.kickedOffAt ?? ""))
     .map((match) => match.fixtureId!)
     .slice(0, limit);
@@ -348,12 +340,6 @@ export function getExistingFixtureIdsWithLineups(participants: ExternalMatchPart
       .filter((participant) => participant.status === "starter" || participant.status === "bench")
       .map((participant) => participant.fixtureId!)
   );
-}
-
-function matchHasPickedTeam(match: ExternalMatchRecord): boolean {
-  const homeTeamId = getApiTeamId(match.homeTeam.name);
-  const awayTeamId = getApiTeamId(match.awayTeam.name);
-  return Boolean((homeTeamId && pickedTeamIds.has(homeTeamId)) || (awayTeamId && pickedTeamIds.has(awayTeamId)));
 }
 
 function getLineupBackfillSortRank(match: ExternalMatchRecord): number {
@@ -373,8 +359,14 @@ export function getMissingLineupBackfillFixtureIds(
   const candidates = matches
     .filter((match) => match.source === "api-football" && match.fixtureId)
     .filter((match) => match.status === "live" || match.status === "finished")
-    .filter((match) => !fixtureIdsWithLineups.has(match.fixtureId!))
-    .filter(matchHasPickedTeam)
+    .filter((match) =>
+      buildFixtureSyncState(
+        match,
+        0,
+        fixtureIdsWithLineups.has(match.fixtureId!),
+        rawMatchHasPickedTeam(match, pickedTeamIds)
+      ).needsLineupBackfill
+    )
     .sort((left, right) => {
       const rankDiff = getLineupBackfillSortRank(left) - getLineupBackfillSortRank(right);
       if (rankDiff !== 0) {

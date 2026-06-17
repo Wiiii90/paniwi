@@ -3,6 +3,7 @@ import { mkdirSync, mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { buildLeaderboard, scoreGoalsForTeams } from "../src/domain/buildLeaderboard";
+import { buildFixtureSyncState } from "../src/domain/fixtureSyncState";
 import { buildMatches } from "../src/domain/buildMatches";
 import { buildScorers } from "../src/domain/buildScorers";
 import { normalizePlayerName } from "../src/domain/normalizePlayerName";
@@ -925,6 +926,105 @@ assert.deepEqual(
     10
   ),
   ["missing"]
+);
+assert.deepEqual(
+  buildFixtureSyncState(
+    {
+      source: "api-football",
+      matchId: "api-football:complete-draw",
+      fixtureId: "complete-draw",
+      label: "Iran 2-2 New Zealand",
+      status: "finished",
+      homeTeam: { name: "Iran", score: 2 },
+      awayTeam: { name: "New Zealand", score: 2 }
+    },
+    4,
+    true,
+    true
+  ),
+  {
+    scoreTotal: 4,
+    goalEventCount: 4,
+    eventsComplete: true,
+    lineupsComplete: true,
+    needsEventBackfill: false,
+    needsLineupBackfill: false
+  }
+);
+assert.equal(
+  buildFixtureSyncState(
+    {
+      source: "api-football",
+      matchId: "api-football:missing-draw",
+      fixtureId: "missing-draw",
+      label: "Iran 2-2 New Zealand",
+      status: "finished",
+      homeTeam: { name: "Iran", score: 2 },
+      awayTeam: { name: "New Zealand", score: 2 }
+    },
+    2,
+    true,
+    true
+  ).needsEventBackfill,
+  true
+);
+assert.deepEqual(
+  buildFixtureSyncState(
+    {
+      source: "api-football",
+      matchId: "api-football:nil-nil-complete",
+      fixtureId: "nil-nil-complete",
+      label: "Germany 0-0 Egypt",
+      status: "finished",
+      homeTeam: { name: "Germany", score: 0 },
+      awayTeam: { name: "Egypt", score: 0 }
+    },
+    0,
+    false,
+    false
+  ),
+  {
+    scoreTotal: 0,
+    goalEventCount: 0,
+    eventsComplete: true,
+    lineupsComplete: true,
+    needsEventBackfill: false,
+    needsLineupBackfill: false
+  }
+);
+assert.equal(
+  buildFixtureSyncState(
+    {
+      source: "api-football",
+      matchId: "api-football:relevant-lineup-missing",
+      fixtureId: "relevant-lineup-missing",
+      label: "Norway 1-0 Iraq",
+      status: "live",
+      homeTeam: { name: "Norway", score: 1 },
+      awayTeam: { name: "Iraq", score: 0 }
+    },
+    1,
+    false,
+    true
+  ).needsLineupBackfill,
+  true
+);
+assert.equal(
+  buildFixtureSyncState(
+    {
+      source: "api-football",
+      matchId: "api-football:irrelevant-lineup-missing",
+      fixtureId: "irrelevant-lineup-missing",
+      label: "Norway 1-0 Iraq",
+      status: "live",
+      homeTeam: { name: "Norway", score: 1 },
+      awayTeam: { name: "Iraq", score: 0 }
+    },
+    1,
+    false,
+    false
+  ).needsLineupBackfill,
+  false
 );
 
 const apiFootballFixtures = [

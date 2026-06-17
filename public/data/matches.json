@@ -94,7 +94,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": 2,
+      "goalEventCount": 2,
+      "eventsComplete": true,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": true
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group a:south korea-czech republic:2026-06-12T02:00:00.000Z",
@@ -208,7 +216,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": 3,
+      "goalEventCount": 3,
+      "eventsComplete": true,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": true
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group b:canada-bosnia and herzegovina:2026-06-12T19:00:00.000Z",
@@ -332,7 +348,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": 2,
+      "goalEventCount": 2,
+      "eventsComplete": true,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": true
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group d:united states-paraguay:2026-06-13T01:00:00.000Z",
@@ -505,7 +529,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": 5,
+      "goalEventCount": 4,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": true,
+      "needsLineupBackfill": true
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group b:qatar-switzerland:2026-06-13T19:00:00.000Z",
@@ -601,7 +633,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": 2,
+      "goalEventCount": 2,
+      "eventsComplete": true,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": true
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T22:00:00.000Z",
@@ -779,7 +819,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": 2,
+      "goalEventCount": 2,
+      "eventsComplete": true,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": true
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group c:haiti-scotland:2026-06-14T01:00:00.000Z",
@@ -886,7 +934,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": 1,
+      "goalEventCount": 1,
+      "eventsComplete": true,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": true
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group d:australia-tur:2026-06-14T04:00:00.000Z",
@@ -980,7 +1036,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": 2,
+      "goalEventCount": 2,
+      "eventsComplete": true,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": true
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z",
@@ -1198,7 +1262,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": 8,
+      "goalEventCount": 7,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": true,
+      "needsLineupBackfill": true
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group f:netherlands-japan:2026-06-14T20:00:00.000Z",
@@ -1328,7 +1400,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": 4,
+      "goalEventCount": 4,
+      "eventsComplete": true,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": true
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group e:civ-ecuador:2026-06-14T23:00:00.000Z",
@@ -1450,7 +1530,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": 1,
+      "goalEventCount": 1,
+      "eventsComplete": true,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": true
+    }
   },
   {
     "matchId": "api-football:1539002",
@@ -2454,7 +2542,15 @@
         "owners": [],
         "selected": false
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": 6,
+      "goalEventCount": 6,
+      "eventsComplete": true,
+      "lineupsComplete": true,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "api-football:1489380",
@@ -3281,7 +3377,15 @@
         "owners": [],
         "selected": false
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": 0,
+      "goalEventCount": 0,
+      "eventsComplete": true,
+      "lineupsComplete": true,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "api-football:1489377",
@@ -4117,7 +4221,15 @@
         "owners": [],
         "selected": false
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": 2,
+      "goalEventCount": 2,
+      "eventsComplete": true,
+      "lineupsComplete": true,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "api-football:1489379",
@@ -4933,7 +5045,15 @@
         "owners": [],
         "selected": false
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": 2,
+      "goalEventCount": 2,
+      "eventsComplete": true,
+      "lineupsComplete": true,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "api-football:1489378",
@@ -5379,7 +5499,15 @@
         "owners": [],
         "selected": false
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": 4,
+      "goalEventCount": 4,
+      "eventsComplete": true,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": true
+    }
   },
   {
     "matchId": "api-football:1489383",
@@ -5789,7 +5917,15 @@
         "owners": [],
         "selected": false
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": 4,
+      "goalEventCount": 4,
+      "eventsComplete": true,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": true
+    }
   },
   {
     "matchId": "api-football:1539016",
@@ -7027,7 +7163,15 @@
         "owners": [],
         "selected": false
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": 5,
+      "goalEventCount": 5,
+      "eventsComplete": true,
+      "lineupsComplete": true,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "api-football:1489381",
@@ -7880,7 +8024,15 @@
         "owners": [],
         "selected": false
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": 1,
+      "goalEventCount": 1,
+      "eventsComplete": true,
+      "lineupsComplete": true,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "api-football:1489382",
@@ -7912,7 +8064,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "api-football:1539003",
@@ -8080,7 +8240,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "api-football:1489384",
@@ -8233,7 +8401,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "api-football:1489385",
@@ -8280,7 +8456,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group k:uzb-colombia:2026-06-18T02:00:00.000Z",
@@ -8340,7 +8524,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group a:czech republic-south africa:2026-06-18T16:00:00.000Z",
@@ -8401,7 +8593,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group b:switzerland-bosnia and herzegovina:2026-06-18T19:00:00.000Z",
@@ -8460,7 +8660,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group b:canada-qatar:2026-06-18T22:00:00.000Z",
@@ -8547,7 +8755,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group a:mexico-south korea:2026-06-19T01:00:00.000Z",
@@ -8606,7 +8822,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group d:united states-australia:2026-06-19T19:00:00.000Z",
@@ -8666,7 +8890,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group c:scotland-morocco:2026-06-19T22:00:00.000Z",
@@ -8753,7 +8985,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group c:brazil-haiti:2026-06-20T00:30:00.000Z",
@@ -8868,7 +9108,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group d:tur-paraguay:2026-06-20T03:00:00.000Z",
@@ -8941,7 +9189,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group f:netherlands-sweden:2026-06-20T17:00:00.000Z",
@@ -9042,7 +9298,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group e:germany-civ:2026-06-20T20:00:00.000Z",
@@ -9131,7 +9395,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group e:ecuador-curacao:2026-06-21T00:00:00.000Z",
@@ -9190,7 +9462,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group f:tunisia-japan:2026-06-21T04:00:00.000Z",
@@ -9221,7 +9501,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group h:spain-ksa:2026-06-21T16:00:00.000Z",
@@ -9323,7 +9611,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group g:belgium-iran:2026-06-21T19:00:00.000Z",
@@ -9439,7 +9735,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group h:uruguay-cape verde:2026-06-21T22:00:00.000Z",
@@ -9526,7 +9830,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group g:nzl-egypt:2026-06-22T01:00:00.000Z",
@@ -9571,7 +9883,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group j:argentina-austria:2026-06-22T17:00:00.000Z",
@@ -9644,7 +9964,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group i:france-iraq:2026-06-22T21:00:00.000Z",
@@ -9731,7 +10059,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group i:norway-senegal:2026-06-23T00:00:00.000Z",
@@ -9832,7 +10168,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group j:jor-algeria:2026-06-23T03:00:00.000Z",
@@ -9848,7 +10192,15 @@
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
-    "participants": []
+    "participants": [],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group k:portugal-uzb:2026-06-23T17:00:00.000Z",
@@ -9935,7 +10287,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group l:england-gha:2026-06-23T20:00:00.000Z",
@@ -10036,7 +10396,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group l:panama-croatia:2026-06-23T23:00:00.000Z",
@@ -10124,7 +10492,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group k:colombia-dr congo:2026-06-24T02:00:00.000Z",
@@ -10255,7 +10631,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group b:bosnia and herzegovina-qatar:2026-06-24T19:00:00.000Z",
@@ -10300,7 +10684,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group b:switzerland-canada:2026-06-24T19:00:00.000Z",
@@ -10401,7 +10793,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group c:morocco-haiti:2026-06-24T22:00:00.000Z",
@@ -10474,7 +10874,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group c:scotland-brazil:2026-06-24T22:00:00.000Z",
@@ -10603,7 +11011,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group a:czech republic-mexico:2026-06-25T01:00:00.000Z",
@@ -10677,7 +11093,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group a:south africa-south korea:2026-06-25T01:00:00.000Z",
@@ -10723,7 +11147,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group e:curacao-civ:2026-06-25T20:00:00.000Z",
@@ -10783,7 +11215,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group e:ecuador-germany:2026-06-25T20:00:00.000Z",
@@ -10871,7 +11311,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group f:japan-sweden:2026-06-25T23:00:00.000Z",
@@ -10930,7 +11378,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group f:tunisia-netherlands:2026-06-25T23:00:00.000Z",
@@ -11003,7 +11459,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group d:paraguay-australia:2026-06-26T02:00:00.000Z",
@@ -11090,7 +11554,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group d:tur-united states:2026-06-26T02:00:00.000Z",
@@ -11136,7 +11608,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group i:norway-france:2026-06-26T19:00:00.000Z",
@@ -11237,7 +11717,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group i:senegal-iraq:2026-06-26T19:00:00.000Z",
@@ -11324,7 +11812,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group h:cape verde-ksa:2026-06-27T00:00:00.000Z",
@@ -11383,7 +11879,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group h:uruguay-spain:2026-06-27T00:00:00.000Z",
@@ -11513,7 +12017,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group g:egypt-iran:2026-06-27T03:00:00.000Z",
@@ -11572,7 +12084,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group g:nzl-belgium:2026-06-27T03:00:00.000Z",
@@ -11674,7 +12194,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group l:croatia-gha:2026-06-27T21:00:00.000Z",
@@ -11734,7 +12262,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group l:panama-england:2026-06-27T21:00:00.000Z",
@@ -11863,7 +12399,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group k:colombia-portugal:2026-06-27T23:30:00.000Z",
@@ -11993,7 +12537,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group k:dr congo-uzb:2026-06-27T23:30:00.000Z",
@@ -12081,7 +12633,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group j:algeria-austria:2026-06-28T02:00:00.000Z",
@@ -12112,7 +12672,15 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   },
   {
     "matchId": "wikipedia:2026 fifa world cup group j:jor-argentina:2026-06-28T02:00:00.000Z",
@@ -12171,6 +12739,14 @@
         ],
         "selected": true
       }
-    ]
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   }
 ]
