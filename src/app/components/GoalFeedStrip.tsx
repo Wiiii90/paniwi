@@ -1,7 +1,7 @@
 import { useMemo, useRef } from "react";
 import type { MatchRecord, ScoredGoal } from "../../domain/types";
-import { formatGoalMinute } from "../formatGoal";
-import { formatMatchScore } from "../matchDisplay";
+import { formatGoalMinute } from "../formatters/goalFormat";
+import { formatMatchScore } from "../formatters/matchFormat";
 import { TeamFlag } from "./TeamFlag";
 
 type GoalFeedStripProps = {

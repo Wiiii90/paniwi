@@ -2,7 +2,7 @@ import type { LeaderboardEntry, MatchRecord, ScoredGoal, ScorerEntry } from "../
 import { getLiveAndUpcomingMatches } from "../../domain/matchFilters";
 import { GoalFeedStrip } from "../components/GoalFeedStrip";
 import { TeamFlag } from "../components/TeamFlag";
-import { formatKickoff, formatMatchScore } from "../matchDisplay";
+import { formatKickoff, formatMatchScore } from "../formatters/matchFormat";
 
 type HomePageProps = {
   leaderboard: LeaderboardEntry[];

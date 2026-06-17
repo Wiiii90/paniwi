@@ -1,0 +1,201 @@
+import assert from "node:assert/strict";
+import { mkdirSync, mkdtempSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { buildLeaderboard, scoreGoalsForTeams } from "../../src/domain/buildLeaderboard";
+import { buildFixtureSyncState } from "../../src/domain/fixtureSyncState";
+import { buildMatches } from "../../src/domain/buildMatches";
+import { buildScorers } from "../../src/domain/buildScorers";
+import { normalizePlayerName } from "../../src/domain/normalizePlayerName";
+import { enrichGoalsWithRoster } from "../../src/domain/rosterResolver";
+import { getGoalPoints, matchesPlayer } from "../../src/domain/scoring";
+import { sortGoalsChronologically } from "../../src/domain/sortGoals";
+import { getLatestFinishedMatches, getTodayOrLiveMatches } from "../../src/domain/matchFilters";
+import { groupGoalsBySide } from "../../src/domain/matchGrouping";
+import type { GoalRecord, ParticipantTeam } from "../../src/domain/types";
+import type { RosterSnapshot } from "../../src/domain/rosterTypes";
+import { normalizeGoals } from "../../src/sync/normalizeGoals";
+import {
+  filterWorldCupFixtures,
+  fixtureNeedsGoalEvents,
+  getExistingFixtureIdsWithLineups,
+  getApiFootballRequestLimit,
+  getApiFootballDateKeys,
+  getLiveCarryoverFixtureIds,
+  getApiFootballLineupRequestLimit,
+  getMissingEventBackfillFixtureIds,
+  getMissingLineupBackfillFixtureIds,
+  parseApiFootballFixture,
+  parseApiFootballEvents,
+  parseApiFootballLineups,
+  parseApiFootballSubstitutions,
+  shouldFetchFixtureEvents
+} from "../../src/sync/sources/apiFootballSource";
+import { apiFootballSource } from "../../src/sync/sources/apiFootballSource";
+import { getSourcesForMode, parseSyncSourceMode } from "../../src/sync/sources/sourceSelection";
+import { parseWikipediaFootballBoxes, parseWikipediaGoalscorers } from "../../src/sync/sources/wikipediaSource";
+import { buildSourceErrorMeta, mergeGoalSnapshots, mergeParticipantSnapshots } from "../../src/sync/syncGoals";
+import { buildSnapshotFingerprint } from "../../src/sync/snapshotFingerprint";
+import { validateGoals } from "../../src/sync/validateGoals";
+import { ambiguousNorwayRosterSnapshot, apiResolverRosterSnapshot, baseGoal, initialLastNameRosterSnapshot, legacyNormalizedNorwayRosterSnapshot, rosterSnapshot, teams } from "../helpers/domainFixtures";
+
+const normalizedGoals = normalizeGoals([
+  {
+    playerName: "Jamal Musiala",
+    nationalTeam: "Germany",
+    source: "mock",
+    matchId: "germany-uruguay",
+    kickedOffAt: "2026-06-14T19:20:00.000Z",
+    minute: 64
+  }
+]);
+
+assert.equal(normalizedGoals[0].timeConfidence, "estimated");
+assert.equal(normalizedGoals[0].externalGoalId.includes("jamal musiala"), true);
+
+assert.deepEqual(
+  sortGoalsChronologically([
+    { ...baseGoal, externalGoalId: "late", scoredAt: "2026-06-12T20:00:00.000Z" },
+    { ...baseGoal, externalGoalId: "early", scoredAt: "2026-06-12T19:00:00.000Z" }
+  ]).map((goal) => goal.externalGoalId),
+  ["early", "late"]
+);
+
+const apiAbbreviatedRosterGoals = [
+  {
+    ...baseGoal,
+    externalGoalId: "ayari-1",
+    playerName: "Y. Ayari",
+    sourcePlayerName: "Y. Ayari",
+    nationalTeam: "Sweden",
+    apiPlayerId: 265820
+  },
+  {
+    ...baseGoal,
+    externalGoalId: "ayari-2",
+    playerName: "Y. Ayari",
+    sourcePlayerName: "Y. Ayari",
+    nationalTeam: "Sweden",
+    apiPlayerId: 265820
+  }
+];
+assert.deepEqual(
+  enrichGoalsWithRoster(apiAbbreviatedRosterGoals, rosterSnapshot).map((goal) => goal.playerName),
+  ["Yasin Ayari", "Yasin Ayari"]
+);
+assert.deepEqual(
+  enrichGoalsWithRoster(
+    [
+      {
+        ...baseGoal,
+        externalGoalId: "iraq-goal",
+        playerName: "A. Hussein",
+        nationalTeam: "Iraq",
+        sourcePlayerName: "A. Hussein",
+        sourceTeamName: "Iraq",
+        source: "api-football",
+        matchLabel: "Iraq 1-2 Norway"
+      }
+    ],
+    initialLastNameRosterSnapshot,
+    { strictSources: ["api-football"] }
+  ).map((goal) => goal.playerName),
+  ["Aymen Hussein"]
+);
+assert.deepEqual(
+  enrichGoalsWithRoster(
+    [
+      {
+        ...baseGoal,
+        externalGoalId: "norway-goal",
+        playerName: "L. Ostigard",
+        nationalTeam: "Norway",
+        sourcePlayerName: "L. Ostigard",
+        sourceTeamName: "Norway",
+        source: "api-football",
+        matchLabel: "Iraq 1-4 Norway"
+      }
+    ],
+    legacyNormalizedNorwayRosterSnapshot,
+    { strictSources: ["api-football"] }
+  ).map((goal) => [goal.playerName, goal.teamId]),
+  [["Leo Østigård", "norway"]]
+);
+assert.throws(
+  () =>
+    enrichGoalsWithRoster(
+      [
+        {
+          ...baseGoal,
+          externalGoalId: "ambiguous-norway-goal",
+          playerName: "L. Ostigard",
+          nationalTeam: "Norway",
+          sourcePlayerName: "L. Ostigard",
+          sourceTeamName: "Norway",
+          source: "api-football",
+          matchLabel: "Iraq 1-4 Norway"
+        }
+      ],
+      ambiguousNorwayRosterSnapshot,
+      { strictSources: ["api-football"] }
+    ),
+  /Roster-Match fehlgeschlagen/
+);
+assert.deepEqual(
+  enrichGoalsWithRoster(
+    [
+      {
+        ...baseGoal,
+        externalGoalId: "egypt-own-goal",
+        playerName: "M. Hany",
+        nationalTeam: "Belgium",
+        sourcePlayerName: "M. Hany",
+        sourceTeamName: "Belgium",
+        source: "api-football",
+        detail: "own-goal",
+        matchLabel: "Belgium 1-1 Egypt"
+      },
+      {
+        ...baseGoal,
+        externalGoalId: "saudi-goal",
+        playerName: "A. Al Amri",
+        nationalTeam: "Saudi Arabia",
+        sourcePlayerName: "A. Al Amri",
+        sourceTeamName: "Saudi Arabia",
+        source: "api-football",
+        matchLabel: "Saudi Arabia 1-0 Uruguay"
+      }
+    ],
+    apiResolverRosterSnapshot,
+    { strictSources: ["api-football"] }
+  ).map((goal) => [goal.playerName, goal.nationalTeam, goal.teamId, goal.detail]),
+  [
+    ["Mohamed Hany", "Egypt", "egypt", "own-goal"],
+    ["Abdulelah Al-Amri", "Saudi Arabia", "saudi-arabia", "normal"]
+  ]
+);
+assert.deepEqual(
+  buildScorers(apiAbbreviatedRosterGoals, teams, rosterSnapshot).map((scorer) => [
+    scorer.playerName,
+    scorer.nationalTeam,
+    scorer.goals
+  ]),
+  [["Yasin Ayari", "Schweden", 2]]
+);
+
+const validation = validateGoals([
+  baseGoal,
+  { ...baseGoal },
+  { ...baseGoal, externalGoalId: "invalid-minute", minute: 200 }
+]);
+
+assert.equal(validation.validGoals.length, 1);
+assert.deepEqual(
+  validation.skippedGoals.map((item) => item.reason),
+  ["duplicate-goal", "invalid-minute"]
+);
+
+
+console.log("Domain roster resolver tests passed.");
+
+

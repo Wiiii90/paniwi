@@ -4,11 +4,11 @@ import {
   groupMatchesBySection,
   groupSelectedParticipantsBySide,
   type MatchSectionKey
-} from "../../domain/matchSections";
+} from "../../domain/matchGrouping";
 import type { MatchParticipantRecord, MatchParticipationStatus, MatchRecord } from "../../domain/types";
 import { TeamFlag } from "../components/TeamFlag";
-import { formatGoalMinute } from "../formatGoal";
-import { formatKickoff, formatMatchScore } from "../matchDisplay";
+import { formatGoalMinute } from "../formatters/goalFormat";
+import { formatKickoff, formatMatchScore } from "../formatters/matchFormat";
 
 type MatchesPageProps = {
   matches: MatchRecord[];
