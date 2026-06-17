@@ -1335,6 +1335,12 @@ h2 {
   color: var(--color-primary);
 }
 
+.match-goal-side .match-goal-chip-own-goal {
+  background: rgba(215, 38, 56, 0.06);
+  border-color: rgba(215, 38, 56, 0.55);
+  color: var(--color-accent);
+}
+
 .match-lineup {
   background: var(--color-surface-muted);
   border: 1px solid var(--color-border);
@@ -1513,7 +1519,8 @@ h2 {
   border-color: rgba(180, 83, 9, 0.45);
 }
 
-.lineup-chip-subbed-out {
+.lineup-chip-subbed-out,
+.lineup-chip-subbed-in-out {
   border-color: rgba(215, 38, 56, 0.5);
 }
 

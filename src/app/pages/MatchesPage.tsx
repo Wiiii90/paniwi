@@ -48,6 +48,8 @@ function formatParticipationStatus(status: MatchParticipationStatus, matchStatus
       return "eingewechselt";
     case "subbed-out":
       return "ausgewechselt";
+    case "subbed-in-out":
+      return "ein- und ausgewechselt";
     case "unknown":
       return "offen";
   }
@@ -186,23 +188,50 @@ function MatchSection({
                   <div className="match-goals">
                     <div className="match-goal-side match-goal-side-home">
                       {goalsBySide.home.map((goal) => (
-                        <span className={pointGoalIds.has(goal.externalGoalId) ? "match-goal-chip-scored" : undefined} key={goal.externalGoalId}>
+                        <span
+                          className={[
+                            pointGoalIds.has(goal.externalGoalId) ? "match-goal-chip-scored" : "",
+                            goal.detail === "own-goal" ? "match-goal-chip-own-goal" : ""
+                          ]
+                            .filter(Boolean)
+                            .join(" ")}
+                          key={goal.externalGoalId}
+                        >
                           {formatGoalMinute(goal)} {goal.playerName}
+                          {goal.detail === "own-goal" ? " Eigentor" : ""}
                         </span>
                       ))}
                     </div>
                     <div className="match-goal-side match-goal-side-away">
                       {goalsBySide.away.map((goal) => (
-                        <span className={pointGoalIds.has(goal.externalGoalId) ? "match-goal-chip-scored" : undefined} key={goal.externalGoalId}>
+                        <span
+                          className={[
+                            pointGoalIds.has(goal.externalGoalId) ? "match-goal-chip-scored" : "",
+                            goal.detail === "own-goal" ? "match-goal-chip-own-goal" : ""
+                          ]
+                            .filter(Boolean)
+                            .join(" ")}
+                          key={goal.externalGoalId}
+                        >
                           {formatGoalMinute(goal)} {goal.playerName}
+                          {goal.detail === "own-goal" ? " Eigentor" : ""}
                         </span>
                       ))}
                     </div>
                     {goalsBySide.unknown.length > 0 ? (
                       <div className="match-goal-side match-goal-side-unknown">
                         {goalsBySide.unknown.map((goal) => (
-                          <span className={pointGoalIds.has(goal.externalGoalId) ? "match-goal-chip-scored" : undefined} key={goal.externalGoalId}>
+                          <span
+                            className={[
+                              pointGoalIds.has(goal.externalGoalId) ? "match-goal-chip-scored" : "",
+                              goal.detail === "own-goal" ? "match-goal-chip-own-goal" : ""
+                            ]
+                              .filter(Boolean)
+                              .join(" ")}
+                            key={goal.externalGoalId}
+                          >
                             {formatGoalMinute(goal)} {goal.playerName}
+                            {goal.detail === "own-goal" ? " Eigentor" : ""}
                           </span>
                         ))}
                       </div>

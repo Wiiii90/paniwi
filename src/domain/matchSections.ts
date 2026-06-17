@@ -74,8 +74,34 @@ export function getMatchSide(match: MatchRecord, teamName: string | undefined, t
   return "unknown";
 }
 
+function getOppositeSide(side: MatchSide): MatchSide {
+  if (side === "home") {
+    return "away";
+  }
+
+  if (side === "away") {
+    return "home";
+  }
+
+  return "unknown";
+}
+
+function getGoalDisplaySide(match: MatchRecord, goal: GoalRecord): MatchSide {
+  if (goal.detail !== "own-goal") {
+    return getMatchSide(match, goal.nationalTeam, goal.teamId);
+  }
+
+  const sourceTeamSide = getMatchSide(match, goal.sourceTeamName, undefined);
+  const scorerSide = getMatchSide(match, goal.nationalTeam, goal.teamId);
+  if (sourceTeamSide !== "unknown" && sourceTeamSide !== scorerSide) {
+    return sourceTeamSide;
+  }
+
+  return getOppositeSide(scorerSide);
+}
+
 export function groupGoalsBySide(match: MatchRecord): Record<MatchSide, GoalRecord[]> {
-  return groupBySide(match.goals, (goal) => getMatchSide(match, goal.nationalTeam, goal.teamId));
+  return groupBySide(match.goals, (goal) => getGoalDisplaySide(match, goal));
 }
 
 export function groupSelectedParticipantsBySide(match: MatchRecord): Record<MatchSide, MatchParticipantRecord[]> {

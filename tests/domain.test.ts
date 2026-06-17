@@ -11,6 +11,7 @@ import { enrichGoalsWithRoster } from "../src/domain/rosterResolver";
 import { getGoalPoints, matchesPlayer } from "../src/domain/scoring";
 import { sortGoalsChronologically } from "../src/domain/sortGoals";
 import { getLatestFinishedMatches, getTodayOrLiveMatches } from "../src/domain/matchFilters";
+import { groupGoalsBySide } from "../src/domain/matchSections";
 import type { GoalRecord, ParticipantTeam } from "../src/domain/types";
 import type { RosterSnapshot } from "../src/domain/rosterTypes";
 import { normalizeGoals } from "../src/sync/normalizeGoals";
@@ -299,6 +300,87 @@ assert.deepEqual(
     ["Spanien", "Kap Verde", "live", 0]
   ]
 );
+
+const ownGoalDisplayMatch = buildMatches(
+  [
+    {
+      ...baseGoal,
+      externalGoalId: "own-goal-display",
+      playerName: "Own Goal Player",
+      nationalTeam: "Away Team",
+      teamId: "tunisia",
+      sourceTeamName: "Home Team",
+      detail: "own-goal",
+      matchId: "api-football:own-goal-fixture",
+      fixtureId: "own-goal-fixture"
+    }
+  ],
+  [],
+  [
+    {
+      source: "api-football",
+      matchId: "api-football:own-goal-fixture",
+      fixtureId: "own-goal-fixture",
+      label: "Sweden 1-0 Tunisia",
+      kickedOffAt: "2026-06-15T02:00:00+00:00",
+      status: "finished",
+      homeTeam: { name: "Sweden", score: 1 },
+      awayTeam: { name: "Tunisia", score: 0 }
+    }
+  ]
+);
+const ownGoalsBySide = groupGoalsBySide(ownGoalDisplayMatch[0]);
+assert.deepEqual(
+  [ownGoalsBySide.home.map((goal) => goal.externalGoalId), ownGoalsBySide.away.map((goal) => goal.externalGoalId)],
+  [["own-goal-display"], []]
+);
+
+const participantStatusMatch = buildMatches(
+  [],
+  [],
+  [
+    {
+      source: "api-football",
+      matchId: "api-football:participant-status",
+      fixtureId: "participant-status",
+      label: "Sweden 0-0 Tunisia",
+      kickedOffAt: "2026-06-15T02:00:00+00:00",
+      status: "finished",
+      homeTeam: { name: "Sweden", score: 0 },
+      awayTeam: { name: "Tunisia", score: 0 }
+    }
+  ],
+  [
+    {
+      source: "api-football",
+      matchId: "api-football:participant-status",
+      fixtureId: "participant-status",
+      playerName: "Subbed Player",
+      nationalTeam: "Sweden",
+      teamId: "sweden",
+      status: "bench"
+    },
+    {
+      source: "api-football",
+      matchId: "api-football:participant-status",
+      fixtureId: "participant-status",
+      playerName: "Subbed Player",
+      nationalTeam: "Sweden",
+      teamId: "sweden",
+      status: "subbed-in"
+    },
+    {
+      source: "api-football",
+      matchId: "api-football:participant-status",
+      fixtureId: "participant-status",
+      playerName: "Subbed Player",
+      nationalTeam: "Sweden",
+      teamId: "sweden",
+      status: "subbed-out"
+    }
+  ]
+);
+assert.equal(participantStatusMatch[0].participants[0].status, "subbed-in-out");
 
 const dedupedFixtureMatches = buildMatches(
   [],

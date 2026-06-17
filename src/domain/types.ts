@@ -112,7 +112,7 @@ export type ScorerEntry = {
 
 export type MatchStatus = "scheduled" | "live" | "finished" | "unknown";
 
-export type MatchParticipationStatus = "starter" | "bench" | "subbed-in" | "subbed-out" | "unknown";
+export type MatchParticipationStatus = "starter" | "bench" | "subbed-in" | "subbed-out" | "subbed-in-out" | "unknown";
 
 export type MatchTeam = {
   name: string;

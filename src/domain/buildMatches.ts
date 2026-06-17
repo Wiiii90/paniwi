@@ -204,6 +204,8 @@ function getPickOwners(
 
 function getParticipantStatusRank(status: MatchParticipationStatus): number {
   switch (status) {
+    case "subbed-in-out":
+      return 5;
     case "subbed-out":
       return 4;
     case "subbed-in":
@@ -215,6 +217,23 @@ function getParticipantStatusRank(status: MatchParticipationStatus): number {
     case "unknown":
       return 0;
   }
+}
+
+function mergeParticipantStatus(existing: MatchParticipationStatus, incoming: MatchParticipationStatus): MatchParticipationStatus {
+  if (existing === incoming) {
+    return existing;
+  }
+
+  if (
+    existing === "subbed-in-out" ||
+    (existing === "subbed-in" && incoming === "subbed-out") ||
+    (existing === "subbed-out" && incoming === "subbed-in") ||
+    (existing === "bench" && incoming === "subbed-out")
+  ) {
+    return "subbed-in-out";
+  }
+
+  return getParticipantStatusRank(incoming) > getParticipantStatusRank(existing) ? incoming : existing;
 }
 
 function buildParticipantMergeKey(participant: ExternalMatchParticipantRecord): string {
@@ -281,8 +300,14 @@ function dedupeParticipants(participants: ExternalMatchParticipantRecord[]): Ext
   for (const participant of participants) {
     const key = buildParticipantMergeKey(participant);
     const existing = participantsByKey.get(key);
-    if (!existing || getParticipantStatusRank(participant.status) > getParticipantStatusRank(existing.status)) {
+    if (!existing) {
       participantsByKey.set(key, participant);
+      continue;
+    }
+
+    const status = mergeParticipantStatus(existing.status, participant.status);
+    if (status !== existing.status || getParticipantStatusRank(participant.status) > getParticipantStatusRank(existing.status)) {
+      participantsByKey.set(key, { ...existing, ...participant, status });
     }
   }
 
