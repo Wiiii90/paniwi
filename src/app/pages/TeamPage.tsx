@@ -1,4 +1,5 @@
 import { teams } from "../../config/teams";
+import { getTeamFlagUrl } from "../../config/teamCatalog";
 import { buildPlayerScores } from "../../domain/buildLeaderboard";
 import { sortGoalsChronologically } from "../../domain/sortGoals";
 import type { MatchRecord, ScoredGoal } from "../../domain/types";
@@ -51,6 +52,15 @@ function getRosterStatusClassName(status: PickStatusEntry["displayStatus"] | und
   return "muted";
 }
 
+function TeamFlag({ teamName }: { teamName: string }) {
+  const flagUrl = getTeamFlagUrl(teamName);
+  if (!flagUrl) {
+    return null;
+  }
+
+  return <img alt="" aria-hidden="true" className="match-team-flag team-roster-flag" loading="lazy" src={flagUrl} />;
+}
+
 export function TeamPage({ owner, goals, matches, pickStatuses, rosters }: TeamPageProps) {
   const baseUrl = import.meta.env.BASE_URL;
   const team = teams.find((candidate) => candidate.owner.toLowerCase() === owner.toLowerCase());
@@ -97,7 +107,10 @@ export function TeamPage({ owner, goals, matches, pickStatuses, rosters }: TeamP
         {playerRows.map((player) => (
           <div className="player-grid player-row" key={`${player.name}-${player.nationalTeam}`}>
             <strong>{player.name}</strong>
-            <span data-label="Land">{player.nationalTeam}</span>
+            <span className="team-roster-country" data-label="Land">
+              <TeamFlag teamName={player.nationalTeam} />
+              <span>{player.nationalTeam}</span>
+            </span>
             <span className={getRosterStatusClassName(player.rosterStatus)} data-label="Kader">
               {formatRosterStatus(player.rosterStatus, player.position)}
             </span>

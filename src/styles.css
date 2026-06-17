@@ -941,6 +941,24 @@ h2 {
   min-height: 50px;
 }
 
+.team-roster-country {
+  align-items: center;
+  display: inline-flex;
+  gap: 7px;
+  min-width: 0;
+}
+
+.team-roster-country > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.team-roster-flag {
+  height: 14px;
+  width: 20px;
+}
+
 .leaderboard-row {
   min-height: 50px;
 }
