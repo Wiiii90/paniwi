@@ -6937,14 +6937,16 @@
   },
   {
     "matchId": "api-football:1489381",
-    "label": "Argentina vs Algeria",
+    "label": "Argentina 0-0 Algeria",
     "kickedOffAt": "2026-06-17T01:00:00+00:00",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
-      "name": "Argentinien"
+      "name": "Argentinien",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Algerien"
+      "name": "Algerien",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
