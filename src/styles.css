@@ -421,7 +421,7 @@ h2 {
   outline: none;
 }
 
-.mini-row span:first-child {
+.mini-row > span:first-child {
   display: grid;
   gap: 2px;
   min-width: 0;
@@ -465,7 +465,13 @@ h2 {
 
 .match-impact-line {
   color: var(--color-text);
+  display: -webkit-box;
   font-weight: 800;
+  line-height: 1.22;
+  min-height: 1.22em;
+  white-space: normal;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .match-name-line {
@@ -484,6 +490,7 @@ h2 {
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 100%;
   white-space: nowrap;
 }
 
@@ -492,6 +499,7 @@ h2 {
   display: inline-flex;
   gap: 5px;
   min-width: 0;
+  overflow: hidden;
 }
 
 .home-match-team > span {
@@ -503,6 +511,20 @@ h2 {
 .home-match-flag {
   height: 13px;
   width: 18px;
+}
+
+.home-flagged-name {
+  align-items: center;
+  display: inline-flex;
+  gap: 7px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.home-flagged-name > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .live-dot {

@@ -53,11 +53,20 @@ function TeamFlag({ teamName }: { teamName: string }) {
   return <img alt="" aria-hidden="true" className="match-team-flag home-match-flag" loading="lazy" src={flagUrl} />;
 }
 
+function FlaggedName({ name, teamName }: { name: string; teamName: string }) {
+  return (
+    <span className="home-flagged-name">
+      <TeamFlag teamName={teamName} />
+      <span>{name}</span>
+    </span>
+  );
+}
+
 export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps) {
   const baseUrl = import.meta.env.BASE_URL;
   const latestGoals = goals.slice().reverse();
   const latestPointGoals = latestGoals.slice(0, 3);
-  const topScorers = scorers.slice(0, 3);
+  const topScorers = scorers.slice(0, 4);
   const tableLeaders = leaderboard.slice(0, 3);
   const currentMatches = getLiveAndUpcomingMatches(matches, new Date(), 3);
   return (
@@ -95,7 +104,9 @@ export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps
               latestPointGoals.map((goal) => (
                 <div className="mini-row" key={`${goal.externalGoalId}-${goal.owner}`}>
                   <span>
-                    <strong>{goal.displayPlayerName} · {goal.displayNationalTeam}</strong>
+                    <strong>
+                      <FlaggedName name={goal.displayPlayerName} teamName={goal.displayNationalTeam} />
+                    </strong>
                     <small>{goal.owner}</small>
                   </span>
                   <span>{goal.points} Punkte</span>
@@ -116,7 +127,9 @@ export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps
               topScorers.map((scorer) => (
                 <div className="mini-row" key={`${scorer.normalizedPlayerName}-${scorer.nationalTeam}`}>
                   <span>
-                    <strong>{scorer.playerName}</strong>
+                    <strong>
+                      <FlaggedName name={scorer.playerName} teamName={scorer.nationalTeam} />
+                    </strong>
                     <small>{scorer.nationalTeam}</small>
                   </span>
                   <span>{scorer.goals} Tore</span>
