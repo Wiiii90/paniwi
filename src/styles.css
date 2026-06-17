@@ -1062,11 +1062,11 @@ h2 {
 
 .match-section > .section-heading .live-chip {
   background: rgba(255, 255, 255, 0.96);
-  color: var(--color-danger);
+  color: var(--color-accent);
 }
 
 .match-section > .section-heading .live-chip-text {
-  color: var(--color-danger);
+  color: var(--color-accent);
 }
 
 .match-list {
