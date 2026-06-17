@@ -107,6 +107,7 @@ const scheduledFixtureStatuses = new Set(["NS", "TBD"]);
 const preMatchLineupMinutesBefore = 60;
 const preMatchLineupEndMinutesBefore = 5;
 const liveWindowMinutesAfterKickoff = 120;
+const staleLiveFixtureMaxMinutesAfterKickoff = 180;
 const expectedMatchMinutes = 105;
 const postMatchWindowOffsets = [15, 60, 120] as const;
 const postMatchWindowDurationMinutes = 30;
@@ -403,7 +404,16 @@ function getFixtureLabel(fixture: ApiFootballFixture, fixtureId: string): string
   return `Fixture ${fixtureId}`;
 }
 
-function mapFixtureStatus(fixture: ApiFootballFixture): MatchStatus {
+function isStaleLiveFixture(fixture: ApiFootballFixture, now: Date): boolean {
+  const kickoffMs = getFixtureKickoffMs(fixture);
+  if (!kickoffMs) {
+    return false;
+  }
+
+  return now.getTime() > kickoffMs + staleLiveFixtureMaxMinutesAfterKickoff * 60 * 1000;
+}
+
+function mapFixtureStatus(fixture: ApiFootballFixture, now: Date = new Date()): MatchStatus {
   const status = fixture.fixture?.status?.short;
   if (!status) {
     return "unknown";
@@ -414,6 +424,10 @@ function mapFixtureStatus(fixture: ApiFootballFixture): MatchStatus {
   }
 
   if (liveFixtureStatuses.has(status)) {
+    if (isStaleLiveFixture(fixture, now)) {
+      return "finished";
+    }
+
     return "live";
   }
 
@@ -440,7 +454,7 @@ function fixtureHasPickedTeam(fixture: ApiFootballFixture): boolean {
   return Boolean((homeTeamId && pickedTeamIds.has(homeTeamId)) || (awayTeamId && pickedTeamIds.has(awayTeamId)));
 }
 
-export function parseApiFootballFixture(fixture: ApiFootballFixture): ExternalMatchRecord | null {
+export function parseApiFootballFixture(fixture: ApiFootballFixture, now: Date = new Date()): ExternalMatchRecord | null {
   const fixtureId = getFixtureId(fixture);
   const homeTeam = fixture.teams?.home?.name?.trim();
   const awayTeam = fixture.teams?.away?.name?.trim();
@@ -454,7 +468,7 @@ export function parseApiFootballFixture(fixture: ApiFootballFixture): ExternalMa
     fixtureId,
     label: getFixtureLabel(fixture, fixtureId),
     kickedOffAt: fixture.fixture?.date,
-    status: mapFixtureStatus(fixture),
+    status: mapFixtureStatus(fixture, now),
     homeTeam: {
       id: fixture.teams?.home?.id,
       name: homeTeam,

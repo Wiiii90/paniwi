@@ -757,6 +757,25 @@ assert.deepEqual(parseApiFootballFixture(worldCupFixtures[1]), {
   homeTeam: { id: undefined, name: "Belgium", score: undefined },
   awayTeam: { id: undefined, name: "Egypt", score: undefined }
 });
+assert.equal(
+  parseApiFootballFixture(
+    {
+      fixture: {
+        id: 1539016,
+        date: "2026-06-16T22:00:00+00:00",
+        status: { short: "2H" }
+      },
+      league: { id: 1, name: "World Cup", season: 2026 },
+      teams: {
+        home: { name: "Iraq" },
+        away: { name: "Norway" }
+      },
+      goals: { home: 1, away: 2 }
+    },
+    new Date("2026-06-17T01:05:00.000Z")
+  )?.status,
+  "finished"
+);
 
 const apiFootballFixtureGoals = parseApiFootballEvents(
   "1539002",
