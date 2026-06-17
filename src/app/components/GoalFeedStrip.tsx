@@ -1,8 +1,8 @@
 import { useMemo, useRef } from "react";
 import type { ScoredGoal } from "../../domain/goalTypes";
+import { buildRunningGoalScores } from "../../domain/matchGrouping";
 import type { MatchRecord } from "../../domain/matchTypes";
 import { formatGoalMinute } from "../formatters/goalFormat";
-import { formatMatchScore } from "../formatters/matchFormat";
 import { TeamFlag } from "./TeamFlag";
 
 type GoalFeedStripProps = {
@@ -36,6 +36,14 @@ function formatGoalDate(goal: ScoredGoal): string {
   return dateLabel;
 }
 
+function formatGoalMatchLabel(goal: ScoredGoal, match: MatchRecord | undefined): string {
+  if (match) {
+    return `${match.homeTeam.name} - ${match.awayTeam.name}`;
+  }
+
+  return goal.matchLabel?.replace(/\s+\d+\s*[-–—]\s*\d+\s+/u, " - ") ?? "Spiel offen";
+}
+
 export function GoalFeedStrip({ goals, matches, title }: GoalFeedStripProps) {
   const feedStripRef = useRef<HTMLDivElement>(null);
   const feedDragRef = useRef({ isDragging: false, startX: 0, scrollLeft: 0 });
@@ -43,6 +51,13 @@ export function GoalFeedStrip({ goals, matches, title }: GoalFeedStripProps) {
     const index = new Map<string, MatchRecord>();
     for (const match of matches) {
       index.set(match.matchId, match);
+    }
+    return index;
+  }, [matches]);
+  const runningScoresByMatch = useMemo(() => {
+    const index = new Map<string, Map<string, string>>();
+    for (const match of matches) {
+      index.set(match.matchId, buildRunningGoalScores(match));
     }
     return index;
   }, [matches]);
@@ -103,6 +118,7 @@ export function GoalFeedStrip({ goals, matches, title }: GoalFeedStripProps) {
       >
         {goals.map((goal) => {
           const match = goal.matchId ? matchById.get(goal.matchId) : undefined;
+          const runningScore = goal.matchId ? runningScoresByMatch.get(goal.matchId)?.get(goal.externalGoalId) : undefined;
 
           return (
             <article className="feed-chip" key={`feed-${goal.externalGoalId}-${goal.owner}`}>
@@ -115,7 +131,7 @@ export function GoalFeedStrip({ goals, matches, title }: GoalFeedStripProps) {
                 <span>{goal.displayPlayerName}</span>
               </strong>
               <span>
-                {formatGoalMinute(goal)} · {goal.matchLabel ?? "Spiel offen"} · {formatMatchScore(match)}
+                {formatGoalMinute(goal)} · {runningScore ? `${runningScore} · ` : ""}{formatGoalMatchLabel(goal, match)}
               </span>
             </article>
           );

@@ -105,6 +105,52 @@ export function groupGoalsBySide(match: MatchRecord): Record<MatchSide, GoalReco
   return groupBySide(match.goals, (goal) => getGoalDisplaySide(match, goal));
 }
 
+function getGoalEventOrder(goal: GoalRecord): number {
+  if (goal.source !== "api-football") {
+    return Number.MAX_SAFE_INTEGER;
+  }
+
+  const eventOrder = goal.externalGoalId.match(/:(\d+)$/)?.[1];
+  return eventOrder ? Number(eventOrder) : Number.MAX_SAFE_INTEGER;
+}
+
+function sortMatchGoalsForRunningScore(goals: GoalRecord[]): GoalRecord[] {
+  return [...goals].sort((left, right) => {
+    const minuteDiff = (left.minute ?? 999) - (right.minute ?? 999);
+    if (minuteDiff !== 0) {
+      return minuteDiff;
+    }
+
+    const orderDiff = getGoalEventOrder(left) - getGoalEventOrder(right);
+    if (orderDiff !== 0) {
+      return orderDiff;
+    }
+
+    return left.externalGoalId.localeCompare(right.externalGoalId);
+  });
+}
+
+export function buildRunningGoalScores(match: MatchRecord): Map<string, string> {
+  const scores = new Map<string, string>();
+  let homeScore = 0;
+  let awayScore = 0;
+
+  for (const goal of sortMatchGoalsForRunningScore(match.goals)) {
+    const side = getGoalDisplaySide(match, goal);
+    if (side === "home") {
+      homeScore += 1;
+    } else if (side === "away") {
+      awayScore += 1;
+    }
+
+    if (side !== "unknown") {
+      scores.set(goal.externalGoalId, `${homeScore}:${awayScore}`);
+    }
+  }
+
+  return scores;
+}
+
 export function groupSelectedParticipantsBySide(match: MatchRecord): Record<MatchSide, MatchParticipantRecord[]> {
   return groupBySide(
     match.participants.filter((participant) => participant.selected),

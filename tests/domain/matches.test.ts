@@ -11,7 +11,7 @@ import { enrichGoalsWithRoster } from "../../src/domain/rosterResolver";
 import { getGoalPoints, matchesPlayer } from "../../src/domain/scoring";
 import { sortGoalsChronologically } from "../../src/domain/sortGoals";
 import { getLatestFinishedMatches, getTodayOrLiveMatches } from "../../src/domain/matchFilters";
-import { groupGoalsBySide } from "../../src/domain/matchGrouping";
+import { buildRunningGoalScores, groupGoalsBySide } from "../../src/domain/matchGrouping";
 import type { GoalRecord } from "../../src/domain/goalTypes";
 import type { ParticipantTeam } from "../../src/domain/participantTypes";
 import type { RosterSnapshot } from "../../src/domain/rosterTypes";
@@ -159,6 +159,78 @@ const participantStatusMatch = buildMatches(
   ]
 );
 assert.equal(participantStatusMatch[0].participants[0].status, "subbed-in-out");
+
+const runningScoreMatch = buildMatches(
+  [
+    {
+      ...baseGoal,
+      externalGoalId: "api-football:running:away:29:Normal Goal:0",
+      playerName: "Away Scorer",
+      nationalTeam: "Norway",
+      teamId: "norway",
+      sourceTeamName: "Norway",
+      detail: "normal",
+      minute: 29,
+      matchId: "api-football:running",
+      fixtureId: "running"
+    },
+    {
+      ...baseGoal,
+      externalGoalId: "api-football:running:home:39:Normal Goal:1",
+      playerName: "Home Scorer",
+      nationalTeam: "Iraq",
+      teamId: "iraq",
+      sourceTeamName: "Iraq",
+      detail: "normal",
+      minute: 39,
+      matchId: "api-football:running",
+      fixtureId: "running"
+    },
+    {
+      ...baseGoal,
+      externalGoalId: "api-football:running:away:43:Normal Goal:2",
+      playerName: "Away Scorer",
+      nationalTeam: "Norway",
+      teamId: "norway",
+      sourceTeamName: "Norway",
+      detail: "normal",
+      minute: 43,
+      matchId: "api-football:running",
+      fixtureId: "running"
+    },
+    {
+      ...baseGoal,
+      externalGoalId: "api-football:running:home:90:Own Goal:3",
+      playerName: "Home Own Goal",
+      nationalTeam: "Iraq",
+      teamId: "iraq",
+      sourceTeamName: "Norway",
+      detail: "own-goal",
+      minute: 90,
+      matchId: "api-football:running",
+      fixtureId: "running"
+    }
+  ],
+  [],
+  [
+    {
+      source: "api-football",
+      matchId: "api-football:running",
+      fixtureId: "running",
+      label: "Iraq 1-3 Norway",
+      kickedOffAt: "2026-06-16T22:00:00+00:00",
+      status: "finished",
+      homeTeam: { name: "Iraq", score: 1 },
+      awayTeam: { name: "Norway", score: 3 }
+    }
+  ]
+)[0];
+assert.deepEqual([...buildRunningGoalScores(runningScoreMatch)], [
+  ["api-football:running:away:29:Normal Goal:0", "0:1"],
+  ["api-football:running:home:39:Normal Goal:1", "1:1"],
+  ["api-football:running:away:43:Normal Goal:2", "1:2"],
+  ["api-football:running:home:90:Own Goal:3", "1:3"]
+]);
 
 const dedupedFixtureMatches = buildMatches(
   [],
