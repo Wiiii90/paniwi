@@ -1065,6 +1065,10 @@ h2 {
   color: var(--color-danger);
 }
 
+.match-section > .section-heading .live-chip-text {
+  color: var(--color-danger);
+}
+
 .match-list {
   gap: 0;
 }
@@ -1193,7 +1197,6 @@ h2 {
   text-align: center;
 }
 
-.match-card-live .match-card-status > strong,
 .match-card-live .match-card-score {
   color: var(--color-accent);
 }
