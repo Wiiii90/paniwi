@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import type { PickStatusSnapshot } from "../src/domain/pickStatusTypes";
-import type { ParticipantTeam } from "../src/domain/types";
+import type { ParticipantTeam } from "../src/domain/participantTypes";
 import { buildPickStatusSnapshot } from "../src/sync/pickStatuses";
 import { buildRosterSnapshot } from "../src/sync/syncRosters";
 import { parseWikipediaSquads } from "../src/sync/sources/wikipediaRosterSource";

@@ -1,4 +1,5 @@
-import type { GoalRecord, ParticipantTeam, ScorerEntry } from "./types";
+import type { GoalRecord, ScorerEntry } from "./goalTypes";
+import type { ParticipantTeam } from "./participantTypes";
 import { matchesParticipantPickGoal } from "./participantPick";
 import { normalizePlayerName } from "./normalizePlayerName";
 import { resolveRosterPlayerForGoal } from "./rosterResolver";

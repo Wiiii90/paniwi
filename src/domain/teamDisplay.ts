@@ -1,6 +1,6 @@
 import { getTeamCatalogEntry } from "../config/teamCatalog";
 import { resolveTeamFromApiFootball, resolveTeamFromWikipedia } from "./teamResolver";
-import type { SourceName } from "./types";
+import type { SourceName } from "./goalTypes";
 
 export function getTeamDisplayName(teamId: string, fallbackName?: string): string {
   return getTeamCatalogEntry(teamId)?.displayName ?? fallbackName ?? teamId;

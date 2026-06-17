@@ -1,14 +1,13 @@
+import type { GoalRecord, ScoredGoal } from "./goalTypes";
 import type {
   ExternalMatchParticipantRecord,
   ExternalMatchRecord,
-  GoalRecord,
   MatchParticipantRecord,
   MatchParticipationStatus,
   MatchRecord,
-  MatchTeam,
-  ParticipantTeam,
-  ScoredGoal
-} from "./types";
+  MatchTeam
+} from "./matchTypes";
+import type { ParticipantTeam } from "./participantTypes";
 import type { RosterSnapshot } from "./rosterTypes";
 import { sortGoalsChronologically } from "./sortGoals";
 import { getTeamDisplayName, resolveTeamDisplayName } from "./teamDisplay";

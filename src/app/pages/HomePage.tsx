@@ -1,5 +1,8 @@
-import type { LeaderboardEntry, MatchRecord, ScoredGoal, ScorerEntry } from "../../domain/types";
+import type { ScoredGoal, ScorerEntry } from "../../domain/goalTypes";
+import type { MatchRecord } from "../../domain/matchTypes";
+import type { LeaderboardEntry } from "../../domain/participantTypes";
 import { getLiveAndUpcomingMatches } from "../../domain/matchFilters";
+import { sortGoalsChronologically } from "../../domain/sortGoals";
 import { GoalFeedStrip } from "../components/GoalFeedStrip";
 import { TeamFlag } from "../components/TeamFlag";
 import { formatKickoff, formatMatchScore } from "../formatters/matchFormat";
@@ -33,7 +36,7 @@ function FlaggedName({ name, teamName }: { name: string; teamName: string }) {
 
 export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps) {
   const baseUrl = import.meta.env.BASE_URL;
-  const latestGoals = goals.slice().reverse();
+  const latestGoals = sortGoalsChronologically(goals).reverse();
   const topOwnedScorers = scorers.filter((scorer) => scorer.selected).slice(0, 3);
   const topScorers = scorers.slice(0, 4);
   const tableLeaders = leaderboard.slice(0, 3);

@@ -1,6 +1,6 @@
 import { appendFile, readFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
-import type { StaticMeta } from "../domain/types";
+import type { StaticMeta } from "../domain/staticMeta";
 import { evaluateSyncWindow } from "./evaluateSyncWindow";
 import { getUpcomingSyncWindows } from "./syncSchedule";
 import { syncGoals } from "./syncGoals";

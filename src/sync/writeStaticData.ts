@@ -1,15 +1,9 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
-import type {
-  ExternalMatchRecord,
-  ExternalMatchParticipantRecord,
-  GoalRecord,
-  LeaderboardEntry,
-  MatchRecord,
-  ScoredGoal,
-  ScorerEntry,
-  StaticMeta
-} from "../domain/types";
+import type { GoalRecord, ScoredGoal, ScorerEntry } from "../domain/goalTypes";
+import type { ExternalMatchParticipantRecord, ExternalMatchRecord, MatchRecord } from "../domain/matchTypes";
+import type { LeaderboardEntry } from "../domain/participantTypes";
+import type { StaticMeta } from "../domain/staticMeta";
 
 type StaticPayload = {
   leaderboard: LeaderboardEntry[];

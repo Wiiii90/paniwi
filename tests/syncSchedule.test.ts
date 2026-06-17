@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
-import type { StaticMeta } from "../src/domain/types";
+import type { StaticMeta } from "../src/domain/staticMeta";
 import { evaluateSyncWindow } from "../src/sync/evaluateSyncWindow";
-import { shouldFetchFixtureEventsForPhase, shouldFetchFixtureLineups, type ApiFootballFixture } from "../src/sync/sources/apiFootballSource";
+import { shouldFetchFixtureEventsForPhase, shouldFetchFixtureLineups, type ApiFootballFixture } from "../src/sync/sources/apiFootball/fixtures";
 import { buildSyncWindowsForKickoff, getActiveSyncWindow, getLastScheduledWindow, getSettlementWindow, syncPolicy } from "../src/sync/syncSchedule";
 
 const sampleKickoff = {

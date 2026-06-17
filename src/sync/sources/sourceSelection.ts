@@ -1,5 +1,5 @@
-import type { SourceName } from "../../domain/types";
-import { apiFootballSource } from "./apiFootballSource";
+import type { SourceName } from "../../domain/goalTypes";
+import { apiFootballSource } from "./apiFootball/source";
 import { mockSource } from "./mockSource";
 import type { GoalSource } from "./types";
 import { wikipediaSource } from "./wikipediaSource";

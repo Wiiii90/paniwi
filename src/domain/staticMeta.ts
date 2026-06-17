@@ -1,25 +1,3 @@
-export type {
-  ExternalGoalRecord,
-  GoalDetail,
-  GoalRecord,
-  GoalTimeConfidence,
-  ScoredGoal,
-  ScorerEntry,
-  SourceName
-} from "./goalTypes";
-export type {
-  ExternalMatchParticipantRecord,
-  ExternalMatchRecord,
-  ExternalMatchTeam,
-  FixtureSyncState,
-  MatchParticipantRecord,
-  MatchParticipationStatus,
-  MatchRecord,
-  MatchStatus,
-  MatchTeam
-} from "./matchTypes";
-export type { LeaderboardEntry, ParticipantPick, ParticipantTeam, PlayerScore } from "./participantTypes";
-
 import type { SourceName } from "./goalTypes";
 
 export type StaticMeta = {
@@ -42,3 +20,4 @@ export type StaticMeta = {
   sourceRequestCount?: number;
   sourceRequestLimit?: number;
 };
+

@@ -5,7 +5,7 @@ import {
   groupSelectedParticipantsBySide,
   type MatchSectionKey
 } from "../../domain/matchGrouping";
-import type { MatchParticipantRecord, MatchParticipationStatus, MatchRecord } from "../../domain/types";
+import type { MatchParticipantRecord, MatchParticipationStatus, MatchRecord } from "../../domain/matchTypes";
 import { TeamFlag } from "../components/TeamFlag";
 import { formatGoalMinute } from "../formatters/goalFormat";
 import { formatKickoff, formatMatchScore } from "../formatters/matchFormat";

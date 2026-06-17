@@ -6,7 +6,8 @@ import {
 } from "./participantPick";
 import { getTeamDisplayName } from "./teamDisplay";
 import { resolveGoalTeamId } from "./teamResolver";
-import type { GoalRecord, ParticipantPick, ScoredGoal } from "./types";
+import type { GoalRecord, ScoredGoal } from "./goalTypes";
+import type { ParticipantPick } from "./participantTypes";
 import type { RosterSnapshot } from "./rosterTypes";
 
 export function getGoalPoints(goal: GoalRecord): number {

@@ -2,8 +2,7 @@ import { buildPlayerId } from "./playerId";
 import { normalizePlayerName } from "./normalizePlayerName";
 import { getTeamDisplayName } from "./teamDisplay";
 import { resolveGoalTeamId, resolveTeamFromApiFootball, resolveTeamFromWikipedia } from "./teamResolver";
-import type { SourceName } from "./types";
-import type { GoalRecord } from "./types";
+import type { GoalRecord, SourceName } from "./goalTypes";
 import type { RosterPlayer, RosterSnapshot, RosterTeam } from "./rosterTypes";
 
 export type RosterGoalMatch = {

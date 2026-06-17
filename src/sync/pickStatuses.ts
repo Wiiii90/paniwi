@@ -4,7 +4,7 @@ import { teams } from "../config/teams";
 import { findUniqueRosterPlayer } from "../domain/rosterNameMatcher";
 import { getParticipantPickCandidateNames, getParticipantPickId } from "../domain/participantPick";
 import { getTeamDisplayName } from "../domain/teamDisplay";
-import type { ParticipantTeam } from "../domain/types";
+import type { ParticipantTeam } from "../domain/participantTypes";
 import type { PickDisplayStatus, PickStatusEntry, PickStatusSnapshot } from "../domain/pickStatusTypes";
 import type { RosterSnapshot, RosterStatus, RosterTeam } from "../domain/rosterTypes";
 

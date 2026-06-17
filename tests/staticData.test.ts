@@ -6,16 +6,10 @@ import { buildScorers } from "../src/domain/buildScorers";
 import { sortGoalsChronologically } from "../src/domain/sortGoals";
 import { getTeamDisplayName } from "../src/domain/teamDisplay";
 import type { PickStatusSnapshot } from "../src/domain/pickStatusTypes";
-import type {
-  ExternalMatchParticipantRecord,
-  ExternalMatchRecord,
-  GoalRecord,
-  LeaderboardEntry,
-  MatchRecord,
-  ScoredGoal,
-  ScorerEntry,
-  StaticMeta
-} from "../src/domain/types";
+import type { GoalRecord, ScoredGoal, ScorerEntry } from "../src/domain/goalTypes";
+import type { ExternalMatchParticipantRecord, ExternalMatchRecord, MatchRecord } from "../src/domain/matchTypes";
+import type { LeaderboardEntry } from "../src/domain/participantTypes";
+import type { StaticMeta } from "../src/domain/staticMeta";
 import type { RosterSnapshot } from "../src/domain/rosterTypes";
 import { teams } from "../src/config/teams";
 import { validateGoals } from "../src/sync/validateGoals";

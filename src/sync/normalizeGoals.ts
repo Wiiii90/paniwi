@@ -1,4 +1,4 @@
-import type { ExternalGoalRecord, GoalRecord } from "../domain/types";
+import type { ExternalGoalRecord, GoalRecord } from "../domain/goalTypes";
 import { normalizePlayerName } from "../domain/normalizePlayerName";
 
 function makeExternalGoalId(record: ExternalGoalRecord, index: number): string {

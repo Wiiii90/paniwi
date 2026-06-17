@@ -1,4 +1,5 @@
-import type { GoalRecord, LeaderboardEntry, ParticipantTeam, PlayerScore, ScoredGoal } from "./types";
+import type { GoalRecord, ScoredGoal } from "./goalTypes";
+import type { LeaderboardEntry, ParticipantTeam, PlayerScore } from "./participantTypes";
 import {
   getParticipantPickDisplayName,
   getParticipantPickId,

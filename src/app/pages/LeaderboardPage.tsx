@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import type { PickStatusSnapshot } from "../../domain/pickStatusTypes";
-import type { LeaderboardEntry, ScoredGoal } from "../../domain/types";
+import type { ScoredGoal } from "../../domain/goalTypes";
+import type { LeaderboardEntry } from "../../domain/participantTypes";
 import { useTableSort } from "../useTableSort";
 
 type LeaderboardPageProps = {

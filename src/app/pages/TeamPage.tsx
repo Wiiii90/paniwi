@@ -1,7 +1,8 @@
 import { teams } from "../../config/teams";
 import { buildPlayerScores } from "../../domain/buildLeaderboard";
 import { sortGoalsChronologically } from "../../domain/sortGoals";
-import type { MatchRecord, ScoredGoal } from "../../domain/types";
+import type { ScoredGoal } from "../../domain/goalTypes";
+import type { MatchRecord } from "../../domain/matchTypes";
 import type { PickStatusEntry, PickStatusSnapshot } from "../../domain/pickStatusTypes";
 import type { RosterSnapshot } from "../../domain/rosterTypes";
 import { GoalFeedStrip } from "../components/GoalFeedStrip";

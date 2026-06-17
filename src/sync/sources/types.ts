@@ -1,4 +1,5 @@
-import type { ExternalGoalRecord, ExternalMatchParticipantRecord, ExternalMatchRecord, SourceName } from "../../domain/types";
+import type { ExternalGoalRecord, SourceName } from "../../domain/goalTypes";
+import type { ExternalMatchParticipantRecord, ExternalMatchRecord } from "../../domain/matchTypes";
 
 export type GoalSourceResult = {
   source: SourceName;

@@ -1,4 +1,4 @@
-import type { ParticipantTeam } from "../domain/types";
+import type { ParticipantTeam } from "../domain/participantTypes";
 import { getKnownTeamIds } from "../config/teamCatalog";
 import { getParticipantPickId } from "../domain/participantPick";
 import { normalizePlayerName } from "../domain/normalizePlayerName";

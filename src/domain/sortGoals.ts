@@ -1,4 +1,4 @@
-import type { GoalRecord } from "./types";
+import type { GoalRecord } from "./goalTypes";
 
 const minuteInMs = 60 * 1000;
 

@@ -1,4 +1,4 @@
-import type { MatchRecord } from "../../domain/types";
+import type { MatchRecord } from "../../domain/matchTypes";
 
 export function formatKickoff(value: string | undefined, options: Intl.DateTimeFormatOptions): string {
   if (!value) {

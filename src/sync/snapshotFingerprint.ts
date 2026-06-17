@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
-import type { ExternalMatchParticipantRecord, ExternalMatchRecord, GoalRecord } from "../domain/types";
+import type { GoalRecord } from "../domain/goalTypes";
+import type { ExternalMatchParticipantRecord, ExternalMatchRecord } from "../domain/matchTypes";
 
 export function buildSnapshotFingerprint(
   rawGoals: GoalRecord[],

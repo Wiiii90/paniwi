@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import type { ScorerEntry } from "../../domain/types";
+import type { ScorerEntry } from "../../domain/goalTypes";
 import { teams } from "../../config/teams";
 import { teamCatalog } from "../../config/teamCatalog";
 import { TeamFlag } from "../components/TeamFlag";

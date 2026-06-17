@@ -12,26 +12,31 @@ import { getGoalPoints, matchesPlayer } from "../../src/domain/scoring";
 import { sortGoalsChronologically } from "../../src/domain/sortGoals";
 import { getLatestFinishedMatches, getTodayOrLiveMatches } from "../../src/domain/matchFilters";
 import { groupGoalsBySide } from "../../src/domain/matchGrouping";
-import type { GoalRecord, ParticipantTeam } from "../../src/domain/types";
+import type { GoalRecord } from "../../src/domain/goalTypes";
+import type { ParticipantTeam } from "../../src/domain/participantTypes";
 import type { RosterSnapshot } from "../../src/domain/rosterTypes";
 import { normalizeGoals } from "../../src/sync/normalizeGoals";
+import { getApiFootballLineupRequestLimit, getApiFootballRequestLimit } from "../../src/sync/sources/apiFootball/config";
 import {
   filterWorldCupFixtures,
-  fixtureNeedsGoalEvents,
-  getExistingFixtureIdsWithLineups,
-  getApiFootballRequestLimit,
   getApiFootballDateKeys,
   getLiveCarryoverFixtureIds,
-  getApiFootballLineupRequestLimit,
-  getMissingEventBackfillFixtureIds,
-  getMissingLineupBackfillFixtureIds,
   parseApiFootballFixture,
+  shouldFetchFixtureEvents,
+  type ApiFootballFixture
+} from "../../src/sync/sources/apiFootball/fixtures";
+import {
+  fixtureNeedsGoalEvents,
+  getMissingEventBackfillFixtureIds,
   parseApiFootballEvents,
-  parseApiFootballLineups,
-  parseApiFootballSubstitutions,
-  shouldFetchFixtureEvents
-} from "../../src/sync/sources/apiFootballSource";
-import { apiFootballSource } from "../../src/sync/sources/apiFootballSource";
+  parseApiFootballSubstitutions
+} from "../../src/sync/sources/apiFootball/events";
+import {
+  getExistingFixtureIdsWithLineups,
+  getMissingLineupBackfillFixtureIds,
+  parseApiFootballLineups
+} from "../../src/sync/sources/apiFootball/lineups";
+import { apiFootballSource } from "../../src/sync/sources/apiFootball/source";
 import { getSourcesForMode, parseSyncSourceMode } from "../../src/sync/sources/sourceSelection";
 import { parseWikipediaFootballBoxes, parseWikipediaGoalscorers } from "../../src/sync/sources/wikipediaSource";
 import { buildSourceErrorMeta, mergeGoalSnapshots, mergeParticipantSnapshots } from "../../src/sync/syncGoals";
@@ -939,5 +944,3 @@ try {
 }
 
 console.log("API Football source tests passed.");
-
-

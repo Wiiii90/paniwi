@@ -2,7 +2,8 @@ import { buildPlayerId } from "./playerId";
 import { findUniqueRosterPlayer } from "./rosterNameMatcher";
 import { normalizePlayerName } from "./normalizePlayerName";
 import { resolveGoalTeamId } from "./teamResolver";
-import type { GoalRecord, ParticipantPick } from "./types";
+import type { GoalRecord } from "./goalTypes";
+import type { ParticipantPick } from "./participantTypes";
 import type { PlayerPosition, RosterPlayer, RosterSnapshot } from "./rosterTypes";
 
 function getRosterTeam(snapshot: RosterSnapshot | undefined, teamId: string) {

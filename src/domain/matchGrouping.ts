@@ -1,5 +1,6 @@
 import { resolveKnownTeamId } from "../config/teamCatalog";
-import type { GoalRecord, MatchParticipantRecord, MatchRecord } from "./types";
+import type { GoalRecord } from "./goalTypes";
+import type { MatchParticipantRecord, MatchRecord } from "./matchTypes";
 
 export type MatchSide = "home" | "away" | "unknown";
 export type MatchSectionKey = "live" | "upcoming" | "finished";

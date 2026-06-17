@@ -1,4 +1,5 @@
-import type { GoalRecord, ParticipantTeam } from "../../src/domain/types";
+import type { GoalRecord } from "../../src/domain/goalTypes";
+import type { ParticipantTeam } from "../../src/domain/participantTypes";
 import type { RosterSnapshot } from "../../src/domain/rosterTypes";
 
 export const teams: ParticipantTeam[] = [
@@ -177,4 +178,3 @@ export const ambiguousNorwayRosterSnapshot: RosterSnapshot = {
     }
   ]
 };
-

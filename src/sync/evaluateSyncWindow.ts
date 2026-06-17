@@ -1,4 +1,4 @@
-import type { StaticMeta } from "../domain/types";
+import type { StaticMeta } from "../domain/staticMeta";
 import { getActiveSyncWindow, isTournamentDay, syncPolicy, type SyncWindow } from "./syncSchedule";
 
 export type SyncWindowDecision = {

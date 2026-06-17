@@ -1,4 +1,4 @@
-import type { MatchRecord } from "./types";
+import type { MatchRecord } from "./matchTypes";
 
 function getLocalDateKey(value: Date): string {
   const year = value.getFullYear();

@@ -1,5 +1,6 @@
 import type { GoalSource, GoalSourceResult } from "./types";
-import type { ExternalGoalRecord, ExternalMatchRecord, GoalDetail, MatchStatus } from "../../domain/types";
+import type { ExternalGoalRecord, GoalDetail } from "../../domain/goalTypes";
+import type { ExternalMatchRecord, MatchStatus } from "../../domain/matchTypes";
 import { normalizePlayerName } from "../../domain/normalizePlayerName";
 import { parseKickoffUtc } from "../parseKickoffTime";
 

@@ -1,5 +1,6 @@
 import { useMemo, useRef } from "react";
-import type { MatchRecord, ScoredGoal } from "../../domain/types";
+import type { ScoredGoal } from "../../domain/goalTypes";
+import type { MatchRecord } from "../../domain/matchTypes";
 import { formatGoalMinute } from "../formatters/goalFormat";
 import { formatMatchScore } from "../formatters/matchFormat";
 import { TeamFlag } from "./TeamFlag";

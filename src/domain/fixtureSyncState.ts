@@ -1,5 +1,6 @@
 import { resolveTeamFromApiFootball, resolveTeamFromWikipedia } from "./teamResolver";
-import type { ExternalMatchParticipantRecord, ExternalMatchRecord, FixtureSyncState, GoalRecord } from "./types";
+import type { GoalRecord } from "./goalTypes";
+import type { ExternalMatchParticipantRecord, ExternalMatchRecord, FixtureSyncState } from "./matchTypes";
 
 function getScoreTotal(match: ExternalMatchRecord): number | null {
   if (typeof match.homeTeam.score !== "number" || typeof match.awayTeam.score !== "number") {

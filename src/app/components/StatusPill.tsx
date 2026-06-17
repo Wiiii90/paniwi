@@ -1,4 +1,4 @@
-import type { StaticMeta } from "../../domain/types";
+import type { StaticMeta } from "../../domain/staticMeta";
 
 type StatusPillProps = {
   meta: StaticMeta;

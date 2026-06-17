@@ -1,4 +1,7 @@
-import type { LeaderboardEntry, MatchRecord, ScoredGoal, ScorerEntry, StaticMeta } from "../domain/types";
+import type { ScoredGoal, ScorerEntry } from "../domain/goalTypes";
+import type { MatchRecord } from "../domain/matchTypes";
+import type { LeaderboardEntry } from "../domain/participantTypes";
+import type { StaticMeta } from "../domain/staticMeta";
 import type { PickStatusSnapshot } from "../domain/pickStatusTypes";
 import type { RosterSnapshot } from "../domain/rosterTypes";
 

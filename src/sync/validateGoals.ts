@@ -1,4 +1,4 @@
-import type { GoalRecord } from "../domain/types";
+import type { GoalRecord } from "../domain/goalTypes";
 import { normalizePlayerName } from "../domain/normalizePlayerName";
 
 export type GoalValidationResult = {

@@ -1,4 +1,4 @@
-import type { ParticipantTeam } from "../domain/types";
+import type { ParticipantTeam } from "../domain/participantTypes";
 
 export const teams = [
   {

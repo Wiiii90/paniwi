@@ -1,7 +1,7 @@
 import { getTeamCatalogEntry, resolveKnownTeamId, type TeamCatalogEntry } from "../config/teamCatalog";
 import { deriveTeamId } from "./deriveTeamId";
 import { normalizePlayerName } from "./normalizePlayerName";
-import type { GoalRecord } from "./types";
+import type { GoalRecord } from "./goalTypes";
 
 function createFallbackTeam(teamName: string): TeamCatalogEntry | null {
   const normalized = normalizePlayerName(teamName);

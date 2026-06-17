@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { StaticMeta } from "../../domain/types";
+import type { StaticMeta } from "../../domain/staticMeta";
 import { StatusPill } from "./StatusPill";
 
 type AppShellProps = {
