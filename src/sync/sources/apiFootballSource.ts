@@ -110,6 +110,7 @@ const liveWindowMinutesAfterKickoff = 120;
 const expectedMatchMinutes = 105;
 const postMatchWindowOffsets = [15, 60, 120] as const;
 const postMatchWindowDurationMinutes = 30;
+const earlyUtcPreviousDayLookbackHours = 6;
 
 type SyncWindowPhase = "pre-match" | "live" | "post-match" | "settlement" | "maintenance" | "forced" | "settled";
 
@@ -266,7 +267,7 @@ export function getApiFootballDateKeys(env: NodeJS.ProcessEnv = process.env, now
   }
 
   const phase = getSyncWindowPhase(env);
-  if (phase === "forced" || phase === "settlement") {
+  if (phase === "forced" || phase === "settlement" || now.getUTCHours() < earlyUtcPreviousDayLookbackHours) {
     return getTodayAndYesterdayDateKeys(now);
   }
 

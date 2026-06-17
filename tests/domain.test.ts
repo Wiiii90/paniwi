@@ -650,6 +650,8 @@ assert.deepEqual(
   ["2026-06-15", "2026-06-16", "2026-06-17"]
 );
 assert.deepEqual(getApiFootballDateKeys({}, new Date("2026-06-15T12:00:00.000Z")), ["2026-06-15"]);
+assert.deepEqual(getApiFootballDateKeys({}, new Date("2026-06-17T01:30:00.000Z")), ["2026-06-16", "2026-06-17"]);
+assert.deepEqual(getApiFootballDateKeys({}, new Date("2026-06-17T06:00:00.000Z")), ["2026-06-17"]);
 assert.deepEqual(getApiFootballDateKeys({ SYNC_WINDOW_PHASE: "forced" }, new Date("2026-06-15T12:00:00.000Z")), [
   "2026-06-14",
   "2026-06-15"
