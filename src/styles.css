@@ -478,10 +478,31 @@ h2 {
 }
 
 .match-name-text {
+  align-items: center;
+  display: flex;
+  gap: 5px;
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.home-match-team {
+  align-items: center;
+  display: inline-flex;
+  gap: 5px;
+  min-width: 0;
+}
+
+.home-match-team > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home-match-flag {
+  height: 13px;
+  width: 18px;
 }
 
 .live-dot {

@@ -1,4 +1,5 @@
 import type { LeaderboardEntry, MatchRecord, ScoredGoal, ScorerEntry } from "../../domain/types";
+import { getTeamFlagUrl } from "../../config/teamCatalog";
 import { getLiveAndUpcomingMatches } from "../../domain/matchFilters";
 import { GoalFeedStrip } from "../components/GoalFeedStrip";
 
@@ -41,6 +42,15 @@ function formatMatchImpact(match: MatchRecord): string | null {
   const visibleParticipants = selectedParticipants.slice(0, 2).map((participant) => `${participant.owners.join("/")} · ${participant.displayPlayerName}`);
   const remainingCount = selectedParticipants.length - visibleParticipants.length;
   return remainingCount > 0 ? `${visibleParticipants.join(" · ")} · +${remainingCount}` : visibleParticipants.join(" · ");
+}
+
+function TeamFlag({ teamName }: { teamName: string }) {
+  const flagUrl = getTeamFlagUrl(teamName);
+  if (!flagUrl) {
+    return null;
+  }
+
+  return <img alt="" aria-hidden="true" className="match-team-flag home-match-flag" loading="lazy" src={flagUrl} />;
 }
 
 export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps) {
@@ -130,14 +140,16 @@ export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps
                   <div className={`mini-row match-mini-row match-mini-row-${match.status}`} key={match.matchId}>
                     <span>
                       <strong className="match-name-line">
-                        {match.status === "live" ? (
-                          <span className="live-chip">
-                            <span aria-hidden="true" className="live-dot" />
-                            <span className="live-chip-text">Live</span>
-                          </span>
-                        ) : null}
                         <span className="match-name-text">
-                          {match.homeTeam.name} - {match.awayTeam.name}
+                          <span className="home-match-team">
+                            <TeamFlag teamName={match.homeTeam.name} />
+                            <span>{match.homeTeam.name}</span>
+                          </span>
+                          <span aria-hidden="true">-</span>
+                          <span className="home-match-team">
+                            <TeamFlag teamName={match.awayTeam.name} />
+                            <span>{match.awayTeam.name}</span>
+                          </span>
                         </span>
                       </strong>
                       <small>
