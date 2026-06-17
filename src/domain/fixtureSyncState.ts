@@ -1,6 +1,7 @@
 import { resolveTeamFromApiFootball, resolveTeamFromWikipedia } from "./teamResolver";
 import type { GoalRecord } from "./goalTypes";
 import type { ExternalMatchParticipantRecord, ExternalMatchRecord, FixtureSyncState } from "./matchTypes";
+import { goalBelongsToExternalMatch } from "./matchIdentity";
 
 function getScoreTotal(match: ExternalMatchRecord): number | null {
   if (typeof match.homeTeam.score !== "number" || typeof match.awayTeam.score !== "number") {
@@ -52,14 +53,11 @@ export function buildFixtureSyncState(
   };
 }
 
-function countFixtureGoals(goals: Pick<GoalRecord, "fixtureId" | "matchId">[], match: ExternalMatchRecord): number {
-  return goals.filter((goal) => {
-    if (match.fixtureId && goal.fixtureId === match.fixtureId) {
-      return true;
-    }
-
-    return goal.matchId === match.matchId;
-  }).length;
+function countFixtureGoals(
+  goals: Pick<GoalRecord, "fixtureId" | "matchId" | "matchLabel" | "kickedOffAt" | "source">[],
+  match: ExternalMatchRecord
+): number {
+  return goals.filter((goal) => goalBelongsToExternalMatch(goal, match)).length;
 }
 
 function fixtureHasLineups(participants: ExternalMatchParticipantRecord[], match: ExternalMatchRecord): boolean {
@@ -74,7 +72,7 @@ function fixtureHasLineups(participants: ExternalMatchParticipantRecord[], match
 
 export function buildFixtureSyncStateForMatch(
   match: ExternalMatchRecord,
-  goals: Pick<GoalRecord, "fixtureId" | "matchId">[],
+  goals: Pick<GoalRecord, "fixtureId" | "matchId" | "matchLabel" | "kickedOffAt" | "source">[],
   participants: ExternalMatchParticipantRecord[],
   pickedTeamIds: Set<string>
 ): FixtureSyncState {

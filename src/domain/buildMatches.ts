@@ -10,16 +10,20 @@ import type {
 import type { ParticipantTeam } from "./participantTypes";
 import type { RosterSnapshot } from "./rosterTypes";
 import { sortGoalsChronologically } from "./sortGoals";
+import { isCompetitionScorerAggregateGoal } from "./effectiveGoals";
 import { getTeamDisplayName, resolveTeamDisplayName } from "./teamDisplay";
 import { resolveTeamFromApiFootball, resolveTeamFromWikipedia } from "./teamResolver";
 import { findUniqueRosterPlayer } from "./rosterNameMatcher";
 import { getParticipantPickCandidateNames, getParticipantPickDisplayName } from "./participantPick";
 import { normalizePlayerName } from "./normalizePlayerName";
 import { buildFixtureSyncStateForMatch } from "./fixtureSyncState";
-
-function normalizeScoreLabel(label: string): string {
-  return label.replace(/[–—]/g, "-");
-}
+import {
+  getExternalMatchKey,
+  getMatchRecordKey,
+  goalBelongsToExternalMatch,
+  normalizeMatchTeamKey,
+  normalizeScoreLabel
+} from "./matchIdentity";
 
 function parseTeamFromLabel(label: string | undefined, source: GoalRecord["source"], side: "home" | "away"): MatchTeam {
   if (!label) {
@@ -52,42 +56,8 @@ function buildMatchTeam(team: ExternalMatchRecord["homeTeam"], source: ExternalM
   return matchTeam;
 }
 
-function normalizeMatchTeamKey(name: string): string {
-  return name
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim();
-}
-
-function normalizeMatchTimeKey(value: string | undefined): string {
-  if (!value) {
-    return "time-open";
-  }
-
-  const timestamp = Date.parse(value);
-  return Number.isNaN(timestamp) ? value : new Date(timestamp).toISOString();
-}
-
-function getFixtureMatchKey(fixture: ExternalMatchRecord): string {
-  return [
-    normalizeMatchTimeKey(fixture.kickedOffAt),
-    normalizeMatchTeamKey(resolveTeamDisplayName(fixture.homeTeam.name, fixture.source)),
-    normalizeMatchTeamKey(resolveTeamDisplayName(fixture.awayTeam.name, fixture.source))
-  ].join("|");
-}
-
-function getMatchKey(match: MatchRecord): string {
-  return [
-    normalizeMatchTimeKey(match.kickedOffAt),
-    normalizeMatchTeamKey(match.homeTeam.name),
-    normalizeMatchTeamKey(match.awayTeam.name)
-  ].join("|");
-}
-
 function getFixtureCompletenessScore(fixture: ExternalMatchRecord): number {
-  const sourceScore = fixture.source === "api-football" ? 100 : fixture.source === "wikipedia" ? 50 : 0;
+  const sourceScore = fixture.source === "football-data" ? 110 : fixture.source === "api-football" ? 100 : fixture.source === "wikipedia" ? 50 : 0;
   const statusScore = fixture.status === "finished" || fixture.status === "live" ? 10 : fixture.status === "scheduled" ? 5 : 0;
   const scoreScore = fixture.homeTeam.score !== undefined && fixture.awayTeam.score !== undefined ? 10 : 0;
   return sourceScore + statusScore + scoreScore;
@@ -96,7 +66,7 @@ function getFixtureCompletenessScore(fixture: ExternalMatchRecord): number {
 function dedupeFixtures(fixtures: ExternalMatchRecord[]): ExternalMatchRecord[] {
   const fixturesByKey = new Map<string, ExternalMatchRecord>();
   for (const fixture of fixtures) {
-    const key = getFixtureMatchKey(fixture);
+    const key = getExternalMatchKey(fixture);
     const existing = fixturesByKey.get(key);
     if (!existing || getFixtureCompletenessScore(fixture) > getFixtureCompletenessScore(existing)) {
       fixturesByKey.set(key, fixture);
@@ -111,16 +81,16 @@ function getGoalMatchId(goal: GoalRecord): string {
 }
 
 function goalBelongsToFixture(goal: GoalRecord | ScoredGoal, fixture: ExternalMatchRecord): boolean {
-  if (getGoalMatchId(goal) === fixture.matchId) {
-    return true;
-  }
-
-  return Boolean(fixture.fixtureId && goal.fixtureId && goal.fixtureId === fixture.fixtureId);
+  return goalBelongsToExternalMatch(goal, fixture);
 }
 
 function buildFallbackMatches(goals: GoalRecord[], scoredGoals: ScoredGoal[]): MatchRecord[] {
   const goalsByMatch = new Map<string, GoalRecord[]>();
   for (const goal of goals) {
+    if (isCompetitionScorerAggregateGoal(goal)) {
+      continue;
+    }
+
     const matchId = getGoalMatchId(goal);
     goalsByMatch.set(matchId, [...(goalsByMatch.get(matchId) ?? []), goal]);
   }
@@ -377,11 +347,11 @@ export function buildMatches(
     } satisfies MatchRecord;
   });
   const fixtureIds = new Set(fixtureMatches.map((match) => match.matchId));
-  const fixtureKeys = new Set(fixtureMatches.map((match) => getMatchKey(match)));
+  const fixtureKeys = new Set(fixtureMatches.map((match) => getMatchRecordKey(match)));
 
   return [
     ...fixtureMatches,
-    ...fallbackMatches.filter((match) => !fixtureIds.has(match.matchId) && !fixtureKeys.has(getMatchKey(match)))
+    ...fallbackMatches.filter((match) => !fixtureIds.has(match.matchId) && !fixtureKeys.has(getMatchRecordKey(match)))
   ]
     .sort((a, b) => {
       const timeA = a.kickedOffAt ? Date.parse(a.kickedOffAt) : Number.MAX_SAFE_INTEGER;

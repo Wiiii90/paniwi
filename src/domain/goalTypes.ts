@@ -1,6 +1,6 @@
 export type GoalDetail = "normal" | "penalty" | "own-goal" | "penalty-shootout";
 
-export type SourceName = "mock" | "api-football" | "wikipedia";
+export type SourceName = "mock" | "api-football" | "football-data" | "wikipedia";
 
 export type GoalTimeConfidence = "exact" | "estimated" | "match-only" | "unknown";
 

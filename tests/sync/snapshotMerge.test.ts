@@ -63,6 +63,20 @@ assert.deepEqual(
   ["api-existing"]
 );
 assert.deepEqual(
+  mergeGoalSnapshots(
+    "football-data",
+    [
+      { ...oldWikipediaGoal, source: "api-football", externalGoalId: "api-detail-kept" },
+      { ...oldWikipediaGoal, source: "football-data", externalGoalId: "football-data:stale-aggregate" }
+    ],
+    [{ ...sameDayApiGoal, source: "football-data", externalGoalId: "football-data:fresh-aggregate" }],
+    undefined,
+    true,
+    true
+  ).map((goal) => goal.externalGoalId),
+  ["api-detail-kept", "football-data:fresh-aggregate"]
+);
+assert.deepEqual(
   mergeParticipantSnapshots(
     "api-football",
     [

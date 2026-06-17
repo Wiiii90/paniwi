@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       sync_source:
-        description: "Source mode for this run: api-football, wikipedia, or mock"
+        description: "Source mode for this run: football-data, api-football, wikipedia, or mock"
         required: false
-        default: "api-football"
+        default: "football-data"
       force_sync:
         description: "Skip schedule gate and sync immediately"
         required: false
@@ -28,8 +28,18 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     env:
-      SYNC_SOURCE: ${{ github.event.inputs.sync_source || 'api-football' }}
+      SYNC_SOURCE: ${{ github.event.inputs.sync_source || 'football-data' }}
       SYNC_FORCE: ${{ github.event.inputs.force_sync || 'false' }}
+      FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
+      FOOTBALL_DATA_BASE_URL: ${{ vars.FOOTBALL_DATA_BASE_URL }}
+      FOOTBALL_DATA_COMPETITION: ${{ vars.FOOTBALL_DATA_COMPETITION }}
+      FOOTBALL_DATA_SEASON: ${{ vars.FOOTBALL_DATA_SEASON }}
+      FOOTBALL_DATA_DATE_FROM: ${{ vars.FOOTBALL_DATA_DATE_FROM }}
+      FOOTBALL_DATA_DATE_TO: ${{ vars.FOOTBALL_DATA_DATE_TO }}
+      FOOTBALL_DATA_DATES: ${{ vars.FOOTBALL_DATA_DATES }}
+      FOOTBALL_DATA_TIMEOUT_MS: ${{ vars.FOOTBALL_DATA_TIMEOUT_MS }}
+      FOOTBALL_DATA_MAX_REQUESTS: ${{ vars.FOOTBALL_DATA_MAX_REQUESTS }}
+      FOOTBALL_DATA_MAX_THROTTLE_MS: ${{ vars.FOOTBALL_DATA_MAX_THROTTLE_MS }}
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
       API_FOOTBALL_DATES: ${{ vars.API_FOOTBALL_DATES }}
       API_FOOTBALL_DATE_FROM: ${{ vars.API_FOOTBALL_DATE_FROM }}

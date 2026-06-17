@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import { buildLeaderboard, scoreGoalsForTeams } from "../domain/buildLeaderboard";
 import { buildMatches } from "../domain/buildMatches";
 import { buildScorers } from "../domain/buildScorers";
+import { selectEffectiveGoalsForScoring } from "../domain/effectiveGoals";
 import { enrichGoalsWithRoster } from "../domain/rosterResolver";
 import { sortGoalsChronologically } from "../domain/sortGoals";
 import type { SourceName } from "../domain/goalTypes";
@@ -155,9 +156,15 @@ function getParticipantDateKey(participant: ExternalMatchParticipantRecord, matc
 function shouldPreserveExistingGoal(
   goal: NormalizedGoal,
   source: SourceName,
-  coveredDateKeys: Set<string> | null
+  coveredDateKeys: Set<string> | null,
+  preserveExistingOtherSources = false,
+  replaceExistingSourceGoals = false
 ): boolean {
   if (goal.source === source) {
+    return !replaceExistingSourceGoals;
+  }
+
+  if (preserveExistingOtherSources) {
     return true;
   }
 
@@ -176,8 +183,13 @@ function shouldPreserveExistingGoal(
 function shouldPreserveExistingMatch(
   match: ExternalMatchRecord,
   source: SourceName,
-  coveredDateKeys: Set<string> | null
+  coveredDateKeys: Set<string> | null,
+  preserveExistingOtherSources = false
 ): boolean {
+  if (preserveExistingOtherSources) {
+    return true;
+  }
+
   if (!coveredDateKeys) {
     return match.source === source;
   }
@@ -194,9 +206,14 @@ function shouldPreserveExistingParticipant(
   participant: ExternalMatchParticipantRecord,
   source: SourceName,
   coveredDateKeys: Set<string> | null,
-  matchesById: Map<string, ExternalMatchRecord>
+  matchesById: Map<string, ExternalMatchRecord>,
+  preserveExistingOtherSources = false
 ): boolean {
   if (participant.source === source) {
+    return true;
+  }
+
+  if (preserveExistingOtherSources) {
     return true;
   }
 
@@ -216,13 +233,15 @@ export function mergeGoalSnapshots(
   source: SourceName,
   existingGoals: NormalizedGoals,
   incomingGoals: NormalizedGoals,
-  coveredDateKeys?: string[]
+  coveredDateKeys?: string[],
+  preserveExistingOtherSources = false,
+  replaceExistingSourceGoals = false
 ): NormalizedGoals {
   const mergedGoals = new Map<string, NormalizedGoal>();
   const coveredDateKeySet = coveredDateKeys?.length ? new Set(coveredDateKeys) : null;
 
   for (const goal of existingGoals) {
-    if (shouldPreserveExistingGoal(goal, source, coveredDateKeySet)) {
+    if (shouldPreserveExistingGoal(goal, source, coveredDateKeySet, preserveExistingOtherSources, replaceExistingSourceGoals)) {
       mergedGoals.set(getGoalMergeKey(goal), goal);
     }
   }
@@ -238,13 +257,14 @@ export function mergeMatchSnapshots(
   source: SourceName,
   existingMatches: NormalizedMatches,
   incomingMatches: NormalizedMatches,
-  coveredDateKeys?: string[]
+  coveredDateKeys?: string[],
+  preserveExistingOtherSources = false
 ): NormalizedMatches {
   const mergedMatches = new Map<string, ExternalMatchRecord>();
   const coveredDateKeySet = coveredDateKeys?.length ? new Set(coveredDateKeys) : null;
 
   for (const match of existingMatches) {
-    if (shouldPreserveExistingMatch(match, source, coveredDateKeySet)) {
+    if (shouldPreserveExistingMatch(match, source, coveredDateKeySet, preserveExistingOtherSources)) {
       mergedMatches.set(getMatchMergeKey(match), match);
     }
   }
@@ -261,14 +281,15 @@ export function mergeParticipantSnapshots(
   existingParticipants: NormalizedParticipants,
   incomingParticipants: NormalizedParticipants,
   matches: NormalizedMatches,
-  coveredDateKeys?: string[]
+  coveredDateKeys?: string[],
+  preserveExistingOtherSources = false
 ): NormalizedParticipants {
   const mergedParticipants = new Map<string, ExternalMatchParticipantRecord>();
   const coveredDateKeySet = coveredDateKeys?.length ? new Set(coveredDateKeys) : null;
   const matchesById = new Map(matches.flatMap((match) => [[match.matchId, match], ...(match.fixtureId ? [[`api-football:${match.fixtureId}`, match] as const] : [])]));
 
   for (const participant of existingParticipants) {
-    if (shouldPreserveExistingParticipant(participant, source, coveredDateKeySet, matchesById)) {
+    if (shouldPreserveExistingParticipant(participant, source, coveredDateKeySet, matchesById, preserveExistingOtherSources)) {
       mergedParticipants.set(getParticipantMergeKey(participant), participant);
     }
   }
@@ -283,29 +304,33 @@ export function mergeParticipantSnapshots(
 async function mergeWithExistingGoals(
   source: SourceName,
   incomingGoals: NormalizedGoals,
-  coveredDateKeys?: string[]
+  coveredDateKeys?: string[],
+  preserveExistingOtherSources?: boolean,
+  replaceExistingSourceGoals?: boolean
 ): Promise<NormalizedGoals> {
   const existingGoals = await readExistingRawGoals();
-  return mergeGoalSnapshots(source, existingGoals, incomingGoals, coveredDateKeys);
+  return mergeGoalSnapshots(source, existingGoals, incomingGoals, coveredDateKeys, preserveExistingOtherSources, replaceExistingSourceGoals);
 }
 
 async function mergeWithExistingMatches(
   source: SourceName,
   incomingMatches: NormalizedMatches,
-  coveredDateKeys?: string[]
+  coveredDateKeys?: string[],
+  preserveExistingOtherSources?: boolean
 ): Promise<NormalizedMatches> {
   const existingMatches = await readExistingRawMatches();
-  return mergeMatchSnapshots(source, existingMatches, incomingMatches, coveredDateKeys);
+  return mergeMatchSnapshots(source, existingMatches, incomingMatches, coveredDateKeys, preserveExistingOtherSources);
 }
 
 async function mergeWithExistingParticipants(
   source: SourceName,
   incomingParticipants: NormalizedParticipants,
   matches: NormalizedMatches,
-  coveredDateKeys?: string[]
+  coveredDateKeys?: string[],
+  preserveExistingOtherSources?: boolean
 ): Promise<NormalizedParticipants> {
   const existingParticipants = await readExistingRawParticipants();
-  return mergeParticipantSnapshots(source, existingParticipants, incomingParticipants, matches, coveredDateKeys);
+  return mergeParticipantSnapshots(source, existingParticipants, incomingParticipants, matches, coveredDateKeys, preserveExistingOtherSources);
 }
 
 function buildSyncMeta(
@@ -377,22 +402,36 @@ export async function syncGoals(
   const incomingMatches = result.matches ?? [];
   const incomingParticipants = result.participants ?? [];
   const normalizedGoals = result.mergeWithExisting
-    ? await mergeWithExistingGoals(result.source, incomingGoals, result.coveredDateKeys)
+    ? await mergeWithExistingGoals(
+        result.source,
+        incomingGoals,
+        result.coveredDateKeys,
+        result.preserveExistingGoals,
+        result.replaceExistingSourceGoals
+      )
     : incomingGoals;
   const normalizedMatches = result.mergeWithExisting
-    ? await mergeWithExistingMatches(result.source, incomingMatches, result.coveredDateKeys)
+    ? await mergeWithExistingMatches(result.source, incomingMatches, result.coveredDateKeys, result.preserveExistingMatches)
     : incomingMatches;
   const normalizedParticipants = result.mergeWithExisting
-    ? await mergeWithExistingParticipants(result.source, incomingParticipants, normalizedMatches, result.coveredDateKeys)
+    ? await mergeWithExistingParticipants(
+        result.source,
+        incomingParticipants,
+        normalizedMatches,
+        result.coveredDateKeys,
+        result.preserveExistingParticipants
+      )
     : incomingParticipants;
   const rosterSnapshot = await readExistingRosterSnapshot();
+  const strictSources: SourceName[] = normalizedGoals.some((goal) => goal.source === "api-football") ? ["api-football"] : [];
   const rosterEnrichedGoals = enrichGoalsWithRoster(normalizedGoals, rosterSnapshot, {
-    strictSources: result.source === "api-football" ? ["api-football"] : []
+    strictSources
   });
   const { validGoals: goals, skippedGoals } = validateGoals(rosterEnrichedGoals);
-  const scoredGoals = sortGoalsChronologically(scoreGoalsForTeams(teams, goals, rosterSnapshot));
-  const leaderboard = buildLeaderboard(teams, goals, rosterSnapshot);
-  const scorers = buildScorers(goals, teams, rosterSnapshot);
+  const effectiveGoals = selectEffectiveGoalsForScoring(goals);
+  const scoredGoals = sortGoalsChronologically(scoreGoalsForTeams(teams, effectiveGoals, rosterSnapshot));
+  const leaderboard = buildLeaderboard(teams, effectiveGoals, rosterSnapshot);
+  const scorers = buildScorers(effectiveGoals, teams, rosterSnapshot);
   const matches = buildMatches(goals, scoredGoals, normalizedMatches, normalizedParticipants, teams, rosterSnapshot);
 
   await writeStaticData({

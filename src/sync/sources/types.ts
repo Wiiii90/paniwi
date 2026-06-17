@@ -9,6 +9,10 @@ export type GoalSourceResult = {
   participants?: ExternalMatchParticipantRecord[];
   mergeWithExisting?: boolean;
   coveredDateKeys?: string[];
+  preserveExistingGoals?: boolean;
+  replaceExistingSourceGoals?: boolean;
+  preserveExistingMatches?: boolean;
+  preserveExistingParticipants?: boolean;
   sourceRequestCount?: number;
   sourceRequestLimit?: number;
 };

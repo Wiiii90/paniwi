@@ -3,6 +3,7 @@ import { pathToFileURL } from "node:url";
 import { buildLeaderboard, scoreGoalsForTeams } from "../domain/buildLeaderboard";
 import { buildMatches } from "../domain/buildMatches";
 import { buildScorers } from "../domain/buildScorers";
+import { selectEffectiveGoalsForScoring } from "../domain/effectiveGoals";
 import { enrichGoalsWithRoster } from "../domain/rosterResolver";
 import type { PickStatusSnapshot } from "../domain/pickStatusTypes";
 import type { GoalRecord } from "../domain/goalTypes";
@@ -37,13 +38,15 @@ export async function rebuildStaticData(): Promise<void> {
     readOptionalJson<RosterSnapshot>("public/data/rosters.json"),
     readOptionalJson<PickStatusSnapshot>("public/data/pick-statuses.json")
   ]);
+  const strictSources = rawGoals.some((goal) => goal.source === "api-football") ? ["api-football" as const] : [];
   const enrichedRawGoals = enrichGoalsWithRoster(rawGoals, rosters, {
-    strictSources: meta.source === "api-football" ? ["api-football"] : []
+    strictSources
   });
   const { validGoals, skippedGoals } = validateGoals(enrichedRawGoals);
-  const scoredGoals = sortGoalsChronologically(scoreGoalsForTeams(teams, validGoals, rosters));
-  const leaderboard = buildLeaderboard(teams, validGoals, rosters);
-  const scorers = buildScorers(validGoals, teams, rosters);
+  const effectiveGoals = selectEffectiveGoalsForScoring(validGoals);
+  const scoredGoals = sortGoalsChronologically(scoreGoalsForTeams(teams, effectiveGoals, rosters));
+  const leaderboard = buildLeaderboard(teams, effectiveGoals, rosters);
+  const scorers = buildScorers(effectiveGoals, teams, rosters);
   const matches = buildMatches(validGoals, scoredGoals, rawMatches, rawParticipants ?? [], teams, rosters);
   const snapshotFingerprint = buildSnapshotFingerprint(validGoals, rawMatches, rawParticipants ?? []);
 

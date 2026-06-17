@@ -826,6 +826,7 @@ process.env.API_FOOTBALL_MAX_LINEUP_REQUESTS = "0";
 process.env.API_FOOTBALL_MISSING_EVENT_BACKFILL_LIMIT = "0";
 process.env.SYNC_WINDOW_PHASE = "live";
 delete process.env.API_FOOTBALL_FIXTURE_IDS;
+const liveKickoffForOptionalBackfillFailureTest = new Date(Date.now() - 30 * 60 * 1000).toISOString();
 const originalCwdForOptionalBackfillFailureTest = process.cwd();
 try {
   const tempCwd = mkdtempSync(join(tmpdir(), "paniwi-api-football-optional-backfill-"));
@@ -855,7 +856,7 @@ try {
           {
             fixture: {
               id: 4400002,
-              date: "2026-06-17T17:00:00+00:00",
+              date: liveKickoffForOptionalBackfillFailureTest,
               status: { short: "1H" }
             },
             league: { id: 1, name: "World Cup", season: 2026 },

@@ -1,0 +1,60 @@
+name: Probe Football Data
+
+on:
+  workflow_dispatch:
+    inputs:
+      date_from:
+        description: "UTC dateFrom, e.g. 2026-06-17"
+        required: false
+      date_to:
+        description: "UTC dateTo, e.g. 2026-06-18"
+        required: false
+      season:
+        description: "football-data season"
+        required: false
+        default: "2026"
+      probe_mode:
+        description: "catalog, events, or all"
+        required: false
+        default: "catalog"
+      max_calls:
+        description: "maximum football-data probe calls"
+        required: false
+        default: "8"
+      person_ids:
+        description: "optional comma-separated person IDs for events mode"
+        required: false
+      events:
+        description: "comma-separated event filters"
+        required: false
+        default: "GOAL,SUB_IN,SUB_OUT"
+      include_lineups:
+        description: "true to also test lineup filters in events mode"
+        required: false
+        default: "false"
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: [self-hosted, paniwi]
+    env:
+      FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
+      FOOTBALL_DATA_SEASON: ${{ github.event.inputs.season || '2026' }}
+      FOOTBALL_DATA_DATE_FROM: ${{ github.event.inputs.date_from }}
+      FOOTBALL_DATA_DATE_TO: ${{ github.event.inputs.date_to }}
+      FOOTBALL_DATA_TIMEOUT_MS: ${{ vars.FOOTBALL_DATA_TIMEOUT_MS }}
+      FOOTBALL_DATA_PROBE_MODE: ${{ github.event.inputs.probe_mode || 'catalog' }}
+      FOOTBALL_DATA_PROBE_MAX_CALLS: ${{ github.event.inputs.max_calls || '8' }}
+      FOOTBALL_DATA_PROBE_PERSON_IDS: ${{ github.event.inputs.person_ids }}
+      FOOTBALL_DATA_PROBE_EVENTS: ${{ github.event.inputs.events || 'GOAL,SUB_IN,SUB_OUT' }}
+      FOOTBALL_DATA_PROBE_INCLUDE_LINEUPS: ${{ github.event.inputs.include_lineups || 'false' }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run probe:football-data
