@@ -519,7 +519,7 @@ h2 {
   line-height: 1;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(calc(-50% + 1px));
   white-space: nowrap;
 }
 
