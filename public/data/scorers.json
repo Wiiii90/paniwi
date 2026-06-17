@@ -1,12 +1,24 @@
 [
   {
-    "playerName": "Lionel Messi",
-    "normalizedPlayerName": "lionel messi",
-    "nationalTeam": "Argentinien",
-    "goals": 3,
+    "playerName": "Elijah Just",
+    "normalizedPlayerName": "elijah just",
+    "nationalTeam": "Neuseeland",
+    "goals": 2,
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
+    "rank": 1
+  },
+  {
+    "playerName": "Erling Haaland",
+    "normalizedPlayerName": "erling haaland",
+    "nationalTeam": "Norwegen",
+    "goals": 2,
+    "penaltyGoals": 0,
+    "scoringOwners": [
+      "Caro"
+    ],
+    "selected": true,
     "rank": 1
   },
   {
@@ -17,7 +29,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 2
+    "rank": 1
   },
   {
     "playerName": "Yasin Ayari",
@@ -27,7 +39,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 2
+    "rank": 1
   },
   {
     "playerName": "Abdulelah Al-Amri",
@@ -37,7 +49,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Alexander Isak",
@@ -49,7 +61,7 @@
       "Jonas"
     ],
     "selected": true,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Amad Diallo",
@@ -59,7 +71,17 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
+  },
+  {
+    "playerName": "Aymen Hussein",
+    "normalizedPlayerName": "aymen hussein",
+    "nationalTeam": "Irak",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 5
   },
   {
     "playerName": "Bradley Barcola",
@@ -71,7 +93,7 @@
       "Nina"
     ],
     "selected": true,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Breel Embolo",
@@ -81,7 +103,7 @@
     "penaltyGoals": 1,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Connor Metcalfe",
@@ -91,7 +113,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Crysencio Summerville",
@@ -101,7 +123,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Cyle Larin",
@@ -111,7 +133,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Daichi Kamada",
@@ -121,7 +143,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Deniz Undav",
@@ -131,7 +153,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Emam Ashour",
@@ -141,7 +163,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Felix Nmecha",
@@ -154,7 +176,7 @@
       "Willi"
     ],
     "selected": true,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Folarin Balogun",
@@ -164,7 +186,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Giovanni Reyna",
@@ -174,7 +196,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Hwang In-beom",
@@ -184,7 +206,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Ibrahim Mbaye",
@@ -194,7 +216,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Ismael Saibari",
@@ -204,7 +226,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Jamal Musiala",
@@ -214,7 +236,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "John McGinn",
@@ -224,7 +246,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Jovo Lukić",
@@ -234,7 +256,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Julián Quiñones",
@@ -244,7 +266,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Kai Havertz",
@@ -254,7 +276,7 @@
     "penaltyGoals": 1,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Keito Nakamura",
@@ -264,7 +286,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Ladislav Krejčí",
@@ -274,7 +296,27 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
+  },
+  {
+    "playerName": "Leo Østigård",
+    "normalizedPlayerName": "leo stigard",
+    "nationalTeam": "Norwegen",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 5
+  },
+  {
+    "playerName": "Lionel Messi",
+    "normalizedPlayerName": "lionel messi",
+    "nationalTeam": "Argentinien",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 5
   },
   {
     "playerName": "Livano Comenencia",
@@ -284,7 +326,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Mattias Svanberg",
@@ -294,7 +336,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Maurício",
@@ -304,7 +346,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Maximiliano Araújo",
@@ -314,7 +356,19 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
+  },
+  {
+    "playerName": "Mohammad Mohebi",
+    "normalizedPlayerName": "mohammad mohebi",
+    "nationalTeam": "Iran",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [
+      "Felix"
+    ],
+    "selected": true,
+    "rank": 5
   },
   {
     "playerName": "Nathaniel Brown",
@@ -324,7 +378,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Nestory Irankunda",
@@ -336,7 +390,7 @@
       "Marco"
     ],
     "selected": true,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Nico Schlotterbeck",
@@ -346,7 +400,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Oh Hyeon-gyu",
@@ -356,7 +410,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Omar Rekik",
@@ -366,7 +420,19 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
+  },
+  {
+    "playerName": "Ramin Rezaeian",
+    "normalizedPlayerName": "ramin rezaeian",
+    "nationalTeam": "Iran",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [
+      "Felix"
+    ],
+    "selected": true,
+    "rank": 5
   },
   {
     "playerName": "Raúl Jiménez",
@@ -376,7 +442,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Viktor Gyökeres",
@@ -386,7 +452,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Vinícius Júnior",
@@ -398,7 +464,7 @@
       "Felix"
     ],
     "selected": true,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Virgil van Dijk",
@@ -408,6 +474,6 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   }
 ]

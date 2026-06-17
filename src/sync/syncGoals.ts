@@ -155,13 +155,17 @@ function shouldPreserveExistingGoal(
   source: SourceName,
   coveredDateKeys: Set<string> | null
 ): boolean {
+  if (goal.source === source) {
+    return true;
+  }
+
   if (!coveredDateKeys) {
-    return goal.source === source;
+    return false;
   }
 
   const goalDateKey = getGoalDateKey(goal);
   if (!goalDateKey) {
-    return goal.source === source;
+    return false;
   }
 
   return !coveredDateKeys.has(goalDateKey);
@@ -190,13 +194,17 @@ function shouldPreserveExistingParticipant(
   coveredDateKeys: Set<string> | null,
   matchesById: Map<string, ExternalMatchRecord>
 ): boolean {
+  if (participant.source === source) {
+    return true;
+  }
+
   if (!coveredDateKeys) {
-    return participant.source === source;
+    return false;
   }
 
   const participantDateKey = getParticipantDateKey(participant, matchesById);
   if (!participantDateKey) {
-    return participant.source === source;
+    return false;
   }
 
   return !coveredDateKeys.has(participantDateKey);

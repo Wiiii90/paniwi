@@ -30,7 +30,7 @@ import {
 import { apiFootballSource } from "../src/sync/sources/apiFootballSource";
 import { getSourcesForMode, parseSyncSourceMode } from "../src/sync/sources/sourceSelection";
 import { parseWikipediaFootballBoxes, parseWikipediaGoalscorers } from "../src/sync/sources/wikipediaSource";
-import { buildSourceErrorMeta, mergeGoalSnapshots } from "../src/sync/syncGoals";
+import { buildSourceErrorMeta, mergeGoalSnapshots, mergeParticipantSnapshots } from "../src/sync/syncGoals";
 import { buildSnapshotFingerprint } from "../src/sync/snapshotFingerprint";
 import { validateGoals } from "../src/sync/validateGoals";
 import { formatTeamValidationIssues, validateTeams } from "../src/sync/validateTeams";
@@ -1236,11 +1236,17 @@ const sameDayApiGoal: GoalRecord = {
   source: "api-football",
   kickedOffAt: "2026-06-15T02:00:00.000Z"
 };
+const existingSameDayApiGoal: GoalRecord = {
+  ...baseGoal,
+  externalGoalId: "api-existing-same-day",
+  source: "api-football",
+  kickedOffAt: "2026-06-15T19:00:00.000Z"
+};
 assert.deepEqual(
-  mergeGoalSnapshots("api-football", [oldWikipediaGoal, sameDayWikipediaGoal], [sameDayApiGoal], ["2026-06-15"]).map(
+  mergeGoalSnapshots("api-football", [oldWikipediaGoal, sameDayWikipediaGoal, existingSameDayApiGoal], [sameDayApiGoal], ["2026-06-15"]).map(
     (goal) => goal.externalGoalId
   ),
-  ["wiki-old", "api-same-day"]
+  ["wiki-old", "api-existing-same-day", "api-same-day"]
 );
 assert.deepEqual(
   mergeGoalSnapshots(
@@ -1250,6 +1256,64 @@ assert.deepEqual(
     undefined
   ).map((goal) => goal.externalGoalId),
   ["api-existing"]
+);
+assert.deepEqual(
+  mergeParticipantSnapshots(
+    "api-football",
+    [
+      {
+        source: "api-football",
+        matchId: "api-football:existing",
+        fixtureId: "existing",
+        playerName: "Existing Starter",
+        nationalTeam: "Iran",
+        teamId: "iran",
+        status: "starter"
+      },
+      {
+        source: "wikipedia",
+        matchId: "wikipedia:same-day",
+        playerName: "Same Day Wiki",
+        nationalTeam: "Iran",
+        teamId: "iran",
+        status: "unknown"
+      }
+    ],
+    [
+      {
+        source: "api-football",
+        matchId: "api-football:incoming",
+        fixtureId: "incoming",
+        playerName: "Incoming Starter",
+        nationalTeam: "Iran",
+        teamId: "iran",
+        status: "starter"
+      }
+    ],
+    [
+      {
+        source: "api-football",
+        matchId: "api-football:existing",
+        fixtureId: "existing",
+        label: "Existing",
+        kickedOffAt: "2026-06-15T19:00:00.000Z",
+        status: "finished",
+        homeTeam: { name: "Iran" },
+        awayTeam: { name: "Norway" }
+      },
+      {
+        source: "wikipedia",
+        matchId: "wikipedia:same-day",
+        label: "Same Day",
+        kickedOffAt: "2026-06-15T19:00:00.000Z",
+        status: "finished",
+        homeTeam: { name: "Iran" },
+        awayTeam: { name: "Norway" }
+      }
+    ],
+    ["2026-06-15"]
+  ).map((participant) => participant.playerName),
+  ["Existing Starter", "Incoming Starter"]
 );
 
 assert.deepEqual(validateTeams(teams), { valid: false, issues: [{ owner: "Anna", reason: "invalid-team-size" }, { owner: "Ben", reason: "invalid-team-size" }] });

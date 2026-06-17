@@ -1,22 +1,21 @@
 {
-  "lastUpdated": "2026-06-17T04:00:45.627Z",
+  "lastUpdated": "2026-06-17T02:14:09.738Z",
   "source": "api-football",
   "attemptedSources": [
     "api-football"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 47,
-  "scoredGoalCount": 6,
+  "goalCount": 54,
+  "scoredGoalCount": 10,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
   "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
-  "snapshotFingerprint": "8922f067cf4c1df89896c0f2b1d39328601f3d8840780a5cc51487f2aa828552",
+  "snapshotFingerprint": "8572268d67bd10eb7d08584d027bb0d62edec15f0718da1869b363b787e556aa",
   "snapshotChanged": true,
-  "syncWindowId": "2026 fifa world cup group j:austria-jor:2026-06-17T04:00:00.000Z-live",
   "windowSyncAttempts": 1,
-  "liveMatchCount": 0,
-  "sourceRequestCount": 7,
-  "sourceRequestLimit": 15
+  "liveMatchCount": 1,
+  "sourceRequestCount": 12,
+  "sourceRequestLimit": 90
 }
