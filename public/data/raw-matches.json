@@ -823,6 +823,54 @@
   },
   {
     "source": "football-data",
+    "matchId": "football-data:537330",
+    "fixtureId": "537330",
+    "label": "Mexico vs South Korea",
+    "kickedOffAt": "2026-06-19T01:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 769,
+      "name": "Mexico"
+    },
+    "awayTeam": {
+      "id": 772,
+      "name": "South Korea"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537348",
+    "fixtureId": "537348",
+    "label": "United States vs Australia",
+    "kickedOffAt": "2026-06-19T19:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 771,
+      "name": "United States"
+    },
+    "awayTeam": {
+      "id": 779,
+      "name": "Australia"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537342",
+    "fixtureId": "537342",
+    "label": "Scotland vs Morocco",
+    "kickedOffAt": "2026-06-19T22:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 8873,
+      "name": "Scotland"
+    },
+    "awayTeam": {
+      "id": 815,
+      "name": "Morocco"
+    }
+  },
+  {
+    "source": "football-data",
     "matchId": "football-data:537364",
     "fixtureId": "537364",
     "label": "Iran 2-2 New Zealand",
@@ -1027,54 +1075,6 @@
     "awayTeam": {
       "id": 8030,
       "name": "Qatar"
-    }
-  },
-  {
-    "source": "football-data",
-    "matchId": "football-data:537330",
-    "fixtureId": "537330",
-    "label": "Mexico vs South Korea",
-    "kickedOffAt": "2026-06-19T01:00:00Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "id": 769,
-      "name": "Mexico"
-    },
-    "awayTeam": {
-      "id": 772,
-      "name": "South Korea"
-    }
-  },
-  {
-    "source": "football-data",
-    "matchId": "football-data:537348",
-    "fixtureId": "537348",
-    "label": "United States vs Australia",
-    "kickedOffAt": "2026-06-19T19:00:00Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "id": 771,
-      "name": "United States"
-    },
-    "awayTeam": {
-      "id": 779,
-      "name": "Australia"
-    }
-  },
-  {
-    "source": "football-data",
-    "matchId": "football-data:537342",
-    "fixtureId": "537342",
-    "label": "Scotland vs Morocco",
-    "kickedOffAt": "2026-06-19T22:00:00Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "id": 8873,
-      "name": "Scotland"
-    },
-    "awayTeam": {
-      "id": 815,
-      "name": "Morocco"
     }
   }
 ]
