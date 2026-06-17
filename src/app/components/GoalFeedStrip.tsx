@@ -1,4 +1,5 @@
 import { useMemo, useRef } from "react";
+import { getTeamFlagUrl } from "../../config/teamCatalog";
 import type { MatchRecord, ScoredGoal } from "../../domain/types";
 import { formatGoalMinute } from "../formatGoal";
 
@@ -39,6 +40,15 @@ function formatMatchScore(match: MatchRecord | undefined): string {
   }
 
   return `${match.homeTeam.score}:${match.awayTeam.score}`;
+}
+
+function TeamFlag({ teamName }: { teamName: string }) {
+  const flagUrl = getTeamFlagUrl(teamName);
+  if (!flagUrl) {
+    return null;
+  }
+
+  return <img alt="" aria-hidden="true" className="match-team-flag feed-chip-flag" loading="lazy" src={flagUrl} />;
 }
 
 export function GoalFeedStrip({ goals, matches, title }: GoalFeedStripProps) {
@@ -115,7 +125,10 @@ export function GoalFeedStrip({ goals, matches, title }: GoalFeedStripProps) {
                 <small>{formatGoalDate(goal)}</small>
                 <small className="feed-chip-owner">{goal.owner}</small>
               </div>
-              <strong>{goal.displayPlayerName}</strong>
+              <strong className="feed-chip-player">
+                <TeamFlag teamName={goal.displayNationalTeam} />
+                <span>{goal.displayPlayerName}</span>
+              </strong>
               <span>
                 {formatGoalMinute(goal)} · {goal.matchLabel ?? "Spiel offen"} · {formatMatchScore(match)}
               </span>

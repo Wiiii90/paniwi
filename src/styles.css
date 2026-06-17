@@ -591,6 +591,24 @@ h2 {
   grid-template-columns: minmax(0, 1fr) auto;
 }
 
+.feed-chip-player {
+  align-items: center;
+  display: inline-flex;
+  gap: 7px;
+  min-width: 0;
+}
+
+.feed-chip-player > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.feed-chip-flag {
+  height: 14px;
+  width: 20px;
+}
+
 .feed-chip small {
   color: var(--color-muted);
   font-size: 0.76rem;
