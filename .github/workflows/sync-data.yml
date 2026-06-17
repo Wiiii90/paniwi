@@ -92,11 +92,19 @@ jobs:
             "changes_detected=true" >> $env:GITHUB_OUTPUT
           }
       - uses: actions/configure-pages@v6
-        if: steps.commit.outputs.changes_detected == 'true'
-      - uses: actions/upload-pages-artifact@v4
-        if: steps.commit.outputs.changes_detected == 'true'
+        if: steps.scheduled_sync.outputs.sync_performed == 'true'
+      - name: Archive Pages artifact
+        if: steps.scheduled_sync.outputs.sync_performed == 'true'
+        shell: pwsh
+        run: |
+          tar --dereference --hard-dereference --directory dist --exclude=.git --exclude=.github --exclude=".[^/]*" --force-local -cvf "$env:RUNNER_TEMP\artifact.tar" "."
+      - uses: actions/upload-artifact@v4
+        if: steps.scheduled_sync.outputs.sync_performed == 'true'
         with:
-          path: dist
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
+          if-no-files-found: error
       - id: deployment
-        if: steps.commit.outputs.changes_detected == 'true'
+        if: steps.scheduled_sync.outputs.sync_performed == 'true'
         uses: actions/deploy-pages@v5
