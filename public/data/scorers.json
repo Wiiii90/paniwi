@@ -82,6 +82,16 @@
     "rank": 2
   },
   {
+    "playerName": "Abbosbek Fayzullaev",
+    "normalizedPlayerName": "abbosbek fayzullaev",
+    "nationalTeam": "Usbekistan",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 9
+  },
+  {
     "playerName": "Abdulelah Al-Amri",
     "normalizedPlayerName": "abdulelah al amri",
     "nationalTeam": "Saudi-Arabien",
@@ -166,6 +176,16 @@
     "rank": 9
   },
   {
+    "playerName": "Caleb Yirenkyi",
+    "normalizedPlayerName": "caleb yirenkyi",
+    "nationalTeam": "Ghana",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 9
+  },
+  {
     "playerName": "Connor Metcalfe",
     "normalizedPlayerName": "connor metcalfe",
     "nationalTeam": "Australien",
@@ -199,6 +219,16 @@
     "playerName": "Daichi Kamada",
     "normalizedPlayerName": "daichi kamada",
     "nationalTeam": "Japan",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 9
+  },
+  {
+    "playerName": "Daniel Muñoz",
+    "normalizedPlayerName": "daniel munoz",
+    "nationalTeam": "Kolumbien",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],
@@ -319,6 +349,16 @@
     "rank": 9
   },
   {
+    "playerName": "Jaminton Campaz",
+    "normalizedPlayerName": "jaminton campaz",
+    "nationalTeam": "Kolumbien",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 9
+  },
+  {
     "playerName": "João Neves",
     "normalizedPlayerName": "joao neves",
     "nationalTeam": "Portugal",
@@ -424,6 +464,16 @@
     "playerName": "Livano Comenencia",
     "normalizedPlayerName": "livano comenencia",
     "nationalTeam": "Curacao",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 9
+  },
+  {
+    "playerName": "Luis Díaz",
+    "normalizedPlayerName": "luis diaz",
+    "nationalTeam": "Kolumbien",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],
