@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-18T21:01:45.373Z",
+  "lastUpdated": "2026-06-18T21:09:02.199Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -12,11 +12,10 @@
   "duplicateGoalCount": 0,
   "sourceErrors": [],
   "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
-  "snapshotFingerprint": "1fe88863a14437f1a25cede7e0e71f8133c5e8b503053da5ac5c5bf83d2ba3b7",
+  "snapshotFingerprint": "3682668f108a31692ac3735a7ec260c48188edcbeb82b06fc239a788d7f4bc52",
   "snapshotChanged": true,
-  "syncWindowId": "2026 fifa world cup group b:canada-qatar:2026-06-18T22:00:00.000Z-pre-match",
   "windowSyncAttempts": 1,
-  "liveMatchCount": 1,
-  "sourceRequestCount": 3,
+  "liveMatchCount": 0,
+  "sourceRequestCount": 2,
   "sourceRequestLimit": 6
 }

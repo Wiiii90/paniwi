@@ -6547,16 +6547,16 @@
   },
   {
     "matchId": "football-data:537335",
-    "label": "Switzerland 1-0 Bosnia-Herzegovina",
+    "label": "Switzerland 4-1 Bosnia-Herzegovina",
     "kickedOffAt": "2026-06-18T19:00:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "name": "Schweiz",
-      "score": 1
+      "score": 4
     },
     "awayTeam": {
       "name": "Bosnien und Herzegowina",
-      "score": 0
+      "score": 1
     },
     "goals": [],
     "pointGoals": [],
@@ -6609,7 +6609,7 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 1,
+      "scoreTotal": 5,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
