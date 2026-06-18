@@ -25,8 +25,13 @@ const staticDataFiles = {
   pickStatuses: "pick-statuses.json"
 } satisfies Record<keyof StaticData, string>;
 
-async function fetchStaticDataFile<Key extends keyof StaticData>(key: Key): Promise<StaticData[Key]> {
-  const response = await fetch(`${import.meta.env.BASE_URL}data/${staticDataFiles[key]}`);
+async function fetchStaticDataFile<Key extends keyof StaticData>(
+  key: Key,
+  dataVersion: string
+): Promise<StaticData[Key]> {
+  const response = await fetch(`${import.meta.env.BASE_URL}data/${staticDataFiles[key]}?v=${dataVersion}`, {
+    cache: "no-store"
+  });
   if (!response.ok) {
     throw new Error(`${staticDataFiles[key]} konnte nicht geladen werden (${response.status})`);
   }
@@ -35,14 +40,15 @@ async function fetchStaticDataFile<Key extends keyof StaticData>(key: Key): Prom
 }
 
 export async function loadStaticData(): Promise<StaticData> {
+  const dataVersion = Date.now().toString(36);
   const [leaderboard, goals, scorers, matches, meta, rosters, pickStatuses] = await Promise.all([
-    fetchStaticDataFile("leaderboard"),
-    fetchStaticDataFile("goals"),
-    fetchStaticDataFile("scorers"),
-    fetchStaticDataFile("matches"),
-    fetchStaticDataFile("meta"),
-    fetchStaticDataFile("rosters"),
-    fetchStaticDataFile("pickStatuses")
+    fetchStaticDataFile("leaderboard", dataVersion),
+    fetchStaticDataFile("goals", dataVersion),
+    fetchStaticDataFile("scorers", dataVersion),
+    fetchStaticDataFile("matches", dataVersion),
+    fetchStaticDataFile("meta", dataVersion),
+    fetchStaticDataFile("rosters", dataVersion),
+    fetchStaticDataFile("pickStatuses", dataVersion)
   ]);
 
   return { leaderboard, goals, scorers, matches, meta, rosters, pickStatuses };
