@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-18T18:02:03.978Z",
+  "lastUpdated": "2026-06-18T18:31:32.170Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -12,11 +12,11 @@
   "duplicateGoalCount": 0,
   "sourceErrors": [],
   "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
-  "snapshotFingerprint": "2b8a4b846790488c58448e7f5e03a89e99123ca03de15f8929aad5c7fd8ea52a",
+  "snapshotFingerprint": "921423e1191b102bbba80c6c90101b67cc16ee505a0828a0fc5b181bfc3d676d",
   "snapshotChanged": true,
   "syncWindowId": "2026 fifa world cup group b:switzerland-bosnia and herzegovina:2026-06-18T19:00:00.000Z-pre-match",
   "windowSyncAttempts": 1,
-  "liveMatchCount": 1,
+  "liveMatchCount": 0,
   "sourceRequestCount": 2,
   "sourceRequestLimit": 6
 }
