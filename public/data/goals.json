@@ -286,6 +286,28 @@
     "points": 1
   },
   {
+    "externalGoalId": "football-data:scorer:31913:normal",
+    "playerName": "Rubén Vargas",
+    "nationalTeam": "Switzerland",
+    "sourcePlayerName": "Ruben Vargas",
+    "sourceTeamName": "Switzerland",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 31913,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "switzerland-ruben-vargas",
+    "teamId": "switzerland",
+    "pickId": "switzerland-ruben-vargas",
+    "owner": "Peer",
+    "pickedPlayerName": "Rubén Vargas",
+    "displayPlayerName": "Rubén Vargas",
+    "displayNationalTeam": "Schweiz",
+    "points": 1
+  },
+  {
     "externalGoalId": "football-data:scorer:612:normal",
     "playerName": "Yoane Wissa",
     "nationalTeam": "DR Congo",

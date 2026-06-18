@@ -43,41 +43,41 @@
   },
   {
     "rank": 6,
+    "owner": "Peer",
+    "points": 1,
+    "goals": 1,
+    "playersWithGoals": 1
+  },
+  {
+    "rank": 6,
     "owner": "Willi",
     "points": 1,
     "goals": 1,
     "playersWithGoals": 1
   },
   {
-    "rank": 8,
+    "rank": 9,
     "owner": "Anne",
     "points": 0,
     "goals": 0,
     "playersWithGoals": 0
   },
   {
-    "rank": 8,
+    "rank": 9,
     "owner": "Melli",
     "points": 0,
     "goals": 0,
     "playersWithGoals": 0
   },
   {
-    "rank": 8,
-    "owner": "Peer",
-    "points": 0,
-    "goals": 0,
-    "playersWithGoals": 0
-  },
-  {
-    "rank": 8,
+    "rank": 9,
     "owner": "Rafael",
     "points": 0,
     "goals": 0,
     "playersWithGoals": 0
   },
   {
-    "rank": 8,
+    "rank": 9,
     "owner": "Tjark",
     "points": 0,
     "goals": 0,
