@@ -1197,5 +1197,41 @@
       "name": "Panama",
       "score": 0
     }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489384",
+    "fixtureId": "1489384",
+    "label": "England 4-2 Croatia",
+    "kickedOffAt": "2026-06-17T20:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 10,
+      "name": "England",
+      "score": 4
+    },
+    "awayTeam": {
+      "id": 3,
+      "name": "Croatia",
+      "score": 2
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1539003",
+    "fixtureId": "1539003",
+    "label": "Portugal 1-1 Congo DR",
+    "kickedOffAt": "2026-06-17T17:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 27,
+      "name": "Portugal",
+      "score": 1
+    },
+    "awayTeam": {
+      "id": 1508,
+      "name": "Congo DR",
+      "score": 1
+    }
   }
 ]
