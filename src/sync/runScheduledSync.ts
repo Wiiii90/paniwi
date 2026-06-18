@@ -3,6 +3,7 @@ import { pathToFileURL } from "node:url";
 import type { ExternalMatchRecord } from "../domain/matchTypes";
 import type { StaticMeta } from "../domain/staticMeta";
 import { evaluateSyncWindow } from "./evaluateSyncWindow";
+import { getApiFootballEnrichmentRequestLimit } from "./sources/apiFootball/config";
 import { getUpcomingSyncWindows } from "./syncSchedule";
 import { syncGoals } from "./syncGoals";
 import { apiFootballSource } from "./sources/apiFootball/source";
@@ -58,20 +59,36 @@ async function autoEnrichNewlyFinishedMatches(before: ExternalMatchRecord[], syn
   }
 
   const after = await readCurrentRawMatches();
-  const [match] = getNewlyFinishedFootballDataMatches(before, after);
-  if (!match) {
+  const matches = getNewlyFinishedFootballDataMatches(before, after);
+  if (matches.length === 0) {
     console.log("API-Football auto-enrich skipped: no newly finished football-data match.");
     return;
   }
 
   const previousMatchIds = process.env.API_FOOTBALL_ENRICH_MATCH_IDS;
   const previousExtraLimit = process.env.API_FOOTBALL_ENRICH_EXTRA_MATCH_LIMIT;
+  const previousRequestLimit = process.env.API_FOOTBALL_ENRICH_MAX_REQUESTS;
+  const requestLimit = getApiFootballEnrichmentRequestLimit();
+  let requestCount = 0;
 
   try {
-    process.env.API_FOOTBALL_ENRICH_MATCH_IDS = match.matchId;
     process.env.API_FOOTBALL_ENRICH_EXTRA_MATCH_LIMIT = "0";
-    console.log(`API-Football auto-enrich started for ${match.label} (${match.matchId}).`);
-    await syncGoals([apiFootballSource], { syncWindowId: syncWindowId ? `${syncWindowId}:api-football-enrich` : undefined });
+    for (const match of matches) {
+      if (requestCount >= requestLimit) {
+        console.log(`API-Football auto-enrich stopped: request budget exhausted (${requestCount}/${requestLimit}).`);
+        break;
+      }
+
+      process.env.API_FOOTBALL_ENRICH_MATCH_IDS = match.matchId;
+      process.env.API_FOOTBALL_ENRICH_MAX_REQUESTS = String(requestLimit - requestCount);
+      console.log(`API-Football auto-enrich started for ${match.label} (${match.matchId}).`);
+      await syncGoals([apiFootballSource], {
+        syncWindowId: syncWindowId ? `${syncWindowId}:api-football-enrich:${match.matchId}` : undefined
+      });
+
+      const meta = await readCurrentMeta();
+      requestCount += meta?.sourceRequestCount ?? 0;
+    }
   } finally {
     if (previousMatchIds === undefined) {
       delete process.env.API_FOOTBALL_ENRICH_MATCH_IDS;
@@ -83,6 +100,12 @@ async function autoEnrichNewlyFinishedMatches(before: ExternalMatchRecord[], syn
       delete process.env.API_FOOTBALL_ENRICH_EXTRA_MATCH_LIMIT;
     } else {
       process.env.API_FOOTBALL_ENRICH_EXTRA_MATCH_LIMIT = previousExtraLimit;
+    }
+
+    if (previousRequestLimit === undefined) {
+      delete process.env.API_FOOTBALL_ENRICH_MAX_REQUESTS;
+    } else {
+      process.env.API_FOOTBALL_ENRICH_MAX_REQUESTS = previousRequestLimit;
     }
   }
 }

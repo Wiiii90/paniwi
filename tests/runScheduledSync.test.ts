@@ -24,6 +24,16 @@ const before: ExternalMatchRecord[] = [
     awayTeam: { name: "Done", score: 1 }
   },
   {
+    source: "football-data",
+    matchId: "football-data:newer-finished",
+    fixtureId: "newer-finished",
+    label: "Newer 3-2 Done",
+    kickedOffAt: "2026-06-18T21:00:00Z",
+    status: "live",
+    homeTeam: { name: "Newer", score: 3 },
+    awayTeam: { name: "Done", score: 2 }
+  },
+  {
     source: "api-football",
     matchId: "api-football:ignored",
     fixtureId: "ignored",
@@ -39,6 +49,7 @@ const after: ExternalMatchRecord[] = [
   { ...before[0]!, status: "finished" },
   { ...before[1]!, status: "finished" },
   { ...before[2]!, status: "finished" },
+  { ...before[3]!, status: "finished" },
   {
     source: "football-data",
     matchId: "football-data:still-live",
@@ -53,7 +64,7 @@ const after: ExternalMatchRecord[] = [
 
 assert.deepEqual(
   getNewlyFinishedFootballDataMatches(before, after).map((match) => match.matchId),
-  ["football-data:new-finished"]
+  ["football-data:newer-finished", "football-data:new-finished"]
 );
 
 console.log("Scheduled sync auto-enrich tests passed.");
