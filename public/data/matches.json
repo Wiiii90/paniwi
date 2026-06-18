@@ -1721,6 +1721,40 @@
         "source": "api-football",
         "matchId": "api-football:1539002",
         "fixtureId": "1539002",
+        "playerName": "D. Svensson",
+        "nationalTeam": "Schweden",
+        "teamId": "sweden",
+        "apiPlayerId": 198654,
+        "status": "bench",
+        "shirtNumber": 8,
+        "displayPlayerName": "Daniel Svensson",
+        "displayNationalTeam": "Schweden",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1539002",
+        "fixtureId": "1539002",
+        "playerName": "L. Bergvall",
+        "nationalTeam": "Schweden",
+        "teamId": "sweden",
+        "apiPlayerId": 347316,
+        "status": "bench",
+        "shirtNumber": 7,
+        "displayPlayerName": "Lucas Bergvall",
+        "displayNationalTeam": "Schweden",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1539002",
+        "fixtureId": "1539002",
         "playerName": "Alexander Isak",
         "nationalTeam": "Schweden",
         "teamId": "sweden",
@@ -1759,6 +1793,23 @@
         "displayNationalTeam": "Schweden",
         "owners": [
           "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "api-football",
+        "matchId": "api-football:1539002",
+        "fixtureId": "1539002",
+        "playerName": "E. Saad",
+        "nationalTeam": "Tunesien",
+        "teamId": "tunisia",
+        "apiPlayerId": 323974,
+        "status": "starter",
+        "shirtNumber": 8,
+        "displayPlayerName": "Elias Saad",
+        "displayNationalTeam": "Tunesien",
+        "owners": [
+          "Melli"
         ],
         "selected": true
       },
@@ -1976,21 +2027,6 @@
         "source": "api-football",
         "matchId": "api-football:1539002",
         "fixtureId": "1539002",
-        "playerName": "D. Svensson",
-        "nationalTeam": "Schweden",
-        "teamId": "sweden",
-        "apiPlayerId": 198654,
-        "status": "bench",
-        "shirtNumber": 8,
-        "displayPlayerName": "Daniel Svensson",
-        "displayNationalTeam": "Schweden",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "api-football:1539002",
-        "fixtureId": "1539002",
         "playerName": "E. Stroud",
         "nationalTeam": "Schweden",
         "teamId": "sweden",
@@ -2096,21 +2132,6 @@
         "source": "api-football",
         "matchId": "api-football:1539002",
         "fixtureId": "1539002",
-        "playerName": "L. Bergvall",
-        "nationalTeam": "Schweden",
-        "teamId": "sweden",
-        "apiPlayerId": 347316,
-        "status": "bench",
-        "shirtNumber": 7,
-        "displayPlayerName": "Lucas Bergvall",
-        "displayNationalTeam": "Schweden",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "api-football:1539002",
-        "fixtureId": "1539002",
         "playerName": "M. Svanberg",
         "nationalTeam": "Schweden",
         "teamId": "sweden",
@@ -2193,21 +2214,6 @@
         "status": "starter",
         "shirtNumber": 25,
         "displayPlayerName": "Anis Ben Slimane",
-        "displayNationalTeam": "Tunesien",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "api-football:1539002",
-        "fixtureId": "1539002",
-        "playerName": "E. Saad",
-        "nationalTeam": "Tunesien",
-        "teamId": "tunisia",
-        "apiPlayerId": 323974,
-        "status": "starter",
-        "shirtNumber": 8,
-        "displayPlayerName": "Elias Saad",
         "displayNationalTeam": "Tunesien",
         "owners": [],
         "selected": false
@@ -6061,6 +6067,21 @@
         "source": "football-data",
         "matchId": "football-data:537403",
         "fixtureId": "537403",
+        "playerName": "Ngal'ayel Mukau",
+        "nationalTeam": "DR Kongo",
+        "teamId": "dr-congo",
+        "status": "unknown",
+        "displayPlayerName": "Ngal'ayel Mukau",
+        "displayNationalTeam": "DR Kongo",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537403",
+        "fixtureId": "537403",
         "playerName": "Yoane Wissa",
         "nationalTeam": "DR Kongo",
         "teamId": "dr-congo",
@@ -8542,6 +8563,20 @@
       {
         "source": "wikipedia",
         "matchId": "wikipedia:2026 fifa world cup group k:colombia-dr congo:2026-06-24T02:00:00.000Z",
+        "playerName": "Ngal'ayel Mukau",
+        "nationalTeam": "DR Kongo",
+        "teamId": "dr-congo",
+        "status": "unknown",
+        "displayPlayerName": "Ngal'ayel Mukau",
+        "displayNationalTeam": "DR Kongo",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:colombia-dr congo:2026-06-24T02:00:00.000Z",
         "playerName": "Yoane Wissa",
         "nationalTeam": "DR Kongo",
         "teamId": "dr-congo",
@@ -10578,6 +10613,20 @@
         "teamId": "dr-congo",
         "status": "unknown",
         "displayPlayerName": "Nathanaël Mbuku",
+        "displayNationalTeam": "DR Kongo",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "wikipedia",
+        "matchId": "wikipedia:2026 fifa world cup group k:dr congo-uzb:2026-06-27T23:30:00.000Z",
+        "playerName": "Ngal'ayel Mukau",
+        "nationalTeam": "DR Kongo",
+        "teamId": "dr-congo",
+        "status": "unknown",
+        "displayPlayerName": "Ngal'ayel Mukau",
         "displayNationalTeam": "DR Kongo",
         "owners": [
           "Marco"

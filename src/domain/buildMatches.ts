@@ -14,7 +14,7 @@ import { isCompetitionScorerAggregateGoal } from "./effectiveGoals";
 import { getTeamDisplayName, resolveTeamDisplayName } from "./teamDisplay";
 import { resolveTeamFromApiFootball, resolveTeamFromWikipedia } from "./teamResolver";
 import { findUniqueRosterPlayer } from "./rosterNameMatcher";
-import { getParticipantPickCandidateNames, getParticipantPickDisplayName } from "./participantPick";
+import { resolveParticipantPicks, type ResolvedParticipantPick } from "./participantPick";
 import { normalizePlayerName } from "./normalizePlayerName";
 import { buildFixtureSyncStateForMatch } from "./fixtureSyncState";
 import {
@@ -147,26 +147,14 @@ function getRosterDisplayName(
   return rosterPlayer?.playerName ?? participant.playerName;
 }
 
-function getPickOwners(
-  participant: ExternalMatchParticipantRecord,
-  teams: ParticipantTeam[],
-  rosterSnapshot: RosterSnapshot | undefined
-): string[] {
+function getParticipantPickKey(teamId: string | undefined, playerName: string): string {
+  return [teamId ?? "", normalizePlayerName(playerName)].join("|");
+}
+
+function getPickOwners(participant: ExternalMatchParticipantRecord, resolvedPicks: ResolvedParticipantPick[]): string[] {
   const teamId = resolveParticipantTeamId(participant);
-  const normalizedParticipantName = normalizePlayerName(participant.playerName);
-  const owners = teams.flatMap((team) => {
-    const hasPlayer = team.players.some((pick) => {
-      if (teamId && pick.teamId !== teamId) {
-        return false;
-      }
-
-      return [...getParticipantPickCandidateNames(pick), getParticipantPickDisplayName(pick, rosterSnapshot)].some((candidateName) => {
-        return normalizePlayerName(candidateName) === normalizedParticipantName;
-      });
-    });
-
-    return hasPlayer ? [team.owner] : [];
-  });
+  const participantKey = getParticipantPickKey(teamId, participant.playerName);
+  const owners = resolvedPicks.flatMap((pick) => (pick.nominated && getParticipantPickKey(pick.teamId, pick.playerName) === participantKey ? [pick.owner] : []));
 
   return [...new Set(owners)].sort((left, right) => left.localeCompare(right));
 }
@@ -219,47 +207,29 @@ function getFixtureTeamIds(fixture: ExternalMatchRecord): Set<string> {
   );
 }
 
-function getPickedTeamIds(teams: ParticipantTeam[]): Set<string> {
-  return new Set(teams.flatMap((team) => team.players.map((player) => player.teamId)));
-}
-
-function isPickInRoster(pickTeamId: string, pickName: string, rosterSnapshot: RosterSnapshot | undefined): boolean {
-  const rosterTeam = rosterSnapshot?.teams.find((team) => team.teamId === pickTeamId);
-  if (!rosterTeam) {
-    return true;
-  }
-
-  return Boolean(findUniqueRosterPlayer(rosterTeam.players, [pickName]));
-}
-
 function buildPickedFixtureParticipants(
   fixture: ExternalMatchRecord,
-  teams: ParticipantTeam[],
-  rosterSnapshot: RosterSnapshot | undefined
+  resolvedPicks: ResolvedParticipantPick[]
 ): ExternalMatchParticipantRecord[] {
   const fixtureTeamIds = getFixtureTeamIds(fixture);
   if (fixtureTeamIds.size === 0) {
     return [];
   }
 
-  return teams.flatMap((team) =>
-    team.players.flatMap((pick) => {
-      if (!fixtureTeamIds.has(pick.teamId) || !isPickInRoster(pick.teamId, pick.playerName, rosterSnapshot)) {
-        return [];
-      }
-
-      return [
-        {
-          source: fixture.source,
-          matchId: fixture.matchId,
-          ...(fixture.fixtureId ? { fixtureId: fixture.fixtureId } : {}),
-          playerName: getParticipantPickDisplayName(pick, rosterSnapshot),
-          nationalTeam: getTeamDisplayName(pick.teamId),
-          teamId: pick.teamId,
-          status: "unknown"
-        } satisfies ExternalMatchParticipantRecord
-      ];
-    })
+  return resolvedPicks.flatMap((pick) =>
+    pick.nominated && fixtureTeamIds.has(pick.teamId)
+      ? [
+          {
+            source: fixture.source,
+            matchId: fixture.matchId,
+            ...(fixture.fixtureId ? { fixtureId: fixture.fixtureId } : {}),
+            playerName: pick.playerName,
+            nationalTeam: getTeamDisplayName(pick.teamId),
+            teamId: pick.teamId,
+            status: "unknown"
+          } satisfies ExternalMatchParticipantRecord
+        ]
+      : []
   );
 }
 
@@ -285,19 +255,20 @@ function dedupeParticipants(participants: ExternalMatchParticipantRecord[]): Ext
 
 function enrichParticipants(
   participants: ExternalMatchParticipantRecord[],
-  teams: ParticipantTeam[] = [],
+  resolvedPicks: ResolvedParticipantPick[] = [],
   rosterSnapshot?: RosterSnapshot
 ): MatchParticipantRecord[] {
   return dedupeParticipants(participants)
     .map((participant) => {
       const teamId = resolveParticipantTeamId(participant);
-      const owners = getPickOwners(participant, teams, rosterSnapshot);
+      const displayPlayerName = getRosterDisplayName(participant, teamId, rosterSnapshot);
+      const owners = getPickOwners({ ...participant, playerName: displayPlayerName, teamId }, resolvedPicks);
 
       return {
         ...participant,
         teamId,
         nationalTeam: teamId ? getTeamDisplayName(teamId, participant.nationalTeam) : resolveTeamDisplayName(participant.nationalTeam, participant.source),
-        displayPlayerName: getRosterDisplayName(participant, teamId, rosterSnapshot),
+        displayPlayerName,
         displayNationalTeam: teamId ? getTeamDisplayName(teamId, participant.nationalTeam) : resolveTeamDisplayName(participant.nationalTeam, participant.source),
         owners,
         selected: owners.length > 0
@@ -323,13 +294,14 @@ export function buildMatches(
   rosterSnapshot?: RosterSnapshot
 ): MatchRecord[] {
   const fallbackMatches = buildFallbackMatches(goals, scoredGoals);
-  const pickedTeamIds = getPickedTeamIds(teams);
+  const resolvedPicks = resolveParticipantPicks(teams, rosterSnapshot);
+  const pickedTeamIds = new Set(resolvedPicks.map((pick) => pick.teamId));
   const fixtureMatches = dedupeFixtures(fixtures).map((fixture) => {
     const matchGoals = sortGoalsChronologically(goals.filter((goal) => goalBelongsToFixture(goal, fixture)));
     const pointGoals = sortGoalsChronologically(scoredGoals.filter((goal) => goalBelongsToFixture(goal, fixture)));
     const matchParticipants = [
       ...participants.filter((participant) => participantBelongsToFixture(participant, fixture)),
-      ...buildPickedFixtureParticipants(fixture, teams, rosterSnapshot)
+      ...buildPickedFixtureParticipants(fixture, resolvedPicks)
     ];
 
     return {
@@ -342,7 +314,7 @@ export function buildMatches(
       goals: matchGoals,
       pointGoals,
       affectedOwners: [...new Set(pointGoals.map((goal) => goal.owner))].sort((a, b) => a.localeCompare(b)),
-      participants: enrichParticipants(matchParticipants, teams, rosterSnapshot),
+      participants: enrichParticipants(matchParticipants, resolvedPicks, rosterSnapshot),
       syncState: buildFixtureSyncStateForMatch(fixture, goals, participants, pickedTeamIds)
     } satisfies MatchRecord;
   });

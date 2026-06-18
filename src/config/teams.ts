@@ -1,6 +1,6 @@
 import type { ParticipantTeam } from "../domain/participantTypes";
 
-export const teams = [
+export const participantTeams = [
   {
     "owner": "Nina",
     "color": "#0f766e",

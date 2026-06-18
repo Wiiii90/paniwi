@@ -11,7 +11,7 @@ import type { ExternalMatchParticipantRecord, ExternalMatchRecord } from "../dom
 import type { StaticMeta } from "../domain/staticMeta";
 import type { RosterSnapshot } from "../domain/rosterTypes";
 import type { GoalSource } from "./sources/types";
-import { teams } from "../config/teams";
+import { participantTeams } from "../config/teams";
 import { normalizeGoals } from "./normalizeGoals";
 import { buildSnapshotFingerprint } from "./snapshotFingerprint";
 import { validateGoals } from "./validateGoals";
@@ -379,7 +379,7 @@ export async function syncGoals(
   sources: GoalSource[] = getSourcesFromEnv(),
   options: SyncGoalsOptions = {}
 ): Promise<void> {
-  const teamValidation = validateTeams(teams);
+  const teamValidation = validateTeams(participantTeams);
   if (!teamValidation.valid) {
     throw new Error(`Invalid team configuration: ${formatTeamValidationIssues(teamValidation.issues)}`);
   }
@@ -429,10 +429,10 @@ export async function syncGoals(
   });
   const { validGoals: goals, skippedGoals } = validateGoals(rosterEnrichedGoals);
   const effectiveGoals = selectEffectiveGoalsForScoring(goals);
-  const scoredGoals = sortGoalsChronologically(scoreGoalsForTeams(teams, effectiveGoals, rosterSnapshot));
-  const leaderboard = buildLeaderboard(teams, effectiveGoals, rosterSnapshot);
-  const scorers = buildScorers(effectiveGoals, teams, rosterSnapshot);
-  const matches = buildMatches(goals, scoredGoals, normalizedMatches, normalizedParticipants, teams, rosterSnapshot);
+  const scoredGoals = sortGoalsChronologically(scoreGoalsForTeams(participantTeams, effectiveGoals, rosterSnapshot));
+  const leaderboard = buildLeaderboard(participantTeams, effectiveGoals, rosterSnapshot);
+  const scorers = buildScorers(effectiveGoals, participantTeams, rosterSnapshot);
+  const matches = buildMatches(goals, scoredGoals, normalizedMatches, normalizedParticipants, participantTeams, rosterSnapshot);
 
   await writeStaticData({
     leaderboard,

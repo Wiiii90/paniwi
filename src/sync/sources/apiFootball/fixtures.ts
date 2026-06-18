@@ -1,4 +1,4 @@
-import { teams } from "../../../config/teams";
+import { participantTeams } from "../../../config/teams";
 import type { ExternalMatchRecord, MatchStatus } from "../../../domain/matchTypes";
 import { resolveTeamFromApiFootball } from "../../../domain/teamResolver";
 import {
@@ -191,7 +191,7 @@ export function getApiTeamId(teamName: string | undefined): string | undefined {
   return teamName ? (resolveTeamFromApiFootball(teamName)?.teamId ?? undefined) : undefined;
 }
 
-const pickedTeamIds = new Set(teams.flatMap((team) => team.players.map((player) => player.teamId)));
+const pickedTeamIds = new Set(participantTeams.flatMap((team) => team.players.map((player) => player.teamId)));
 
 export function fixtureHasPickedTeam(fixture: ApiFootballFixture): boolean {
   const homeTeamId = getApiTeamId(fixture.teams?.home?.name);

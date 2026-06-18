@@ -1,4 +1,4 @@
-import { teams } from "../../../config/teams";
+import { participantTeams } from "../../../config/teams";
 import { buildFixtureSyncState, matchHasPickedTeam as rawMatchHasPickedTeam } from "../../../domain/fixtureSyncState";
 import type { ExternalMatchParticipantRecord, ExternalMatchRecord, MatchParticipationStatus } from "../../../domain/matchTypes";
 import {
@@ -33,7 +33,7 @@ type ApiFootballLineupsResponse = {
   errors?: unknown;
 };
 
-const pickedTeamIds = new Set(teams.flatMap((team) => team.players.map((player) => player.teamId)));
+const pickedTeamIds = new Set(participantTeams.flatMap((team) => team.players.map((player) => player.teamId)));
 
 export function buildParticipantRecord(
   fixtureId: string,

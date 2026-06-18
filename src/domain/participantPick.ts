@@ -4,6 +4,7 @@ import { normalizePlayerName } from "./normalizePlayerName";
 import { resolveGoalTeamId } from "./teamResolver";
 import type { GoalRecord } from "./goalTypes";
 import type { ParticipantPick } from "./participantTypes";
+import type { ParticipantTeam } from "./participantTypes";
 import type { PlayerPosition, RosterPlayer, RosterSnapshot } from "./rosterTypes";
 
 function getRosterTeam(snapshot: RosterSnapshot | undefined, teamId: string) {
@@ -79,4 +80,42 @@ export function matchesParticipantPickGoal(
   );
 
   return candidateNames.has(normalizePlayerName(goal.playerName));
+}
+
+export type ResolvedParticipantPick = {
+  owner: string;
+  pick: ParticipantPick;
+  pickId: string;
+  teamId: string;
+  playerId: string;
+  playerName: string;
+  normalizedPlayerName: string;
+  position?: PlayerPosition;
+  rosterPlayer: RosterPlayer | null;
+  nominated: boolean;
+};
+
+export function resolveParticipantPicks(
+  participantTeams: ParticipantTeam[],
+  rosterSnapshot: RosterSnapshot | undefined
+): ResolvedParticipantPick[] {
+  return participantTeams.flatMap((team) =>
+    team.players.map((pick) => {
+      const rosterPlayer = resolveParticipantPickRosterPlayer(pick, rosterSnapshot);
+      const rosterTeamExists = Boolean(rosterSnapshot?.teams.some((rosterTeam) => rosterTeam.teamId === pick.teamId));
+      const playerName = rosterPlayer?.playerName ?? pick.playerName;
+      return {
+        owner: team.owner,
+        pick,
+        pickId: getParticipantPickId(pick),
+        teamId: pick.teamId,
+        playerId: buildPlayerId(pick.teamId, playerName),
+        playerName,
+        normalizedPlayerName: normalizePlayerName(playerName),
+        position: rosterPlayer?.position && rosterPlayer.position !== "unknown" ? rosterPlayer.position : pick.position,
+        rosterPlayer,
+        nominated: !rosterTeamExists || Boolean(rosterPlayer)
+      };
+    })
+  );
 }

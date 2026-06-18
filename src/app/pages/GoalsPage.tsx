@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import type { ScorerEntry } from "../../domain/goalTypes";
-import { teams } from "../../config/teams";
+import { participantTeams } from "../../config/teams";
 import { teamCatalog } from "../../config/teamCatalog";
 import { TeamFlag } from "../components/TeamFlag";
 import { useTableSort } from "../useTableSort";
@@ -84,7 +84,7 @@ export function GoalsPage({ scorers }: GoalsPageProps) {
   }, [scorers]);
 
   const owners = useMemo(
-    () => [...new Set(teams.map((team) => team.owner))].sort((a, b) => a.localeCompare(b, "de")),
+    () => [...new Set(participantTeams.map((team) => team.owner))].sort((a, b) => a.localeCompare(b, "de")),
     []
   );
   const countries = useMemo(() => teamCatalog.map((team) => team.displayName).sort((a, b) => a.localeCompare(b, "de")), []);

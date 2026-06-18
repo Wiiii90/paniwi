@@ -1,6 +1,6 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
-import { teams } from "../config/teams";
+import { participantTeams as defaultParticipantTeams } from "../config/teams";
 import { findUniqueRosterPlayer } from "../domain/rosterNameMatcher";
 import { getParticipantPickCandidateNames, getParticipantPickId } from "../domain/participantPick";
 import { getTeamDisplayName } from "../domain/teamDisplay";
@@ -97,7 +97,7 @@ export function buildPickStatusSnapshot(
     now?: Date;
   } = {}
 ): PickStatusSnapshot {
-  const participantTeams = options.participantTeams ?? teams;
+  const participantTeams = options.participantTeams ?? defaultParticipantTeams;
   const previousSnapshot = options.previousSnapshot;
   const now = options.now ?? new Date();
   const rosterTeamIndex = getRosterTeamIndex(rosterSnapshot);

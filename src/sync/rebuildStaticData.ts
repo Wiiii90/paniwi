@@ -11,7 +11,7 @@ import type { ExternalMatchParticipantRecord, ExternalMatchRecord } from "../dom
 import type { StaticMeta } from "../domain/staticMeta";
 import type { RosterSnapshot } from "../domain/rosterTypes";
 import { sortGoalsChronologically } from "../domain/sortGoals";
-import { teams } from "../config/teams";
+import { participantTeams } from "../config/teams";
 import { buildPickStatusSnapshot, writePickStatusSnapshot } from "./pickStatuses";
 import { buildSnapshotFingerprint } from "./snapshotFingerprint";
 import { validateGoals } from "./validateGoals";
@@ -44,10 +44,10 @@ export async function rebuildStaticData(): Promise<void> {
   });
   const { validGoals, skippedGoals } = validateGoals(enrichedRawGoals);
   const effectiveGoals = selectEffectiveGoalsForScoring(validGoals);
-  const scoredGoals = sortGoalsChronologically(scoreGoalsForTeams(teams, effectiveGoals, rosters));
-  const leaderboard = buildLeaderboard(teams, effectiveGoals, rosters);
-  const scorers = buildScorers(effectiveGoals, teams, rosters);
-  const matches = buildMatches(validGoals, scoredGoals, rawMatches, rawParticipants ?? [], teams, rosters);
+  const scoredGoals = sortGoalsChronologically(scoreGoalsForTeams(participantTeams, effectiveGoals, rosters));
+  const leaderboard = buildLeaderboard(participantTeams, effectiveGoals, rosters);
+  const scorers = buildScorers(effectiveGoals, participantTeams, rosters);
+  const matches = buildMatches(validGoals, scoredGoals, rawMatches, rawParticipants ?? [], participantTeams, rosters);
   const snapshotFingerprint = buildSnapshotFingerprint(validGoals, rawMatches, rawParticipants ?? []);
 
   await writeStaticData({

@@ -1,4 +1,4 @@
-import { teams } from "../../config/teams";
+import { participantTeams } from "../../config/teams";
 import { buildPlayerScores } from "../../domain/buildLeaderboard";
 import { isCompetitionScorerAggregateGoal } from "../../domain/effectiveGoals";
 import { sortGoalsChronologically } from "../../domain/sortGoals";
@@ -56,7 +56,7 @@ function getRosterStatusClassName(status: PickStatusEntry["displayStatus"] | und
 
 export function TeamPage({ owner, goals, matches, pickStatuses, rosters }: TeamPageProps) {
   const baseUrl = import.meta.env.BASE_URL;
-  const team = teams.find((candidate) => candidate.owner.toLowerCase() === owner.toLowerCase());
+  const team = participantTeams.find((candidate) => candidate.owner.toLowerCase() === owner.toLowerCase());
 
   if (!team) {
     return (
