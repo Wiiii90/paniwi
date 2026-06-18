@@ -195,7 +195,7 @@ function mergeParticipantStatus(existing: MatchParticipationStatus, incoming: Ma
 
 function buildParticipantMergeKey(participant: ExternalMatchParticipantRecord): string {
   const teamId = resolveParticipantTeamId(participant) ?? normalizeMatchTeamKey(participant.nationalTeam);
-  const playerKey = normalizePlayerName(participant.playerName);
+  const playerKey = participant.source === "api-football" && participant.apiPlayerId ? `api:${participant.apiPlayerId}` : normalizePlayerName(participant.playerName);
   return [getParticipantMatchKey(participant), teamId, playerKey].join("|");
 }
 
@@ -207,17 +207,37 @@ function getFixtureTeamIds(fixture: ExternalMatchRecord): Set<string> {
   );
 }
 
+function participantRepresentsPick(
+  participant: ExternalMatchParticipantRecord,
+  pick: ResolvedParticipantPick,
+  rosterSnapshot: RosterSnapshot | undefined
+): boolean {
+  const teamId = resolveParticipantTeamId(participant);
+  if (teamId !== pick.teamId) {
+    return false;
+  }
+
+  const displayPlayerName = getRosterDisplayName(participant, teamId, rosterSnapshot);
+  return normalizePlayerName(displayPlayerName) === normalizePlayerName(pick.playerName);
+}
+
 function buildPickedFixtureParticipants(
   fixture: ExternalMatchRecord,
-  resolvedPicks: ResolvedParticipantPick[]
+  resolvedPicks: ResolvedParticipantPick[],
+  existingParticipants: ExternalMatchParticipantRecord[],
+  rosterSnapshot: RosterSnapshot | undefined
 ): ExternalMatchParticipantRecord[] {
   const fixtureTeamIds = getFixtureTeamIds(fixture);
   if (fixtureTeamIds.size === 0) {
     return [];
   }
 
-  return resolvedPicks.flatMap((pick) =>
-    pick.nominated && fixtureTeamIds.has(pick.teamId)
+  return resolvedPicks.flatMap((pick) => {
+    if (existingParticipants.some((participant) => participantRepresentsPick(participant, pick, rosterSnapshot))) {
+      return [];
+    }
+
+    return pick.nominated && fixtureTeamIds.has(pick.teamId)
       ? [
           {
             source: fixture.source,
@@ -229,8 +249,8 @@ function buildPickedFixtureParticipants(
             status: "unknown"
           } satisfies ExternalMatchParticipantRecord
         ]
-      : []
-  );
+      : [];
+  });
 }
 
 function dedupeParticipants(participants: ExternalMatchParticipantRecord[]): ExternalMatchParticipantRecord[] {
@@ -301,7 +321,12 @@ export function buildMatches(
     const pointGoals = sortGoalsChronologically(scoredGoals.filter((goal) => goalBelongsToFixture(goal, fixture)));
     const matchParticipants = [
       ...participants.filter((participant) => participantBelongsToFixture(participant, fixture)),
-      ...buildPickedFixtureParticipants(fixture, resolvedPicks)
+      ...buildPickedFixtureParticipants(
+        fixture,
+        resolvedPicks,
+        participants.filter((participant) => participantBelongsToFixture(participant, fixture)),
+        rosterSnapshot
+      )
     ];
 
     return {

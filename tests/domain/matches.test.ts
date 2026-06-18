@@ -160,6 +160,49 @@ const participantStatusMatch = buildMatches(
 );
 assert.equal(participantStatusMatch[0].participants[0].status, "subbed-in-out");
 
+const participantApiIdMatch = buildMatches(
+  [],
+  [],
+  [
+    {
+      source: "football-data",
+      matchId: "football-data:participant-api-id",
+      fixtureId: "participant-api-id",
+      label: "Switzerland 1-0 Bosnia-Herzegovina",
+      kickedOffAt: "2026-06-18T19:00:00.000Z",
+      status: "finished",
+      homeTeam: { name: "Switzerland", score: 1 },
+      awayTeam: { name: "Bosnia-Herzegovina", score: 0 }
+    }
+  ],
+  [
+    {
+      source: "api-football",
+      matchId: "football-data:participant-api-id",
+      fixtureId: "1539005",
+      playerName: "R. Vargas",
+      nationalTeam: "Switzerland",
+      teamId: "switzerland",
+      apiPlayerId: 48471,
+      status: "subbed-in"
+    },
+    {
+      source: "api-football",
+      matchId: "football-data:participant-api-id",
+      fixtureId: "1539005",
+      playerName: "Rubén Vargas",
+      nationalTeam: "Switzerland",
+      teamId: "switzerland",
+      apiPlayerId: 48471,
+      status: "bench"
+    }
+  ],
+  teams
+);
+const apiIdParticipants = participantApiIdMatch[0].participants.filter((participant) => participant.apiPlayerId === 48471);
+assert.equal(apiIdParticipants.length, 1);
+assert.equal(apiIdParticipants[0]?.status, "subbed-in");
+
 const runningScoreMatch = buildMatches(
   [
     {
