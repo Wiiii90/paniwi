@@ -152,6 +152,22 @@ assert.deepEqual(
   ]
 );
 
+const wikipediaMatchWithMissingGoal: ExternalMatchRecord = {
+  source: "wikipedia",
+  matchId: "wikipedia:usa-paraguay",
+  label: "United States 4-1 Paraguay",
+  kickedOffAt: "2026-06-13T01:00:00.000Z",
+  status: "finished",
+  homeTeam: { name: "United States", score: 4 },
+  awayTeam: { name: "Paraguay", score: 1 }
+};
+assert.equal(
+  getApiFootballEnrichmentCandidates([wikipediaMatchWithMissingGoal], [], [], {
+    API_FOOTBALL_ENRICH_EXTRA_MATCH_LIMIT: "0"
+  } as NodeJS.ProcessEnv)[0]?.syncState.needsEventBackfill,
+  true
+);
+
 const subOnlyParticipants: ExternalMatchParticipantRecord[] = [
   {
     source: "api-football",

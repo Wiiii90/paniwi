@@ -95,7 +95,7 @@ function matchHasLineups(match: ExternalMatchRecord, participants: ExternalMatch
 }
 
 function buildCandidate(match: ExternalMatchRecord, goals: GoalRecord[], participants: ExternalMatchParticipantRecord[]): ApiFootballEnrichmentCandidate | null {
-  if (match.source !== "football-data" || match.status !== "finished") {
+  if (match.source === "api-football" || match.status !== "finished") {
     return null;
   }
 
