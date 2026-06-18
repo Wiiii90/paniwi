@@ -1,14 +1,5 @@
-import { participantTeams } from "../../../config/teams";
-import { buildFixtureSyncState, matchHasPickedTeam as rawMatchHasPickedTeam } from "../../../domain/fixtureSyncState";
-import type { ExternalMatchParticipantRecord, ExternalMatchRecord, MatchParticipationStatus } from "../../../domain/matchTypes";
-import {
-  claimLineupRequestBudget,
-  fetchApiFootball,
-  getApiFootballLineupRequestLimit,
-  hasApiErrors,
-  type ApiFootballLineupRequestBudget,
-  type ApiFootballRequestBudget
-} from "./config";
+import type { ExternalMatchParticipantRecord, MatchParticipationStatus } from "../../../domain/matchTypes";
+import { fetchApiFootball, hasApiErrors, type ApiFootballRequestBudget } from "./config";
 import { getApiTeamId } from "./fixtures";
 
 type ApiFootballLineupPlayer = {
@@ -32,8 +23,6 @@ type ApiFootballLineupsResponse = {
   response?: ApiFootballLineup[];
   errors?: unknown;
 };
-
-const pickedTeamIds = new Set(participantTeams.flatMap((team) => team.players.map((player) => player.teamId)));
 
 export function buildParticipantRecord(
   fixtureId: string,
@@ -92,76 +81,4 @@ export async function fetchFixtureLineups(
   }
 
   return body.response ?? [];
-}
-
-export async function fetchOptionalFixtureLineups(
-  fixtureId: string,
-  requestBudget: ApiFootballRequestBudget,
-  lineupBudget: ApiFootballLineupRequestBudget
-): Promise<ApiFootballLineup[]> {
-  if (!claimLineupRequestBudget(lineupBudget)) {
-    return [];
-  }
-
-  try {
-    return await fetchFixtureLineups(fixtureId, process.env, requestBudget);
-  } catch (error) {
-    const message = error instanceof Error ? error.message : String(error);
-    if (message.includes("HTTP 429") || message.includes("request budget exhausted")) {
-      return [];
-    }
-
-    throw error;
-  }
-}
-
-export function getExistingFixtureIdsWithLineups(participants: ExternalMatchParticipantRecord[]): Set<string> {
-  return new Set(
-    participants
-      .filter((participant) => participant.source === "api-football" && participant.fixtureId)
-      .filter((participant) => participant.status === "starter" || participant.status === "bench")
-      .map((participant) => participant.fixtureId!)
-  );
-}
-
-function getLineupBackfillSortRank(match: ExternalMatchRecord): number {
-  return match.status === "live" ? 0 : 1;
-}
-
-export function getMissingLineupBackfillFixtureIds(
-  matches: ExternalMatchRecord[],
-  participants: ExternalMatchParticipantRecord[],
-  limit: number
-): string[] {
-  if (limit <= 0) {
-    return [];
-  }
-
-  const fixtureIdsWithLineups = getExistingFixtureIdsWithLineups(participants);
-  const candidates = matches
-    .filter((match) => match.source === "api-football" && match.fixtureId)
-    .filter((match) => match.status === "live" || match.status === "finished")
-    .filter((match) =>
-      buildFixtureSyncState(
-        match,
-        0,
-        fixtureIdsWithLineups.has(match.fixtureId!),
-        rawMatchHasPickedTeam(match, pickedTeamIds)
-      ).needsLineupBackfill
-    )
-    .sort((left, right) => {
-      const rankDiff = getLineupBackfillSortRank(left) - getLineupBackfillSortRank(right);
-      if (rankDiff !== 0) {
-        return rankDiff;
-      }
-
-      return (right.kickedOffAt ?? "").localeCompare(left.kickedOffAt ?? "");
-    })
-    .map((match) => match.fixtureId!);
-
-  return [...new Set(candidates)].slice(0, limit);
-}
-
-export function getLineupBackfillLimit(env: NodeJS.ProcessEnv = process.env): number {
-  return getApiFootballLineupRequestLimit(env);
 }

@@ -1,19 +1,8 @@
-import type { ExternalMatchRecord } from "../../../domain/matchTypes";
-
 export const defaultBaseUrl = "https://v3.football.api-sports.io";
-export const defaultRequestLimit = 90;
-export const defaultLineupRequestLimit = 4;
-export const defaultMissingEventBackfillLimit = 6;
-export const earlyUtcPreviousDayLookbackHours = 6;
-
-export type SyncWindowPhase = "pre-match" | "live" | "post-match" | "settlement" | "maintenance" | "forced" | "settled";
+export const defaultEnrichmentRequestLimit = 6;
+export const defaultExtraMatchLimit = 1;
 
 export type ApiFootballRequestBudget = {
-  limit: number;
-  used: number;
-};
-
-export type ApiFootballLineupRequestBudget = {
   limit: number;
   used: number;
 };
@@ -34,92 +23,63 @@ export function getOptionalEnvValue(value: string | undefined): string | undefin
   return normalized ? normalized : undefined;
 }
 
-export function getSyncWindowPhase(env: NodeJS.ProcessEnv = process.env): SyncWindowPhase {
-  const phase = env.SYNC_WINDOW_PHASE;
-  if (
-    phase === "pre-match" ||
-    phase === "live" ||
-    phase === "post-match" ||
-    phase === "settlement" ||
-    phase === "maintenance" ||
-    phase === "forced"
-  ) {
-    return phase;
-  }
-
-  return "settled";
-}
-
-export function getApiFootballRequestLimit(env: NodeJS.ProcessEnv = process.env): number {
-  const configured = getOptionalEnvValue(env.API_FOOTBALL_MAX_REQUESTS);
+function parseNonNegativeInteger(value: string | undefined, fallback: number, name: string): number {
+  const configured = getOptionalEnvValue(value);
   if (!configured) {
-    return defaultRequestLimit;
-  }
-
-  const limit = Number(configured);
-  if (!Number.isInteger(limit) || limit < 1) {
-    throw new Error("API_FOOTBALL_MAX_REQUESTS must be a positive integer.");
-  }
-
-  return limit;
-}
-
-export function getApiFootballLineupRequestLimit(env: NodeJS.ProcessEnv = process.env): number {
-  const configured = getOptionalEnvValue(env.API_FOOTBALL_MAX_LINEUP_REQUESTS);
-  if (!configured) {
-    return defaultLineupRequestLimit;
+    return fallback;
   }
 
   const limit = Number(configured);
   if (!Number.isInteger(limit) || limit < 0) {
-    throw new Error("API_FOOTBALL_MAX_LINEUP_REQUESTS must be zero or a positive integer.");
+    throw new Error(`${name} must be zero or a positive integer.`);
   }
 
   return limit;
 }
 
-export function createRequestBudget(env: NodeJS.ProcessEnv = process.env): ApiFootballRequestBudget {
+export function getApiFootballEnrichmentRequestLimit(env: NodeJS.ProcessEnv = process.env): number {
+  const limit = parseNonNegativeInteger(
+    env.API_FOOTBALL_ENRICH_MAX_REQUESTS,
+    defaultEnrichmentRequestLimit,
+    "API_FOOTBALL_ENRICH_MAX_REQUESTS"
+  );
+  if (limit < 1) {
+    throw new Error("API_FOOTBALL_ENRICH_MAX_REQUESTS must be at least 1.");
+  }
+
+  return limit;
+}
+
+export function getApiFootballEnrichmentExtraMatchLimit(env: NodeJS.ProcessEnv = process.env): number {
+  const limit = parseNonNegativeInteger(
+    env.API_FOOTBALL_ENRICH_EXTRA_MATCH_LIMIT,
+    defaultExtraMatchLimit,
+    "API_FOOTBALL_ENRICH_EXTRA_MATCH_LIMIT"
+  );
+  if (limit > 1) {
+    throw new Error("API_FOOTBALL_ENRICH_EXTRA_MATCH_LIMIT must be 0 or 1.");
+  }
+
+  return limit;
+}
+
+export function createApiFootballRequestBudget(env: NodeJS.ProcessEnv = process.env): ApiFootballRequestBudget {
   return {
-    limit: getApiFootballRequestLimit(env),
+    limit: getApiFootballEnrichmentRequestLimit(env),
     used: 0
   };
 }
 
-export function createLineupRequestBudget(env: NodeJS.ProcessEnv = process.env): ApiFootballLineupRequestBudget {
-  return {
-    limit: getApiFootballLineupRequestLimit(env),
-    used: 0
-  };
+export function hasRequestBudget(budget: ApiFootballRequestBudget): boolean {
+  return budget.used < budget.limit;
 }
 
 export function claimRequestBudget(budget: ApiFootballRequestBudget): void {
-  if (budget.used >= budget.limit) {
-    throw new Error(`API-Football request budget exhausted (${budget.used}/${budget.limit}).`);
+  if (!hasRequestBudget(budget)) {
+    throw new Error(`API-Football enrichment request budget exhausted (${budget.used}/${budget.limit}).`);
   }
 
   budget.used += 1;
-}
-
-export function claimLineupRequestBudget(budget: ApiFootballLineupRequestBudget): boolean {
-  if (budget.used >= budget.limit) {
-    return false;
-  }
-
-  budget.used += 1;
-  return true;
-}
-
-export function formatDateKey(date: Date): string {
-  return date.toISOString().slice(0, 10);
-}
-
-export function getMatchDateKey(match: ExternalMatchRecord): string | null {
-  if (!match.kickedOffAt) {
-    return null;
-  }
-
-  const date = new Date(match.kickedOffAt);
-  return Number.isNaN(date.getTime()) ? null : formatDateKey(date);
 }
 
 export function hasApiErrors(errors: unknown): boolean {
@@ -142,7 +102,7 @@ export async function fetchApiFootball<T>(
   path: string,
   params: Record<string, string>,
   env: NodeJS.ProcessEnv = process.env,
-  budget: ApiFootballRequestBudget = createRequestBudget(env)
+  budget: ApiFootballRequestBudget = createApiFootballRequestBudget(env)
 ): Promise<T> {
   const apiKey = env.API_FOOTBALL_KEY;
   if (!apiKey) {

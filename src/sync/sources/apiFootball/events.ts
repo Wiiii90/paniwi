@@ -1,22 +1,9 @@
-import { buildFixtureSyncState } from "../../../domain/fixtureSyncState";
-import type { ExternalGoalRecord } from "../../../domain/goalTypes";
-import type { ExternalMatchParticipantRecord, ExternalMatchRecord } from "../../../domain/matchTypes";
-import {
-  defaultMissingEventBackfillLimit,
-  fetchApiFootball,
-  getOptionalEnvValue,
-  hasApiErrors,
-  type ApiFootballRequestBudget
-} from "./config";
-import { buildParticipantRecord } from "./lineups";
-import {
-  getFixtureId,
-  getFixtureLabel,
-  getFixtureScoreTotal,
-  shouldFetchFixtureEvents,
-  type ApiFootballFixture
-} from "./fixtures";
 import type { GoalDetail } from "../../../domain/goalTypes";
+import type { ExternalGoalRecord } from "../../../domain/goalTypes";
+import type { ExternalMatchParticipantRecord } from "../../../domain/matchTypes";
+import { fetchApiFootball, hasApiErrors, type ApiFootballRequestBudget } from "./config";
+import { buildParticipantRecord } from "./lineups";
+import { getFixtureLabel, shouldFetchFixtureEvents, type ApiFootballFixture } from "./fixtures";
 
 export type ApiFootballEvent = {
   time?: {
@@ -64,62 +51,6 @@ function normalizeGoalDetail(detail: string | undefined): GoalDetail {
 
 function isGoalEvent(event: ApiFootballEvent): boolean {
   return event.type?.toLowerCase() === "goal";
-}
-
-export function fixtureNeedsGoalEvents(
-  fixture: ApiFootballFixture,
-  goalCountsByFixture: Map<string, number>
-): boolean {
-  const fixtureId = getFixtureId(fixture);
-  if (!fixtureId || !shouldFetchFixtureEvents(fixture)) {
-    return false;
-  }
-
-  const scoreTotal = getFixtureScoreTotal(fixture);
-  if (scoreTotal === null) {
-    return true;
-  }
-
-  if (scoreTotal <= 0) {
-    return false;
-  }
-
-  return (goalCountsByFixture.get(fixtureId) ?? 0) < scoreTotal;
-}
-
-export function getMissingEventBackfillLimit(env: NodeJS.ProcessEnv = process.env): number {
-  const configured = getOptionalEnvValue(env.API_FOOTBALL_MISSING_EVENT_BACKFILL_LIMIT);
-  if (!configured) {
-    return defaultMissingEventBackfillLimit;
-  }
-
-  const limit = Number(configured);
-  if (!Number.isInteger(limit) || limit < 0) {
-    throw new Error("API_FOOTBALL_MISSING_EVENT_BACKFILL_LIMIT must be zero or a positive integer.");
-  }
-
-  return limit;
-}
-
-export function getMissingEventBackfillFixtureIds(
-  matches: ExternalMatchRecord[],
-  goalCountsByFixture: Map<string, number>,
-  limit: number
-): string[] {
-  if (limit <= 0) {
-    return [];
-  }
-
-  const missingFixtureIds = matches
-    .filter((match) => match.fixtureId && (match.status === "finished" || match.status === "live"))
-    .filter((match) =>
-      buildFixtureSyncState(match, goalCountsByFixture.get(match.fixtureId!) ?? 0, true, false).needsEventBackfill
-    )
-    .sort((left, right) => (left.kickedOffAt ?? "").localeCompare(right.kickedOffAt ?? ""))
-    .map((match) => match.fixtureId!)
-    .slice(0, limit);
-
-  return [...new Set(missingFixtureIds)];
 }
 
 export function parseApiFootballEvents(
@@ -175,6 +106,10 @@ export function parseApiFootballSubstitutions(
       ...buildParticipantRecord(fixtureId, event.assist?.name, nationalTeam, "subbed-in", event.assist?.id)
     ];
   });
+}
+
+export function fixtureCanHaveEvents(fixture: ApiFootballFixture): boolean {
+  return shouldFetchFixtureEvents(fixture);
 }
 
 export async function fetchFixtureEvents(

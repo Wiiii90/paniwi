@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       sync_source:
-        description: "Source mode for this run: football-data, api-football, wikipedia, or mock"
+        description: "Source mode for this run: football-data, api-football-enrich, wikipedia, or mock"
         required: false
         default: "football-data"
       force_sync:
@@ -42,14 +42,11 @@ jobs:
       FOOTBALL_DATA_SCORER_LIMIT: ${{ vars.FOOTBALL_DATA_SCORER_LIMIT }}
       FOOTBALL_DATA_MAX_THROTTLE_MS: ${{ vars.FOOTBALL_DATA_MAX_THROTTLE_MS }}
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
-      API_FOOTBALL_DATES: ${{ vars.API_FOOTBALL_DATES }}
-      API_FOOTBALL_DATE_FROM: ${{ vars.API_FOOTBALL_DATE_FROM }}
-      API_FOOTBALL_DATE_TO: ${{ vars.API_FOOTBALL_DATE_TO }}
-      API_FOOTBALL_FIXTURE_IDS: ${{ vars.API_FOOTBALL_FIXTURE_IDS }}
       API_FOOTBALL_BASE_URL: ${{ vars.API_FOOTBALL_BASE_URL }}
       API_FOOTBALL_TIMEOUT_MS: ${{ vars.API_FOOTBALL_TIMEOUT_MS }}
-      API_FOOTBALL_MAX_REQUESTS: ${{ vars.API_FOOTBALL_MAX_REQUESTS }}
-      API_FOOTBALL_MAX_LINEUP_REQUESTS: ${{ vars.API_FOOTBALL_MAX_LINEUP_REQUESTS }}
+      API_FOOTBALL_ENRICH_MAX_REQUESTS: ${{ vars.API_FOOTBALL_ENRICH_MAX_REQUESTS }}
+      API_FOOTBALL_ENRICH_EXTRA_MATCH_LIMIT: ${{ vars.API_FOOTBALL_ENRICH_EXTRA_MATCH_LIMIT }}
+      API_FOOTBALL_ENRICH_MATCH_IDS: ${{ vars.API_FOOTBALL_ENRICH_MATCH_IDS }}
       WIKIPEDIA_GOALS_PAGE: ${{ vars.WIKIPEDIA_GOALS_PAGE }}
       WIKIPEDIA_API_ENDPOINT: ${{ vars.WIKIPEDIA_API_ENDPOINT }}
       WIKIPEDIA_TIMEOUT_MS: ${{ vars.WIKIPEDIA_TIMEOUT_MS }}

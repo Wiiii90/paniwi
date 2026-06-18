@@ -136,8 +136,16 @@ function setOutput(name, value) {
 const force = process.env.SYNC_FORCE === "true";
 const now = new Date();
 const activeWindow = getActiveWindow(now);
-const shouldRun = force || Boolean(activeWindow);
-const reason = force ? "forced sync" : activeWindow ? activeWindow.label : "outside active sync window";
+const requiresManualForce = process.env.SYNC_SOURCE === "api-football-enrich" || process.env.SYNC_SOURCE === "api-football";
+const shouldRun = requiresManualForce ? force : force || Boolean(activeWindow);
+const reason =
+  requiresManualForce && !force
+    ? "api-football enrichment requires forced manual dispatch"
+    : force
+      ? "forced sync"
+      : activeWindow
+        ? activeWindow.label
+        : "outside active sync window";
 
 console.log(shouldRun ? `Sync gate open: ${reason}` : `Sync gate closed: ${reason}`);
 setOutput("should_run", String(shouldRun));
