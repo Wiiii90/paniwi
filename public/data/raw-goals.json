@@ -1096,6 +1096,22 @@
     "teamId": "argentina"
   },
   {
+    "externalGoalId": "football-data:scorer:15958:normal",
+    "playerName": "Cyle Larin",
+    "nationalTeam": "Canada",
+    "sourcePlayerName": "Cyle Larin",
+    "sourceTeamName": "Canada",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 15958,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "canada-cyle-larin",
+    "teamId": "canada"
+  },
+  {
     "externalGoalId": "football-data:scorer:131040:normal",
     "playerName": "Folarin Balogun",
     "nationalTeam": "United States",
@@ -1348,22 +1364,6 @@
     "detail": "normal",
     "playerId": "bosnia-and-herzegovina-jovo-lukic",
     "teamId": "bosnia-and-herzegovina"
-  },
-  {
-    "externalGoalId": "football-data:scorer:15958:normal",
-    "playerName": "Cyle Larin",
-    "nationalTeam": "Canada",
-    "sourcePlayerName": "Cyle Larin",
-    "sourceTeamName": "Canada",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 15958,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "canada-cyle-larin",
-    "teamId": "canada"
   },
   {
     "externalGoalId": "football-data:scorer:119594:normal",
@@ -2192,5 +2192,21 @@
     "detail": "penalty",
     "playerId": "switzerland-granit-xhaka",
     "teamId": "switzerland"
+  },
+  {
+    "externalGoalId": "football-data:scorer:8924:normal",
+    "playerName": "Jonathan David",
+    "nationalTeam": "Canada",
+    "sourcePlayerName": "Jonathan David",
+    "sourceTeamName": "Canada",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 8924,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "canada-jonathan-david",
+    "teamId": "canada"
   }
 ]

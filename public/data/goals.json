@@ -242,6 +242,28 @@
     "points": 1
   },
   {
+    "externalGoalId": "football-data:scorer:8924:normal",
+    "playerName": "Jonathan David",
+    "nationalTeam": "Canada",
+    "sourcePlayerName": "Jonathan David",
+    "sourceTeamName": "Canada",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 8924,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "canada-jonathan-david",
+    "teamId": "canada",
+    "pickId": "canada-jonathan-david",
+    "owner": "Jonas",
+    "pickedPlayerName": "Jonathan David",
+    "displayPlayerName": "Jonathan David",
+    "displayNationalTeam": "Kanada",
+    "points": 1
+  },
+  {
     "externalGoalId": "football-data:scorer:125010:normal",
     "playerName": "Jude Bellingham",
     "nationalTeam": "England",

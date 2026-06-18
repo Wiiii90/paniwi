@@ -6619,14 +6619,16 @@
   },
   {
     "matchId": "football-data:537336",
-    "label": "Canada vs Qatar",
+    "label": "Canada 1-0 Qatar",
     "kickedOffAt": "2026-06-18T22:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
-      "name": "Kanada"
+      "name": "Kanada",
+      "score": 1
     },
     "awayTeam": {
-      "name": "Katar"
+      "name": "Katar",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -6709,12 +6711,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 1,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsEventBackfill": true,
+      "needsLineupBackfill": true
     }
   },
   {
