@@ -14,7 +14,8 @@ const envSnapshot = {
   FOOTBALL_DATA_DATE_FROM: process.env.FOOTBALL_DATA_DATE_FROM,
   FOOTBALL_DATA_DATE_TO: process.env.FOOTBALL_DATA_DATE_TO,
   FOOTBALL_DATA_DATES: process.env.FOOTBALL_DATA_DATES,
-  FOOTBALL_DATA_MAX_REQUESTS: process.env.FOOTBALL_DATA_MAX_REQUESTS
+  FOOTBALL_DATA_MAX_REQUESTS: process.env.FOOTBALL_DATA_MAX_REQUESTS,
+  FOOTBALL_DATA_SCORER_LIMIT: process.env.FOOTBALL_DATA_SCORER_LIMIT
 };
 
 function restoreEnv(): void {
@@ -129,6 +130,7 @@ process.env.FOOTBALL_DATA_TOKEN = "test-token";
 process.env.FOOTBALL_DATA_DATE_FROM = "2026-06-17";
 process.env.FOOTBALL_DATA_DATE_TO = "2026-06-17";
 process.env.FOOTBALL_DATA_MAX_REQUESTS = "3";
+delete process.env.FOOTBALL_DATA_SCORER_LIMIT;
 delete process.env.FOOTBALL_DATA_DATES;
 
 const requestedUrls: URL[] = [];
@@ -182,6 +184,7 @@ assert.equal(requestedUrls[0]?.searchParams.get("season"), "2026");
 assert.equal(requestedUrls[0]?.searchParams.get("dateFrom"), "2026-06-17");
 assert.equal(requestedUrls[0]?.searchParams.get("dateTo"), "2026-06-18");
 assert.equal(requestedUrls[1]?.searchParams.get("season"), "2026");
+assert.equal(requestedUrls[1]?.searchParams.get("limit"), "100");
 assert.equal(requestedHeaders[0]?.get("X-Auth-Token"), "test-token");
 assert.equal(sourceResult.source, "football-data");
 assert.equal(sourceResult.sourceRequestCount, 2);

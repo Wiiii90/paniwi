@@ -4,6 +4,7 @@ import {
   createFootballDataRequestBudget,
   getFootballDataCompetitionCode,
   getFootballDataDateRange,
+  getFootballDataScorerLimit,
   getFootballDataSeason
 } from "./config";
 import { parseFootballDataMatches, type FootballDataMatch } from "./matches";
@@ -24,6 +25,7 @@ export const footballDataSource: GoalSource = {
     const dateRange = getFootballDataDateRange(process.env);
     const competitionCode = getFootballDataCompetitionCode(process.env);
     const season = getFootballDataSeason(process.env);
+    const scorerLimit = getFootballDataScorerLimit(process.env);
     const matchResponse = await fetchFootballData<FootballDataMatchesResponse>(
       `/competitions/${competitionCode}/matches`,
       {
@@ -38,7 +40,8 @@ export const footballDataSource: GoalSource = {
     const scorerResponse = await fetchFootballData<FootballDataScorersResponse>(
       `/competitions/${competitionCode}/scorers`,
       {
-        season
+        season,
+        limit: String(scorerLimit)
       },
       {},
       process.env,

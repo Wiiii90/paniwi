@@ -2,6 +2,7 @@ export const defaultBaseUrl = "https://api.football-data.org/v4";
 export const defaultCompetitionCode = "WC";
 export const defaultSeason = "2026";
 export const defaultRequestLimit = 6;
+export const defaultScorerLimit = 100;
 export const defaultTimeoutMs = 10_000;
 export const defaultMaxThrottleMs = 70_000;
 
@@ -61,6 +62,11 @@ export function getFootballDataTimeoutMs(env: NodeJS.ProcessEnv = process.env): 
 export function getFootballDataRequestLimit(env: NodeJS.ProcessEnv = process.env): number {
   const configured = getOptionalEnvValue(env.FOOTBALL_DATA_MAX_REQUESTS);
   return configured ? parsePositiveInteger(configured, "FOOTBALL_DATA_MAX_REQUESTS") : defaultRequestLimit;
+}
+
+export function getFootballDataScorerLimit(env: NodeJS.ProcessEnv = process.env): number {
+  const configured = getOptionalEnvValue(env.FOOTBALL_DATA_SCORER_LIMIT);
+  return configured ? parsePositiveInteger(configured, "FOOTBALL_DATA_SCORER_LIMIT") : defaultScorerLimit;
 }
 
 export function getFootballDataMaxThrottleMs(env: NodeJS.ProcessEnv = process.env): number {
