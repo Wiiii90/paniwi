@@ -1125,5 +1125,41 @@
       "id": 815,
       "name": "Morocco"
     }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1539005",
+    "fixtureId": "1539005",
+    "label": "Switzerland 4-1 Bosnia & Herzegovina",
+    "kickedOffAt": "2026-06-18T19:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 15,
+      "name": "Switzerland",
+      "score": 4
+    },
+    "awayTeam": {
+      "id": 1113,
+      "name": "Bosnia & Herzegovina",
+      "score": 1
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1539004",
+    "fixtureId": "1539004",
+    "label": "Czechia 1-1 South Africa",
+    "kickedOffAt": "2026-06-18T16:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 770,
+      "name": "Czechia",
+      "score": 1
+    },
+    "awayTeam": {
+      "id": 1531,
+      "name": "South Africa",
+      "score": 1
+    }
   }
 ]
