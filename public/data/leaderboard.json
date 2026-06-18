@@ -15,69 +15,69 @@
   },
   {
     "rank": 2,
+    "owner": "Jonas",
+    "points": 2,
+    "goals": 2,
+    "playersWithGoals": 2
+  },
+  {
+    "rank": 2,
+    "owner": "Marco",
+    "points": 2,
+    "goals": 2,
+    "playersWithGoals": 2
+  },
+  {
+    "rank": 2,
     "owner": "Nina",
     "points": 2,
     "goals": 2,
     "playersWithGoals": 2
   },
   {
-    "rank": 4,
-    "owner": "Jonas",
+    "rank": 6,
+    "owner": "Kim",
     "points": 1,
     "goals": 1,
     "playersWithGoals": 1
   },
   {
-    "rank": 4,
-    "owner": "Marco",
-    "points": 1,
-    "goals": 1,
-    "playersWithGoals": 1
-  },
-  {
-    "rank": 4,
+    "rank": 6,
     "owner": "Willi",
     "points": 1,
     "goals": 1,
     "playersWithGoals": 1
   },
   {
-    "rank": 7,
+    "rank": 8,
     "owner": "Anne",
     "points": 0,
     "goals": 0,
     "playersWithGoals": 0
   },
   {
-    "rank": 7,
-    "owner": "Kim",
-    "points": 0,
-    "goals": 0,
-    "playersWithGoals": 0
-  },
-  {
-    "rank": 7,
+    "rank": 8,
     "owner": "Melli",
     "points": 0,
     "goals": 0,
     "playersWithGoals": 0
   },
   {
-    "rank": 7,
+    "rank": 8,
     "owner": "Peer",
     "points": 0,
     "goals": 0,
     "playersWithGoals": 0
   },
   {
-    "rank": 7,
+    "rank": 8,
     "owner": "Rafael",
     "points": 0,
     "goals": 0,
     "playersWithGoals": 0
   },
   {
-    "rank": 7,
+    "rank": 8,
     "owner": "Tjark",
     "points": 0,
     "goals": 0,

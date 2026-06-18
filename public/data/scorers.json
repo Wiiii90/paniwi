@@ -134,6 +134,16 @@
     "rank": 9
   },
   {
+    "playerName": "Boualem Khoukhi",
+    "normalizedPlayerName": "boualem khoukhi",
+    "nationalTeam": "Katar",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 9
+  },
+  {
     "playerName": "Bradley Barcola",
     "normalizedPlayerName": "bradley barcola",
     "nationalTeam": "Frankreich",
@@ -216,6 +226,16 @@
     "rank": 9
   },
   {
+    "playerName": "Felix Kalu Nmecha",
+    "normalizedPlayerName": "felix kalu nmecha",
+    "nationalTeam": "Deutschland",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 9
+  },
+  {
     "playerName": "Felix Nmecha",
     "normalizedPlayerName": "felix nmecha",
     "nationalTeam": "Deutschland",
@@ -226,6 +246,16 @@
       "Willi"
     ],
     "selected": true,
+    "rank": 9
+  },
+  {
+    "playerName": "Gio Reyna",
+    "normalizedPlayerName": "gio reyna",
+    "nationalTeam": "USA",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
     "rank": 9
   },
   {
@@ -241,6 +271,16 @@
   {
     "playerName": "Hwang In-beom",
     "normalizedPlayerName": "hwang in beom",
+    "nationalTeam": "Südkorea",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 9
+  },
+  {
+    "playerName": "Hyun-Gyu Oh",
+    "normalizedPlayerName": "hyun gyu oh",
     "nationalTeam": "Südkorea",
     "goals": 1,
     "penaltyGoals": 0,
@@ -279,9 +319,29 @@
     "rank": 9
   },
   {
+    "playerName": "João Neves",
+    "normalizedPlayerName": "joao neves",
+    "nationalTeam": "Portugal",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 9
+  },
+  {
     "playerName": "John McGinn",
     "normalizedPlayerName": "john mcginn",
     "nationalTeam": "Schottland",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 9
+  },
+  {
+    "playerName": "Jovo Lukić",
+    "normalizedPlayerName": "jovo lukic",
+    "nationalTeam": "Bosnia-Herzegovina",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],
@@ -299,6 +359,18 @@
     "rank": 9
   },
   {
+    "playerName": "Jude Bellingham",
+    "normalizedPlayerName": "jude bellingham",
+    "nationalTeam": "England",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [
+      "Jonas"
+    ],
+    "selected": true,
+    "rank": 9
+  },
+  {
     "playerName": "Julián Quiñones",
     "normalizedPlayerName": "julian quinones",
     "nationalTeam": "Mexiko",
@@ -312,6 +384,16 @@
     "playerName": "Keito Nakamura",
     "normalizedPlayerName": "keito nakamura",
     "nationalTeam": "Japan",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 9
+  },
+  {
+    "playerName": "Ladislav Krejčí",
+    "normalizedPlayerName": "ladislav krejci",
+    "nationalTeam": "Czechia",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],
@@ -349,11 +431,33 @@
     "rank": 9
   },
   {
+    "playerName": "Marcus Rashford",
+    "normalizedPlayerName": "marcus rashford",
+    "nationalTeam": "England",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [
+      "Kim"
+    ],
+    "selected": true,
+    "rank": 9
+  },
+  {
     "playerName": "Marko Arnautović",
     "normalizedPlayerName": "marko arnautovic",
     "nationalTeam": "Österreich",
     "goals": 1,
     "penaltyGoals": 1,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 9
+  },
+  {
+    "playerName": "Martin Baturina",
+    "normalizedPlayerName": "martin baturina",
+    "nationalTeam": "Kroatien",
+    "goals": 1,
+    "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
     "rank": 9
@@ -453,6 +557,16 @@
     "rank": 9
   },
   {
+    "playerName": "Petar Musa",
+    "normalizedPlayerName": "petar musa",
+    "nationalTeam": "Kroatien",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 9
+  },
+  {
     "playerName": "Ramin Rezaeian",
     "normalizedPlayerName": "ramin rezaeian",
     "nationalTeam": "Iran",
@@ -514,6 +628,18 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
+    "rank": 9
+  },
+  {
+    "playerName": "Yoane Wissa",
+    "normalizedPlayerName": "yoane wissa",
+    "nationalTeam": "DR Kongo",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [
+      "Marco"
+    ],
+    "selected": true,
     "rank": 9
   }
 ]

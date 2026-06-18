@@ -31,19 +31,6 @@
   },
   {
     "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group a:mexico-south korea:2026-06-19T01:00:00.000Z",
-    "label": "Mexico Match 28 South Korea",
-    "kickedOffAt": "2026-06-19T01:00:00.000Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "name": "Mexico"
-    },
-    "awayTeam": {
-      "name": "South Korea"
-    }
-  },
-  {
-    "source": "wikipedia",
     "matchId": "wikipedia:2026 fifa world cup group a:czech republic-mexico:2026-06-25T01:00:00.000Z",
     "label": "Czech Republic Match 53 Mexico",
     "kickedOffAt": "2026-06-25T01:00:00.000Z",
@@ -156,19 +143,6 @@
   },
   {
     "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group c:scotland-morocco:2026-06-19T22:00:00.000Z",
-    "label": "Scotland Match 30 Morocco",
-    "kickedOffAt": "2026-06-19T22:00:00.000Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "name": "Scotland"
-    },
-    "awayTeam": {
-      "name": "Morocco"
-    }
-  },
-  {
-    "source": "wikipedia",
     "matchId": "wikipedia:2026 fifa world cup group c:brazil-haiti:2026-06-20T00:30:00.000Z",
     "label": "Brazil Match 29 Haiti",
     "kickedOffAt": "2026-06-20T00:30:00.000Z",
@@ -234,19 +208,6 @@
     "awayTeam": {
       "name": "TUR",
       "score": 0
-    }
-  },
-  {
-    "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group d:united states-australia:2026-06-19T19:00:00.000Z",
-    "label": "United States Match 32 Australia",
-    "kickedOffAt": "2026-06-19T19:00:00.000Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "name": "United States"
-    },
-    "awayTeam": {
-      "name": "Australia"
     }
   },
   {
@@ -823,54 +784,6 @@
   },
   {
     "source": "football-data",
-    "matchId": "football-data:537330",
-    "fixtureId": "537330",
-    "label": "Mexico vs South Korea",
-    "kickedOffAt": "2026-06-19T01:00:00Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "id": 769,
-      "name": "Mexico"
-    },
-    "awayTeam": {
-      "id": 772,
-      "name": "South Korea"
-    }
-  },
-  {
-    "source": "football-data",
-    "matchId": "football-data:537348",
-    "fixtureId": "537348",
-    "label": "United States vs Australia",
-    "kickedOffAt": "2026-06-19T19:00:00Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "id": 771,
-      "name": "United States"
-    },
-    "awayTeam": {
-      "id": 779,
-      "name": "Australia"
-    }
-  },
-  {
-    "source": "football-data",
-    "matchId": "football-data:537342",
-    "fixtureId": "537342",
-    "label": "Scotland vs Morocco",
-    "kickedOffAt": "2026-06-19T22:00:00Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "id": 8873,
-      "name": "Scotland"
-    },
-    "awayTeam": {
-      "id": 815,
-      "name": "Morocco"
-    }
-  },
-  {
-    "source": "football-data",
     "matchId": "football-data:537364",
     "fixtureId": "537364",
     "label": "Iran 2-2 New Zealand",
@@ -1075,6 +988,134 @@
     "awayTeam": {
       "id": 8030,
       "name": "Qatar"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537330",
+    "fixtureId": "537330",
+    "label": "Mexico vs South Korea",
+    "kickedOffAt": "2026-06-19T01:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 769,
+      "name": "Mexico"
+    },
+    "awayTeam": {
+      "id": 772,
+      "name": "South Korea"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537348",
+    "fixtureId": "537348",
+    "label": "United States vs Australia",
+    "kickedOffAt": "2026-06-19T19:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 771,
+      "name": "United States"
+    },
+    "awayTeam": {
+      "id": 779,
+      "name": "Australia"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537342",
+    "fixtureId": "537342",
+    "label": "Scotland vs Morocco",
+    "kickedOffAt": "2026-06-19T22:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 8873,
+      "name": "Scotland"
+    },
+    "awayTeam": {
+      "id": 815,
+      "name": "Morocco"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537341",
+    "fixtureId": "537341",
+    "label": "Brazil vs Haiti",
+    "kickedOffAt": "2026-06-20T00:30:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 764,
+      "name": "Brazil"
+    },
+    "awayTeam": {
+      "id": 836,
+      "name": "Haiti"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537347",
+    "fixtureId": "537347",
+    "label": "Turkey vs Paraguay",
+    "kickedOffAt": "2026-06-20T03:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 803,
+      "name": "Turkey"
+    },
+    "awayTeam": {
+      "id": 761,
+      "name": "Paraguay"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537359",
+    "fixtureId": "537359",
+    "label": "Netherlands vs Sweden",
+    "kickedOffAt": "2026-06-20T17:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 8601,
+      "name": "Netherlands"
+    },
+    "awayTeam": {
+      "id": 792,
+      "name": "Sweden"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537353",
+    "fixtureId": "537353",
+    "label": "Germany vs Ivory Coast",
+    "kickedOffAt": "2026-06-20T20:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 759,
+      "name": "Germany"
+    },
+    "awayTeam": {
+      "id": 1935,
+      "name": "Ivory Coast"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537354",
+    "fixtureId": "537354",
+    "label": "Ecuador vs Curaçao",
+    "kickedOffAt": "2026-06-21T00:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 791,
+      "name": "Ecuador"
+    },
+    "awayTeam": {
+      "id": 9460,
+      "name": "Curaçao"
     }
   }
 ]

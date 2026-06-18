@@ -6886,9 +6886,9 @@
     }
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group c:brazil-haiti:2026-06-20T00:30:00.000Z",
-    "label": "Brazil Match 29 Haiti",
-    "kickedOffAt": "2026-06-20T00:30:00.000Z",
+    "matchId": "football-data:537341",
+    "label": "Brazil vs Haiti",
+    "kickedOffAt": "2026-06-20T00:30:00Z",
     "status": "scheduled",
     "homeTeam": {
       "name": "Brasilien"
@@ -6901,8 +6901,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group c:brazil-haiti:2026-06-20T00:30:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537341",
+        "fixtureId": "537341",
         "playerName": "Alisson",
         "nationalTeam": "Brasilien",
         "teamId": "brazil",
@@ -6915,8 +6916,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group c:brazil-haiti:2026-06-20T00:30:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537341",
+        "fixtureId": "537341",
         "playerName": "Gabriel Magalhães",
         "nationalTeam": "Brasilien",
         "teamId": "brazil",
@@ -6929,8 +6931,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group c:brazil-haiti:2026-06-20T00:30:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537341",
+        "fixtureId": "537341",
         "playerName": "Lucas Paquetá",
         "nationalTeam": "Brasilien",
         "teamId": "brazil",
@@ -6943,8 +6946,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group c:brazil-haiti:2026-06-20T00:30:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537341",
+        "fixtureId": "537341",
         "playerName": "Matheus Cunha",
         "nationalTeam": "Brasilien",
         "teamId": "brazil",
@@ -6957,8 +6961,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group c:brazil-haiti:2026-06-20T00:30:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537341",
+        "fixtureId": "537341",
         "playerName": "Vinícius Júnior",
         "nationalTeam": "Brasilien",
         "teamId": "brazil",
@@ -6971,8 +6976,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group c:brazil-haiti:2026-06-20T00:30:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537341",
+        "fixtureId": "537341",
         "playerName": "Derrick Etienne Jr.",
         "nationalTeam": "Haiti",
         "teamId": "haiti",
@@ -6985,8 +6991,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group c:brazil-haiti:2026-06-20T00:30:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537341",
+        "fixtureId": "537341",
         "playerName": "Johny Placide",
         "nationalTeam": "Haiti",
         "teamId": "haiti",
@@ -7009,9 +7016,9 @@
     }
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group d:tur-paraguay:2026-06-20T03:00:00.000Z",
-    "label": "TUR Match 31 Paraguay",
-    "kickedOffAt": "2026-06-20T03:00:00.000Z",
+    "matchId": "football-data:537347",
+    "label": "Turkey vs Paraguay",
+    "kickedOffAt": "2026-06-20T03:00:00Z",
     "status": "scheduled",
     "homeTeam": {
       "name": "Türkei"
@@ -7024,8 +7031,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group d:tur-paraguay:2026-06-20T03:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537347",
+        "fixtureId": "537347",
         "playerName": "Damián Bobadilla",
         "nationalTeam": "Paraguay",
         "teamId": "paraguay",
@@ -7038,8 +7046,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group d:tur-paraguay:2026-06-20T03:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537347",
+        "fixtureId": "537347",
         "playerName": "Diego Gómez",
         "nationalTeam": "Paraguay",
         "teamId": "paraguay",
@@ -7052,8 +7061,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group d:tur-paraguay:2026-06-20T03:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537347",
+        "fixtureId": "537347",
         "playerName": "Julio Enciso",
         "nationalTeam": "Paraguay",
         "teamId": "paraguay",
@@ -7066,8 +7076,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group d:tur-paraguay:2026-06-20T03:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537347",
+        "fixtureId": "537347",
         "playerName": "Ramón Sosa",
         "nationalTeam": "Paraguay",
         "teamId": "paraguay",
@@ -7090,9 +7101,9 @@
     }
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group f:netherlands-sweden:2026-06-20T17:00:00.000Z",
-    "label": "Netherlands Match 35 Sweden",
-    "kickedOffAt": "2026-06-20T17:00:00.000Z",
+    "matchId": "football-data:537359",
+    "label": "Netherlands vs Sweden",
+    "kickedOffAt": "2026-06-20T17:00:00Z",
     "status": "scheduled",
     "homeTeam": {
       "name": "Niederlande"
@@ -7105,8 +7116,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group f:netherlands-sweden:2026-06-20T17:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537359",
+        "fixtureId": "537359",
         "playerName": "Micky van de Ven",
         "nationalTeam": "Niederlande",
         "teamId": "netherlands",
@@ -7119,8 +7131,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group f:netherlands-sweden:2026-06-20T17:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537359",
+        "fixtureId": "537359",
         "playerName": "Ryan Gravenberch",
         "nationalTeam": "Niederlande",
         "teamId": "netherlands",
@@ -7133,8 +7146,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group f:netherlands-sweden:2026-06-20T17:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537359",
+        "fixtureId": "537359",
         "playerName": "Tijjani Reijnders",
         "nationalTeam": "Niederlande",
         "teamId": "netherlands",
@@ -7147,8 +7161,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group f:netherlands-sweden:2026-06-20T17:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537359",
+        "fixtureId": "537359",
         "playerName": "Alexander Isak",
         "nationalTeam": "Schweden",
         "teamId": "sweden",
@@ -7161,8 +7176,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group f:netherlands-sweden:2026-06-20T17:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537359",
+        "fixtureId": "537359",
         "playerName": "Daniel Svensson",
         "nationalTeam": "Schweden",
         "teamId": "sweden",
@@ -7175,8 +7191,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group f:netherlands-sweden:2026-06-20T17:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537359",
+        "fixtureId": "537359",
         "playerName": "Lucas Bergvall",
         "nationalTeam": "Schweden",
         "teamId": "sweden",
@@ -7199,9 +7216,9 @@
     }
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group e:germany-civ:2026-06-20T20:00:00.000Z",
-    "label": "Germany Match 33 CIV",
-    "kickedOffAt": "2026-06-20T20:00:00.000Z",
+    "matchId": "football-data:537353",
+    "label": "Germany vs Ivory Coast",
+    "kickedOffAt": "2026-06-20T20:00:00Z",
     "status": "scheduled",
     "homeTeam": {
       "name": "Deutschland"
@@ -7214,8 +7231,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group e:germany-civ:2026-06-20T20:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537353",
+        "fixtureId": "537353",
         "playerName": "David Raum",
         "nationalTeam": "Deutschland",
         "teamId": "germany",
@@ -7228,8 +7246,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group e:germany-civ:2026-06-20T20:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537353",
+        "fixtureId": "537353",
         "playerName": "Felix Nmecha",
         "nationalTeam": "Deutschland",
         "teamId": "germany",
@@ -7243,8 +7262,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group e:germany-civ:2026-06-20T20:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537353",
+        "fixtureId": "537353",
         "playerName": "Oumar Diakité",
         "nationalTeam": "Elfenbeinküste",
         "teamId": "ivory-coast",
@@ -7257,8 +7277,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group e:germany-civ:2026-06-20T20:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537353",
+        "fixtureId": "537353",
         "playerName": "Seko Fofana",
         "nationalTeam": "Elfenbeinküste",
         "teamId": "ivory-coast",
@@ -7272,8 +7293,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group e:germany-civ:2026-06-20T20:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537353",
+        "fixtureId": "537353",
         "playerName": "Simon Adingra",
         "nationalTeam": "Elfenbeinküste",
         "teamId": "ivory-coast",
@@ -7296,9 +7318,9 @@
     }
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group e:ecuador-curacao:2026-06-21T00:00:00.000Z",
-    "label": "Ecuador Match 34 Curaçao",
-    "kickedOffAt": "2026-06-21T00:00:00.000Z",
+    "matchId": "football-data:537354",
+    "label": "Ecuador vs Curaçao",
+    "kickedOffAt": "2026-06-21T00:00:00Z",
     "status": "scheduled",
     "homeTeam": {
       "name": "Ecuador"
@@ -7311,8 +7333,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group e:ecuador-curacao:2026-06-21T00:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537354",
+        "fixtureId": "537354",
         "playerName": "Ángelo Preciado",
         "nationalTeam": "Ecuador",
         "teamId": "ecuador",
@@ -7325,8 +7348,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group e:ecuador-curacao:2026-06-21T00:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537354",
+        "fixtureId": "537354",
         "playerName": "Kevin Rodríguez",
         "nationalTeam": "Ecuador",
         "teamId": "ecuador",
@@ -7339,8 +7363,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group e:ecuador-curacao:2026-06-21T00:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537354",
+        "fixtureId": "537354",
         "playerName": "Piero Hincapié",
         "nationalTeam": "Ecuador",
         "teamId": "ecuador",
