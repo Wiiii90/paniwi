@@ -15,7 +15,10 @@ const envSnapshot = {
   FOOTBALL_DATA_DATE_TO: process.env.FOOTBALL_DATA_DATE_TO,
   FOOTBALL_DATA_DATES: process.env.FOOTBALL_DATA_DATES,
   FOOTBALL_DATA_MAX_REQUESTS: process.env.FOOTBALL_DATA_MAX_REQUESTS,
-  FOOTBALL_DATA_SCORER_LIMIT: process.env.FOOTBALL_DATA_SCORER_LIMIT
+  FOOTBALL_DATA_SCORER_LIMIT: process.env.FOOTBALL_DATA_SCORER_LIMIT,
+  SYNC_WINDOW_PHASE: process.env.SYNC_WINDOW_PHASE,
+  SYNC_WINDOW_FROM: process.env.SYNC_WINDOW_FROM,
+  SYNC_WINDOW_UNTIL: process.env.SYNC_WINDOW_UNTIL
 };
 
 function restoreEnv(): void {
@@ -54,6 +57,28 @@ const parsedMatch = parseFootballDataMatch({
 assert.deepEqual(
   parsedMatch && [parsedMatch.source, parsedMatch.matchId, parsedMatch.status, parsedMatch.label, parsedMatch.homeTeam.score, parsedMatch.awayTeam.score],
   ["football-data", "football-data:2000", "live", "Portugal 1-0 DR Congo", 1, 0]
+);
+
+const parsedScorelessLiveMatch = parseFootballDataMatch({
+  id: 2002,
+  utcDate: "2026-06-18T19:00:00Z",
+  status: "IN_PLAY",
+  homeTeam: { id: 788, name: "Switzerland" },
+  awayTeam: { id: 1060, name: "Bosnia-Herzegovina" },
+  score: {
+    fullTime: { home: null, away: null },
+    halfTime: { home: null, away: null }
+  }
+});
+
+assert.deepEqual(
+  parsedScorelessLiveMatch && [
+    parsedScorelessLiveMatch.status,
+    parsedScorelessLiveMatch.label,
+    parsedScorelessLiveMatch.homeTeam.score,
+    parsedScorelessLiveMatch.awayTeam.score
+  ],
+  ["live", "Switzerland 0-0 Bosnia-Herzegovina", 0, 0]
 );
 
 assert.deepEqual(
@@ -197,6 +222,82 @@ assert.equal(sourceResult.matches?.[0]?.label, "France 3-1 Senegal");
 assert.deepEqual(sourceResult.goals.map((goal) => [goal.playerName, goal.nationalTeam, goal.goals, goal.detail]), [
   ["Kylian Mbappé", "France", 2, "normal"]
 ]);
+
+restoreEnv();
+
+process.env.FOOTBALL_DATA_TOKEN = "test-token";
+process.env.FOOTBALL_DATA_DATE_FROM = "2026-06-18";
+process.env.FOOTBALL_DATA_DATE_TO = "2026-06-18";
+process.env.FOOTBALL_DATA_MAX_REQUESTS = "4";
+process.env.SYNC_WINDOW_PHASE = "live";
+process.env.SYNC_WINDOW_FROM = "2026-06-18T19:00:00.000Z";
+process.env.SYNC_WINDOW_UNTIL = "2026-06-18T21:00:00.000Z";
+delete process.env.FOOTBALL_DATA_SCORER_LIMIT;
+delete process.env.FOOTBALL_DATA_DATES;
+
+const detailRequestedUrls: URL[] = [];
+globalThis.fetch = (async (input, init) => {
+  const requestedUrl = new URL(String(input));
+  detailRequestedUrls.push(requestedUrl);
+
+  if (requestedUrl.pathname === "/v4/matches/537335") {
+    return new Response(
+      JSON.stringify({
+        id: 537335,
+        utcDate: "2026-06-18T19:00:00Z",
+        status: "IN_PLAY",
+        homeTeam: { id: 788, name: "Switzerland" },
+        awayTeam: { id: 1060, name: "Bosnia-Herzegovina" },
+        score: {
+          fullTime: { home: null, away: null },
+          halfTime: { home: null, away: null }
+        }
+      }),
+      { status: 200, headers: { "Content-Type": "application/json" } }
+    );
+  }
+
+  return new Response(
+    JSON.stringify(
+      requestedUrl.pathname.endsWith("/scorers")
+        ? { scorers: [] }
+        : {
+            matches: [
+              {
+                id: 537335,
+                utcDate: "2026-06-18T19:00:00Z",
+                status: "TIMED",
+                homeTeam: { id: 788, name: "Switzerland" },
+                awayTeam: { id: 1060, name: "Bosnia-Herzegovina" },
+                score: {
+                  fullTime: { home: null, away: null },
+                  halfTime: { home: null, away: null }
+                }
+              }
+            ]
+          }
+    ),
+    {
+      status: 200,
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+  );
+}) as typeof fetch;
+
+const liveDetailResult = await footballDataSource.fetchGoals();
+
+assert.deepEqual(detailRequestedUrls.map((url) => url.pathname), [
+  "/v4/competitions/WC/matches",
+  "/v4/matches/537335",
+  "/v4/competitions/WC/scorers"
+]);
+assert.equal(liveDetailResult.sourceRequestCount, 3);
+assert.deepEqual(
+  liveDetailResult.matches?.map((match) => [match.matchId, match.status, match.label, match.homeTeam.score, match.awayTeam.score]),
+  [["football-data:537335", "live", "Switzerland 0-0 Bosnia-Herzegovina", 0, 0]]
+);
 
 globalThis.fetch = originalFetch;
 restoreEnv();

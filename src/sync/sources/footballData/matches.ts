@@ -59,13 +59,17 @@ function getScoreValue(period: FootballDataScorePeriod | null | undefined, side:
   return typeof value === "number" ? value : undefined;
 }
 
-function getCurrentScore(match: FootballDataMatch, side: "home" | "away"): number | undefined {
+function getCurrentScore(match: FootballDataMatch, side: "home" | "away", status: MatchStatus): number | undefined {
   const periods = [match.score?.fullTime, match.score?.regularTime, match.score?.extraTime, match.score?.halfTime];
   for (const period of periods) {
     const value = getScoreValue(period, side);
     if (value !== undefined) {
       return value;
     }
+  }
+
+  if (status === "live" && match.score) {
+    return 0;
   }
 
   return undefined;
@@ -88,8 +92,9 @@ export function parseFootballDataMatch(match: FootballDataMatch): ExternalMatchR
     return null;
   }
 
-  const homeScore = getCurrentScore(match, "home");
-  const awayScore = getCurrentScore(match, "away");
+  const status = mapFootballDataStatus(match.status);
+  const homeScore = getCurrentScore(match, "home", status);
+  const awayScore = getCurrentScore(match, "away", status);
 
   return {
     source: "football-data",
@@ -97,7 +102,7 @@ export function parseFootballDataMatch(match: FootballDataMatch): ExternalMatchR
     fixtureId: matchId,
     label: getMatchLabel(homeTeam, awayTeam, homeScore, awayScore),
     kickedOffAt: match.utcDate,
-    status: mapFootballDataStatus(match.status),
+    status,
     homeTeam: {
       id: match.homeTeam?.id,
       name: homeTeam,
