@@ -1274,7 +1274,7 @@
   {
     "externalGoalId": "football-data:scorer:1878:normal",
     "playerName": "Ladislav Krejčí",
-    "nationalTeam": "Czechia",
+    "nationalTeam": "Czech Republic",
     "sourcePlayerName": "Ladislav Krejčí",
     "sourceTeamName": "Czechia",
     "goals": 1,
@@ -1283,7 +1283,9 @@
     "matchId": "football-data:scorers",
     "matchLabel": "FIFA World Cup 2026 Torschützenliste",
     "timeConfidence": "unknown",
-    "detail": "normal"
+    "detail": "normal",
+    "playerId": "czech-republic-ladislav-krejci",
+    "teamId": "czech-republic"
   },
   {
     "externalGoalId": "football-data:scorer:170561:normal",
@@ -1318,7 +1320,7 @@
   {
     "externalGoalId": "football-data:scorer:17767:normal",
     "playerName": "Jovo Lukić",
-    "nationalTeam": "Bosnia-Herzegovina",
+    "nationalTeam": "Bosnia and Herzegovina",
     "sourcePlayerName": "Jovo Lukić",
     "sourceTeamName": "Bosnia-Herzegovina",
     "goals": 1,
@@ -1327,7 +1329,9 @@
     "matchId": "football-data:scorers",
     "matchLabel": "FIFA World Cup 2026 Torschützenliste",
     "timeConfidence": "unknown",
-    "detail": "normal"
+    "detail": "normal",
+    "playerId": "bosnia-and-herzegovina-jovo-lukic",
+    "teamId": "bosnia-and-herzegovina"
   },
   {
     "externalGoalId": "football-data:scorer:15958:normal",
@@ -2096,7 +2100,7 @@
   {
     "externalGoalId": "football-data:scorer:67970:normal",
     "playerName": "Michal Sadílek",
-    "nationalTeam": "Czechia",
+    "nationalTeam": "Czech Republic",
     "sourcePlayerName": "Michal Sadílek",
     "sourceTeamName": "Czechia",
     "goals": 1,
@@ -2105,6 +2109,8 @@
     "matchId": "football-data:scorers",
     "matchLabel": "FIFA World Cup 2026 Torschützenliste",
     "timeConfidence": "unknown",
-    "detail": "normal"
+    "detail": "normal",
+    "playerId": "czech-republic-michal-sadilek",
+    "teamId": "czech-republic"
   }
 ]

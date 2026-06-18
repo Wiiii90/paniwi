@@ -6456,7 +6456,7 @@
     "kickedOffAt": "2026-06-18T16:00:00Z",
     "status": "live",
     "homeTeam": {
-      "name": "Czechia",
+      "name": "Tschechien",
       "score": 1
     },
     "awayTeam": {
@@ -6482,6 +6482,37 @@
           "Melli"
         ],
         "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537329",
+        "fixtureId": "537329",
+        "playerName": "Lukáš Provod",
+        "nationalTeam": "Tschechien",
+        "teamId": "czech-republic",
+        "status": "unknown",
+        "displayPlayerName": "Lukáš Provod",
+        "displayNationalTeam": "Tschechien",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537329",
+        "fixtureId": "537329",
+        "playerName": "Pavel Šulc",
+        "nationalTeam": "Tschechien",
+        "teamId": "czech-republic",
+        "status": "unknown",
+        "displayPlayerName": "Pavel Šulc",
+        "displayNationalTeam": "Tschechien",
+        "owners": [
+          "Jonas",
+          "Kim"
+        ],
+        "selected": true
       }
     ],
     "syncState": {
@@ -6502,12 +6533,27 @@
       "name": "Schweiz"
     },
     "awayTeam": {
-      "name": "Bosnia-Herzegovina"
+      "name": "Bosnien und Herzegowina"
     },
     "goals": [],
     "pointGoals": [],
     "affectedOwners": [],
     "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537335",
+        "fixtureId": "537335",
+        "playerName": "Haris Tabaković",
+        "nationalTeam": "Bosnien und Herzegowina",
+        "teamId": "bosnia-and-herzegovina",
+        "status": "unknown",
+        "displayPlayerName": "Haris Tabaković",
+        "displayNationalTeam": "Bosnien und Herzegowina",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
       {
         "source": "football-data",
         "matchId": "football-data:537335",

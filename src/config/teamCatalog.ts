@@ -14,14 +14,14 @@ export const teamCatalog = [
   { teamId: "australia", sourceName: "Australia", displayName: "Australien", flagCode: "AU" },
   { teamId: "austria", sourceName: "Austria", displayName: "Österreich", flagCode: "AT" },
   { teamId: "belgium", sourceName: "Belgium", displayName: "Belgien", flagCode: "BE" },
-  { teamId: "bosnia-and-herzegovina", sourceName: "Bosnia and Herzegovina", displayName: "Bosnien und Herzegowina", flagCode: "BA" },
+  { teamId: "bosnia-and-herzegovina", sourceName: "Bosnia and Herzegovina", displayName: "Bosnien und Herzegowina", flagCode: "BA", aliases: ["BIH"] },
   { teamId: "brazil", sourceName: "Brazil", displayName: "Brasilien", flagCode: "BR" },
   { teamId: "canada", sourceName: "Canada", displayName: "Kanada", flagCode: "CA" },
   { teamId: "cape-verde", sourceName: "Cape Verde", displayName: "Kap Verde", flagCode: "CV", aliases: ["Cape Verde Islands", "CPV"] },
   { teamId: "colombia", sourceName: "Colombia", displayName: "Kolumbien", flagCode: "CO" },
   { teamId: "croatia", sourceName: "Croatia", displayName: "Kroatien", flagCode: "HR" },
   { teamId: "curacao", sourceName: "Curacao", displayName: "Curacao", flagCode: "CW", aliases: ["Curaçao", "CUW"] },
-  { teamId: "czech-republic", sourceName: "Czech Republic", displayName: "Tschechien", flagCode: "CZ" },
+  { teamId: "czech-republic", sourceName: "Czech Republic", displayName: "Tschechien", flagCode: "CZ", aliases: ["CZE"] },
   {
     teamId: "dr-congo",
     sourceName: "DR Congo",
@@ -66,11 +66,37 @@ export const teamCatalog = [
 ] satisfies TeamCatalogEntry[];
 
 const teamCatalogById = new Map(teamCatalog.map((team) => [team.teamId, team]));
-const teamIdByNormalizedName = new Map(
-  teamCatalog.flatMap((team) =>
-    [team.sourceName, team.displayName, ...(team.aliases ?? [])].map((name) => [normalizePlayerName(name), team.teamId] as const)
-  )
-);
+const ignoredTeamWords = new Set(["and", "of", "the", "republic"]);
+
+function getTeamNames(team: TeamCatalogEntry): string[] {
+  return [team.sourceName, team.displayName, ...(team.aliases ?? [])];
+}
+
+function getTeamTokens(teamName: string): string[] {
+  return normalizePlayerName(teamName).split(" ").filter(Boolean);
+}
+
+function normalizeTeamMatchKey(teamName: string): string {
+  return getTeamTokens(teamName)
+    .filter((token) => !ignoredTeamWords.has(token))
+    .join(" ");
+}
+
+function createTeamNameEntries(): Array<{ teamId: string; key: string; tokens: string[] }> {
+  return teamCatalog.flatMap((team) =>
+    getTeamNames(team).flatMap((name) => {
+      const normalizedName = normalizePlayerName(name);
+      const normalizedMatchKey = normalizeTeamMatchKey(name);
+      return [
+        { teamId: team.teamId, key: normalizedName, tokens: getTeamTokens(name) },
+        { teamId: team.teamId, key: normalizedMatchKey, tokens: getTeamTokens(normalizedMatchKey) }
+      ];
+    })
+  );
+}
+
+const teamNameEntries = createTeamNameEntries();
+const teamIdByNormalizedName = new Map(teamNameEntries.map((entry) => [entry.key, entry.teamId]));
 
 export function getTeamCatalogEntry(teamId: string): TeamCatalogEntry | null {
   return teamCatalogById.get(teamId) ?? null;
@@ -81,7 +107,26 @@ export function getKnownTeamIds(): Set<string> {
 }
 
 export function resolveKnownTeamId(teamName: string): string | null {
-  return teamIdByNormalizedName.get(normalizePlayerName(teamName)) ?? null;
+  const normalizedName = normalizePlayerName(teamName);
+  const exactTeamId = teamIdByNormalizedName.get(normalizedName) ?? teamIdByNormalizedName.get(normalizeTeamMatchKey(teamName));
+  if (exactTeamId) {
+    return exactTeamId;
+  }
+
+  const tokens = getTeamTokens(teamName).filter((token) => token.length >= 5);
+  if (tokens.length === 0) {
+    return null;
+  }
+
+  const candidates = new Set(
+    teamNameEntries
+      .filter((entry) =>
+        tokens.some((token) => entry.tokens.some((entryToken) => entryToken.length >= 5 && (entryToken.startsWith(token) || token.startsWith(entryToken))))
+      )
+      .map((entry) => entry.teamId)
+  );
+
+  return candidates.size === 1 ? [...candidates][0] : null;
 }
 
 export function getTeamFlag(teamName: string): string {

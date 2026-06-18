@@ -381,16 +381,6 @@
   {
     "playerName": "Jovo Lukić",
     "normalizedPlayerName": "jovo lukic",
-    "nationalTeam": "Bosnia-Herzegovina",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 9
-  },
-  {
-    "playerName": "Jovo Lukić",
-    "normalizedPlayerName": "jovo lukic",
     "nationalTeam": "Bosnien und Herzegowina",
     "goals": 1,
     "penaltyGoals": 0,
@@ -424,16 +414,6 @@
     "playerName": "Keito Nakamura",
     "normalizedPlayerName": "keito nakamura",
     "nationalTeam": "Japan",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 9
-  },
-  {
-    "playerName": "Ladislav Krejčí",
-    "normalizedPlayerName": "ladislav krejci",
-    "nationalTeam": "Czechia",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],
@@ -545,7 +525,7 @@
   {
     "playerName": "Michal Sadílek",
     "normalizedPlayerName": "michal sadilek",
-    "nationalTeam": "Czechia",
+    "nationalTeam": "Tschechien",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],

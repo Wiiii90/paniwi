@@ -15,7 +15,7 @@
     "probe:football-data": "tsx src/sync/probeFootballData.ts",
     "test": "npm run test:domain && npm run test:snapshots && npm run test:schedule && npm run test:rosters",
     "test:schedule": "tsx tests/syncSchedule.test.ts && tsx tests/parseKickoffTime.test.ts",
-    "test:domain": "tsx tests/domain/scoring.test.ts && tsx tests/domain/matches.test.ts && tsx tests/domain/rosterResolver.test.ts && tsx tests/domain/validation.test.ts && tsx tests/sync/wikipediaSource.test.ts && tsx tests/sync/apiFootballSource.test.ts && tsx tests/sync/footballDataSource.test.ts && tsx tests/sync/snapshotMerge.test.ts",
+    "test:domain": "tsx tests/domain/scoring.test.ts && tsx tests/domain/matches.test.ts && tsx tests/domain/rosterResolver.test.ts && tsx tests/domain/teamCatalog.test.ts && tsx tests/domain/validation.test.ts && tsx tests/sync/wikipediaSource.test.ts && tsx tests/sync/apiFootballSource.test.ts && tsx tests/sync/footballDataSource.test.ts && tsx tests/sync/snapshotMerge.test.ts",
     "test:snapshots": "tsx tests/staticData.test.ts",
     "test:rosters": "tsx tests/syncRosters.test.ts"
   },
