@@ -32,6 +32,9 @@ on:
         description: "true to also test lineup filters in events mode"
         required: false
         default: "false"
+      match_ids:
+        description: "optional comma-separated match IDs for match-detail mode"
+        required: false
 
 permissions:
   contents: read
@@ -50,6 +53,7 @@ jobs:
       FOOTBALL_DATA_PROBE_PERSON_IDS: ${{ github.event.inputs.person_ids }}
       FOOTBALL_DATA_PROBE_EVENTS: ${{ github.event.inputs.events || 'GOAL,SUB_IN,SUB_OUT' }}
       FOOTBALL_DATA_PROBE_INCLUDE_LINEUPS: ${{ github.event.inputs.include_lineups || 'false' }}
+      FOOTBALL_DATA_PROBE_MATCH_IDS: ${{ github.event.inputs.match_ids }}
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6

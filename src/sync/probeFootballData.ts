@@ -235,9 +235,27 @@ function summarizePersonMatches(body: JsonObject): JsonObject {
   };
 }
 
+function summarizeSingleMatch(body: JsonObject): JsonObject {
+  return {
+    keys: Object.keys(body).sort(),
+    id: body.id ?? null,
+    status: body.status ?? null,
+    utcDate: body.utcDate ?? null,
+    homeTeam: compactObject(body.homeTeam),
+    awayTeam: compactObject(body.awayTeam),
+    score: compactObject(body.score),
+    arrayPaths: summarizeArrayPaths(body),
+    sample: compactObject(body)
+  };
+}
+
 function summarizeBody(label: string, body: JsonObject): JsonObject {
   if (label === "competition-matches") {
     return summarizeCompetitionMatches(body);
+  }
+
+  if (label.startsWith("match-detail-")) {
+    return summarizeSingleMatch(body);
   }
 
   if (label === "competition-scorers") {
@@ -346,17 +364,17 @@ function getProbeMaxCalls(env: NodeJS.ProcessEnv = process.env): number {
   return parsed;
 }
 
-function getProbeMode(env: NodeJS.ProcessEnv = process.env): "catalog" | "events" | "all" {
+function getProbeMode(env: NodeJS.ProcessEnv = process.env): "catalog" | "events" | "all" | "match-detail" {
   const configured = getOptionalEnvValue(env.FOOTBALL_DATA_PROBE_MODE)?.toLowerCase();
   if (!configured) {
     return "catalog";
   }
 
-  if (configured === "catalog" || configured === "events" || configured === "all") {
+  if (configured === "catalog" || configured === "events" || configured === "all" || configured === "match-detail") {
     return configured;
   }
 
-  throw new Error("FOOTBALL_DATA_PROBE_MODE must be catalog, events, or all.");
+  throw new Error("FOOTBALL_DATA_PROBE_MODE must be catalog, events, all, or match-detail.");
 }
 
 function parseCommaSeparated(value: string | undefined): string[] {
@@ -369,6 +387,10 @@ function parseCommaSeparated(value: string | undefined): string[] {
 function getEventProbeTypes(env: NodeJS.ProcessEnv = process.env): string[] {
   const configured = parseCommaSeparated(env.FOOTBALL_DATA_PROBE_EVENTS);
   return configured.length > 0 ? configured : [...defaultEventProbeTypes];
+}
+
+function getMatchProbeIds(env: NodeJS.ProcessEnv = process.env): string[] {
+  return parseCommaSeparated(env.FOOTBALL_DATA_PROBE_MATCH_IDS);
 }
 
 function shouldIncludeLineupFilters(env: NodeJS.ProcessEnv = process.env): boolean {
@@ -411,6 +433,19 @@ function getCoreProbePlan(env: NodeJS.ProcessEnv = process.env): ProbePlanEntry[
       })
     }
   ];
+}
+
+function getMatchDetailProbePlan(env: NodeJS.ProcessEnv = process.env): ProbePlanEntry[] {
+  const matchIds = getMatchProbeIds(env);
+  if (matchIds.length === 0) {
+    throw new Error("FOOTBALL_DATA_PROBE_MATCH_IDS is required when FOOTBALL_DATA_PROBE_MODE=match-detail.");
+  }
+
+  return matchIds.map((matchId) => ({
+    label: `match-detail-${matchId}`,
+    kind: "core",
+    url: buildApiUrl(`matches/${matchId}`)
+  }));
 }
 
 function findResult(results: ProbeResponse[], label: string): ProbeResponse | undefined {
@@ -547,12 +582,35 @@ export async function probeFootballData(): Promise<void> {
   const token = getFootballDataToken();
   const timeoutMs = getFootballDataTimeoutMs();
   const maxCalls = getProbeMaxCalls();
+  const mode = getProbeMode();
+
+  if (mode === "match-detail") {
+    const matchDetailPlan = getMatchDetailProbePlan();
+    console.log(
+      JSON.stringify(
+        {
+          probeMode: mode,
+          maxCalls,
+          corePlan: matchDetailPlan.map((entry) => ({
+            label: entry.label,
+            pathname: entry.url.pathname,
+            search: Object.fromEntries(entry.url.searchParams.entries())
+          }))
+        },
+        null,
+        2
+      )
+    );
+    await runProbePlan(matchDetailPlan, token, timeoutMs, maxCalls);
+    return;
+  }
+
   const corePlan = getCoreProbePlan();
 
   console.log(
     JSON.stringify(
       {
-        probeMode: getProbeMode(),
+        probeMode: mode,
         maxCalls,
         corePlan: corePlan.map((entry) => ({
           label: entry.label,
