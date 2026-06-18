@@ -1028,16 +1028,18 @@
     "source": "football-data",
     "matchId": "football-data:537329",
     "fixtureId": "537329",
-    "label": "Czechia vs South Africa",
+    "label": "Czechia 1-0 South Africa",
     "kickedOffAt": "2026-06-18T16:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 798,
-      "name": "Czechia"
+      "name": "Czechia",
+      "score": 1
     },
     "awayTeam": {
       "id": 774,
-      "name": "South Africa"
+      "name": "South Africa",
+      "score": 0
     }
   },
   {

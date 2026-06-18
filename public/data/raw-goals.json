@@ -2092,5 +2092,19 @@
     "detail": "normal",
     "playerId": "colombia-jaminton-campaz",
     "teamId": "colombia"
+  },
+  {
+    "externalGoalId": "football-data:scorer:67970:normal",
+    "playerName": "Michal Sadílek",
+    "nationalTeam": "Czechia",
+    "sourcePlayerName": "Michal Sadílek",
+    "sourceTeamName": "Czechia",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 67970,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal"
   }
 ]

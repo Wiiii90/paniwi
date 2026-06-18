@@ -6452,14 +6452,16 @@
   },
   {
     "matchId": "football-data:537329",
-    "label": "Czechia vs South Africa",
+    "label": "Czechia 1-0 South Africa",
     "kickedOffAt": "2026-06-18T16:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
-      "name": "Czechia"
+      "name": "Czechia",
+      "score": 1
     },
     "awayTeam": {
-      "name": "Südafrika"
+      "name": "Südafrika",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -6483,12 +6485,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 1,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsEventBackfill": true,
+      "needsLineupBackfill": true
     }
   },
   {
