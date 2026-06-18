@@ -319,6 +319,29 @@ h2 {
   width: 6px;
 }
 
+.status-fresh .status-dot {
+  animation: status-pulse 1.35s ease-in-out infinite;
+}
+
+@keyframes status-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 3px rgba(30, 79, 143, 0.12);
+    opacity: 1;
+  }
+
+  50% {
+    box-shadow: 0 0 0 6px rgba(30, 79, 143, 0.03);
+    opacity: 0.42;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-fresh .status-dot {
+    animation: none;
+  }
+}
+
 .status-error .status-dot {
   background: var(--color-accent);
   box-shadow: 0 0 0 3px rgba(215, 38, 56, 0.12);
