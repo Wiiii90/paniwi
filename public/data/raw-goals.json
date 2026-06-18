@@ -2112,5 +2112,21 @@
     "detail": "normal",
     "playerId": "czech-republic-michal-sadilek",
     "teamId": "czech-republic"
+  },
+  {
+    "externalGoalId": "football-data:scorer:34012:penalties",
+    "playerName": "Teboho Mokoena",
+    "nationalTeam": "South Africa",
+    "sourcePlayerName": "Teboho Mokoena",
+    "sourceTeamName": "South Africa",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 34012,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "penalty",
+    "playerId": "south-africa-teboho-mokoena",
+    "teamId": "south-africa"
   }
 ]
