@@ -6619,12 +6619,12 @@
   },
   {
     "matchId": "football-data:537336",
-    "label": "Canada 1-0 Qatar",
+    "label": "Canada 3-0 Qatar",
     "kickedOffAt": "2026-06-18T22:00:00Z",
     "status": "live",
     "homeTeam": {
       "name": "Kanada",
-      "score": 1
+      "score": 3
     },
     "awayTeam": {
       "name": "Katar",
@@ -6711,7 +6711,7 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 1,
+      "scoreTotal": 3,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,

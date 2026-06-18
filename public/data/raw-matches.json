@@ -1064,13 +1064,13 @@
     "source": "football-data",
     "matchId": "football-data:537336",
     "fixtureId": "537336",
-    "label": "Canada 1-0 Qatar",
+    "label": "Canada 3-0 Qatar",
     "kickedOffAt": "2026-06-18T22:00:00Z",
     "status": "live",
     "homeTeam": {
       "id": 828,
       "name": "Canada",
-      "score": 1
+      "score": 3
     },
     "awayTeam": {
       "id": 8030,
