@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-19T23:01:01.544Z",
+  "lastUpdated": "2026-06-19T23:30:48.705Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -15,7 +15,7 @@
   "snapshotFingerprint": "6be29b2a31a370a3bf9d0f7959868595b2300657fb189f211d888ba6a3b6ad83",
   "snapshotChanged": false,
   "syncWindowId": "2026 fifa world cup group c:scotland-morocco:2026-06-19T22:00:00.000Z-live",
-  "windowSyncAttempts": 2,
+  "windowSyncAttempts": 3,
   "liveMatchCount": 1,
   "sourceRequestCount": 3,
   "sourceRequestLimit": 6
