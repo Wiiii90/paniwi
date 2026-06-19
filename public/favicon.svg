@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Paniwi WM 2026">
+  <defs>
+    <linearGradient id="card" x1="10" x2="54" y1="8" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff1a8"/>
+      <stop offset="0.55" stop-color="#f7d94f"/>
+      <stop offset="1" stop-color="#f1bd28"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="14" x2="50" y1="12" y2="34" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.78"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" fill="none"/>
+  <g transform="rotate(-6 32 32)">
+    <rect x="11" y="8" width="42" height="48" rx="8" fill="url(#card)" stroke="#1f5b38" stroke-width="4"/>
+    <path d="M14 19c8-5 25-7 37-3v11c-12-4-28-2-37 4z" fill="url(#shine)"/>
+    <path d="M11 44h42v4c0 4.4-3.6 8-8 8H19c-4.4 0-8-3.6-8-8z" fill="#c9182b"/>
+    <path d="M14 11h18v8H14z" fill="#ffffff" opacity="0.9"/>
+    <path d="M38 8h7c4.4 0 8 3.6 8 8v7H38z" fill="#2f8f3a"/>
+    <text x="32" y="39" fill="#123b2e" font-family="Arial Black, Arial, sans-serif" font-size="27" font-weight="900" letter-spacing="-2" text-anchor="middle">26</text>
+  </g>
+</svg>

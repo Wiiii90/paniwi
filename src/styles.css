@@ -1026,18 +1026,13 @@ h2 {
 }
 
 .scorer-owner-links a {
-  background: #ffffff;
-  border: 1px solid color-mix(in srgb, var(--participant-color), transparent 68%);
-  border-radius: 999px;
   color: var(--participant-color);
   font-weight: 900;
-  padding: 2px 7px;
   text-decoration: none;
 }
 
 .scorer-owner-links a:hover,
 .scorer-owner-links a:focus-visible {
-  border-color: var(--participant-color);
   text-decoration: none;
 }
 
