@@ -1,4 +1,4 @@
-import { useState, type CSSProperties, type ReactNode } from "react";
+import { useRef, useState, type CSSProperties, type ReactNode } from "react";
 import type { StaticMeta } from "../../domain/staticMeta";
 import { StatusPill } from "./StatusPill";
 
@@ -17,6 +17,7 @@ const navItems = [
 
 const basePartyColors = ["#d72638", "#ffcf33", "#1f7a4d", "#1d4ed8", "#f97316", "#ffffff"] as const;
 const confettiCount = 164;
+const confettiCooldownMs = 650;
 
 type PartyLight = {
   color: string;
@@ -88,6 +89,7 @@ function createPartyBurst(accentColors: string[] = []): PartyBurst {
 
 export function AppShell({ children, meta, partyColors }: AppShellProps) {
   const [confettiBursts, setConfettiBursts] = useState<PartyBurst[]>([]);
+  const lastConfettiLaunch = useRef(0);
   const baseUrl = import.meta.env.BASE_URL;
   const basePath = baseUrl.replace(/\/$/, "");
   const appPath =
@@ -96,8 +98,14 @@ export function AppShell({ children, meta, partyColors }: AppShellProps) {
       : window.location.pathname;
 
   function launchConfetti(): void {
+    const now = Date.now();
+    if (now - lastConfettiLaunch.current < confettiCooldownMs) {
+      return;
+    }
+
+    lastConfettiLaunch.current = now;
     const burst = createPartyBurst(partyColors);
-    setConfettiBursts((current) => [...current.slice(-1), burst]);
+    setConfettiBursts([burst]);
     window.setTimeout(() => {
       setConfettiBursts((current) => current.filter((currentBurst) => currentBurst.id !== burst.id));
     }, 3000);
