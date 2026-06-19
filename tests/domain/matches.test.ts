@@ -326,13 +326,14 @@ assert.deepEqual(
   ["api-football:scheduled-after-kickoff"]
 );
 assert.deepEqual(
-  groupMatchesBySection([scheduledAfterKickoffMatch], new Date("2026-06-17T16:15:00.000Z")).live.map((match) => match.matchId),
+  groupMatchesBySection([scheduledAfterKickoffMatch], new Date("2026-06-17T16:15:00.000Z")).upcoming.map((match) => match.matchId),
   ["api-football:scheduled-after-kickoff"]
 );
 assert.deepEqual(
-  groupMatchesBySection([scheduledAfterKickoffMatch], new Date("2026-06-17T17:11:00.000Z")).live.map((match) => match.matchId),
+  groupMatchesBySection([scheduledAfterKickoffMatch], new Date("2026-06-17T17:11:00.000Z")).upcoming.map((match) => match.matchId),
   ["api-football:scheduled-after-kickoff"]
 );
+assert.deepEqual(groupMatchesBySection([scheduledAfterKickoffMatch], new Date("2026-06-17T17:11:00.000Z")).live, []);
 assert.deepEqual(
   getLiveAndUpcomingMatches([scheduledAfterKickoffMatch], new Date("2026-06-17T17:11:00.000Z")).map((match) => match.matchId),
   ["api-football:scheduled-after-kickoff"]
@@ -386,7 +387,7 @@ const homePreviewMatches = buildMatches(
 );
 assert.deepEqual(
   getLiveAndUpcomingMatches(homePreviewMatches, new Date("2026-06-17T17:11:00.000Z")).map((match) => match.matchId),
-  ["api-football:scheduled-active", "api-football:live-active", "api-football:upcoming-sooner"]
+  ["api-football:live-active", "api-football:scheduled-active", "api-football:upcoming-sooner"]
 );
 
 const matchFilterSample = buildMatches(

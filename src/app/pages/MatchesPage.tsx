@@ -3,6 +3,8 @@ import {
   groupGoalsBySide,
   groupMatchesBySection,
   groupSelectedParticipantsBySide,
+  isCooldownMatch,
+  isWarmupMatch,
   type MatchSectionKey
 } from "../../domain/matchGrouping";
 import type { GoalRecord, ScoredGoal } from "../../domain/goalTypes";
@@ -15,24 +17,24 @@ type MatchesPageProps = {
   matches: MatchRecord[];
 };
 
-function formatStatus(status: MatchRecord["status"], sectionKey?: MatchSectionKey): string {
-  if (sectionKey === "live" && status === "scheduled") {
+function formatStatus(match: MatchRecord, now: Date): string {
+  if (isWarmupMatch(match, now)) {
     return "Aufwärmen";
   }
 
-  if (sectionKey === "live" && status === "finished") {
+  if (isCooldownMatch(match, now)) {
     return "Auslaufen";
   }
 
-  if (status === "finished") {
+  if (match.status === "finished") {
     return "Beendet";
   }
 
-  if (status === "live") {
+  if (match.status === "live") {
     return "Läuft";
   }
 
-  if (status === "scheduled") {
+  if (match.status === "scheduled") {
     return "Geplant";
   }
 
@@ -181,6 +183,7 @@ type MatchSectionProps = {
   title: string;
   emptyText: string;
   matches: MatchRecord[];
+  now: Date;
   visibleCount: number;
   initialVisibleCount: number;
   onShowMore: (section: MatchSectionKey, amount: number) => void;
@@ -202,6 +205,7 @@ function MatchSection({
   title,
   emptyText,
   matches,
+  now,
   visibleCount,
   initialVisibleCount,
   onShowMore,
@@ -267,7 +271,7 @@ function MatchSection({
                     <span>{formatKickoff(match.kickedOffAt, { dateStyle: "medium", timeStyle: "short" })}</span>
                   </div>
                   <div className="match-card-status">
-                    <strong>{formatStatus(match.status, sectionKey)}</strong>
+                    <strong>{formatStatus(match, now)}</strong>
                   </div>
                 </div>
                 <div className="match-card-scoreline">
@@ -413,8 +417,14 @@ function MatchSection({
 }
 
 export function MatchesPage({ matches }: MatchesPageProps) {
-  const [visibleCounts, setVisibleCounts] = useState<VisibleMatchCounts>(initialVisibleCounts);
-  const { live: liveMatches, upcoming: upcomingMatches, finished: finishedMatches } = groupMatchesBySection(matches, new Date());
+  const now = new Date();
+  const { live: liveMatches, upcoming: upcomingMatches, finished: finishedMatches } = groupMatchesBySection(matches, now);
+  const sectionInitialCounts: VisibleMatchCounts = {
+    live: initialVisibleCounts.live,
+    upcoming: Math.min(upcomingMatches.length, upcomingMatches.filter((match) => isWarmupMatch(match, now)).length + 1),
+    finished: Math.min(finishedMatches.length, finishedMatches.filter((match) => isCooldownMatch(match, now)).length + 1)
+  };
+  const [visibleCounts, setVisibleCounts] = useState<VisibleMatchCounts>(sectionInitialCounts);
 
   function showMore(section: MatchSectionKey, amount: number): void {
     const totalBySection = { live: liveMatches.length, upcoming: upcomingMatches.length, finished: finishedMatches.length };
@@ -422,7 +432,7 @@ export function MatchesPage({ matches }: MatchesPageProps) {
   }
 
   function showLess(section: MatchSectionKey, amount: number): void {
-    setVisibleCounts((current) => ({ ...current, [section]: Math.max(current[section] - amount, initialVisibleCounts[section]) }));
+    setVisibleCounts((current) => ({ ...current, [section]: Math.max(current[section] - amount, sectionInitialCounts[section]) }));
   }
 
   function showAll(section: MatchSectionKey, total: number): void {
@@ -430,7 +440,7 @@ export function MatchesPage({ matches }: MatchesPageProps) {
   }
 
   function collapseSection(section: MatchSectionKey): void {
-    setVisibleCounts((current) => ({ ...current, [section]: initialVisibleCounts[section] }));
+    setVisibleCounts((current) => ({ ...current, [section]: sectionInitialCounts[section] }));
   }
 
   return (
@@ -441,8 +451,9 @@ export function MatchesPage({ matches }: MatchesPageProps) {
           title="Live"
           emptyText=""
           matches={liveMatches}
-          visibleCount={visibleCounts.live}
-          initialVisibleCount={initialVisibleCounts.live}
+          now={now}
+          visibleCount={Math.max(visibleCounts.live, sectionInitialCounts.live)}
+          initialVisibleCount={sectionInitialCounts.live}
           onShowMore={showMore}
           onShowLess={showLess}
           onShowAll={showAll}
@@ -454,8 +465,9 @@ export function MatchesPage({ matches }: MatchesPageProps) {
         title="Kommende Spiele"
         emptyText="Daten konnten nicht geladen werden."
         matches={upcomingMatches}
-        visibleCount={visibleCounts.upcoming}
-        initialVisibleCount={initialVisibleCounts.upcoming}
+        now={now}
+        visibleCount={Math.max(visibleCounts.upcoming, sectionInitialCounts.upcoming)}
+        initialVisibleCount={sectionInitialCounts.upcoming}
         onShowMore={showMore}
         onShowLess={showLess}
         onShowAll={showAll}
@@ -466,8 +478,9 @@ export function MatchesPage({ matches }: MatchesPageProps) {
         title="Vergangene Spiele"
         emptyText="Daten konnten nicht geladen werden."
         matches={finishedMatches}
-        visibleCount={visibleCounts.finished}
-        initialVisibleCount={initialVisibleCounts.finished}
+        now={now}
+        visibleCount={Math.max(visibleCounts.finished, sectionInitialCounts.finished)}
+        initialVisibleCount={sectionInitialCounts.finished}
         onShowMore={showMore}
         onShowLess={showLess}
         onShowAll={showAll}

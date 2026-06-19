@@ -17,44 +17,47 @@ function sortByKickoffDescending(left: MatchRecord, right: MatchRecord): number 
   return new Date(right.kickedOffAt ?? "0001-01-01").getTime() - new Date(left.kickedOffAt ?? "0001-01-01").getTime();
 }
 
-export function isActiveMatch(match: MatchRecord, now: Date): boolean {
-  if (match.status === "live") {
-    return true;
-  }
-
+function getKickoffTime(match: MatchRecord): number | null {
   if (!match.kickedOffAt) {
-    return false;
+    return null;
   }
 
   const kickoffMs = new Date(match.kickedOffAt).getTime();
-  if (!Number.isFinite(kickoffMs)) {
-    return false;
-  }
+  return Number.isFinite(kickoffMs) ? kickoffMs : null;
+}
 
-  const nowMs = now.getTime();
-  if (match.status === "scheduled") {
-    return nowMs >= kickoffMs - preMatchDisplayWindowMinutes * 60 * 1000;
-  }
+export function isWarmupMatch(match: MatchRecord, now: Date): boolean {
+  const kickoffMs = getKickoffTime(match);
+  return match.status === "scheduled" && kickoffMs !== null && now.getTime() >= kickoffMs - preMatchDisplayWindowMinutes * 60 * 1000;
+}
 
-  if (match.status === "finished") {
-    return nowMs >= kickoffMs && nowMs <= kickoffMs + recentlyFinishedDisplayWindowMinutesAfterKickoff * 60 * 1000;
-  }
+export function isCooldownMatch(match: MatchRecord, now: Date): boolean {
+  const kickoffMs = getKickoffTime(match);
+  return (
+    match.status === "finished" &&
+    kickoffMs !== null &&
+    now.getTime() >= kickoffMs &&
+    now.getTime() <= kickoffMs + recentlyFinishedDisplayWindowMinutesAfterKickoff * 60 * 1000
+  );
+}
 
-  return false;
+export function isActiveMatch(match: MatchRecord, now: Date): boolean {
+  return match.status === "live" || isWarmupMatch(match, now) || isCooldownMatch(match, now);
+}
+
+function sortUpcomingMatches(now: Date): (left: MatchRecord, right: MatchRecord) => number {
+  return (left, right) => Number(isWarmupMatch(right, now)) - Number(isWarmupMatch(left, now)) || sortByKickoffAscending(left, right);
+}
+
+function sortFinishedMatches(now: Date): (left: MatchRecord, right: MatchRecord) => number {
+  return (left, right) => Number(isCooldownMatch(right, now)) - Number(isCooldownMatch(left, now)) || sortByKickoffDescending(left, right);
 }
 
 export function groupMatchesBySection(matches: MatchRecord[], now: Date): MatchSections {
-  const live = matches.filter((match) => isActiveMatch(match, now)).sort(sortByKickoffAscending);
-  const activeMatchIds = new Set(live.map((match) => match.matchId));
-
   return {
-    live,
-    upcoming: matches
-      .filter((match) => match.status === "scheduled" && !activeMatchIds.has(match.matchId))
-      .sort(sortByKickoffAscending),
-    finished: matches
-      .filter((match) => match.status === "finished" && !activeMatchIds.has(match.matchId))
-      .sort(sortByKickoffDescending)
+    live: matches.filter((match) => match.status === "live").sort(sortByKickoffAscending),
+    upcoming: matches.filter((match) => match.status === "scheduled").sort(sortUpcomingMatches(now)),
+    finished: matches.filter((match) => match.status === "finished").sort(sortFinishedMatches(now))
   };
 }
 
