@@ -1084,16 +1084,18 @@
     "source": "football-data",
     "matchId": "football-data:537330",
     "fixtureId": "537330",
-    "label": "Mexico vs South Korea",
+    "label": "Mexico 0-0 South Korea",
     "kickedOffAt": "2026-06-19T01:00:00Z",
     "status": "scheduled",
     "homeTeam": {
       "id": 769,
-      "name": "Mexico"
+      "name": "Mexico",
+      "score": 0
     },
     "awayTeam": {
       "id": 772,
-      "name": "South Korea"
+      "name": "South Korea",
+      "score": 0
     }
   },
   {
@@ -1190,24 +1192,6 @@
     "awayTeam": {
       "id": 1935,
       "name": "Ivory Coast"
-    }
-  },
-  {
-    "source": "api-football",
-    "matchId": "api-football:1489387",
-    "fixtureId": "1489387",
-    "label": "Canada 6-0 Qatar",
-    "kickedOffAt": "2026-06-18T22:00:00+00:00",
-    "status": "finished",
-    "homeTeam": {
-      "id": 5529,
-      "name": "Canada",
-      "score": 6
-    },
-    "awayTeam": {
-      "id": 1569,
-      "name": "Qatar",
-      "score": 0
     }
   }
 ]

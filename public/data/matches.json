@@ -12206,14 +12206,16 @@
   },
   {
     "matchId": "football-data:537330",
-    "label": "Mexico vs South Korea",
+    "label": "Mexico 0-0 South Korea",
     "kickedOffAt": "2026-06-19T01:00:00Z",
     "status": "scheduled",
     "homeTeam": {
-      "name": "Mexiko"
+      "name": "Mexiko",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Südkorea"
+      "name": "Südkorea",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -12266,9 +12268,9 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 0,
       "goalEventCount": 0,
-      "eventsComplete": false,
+      "eventsComplete": true,
       "lineupsComplete": false,
       "needsEventBackfill": false,
       "needsLineupBackfill": false
