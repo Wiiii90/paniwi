@@ -1193,23 +1193,5 @@
       "id": 1935,
       "name": "Ivory Coast"
     }
-  },
-  {
-    "source": "api-football",
-    "matchId": "api-football:1489388",
-    "fixtureId": "1489388",
-    "label": "Mexico 1-0 South Korea",
-    "kickedOffAt": "2026-06-19T01:00:00+00:00",
-    "status": "finished",
-    "homeTeam": {
-      "id": 16,
-      "name": "Mexico",
-      "score": 1
-    },
-    "awayTeam": {
-      "id": 17,
-      "name": "South Korea",
-      "score": 0
-    }
   }
 ]
