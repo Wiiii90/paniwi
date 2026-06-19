@@ -1707,14 +1707,14 @@ h2 {
 }
 
 .match-goal-side .match-goal-chip-scored {
-  background: var(--color-surface-muted);
+  background: #ffffff;
   border-color: var(--participant-color);
   color: var(--participant-color);
 }
 
 .match-goal-side .match-goal-chip-multi-owner {
   background:
-    linear-gradient(var(--color-surface-muted), var(--color-surface-muted)) padding-box,
+    linear-gradient(#ffffff, #ffffff) padding-box,
     var(--participant-border) border-box;
   border-color: transparent;
   border-radius: 999px;
