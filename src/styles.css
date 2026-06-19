@@ -104,8 +104,8 @@ textarea {
 
 .brand {
   align-items: center;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  background: linear-gradient(135deg, #fff0a3, #ffd95b);
+  border: 1px solid rgba(112, 88, 28, 0.22);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-soft);
   color: inherit;
@@ -140,7 +140,7 @@ textarea {
 }
 
 .brand-name {
-  color: var(--color-text);
+  color: var(--color-accent);
   font-size: 0.98rem;
   font-weight: 900;
   letter-spacing: 0;
