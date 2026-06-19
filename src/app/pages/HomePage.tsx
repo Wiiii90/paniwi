@@ -35,12 +35,33 @@ function FlaggedName({ name, teamName }: { name: string; teamName: string }) {
   );
 }
 
+function formatLeaderboardMeta(entry: LeaderboardEntry): string {
+  const pointsLabel = entry.points === 1 ? "Punkt" : "Punkte";
+  const scorersLabel = entry.playersWithGoals === 1 ? "Torschütze" : "Torschützen";
+  return `${entry.points} ${pointsLabel} · ${entry.playersWithGoals} ${scorersLabel}`;
+}
+
+function PreviewMore({ visible, total }: { visible: number; total: number }) {
+  if (total <= visible) {
+    return null;
+  }
+
+  return (
+    <div className="mini-more" aria-label={`${total - visible} weitere Einträge`}>
+      <span aria-hidden="true" />
+      <span aria-hidden="true" />
+      <span aria-hidden="true" />
+    </div>
+  );
+}
+
 export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps) {
   const baseUrl = import.meta.env.BASE_URL;
   const latestGoals = sortGoalsChronologically(goals.filter((goal) => !isCompetitionScorerAggregateGoal(goal))).reverse();
-  const topOwnedScorers = scorers.filter((scorer) => scorer.selected).slice(0, 3);
+  const ownedScorers = scorers.filter((scorer) => scorer.selected);
+  const tableLeaders = leaderboard.slice(0, 6);
+  const topOwnedScorers = ownedScorers.slice(0, 6);
   const topScorers = scorers.slice(0, 4);
-  const tableLeaders = leaderboard.slice(0, 3);
   const currentMatches = getLiveAndUpcomingMatches(matches, new Date(), 3);
   return (
     <section className="page-stack">
@@ -55,11 +76,12 @@ export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps
                 <div className="mini-row" key={entry.owner}>
                   <span>
                     <strong>{entry.owner}</strong>
-                    <small>{entry.playersWithGoals} Torschützen</small>
+                    <small>{formatLeaderboardMeta(entry)}</small>
                   </span>
                   <span>{entry.rank}. Platz</span>
                 </div>
               ))}
+              <PreviewMore visible={tableLeaders.length} total={leaderboard.length} />
             </div>
           ) : (
             <p className="empty-inline">Noch keine Teams.</p>
@@ -86,6 +108,7 @@ export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps
                 </div>
               ))
             )}
+            <PreviewMore visible={topOwnedScorers.length} total={ownedScorers.length} />
           </div>
         </a>
 
@@ -109,6 +132,7 @@ export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps
                 </div>
               ))
             )}
+            <PreviewMore visible={topScorers.length} total={scorers.length} />
           </div>
         </a>
 

@@ -166,13 +166,12 @@ function formatGoalChipMinute(goal: GoalRecord): string {
 
 function GoalChip({ goals, scoredGoalIds }: { goals: GoalRecord[]; scoredGoalIds: Set<string> }) {
   const firstGoal = goals[0];
-  const detailClass = goals.some((goal) => goal.detail === "own-goal") ? "match-goal-chip-own-goal" : "";
   const scoredClass = goals.some((goal) => scoredGoalIds.has(goal.externalGoalId)) ? "match-goal-chip-scored" : "";
   const minutes = goals.map(formatGoalChipMinute).join(", ");
   const title = goals.map((goal) => `${formatGoalChipMinute(goal)} ${goal.playerName}`).join(", ");
 
   return (
-    <span className={[scoredClass, detailClass].filter(Boolean).join(" ")} title={title}>
+    <span className={scoredClass} title={title}>
       {minutes} {firstGoal.playerName}
     </span>
   );
@@ -268,7 +267,16 @@ function MatchSection({
               <article className={`match-card match-card-${match.status}`} key={match.matchId}>
                 <div className="match-card-header">
                   <div className="match-card-meta">
-                    <span>{formatKickoff(match.kickedOffAt, { dateStyle: "medium", timeStyle: "short" })}</span>
+                    <span>
+                      {formatKickoff(match.kickedOffAt, {
+                        day: "2-digit",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        month: "short",
+                        weekday: "short",
+                        year: "numeric"
+                      })}
+                    </span>
                   </div>
                   <div className="match-card-status">
                     <strong>{formatStatus(match, now)}</strong>

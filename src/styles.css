@@ -438,6 +438,35 @@ h2 {
   padding: 7px 8px;
 }
 
+.mini-more {
+  align-items: center;
+  display: flex;
+  gap: 5px;
+  height: 16px;
+  justify-content: center;
+  opacity: 0.62;
+  position: relative;
+}
+
+.mini-more::before {
+  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+  content: "";
+  height: 1px;
+  left: 8px;
+  position: absolute;
+  right: 8px;
+  top: 50%;
+}
+
+.mini-more span {
+  background: var(--color-muted);
+  border: 2px solid var(--color-surface);
+  border-radius: 999px;
+  height: 7px;
+  position: relative;
+  width: 7px;
+}
+
 .clickable-card {
   color: inherit;
 }
@@ -680,7 +709,7 @@ h2 {
   align-items: center;
   display: grid;
   gap: var(--space-2);
-  grid-template-columns: 54px minmax(96px, 0.85fr) minmax(260px, 2.25fr) 92px 92px 92px;
+  grid-template-columns: 48px repeat(3, 88px) minmax(128px, 0.8fr) minmax(340px, 1.8fr);
   min-height: 50px;
   padding: 12px 16px;
 }
@@ -776,7 +805,7 @@ h2 {
 }
 
 .scorer-grid {
-  grid-template-columns: 48px minmax(220px, 1.6fr) minmax(150px, 1fr) minmax(190px, 1.25fr) 72px;
+  grid-template-columns: 48px 96px minmax(250px, 2fr) minmax(180px, 1fr) minmax(180px, 1fr);
   min-height: 50px;
   padding: 12px 16px;
 }
@@ -784,13 +813,13 @@ h2 {
 .player-grid > :nth-child(3),
 .player-grid > :nth-child(4),
 .scorer-grid > :nth-child(1),
-.scorer-grid > :nth-child(5) {
+.scorer-grid > :nth-child(2) {
   text-align: center;
 }
 
-.scorer-grid > :nth-child(2),
 .scorer-grid > :nth-child(3),
-.scorer-grid > :nth-child(4) {
+.scorer-grid > :nth-child(4),
+.scorer-grid > :nth-child(5) {
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -798,9 +827,24 @@ h2 {
 }
 
 .leaderboard-grid > :nth-child(1),
+.leaderboard-grid > :nth-child(2),
+.leaderboard-grid > :nth-child(3),
 .leaderboard-grid > :nth-child(4),
-.leaderboard-grid > :nth-child(5),
+.leaderboard-grid > :nth-child(5) {
+  min-width: 0;
+}
+
 .leaderboard-grid > :nth-child(6) {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.leaderboard-grid > :nth-child(1),
+.leaderboard-grid > :nth-child(2),
+.leaderboard-grid > :nth-child(3),
+.leaderboard-grid > :nth-child(4) {
   text-align: center;
 }
 
@@ -955,6 +999,7 @@ h2 {
   align-items: center;
   background: transparent;
   border: 0;
+  border-radius: var(--radius-sm);
   color: inherit;
   cursor: pointer;
   display: inline-flex;
@@ -963,31 +1008,33 @@ h2 {
   gap: 5px;
   justify-content: flex-start;
   min-height: 30px;
-  padding: 0;
+  min-width: 0;
+  padding: 6px 8px;
   text-align: left;
   text-transform: inherit;
 }
 
+.table-header .table-sort-button {
+  width: 100%;
+}
+
 .leaderboard-grid > :nth-child(1) .table-sort-button,
+.leaderboard-grid > :nth-child(2) .table-sort-button,
+.leaderboard-grid > :nth-child(3) .table-sort-button,
 .leaderboard-grid > :nth-child(4) .table-sort-button,
-.leaderboard-grid > :nth-child(5) .table-sort-button,
-.leaderboard-grid > :nth-child(6) .table-sort-button,
 .scorer-grid > :nth-child(1) .table-sort-button,
-.scorer-grid > :nth-child(5) .table-sort-button {
+.scorer-grid > :nth-child(2) .table-sort-button {
   justify-content: center;
   width: 100%;
 }
 
 .scorer-goals-header {
   align-items: center;
-  display: inline-flex;
+  display: grid;
   gap: 6px;
-  justify-content: center;
+  grid-template-columns: minmax(0, 1fr) auto;
   min-width: 0;
-}
-
-.scorer-goals-header .table-sort-button {
-  width: auto;
+  width: 100%;
 }
 
 .table-filter-icon {
@@ -1017,9 +1064,10 @@ h2 {
 
 .table-sort-button:hover,
 .table-sort-button:focus-visible {
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.28);
   color: #ffffff;
-  outline: 1px solid rgba(255, 255, 255, 0.45);
-  outline-offset: 3px;
+  outline: 0;
 }
 
 .table-sort-button span {
@@ -1062,12 +1110,86 @@ h2 {
   background: rgba(244, 241, 232, 0.45);
 }
 
+.table-footer {
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 0.84rem;
+  font-weight: 800;
+  padding: 13px 16px;
+}
+
+.table-empty-state {
+  background: #ffffff;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  font-weight: 800;
+  margin: 0;
+  padding: 18px 16px;
+}
+
+.table-footer strong {
+  color: var(--color-text);
+  font-family: var(--font-numeric);
+  font-weight: 900;
+}
+
+.leaderboard-footer {
+  background: linear-gradient(180deg, rgba(244, 241, 232, 0.3), rgba(255, 255, 255, 0.86));
+}
+
 .top-scorer-cell {
+  align-items: center;
+  display: flex;
+  gap: 9px;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.top-scorer-goals {
+  align-items: center;
+  color: var(--color-text);
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-weight: 900;
+  gap: 4px;
+}
+
+.top-scorer-goals img {
   display: block;
+  height: 14px;
+  width: 14px;
+}
+
+.top-scorer-names {
+  align-items: center;
+  display: inline-flex;
+  gap: 9px;
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.top-scorer-name {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 1 auto;
+  gap: 6px;
+  min-width: 0;
+}
+
+.top-scorer-name > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.table-player-flag {
+  flex: 0 0 auto;
+  height: 14px;
+  width: 20px;
 }
 
 .feed-item {
@@ -1403,12 +1525,6 @@ h2 {
   background: rgba(15, 118, 110, 0.08);
   border-color: rgba(15, 118, 110, 0.55);
   color: var(--color-primary);
-}
-
-.match-goal-side .match-goal-chip-own-goal {
-  background: rgba(215, 38, 56, 0.06);
-  border-color: rgba(215, 38, 56, 0.55);
-  color: var(--color-accent);
 }
 
 .match-lineup {
@@ -1791,10 +1907,13 @@ h2 {
     overflow-x: auto;
   }
 
-  .leaderboard-table .leaderboard-grid,
   .table-card .player-grid,
   .table-card .scorer-grid {
     min-width: 760px;
+  }
+
+  .leaderboard-table .leaderboard-grid {
+    min-width: 840px;
   }
 
   .table-card .scorer-grid,

@@ -57,6 +57,27 @@ function getPageSizeOptions(resultCount: number, currentPageSize: number): numbe
   return [...options].filter((option): option is number => typeof option === "number").sort((left, right) => left - right);
 }
 
+function rankRowsByGoals(rows: ScorerRow[]): ScorerRow[] {
+  const ranked = rows
+    .slice()
+    .sort((left, right) => right.goals - left.goals || left.playerName.localeCompare(right.playerName, "de") || left.nationalTeam.localeCompare(right.nationalTeam, "de"));
+  const ranksByKey = new Map<string, number>();
+  let previousGoals = -1;
+  let previousRank = 0;
+
+  ranked.forEach((row, index) => {
+    const rank = row.goals === previousGoals ? previousRank : index + 1;
+    ranksByKey.set(`${row.normalizedPlayerName}-${row.nationalTeam}`, rank);
+    previousGoals = row.goals;
+    previousRank = rank;
+  });
+
+  return rows.map((row) => ({
+    ...row,
+    rank: ranksByKey.get(`${row.normalizedPlayerName}-${row.nationalTeam}`) ?? row.rank
+  }));
+}
+
 export function GoalsPage({ scorers }: GoalsPageProps) {
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [ownershipFilter, setOwnershipFilter] = useState<OwnershipFilter>(() => {
@@ -79,7 +100,7 @@ export function GoalsPage({ scorers }: GoalsPageProps) {
   const rows = useMemo<ScorerRow[]>(() => {
     return scorers.map((scorer) => ({
       ...scorer,
-      ownerLabel: scorer.scoringOwners.length > 0 ? scorer.scoringOwners.join(", ") : "-"
+      ownerLabel: scorer.scoringOwners.join(", ")
     }));
   }, [scorers]);
 
@@ -88,7 +109,7 @@ export function GoalsPage({ scorers }: GoalsPageProps) {
     []
   );
   const countries = useMemo(() => teamCatalog.map((team) => team.displayName).sort((a, b) => a.localeCompare(b, "de")), []);
-  const filteredRows = rows.filter((row) => {
+  const filteredRows = rankRowsByGoals(rows.filter((row) => {
     const parsedMinGoals = minGoals === "" ? 1 : Number(minGoals);
     return (
       (ownershipFilter === "all" || row.selected) &&
@@ -97,7 +118,7 @@ export function GoalsPage({ scorers }: GoalsPageProps) {
       row.goals >= parsedMinGoals &&
       matchesSearch(row, search.trim().toLowerCase())
     );
-  });
+  }));
   const sortedRows = filteredRows.slice().sort((left, right) => {
     const result = compareRows(left, right, sortKey);
     if (result !== 0) {
@@ -161,9 +182,6 @@ export function GoalsPage({ scorers }: GoalsPageProps) {
         ) : null}
         <div className="table-header scorer-grid">
           <span>{renderSortButton("rank")}</span>
-          <span>{renderSortButton("playerName")}</span>
-          <span>{renderSortButton("nationalTeam")}</span>
-          <span>{renderSortButton("ownerLabel")}</span>
           <span className="scorer-goals-header">
             {renderSortButton("goals")}
             <button
@@ -177,22 +195,25 @@ export function GoalsPage({ scorers }: GoalsPageProps) {
               ≡
             </button>
           </span>
+          <span>{renderSortButton("playerName")}</span>
+          <span>{renderSortButton("ownerLabel")}</span>
+          <span>{renderSortButton("nationalTeam")}</span>
         </div>
         {pageRows.length === 0 ? (
-          <p className="empty-state">Noch keine Torschützendaten im Snapshot.</p>
+          <p className="table-empty-state">Kein Spieler gefunden.</p>
         ) : (
           pageRows.map((scorer) => (
             <div className="scorer-grid player-row" key={`${scorer.normalizedPlayerName}-${scorer.nationalTeam}`}>
               <strong data-label="Pl.">{scorer.rank}</strong>
+              <span data-label="Tore">{scorer.goals}</span>
               <span>
                 <strong>{scorer.playerName}</strong>
               </span>
+              <span data-label="Besitzer" title={scorer.ownerLabel}>{scorer.ownerLabel}</span>
               <span className="team-roster-country" data-label="Land">
                 <TeamFlag className="team-roster-flag" teamName={scorer.nationalTeam} />
                 <span>{scorer.nationalTeam}</span>
               </span>
-              <span data-label="Besitzer" title={scorer.ownerLabel}>{scorer.ownerLabel}</span>
-              <span data-label="Tore">{scorer.goals}</span>
             </div>
           ))
         )}

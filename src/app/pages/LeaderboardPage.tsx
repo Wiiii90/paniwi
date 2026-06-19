@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import type { PickStatusSnapshot } from "../../domain/pickStatusTypes";
 import type { ScoredGoal } from "../../domain/goalTypes";
 import type { LeaderboardEntry } from "../../domain/participantTypes";
+import { TeamFlag } from "../components/TeamFlag";
 import { useTableSort } from "../useTableSort";
 
 type LeaderboardPageProps = {
@@ -16,13 +17,14 @@ type LeaderboardRow = LeaderboardEntry & {
   misses: number;
   topScorerLabel: string;
   topScorerGoals: number;
+  topScorers: Array<{ name: string; nationalTeam: string }>;
 };
 
 const sortLabels: Record<SortKey, string> = {
   rank: "Pl.",
   owner: "Spieler",
   misses: "Nieten",
-  topScorer: "Toptorschütze(n)",
+  topScorer: "Topspieler",
   playersWithGoals: "Torschützen",
   points: "Punkte"
 };
@@ -50,27 +52,33 @@ function getMissCounts(pickStatuses: PickStatusSnapshot): Map<string, number> {
   return counts;
 }
 
-function getTopScorers(goals: ScoredGoal[]): Map<string, { names: string[]; goals: number }> {
-  const goalsByOwnerAndPlayer = new Map<string, Map<string, number>>();
+function getTopScorers(goals: ScoredGoal[]): Map<string, { players: Array<{ name: string; nationalTeam: string }>; goals: number }> {
+  const goalsByOwnerAndPlayer = new Map<string, Map<string, { goals: number; nationalTeam: string }>>();
 
   for (const goal of goals) {
-    const ownerGoals = goalsByOwnerAndPlayer.get(goal.owner) ?? new Map<string, number>();
-    ownerGoals.set(goal.displayPlayerName, (ownerGoals.get(goal.displayPlayerName) ?? 0) + goal.points);
+    const ownerGoals = goalsByOwnerAndPlayer.get(goal.owner) ?? new Map<string, { goals: number; nationalTeam: string }>();
+    const current = ownerGoals.get(goal.displayPlayerName);
+    ownerGoals.set(goal.displayPlayerName, {
+      goals: (current?.goals ?? 0) + goal.points,
+      nationalTeam: goal.displayNationalTeam
+    });
     goalsByOwnerAndPlayer.set(goal.owner, ownerGoals);
   }
 
-  const topScorers = new Map<string, { names: string[]; goals: number }>();
+  const topScorers = new Map<string, { players: Array<{ name: string; nationalTeam: string }>; goals: number }>();
   for (const [owner, playerGoals] of goalsByOwnerAndPlayer.entries()) {
     const sorted = [...playerGoals.entries()].sort((left, right) => {
-      if (right[1] !== left[1]) {
-        return right[1] - left[1];
+      if (right[1].goals !== left[1].goals) {
+        return right[1].goals - left[1].goals;
       }
 
       return left[0].localeCompare(right[0], "de");
     });
-    const topGoalCount = sorted[0]?.[1] ?? 0;
+    const topGoalCount = sorted[0]?.[1].goals ?? 0;
     topScorers.set(owner, {
-      names: sorted.filter(([, goalCount]) => goalCount === topGoalCount).map(([name]) => name),
+      players: sorted
+        .filter(([, player]) => player.goals === topGoalCount)
+        .map(([name, player]) => ({ name, nationalTeam: player.nationalTeam })),
       goals: topGoalCount
     });
   }
@@ -90,8 +98,15 @@ function compareRows(left: LeaderboardRow, right: LeaderboardRow, sortKey: SortK
   return left[sortKey] - right[sortKey];
 }
 
+function getLeaderboardSummary(goals: ScoredGoal[]): { goalCount: number; scorerCount: number } {
+  const goalIds = new Set(goals.map((goal) => goal.externalGoalId));
+  const scorerIds = new Set(goals.map((goal) => goal.playerId));
+  return { goalCount: goalIds.size, scorerCount: scorerIds.size };
+}
+
 export function LeaderboardPage({ goals, leaderboard, pickStatuses }: LeaderboardPageProps) {
   const baseUrl = import.meta.env.BASE_URL;
+  const ballIconUrl = `${baseUrl}assets/ball.svg`;
   const { renderSortButton, sortDirection, sortKey } = useTableSort<SortKey>({
     initialKey: "rank",
     labels: sortLabels,
@@ -110,7 +125,8 @@ export function LeaderboardPage({ goals, leaderboard, pickStatuses }: Leaderboar
       return {
         ...entry,
         misses: missCounts.get(entry.owner) ?? 0,
-        topScorerLabel: topScorer && topScorer.goals > 0 ? topScorer.names.join(", ") : "-",
+        topScorerLabel: topScorer && topScorer.goals > 0 ? topScorer.players.map((player) => player.name).join(", ") : "",
+        topScorers: topScorer?.players ?? [],
         topScorerGoals: topScorer?.goals ?? 0
       };
     });
@@ -119,17 +135,18 @@ export function LeaderboardPage({ goals, leaderboard, pickStatuses }: Leaderboar
     const result = compareRows(left, right, sortKey);
     return sortDirection === "asc" ? result : -result;
   });
+  const summary = getLeaderboardSummary(goals);
 
   return (
     <section className="page-stack">
       <div className="table-card leaderboard-table">
         <div className="table-header leaderboard-grid">
           <span>{renderSortButton("rank")}</span>
+          <span>{renderSortButton("points")}</span>
+          <span>{renderSortButton("playersWithGoals")}</span>
+          <span>{renderSortButton("misses")}</span>
           <span>{renderSortButton("owner")}</span>
           <span>{renderSortButton("topScorer")}</span>
-          <span>{renderSortButton("misses")}</span>
-          <span>{renderSortButton("playersWithGoals")}</span>
-          <span>{renderSortButton("points")}</span>
         </div>
         {sortedRows.length === 0 ? (
           <p className="empty-state">Noch keine Teams im Snapshot.</p>
@@ -141,21 +158,38 @@ export function LeaderboardPage({ goals, leaderboard, pickStatuses }: Leaderboar
             return (
               <a className="leaderboard-grid leaderboard-row" href={`${baseUrl}team/${encodeURIComponent(entry.owner)}`} key={entry.owner}>
                 <span className="rank" data-label="Pl.">{entry.rank}</span>
+                <strong data-label="Punkte">{entry.points}</strong>
+                <span data-label="Torschützen">{entry.playersWithGoals}</span>
+                <span data-label="Nieten">{entry.misses}</span>
                 <span className="owner">
                   {entry.owner}
                   {hasJackpot ? <img className="award-icon" src={`${baseUrl}assets/money-pot.png`} alt="Geldtopf" /> : null}
                   {hasRedLantern ? <img className="award-icon" src={`${baseUrl}assets/red-lantern.png`} alt="Rote Laterne" /> : null}
                 </span>
-                <span className="top-scorer-cell" data-label="Toptorschütze(n)" title={entry.topScorerLabel}>
-                  {entry.topScorerGoals > 0 ? `${entry.topScorerLabel} (${entry.topScorerGoals})` : "-"}
+                <span className="top-scorer-cell" data-label="Topspieler" title={entry.topScorerLabel}>
+                  {entry.topScorerGoals > 0 ? (
+                    <>
+                      <span className="top-scorer-goals">
+                        {entry.topScorerGoals}x <img src={ballIconUrl} alt="" aria-hidden="true" />
+                      </span>
+                      <span className="top-scorer-names">
+                        {entry.topScorers.map((player) => (
+                          <span className="top-scorer-name" key={`${entry.owner}-${player.name}-${player.nationalTeam}`}>
+                            <TeamFlag className="table-player-flag" teamName={player.nationalTeam} />
+                            <span>{player.name}</span>
+                          </span>
+                        ))}
+                      </span>
+                    </>
+                  ) : null}
                 </span>
-                <span data-label="Nieten">{entry.misses}</span>
-                <span data-label="Torschützen">{entry.playersWithGoals}</span>
-                <strong data-label="Punkte">{entry.points}</strong>
               </a>
             );
           })
         )}
+        <div className="table-footer leaderboard-footer">
+          Insgesamt wurden <strong>{summary.goalCount}</strong> Tore erzielt, aufgeteilt auf <strong>{summary.scorerCount}</strong> unterschiedliche Torschützen.
+        </div>
       </div>
     </section>
   );
