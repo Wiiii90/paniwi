@@ -503,6 +503,16 @@
     "rank": 12
   },
   {
+    "playerName": "Luis Romo",
+    "normalizedPlayerName": "luis romo",
+    "nationalTeam": "Mexiko",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 12
+  },
+  {
     "playerName": "Marcus Rashford",
     "normalizedPlayerName": "marcus rashford",
     "nationalTeam": "England",

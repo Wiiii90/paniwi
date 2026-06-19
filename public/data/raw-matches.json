@@ -1084,13 +1084,13 @@
     "source": "football-data",
     "matchId": "football-data:537330",
     "fixtureId": "537330",
-    "label": "Mexico 0-0 South Korea",
+    "label": "Mexico 1-0 South Korea",
     "kickedOffAt": "2026-06-19T01:00:00Z",
     "status": "live",
     "homeTeam": {
       "id": 769,
       "name": "Mexico",
-      "score": 0
+      "score": 1
     },
     "awayTeam": {
       "id": 772,
