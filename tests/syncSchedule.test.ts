@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import type { StaticMeta } from "../src/domain/staticMeta";
 import { evaluateSyncWindow } from "../src/sync/evaluateSyncWindow";
-import { buildSyncWindowsForKickoff, getActiveSyncWindow, getLastScheduledWindow, getSettlementWindow, syncPolicy } from "../src/sync/syncSchedule";
+import { buildSyncWindowsForKickoff, getActiveSyncWindow, getLastScheduledWindow, syncPolicy } from "../src/sync/syncSchedule";
 
 const sampleKickoff = {
   id: "sample:brazil-morocco:2026-06-13T16:00:00.000Z",
@@ -84,11 +84,7 @@ assert.ok(overlappingLiveWindow);
 assert.equal(overlappingLiveWindow.phase, "live");
 assert.equal(overlappingLiveWindow.id, "2026 fifa world cup group j:argentina-algeria:2026-06-17T01:00:00.000Z-live");
 
-const settlementWindow = getSettlementWindow(new Date("2026-06-16T06:05:00.000Z"));
-assert.ok(settlementWindow);
-assert.equal(settlementWindow.phase, "settlement");
-assert.equal(settlementWindow.id, "settlement:2026-06-16:06");
-assert.equal(evaluateSyncWindow(null, new Date("2026-06-16T06:05:00.000Z"), false, settlementWindow).windowPhase, "settlement");
+assert.equal(getActiveSyncWindow(new Date("2026-06-16T06:05:00.000Z")), null);
 
 const lastScheduledWindow = getLastScheduledWindow();
 assert.ok(lastScheduledWindow);
