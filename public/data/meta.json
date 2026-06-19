@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-19T06:01:24.999Z",
+  "lastUpdated": "2026-06-19T18:01:43.127Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -14,7 +14,7 @@
   "message": "Daten-Snapshot unveraendert (football-data).",
   "snapshotFingerprint": "e4fb9741a72da9aee0d048d9b04bbf7777bd5af9d91c72a03c015cb7edc36f57",
   "snapshotChanged": false,
-  "syncWindowId": "settlement:2026-06-19:06",
+  "syncWindowId": "2026 fifa world cup group d:united states-australia:2026-06-19T19:00:00.000Z-pre-match",
   "windowSyncAttempts": 1,
   "liveMatchCount": 0,
   "sourceRequestCount": 2,
