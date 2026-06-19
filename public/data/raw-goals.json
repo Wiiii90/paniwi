@@ -2732,5 +2732,24 @@
     "detail": "normal",
     "playerId": "mexico-luis-romo",
     "teamId": "mexico"
+  },
+  {
+    "externalGoalId": "api-football:1489388:35970:50:Normal Goal:0",
+    "playerName": "Luis Romo",
+    "nationalTeam": "Mexico",
+    "sourcePlayerName": "L. Romo",
+    "sourceTeamName": "Mexico",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 35970,
+    "matchId": "football-data:537330",
+    "fixtureId": "1489388",
+    "matchLabel": "Mexico 1-0 South Korea",
+    "kickedOffAt": "2026-06-19T01:00:00Z",
+    "minute": 50,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "mexico-luis-romo",
+    "teamId": "mexico"
   }
 ]

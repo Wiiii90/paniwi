@@ -1,22 +1,22 @@
 {
-  "lastUpdated": "2026-06-19T03:01:46.663Z",
-  "source": "football-data",
+  "lastUpdated": "2026-06-19T04:01:38.384Z",
+  "source": "api-football",
   "attemptedSources": [
-    "football-data"
+    "api-football"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 159,
+  "goalCount": 160,
   "scoredGoalCount": 17,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot unveraendert (football-data).",
-  "snapshotFingerprint": "bf9ae2a27c7102503a069c6900ef64b7928cd922169ef41354657aa80f72cd98",
-  "snapshotChanged": false,
-  "syncWindowId": "2026 fifa world cup group a:mexico-south korea:2026-06-19T01:00:00.000Z-check-1",
+  "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
+  "snapshotFingerprint": "62801b978b06fce191354a2c10813727f4ae487fb10914b8b9ff705a9cf69ac1",
+  "snapshotChanged": true,
+  "syncWindowId": "2026 fifa world cup group a:mexico-south korea:2026-06-19T01:00:00.000Z-check-2:api-football-enrich:football-data:537330",
   "windowSyncAttempts": 1,
-  "liveMatchCount": 1,
+  "liveMatchCount": 0,
   "sourceRequestCount": 3,
   "sourceRequestLimit": 6
 }
