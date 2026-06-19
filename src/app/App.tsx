@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { AppShell } from "./components/AppShell";
 import { loadStaticData, type StaticData } from "./data";
+import { participantTeams } from "../config/teams";
+import type { LeaderboardEntry } from "../domain/participantTypes";
 import { GoalsPage } from "./pages/GoalsPage";
 import { HomePage } from "./pages/HomePage";
 import { LeaderboardPage } from "./pages/LeaderboardPage";
@@ -41,10 +43,31 @@ function parseRoute(pathname: string): Route {
   return { name: "leaderboard" };
 }
 
+const ownerColors = new Map(participantTeams.map((team) => [team.owner.toLowerCase(), team.color]));
+
+function getOwnerColor(owner: string): string | undefined {
+  return ownerColors.get(owner.toLowerCase());
+}
+
+function getLeaderboardPartyColors(leaderboard: LeaderboardEntry[] | undefined): string[] {
+  if (!leaderboard || leaderboard.length === 0) {
+    return [];
+  }
+
+  return leaderboard
+    .filter((entry) => entry.rank <= 3)
+    .map((entry) => getOwnerColor(entry.owner))
+    .filter((color): color is string => Boolean(color));
+}
+
 export function App() {
   const [data, setData] = useState<StaticData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const route = useMemo(() => parseRoute(window.location.pathname), []);
+  const partyColors =
+    route.name === "team"
+      ? [getOwnerColor(route.owner)].filter((color): color is string => Boolean(color))
+      : getLeaderboardPartyColors(data?.leaderboard);
 
   useEffect(() => {
     loadStaticData().then(setData).catch((loadError) => {
@@ -53,7 +76,7 @@ export function App() {
   }, []);
 
   return (
-    <AppShell meta={data?.meta}>
+    <AppShell meta={data?.meta} partyColors={partyColors}>
       {!data && !error ? <p className="loading">Daten werden geladen...</p> : null}
       {error ? <p className="error">Daten konnten nicht geladen werden: {error}</p> : null}
       {data && route.name === "home" ? (

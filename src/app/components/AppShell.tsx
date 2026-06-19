@@ -5,6 +5,7 @@ import { StatusPill } from "./StatusPill";
 type AppShellProps = {
   children: ReactNode;
   meta?: StaticMeta;
+  partyColors?: string[];
 };
 
 const navItems = [
@@ -14,8 +15,8 @@ const navItems = [
   { href: "matches", label: "Spiele", match: (path: string) => path === "/matches" }
 ];
 
-const partyColors = ["#d72638", "#ffcf33", "#1f7a4d", "#1d4ed8", "#f97316", "#ffffff"] as const;
-const confettiCount = 132;
+const basePartyColors = ["#d72638", "#ffcf33", "#1f7a4d", "#1d4ed8", "#f97316", "#ffffff"] as const;
+const confettiCount = 164;
 
 type PartyLight = {
   color: string;
@@ -43,25 +44,35 @@ type PartyBurst = {
   pieces: PartyPiece[];
 };
 
-function pickPartyColor(index: number): string {
-  return partyColors[index % partyColors.length];
+function buildPartyPalette(accentColors: string[] = []): string[] {
+  const uniqueAccentColors = [...new Set(accentColors)];
+  const accentWeight = uniqueAccentColors.length === 1 ? 8 : 5;
+  return [
+    ...uniqueAccentColors.flatMap((color) => Array.from({ length: accentWeight }, () => color)),
+    ...basePartyColors
+  ];
+}
+
+function pickPartyColor(index: number, palette: string[]): string {
+  return palette[index % palette.length];
 }
 
 function randomBetween(min: number, max: number): number {
   return min + Math.random() * (max - min);
 }
 
-function createPartyBurst(): PartyBurst {
+function createPartyBurst(accentColors: string[] = []): PartyBurst {
   const id = Date.now();
-  const lights = Array.from({ length: 8 }, (_, index) => ({
-    color: pickPartyColor(index + Math.floor(Math.random() * partyColors.length)),
+  const palette = buildPartyPalette(accentColors);
+  const lights = Array.from({ length: 11 }, (_, index) => ({
+    color: pickPartyColor(index + Math.floor(Math.random() * palette.length), palette),
     delay: index * 0.08 + randomBetween(0, 0.08),
     left: randomBetween(5, 95),
-    size: randomBetween(82, 130),
+    size: randomBetween(88, 146),
     top: randomBetween(10, 88)
   }));
   const pieces = Array.from({ length: confettiCount }, (_, index) => ({
-    color: pickPartyColor(index + Math.floor(Math.random() * partyColors.length)),
+    color: pickPartyColor(index + Math.floor(Math.random() * palette.length), palette),
     delay: randomBetween(0, 0.82),
     drift: randomBetween(-36, 36),
     duration: randomBetween(1.45, 2.75),
@@ -75,7 +86,7 @@ function createPartyBurst(): PartyBurst {
   return { id, lights, pieces };
 }
 
-export function AppShell({ children, meta }: AppShellProps) {
+export function AppShell({ children, meta, partyColors }: AppShellProps) {
   const [confettiBursts, setConfettiBursts] = useState<PartyBurst[]>([]);
   const baseUrl = import.meta.env.BASE_URL;
   const basePath = baseUrl.replace(/\/$/, "");
@@ -85,7 +96,7 @@ export function AppShell({ children, meta }: AppShellProps) {
       : window.location.pathname;
 
   function launchConfetti(): void {
-    const burst = createPartyBurst();
+    const burst = createPartyBurst(partyColors);
     setConfettiBursts((current) => [...current.slice(-1), burst]);
     window.setTimeout(() => {
       setConfettiBursts((current) => current.filter((currentBurst) => currentBurst.id !== burst.id));

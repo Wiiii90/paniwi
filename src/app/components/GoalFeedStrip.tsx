@@ -135,7 +135,7 @@ export function GoalFeedStrip({ goals, matches, title }: GoalFeedStripProps) {
   }
 
   return (
-    <section className="summary-card">
+    <section className="summary-card goal-feed-card">
       <div className="section-heading">
         <h2>{title}</h2>
       </div>

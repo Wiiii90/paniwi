@@ -1,3 +1,4 @@
+import { type CSSProperties } from "react";
 import { participantTeams } from "../../config/teams";
 import { buildPlayerScores } from "../../domain/buildLeaderboard";
 import { isCompetitionScorerAggregateGoal } from "../../domain/effectiveGoals";
@@ -84,7 +85,7 @@ export function TeamPage({ owner, goals, matches, pickStatuses, rosters }: TeamP
       <div className="page-title team-title">
         <div className="team-title-copy">
           <span>Panini-Team</span>
-          <h1>{team.owner}</h1>
+          <h1 style={{ "--participant-color": team.color ?? "var(--color-text)" } as CSSProperties}>{team.owner}</h1>
         </div>
         <strong className="team-points-chip">
           <span>{playerScores.reduce((sum, player) => sum + player.points, 0)}</span>

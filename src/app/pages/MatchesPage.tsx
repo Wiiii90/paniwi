@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useMemo, useState, type CSSProperties } from "react";
+import { participantTeams } from "../../config/teams";
 import {
   groupGoalsBySide,
   groupMatchesBySection,
@@ -87,23 +88,57 @@ function countParticipantGoals(participant: MatchParticipantRecord, pointGoals: 
     .reduce((total, goal) => total + goal.goals, 0);
 }
 
+function getOwnerColors(owners: string[], ownerColors: Map<string, string | undefined>): string[] {
+  return owners.flatMap((owner) => ownerColors.get(owner) ?? []);
+}
+
+function getOwnerColorStyle(colors: string[]): CSSProperties {
+  if (colors.length <= 1) {
+    return { "--participant-color": colors[0] ?? "var(--color-text)" } as CSSProperties;
+  }
+
+  return {
+    "--participant-color": colors[0],
+    "--participant-border": `linear-gradient(90deg, ${colors.join(", ")})`
+  } as CSSProperties;
+}
+
 function PlayerChip({
+  baseUrl,
   goalCount,
   matchStatus,
+  ownerColors,
   participant
 }: {
+  baseUrl: string;
   goalCount: number;
   matchStatus: MatchRecord["status"];
+  ownerColors: Map<string, string | undefined>;
   participant: MatchParticipantRecord;
 }) {
-  const ownerLabel = participant.owners.length > 0 ? participant.owners.join(", ") : null;
+  const colors = getOwnerColors(participant.owners, ownerColors);
   const ballIconUrl = `${import.meta.env.BASE_URL}assets/ball.svg`;
 
   return (
-    <span className={`lineup-chip lineup-chip-${participant.status} ${participant.selected ? "lineup-chip-selected" : ""}`}>
+    <span
+      className={`lineup-chip lineup-chip-${participant.status} ${participant.selected ? "lineup-chip-selected" : ""} ${colors.length > 1 ? "lineup-chip-multi-owner" : ""}`}
+      style={getOwnerColorStyle(colors)}
+    >
       <span className="lineup-chip-main">
         <strong>{participant.displayPlayerName}</strong>
-        {ownerLabel ? <em>{ownerLabel}</em> : null}
+        {participant.owners.length > 0 ? (
+          <span className="lineup-chip-owners">
+            {participant.owners.map((owner) => (
+              <a
+                href={`${baseUrl}team/${encodeURIComponent(owner)}`}
+                key={`${participant.playerName}-${owner}`}
+                style={{ "--participant-color": ownerColors.get(owner) ?? "var(--color-text)" } as CSSProperties}
+              >
+                {owner}
+              </a>
+            ))}
+          </span>
+        ) : null}
       </span>
       <span className="lineup-chip-meta">
         <span>{formatParticipationStatus(participant.status, matchStatus)}</span>
@@ -164,14 +199,29 @@ function formatGoalChipMinute(goal: GoalRecord): string {
   return detail ? `${formatCompactGoalMinute(goal)} (${detail})` : formatCompactGoalMinute(goal);
 }
 
-function GoalChip({ goals, scoredGoalIds }: { goals: GoalRecord[]; scoredGoalIds: Set<string> }) {
+function getGoalOwnerColors(goals: GoalRecord[], pointGoals: ScoredGoal[], ownerColors: Map<string, string | undefined>): string[] {
+  const goalIds = new Set(goals.map((goal) => goal.externalGoalId));
+  const owners = new Set(pointGoals.filter((goal) => goalIds.has(goal.externalGoalId)).map((goal) => goal.owner));
+  return getOwnerColors([...owners], ownerColors);
+}
+
+function GoalChip({
+  goals,
+  ownerColors,
+  pointGoals
+}: {
+  goals: GoalRecord[];
+  ownerColors: Map<string, string | undefined>;
+  pointGoals: ScoredGoal[];
+}) {
   const firstGoal = goals[0];
-  const scoredClass = goals.some((goal) => scoredGoalIds.has(goal.externalGoalId)) ? "match-goal-chip-scored" : "";
+  const colors = getGoalOwnerColors(goals, pointGoals, ownerColors);
+  const scoredClass = colors.length > 0 ? "match-goal-chip-scored" : "";
   const minutes = goals.map(formatGoalChipMinute).join(", ");
   const title = goals.map((goal) => `${formatGoalChipMinute(goal)} ${goal.playerName}`).join(", ");
 
   return (
-    <span className={scoredClass} title={title}>
+    <span className={`${scoredClass} ${colors.length > 1 ? "match-goal-chip-multi-owner" : ""}`} style={getOwnerColorStyle(colors)} title={title}>
       {minutes} {firstGoal.playerName}
     </span>
   );
@@ -213,6 +263,8 @@ function MatchSection({
   onCollapse
 }: MatchSectionProps) {
   const [expandedLineupIds, setExpandedLineupIds] = useState<Set<string>>(() => new Set());
+  const baseUrl = import.meta.env.BASE_URL;
+  const ownerColors = useMemo(() => new Map(participantTeams.map((team) => [team.owner, team.color])), []);
   const visibleMatches = matches.slice(0, visibleCount);
   const hiddenCount = matches.length - visibleMatches.length;
 
@@ -260,7 +312,6 @@ function MatchSection({
             const relevantParticipants = match.participants.filter((participant) => participant.selected);
             const goalsBySide = groupGoalsBySide(match);
             const participantsBySide = groupSelectedParticipantsBySide(match);
-            const pointGoalIds = new Set(match.pointGoals.map((goal) => goal.externalGoalId));
             const lineupExpanded = expandedLineupIds.has(match.matchId);
             const pointImpact = formatPointImpact(match);
             return (
@@ -297,18 +348,18 @@ function MatchSection({
                   <div className="match-goals">
                     <div className="match-goal-side match-goal-side-home">
                       {groupGoalChips(goalsBySide.home).map((goals) => (
-                        <GoalChip goals={goals} key={goals.map((goal) => goal.externalGoalId).join("|")} scoredGoalIds={pointGoalIds} />
+                        <GoalChip goals={goals} key={goals.map((goal) => goal.externalGoalId).join("|")} ownerColors={ownerColors} pointGoals={match.pointGoals} />
                       ))}
                     </div>
                     <div className="match-goal-side match-goal-side-away">
                       {groupGoalChips(goalsBySide.away).map((goals) => (
-                        <GoalChip goals={goals} key={goals.map((goal) => goal.externalGoalId).join("|")} scoredGoalIds={pointGoalIds} />
+                        <GoalChip goals={goals} key={goals.map((goal) => goal.externalGoalId).join("|")} ownerColors={ownerColors} pointGoals={match.pointGoals} />
                       ))}
                     </div>
                     {goalsBySide.unknown.length > 0 ? (
                       <div className="match-goal-side match-goal-side-unknown">
                         {groupGoalChips(goalsBySide.unknown).map((goals) => (
-                          <GoalChip goals={goals} key={goals.map((goal) => goal.externalGoalId).join("|")} scoredGoalIds={pointGoalIds} />
+                          <GoalChip goals={goals} key={goals.map((goal) => goal.externalGoalId).join("|")} ownerColors={ownerColors} pointGoals={match.pointGoals} />
                         ))}
                       </div>
                     ) : null}
@@ -338,9 +389,11 @@ function MatchSection({
                         <div className="lineup-chip-list relevant-lineup-list relevant-lineup-list-home">
                           {participantsBySide.home.map((participant) => (
                             <PlayerChip
+                              baseUrl={baseUrl}
                               key={`${participant.fixtureId ?? participant.matchId}-${participant.apiPlayerId ?? participant.playerName}-${participant.status}`}
                               goalCount={countParticipantGoals(participant, match.pointGoals)}
                               matchStatus={match.status}
+                              ownerColors={ownerColors}
                               participant={participant}
                             />
                           ))}
@@ -348,9 +401,11 @@ function MatchSection({
                         <div className="lineup-chip-list relevant-lineup-list relevant-lineup-list-away">
                           {participantsBySide.away.map((participant) => (
                             <PlayerChip
+                              baseUrl={baseUrl}
                               key={`${participant.fixtureId ?? participant.matchId}-${participant.apiPlayerId ?? participant.playerName}-${participant.status}`}
                               goalCount={countParticipantGoals(participant, match.pointGoals)}
                               matchStatus={match.status}
+                              ownerColors={ownerColors}
                               participant={participant}
                             />
                           ))}
@@ -359,9 +414,11 @@ function MatchSection({
                           <div className="lineup-chip-list relevant-lineup-list relevant-lineup-list-unknown">
                             {participantsBySide.unknown.map((participant) => (
                               <PlayerChip
+                                baseUrl={baseUrl}
                                 key={`${participant.fixtureId ?? participant.matchId}-${participant.apiPlayerId ?? participant.playerName}-${participant.status}`}
                                 goalCount={countParticipantGoals(participant, match.pointGoals)}
                                 matchStatus={match.status}
+                                ownerColors={ownerColors}
                                 participant={participant}
                               />
                             ))}

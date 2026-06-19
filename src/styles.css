@@ -1,9 +1,9 @@
 :root {
-  --color-bg: #f7f5ef;
-  --color-bg-soft: #eeece5;
+  --color-bg: #edf4ef;
+  --color-bg-soft: #dfeee7;
   --color-surface: #ffffff;
-  --color-surface-muted: #f7f5ef;
-  --color-text: #172033;
+  --color-surface-muted: #f1f7f3;
+  --color-text: #123b2e;
   --color-muted: #657287;
   --color-border: rgba(23, 32, 51, 0.12);
   --color-border-strong: rgba(23, 32, 51, 0.2);
@@ -311,6 +311,7 @@ textarea {
 }
 
 .team-title h1 {
+  color: var(--participant-color);
   font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
   font-size: clamp(2.1rem, 8vw, 3.1rem);
   font-weight: 900;
@@ -382,7 +383,8 @@ h2 {
 
 .status-pill {
   align-items: center;
-  background: rgba(255, 255, 255, 0.76);
+  background: rgba(226, 236, 251, 0.72);
+  border-color: rgba(93, 126, 173, 0.18);
   color: var(--color-muted);
   display: inline-flex;
   flex-wrap: wrap;
@@ -734,6 +736,11 @@ h2 {
   cursor: grabbing;
 }
 
+.goal-feed-card {
+  border-color: color-mix(in srgb, var(--color-text), transparent 82%);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-text), transparent 92%), var(--shadow-soft);
+}
+
 .feed-chip {
   background: linear-gradient(180deg, #ffffff, var(--color-surface-muted));
   border: 1px solid var(--color-border);
@@ -845,7 +852,7 @@ h2 {
   align-items: center;
   display: grid;
   gap: var(--space-2);
-  grid-template-columns: 48px repeat(3, 88px) minmax(128px, 0.8fr) minmax(340px, 1.8fr);
+  grid-template-columns: 44px repeat(3, 64px) minmax(178px, 0.72fr) minmax(392px, 1.28fr);
   min-height: 50px;
   padding: 12px 16px;
 }
@@ -864,10 +871,28 @@ h2 {
 
 .owner {
   align-items: center;
+  color: var(--participant-color);
   display: inline-flex;
   gap: var(--space-2);
   font-weight: 900;
   min-width: 0;
+}
+
+.owner-color-blob {
+  background: var(--participant-color);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 58% 42% 52% 48% / 44% 54% 46% 56%;
+  box-shadow: inset 0 0 0 1px rgba(23, 32, 51, 0.08), 0 1px 4px rgba(23, 32, 51, 0.16);
+  display: inline-block;
+  height: 18px;
+  transform: rotate(-8deg);
+  width: 22px;
+}
+
+.owner-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .award-icon {
@@ -941,7 +966,7 @@ h2 {
 }
 
 .scorer-grid {
-  grid-template-columns: 48px 96px minmax(250px, 2fr) minmax(180px, 1fr) minmax(180px, 1fr);
+  grid-template-columns: 48px 96px minmax(176px, calc(50% - 160px)) minmax(180px, 1fr) minmax(180px, 1fr);
   min-height: 50px;
   padding: 12px 16px;
 }
@@ -990,6 +1015,30 @@ h2 {
   font-size: 0.75rem;
   font-weight: 700;
   margin-top: 2px;
+}
+
+.scorer-owner-links {
+  align-items: center;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px 9px;
+  min-width: 0;
+}
+
+.scorer-owner-links a {
+  background: #ffffff;
+  border: 1px solid color-mix(in srgb, var(--participant-color), transparent 68%);
+  border-radius: 999px;
+  color: var(--participant-color);
+  font-weight: 900;
+  padding: 2px 7px;
+  text-decoration: none;
+}
+
+.scorer-owner-links a:hover,
+.scorer-owner-links a:focus-visible {
+  border-color: var(--participant-color);
+  text-decoration: none;
 }
 
 .scorer-filter-row {
@@ -1658,9 +1707,17 @@ h2 {
 }
 
 .match-goal-side .match-goal-chip-scored {
-  background: rgba(15, 118, 110, 0.08);
-  border-color: rgba(15, 118, 110, 0.55);
-  color: var(--color-primary);
+  background: var(--color-surface-muted);
+  border-color: var(--participant-color);
+  color: var(--participant-color);
+}
+
+.match-goal-side .match-goal-chip-multi-owner {
+  background:
+    linear-gradient(var(--color-surface-muted), var(--color-surface-muted)) padding-box,
+    var(--participant-border) border-box;
+  border-color: transparent;
+  border-radius: 999px;
 }
 
 .match-lineup {
@@ -1807,19 +1864,36 @@ h2 {
   white-space: nowrap;
 }
 
-.lineup-chip em {
-  background: rgba(15, 118, 110, 0.1);
+.lineup-chip-owners {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 4px;
+  max-width: 112px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.lineup-chip-owners a {
+  background: #ffffff;
+  border: 1px solid color-mix(in srgb, var(--participant-color), transparent 68%);
   border-radius: 999px;
-  color: var(--color-primary);
+  color: var(--participant-color);
   flex: 0 0 auto;
   font-size: 0.68rem;
-  font-style: normal;
   font-weight: 900;
   max-width: 96px;
   overflow: hidden;
   padding: 2px 6px;
   text-overflow: ellipsis;
+  text-decoration: none;
   white-space: nowrap;
+}
+
+.lineup-chip-owners a:hover,
+.lineup-chip-owners a:focus-visible {
+  border-color: var(--participant-color);
+  text-decoration: none;
 }
 
 .lineup-chip-meta {
@@ -1861,6 +1935,20 @@ h2 {
   border-color: rgba(22, 101, 52, 0.42);
 }
 
+.lineup-chip-selected.lineup-chip-starter,
+.lineup-chip-selected.lineup-chip-subbed-in {
+  background: #ffffff;
+  border-color: var(--participant-color);
+}
+
+.lineup-chip-selected.lineup-chip-starter.lineup-chip-multi-owner,
+.lineup-chip-selected.lineup-chip-subbed-in.lineup-chip-multi-owner {
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    var(--participant-border) border-box;
+  border-color: transparent;
+}
+
 .lineup-chip-bench {
   border-color: rgba(180, 83, 9, 0.45);
 }
@@ -1875,8 +1963,15 @@ h2 {
 }
 
 .lineup-chip-selected {
-  background: rgba(15, 118, 110, 0.06);
-  border-color: rgba(15, 118, 110, 0.5);
+  background: #ffffff;
+  border-color: var(--participant-color);
+}
+
+.lineup-chip-selected.lineup-chip-multi-owner {
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    var(--participant-border) border-box;
+  border-color: transparent;
 }
 
 .match-lineup-empty {

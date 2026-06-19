@@ -1,7 +1,8 @@
-import { useMemo } from "react";
+import { useMemo, type CSSProperties } from "react";
 import type { PickStatusSnapshot } from "../../domain/pickStatusTypes";
 import type { ScoredGoal } from "../../domain/goalTypes";
 import type { LeaderboardEntry } from "../../domain/participantTypes";
+import { participantTeams } from "../../config/teams";
 import { TeamFlag } from "../components/TeamFlag";
 import { useTableSort } from "../useTableSort";
 
@@ -14,6 +15,7 @@ type LeaderboardPageProps = {
 type SortKey = "rank" | "owner" | "misses" | "topScorer" | "playersWithGoals" | "points";
 
 type LeaderboardRow = LeaderboardEntry & {
+  color?: string;
   misses: number;
   topScorerLabel: string;
   topScorerGoals: number;
@@ -22,7 +24,7 @@ type LeaderboardRow = LeaderboardEntry & {
 
 const sortLabels: Record<SortKey, string> = {
   rank: "Pl.",
-  owner: "Spieler",
+  owner: "Liga-Teilnehmer",
   misses: "Nieten",
   topScorer: "Topspieler",
   playersWithGoals: "Torschützen",
@@ -115,6 +117,7 @@ export function LeaderboardPage({ goals, leaderboard, pickStatuses }: Leaderboar
   const lastPlaceOwners = getLastPlaceOwners(leaderboard);
   const maxPoints = leaderboard.length > 0 ? Math.max(...leaderboard.map((entry) => entry.points)) : 0;
   const jackpotOwners = new Set(leaderboard.filter((entry) => entry.points === maxPoints).map((entry) => entry.owner));
+  const ownerColors = useMemo(() => new Map(participantTeams.map((team) => [team.owner, team.color])), []);
   const rows = useMemo(() => {
     const missCounts = getMissCounts(pickStatuses);
     const topScorers = getTopScorers(goals);
@@ -124,13 +127,14 @@ export function LeaderboardPage({ goals, leaderboard, pickStatuses }: Leaderboar
 
       return {
         ...entry,
+        color: ownerColors.get(entry.owner),
         misses: missCounts.get(entry.owner) ?? 0,
         topScorerLabel: topScorer && topScorer.goals > 0 ? topScorer.players.map((player) => player.name).join(", ") : "",
         topScorers: topScorer?.players ?? [],
         topScorerGoals: topScorer?.goals ?? 0
       };
     });
-  }, [goals, leaderboard, pickStatuses]);
+  }, [goals, leaderboard, ownerColors, pickStatuses]);
   const sortedRows = rows.slice().sort((left, right) => {
     const result = compareRows(left, right, sortKey);
     return sortDirection === "asc" ? result : -result;
@@ -161,8 +165,9 @@ export function LeaderboardPage({ goals, leaderboard, pickStatuses }: Leaderboar
                 <strong data-label="Punkte">{entry.points}</strong>
                 <span data-label="Torschützen">{entry.playersWithGoals}</span>
                 <span data-label="Nieten">{entry.misses}</span>
-                <span className="owner">
-                  {entry.owner}
+                <span className="owner" style={{ "--participant-color": entry.color ?? "var(--color-text)" } as CSSProperties}>
+                  <span className="owner-color-blob" />
+                  <span className="owner-name">{entry.owner}</span>
                   {hasJackpot ? <img className="award-icon" src={`${baseUrl}assets/money-pot.png`} alt="Geldtopf" /> : null}
                   {hasRedLantern ? <img className="award-icon" src={`${baseUrl}assets/red-lantern.png`} alt="Rote Laterne" /> : null}
                 </span>

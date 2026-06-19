@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, type CSSProperties } from "react";
 import type { ScorerEntry } from "../../domain/goalTypes";
 import { participantTeams } from "../../config/teams";
 import { teamCatalog } from "../../config/teamCatalog";
@@ -79,6 +79,7 @@ function rankRowsByGoals(rows: ScorerRow[]): ScorerRow[] {
 }
 
 export function GoalsPage({ scorers }: GoalsPageProps) {
+  const baseUrl = import.meta.env.BASE_URL;
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [ownershipFilter, setOwnershipFilter] = useState<OwnershipFilter>(() => {
     const params = new URLSearchParams(window.location.search);
@@ -108,6 +109,7 @@ export function GoalsPage({ scorers }: GoalsPageProps) {
     () => [...new Set(participantTeams.map((team) => team.owner))].sort((a, b) => a.localeCompare(b, "de")),
     []
   );
+  const ownerColors = useMemo(() => new Map(participantTeams.map((team) => [team.owner, team.color])), []);
   const countries = useMemo(() => teamCatalog.map((team) => team.displayName).sort((a, b) => a.localeCompare(b, "de")), []);
   const filteredRows = rankRowsByGoals(rows.filter((row) => {
     const parsedMinGoals = minGoals === "" ? 1 : Number(minGoals);
@@ -209,7 +211,17 @@ export function GoalsPage({ scorers }: GoalsPageProps) {
               <span>
                 <strong>{scorer.playerName}</strong>
               </span>
-              <span data-label="Besitzer" title={scorer.ownerLabel}>{scorer.ownerLabel}</span>
+              <span className="scorer-owner-links" data-label="Besitzer" title={scorer.ownerLabel}>
+                {scorer.scoringOwners.map((owner) => (
+                  <a
+                    href={`${baseUrl}team/${encodeURIComponent(owner)}`}
+                    key={`${scorer.normalizedPlayerName}-${owner}`}
+                    style={{ "--participant-color": ownerColors.get(owner) ?? "var(--color-text)" } as CSSProperties}
+                  >
+                    {owner}
+                  </a>
+                ))}
+              </span>
               <span className="team-roster-country" data-label="Land">
                 <TeamFlag className="team-roster-flag" teamName={scorer.nationalTeam} />
                 <span>{scorer.nationalTeam}</span>

@@ -3,7 +3,7 @@ import type { ParticipantTeam } from "../domain/participantTypes";
 export const participantTeams = [
   {
     "owner": "Nina",
-    "color": "#0f766e",
+    "color": "#e11d48",
     "players": [
       {
         "playerName": "Morgan Rogers",
@@ -60,7 +60,7 @@ export const participantTeams = [
   },
   {
     "owner": "Willi",
-    "color": "#b45309",
+    "color": "#2563eb",
     "players": [
       {
         "playerName": "Alisson",
@@ -130,7 +130,7 @@ export const participantTeams = [
   },
   {
     "owner": "Rafael",
-    "color": "#7c3aed",
+    "color": "#f59e0b",
     "players": [
       {
         "playerName": "Alexis Guendouz",
@@ -193,7 +193,7 @@ export const participantTeams = [
   },
   {
     "owner": "Anne",
-    "color": "#d72638",
+    "color": "#0ea5e9",
     "players": [
       {
         "playerName": "Johny Placide",
@@ -250,7 +250,7 @@ export const participantTeams = [
   },
   {
     "owner": "Caro",
-    "color": "#2563eb",
+    "color": "#7e22ce",
     "players": [
       {
         "playerName": "Nicolas Jackson",
@@ -313,7 +313,7 @@ export const participantTeams = [
   },
   {
     "owner": "Felix",
-    "color": "#059669",
+    "color": "#2f8f3a",
     "players": [
       {
         "playerName": "Vinicius Junior",
@@ -374,7 +374,7 @@ export const participantTeams = [
   },
   {
     "owner": "Jonas",
-    "color": "#9333ea",
+    "color": "#c1121f",
     "players": [
       {
         "playerName": "Luis Mejia",
@@ -443,7 +443,7 @@ export const participantTeams = [
   },
   {
     "owner": "Kim",
-    "color": "#0891b2",
+    "color": "#a16207",
     "players": [
       {
         "playerName": "Edmilson Junior",
@@ -564,7 +564,7 @@ export const participantTeams = [
   },
   {
     "owner": "Peer",
-    "color": "#ea580c",
+    "color": "#14b8a6",
     "players": [
       {
         "playerName": "Goncalo Ramos",
@@ -623,7 +623,7 @@ export const participantTeams = [
   },
   {
     "owner": "Marco",
-    "color": "#64748b",
+    "color": "#0f6f8f",
     "players": [
       {
         "playerName": "Luis Malagon",
@@ -696,7 +696,7 @@ export const participantTeams = [
   },
   {
     "owner": "Tjark",
-    "color": "#4f46e5",
+    "color": "#84cc16",
     "players": [
       {
         "playerName": "Nicolas Raskin",
