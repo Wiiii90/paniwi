@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-19T20:30:48.739Z",
+  "lastUpdated": "2026-06-19T21:00:59.272Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -14,8 +14,8 @@
   "message": "Daten-Snapshot unveraendert (football-data).",
   "snapshotFingerprint": "a50f1269977563ffda497d40e9a1b18a955ba973effdae9331ed0705404f9462",
   "snapshotChanged": false,
-  "syncWindowId": "2026 fifa world cup group d:united states-australia:2026-06-19T19:00:00.000Z-live",
-  "windowSyncAttempts": 2,
+  "syncWindowId": "2026 fifa world cup group c:scotland-morocco:2026-06-19T22:00:00.000Z-pre-match",
+  "windowSyncAttempts": 1,
   "liveMatchCount": 1,
   "sourceRequestCount": 3,
   "sourceRequestLimit": 6
