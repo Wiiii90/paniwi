@@ -69,8 +69,8 @@ export const apiResolverRosterSnapshot: RosterSnapshot = {
   lastUpdated: "2026-06-16T00:00:00.000Z",
   source: "wikipedia",
   pageTitle: "2026 FIFA World Cup squads",
-  teamCount: 2,
-  playerCount: 2,
+  teamCount: 3,
+  playerCount: 3,
   teams: [
     {
       teamName: "Egypt",
@@ -95,6 +95,19 @@ export const apiResolverRosterSnapshot: RosterSnapshot = {
           position: "defender",
           shirtNumber: 4,
           sourceName: "Abdulelah Al-Amri"
+        }
+      ]
+    },
+    {
+      teamName: "Qatar",
+      teamId: "qatar",
+      players: [
+        {
+          playerName: "Mohamed Manai",
+          normalizedPlayerName: "mohamed manai",
+          position: "defender",
+          shirtNumber: 3,
+          sourceName: "Mohamed Manai"
         }
       ]
     }

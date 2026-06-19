@@ -156,6 +156,28 @@ function matchesSingleInitialAndFullTokens(searchName: string, candidateName: st
   return candidateTokens.slice(0, firstFullTokenIndex).some((token) => token.startsWith(initials[0]));
 }
 
+function removeNameParticles(tokens: string[]): string[] {
+  const particles = new Set(["al", "el", "bin", "ben", "ibn"]);
+  return tokens.filter((token) => !particles.has(token));
+}
+
+function matchesInitialAndFuzzyLastName(searchName: string, candidateName: string): boolean {
+  const searchTokens = removeNameParticles(getNameTokens(searchName));
+  const candidateTokens = removeNameParticles(getNameTokens(candidateName));
+  if (searchTokens.length < 2 || candidateTokens.length < 2 || searchTokens[0].length !== 1) {
+    return false;
+  }
+
+  const [initial] = searchTokens;
+  const searchLastName = searchTokens[searchTokens.length - 1];
+  const candidateFirstName = candidateTokens[0];
+  const candidateLastName = candidateTokens[candidateTokens.length - 1];
+  return (
+    Boolean(searchLastName && candidateFirstName?.startsWith(initial)) &&
+    levenshteinDistance(searchLastName, candidateLastName ?? "") <= getMaxAcceptedDistance(searchLastName)
+  );
+}
+
 function getGoalRosterMatchScore(searchName: string, player: RosterPlayer): number {
   const normalizedSearchName = normalizeTransliteratedPlayerName(searchName);
   const searchSignature = getTokenSignature(searchName);
@@ -169,7 +191,14 @@ function getGoalRosterMatchScore(searchName: string, player: RosterPlayer): numb
     return 0;
   }
 
-  if (candidateNames.some((name) => matchesInitialAndLastName(searchName, name) || matchesSingleInitialAndFullTokens(searchName, name))) {
+  if (
+    candidateNames.some(
+      (name) =>
+        matchesInitialAndLastName(searchName, name) ||
+        matchesSingleInitialAndFullTokens(searchName, name) ||
+        matchesInitialAndFuzzyLastName(searchName, name)
+    )
+  ) {
     return 1;
   }
 

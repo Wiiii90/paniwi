@@ -148,6 +148,17 @@ assert.deepEqual(
         sourceTeamName: "Saudi Arabia",
         source: "api-football",
         matchLabel: "Saudi Arabia 1-0 Uruguay"
+      },
+      {
+        ...baseGoal,
+        externalGoalId: "qatar-own-goal",
+        playerName: "M. Al Mannai",
+        nationalTeam: "Canada",
+        sourcePlayerName: "M. Al Mannai",
+        sourceTeamName: "Canada",
+        source: "api-football",
+        detail: "own-goal",
+        matchLabel: "Canada 6-0 Qatar"
       }
     ],
     apiResolverRosterSnapshot,
@@ -155,7 +166,8 @@ assert.deepEqual(
   ).map((goal) => [goal.playerName, goal.nationalTeam, goal.teamId, goal.detail]),
   [
     ["Mohamed Hany", "Egypt", "egypt", "own-goal"],
-    ["Abdulelah Al-Amri", "Saudi Arabia", "saudi-arabia", "normal"]
+    ["Abdulelah Al-Amri", "Saudi Arabia", "saudi-arabia", "normal"],
+    ["Mohamed Manai", "Qatar", "qatar", "own-goal"]
   ]
 );
 assert.deepEqual(
