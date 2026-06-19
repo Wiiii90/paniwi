@@ -5,7 +5,7 @@ import {
   groupSelectedParticipantsBySide,
   type MatchSectionKey
 } from "../../domain/matchGrouping";
-import type { GoalRecord } from "../../domain/goalTypes";
+import type { GoalRecord, ScoredGoal } from "../../domain/goalTypes";
 import type { MatchParticipantRecord, MatchParticipationStatus, MatchRecord } from "../../domain/matchTypes";
 import { TeamFlag } from "../components/TeamFlag";
 import { formatCompactGoalMinute } from "../formatters/goalFormat";
@@ -64,8 +64,38 @@ function formatNoRelevantPlayers(match: MatchRecord): string {
   return "Keine Panini-Spieler in der Aufstellung.";
 }
 
-function PlayerChip({ participant, matchStatus }: { participant: MatchParticipantRecord; matchStatus: MatchRecord["status"] }) {
+function participantMatchesGoal(participant: MatchParticipantRecord, goal: ScoredGoal): boolean {
+  if (participant.apiPlayerId && goal.apiPlayerId && participant.apiPlayerId === goal.apiPlayerId) {
+    return true;
+  }
+
+  const sameTeam = participant.teamId && goal.teamId ? participant.teamId === goal.teamId : participant.nationalTeam === goal.nationalTeam;
+  if (!sameTeam) {
+    return false;
+  }
+
+  return [goal.playerName, goal.displayPlayerName, goal.pickedPlayerName, goal.sourcePlayerName].some(
+    (name) => name === participant.playerName || name === participant.displayPlayerName
+  );
+}
+
+function countParticipantGoals(participant: MatchParticipantRecord, pointGoals: ScoredGoal[]): number {
+  return pointGoals
+    .filter((goal) => participantMatchesGoal(participant, goal))
+    .reduce((total, goal) => total + goal.goals, 0);
+}
+
+function PlayerChip({
+  goalCount,
+  matchStatus,
+  participant
+}: {
+  goalCount: number;
+  matchStatus: MatchRecord["status"];
+  participant: MatchParticipantRecord;
+}) {
   const ownerLabel = participant.owners.length > 0 ? participant.owners.join(", ") : null;
+  const ballIconUrl = `${import.meta.env.BASE_URL}assets/ball.svg`;
 
   return (
     <span className={`lineup-chip lineup-chip-${participant.status} ${participant.selected ? "lineup-chip-selected" : ""}`}>
@@ -74,7 +104,12 @@ function PlayerChip({ participant, matchStatus }: { participant: MatchParticipan
         {ownerLabel ? <em>{ownerLabel}</em> : null}
       </span>
       <span className="lineup-chip-meta">
-        {participant.displayNationalTeam} · {formatParticipationStatus(participant.status, matchStatus)}
+        <span>{formatParticipationStatus(participant.status, matchStatus)}</span>
+        {goalCount > 0 ? (
+          <span className="lineup-chip-goals" title={`${goalCount} Tor${goalCount === 1 ? "" : "e"}`}>
+            {goalCount}x <img src={ballIconUrl} alt="" aria-hidden="true" />
+          </span>
+        ) : null}
       </span>
     </span>
   );
@@ -292,6 +327,7 @@ function MatchSection({
                           {participantsBySide.home.map((participant) => (
                             <PlayerChip
                               key={`${participant.fixtureId ?? participant.matchId}-${participant.apiPlayerId ?? participant.playerName}-${participant.status}`}
+                              goalCount={countParticipantGoals(participant, match.pointGoals)}
                               matchStatus={match.status}
                               participant={participant}
                             />
@@ -301,6 +337,7 @@ function MatchSection({
                           {participantsBySide.away.map((participant) => (
                             <PlayerChip
                               key={`${participant.fixtureId ?? participant.matchId}-${participant.apiPlayerId ?? participant.playerName}-${participant.status}`}
+                              goalCount={countParticipantGoals(participant, match.pointGoals)}
                               matchStatus={match.status}
                               participant={participant}
                             />
@@ -311,6 +348,7 @@ function MatchSection({
                             {participantsBySide.unknown.map((participant) => (
                               <PlayerChip
                                 key={`${participant.fixtureId ?? participant.matchId}-${participant.apiPlayerId ?? participant.playerName}-${participant.status}`}
+                                goalCount={countParticipantGoals(participant, match.pointGoals)}
                                 matchStatus={match.status}
                                 participant={participant}
                               />

@@ -1571,13 +1571,37 @@ h2 {
 }
 
 .lineup-chip-meta {
+  align-items: center;
   color: var(--color-muted);
-  display: block;
+  display: flex;
   font-size: 0.72rem;
   font-weight: 800;
+  gap: 7px;
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.lineup-chip-meta > span:first-child {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lineup-chip-goals {
+  align-items: center;
+  color: var(--color-text);
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-weight: 900;
+  gap: 3px;
+}
+
+.lineup-chip-goals img {
+  display: block;
+  height: 13px;
+  width: 13px;
 }
 
 .lineup-chip-starter,
