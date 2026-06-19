@@ -11,6 +11,37 @@ type GoalFeedStripProps = {
   title: string;
 };
 
+type FeedCardTier = "gold" | "silver" | "bronze" | null;
+
+function getGoalScorerKey(goal: ScoredGoal): string {
+  return goal.playerId;
+}
+
+function buildFeedCardTiers(goals: ScoredGoal[]): Map<string, FeedCardTier> {
+  const goalCounts = new Map<string, number>();
+  for (const goal of goals) {
+    const key = getGoalScorerKey(goal);
+    goalCounts.set(key, (goalCounts.get(key) ?? 0) + goal.goals);
+  }
+
+  const uniqueGoalCounts = [...new Set(goalCounts.values())].sort((left, right) => right - left);
+  const tiers = new Map<string, FeedCardTier>();
+  for (const [key, goalsCount] of goalCounts) {
+    const rank = uniqueGoalCounts.findIndex((count) => count === goalsCount) + 1;
+    if (rank === 1 && goalsCount >= 10) {
+      tiers.set(key, "gold");
+    } else if (rank <= 2 && goalsCount >= 5) {
+      tiers.set(key, "silver");
+    } else if (rank <= 3 && goalsCount >= 3) {
+      tiers.set(key, "bronze");
+    } else {
+      tiers.set(key, null);
+    }
+  }
+
+  return tiers;
+}
+
 function formatGoalDate(goal: ScoredGoal): string {
   const value = goal.scoredAt ?? goal.kickedOffAt;
   if (!value) {
@@ -61,6 +92,7 @@ export function GoalFeedStrip({ goals, matches, title }: GoalFeedStripProps) {
     }
     return index;
   }, [matches]);
+  const feedCardTiers = useMemo(() => buildFeedCardTiers(goals), [goals]);
 
   const handleFeedPointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
     if (event.pointerType === "touch" || !feedStripRef.current) {
@@ -119,9 +151,10 @@ export function GoalFeedStrip({ goals, matches, title }: GoalFeedStripProps) {
         {goals.map((goal) => {
           const match = goal.matchId ? matchById.get(goal.matchId) : undefined;
           const runningScore = goal.matchId ? runningScoresByMatch.get(goal.matchId)?.get(goal.externalGoalId) : undefined;
+          const tier = feedCardTiers.get(getGoalScorerKey(goal));
 
           return (
-            <article className="feed-chip" key={`feed-${goal.externalGoalId}-${goal.owner}`}>
+            <article className={["feed-chip", tier ? `feed-chip-${tier}` : ""].filter(Boolean).join(" ")} key={`feed-${goal.externalGoalId}-${goal.owner}`}>
               <div className="feed-chip-topline">
                 <small>{formatGoalDate(goal)}</small>
                 <small className="feed-chip-owner">{goal.owner}</small>
