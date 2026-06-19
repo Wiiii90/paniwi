@@ -13005,14 +13005,16 @@
   },
   {
     "matchId": "football-data:537348",
-    "label": "United States vs Australia",
+    "label": "United States 1-0 Australia",
     "kickedOffAt": "2026-06-19T19:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
-      "name": "USA"
+      "name": "USA",
+      "score": 1
     },
     "awayTeam": {
-      "name": "Australien"
+      "name": "Australien",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -13066,12 +13068,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 1,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsEventBackfill": true,
+      "needsLineupBackfill": true
     }
   },
   {
