@@ -1195,23 +1195,5 @@
       "id": 1935,
       "name": "Ivory Coast"
     }
-  },
-  {
-    "source": "api-football",
-    "matchId": "api-football:1489391",
-    "fixtureId": "1489391",
-    "label": "USA 2-0 Australia",
-    "kickedOffAt": "2026-06-19T19:00:00+00:00",
-    "status": "finished",
-    "homeTeam": {
-      "id": 2384,
-      "name": "USA",
-      "score": 2
-    },
-    "awayTeam": {
-      "id": 20,
-      "name": "Australia",
-      "score": 0
-    }
   }
 ]
