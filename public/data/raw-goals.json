@@ -2751,5 +2751,21 @@
     "detail": "normal",
     "playerId": "mexico-luis-romo",
     "teamId": "mexico"
+  },
+  {
+    "externalGoalId": "football-data:scorer:177823:normal",
+    "playerName": "Alex Freeman",
+    "nationalTeam": "United States",
+    "sourcePlayerName": "Alex Freeman",
+    "sourceTeamName": "United States",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 177823,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "united-states-alex-freeman",
+    "teamId": "united-states"
   }
 ]

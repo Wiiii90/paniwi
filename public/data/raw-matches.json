@@ -1102,13 +1102,13 @@
     "source": "football-data",
     "matchId": "football-data:537348",
     "fixtureId": "537348",
-    "label": "United States 1-0 Australia",
+    "label": "United States 2-0 Australia",
     "kickedOffAt": "2026-06-19T19:00:00Z",
     "status": "live",
     "homeTeam": {
       "id": 771,
       "name": "United States",
-      "score": 1
+      "score": 2
     },
     "awayTeam": {
       "id": 779,

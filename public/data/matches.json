@@ -13005,12 +13005,12 @@
   },
   {
     "matchId": "football-data:537348",
-    "label": "United States 1-0 Australia",
+    "label": "United States 2-0 Australia",
     "kickedOffAt": "2026-06-19T19:00:00Z",
     "status": "live",
     "homeTeam": {
       "name": "USA",
-      "score": 1
+      "score": 2
     },
     "awayTeam": {
       "name": "Australien",
@@ -13068,7 +13068,7 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 1,
+      "scoreTotal": 2,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,

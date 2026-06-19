@@ -134,6 +134,16 @@
     "rank": 12
   },
   {
+    "playerName": "Alex Freeman",
+    "normalizedPlayerName": "alex freeman",
+    "nationalTeam": "USA",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 12
+  },
+  {
     "playerName": "Alexander Isak",
     "normalizedPlayerName": "alexander isak",
     "nationalTeam": "Schweden",

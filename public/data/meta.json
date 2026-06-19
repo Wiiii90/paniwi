@@ -1,18 +1,18 @@
 {
-  "lastUpdated": "2026-06-19T19:30:48.625Z",
+  "lastUpdated": "2026-06-19T20:01:18.578Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 160,
+  "goalCount": 161,
   "scoredGoalCount": 17,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
   "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
-  "snapshotFingerprint": "49e97ed189a9a8451da7782d7f7ece1613d336773d591a8111cd0c5592c82c5e",
+  "snapshotFingerprint": "a50f1269977563ffda497d40e9a1b18a955ba973effdae9331ed0705404f9462",
   "snapshotChanged": true,
   "syncWindowId": "2026 fifa world cup group d:united states-australia:2026-06-19T19:00:00.000Z-live",
   "windowSyncAttempts": 1,
