@@ -84,7 +84,42 @@ function goalBelongsToFixture(goal: GoalRecord | ScoredGoal, fixture: ExternalMa
   return goalBelongsToExternalMatch(goal, fixture);
 }
 
-function buildFallbackMatches(goals: GoalRecord[], scoredGoals: ScoredGoal[]): MatchRecord[] {
+function resolveMatchTeamId(team: MatchTeam, source: GoalRecord["source"]): string | undefined {
+  const resolvedTeam = source === "api-football" ? resolveTeamFromApiFootball(team.name) : resolveTeamFromWikipedia(team.name) ?? resolveTeamFromApiFootball(team.name);
+  return resolvedTeam?.teamId;
+}
+
+function buildPickedFallbackParticipants(
+  matchId: string,
+  source: GoalRecord["source"],
+  homeTeam: MatchTeam,
+  awayTeam: MatchTeam,
+  resolvedPicks: ResolvedParticipantPick[]
+): ExternalMatchParticipantRecord[] {
+  const matchTeamIds = new Set([resolveMatchTeamId(homeTeam, source), resolveMatchTeamId(awayTeam, source)].filter((teamId): teamId is string => Boolean(teamId)));
+
+  return resolvedPicks.flatMap((pick) =>
+    pick.nominated && matchTeamIds.has(pick.teamId)
+      ? [
+          {
+            source,
+            matchId,
+            playerName: pick.playerName,
+            nationalTeam: getTeamDisplayName(pick.teamId),
+            teamId: pick.teamId,
+            status: "unknown"
+          } satisfies ExternalMatchParticipantRecord
+        ]
+      : []
+  );
+}
+
+function buildFallbackMatches(
+  goals: GoalRecord[],
+  scoredGoals: ScoredGoal[],
+  resolvedPicks: ResolvedParticipantPick[] = [],
+  rosterSnapshot?: RosterSnapshot
+): MatchRecord[] {
   const goalsByMatch = new Map<string, GoalRecord[]>();
   for (const goal of goals) {
     if (isCompetitionScorerAggregateGoal(goal)) {
@@ -99,8 +134,9 @@ function buildFallbackMatches(goals: GoalRecord[], scoredGoals: ScoredGoal[]): M
     .map(([matchId, matchGoals]) => {
       const label = inferMatchLabel(matchGoals);
       const pointGoals = scoredGoals.filter((goal) => getGoalMatchId(goal) === matchId);
-      const homeTeam = parseTeamFromLabel(label, matchGoals[0]?.source ?? "wikipedia", "home");
-      const awayTeam = parseTeamFromLabel(label, matchGoals[0]?.source ?? "wikipedia", "away");
+      const source = matchGoals[0]?.source ?? "wikipedia";
+      const homeTeam = parseTeamFromLabel(label, source, "home");
+      const awayTeam = parseTeamFromLabel(label, source, "away");
       return {
         matchId,
         label,
@@ -111,7 +147,7 @@ function buildFallbackMatches(goals: GoalRecord[], scoredGoals: ScoredGoal[]): M
         goals: sortGoalsChronologically(matchGoals),
         pointGoals: sortGoalsChronologically(pointGoals),
         affectedOwners: [...new Set(pointGoals.map((goal) => goal.owner))].sort((a, b) => a.localeCompare(b)),
-        participants: []
+        participants: enrichParticipants(buildPickedFallbackParticipants(matchId, source, homeTeam, awayTeam, resolvedPicks), resolvedPicks, rosterSnapshot)
       };
     });
 }
@@ -313,8 +349,8 @@ export function buildMatches(
   teams: ParticipantTeam[] = [],
   rosterSnapshot?: RosterSnapshot
 ): MatchRecord[] {
-  const fallbackMatches = buildFallbackMatches(goals, scoredGoals);
   const resolvedPicks = resolveParticipantPicks(teams, rosterSnapshot);
+  const fallbackMatches = buildFallbackMatches(goals, scoredGoals, resolvedPicks, rosterSnapshot);
   const pickedTeamIds = new Set(resolvedPicks.map((pick) => pick.teamId));
   const fixtureMatches = dedupeFixtures(fixtures).map((fixture) => {
     const matchGoals = sortGoalsChronologically(goals.filter((goal) => goalBelongsToFixture(goal, fixture)));

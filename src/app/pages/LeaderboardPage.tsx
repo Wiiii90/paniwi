@@ -28,7 +28,7 @@ const sortLabels: Record<SortKey, string> = {
   misses: "Nieten",
   topScorer: "Topspieler",
   playersWithGoals: "Torschützen",
-  points: "Punkte"
+  points: "Pkt."
 };
 
 function getLastPlaceOwners(leaderboard: LeaderboardEntry[]): Set<string> {
