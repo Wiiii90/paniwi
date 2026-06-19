@@ -1120,16 +1120,18 @@
     "source": "football-data",
     "matchId": "football-data:537342",
     "fixtureId": "537342",
-    "label": "Scotland vs Morocco",
+    "label": "Scotland 0-1 Morocco",
     "kickedOffAt": "2026-06-19T22:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 8873,
-      "name": "Scotland"
+      "name": "Scotland",
+      "score": 0
     },
     "awayTeam": {
       "id": 815,
-      "name": "Morocco"
+      "name": "Morocco",
+      "score": 1
     }
   },
   {

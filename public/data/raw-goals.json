@@ -1695,6 +1695,22 @@
     "teamId": "united-states"
   },
   {
+    "externalGoalId": "football-data:scorer:130173:normal",
+    "playerName": "Ismael Saibari",
+    "nationalTeam": "Morocco",
+    "sourcePlayerName": "Ismael Saibari",
+    "sourceTeamName": "Morocco",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 130173,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "morocco-ismael-saibari",
+    "teamId": "morocco"
+  },
+  {
     "externalGoalId": "football-data:scorer:171:normal",
     "playerName": "Kai Havertz",
     "nationalTeam": "Germany",
@@ -1993,22 +2009,6 @@
     "detail": "normal",
     "playerId": "qatar-boualem-khoukhi",
     "teamId": "qatar"
-  },
-  {
-    "externalGoalId": "football-data:scorer:130173:normal",
-    "playerName": "Ismael Saibari",
-    "nationalTeam": "Morocco",
-    "sourcePlayerName": "Ismael Saibari",
-    "sourceTeamName": "Morocco",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 130173,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "morocco-ismael-saibari",
-    "teamId": "morocco"
   },
   {
     "externalGoalId": "football-data:scorer:1556:normal",
