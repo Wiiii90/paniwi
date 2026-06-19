@@ -1,5 +1,17 @@
 [
   {
+    "playerName": "Jonathan David",
+    "normalizedPlayerName": "jonathan david",
+    "nationalTeam": "Kanada",
+    "goals": 3,
+    "penaltyGoals": 0,
+    "scoringOwners": [
+      "Jonas"
+    ],
+    "selected": true,
+    "rank": 1
+  },
+  {
     "playerName": "Lionel Messi",
     "normalizedPlayerName": "lionel messi",
     "nationalTeam": "Argentinien",
@@ -17,7 +29,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 2
+    "rank": 3
   },
   {
     "playerName": "Elijah Just",
@@ -27,7 +39,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 2
+    "rank": 3
   },
   {
     "playerName": "Erling Haaland",
@@ -39,7 +51,7 @@
       "Caro"
     ],
     "selected": true,
-    "rank": 2
+    "rank": 3
   },
   {
     "playerName": "Folarin Balogun",
@@ -49,7 +61,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 2
+    "rank": 3
   },
   {
     "playerName": "Harry Kane",
@@ -59,7 +71,7 @@
     "penaltyGoals": 1,
     "scoringOwners": [],
     "selected": false,
-    "rank": 2
+    "rank": 3
   },
   {
     "playerName": "Johan Manzambi",
@@ -69,19 +81,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 2
-  },
-  {
-    "playerName": "Jonathan David",
-    "normalizedPlayerName": "jonathan david",
-    "nationalTeam": "Kanada",
-    "goals": 2,
-    "penaltyGoals": 0,
-    "scoringOwners": [
-      "Jonas"
-    ],
-    "selected": true,
-    "rank": 2
+    "rank": 3
   },
   {
     "playerName": "Kai Havertz",
@@ -91,7 +91,7 @@
     "penaltyGoals": 1,
     "scoringOwners": [],
     "selected": false,
-    "rank": 2
+    "rank": 3
   },
   {
     "playerName": "Kylian Mbappé",
@@ -101,7 +101,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 2
+    "rank": 3
   },
   {
     "playerName": "Yasin Ayari",
@@ -111,7 +111,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 2
+    "rank": 3
   },
   {
     "playerName": "Abbosbek Fayzullaev",
@@ -584,6 +584,16 @@
       "Felix"
     ],
     "selected": true,
+    "rank": 12
+  },
+  {
+    "playerName": "Nathan-Dylan Saliba",
+    "normalizedPlayerName": "nathan dylan saliba",
+    "nationalTeam": "Kanada",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
     "rank": 12
   },
   {

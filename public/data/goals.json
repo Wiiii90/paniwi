@@ -347,7 +347,7 @@
     "nationalTeam": "Canada",
     "sourcePlayerName": "Jonathan David",
     "sourceTeamName": "Canada",
-    "goals": 2,
+    "goals": 3,
     "source": "football-data",
     "apiPlayerId": 8924,
     "matchId": "football-data:scorers",
@@ -361,6 +361,6 @@
     "pickedPlayerName": "Jonathan David",
     "displayPlayerName": "Jonathan David",
     "displayNationalTeam": "Kanada",
-    "points": 2
+    "points": 3
   }
 ]

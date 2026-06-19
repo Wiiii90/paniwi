@@ -11213,12 +11213,12 @@
   },
   {
     "matchId": "football-data:537336",
-    "label": "Canada 3-0 Qatar",
+    "label": "Canada 5-0 Qatar",
     "kickedOffAt": "2026-06-18T22:00:00Z",
     "status": "live",
     "homeTeam": {
       "name": "Kanada",
-      "score": 3
+      "score": 5
     },
     "awayTeam": {
       "name": "Katar",
@@ -11305,7 +11305,7 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 3,
+      "scoreTotal": 5,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
@@ -12057,9 +12057,9 @@
     }
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group f:tunisia-japan:2026-06-21T04:00:00.000Z",
-    "label": "Tunisia Match 36 Japan",
-    "kickedOffAt": "2026-06-21T04:00:00.000Z",
+    "matchId": "football-data:537360",
+    "label": "Tunisia vs Japan",
+    "kickedOffAt": "2026-06-21T04:00:00Z",
     "status": "scheduled",
     "homeTeam": {
       "name": "Tunesien"
@@ -12072,8 +12072,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group f:tunisia-japan:2026-06-21T04:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537360",
+        "fixtureId": "537360",
         "playerName": "Elias Saad",
         "nationalTeam": "Tunesien",
         "teamId": "tunisia",
@@ -12096,9 +12097,9 @@
     }
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group h:spain-ksa:2026-06-21T16:00:00.000Z",
-    "label": "Spain Match 38 KSA",
-    "kickedOffAt": "2026-06-21T16:00:00.000Z",
+    "matchId": "football-data:537371",
+    "label": "Spain vs Saudi Arabia",
+    "kickedOffAt": "2026-06-21T16:00:00Z",
     "status": "scheduled",
     "homeTeam": {
       "name": "Spanien"
@@ -12111,8 +12112,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group h:spain-ksa:2026-06-21T16:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537371",
+        "fixtureId": "537371",
         "playerName": "Saleh Al-Shehri",
         "nationalTeam": "Saudi-Arabien",
         "teamId": "saudi-arabia",
@@ -12125,8 +12127,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group h:spain-ksa:2026-06-21T16:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537371",
+        "fixtureId": "537371",
         "playerName": "Aymeric Laporte",
         "nationalTeam": "Spanien",
         "teamId": "spain",
@@ -12139,8 +12142,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group h:spain-ksa:2026-06-21T16:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537371",
+        "fixtureId": "537371",
         "playerName": "Fabián Ruiz",
         "nationalTeam": "Spanien",
         "teamId": "spain",
@@ -12154,8 +12158,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group h:spain-ksa:2026-06-21T16:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537371",
+        "fixtureId": "537371",
         "playerName": "Lamine Yamal",
         "nationalTeam": "Spanien",
         "teamId": "spain",
@@ -12168,8 +12173,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group h:spain-ksa:2026-06-21T16:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537371",
+        "fixtureId": "537371",
         "playerName": "Pedri",
         "nationalTeam": "Spanien",
         "teamId": "spain",
@@ -12182,8 +12188,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group h:spain-ksa:2026-06-21T16:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537371",
+        "fixtureId": "537371",
         "playerName": "Rodri",
         "nationalTeam": "Spanien",
         "teamId": "spain",
@@ -12206,9 +12213,9 @@
     }
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group g:belgium-iran:2026-06-21T19:00:00.000Z",
-    "label": "Belgium Match 39 Iran",
-    "kickedOffAt": "2026-06-21T19:00:00.000Z",
+    "matchId": "football-data:537365",
+    "label": "Belgium vs Iran",
+    "kickedOffAt": "2026-06-21T19:00:00Z",
     "status": "scheduled",
     "homeTeam": {
       "name": "Belgien"
@@ -12221,8 +12228,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group g:belgium-iran:2026-06-21T19:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537365",
+        "fixtureId": "537365",
         "playerName": "Amadou Onana",
         "nationalTeam": "Belgien",
         "teamId": "belgium",
@@ -12235,8 +12243,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group g:belgium-iran:2026-06-21T19:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537365",
+        "fixtureId": "537365",
         "playerName": "Jérémy Doku",
         "nationalTeam": "Belgien",
         "teamId": "belgium",
@@ -12249,8 +12258,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group g:belgium-iran:2026-06-21T19:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537365",
+        "fixtureId": "537365",
         "playerName": "Nicolas Raskin",
         "nationalTeam": "Belgien",
         "teamId": "belgium",
@@ -12263,8 +12273,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group g:belgium-iran:2026-06-21T19:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537365",
+        "fixtureId": "537365",
         "playerName": "Thomas Meunier",
         "nationalTeam": "Belgien",
         "teamId": "belgium",
@@ -12278,8 +12289,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group g:belgium-iran:2026-06-21T19:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537365",
+        "fixtureId": "537365",
         "playerName": "Youri Tielemans",
         "nationalTeam": "Belgien",
         "teamId": "belgium",
@@ -12292,8 +12304,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group g:belgium-iran:2026-06-21T19:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537365",
+        "fixtureId": "537365",
         "playerName": "Mohammad Mohebi",
         "nationalTeam": "Iran",
         "teamId": "iran",
@@ -12306,8 +12319,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group g:belgium-iran:2026-06-21T19:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537365",
+        "fixtureId": "537365",
         "playerName": "Ramin Rezaeian",
         "nationalTeam": "Iran",
         "teamId": "iran",
@@ -12330,9 +12344,9 @@
     }
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group h:uruguay-cape verde:2026-06-21T22:00:00.000Z",
-    "label": "Uruguay Match 37 Cape Verde",
-    "kickedOffAt": "2026-06-21T22:00:00.000Z",
+    "matchId": "football-data:537372",
+    "label": "Uruguay vs Cape Verde Islands",
+    "kickedOffAt": "2026-06-21T22:00:00Z",
     "status": "scheduled",
     "homeTeam": {
       "name": "Uruguay"
@@ -12345,8 +12359,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group h:uruguay-cape verde:2026-06-21T22:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537372",
+        "fixtureId": "537372",
         "playerName": "Dailon Livramento",
         "nationalTeam": "Kap Verde",
         "teamId": "cape-verde",
@@ -12359,8 +12374,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group h:uruguay-cape verde:2026-06-21T22:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537372",
+        "fixtureId": "537372",
         "playerName": "Garry Rodrigues",
         "nationalTeam": "Kap Verde",
         "teamId": "cape-verde",
@@ -12373,8 +12389,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group h:uruguay-cape verde:2026-06-21T22:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537372",
+        "fixtureId": "537372",
         "playerName": "Federico Viñas",
         "nationalTeam": "Uruguay",
         "teamId": "uruguay",
@@ -12387,8 +12404,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group h:uruguay-cape verde:2026-06-21T22:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537372",
+        "fixtureId": "537372",
         "playerName": "Manuel Ugarte",
         "nationalTeam": "Uruguay",
         "teamId": "uruguay",
@@ -12401,8 +12419,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group h:uruguay-cape verde:2026-06-21T22:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537372",
+        "fixtureId": "537372",
         "playerName": "Nicolás de la Cruz",
         "nationalTeam": "Uruguay",
         "teamId": "uruguay",
