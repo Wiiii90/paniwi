@@ -946,6 +946,70 @@
   },
   {
     "source": "football-data",
+    "matchId": "football-data:537360",
+    "fixtureId": "537360",
+    "label": "Tunisia vs Japan",
+    "kickedOffAt": "2026-06-21T04:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 802,
+      "name": "Tunisia"
+    },
+    "awayTeam": {
+      "id": 766,
+      "name": "Japan"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537371",
+    "fixtureId": "537371",
+    "label": "Spain vs Saudi Arabia",
+    "kickedOffAt": "2026-06-21T16:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 760,
+      "name": "Spain"
+    },
+    "awayTeam": {
+      "id": 801,
+      "name": "Saudi Arabia"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537365",
+    "fixtureId": "537365",
+    "label": "Belgium vs Iran",
+    "kickedOffAt": "2026-06-21T19:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 805,
+      "name": "Belgium"
+    },
+    "awayTeam": {
+      "id": 840,
+      "name": "Iran"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537372",
+    "fixtureId": "537372",
+    "label": "Uruguay vs Cape Verde Islands",
+    "kickedOffAt": "2026-06-21T22:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 758,
+      "name": "Uruguay"
+    },
+    "awayTeam": {
+      "id": 1930,
+      "name": "Cape Verde Islands"
+    }
+  },
+  {
+    "source": "football-data",
     "matchId": "football-data:537404",
     "fixtureId": "537404",
     "label": "Uzbekistan 1-3 Colombia",
@@ -1002,13 +1066,13 @@
     "source": "football-data",
     "matchId": "football-data:537336",
     "fixtureId": "537336",
-    "label": "Canada 5-0 Qatar",
+    "label": "Canada 6-0 Qatar",
     "kickedOffAt": "2026-06-18T22:00:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 828,
       "name": "Canada",
-      "score": 5
+      "score": 6
     },
     "awayTeam": {
       "id": 8030,
@@ -1129,67 +1193,21 @@
     }
   },
   {
-    "source": "football-data",
-    "matchId": "football-data:537360",
-    "fixtureId": "537360",
-    "label": "Tunisia vs Japan",
-    "kickedOffAt": "2026-06-21T04:00:00Z",
-    "status": "scheduled",
+    "source": "api-football",
+    "matchId": "api-football:1489387",
+    "fixtureId": "1489387",
+    "label": "Canada 6-0 Qatar",
+    "kickedOffAt": "2026-06-18T22:00:00+00:00",
+    "status": "finished",
     "homeTeam": {
-      "id": 802,
-      "name": "Tunisia"
+      "id": 5529,
+      "name": "Canada",
+      "score": 6
     },
     "awayTeam": {
-      "id": 766,
-      "name": "Japan"
-    }
-  },
-  {
-    "source": "football-data",
-    "matchId": "football-data:537371",
-    "fixtureId": "537371",
-    "label": "Spain vs Saudi Arabia",
-    "kickedOffAt": "2026-06-21T16:00:00Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "id": 760,
-      "name": "Spain"
-    },
-    "awayTeam": {
-      "id": 801,
-      "name": "Saudi Arabia"
-    }
-  },
-  {
-    "source": "football-data",
-    "matchId": "football-data:537365",
-    "fixtureId": "537365",
-    "label": "Belgium vs Iran",
-    "kickedOffAt": "2026-06-21T19:00:00Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "id": 805,
-      "name": "Belgium"
-    },
-    "awayTeam": {
-      "id": 840,
-      "name": "Iran"
-    }
-  },
-  {
-    "source": "football-data",
-    "matchId": "football-data:537372",
-    "fixtureId": "537372",
-    "label": "Uruguay vs Cape Verde Islands",
-    "kickedOffAt": "2026-06-21T22:00:00Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "id": 758,
-      "name": "Uruguay"
-    },
-    "awayTeam": {
-      "id": 1930,
-      "name": "Cape Verde Islands"
+      "id": 1569,
+      "name": "Qatar",
+      "score": 0
     }
   }
 ]
