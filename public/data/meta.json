@@ -1,22 +1,22 @@
 {
-  "lastUpdated": "2026-06-19T21:00:59.272Z",
-  "source": "football-data",
+  "lastUpdated": "2026-06-19T21:30:49.973Z",
+  "source": "api-football",
   "attemptedSources": [
-    "football-data"
+    "api-football"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 161,
+  "goalCount": 163,
   "scoredGoalCount": 17,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot unveraendert (football-data).",
-  "snapshotFingerprint": "a50f1269977563ffda497d40e9a1b18a955ba973effdae9331ed0705404f9462",
-  "snapshotChanged": false,
-  "syncWindowId": "2026 fifa world cup group c:scotland-morocco:2026-06-19T22:00:00.000Z-pre-match",
+  "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
+  "snapshotFingerprint": "9acd4e89715794e68af18ecd5d4c47e54cdf4b48445afd4b49977734702715c3",
+  "snapshotChanged": true,
+  "syncWindowId": "2026 fifa world cup group c:scotland-morocco:2026-06-19T22:00:00.000Z-pre-match:api-football-enrich:football-data:537348",
   "windowSyncAttempts": 1,
-  "liveMatchCount": 1,
+  "liveMatchCount": 0,
   "sourceRequestCount": 3,
   "sourceRequestLimit": 6
 }

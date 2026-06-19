@@ -2767,5 +2767,43 @@
     "detail": "normal",
     "playerId": "united-states-alex-freeman",
     "teamId": "united-states"
+  },
+  {
+    "externalGoalId": "api-football:1489391:20457:11:Own Goal:0",
+    "playerName": "Cameron Burgess",
+    "nationalTeam": "Australia",
+    "sourcePlayerName": "C. Burgess",
+    "sourceTeamName": "USA",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 20457,
+    "matchId": "football-data:537348",
+    "fixtureId": "1489391",
+    "matchLabel": "United States 2-0 Australia",
+    "kickedOffAt": "2026-06-19T19:00:00Z",
+    "minute": 11,
+    "timeConfidence": "match-only",
+    "detail": "own-goal",
+    "playerId": "australia-cameron-burgess",
+    "teamId": "australia"
+  },
+  {
+    "externalGoalId": "api-football:1489391:355994:43:Normal Goal:1",
+    "playerName": "Alex Freeman",
+    "nationalTeam": "United States",
+    "sourcePlayerName": "A. Freeman",
+    "sourceTeamName": "USA",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 355994,
+    "matchId": "football-data:537348",
+    "fixtureId": "1489391",
+    "matchLabel": "United States 2-0 Australia",
+    "kickedOffAt": "2026-06-19T19:00:00Z",
+    "minute": 43,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "united-states-alex-freeman",
+    "teamId": "united-states"
   }
 ]
