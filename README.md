@@ -1,124 +1,101 @@
-# WM 2026 Panini Liga
+# Paniwi
 
-Statische MVP-Webapp fuer eine private WM-2026-Panini-Liga.
+Paniwi is a small World Cup 2026 companion app for a Panini-style sticker league.
+Each participant builds a team from their stickers, and the site turns the tournament into a shared scoreboard: standings, goals, player involvement, match views, and hints for games that are especially worth watching.
 
-## Befehle
+The app is built as a static React site and is designed to run well on GitHub Pages.
+
+## Features
+
+- leaderboard and scoring for participant teams
+- goal feed with resolved Panini teams and player names
+- match overview with live, upcoming, and finished sections
+- player and team views for sticker-team context
+- static JSON snapshots in `public/data`
+- scheduled data sync through GitHub Actions
+- test coverage for scoring, matching, sync, and snapshot consistency
+
+## Tech Stack
+
+- React 18
+- TypeScript
+- Vite
+- `tsx` scripts for data sync and tests
+- GitHub Actions for CI, Pages deploy, and scheduled/manual data updates
+
+## Getting Started
 
 ```powershell
 npm install
-npm run sync:data
-npm test
-npm run test:domain
-npm run test:snapshots
 npm run dev
-npm run build
-npm run preview
 ```
 
-## Sync-Quelle
+Useful commands:
 
-`npm run sync:data` nutzt standardmaessig Mock-Daten.
+```powershell
+npm test
+npm run build
+npm run preview
+npm run sync:data
+npm run sync:scheduled
+npm run sync:rosters
+```
+
+Local dev server defaults to Vite. The production build is written to `dist`.
+
+## Data Flow
+
+The frontend does not call football APIs directly. Sync scripts collect and normalize source data, then write static JSON snapshots to `public/data`.
+
+Important snapshots:
+
+- `leaderboard.json`
+- `goals.json`
+- `matches.json`
+- `scorers.json`
+- `raw-goals.json`
+- `rosters.json`
+- `meta.json`
+
+`npm run test:snapshots` rebuilds the derived snapshots and checks that committed data stays consistent.
+
+## Sync Sources
+
+The sync layer supports multiple source modes:
 
 ```powershell
 $env:SYNC_SOURCE="mock"; npm run sync:data
-$env:SYNC_SOURCE="auto"; npm run sync:data
+$env:SYNC_SOURCE="football-data"; npm run sync:data
+$env:SYNC_SOURCE="api-football-enrich"; npm run sync:data
 $env:SYNC_SOURCE="wikipedia"; npm run sync:data
-$env:SYNC_SOURCE="api-football"; npm run sync:data
 ```
 
-`auto` versucht `api-football`, dann `wikipedia`, dann `mock`. Aktuell bleibt `mock` die stabile Default-Quelle; `wikipedia` ist ein vorsichtiger Prototyp fuer aggregierte Goalscorers-Seiten.
+For local experiments, `.env.example` documents the available settings. Production-like sync runs are handled by GitHub Actions using repository secrets and variables, for example API tokens and request limits.
 
-Der Wikipedia-Prototyp liest eine `Goalscorers`-Sektion aus MediaWiki-Wikitext und, fuer die WM 2026, Einzeltore aus `#invoke:football box` auf den Gruppenseiten. Die Seite kann ueberschrieben werden:
+## GitHub Pages and Actions
 
-```powershell
-$env:SYNC_SOURCE="wikipedia"
-$env:WIKIPEDIA_GOALS_PAGE="2026 FIFA World Cup"
-npm run sync:data
-```
+- `ci.yml` runs tests and build checks on pushes and pull requests.
+- `deploy.yml` builds and publishes the static site to GitHub Pages.
+- `sync-data.yml` runs on a self-hosted runner for controlled data updates.
+- `sync-rosters.yml` updates roster snapshots when run manually.
 
-Der API-Football-Adapter liest Tagesfixtures und danach die Events gestarteter WM-Spiele. Dafuer wird ein API-Key benoetigt:
-
-```powershell
-$env:SYNC_SOURCE="api-football"
-$env:API_FOOTBALL_KEY="..."
-$env:API_FOOTBALL_DATES="2026-06-15"
-npm run sync:data
-```
-
-Optional:
-
-```powershell
-$env:API_FOOTBALL_BASE_URL="https://v3.football.api-sports.io"
-$env:API_FOOTBALL_TIMEOUT_MS="10000"
-$env:API_FOOTBALL_MAX_REQUESTS="90"
-$env:API_FOOTBALL_FIXTURE_IDS="1539002"
-```
-
-## Lokale Ports
-
-- Dev: `http://127.0.0.1:49153`
-- Preview: `http://127.0.0.1:49154`
-
-Die Ports sind bewusst weit weg von ueblichen Defaults wie `3000`, `5173`, `5174`, `8000` oder `8080`.
-
-## GitHub Actions
-
-- `deploy.yml` baut den aktuell committed Snapshot und veroeffentlicht `dist` auf GitHub Pages.
-- `ci.yml` prueft Pushes und Pull Requests mit Mock-Sync, Tests und Build.
-- `sync-data.yml` laeuft sparsam in Spiel-Fenstern oder manuell, nutzt aktuell `SYNC_SOURCE=wikipedia`, schreibt `public/data/*.json` und committet nur geaenderte Snapshots.
-- Beide Workflows fuehren `npm test` und `npm run build` aus.
-
-Fuer Project Pages wird der Base-Pfad aus `GITHUB_REPOSITORY` abgeleitet. Bei Bedarf kann er im Workflow mit `GITHUB_PAGES_BASE` ueberschrieben werden.
-
-Wenn alle Datenquellen fehlschlagen, schreibt der Sync nur `public/data/meta.json` mit `status: "error"`. Die bestehenden Leaderboard- und Goal-Snapshots bleiben erhalten.
-
-Weitere Betriebsdetails stehen in `docs/04-betrieb.md`. Eine Vorlage fuer lokale Umgebungsvariablen liegt in `.env.example`.
-
-## Datenfluss
-
-Das Frontend ruft keine Sportdaten-API direkt auf. Das Sync-Script schreibt statische JSON-Dateien nach `public/data`.
-
-- `public/data/leaderboard.json`
-- `public/data/goals.json`
-- `public/data/meta.json`
-- `public/data/raw-goals.json`
-- `public/data/scorers.json`
-- `public/data/matches.json`
-
-Aktuell nutzt `npm run sync:data` Mock-Daten. Echte Quellen koennen spaeter ueber die Adapter in `src/sync/sources` ergaenzt werden.
-
-Beim Sync wird `src/config/teams.ts` validiert. Erwartet werden eindeutige Owner, 10 bis 11 Spieler pro Team, gueltige kanonische `playerId`s sowie keine doppelten Spieler im selben Team.
-
-`goals.json` ist der punkterelevante Trefferfeed. `raw-goals.json` enthaelt alle validen normalisierten Treffer aus der Quelle. Kanonisch erkannte Spieler tragen `playerId` und `teamId`; die Rohquellen-Namen bleiben als `sourcePlayerName` und `sourceTeamName` erhalten. `scorers.json` ist die Gesamt-Torschuetzenliste ohne Eigentore und Elfmeterschiessen. `matches.json` gruppiert die Treffer nach Spielen und markiert betroffene Panini-Teams.
-
-`npm run test:snapshots` berechnet Leaderboard, Trefferfeed, Torschuetzenliste und Spiele aus `raw-goals.json` neu und prueft, ob die committed Snapshots konsistent sind.
-
-## Teilnehmerdaten
-
-Fuer den MVP werden echte Teams einmalig in `src/config/teams.ts` gepflegt. Teams haben 10 oder 11 Spieler. Nur wer einen Torwart gezogen hat, darf 11 Spieler aufstellen; pro Team ist maximal ein Torwart erlaubt. Ein 10er-Team enthaelt keinen Torwart.
-
-Der Nominierungsstatus kann einmalig pro Spieler gepflegt werden:
-
-- `nominated`: im finalen WM-Kader
-- `not-nominated`: nicht im finalen WM-Kader (Niete, kein Ersatz)
-- `unknown`: noch nicht geprueft
-
-Der Status ist eine Anzeige- und Qualitaetsinformation. Nieten bleiben im Team und koennen keine Punkte bringen, weil sie nicht am Turnier teilnehmen. Die Punktewertung bleibt ereignisbasiert: Wenn ein Spieler in den Tordaten als regulaerer Torschuetze auftaucht, zaehlt das Tor nach den Scoring-Regeln.
-
-Am besten lieferst du sie in diesem Format:
-
-```text
-Teilnehmer: Name
-- Spielername, Nationalmannschaft
-- Spielername, Nationalmannschaft
-...
-```
-
-Fotos aus WhatsApp gehen auch, sollten aber nach OCR/Abtippen kurz gegengeprueft werden. Wichtig sind pro Team 10 bis 11 Spieler, eindeutige Teilnehmernamen und moeglichst die Nationalmannschaft je Spieler.
+The deployed Pages site is built from the committed snapshots plus the current app code. If a sync finds no data changes, it leaves the existing snapshots untouched.
 
 ## Scoring
 
-- Normale Tore: 1 Punkt
-- Elfmetertore waehrend des Spiels: 1 Punkt
-- Eigentore: 0 Punkte
-- Elfmeterschiessen: 0 Punkte und wird nicht in Punktefeeds oder Torschuetzenwertung beruecksichtigt
+- Regular goals: 1 point
+- Penalties during the match: 1 point
+- Own goals: 0 points
+- Penalty shootouts: 0 points
+
+Only resolved tournament events affect the score. Roster and nomination data provide context, but points are event-based.
+
+## Branch Flow
+
+The stable Pages branch is `master`. Ongoing work should happen on feature branches and be opened as pull requests into `dev`. Once `dev` is ready, it can be merged into `master` for release.
+
+## Contributing
+
+Issues and pull requests are welcome, especially for bug reports, data quality fixes, small UI improvements, and documentation updates. Please keep changes focused and run the relevant tests before opening a pull request.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the short project workflow.
