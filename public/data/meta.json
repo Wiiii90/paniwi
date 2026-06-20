@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-20T20:30:48.365Z",
+  "lastUpdated": "2026-06-20T21:01:13.402Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -12,7 +12,7 @@
   "duplicateGoalCount": 0,
   "sourceErrors": [],
   "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
-  "snapshotFingerprint": "9d349686ec85d3532c484c211c5652f6ca96c0da9ce451eac5bfbb9501c85f68",
+  "snapshotFingerprint": "c367e0ccd914b9754b32d3371ce6796444f6036b87677c5f2ab9a41cf248f31c",
   "snapshotChanged": true,
   "syncWindowId": "2026 fifa world cup group e:germany-civ:2026-06-20T20:00:00.000Z-live",
   "windowSyncAttempts": 1,

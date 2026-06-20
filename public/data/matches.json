@@ -17296,7 +17296,7 @@
   },
   {
     "matchId": "football-data:537353",
-    "label": "Germany 0-0 Ivory Coast",
+    "label": "Germany 0-1 Ivory Coast",
     "kickedOffAt": "2026-06-20T20:00:00Z",
     "status": "live",
     "homeTeam": {
@@ -17305,7 +17305,7 @@
     },
     "awayTeam": {
       "name": "Elfenbeinküste",
-      "score": 0
+      "score": 1
     },
     "goals": [],
     "pointGoals": [],
@@ -17390,11 +17390,11 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 0,
+      "scoreTotal": 1,
       "goalEventCount": 0,
-      "eventsComplete": true,
+      "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
+      "needsEventBackfill": true,
       "needsLineupBackfill": true
     }
   },
