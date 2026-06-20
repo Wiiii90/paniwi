@@ -1057,16 +1057,18 @@
     "source": "football-data",
     "matchId": "football-data:537341",
     "fixtureId": "537341",
-    "label": "Brazil vs Haiti",
+    "label": "Brazil 0-0 Haiti",
     "kickedOffAt": "2026-06-20T00:30:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 764,
-      "name": "Brazil"
+      "name": "Brazil",
+      "score": 0
     },
     "awayTeam": {
       "id": 836,
-      "name": "Haiti"
+      "name": "Haiti",
+      "score": 0
     }
   },
   {
@@ -1195,24 +1197,6 @@
     "awayTeam": {
       "id": 1930,
       "name": "Cape Verde Islands"
-    }
-  },
-  {
-    "source": "api-football",
-    "matchId": "api-football:1489390",
-    "fixtureId": "1489390",
-    "label": "Scotland 0-1 Morocco",
-    "kickedOffAt": "2026-06-19T22:00:00+00:00",
-    "status": "finished",
-    "homeTeam": {
-      "id": 1108,
-      "name": "Scotland",
-      "score": 0
-    },
-    "awayTeam": {
-      "id": 31,
-      "name": "Morocco",
-      "score": 1
     }
   }
 ]

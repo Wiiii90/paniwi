@@ -415,5 +415,27 @@
     "displayPlayerName": "Jonathan David",
     "displayNationalTeam": "Kanada",
     "points": 1
+  },
+  {
+    "externalGoalId": "football-data:scorer:30842:normal",
+    "playerName": "Matheus Cunha",
+    "nationalTeam": "Brazil",
+    "sourcePlayerName": "Matheus Cunha",
+    "sourceTeamName": "Brazil",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 30842,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "brazil-matheus-cunha",
+    "teamId": "brazil",
+    "pickId": "brazil-matheus-cunha",
+    "owner": "Rafael",
+    "pickedPlayerName": "Matheus Cunha",
+    "displayPlayerName": "Matheus Cunha",
+    "displayNationalTeam": "Brasilien",
+    "points": 1
   }
 ]

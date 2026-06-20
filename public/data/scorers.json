@@ -555,6 +555,18 @@
     "rank": 13
   },
   {
+    "playerName": "Matheus Cunha",
+    "normalizedPlayerName": "matheus cunha",
+    "nationalTeam": "Brasilien",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [
+      "Rafael"
+    ],
+    "selected": true,
+    "rank": 13
+  },
+  {
     "playerName": "Mattias Svanberg",
     "normalizedPlayerName": "mattias svanberg",
     "nationalTeam": "Schweden",

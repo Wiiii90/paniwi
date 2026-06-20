@@ -14655,14 +14655,16 @@
   },
   {
     "matchId": "football-data:537341",
-    "label": "Brazil vs Haiti",
+    "label": "Brazil 0-0 Haiti",
     "kickedOffAt": "2026-06-20T00:30:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
-      "name": "Brasilien"
+      "name": "Brasilien",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Haiti"
+      "name": "Haiti",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -14775,12 +14777,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 0,
       "goalEventCount": 0,
-      "eventsComplete": false,
+      "eventsComplete": true,
       "lineupsComplete": false,
       "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsLineupBackfill": true
     }
   },
   {
