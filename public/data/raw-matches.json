@@ -1077,7 +1077,7 @@
     "fixtureId": "537347",
     "label": "Turkey 0-1 Paraguay",
     "kickedOffAt": "2026-06-20T03:00:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 803,
       "name": "Turkey",
@@ -1199,6 +1199,24 @@
     "awayTeam": {
       "id": 1930,
       "name": "Cape Verde Islands"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1539006",
+    "fixtureId": "1539006",
+    "label": "Türkiye 0-1 Paraguay",
+    "kickedOffAt": "2026-06-20T03:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 777,
+      "name": "Türkiye",
+      "score": 0
+    },
+    "awayTeam": {
+      "id": 2380,
+      "name": "Paraguay",
+      "score": 1
     }
   }
 ]
