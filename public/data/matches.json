@@ -14826,9 +14826,9 @@
     }
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group g:nzl-egypt:2026-06-22T01:00:00.000Z",
-    "label": "NZL Match 40 Egypt",
-    "kickedOffAt": "2026-06-22T01:00:00.000Z",
+    "matchId": "football-data:537366",
+    "label": "New Zealand vs Egypt",
+    "kickedOffAt": "2026-06-22T01:00:00Z",
     "status": "scheduled",
     "homeTeam": {
       "name": "Neuseeland"
@@ -14841,8 +14841,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group g:nzl-egypt:2026-06-22T01:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537366",
+        "fixtureId": "537366",
         "playerName": "Mohamed El Shenawy",
         "nationalTeam": "Ägypten",
         "teamId": "egypt",
@@ -14855,8 +14856,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group g:nzl-egypt:2026-06-22T01:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537366",
+        "fixtureId": "537366",
         "playerName": "Chris Wood",
         "nationalTeam": "Neuseeland",
         "teamId": "new-zealand",
@@ -14879,9 +14881,9 @@
     }
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group j:argentina-austria:2026-06-22T17:00:00.000Z",
-    "label": "Argentina Match 43 Austria",
-    "kickedOffAt": "2026-06-22T17:00:00.000Z",
+    "matchId": "football-data:537399",
+    "label": "Argentina vs Austria",
+    "kickedOffAt": "2026-06-22T17:00:00Z",
     "status": "scheduled",
     "homeTeam": {
       "name": "Argentinien"
@@ -14894,8 +14896,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group j:argentina-austria:2026-06-22T17:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537399",
+        "fixtureId": "537399",
         "playerName": "Alexis Mac Allister",
         "nationalTeam": "Argentinien",
         "teamId": "argentina",
@@ -14908,8 +14911,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group j:argentina-austria:2026-06-22T17:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537399",
+        "fixtureId": "537399",
         "playerName": "Cristian Romero",
         "nationalTeam": "Argentinien",
         "teamId": "argentina",
@@ -14922,8 +14926,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group j:argentina-austria:2026-06-22T17:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537399",
+        "fixtureId": "537399",
         "playerName": "Giuliano Simeone",
         "nationalTeam": "Argentinien",
         "teamId": "argentina",
@@ -14936,8 +14941,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group j:argentina-austria:2026-06-22T17:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537399",
+        "fixtureId": "537399",
         "playerName": "Stefan Posch",
         "nationalTeam": "Österreich",
         "teamId": "austria",
@@ -14960,9 +14966,9 @@
     }
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group i:france-iraq:2026-06-22T21:00:00.000Z",
-    "label": "France Match 42 Iraq",
-    "kickedOffAt": "2026-06-22T21:00:00.000Z",
+    "matchId": "football-data:537393",
+    "label": "France vs Iraq",
+    "kickedOffAt": "2026-06-22T21:00:00Z",
     "status": "scheduled",
     "homeTeam": {
       "name": "Frankreich"
@@ -14975,8 +14981,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group i:france-iraq:2026-06-22T21:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537393",
+        "fixtureId": "537393",
         "playerName": "Adrien Rabiot",
         "nationalTeam": "Frankreich",
         "teamId": "france",
@@ -14989,8 +14996,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group i:france-iraq:2026-06-22T21:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537393",
+        "fixtureId": "537393",
         "playerName": "Bradley Barcola",
         "nationalTeam": "Frankreich",
         "teamId": "france",
@@ -15003,8 +15011,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group i:france-iraq:2026-06-22T21:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537393",
+        "fixtureId": "537393",
         "playerName": "Désiré Doué",
         "nationalTeam": "Frankreich",
         "teamId": "france",
@@ -15017,8 +15026,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group i:france-iraq:2026-06-22T21:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537393",
+        "fixtureId": "537393",
         "playerName": "Ali Jasim",
         "nationalTeam": "Irak",
         "teamId": "iraq",
@@ -15031,8 +15041,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group i:france-iraq:2026-06-22T21:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537393",
+        "fixtureId": "537393",
         "playerName": "Mohanad Ali",
         "nationalTeam": "Irak",
         "teamId": "iraq",
@@ -15055,9 +15066,9 @@
     }
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group i:norway-senegal:2026-06-23T00:00:00.000Z",
-    "label": "Norway Match 41 Senegal",
-    "kickedOffAt": "2026-06-23T00:00:00.000Z",
+    "matchId": "football-data:537394",
+    "label": "Norway vs Senegal",
+    "kickedOffAt": "2026-06-23T00:00:00Z",
     "status": "scheduled",
     "homeTeam": {
       "name": "Norwegen"
@@ -15070,8 +15081,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group i:norway-senegal:2026-06-23T00:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537394",
+        "fixtureId": "537394",
         "playerName": "Antonio Nusa",
         "nationalTeam": "Norwegen",
         "teamId": "norway",
@@ -15084,8 +15096,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group i:norway-senegal:2026-06-23T00:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537394",
+        "fixtureId": "537394",
         "playerName": "Erling Haaland",
         "nationalTeam": "Norwegen",
         "teamId": "norway",
@@ -15098,8 +15111,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group i:norway-senegal:2026-06-23T00:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537394",
+        "fixtureId": "537394",
         "playerName": "Sander Berge",
         "nationalTeam": "Norwegen",
         "teamId": "norway",
@@ -15112,8 +15126,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group i:norway-senegal:2026-06-23T00:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537394",
+        "fixtureId": "537394",
         "playerName": "Habib Diarra",
         "nationalTeam": "Senegal",
         "teamId": "senegal",
@@ -15126,8 +15141,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group i:norway-senegal:2026-06-23T00:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537394",
+        "fixtureId": "537394",
         "playerName": "Krépin Diatta",
         "nationalTeam": "Senegal",
         "teamId": "senegal",
@@ -15140,8 +15156,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group i:norway-senegal:2026-06-23T00:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537394",
+        "fixtureId": "537394",
         "playerName": "Nicolas Jackson",
         "nationalTeam": "Senegal",
         "teamId": "senegal",

@@ -255,19 +255,6 @@
   },
   {
     "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group e:ecuador-curacao:2026-06-21T00:00:00.000Z",
-    "label": "Ecuador Match 34 Curaçao",
-    "kickedOffAt": "2026-06-21T00:00:00.000Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "name": "Ecuador"
-    },
-    "awayTeam": {
-      "name": "Curaçao"
-    }
-  },
-  {
-    "source": "wikipedia",
     "matchId": "wikipedia:2026 fifa world cup group e:curacao-civ:2026-06-25T20:00:00.000Z",
     "label": "Curaçao Match 55 CIV",
     "kickedOffAt": "2026-06-25T20:00:00.000Z",
@@ -309,19 +296,6 @@
   },
   {
     "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group f:tunisia-japan:2026-06-21T04:00:00.000Z",
-    "label": "Tunisia Match 36 Japan",
-    "kickedOffAt": "2026-06-21T04:00:00.000Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "name": "Tunisia"
-    },
-    "awayTeam": {
-      "name": "Japan"
-    }
-  },
-  {
-    "source": "wikipedia",
     "matchId": "wikipedia:2026 fifa world cup group f:japan-sweden:2026-06-25T23:00:00.000Z",
     "label": "Japan Match 57 Sweden",
     "kickedOffAt": "2026-06-25T23:00:00.000Z",
@@ -344,19 +318,6 @@
     },
     "awayTeam": {
       "name": "Netherlands"
-    }
-  },
-  {
-    "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group g:belgium-iran:2026-06-21T19:00:00.000Z",
-    "label": "Belgium Match 39 Iran",
-    "kickedOffAt": "2026-06-21T19:00:00.000Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "name": "Belgium"
-    },
-    "awayTeam": {
-      "name": "Iran"
     }
   },
   {
@@ -396,32 +357,6 @@
     },
     "awayTeam": {
       "name": "Belgium"
-    }
-  },
-  {
-    "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group h:spain-ksa:2026-06-21T16:00:00.000Z",
-    "label": "Spain Match 38 KSA",
-    "kickedOffAt": "2026-06-21T16:00:00.000Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "name": "Spain"
-    },
-    "awayTeam": {
-      "name": "KSA"
-    }
-  },
-  {
-    "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group h:uruguay-cape verde:2026-06-21T22:00:00.000Z",
-    "label": "Uruguay Match 37 Cape Verde",
-    "kickedOffAt": "2026-06-21T22:00:00.000Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "name": "Uruguay"
-    },
-    "awayTeam": {
-      "name": "Cape Verde"
     }
   },
   {
@@ -786,22 +721,6 @@
   },
   {
     "source": "football-data",
-    "matchId": "football-data:537354",
-    "fixtureId": "537354",
-    "label": "Ecuador vs Curaçao",
-    "kickedOffAt": "2026-06-21T00:00:00Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "id": 791,
-      "name": "Ecuador"
-    },
-    "awayTeam": {
-      "id": 9460,
-      "name": "Curaçao"
-    }
-  },
-  {
-    "source": "football-data",
     "matchId": "football-data:537397",
     "fixtureId": "537397",
     "label": "Argentina 3-0 Algeria",
@@ -942,70 +861,6 @@
       "id": 1508,
       "name": "Congo DR",
       "score": 1
-    }
-  },
-  {
-    "source": "football-data",
-    "matchId": "football-data:537360",
-    "fixtureId": "537360",
-    "label": "Tunisia vs Japan",
-    "kickedOffAt": "2026-06-21T04:00:00Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "id": 802,
-      "name": "Tunisia"
-    },
-    "awayTeam": {
-      "id": 766,
-      "name": "Japan"
-    }
-  },
-  {
-    "source": "football-data",
-    "matchId": "football-data:537371",
-    "fixtureId": "537371",
-    "label": "Spain vs Saudi Arabia",
-    "kickedOffAt": "2026-06-21T16:00:00Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "id": 760,
-      "name": "Spain"
-    },
-    "awayTeam": {
-      "id": 801,
-      "name": "Saudi Arabia"
-    }
-  },
-  {
-    "source": "football-data",
-    "matchId": "football-data:537365",
-    "fixtureId": "537365",
-    "label": "Belgium vs Iran",
-    "kickedOffAt": "2026-06-21T19:00:00Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "id": 805,
-      "name": "Belgium"
-    },
-    "awayTeam": {
-      "id": 840,
-      "name": "Iran"
-    }
-  },
-  {
-    "source": "football-data",
-    "matchId": "football-data:537372",
-    "fixtureId": "537372",
-    "label": "Uruguay vs Cape Verde Islands",
-    "kickedOffAt": "2026-06-21T22:00:00Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "id": 758,
-      "name": "Uruguay"
-    },
-    "awayTeam": {
-      "id": 1930,
-      "name": "Cape Verde Islands"
     }
   },
   {
@@ -1196,6 +1051,150 @@
     "awayTeam": {
       "id": 1935,
       "name": "Ivory Coast"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537354",
+    "fixtureId": "537354",
+    "label": "Ecuador vs Curaçao",
+    "kickedOffAt": "2026-06-21T00:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 791,
+      "name": "Ecuador"
+    },
+    "awayTeam": {
+      "id": 9460,
+      "name": "Curaçao"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537360",
+    "fixtureId": "537360",
+    "label": "Tunisia vs Japan",
+    "kickedOffAt": "2026-06-21T04:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 802,
+      "name": "Tunisia"
+    },
+    "awayTeam": {
+      "id": 766,
+      "name": "Japan"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537371",
+    "fixtureId": "537371",
+    "label": "Spain vs Saudi Arabia",
+    "kickedOffAt": "2026-06-21T16:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 760,
+      "name": "Spain"
+    },
+    "awayTeam": {
+      "id": 801,
+      "name": "Saudi Arabia"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537365",
+    "fixtureId": "537365",
+    "label": "Belgium vs Iran",
+    "kickedOffAt": "2026-06-21T19:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 805,
+      "name": "Belgium"
+    },
+    "awayTeam": {
+      "id": 840,
+      "name": "Iran"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537372",
+    "fixtureId": "537372",
+    "label": "Uruguay vs Cape Verde Islands",
+    "kickedOffAt": "2026-06-21T22:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 758,
+      "name": "Uruguay"
+    },
+    "awayTeam": {
+      "id": 1930,
+      "name": "Cape Verde Islands"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537366",
+    "fixtureId": "537366",
+    "label": "New Zealand vs Egypt",
+    "kickedOffAt": "2026-06-22T01:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 783,
+      "name": "New Zealand"
+    },
+    "awayTeam": {
+      "id": 825,
+      "name": "Egypt"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537399",
+    "fixtureId": "537399",
+    "label": "Argentina vs Austria",
+    "kickedOffAt": "2026-06-22T17:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 762,
+      "name": "Argentina"
+    },
+    "awayTeam": {
+      "id": 816,
+      "name": "Austria"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537393",
+    "fixtureId": "537393",
+    "label": "France vs Iraq",
+    "kickedOffAt": "2026-06-22T21:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 773,
+      "name": "France"
+    },
+    "awayTeam": {
+      "id": 8062,
+      "name": "Iraq"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537394",
+    "fixtureId": "537394",
+    "label": "Norway vs Senegal",
+    "kickedOffAt": "2026-06-23T00:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 8872,
+      "name": "Norway"
+    },
+    "awayTeam": {
+      "id": 804,
+      "name": "Senegal"
     }
   }
 ]

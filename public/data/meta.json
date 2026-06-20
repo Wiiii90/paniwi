@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-19T23:30:48.705Z",
+  "lastUpdated": "2026-06-20T00:00:54.680Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -11,11 +11,11 @@
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot unveraendert (football-data).",
-  "snapshotFingerprint": "6be29b2a31a370a3bf9d0f7959868595b2300657fb189f211d888ba6a3b6ad83",
-  "snapshotChanged": false,
-  "syncWindowId": "2026 fifa world cup group c:scotland-morocco:2026-06-19T22:00:00.000Z-live",
-  "windowSyncAttempts": 3,
+  "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
+  "snapshotFingerprint": "690a508c7b0832194cfecbc54b0d9cfa3202dd1076f18a6b478231e49e642d5e",
+  "snapshotChanged": true,
+  "syncWindowId": "2026 fifa world cup group c:brazil-haiti:2026-06-20T00:30:00.000Z-pre-match",
+  "windowSyncAttempts": 1,
   "liveMatchCount": 1,
   "sourceRequestCount": 3,
   "sourceRequestLimit": 6
