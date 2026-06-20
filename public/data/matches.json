@@ -16397,14 +16397,16 @@
   },
   {
     "matchId": "football-data:537359",
-    "label": "Netherlands vs Sweden",
+    "label": "Netherlands 2-0 Sweden",
     "kickedOffAt": "2026-06-20T17:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
-      "name": "Niederlande"
+      "name": "Niederlande",
+      "score": 2
     },
     "awayTeam": {
-      "name": "Schweden"
+      "name": "Schweden",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -16502,12 +16504,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 2,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsEventBackfill": true,
+      "needsLineupBackfill": true
     }
   },
   {

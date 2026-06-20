@@ -1093,16 +1093,18 @@
     "source": "football-data",
     "matchId": "football-data:537359",
     "fixtureId": "537359",
-    "label": "Netherlands vs Sweden",
+    "label": "Netherlands 2-0 Sweden",
     "kickedOffAt": "2026-06-20T17:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 8601,
-      "name": "Netherlands"
+      "name": "Netherlands",
+      "score": 2
     },
     "awayTeam": {
       "id": 792,
-      "name": "Sweden"
+      "name": "Sweden",
+      "score": 0
     }
   },
   {

@@ -1,22 +1,22 @@
 {
-  "lastUpdated": "2026-06-20T17:00:58.219Z",
+  "lastUpdated": "2026-06-20T17:30:54.806Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 170,
+  "goalCount": 171,
   "scoredGoalCount": 20,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot unveraendert (football-data).",
-  "snapshotFingerprint": "31a8aaa7f436464e116c16983ed3d8d219adb20a6bfc995fbc7d155cb1525009",
-  "snapshotChanged": false,
+  "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
+  "snapshotFingerprint": "09a2466f2fe21177aa2bb2a330190cf20d91384818cbc04d45c976aeba383c79",
+  "snapshotChanged": true,
   "syncWindowId": "2026 fifa world cup group f:netherlands-sweden:2026-06-20T17:00:00.000Z-live",
   "windowSyncAttempts": 1,
-  "liveMatchCount": 0,
+  "liveMatchCount": 1,
   "sourceRequestCount": 3,
   "sourceRequestLimit": 6
 }
