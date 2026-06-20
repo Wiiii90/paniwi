@@ -1204,23 +1204,5 @@
       "id": 1930,
       "name": "Cape Verde Islands"
     }
-  },
-  {
-    "source": "api-football",
-    "matchId": "api-football:1489393",
-    "fixtureId": "1489393",
-    "label": "Germany 2-1 Ivory Coast",
-    "kickedOffAt": "2026-06-20T20:00:00+00:00",
-    "status": "finished",
-    "homeTeam": {
-      "id": 25,
-      "name": "Germany",
-      "score": 2
-    },
-    "awayTeam": {
-      "id": 1501,
-      "name": "Ivory Coast",
-      "score": 1
-    }
   }
 ]
