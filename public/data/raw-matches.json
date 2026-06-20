@@ -937,6 +937,70 @@
   },
   {
     "source": "football-data",
+    "matchId": "football-data:537366",
+    "fixtureId": "537366",
+    "label": "New Zealand vs Egypt",
+    "kickedOffAt": "2026-06-22T01:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 783,
+      "name": "New Zealand"
+    },
+    "awayTeam": {
+      "id": 825,
+      "name": "Egypt"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537399",
+    "fixtureId": "537399",
+    "label": "Argentina vs Austria",
+    "kickedOffAt": "2026-06-22T17:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 762,
+      "name": "Argentina"
+    },
+    "awayTeam": {
+      "id": 816,
+      "name": "Austria"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537393",
+    "fixtureId": "537393",
+    "label": "France vs Iraq",
+    "kickedOffAt": "2026-06-22T21:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 773,
+      "name": "France"
+    },
+    "awayTeam": {
+      "id": 8062,
+      "name": "Iraq"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537394",
+    "fixtureId": "537394",
+    "label": "Norway vs Senegal",
+    "kickedOffAt": "2026-06-23T00:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 8872,
+      "name": "Norway"
+    },
+    "awayTeam": {
+      "id": 804,
+      "name": "Senegal"
+    }
+  },
+  {
+    "source": "football-data",
     "matchId": "football-data:537330",
     "fixtureId": "537330",
     "label": "Mexico 1-0 South Korea",
@@ -977,7 +1041,7 @@
     "fixtureId": "537342",
     "label": "Scotland 0-1 Morocco",
     "kickedOffAt": "2026-06-19T22:00:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 8873,
       "name": "Scotland",
@@ -1134,67 +1198,21 @@
     }
   },
   {
-    "source": "football-data",
-    "matchId": "football-data:537366",
-    "fixtureId": "537366",
-    "label": "New Zealand vs Egypt",
-    "kickedOffAt": "2026-06-22T01:00:00Z",
-    "status": "scheduled",
+    "source": "api-football",
+    "matchId": "api-football:1489390",
+    "fixtureId": "1489390",
+    "label": "Scotland 0-1 Morocco",
+    "kickedOffAt": "2026-06-19T22:00:00+00:00",
+    "status": "finished",
     "homeTeam": {
-      "id": 783,
-      "name": "New Zealand"
+      "id": 1108,
+      "name": "Scotland",
+      "score": 0
     },
     "awayTeam": {
-      "id": 825,
-      "name": "Egypt"
-    }
-  },
-  {
-    "source": "football-data",
-    "matchId": "football-data:537399",
-    "fixtureId": "537399",
-    "label": "Argentina vs Austria",
-    "kickedOffAt": "2026-06-22T17:00:00Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "id": 762,
-      "name": "Argentina"
-    },
-    "awayTeam": {
-      "id": 816,
-      "name": "Austria"
-    }
-  },
-  {
-    "source": "football-data",
-    "matchId": "football-data:537393",
-    "fixtureId": "537393",
-    "label": "France vs Iraq",
-    "kickedOffAt": "2026-06-22T21:00:00Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "id": 773,
-      "name": "France"
-    },
-    "awayTeam": {
-      "id": 8062,
-      "name": "Iraq"
-    }
-  },
-  {
-    "source": "football-data",
-    "matchId": "football-data:537394",
-    "fixtureId": "537394",
-    "label": "Norway vs Senegal",
-    "kickedOffAt": "2026-06-23T00:00:00Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "id": 8872,
-      "name": "Norway"
-    },
-    "awayTeam": {
-      "id": 804,
-      "name": "Senegal"
+      "id": 31,
+      "name": "Morocco",
+      "score": 1
     }
   }
 ]

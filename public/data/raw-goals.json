@@ -2805,5 +2805,24 @@
     "detail": "normal",
     "playerId": "united-states-alex-freeman",
     "teamId": "united-states"
+  },
+  {
+    "externalGoalId": "api-football:1489390:161897:2:Normal Goal:0",
+    "playerName": "Ismael Saibari",
+    "nationalTeam": "Morocco",
+    "sourcePlayerName": "I. Saibari",
+    "sourceTeamName": "Morocco",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 161897,
+    "matchId": "football-data:537342",
+    "fixtureId": "1489390",
+    "matchLabel": "Scotland 0-1 Morocco",
+    "kickedOffAt": "2026-06-19T22:00:00Z",
+    "minute": 2,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "morocco-ismael-saibari",
+    "teamId": "morocco"
   }
 ]
