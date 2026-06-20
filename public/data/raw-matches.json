@@ -1095,7 +1095,7 @@
     "fixtureId": "537359",
     "label": "Netherlands 5-1 Sweden",
     "kickedOffAt": "2026-06-20T17:00:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 8601,
       "name": "Netherlands",
@@ -1201,6 +1201,24 @@
     "awayTeam": {
       "id": 1930,
       "name": "Cape Verde Islands"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1539007",
+    "fixtureId": "1539007",
+    "label": "Netherlands 5-1 Sweden",
+    "kickedOffAt": "2026-06-20T17:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 1118,
+      "name": "Netherlands",
+      "score": 5
+    },
+    "awayTeam": {
+      "id": 5,
+      "name": "Sweden",
+      "score": 1
     }
   }
 ]

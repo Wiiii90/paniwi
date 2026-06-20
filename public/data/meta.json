@@ -1,22 +1,22 @@
 {
-  "lastUpdated": "2026-06-20T19:01:03.271Z",
-  "source": "football-data",
+  "lastUpdated": "2026-06-20T19:31:00.016Z",
+  "source": "api-football",
   "attemptedSources": [
-    "football-data"
+    "api-football"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 174,
+  "goalCount": 180,
   "scoredGoalCount": 20,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
-  "snapshotFingerprint": "eaddcca2022ee7fec62dc6e20c5d3d028ee92d00bfd82fa793972197372c0369",
+  "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
+  "snapshotFingerprint": "68802dad64aacacb70e4c18e0f2830ad4d17adb52079e4388436b55ed892fcea",
   "snapshotChanged": true,
-  "syncWindowId": "2026 fifa world cup group e:germany-civ:2026-06-20T20:00:00.000Z-pre-match",
+  "syncWindowId": "2026 fifa world cup group e:germany-civ:2026-06-20T20:00:00.000Z-pre-match:api-football-enrich:football-data:537359",
   "windowSyncAttempts": 1,
-  "liveMatchCount": 1,
+  "liveMatchCount": 0,
   "sourceRequestCount": 3,
   "sourceRequestLimit": 6
 }
