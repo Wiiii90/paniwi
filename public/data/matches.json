@@ -692,34 +692,8 @@
         "teamId": "brazil"
       }
     ],
-    "pointGoals": [
-      {
-        "externalGoalId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T22:00:00.000Z:vinicius junior:32:normal",
-        "playerName": "Vinícius Júnior",
-        "nationalTeam": "Brazil",
-        "sourcePlayerName": "Vinícius Júnior",
-        "sourceTeamName": "Brazil",
-        "goals": 1,
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T22:00:00.000Z",
-        "matchLabel": "Brazil 1–1 Morocco",
-        "kickedOffAt": "2026-06-13T22:00:00.000Z",
-        "minute": 32,
-        "timeConfidence": "estimated",
-        "detail": "normal",
-        "playerId": "brazil-vinicius-junior",
-        "teamId": "brazil",
-        "pickId": "brazil-vinicius-junior",
-        "owner": "Felix",
-        "pickedPlayerName": "Vinícius Júnior",
-        "displayPlayerName": "Vinícius Júnior",
-        "displayNationalTeam": "Brasilien",
-        "points": 1
-      }
-    ],
-    "affectedOwners": [
-      "Felix"
-    ],
+    "pointGoals": [],
+    "affectedOwners": [],
     "participants": [
       {
         "source": "wikipedia",
@@ -14655,12 +14629,12 @@
   },
   {
     "matchId": "football-data:537341",
-    "label": "Brazil 0-0 Haiti",
+    "label": "Brazil 3-0 Haiti",
     "kickedOffAt": "2026-06-20T00:30:00Z",
     "status": "live",
     "homeTeam": {
       "name": "Brasilien",
-      "score": 0
+      "score": 3
     },
     "awayTeam": {
       "name": "Haiti",
@@ -14777,11 +14751,11 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 0,
+      "scoreTotal": 3,
       "goalEventCount": 0,
-      "eventsComplete": true,
+      "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
+      "needsEventBackfill": true,
       "needsLineupBackfill": true
     }
   },

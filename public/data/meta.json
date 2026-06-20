@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-20T01:00:59.526Z",
+  "lastUpdated": "2026-06-20T01:30:48.921Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -12,7 +12,7 @@
   "duplicateGoalCount": 0,
   "sourceErrors": [],
   "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
-  "snapshotFingerprint": "d052bda8d03acdac707a98817372a255d4e7fdff1b115f312379ebe21e5607e7",
+  "snapshotFingerprint": "6b40cd2124162fc2565febb62bf68d5082a4c8a02991a0115979e277af114a99",
   "snapshotChanged": true,
   "syncWindowId": "2026 fifa world cup group c:brazil-haiti:2026-06-20T00:30:00.000Z-live",
   "windowSyncAttempts": 1,

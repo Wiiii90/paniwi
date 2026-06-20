@@ -1057,13 +1057,13 @@
     "source": "football-data",
     "matchId": "football-data:537341",
     "fixtureId": "537341",
-    "label": "Brazil 0-0 Haiti",
+    "label": "Brazil 3-0 Haiti",
     "kickedOffAt": "2026-06-20T00:30:00Z",
     "status": "live",
     "homeTeam": {
       "id": 764,
       "name": "Brazil",
-      "score": 0
+      "score": 3
     },
     "awayTeam": {
       "id": 836,

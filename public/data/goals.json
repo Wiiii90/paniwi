@@ -1,28 +1,5 @@
 [
   {
-    "externalGoalId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T22:00:00.000Z:vinicius junior:32:normal",
-    "playerName": "Vinícius Júnior",
-    "nationalTeam": "Brazil",
-    "sourcePlayerName": "Vinícius Júnior",
-    "sourceTeamName": "Brazil",
-    "goals": 1,
-    "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group c:brazil-morocco:2026-06-13T22:00:00.000Z",
-    "matchLabel": "Brazil 1–1 Morocco",
-    "kickedOffAt": "2026-06-13T22:00:00.000Z",
-    "minute": 32,
-    "timeConfidence": "estimated",
-    "detail": "normal",
-    "playerId": "brazil-vinicius-junior",
-    "teamId": "brazil",
-    "pickId": "brazil-vinicius-junior",
-    "owner": "Felix",
-    "pickedPlayerName": "Vinícius Júnior",
-    "displayPlayerName": "Vinícius Júnior",
-    "displayNationalTeam": "Brasilien",
-    "points": 1
-  },
-  {
     "externalGoalId": "wikipedia:2026 fifa world cup group d:australia-tur:2026-06-14T04:00:00.000Z:nestory irankunda:27:normal",
     "playerName": "Nestory Irankunda",
     "nationalTeam": "Australia",
@@ -422,7 +399,7 @@
     "nationalTeam": "Brazil",
     "sourcePlayerName": "Matheus Cunha",
     "sourceTeamName": "Brazil",
-    "goals": 1,
+    "goals": 2,
     "source": "football-data",
     "apiPlayerId": 30842,
     "matchId": "football-data:scorers",
@@ -436,6 +413,28 @@
     "pickedPlayerName": "Matheus Cunha",
     "displayPlayerName": "Matheus Cunha",
     "displayNationalTeam": "Brasilien",
-    "points": 1
+    "points": 2
+  },
+  {
+    "externalGoalId": "football-data:scorer:1556:normal",
+    "playerName": "Vinícius Júnior",
+    "nationalTeam": "Brazil",
+    "sourcePlayerName": "Vinicius Junior",
+    "sourceTeamName": "Brazil",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 1556,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "brazil-vinicius-junior",
+    "teamId": "brazil",
+    "pickId": "brazil-vinicius-junior",
+    "owner": "Felix",
+    "pickedPlayerName": "Vinícius Júnior",
+    "displayPlayerName": "Vinícius Júnior",
+    "displayNationalTeam": "Brasilien",
+    "points": 2
   }
 ]
