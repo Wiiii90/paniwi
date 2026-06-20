@@ -1840,6 +1840,22 @@
     "teamId": "netherlands"
   },
   {
+    "externalGoalId": "football-data:scorer:6928:normal",
+    "playerName": "Deniz Undav",
+    "nationalTeam": "Germany",
+    "sourcePlayerName": "Deniz Undav",
+    "sourceTeamName": "Germany",
+    "goals": 3,
+    "source": "football-data",
+    "apiPlayerId": 6928,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "germany-deniz-undav",
+    "teamId": "germany"
+  },
+  {
     "externalGoalId": "football-data:scorer:3218:normal",
     "playerName": "Lionel Messi",
     "nationalTeam": "Argentina",
@@ -2407,22 +2423,6 @@
     "timeConfidence": "unknown",
     "detail": "normal",
     "playerId": "germany-nathaniel-brown",
-    "teamId": "germany"
-  },
-  {
-    "externalGoalId": "football-data:scorer:6928:normal",
-    "playerName": "Deniz Undav",
-    "nationalTeam": "Germany",
-    "sourcePlayerName": "Deniz Undav",
-    "sourceTeamName": "Germany",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 6928,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "germany-deniz-undav",
     "teamId": "germany"
   },
   {
