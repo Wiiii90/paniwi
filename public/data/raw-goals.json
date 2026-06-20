@@ -2980,5 +2980,21 @@
     "detail": "normal",
     "playerId": "sweden-anthony-elanga",
     "teamId": "sweden"
+  },
+  {
+    "externalGoalId": "football-data:scorer:8472:normal",
+    "playerName": "Memphis Depay",
+    "nationalTeam": "Netherlands",
+    "sourcePlayerName": "Memphis Depay",
+    "sourceTeamName": "Netherlands",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 8472,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "netherlands-memphis-depay",
+    "teamId": "netherlands"
   }
 ]

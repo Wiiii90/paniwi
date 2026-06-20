@@ -16397,12 +16397,12 @@
   },
   {
     "matchId": "football-data:537359",
-    "label": "Netherlands 4-1 Sweden",
+    "label": "Netherlands 5-1 Sweden",
     "kickedOffAt": "2026-06-20T17:00:00Z",
     "status": "live",
     "homeTeam": {
       "name": "Niederlande",
-      "score": 4
+      "score": 5
     },
     "awayTeam": {
       "name": "Schweden",
@@ -16504,7 +16504,7 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 5,
+      "scoreTotal": 6,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
