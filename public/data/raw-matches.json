@@ -1111,16 +1111,18 @@
     "source": "football-data",
     "matchId": "football-data:537353",
     "fixtureId": "537353",
-    "label": "Germany vs Ivory Coast",
+    "label": "Germany 0-0 Ivory Coast",
     "kickedOffAt": "2026-06-20T20:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 759,
-      "name": "Germany"
+      "name": "Germany",
+      "score": 0
     },
     "awayTeam": {
       "id": 1935,
-      "name": "Ivory Coast"
+      "name": "Ivory Coast",
+      "score": 0
     }
   },
   {

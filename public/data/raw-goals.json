@@ -3110,5 +3110,21 @@
     "detail": "normal",
     "playerId": "netherlands-memphis-depay",
     "teamId": "netherlands"
+  },
+  {
+    "externalGoalId": "football-data:scorer:1747:normal",
+    "playerName": "Franck Kessié",
+    "nationalTeam": "Ivory Coast",
+    "sourcePlayerName": "Franck Kessié",
+    "sourceTeamName": "Ivory Coast",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 1747,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "ivory-coast-franck-kessie",
+    "teamId": "ivory-coast"
   }
 ]
