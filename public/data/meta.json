@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-20T02:00:57.055Z",
+  "lastUpdated": "2026-06-20T02:30:45.621Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -14,8 +14,8 @@
   "message": "Daten-Snapshot unveraendert (football-data).",
   "snapshotFingerprint": "6b40cd2124162fc2565febb62bf68d5082a4c8a02991a0115979e277af114a99",
   "snapshotChanged": false,
-  "syncWindowId": "2026 fifa world cup group c:brazil-haiti:2026-06-20T00:30:00.000Z-live",
-  "windowSyncAttempts": 2,
+  "syncWindowId": "2026 fifa world cup group d:tur-paraguay:2026-06-20T03:00:00.000Z-pre-match",
+  "windowSyncAttempts": 1,
   "liveMatchCount": 1,
   "sourceRequestCount": 3,
   "sourceRequestLimit": 6
