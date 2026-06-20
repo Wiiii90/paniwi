@@ -1059,7 +1059,7 @@
     "fixtureId": "537341",
     "label": "Brazil 3-0 Haiti",
     "kickedOffAt": "2026-06-20T00:30:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 764,
       "name": "Brazil",
@@ -1197,6 +1197,24 @@
     "awayTeam": {
       "id": 1930,
       "name": "Cape Verde Islands"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489389",
+    "fixtureId": "1489389",
+    "label": "Brazil 3-0 Haiti",
+    "kickedOffAt": "2026-06-20T00:30:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 6,
+      "name": "Brazil",
+      "score": 3
+    },
+    "awayTeam": {
+      "id": 2386,
+      "name": "Haiti",
+      "score": 0
     }
   }
 ]
