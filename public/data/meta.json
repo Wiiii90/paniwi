@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-20T16:01:09.513Z",
+  "lastUpdated": "2026-06-20T17:00:58.219Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -14,9 +14,9 @@
   "message": "Daten-Snapshot unveraendert (football-data).",
   "snapshotFingerprint": "31a8aaa7f436464e116c16983ed3d8d219adb20a6bfc995fbc7d155cb1525009",
   "snapshotChanged": false,
-  "syncWindowId": "2026 fifa world cup group f:netherlands-sweden:2026-06-20T17:00:00.000Z-pre-match",
+  "syncWindowId": "2026 fifa world cup group f:netherlands-sweden:2026-06-20T17:00:00.000Z-live",
   "windowSyncAttempts": 1,
   "liveMatchCount": 0,
-  "sourceRequestCount": 2,
+  "sourceRequestCount": 3,
   "sourceRequestLimit": 6
 }
