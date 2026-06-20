@@ -1,22 +1,22 @@
 {
-  "lastUpdated": "2026-06-20T22:00:55.106Z",
-  "source": "football-data",
+  "lastUpdated": "2026-06-20T23:01:04.654Z",
+  "source": "api-football",
   "attemptedSources": [
-    "football-data"
+    "api-football"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 181,
+  "goalCount": 184,
   "scoredGoalCount": 20,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
-  "snapshotFingerprint": "eff50fa3ffde784f985a1aa510772efcbff6bd8d4df25a154344d2592d4b91b0",
+  "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
+  "snapshotFingerprint": "e35a31a55ba7fdc54791c3ddcde88ff82e7f746e123ca05e0baa0ec266d485ca",
   "snapshotChanged": true,
-  "syncWindowId": "2026 fifa world cup group e:germany-civ:2026-06-20T20:00:00.000Z-check-1",
+  "syncWindowId": "2026 fifa world cup group e:ecuador-curacao:2026-06-21T00:00:00.000Z-pre-match:api-football-enrich:football-data:537353",
   "windowSyncAttempts": 1,
-  "liveMatchCount": 1,
+  "liveMatchCount": 0,
   "sourceRequestCount": 3,
   "sourceRequestLimit": 6
 }
