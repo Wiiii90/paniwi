@@ -15582,14 +15582,16 @@
   },
   {
     "matchId": "football-data:537347",
-    "label": "Turkey vs Paraguay",
+    "label": "Turkey 0-1 Paraguay",
     "kickedOffAt": "2026-06-20T03:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
-      "name": "Türkei"
+      "name": "Türkei",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Paraguay"
+      "name": "Paraguay",
+      "score": 1
     },
     "goals": [],
     "pointGoals": [],
@@ -15657,12 +15659,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 1,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsEventBackfill": true,
+      "needsLineupBackfill": true
     }
   },
   {

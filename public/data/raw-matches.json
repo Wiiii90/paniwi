@@ -1075,16 +1075,18 @@
     "source": "football-data",
     "matchId": "football-data:537347",
     "fixtureId": "537347",
-    "label": "Turkey vs Paraguay",
+    "label": "Turkey 0-1 Paraguay",
     "kickedOffAt": "2026-06-20T03:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 803,
-      "name": "Turkey"
+      "name": "Turkey",
+      "score": 0
     },
     "awayTeam": {
       "id": 761,
-      "name": "Paraguay"
+      "name": "Paraguay",
+      "score": 1
     }
   },
   {
@@ -1197,24 +1199,6 @@
     "awayTeam": {
       "id": 1930,
       "name": "Cape Verde Islands"
-    }
-  },
-  {
-    "source": "api-football",
-    "matchId": "api-football:1489389",
-    "fixtureId": "1489389",
-    "label": "Brazil 3-0 Haiti",
-    "kickedOffAt": "2026-06-20T00:30:00+00:00",
-    "status": "finished",
-    "homeTeam": {
-      "id": 6,
-      "name": "Brazil",
-      "score": 3
-    },
-    "awayTeam": {
-      "id": 2386,
-      "name": "Haiti",
-      "score": 0
     }
   }
 ]

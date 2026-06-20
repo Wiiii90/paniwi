@@ -1,22 +1,22 @@
 {
-  "lastUpdated": "2026-06-20T03:01:14.150Z",
-  "source": "api-football",
+  "lastUpdated": "2026-06-20T03:30:46.245Z",
+  "source": "football-data",
   "attemptedSources": [
-    "api-football"
+    "football-data"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 168,
+  "goalCount": 169,
   "scoredGoalCount": 20,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
-  "snapshotFingerprint": "d7521cbac9c4e722374621536a496a870ba593849c90c31014c8b612f3a4ef18",
+  "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
+  "snapshotFingerprint": "dd02eee92a04c26d2c3dadeea4b7121ae255bc11c771598a84bda13067a4fa93",
   "snapshotChanged": true,
-  "syncWindowId": "2026 fifa world cup group d:tur-paraguay:2026-06-20T03:00:00.000Z-live:api-football-enrich:football-data:537341",
+  "syncWindowId": "2026 fifa world cup group d:tur-paraguay:2026-06-20T03:00:00.000Z-live",
   "windowSyncAttempts": 1,
-  "liveMatchCount": 0,
+  "liveMatchCount": 1,
   "sourceRequestCount": 3,
   "sourceRequestLimit": 6
 }
