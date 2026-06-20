@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-06-20T06:00:55.450Z",
-  "source": "api-football",
+  "lastUpdated": "2026-06-20T07:00:53.595Z",
+  "source": "football-data",
   "attemptedSources": [
-    "api-football"
+    "football-data"
   ],
   "fallbackUsed": false,
   "status": "ok",
@@ -11,10 +11,10 @@
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
-  "snapshotFingerprint": "10bab3995fab08db8bec7045cda5c130ce9cd25f687f15b65818d58eb7af569b",
+  "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
+  "snapshotFingerprint": "31a8aaa7f436464e116c16983ed3d8d219adb20a6bfc995fbc7d155cb1525009",
   "snapshotChanged": true,
-  "syncWindowId": "2026 fifa world cup group d:tur-paraguay:2026-06-20T03:00:00.000Z-check-2:api-football-enrich:football-data:537347",
+  "syncWindowId": "2026 fifa world cup group d:tur-paraguay:2026-06-20T03:00:00.000Z-check-3",
   "windowSyncAttempts": 1,
   "liveMatchCount": 0,
   "sourceRequestCount": 3,
