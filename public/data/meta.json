@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-20T04:00:52.620Z",
+  "lastUpdated": "2026-06-20T04:30:43.682Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -15,7 +15,7 @@
   "snapshotFingerprint": "dd02eee92a04c26d2c3dadeea4b7121ae255bc11c771598a84bda13067a4fa93",
   "snapshotChanged": false,
   "syncWindowId": "2026 fifa world cup group d:tur-paraguay:2026-06-20T03:00:00.000Z-live",
-  "windowSyncAttempts": 2,
+  "windowSyncAttempts": 3,
   "liveMatchCount": 1,
   "sourceRequestCount": 3,
   "sourceRequestLimit": 6
