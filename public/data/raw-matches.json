@@ -1126,7 +1126,7 @@
     "fixtureId": "537360",
     "label": "Tunisia 0-4 Japan",
     "kickedOffAt": "2026-06-21T04:00:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 802,
       "name": "Tunisia",
@@ -1232,6 +1232,24 @@
     "awayTeam": {
       "id": 8062,
       "name": "Iraq"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489394",
+    "fixtureId": "1489394",
+    "label": "Tunisia 0-4 Japan",
+    "kickedOffAt": "2026-06-21T04:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 28,
+      "name": "Tunisia",
+      "score": 0
+    },
+    "awayTeam": {
+      "id": 12,
+      "name": "Japan",
+      "score": 4
     }
   }
 ]
