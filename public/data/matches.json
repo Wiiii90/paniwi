@@ -20706,7 +20706,7 @@
   },
   {
     "matchId": "football-data:537365",
-    "label": "Belgium 0-1 Iran",
+    "label": "Belgium 0-0 Iran",
     "kickedOffAt": "2026-06-21T19:00:00Z",
     "status": "live",
     "homeTeam": {
@@ -20715,7 +20715,7 @@
     },
     "awayTeam": {
       "name": "Iran",
-      "score": 1
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -20829,11 +20829,11 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 1,
+      "scoreTotal": 0,
       "goalEventCount": 0,
-      "eventsComplete": false,
+      "eventsComplete": true,
       "lineupsComplete": false,
-      "needsEventBackfill": true,
+      "needsEventBackfill": false,
       "needsLineupBackfill": true
     }
   },
