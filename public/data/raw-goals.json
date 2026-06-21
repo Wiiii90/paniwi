@@ -3431,5 +3431,21 @@
     "detail": "normal",
     "playerId": "uruguay-agustin-canobbio",
     "teamId": "uruguay"
+  },
+  {
+    "externalGoalId": "football-data:scorer:213119:normal",
+    "playerName": "Hélio Varela",
+    "nationalTeam": "Cape Verde",
+    "sourcePlayerName": "Hélio Varela",
+    "sourceTeamName": "Cape Verde Islands",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 213119,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "cape-verde-helio-varela",
+    "teamId": "cape-verde"
   }
 ]
