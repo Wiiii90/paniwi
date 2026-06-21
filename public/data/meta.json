@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-06-21T02:00:57.683Z",
-  "source": "api-football",
+  "lastUpdated": "2026-06-21T03:01:17.637Z",
+  "source": "football-data",
   "attemptedSources": [
-    "api-football"
+    "football-data"
   ],
   "fallbackUsed": false,
   "status": "ok",
@@ -11,12 +11,12 @@
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
-  "snapshotFingerprint": "02593e8be08ed561a34f7b935669157b1b9e0e250bd1a4d2f1c5c3e8c0bc3007",
+  "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
+  "snapshotFingerprint": "9037339a42fe441c8ba0dd1687180ab80f33e00c89d69f22d2c09a45d82e3ea7",
   "snapshotChanged": true,
-  "syncWindowId": "2026 fifa world cup group e:ecuador-curacao:2026-06-21T00:00:00.000Z-check-1:api-football-enrich:football-data:537354",
+  "syncWindowId": "2026 fifa world cup group f:tunisia-japan:2026-06-21T04:00:00.000Z-pre-match",
   "windowSyncAttempts": 1,
   "liveMatchCount": 0,
-  "sourceRequestCount": 3,
+  "sourceRequestCount": 2,
   "sourceRequestLimit": 6
 }
