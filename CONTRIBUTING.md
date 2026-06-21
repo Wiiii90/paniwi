@@ -18,7 +18,7 @@ Thanks for taking an interest in Paniwi. Contributions are welcome when they kee
 4. Run the relevant checks.
 5. Open a pull request into `dev`.
 
-`master` is the stable branch used for the GitHub Pages build. Maintainer changes may still be pushed directly when needed for operations, but regular development should go through `dev`.
+`master` is the stable branch used for the GitHub Pages build. Regular development should go through `dev`; direct maintainer commits to `master` are reserved for small operational updates.
 
 ## Checks
 

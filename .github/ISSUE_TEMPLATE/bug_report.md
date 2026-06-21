@@ -14,7 +14,7 @@ assignees: ""
 
 ## Steps to reproduce
 
-1. 
+1.
 
 ## Context
 

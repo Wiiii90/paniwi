@@ -1,6 +1,6 @@
 ## Summary
 
-- 
+Briefly describe what changed and why.
 
 ## Checks
 
@@ -11,3 +11,4 @@
 
 ## Notes
 
+Add anything reviewers should know, or leave blank.

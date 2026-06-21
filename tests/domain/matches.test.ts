@@ -305,6 +305,49 @@ assert.deepEqual(
   ["api-football:1539002"]
 );
 
+const apiEnrichedFixtureMatch = buildMatches(
+  [
+    {
+      ...baseGoal,
+      externalGoalId: "api-football:1489397:386828:10:Normal Goal:0",
+      playerName: "Lamine Yamal",
+      nationalTeam: "Spain",
+      source: "api-football",
+      matchId: "football-data:537371",
+      fixtureId: "1489397",
+      matchLabel: "Spain 4-0 Saudi Arabia",
+      minute: 10
+    }
+  ],
+  [],
+  [
+    {
+      source: "football-data",
+      matchId: "football-data:537371",
+      fixtureId: "537371",
+      label: "Spain 5-0 Saudi Arabia",
+      kickedOffAt: "2026-06-21T16:00:00.000Z",
+      status: "finished",
+      homeTeam: { name: "Spain", score: 5 },
+      awayTeam: { name: "Saudi Arabia", score: 0 }
+    },
+    {
+      source: "api-football",
+      matchId: "api-football:1489397",
+      fixtureId: "1489397",
+      label: "Spain 4-0 Saudi Arabia",
+      kickedOffAt: "2026-06-21T16:00:00+00:00",
+      status: "finished",
+      homeTeam: { name: "Spain", score: 4 },
+      awayTeam: { name: "Saudi Arabia", score: 0 }
+    }
+  ]
+)[0];
+assert.deepEqual(
+  [apiEnrichedFixtureMatch.matchId, apiEnrichedFixtureMatch.homeTeam.score, apiEnrichedFixtureMatch.awayTeam.score],
+  ["api-football:1489397", 4, 0]
+);
+
 const scheduledAfterKickoffMatch = buildMatches(
   [],
   [],

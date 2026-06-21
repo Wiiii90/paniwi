@@ -57,7 +57,7 @@ function buildMatchTeam(team: ExternalMatchRecord["homeTeam"], source: ExternalM
 }
 
 function getFixtureCompletenessScore(fixture: ExternalMatchRecord): number {
-  const sourceScore = fixture.source === "football-data" ? 110 : fixture.source === "api-football" ? 100 : fixture.source === "wikipedia" ? 50 : 0;
+  const sourceScore = fixture.source === "api-football" ? 120 : fixture.source === "football-data" ? 110 : fixture.source === "wikipedia" ? 50 : 0;
   const statusScore = fixture.status === "finished" || fixture.status === "live" ? 10 : fixture.status === "scheduled" ? 5 : 0;
   const scoreScore = fixture.homeTeam.score !== undefined && fixture.awayTeam.score !== undefined ? 10 : 0;
   return sourceScore + statusScore + scoreScore;

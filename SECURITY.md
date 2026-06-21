@@ -6,7 +6,7 @@ The current `master` branch is the supported version of this project.
 
 ## Reporting a Vulnerability
 
-Please report security issues privately through the maintainer's GitHub profile instead of opening a public issue.
+Please report security issues privately through the maintainer's GitHub profile instead of opening a public issue: [@Wiiii90](https://github.com/Wiiii90).
 
 Useful details include:
 
