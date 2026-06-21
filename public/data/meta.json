@@ -1,18 +1,18 @@
 {
-  "lastUpdated": "2026-06-21T05:00:52.612Z",
+  "lastUpdated": "2026-06-21T05:30:44.202Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 185,
+  "goalCount": 186,
   "scoredGoalCount": 20,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
   "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
-  "snapshotFingerprint": "c01fd25662b1f0597623068a14090cc9a01c9726640cb03f29a42844492bfba0",
+  "snapshotFingerprint": "58ba57e36e45256df82c3502ed1d2aa70d3697cc2d9895e670581e6f773bf611",
   "snapshotChanged": true,
   "syncWindowId": "2026 fifa world cup group f:tunisia-japan:2026-06-21T04:00:00.000Z-live",
   "windowSyncAttempts": 1,
