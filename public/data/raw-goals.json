@@ -2225,6 +2225,22 @@
     "teamId": "sweden"
   },
   {
+    "externalGoalId": "football-data:scorer:28770:normal",
+    "playerName": "Maximiliano Araújo",
+    "nationalTeam": "Uruguay",
+    "sourcePlayerName": "Maximiliano Araújo",
+    "sourceTeamName": "Uruguay",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 28770,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "uruguay-maximiliano-araujo",
+    "teamId": "uruguay"
+  },
+  {
     "externalGoalId": "football-data:scorer:118981:normal",
     "playerName": "Elijah Just",
     "nationalTeam": "New Zealand",
@@ -2843,22 +2859,6 @@
     "teamId": "saudi-arabia"
   },
   {
-    "externalGoalId": "football-data:scorer:28770:normal",
-    "playerName": "Maximiliano Araújo",
-    "nationalTeam": "Uruguay",
-    "sourcePlayerName": "Maximiliano Araújo",
-    "sourceTeamName": "Uruguay",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 28770,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "uruguay-maximiliano-araujo",
-    "teamId": "uruguay"
-  },
-  {
     "externalGoalId": "football-data:scorer:3804:normal",
     "playerName": "Ramin Rezaeian",
     "nationalTeam": "Iran",
@@ -3415,5 +3415,21 @@
     "detail": "normal",
     "playerId": "cape-verde-kevin-pina",
     "teamId": "cape-verde"
+  },
+  {
+    "externalGoalId": "football-data:scorer:28614:normal",
+    "playerName": "Agustín Canobbio",
+    "nationalTeam": "Uruguay",
+    "sourcePlayerName": "Agustín Canobbio",
+    "sourceTeamName": "Uruguay",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 28614,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "uruguay-agustin-canobbio",
+    "teamId": "uruguay"
   }
 ]

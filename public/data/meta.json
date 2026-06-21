@@ -1,18 +1,18 @@
 {
-  "lastUpdated": "2026-06-21T22:31:17.535Z",
+  "lastUpdated": "2026-06-21T23:01:27.737Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 197,
+  "goalCount": 198,
   "scoredGoalCount": 21,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
   "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
-  "snapshotFingerprint": "6a020fccdf53a8e6abe71962a006d5b765f6a31ceb22fec2579db9de539f2789",
+  "snapshotFingerprint": "8323abbdc439ed0f71ed1f4b2bff6943e3f916402cc35190622aad448cce46d4",
   "snapshotChanged": true,
   "syncWindowId": "2026 fifa world cup group h:uruguay-cape verde:2026-06-21T22:00:00.000Z-live",
   "windowSyncAttempts": 1,

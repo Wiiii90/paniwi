@@ -21491,12 +21491,12 @@
   },
   {
     "matchId": "football-data:537372",
-    "label": "Uruguay 0-1 Cape Verde Islands",
+    "label": "Uruguay 2-1 Cape Verde Islands",
     "kickedOffAt": "2026-06-21T22:00:00Z",
     "status": "live",
     "homeTeam": {
       "name": "Uruguay",
-      "score": 0
+      "score": 2
     },
     "awayTeam": {
       "name": "Kap Verde",
@@ -21583,7 +21583,7 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 1,
+      "scoreTotal": 3,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
