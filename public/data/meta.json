@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-21T03:01:17.637Z",
+  "lastUpdated": "2026-06-21T03:30:54.435Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -11,11 +11,11 @@
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
+  "message": "Daten-Snapshot unveraendert (football-data).",
   "snapshotFingerprint": "9037339a42fe441c8ba0dd1687180ab80f33e00c89d69f22d2c09a45d82e3ea7",
-  "snapshotChanged": true,
+  "snapshotChanged": false,
   "syncWindowId": "2026 fifa world cup group f:tunisia-japan:2026-06-21T04:00:00.000Z-pre-match",
-  "windowSyncAttempts": 1,
+  "windowSyncAttempts": 2,
   "liveMatchCount": 0,
   "sourceRequestCount": 2,
   "sourceRequestLimit": 6
