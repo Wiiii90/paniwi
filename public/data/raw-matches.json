@@ -1124,16 +1124,18 @@
     "source": "football-data",
     "matchId": "football-data:537360",
     "fixtureId": "537360",
-    "label": "Tunisia vs Japan",
+    "label": "Tunisia 0-1 Japan",
     "kickedOffAt": "2026-06-21T04:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 802,
-      "name": "Tunisia"
+      "name": "Tunisia",
+      "score": 0
     },
     "awayTeam": {
       "id": 766,
-      "name": "Japan"
+      "name": "Japan",
+      "score": 1
     }
   },
   {
