@@ -1178,16 +1178,18 @@
     "source": "football-data",
     "matchId": "football-data:537372",
     "fixtureId": "537372",
-    "label": "Uruguay vs Cape Verde Islands",
+    "label": "Uruguay 0-1 Cape Verde Islands",
     "kickedOffAt": "2026-06-21T22:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 758,
-      "name": "Uruguay"
+      "name": "Uruguay",
+      "score": 0
     },
     "awayTeam": {
       "id": 1930,
-      "name": "Cape Verde Islands"
+      "name": "Cape Verde Islands",
+      "score": 1
     }
   },
   {

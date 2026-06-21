@@ -3399,5 +3399,21 @@
     "detail": "normal",
     "playerId": "spain-lamine-yamal",
     "teamId": "spain"
+  },
+  {
+    "externalGoalId": "football-data:scorer:40121:normal",
+    "playerName": "Kevin Pina",
+    "nationalTeam": "Cape Verde",
+    "sourcePlayerName": "Kevin Pina",
+    "sourceTeamName": "Cape Verde Islands",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 40121,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "cape-verde-kevin-pina",
+    "teamId": "cape-verde"
   }
 ]
