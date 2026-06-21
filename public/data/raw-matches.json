@@ -1160,16 +1160,18 @@
     "source": "football-data",
     "matchId": "football-data:537365",
     "fixtureId": "537365",
-    "label": "Belgium vs Iran",
+    "label": "Belgium 0-1 Iran",
     "kickedOffAt": "2026-06-21T19:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 805,
-      "name": "Belgium"
+      "name": "Belgium",
+      "score": 0
     },
     "awayTeam": {
       "id": 840,
-      "name": "Iran"
+      "name": "Iran",
+      "score": 1
     }
   },
   {
@@ -1234,24 +1236,6 @@
     "awayTeam": {
       "id": 8062,
       "name": "Iraq"
-    }
-  },
-  {
-    "source": "api-football",
-    "matchId": "api-football:1489397",
-    "fixtureId": "1489397",
-    "label": "Spain 4-0 Saudi Arabia",
-    "kickedOffAt": "2026-06-21T16:00:00+00:00",
-    "status": "finished",
-    "homeTeam": {
-      "id": 9,
-      "name": "Spain",
-      "score": 4
-    },
-    "awayTeam": {
-      "id": 23,
-      "name": "Saudi Arabia",
-      "score": 0
     }
   }
 ]

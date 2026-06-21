@@ -19783,13 +19783,13 @@
     }
   },
   {
-    "matchId": "api-football:1489397",
-    "label": "Spain 4-0 Saudi Arabia",
-    "kickedOffAt": "2026-06-21T16:00:00+00:00",
+    "matchId": "football-data:537371",
+    "label": "Spain 5-0 Saudi Arabia",
+    "kickedOffAt": "2026-06-21T16:00:00Z",
     "status": "finished",
     "homeTeam": {
       "name": "Spanien",
-      "score": 4
+      "score": 5
     },
     "awayTeam": {
       "name": "Saudi-Arabien",
@@ -20696,24 +20696,26 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 4,
+      "scoreTotal": 5,
       "goalEventCount": 4,
-      "eventsComplete": true,
+      "eventsComplete": false,
       "lineupsComplete": true,
-      "needsEventBackfill": false,
+      "needsEventBackfill": true,
       "needsLineupBackfill": false
     }
   },
   {
     "matchId": "football-data:537365",
-    "label": "Belgium vs Iran",
+    "label": "Belgium 0-1 Iran",
     "kickedOffAt": "2026-06-21T19:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
-      "name": "Belgien"
+      "name": "Belgien",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Iran"
+      "name": "Iran",
+      "score": 1
     },
     "goals": [],
     "pointGoals": [],
@@ -20827,12 +20829,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 1,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsEventBackfill": true,
+      "needsLineupBackfill": true
     }
   },
   {
