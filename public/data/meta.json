@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-21T01:00:56.541Z",
+  "lastUpdated": "2026-06-21T01:30:47.704Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -15,7 +15,7 @@
   "snapshotFingerprint": "50fe926c99bac3fee1b97357266b85a0092d279fe39930d233e5bdd9bc65780b",
   "snapshotChanged": false,
   "syncWindowId": "2026 fifa world cup group e:ecuador-curacao:2026-06-21T00:00:00.000Z-live",
-  "windowSyncAttempts": 2,
+  "windowSyncAttempts": 3,
   "liveMatchCount": 1,
   "sourceRequestCount": 3,
   "sourceRequestLimit": 6
