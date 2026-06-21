@@ -322,19 +322,6 @@
   },
   {
     "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group g:nzl-egypt:2026-06-22T01:00:00.000Z",
-    "label": "NZL Match 40 Egypt",
-    "kickedOffAt": "2026-06-22T01:00:00.000Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "name": "NZL"
-    },
-    "awayTeam": {
-      "name": "Egypt"
-    }
-  },
-  {
-    "source": "wikipedia",
     "matchId": "wikipedia:2026 fifa world cup group g:egypt-iran:2026-06-27T03:00:00.000Z",
     "label": "Egypt Match 63 Iran",
     "kickedOffAt": "2026-06-27T03:00:00.000Z",
@@ -387,19 +374,6 @@
   },
   {
     "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group i:france-iraq:2026-06-22T21:00:00.000Z",
-    "label": "France Match 42 Iraq",
-    "kickedOffAt": "2026-06-22T21:00:00.000Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "name": "France"
-    },
-    "awayTeam": {
-      "name": "Iraq"
-    }
-  },
-  {
-    "source": "wikipedia",
     "matchId": "wikipedia:2026 fifa world cup group i:norway-senegal:2026-06-23T00:00:00.000Z",
     "label": "Norway Match 41 Senegal",
     "kickedOffAt": "2026-06-23T00:00:00.000Z",
@@ -435,19 +409,6 @@
     },
     "awayTeam": {
       "name": "Iraq"
-    }
-  },
-  {
-    "source": "wikipedia",
-    "matchId": "wikipedia:2026 fifa world cup group j:argentina-austria:2026-06-22T17:00:00.000Z",
-    "label": "Argentina Match 43 Austria",
-    "kickedOffAt": "2026-06-22T17:00:00.000Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "name": "Argentina"
-    },
-    "awayTeam": {
-      "name": "Austria"
     }
   },
   {
@@ -937,54 +898,6 @@
   },
   {
     "source": "football-data",
-    "matchId": "football-data:537366",
-    "fixtureId": "537366",
-    "label": "New Zealand vs Egypt",
-    "kickedOffAt": "2026-06-22T01:00:00Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "id": 783,
-      "name": "New Zealand"
-    },
-    "awayTeam": {
-      "id": 825,
-      "name": "Egypt"
-    }
-  },
-  {
-    "source": "football-data",
-    "matchId": "football-data:537399",
-    "fixtureId": "537399",
-    "label": "Argentina vs Austria",
-    "kickedOffAt": "2026-06-22T17:00:00Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "id": 762,
-      "name": "Argentina"
-    },
-    "awayTeam": {
-      "id": 816,
-      "name": "Austria"
-    }
-  },
-  {
-    "source": "football-data",
-    "matchId": "football-data:537393",
-    "fixtureId": "537393",
-    "label": "France vs Iraq",
-    "kickedOffAt": "2026-06-22T21:00:00Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "id": 773,
-      "name": "France"
-    },
-    "awayTeam": {
-      "id": 8062,
-      "name": "Iraq"
-    }
-  },
-  {
-    "source": "football-data",
     "matchId": "football-data:537394",
     "fixtureId": "537394",
     "label": "Norway vs Senegal",
@@ -1203,6 +1116,118 @@
     "awayTeam": {
       "id": 1930,
       "name": "Cape Verde Islands"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537366",
+    "fixtureId": "537366",
+    "label": "New Zealand vs Egypt",
+    "kickedOffAt": "2026-06-22T01:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 783,
+      "name": "New Zealand"
+    },
+    "awayTeam": {
+      "id": 825,
+      "name": "Egypt"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537399",
+    "fixtureId": "537399",
+    "label": "Argentina vs Austria",
+    "kickedOffAt": "2026-06-22T17:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 762,
+      "name": "Argentina"
+    },
+    "awayTeam": {
+      "id": 816,
+      "name": "Austria"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537393",
+    "fixtureId": "537393",
+    "label": "France vs Iraq",
+    "kickedOffAt": "2026-06-22T21:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 773,
+      "name": "France"
+    },
+    "awayTeam": {
+      "id": 8062,
+      "name": "Iraq"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537400",
+    "fixtureId": "537400",
+    "label": "Jordan vs Algeria",
+    "kickedOffAt": "2026-06-23T03:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 8049,
+      "name": "Jordan"
+    },
+    "awayTeam": {
+      "id": 778,
+      "name": "Algeria"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537405",
+    "fixtureId": "537405",
+    "label": "Portugal vs Uzbekistan",
+    "kickedOffAt": "2026-06-23T17:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 765,
+      "name": "Portugal"
+    },
+    "awayTeam": {
+      "id": 8070,
+      "name": "Uzbekistan"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537411",
+    "fixtureId": "537411",
+    "label": "England vs Ghana",
+    "kickedOffAt": "2026-06-23T20:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 770,
+      "name": "England"
+    },
+    "awayTeam": {
+      "id": 763,
+      "name": "Ghana"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537412",
+    "fixtureId": "537412",
+    "label": "Panama vs Croatia",
+    "kickedOffAt": "2026-06-23T23:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 1836,
+      "name": "Panama"
+    },
+    "awayTeam": {
+      "id": 799,
+      "name": "Croatia"
     }
   }
 ]

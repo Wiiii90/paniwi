@@ -18964,9 +18964,9 @@
     }
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group j:jor-algeria:2026-06-23T03:00:00.000Z",
-    "label": "JOR Match 44 Algeria",
-    "kickedOffAt": "2026-06-23T03:00:00.000Z",
+    "matchId": "football-data:537400",
+    "label": "Jordan vs Algeria",
+    "kickedOffAt": "2026-06-23T03:00:00Z",
     "status": "scheduled",
     "homeTeam": {
       "name": "Jordanien"
@@ -18988,9 +18988,9 @@
     }
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group k:portugal-uzb:2026-06-23T17:00:00.000Z",
-    "label": "Portugal Match 47 UZB",
-    "kickedOffAt": "2026-06-23T17:00:00.000Z",
+    "matchId": "football-data:537405",
+    "label": "Portugal vs Uzbekistan",
+    "kickedOffAt": "2026-06-23T17:00:00Z",
     "status": "scheduled",
     "homeTeam": {
       "name": "Portugal"
@@ -19003,8 +19003,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group k:portugal-uzb:2026-06-23T17:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537405",
+        "fixtureId": "537405",
         "playerName": "Bruno Fernandes",
         "nationalTeam": "Portugal",
         "teamId": "portugal",
@@ -19017,8 +19018,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group k:portugal-uzb:2026-06-23T17:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537405",
+        "fixtureId": "537405",
         "playerName": "Gonçalo Ramos",
         "nationalTeam": "Portugal",
         "teamId": "portugal",
@@ -19031,8 +19033,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group k:portugal-uzb:2026-06-23T17:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537405",
+        "fixtureId": "537405",
         "playerName": "João Cancelo",
         "nationalTeam": "Portugal",
         "teamId": "portugal",
@@ -19045,8 +19048,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group k:portugal-uzb:2026-06-23T17:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537405",
+        "fixtureId": "537405",
         "playerName": "João Félix",
         "nationalTeam": "Portugal",
         "teamId": "portugal",
@@ -19059,8 +19063,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group k:portugal-uzb:2026-06-23T17:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537405",
+        "fixtureId": "537405",
         "playerName": "Rúben Dias",
         "nationalTeam": "Portugal",
         "teamId": "portugal",
@@ -19083,9 +19088,9 @@
     }
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group l:england-gha:2026-06-23T20:00:00.000Z",
-    "label": "England Match 45 GHA",
-    "kickedOffAt": "2026-06-23T20:00:00.000Z",
+    "matchId": "football-data:537411",
+    "label": "England vs Ghana",
+    "kickedOffAt": "2026-06-23T20:00:00Z",
     "status": "scheduled",
     "homeTeam": {
       "name": "England"
@@ -19098,8 +19103,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group l:england-gha:2026-06-23T20:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537411",
+        "fixtureId": "537411",
         "playerName": "Dan Burn",
         "nationalTeam": "England",
         "teamId": "england",
@@ -19112,8 +19118,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group l:england-gha:2026-06-23T20:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537411",
+        "fixtureId": "537411",
         "playerName": "Jordan Pickford",
         "nationalTeam": "England",
         "teamId": "england",
@@ -19126,8 +19133,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group l:england-gha:2026-06-23T20:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537411",
+        "fixtureId": "537411",
         "playerName": "Jude Bellingham",
         "nationalTeam": "England",
         "teamId": "england",
@@ -19140,8 +19148,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group l:england-gha:2026-06-23T20:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537411",
+        "fixtureId": "537411",
         "playerName": "Marc Guéhi",
         "nationalTeam": "England",
         "teamId": "england",
@@ -19154,8 +19163,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group l:england-gha:2026-06-23T20:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537411",
+        "fixtureId": "537411",
         "playerName": "Marcus Rashford",
         "nationalTeam": "England",
         "teamId": "england",
@@ -19168,8 +19178,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group l:england-gha:2026-06-23T20:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537411",
+        "fixtureId": "537411",
         "playerName": "Morgan Rogers",
         "nationalTeam": "England",
         "teamId": "england",
@@ -19192,9 +19203,9 @@
     }
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group l:panama-croatia:2026-06-23T23:00:00.000Z",
-    "label": "Panama Match 46 Croatia",
-    "kickedOffAt": "2026-06-23T23:00:00.000Z",
+    "matchId": "football-data:537412",
+    "label": "Panama vs Croatia",
+    "kickedOffAt": "2026-06-23T23:00:00Z",
     "status": "scheduled",
     "homeTeam": {
       "name": "Panama"
@@ -19207,8 +19218,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group l:panama-croatia:2026-06-23T23:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537412",
+        "fixtureId": "537412",
         "playerName": "Andrej Kramarić",
         "nationalTeam": "Kroatien",
         "teamId": "croatia",
@@ -19221,8 +19233,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group l:panama-croatia:2026-06-23T23:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537412",
+        "fixtureId": "537412",
         "playerName": "Josip Stanišić",
         "nationalTeam": "Kroatien",
         "teamId": "croatia",
@@ -19236,8 +19249,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group l:panama-croatia:2026-06-23T23:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537412",
+        "fixtureId": "537412",
         "playerName": "Mario Pašalić",
         "nationalTeam": "Kroatien",
         "teamId": "croatia",
@@ -19250,8 +19264,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group l:panama-croatia:2026-06-23T23:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537412",
+        "fixtureId": "537412",
         "playerName": "Luis Mejía",
         "nationalTeam": "Panama",
         "teamId": "panama",
@@ -19264,8 +19279,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group l:panama-croatia:2026-06-23T23:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537412",
+        "fixtureId": "537412",
         "playerName": "Orlando Mosquera",
         "nationalTeam": "Panama",
         "teamId": "panama",
