@@ -968,6 +968,70 @@
   },
   {
     "source": "football-data",
+    "matchId": "football-data:537400",
+    "fixtureId": "537400",
+    "label": "Jordan vs Algeria",
+    "kickedOffAt": "2026-06-23T03:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 8049,
+      "name": "Jordan"
+    },
+    "awayTeam": {
+      "id": 778,
+      "name": "Algeria"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537405",
+    "fixtureId": "537405",
+    "label": "Portugal vs Uzbekistan",
+    "kickedOffAt": "2026-06-23T17:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 765,
+      "name": "Portugal"
+    },
+    "awayTeam": {
+      "id": 8070,
+      "name": "Uzbekistan"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537411",
+    "fixtureId": "537411",
+    "label": "England vs Ghana",
+    "kickedOffAt": "2026-06-23T20:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 770,
+      "name": "England"
+    },
+    "awayTeam": {
+      "id": 763,
+      "name": "Ghana"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537412",
+    "fixtureId": "537412",
+    "label": "Panama vs Croatia",
+    "kickedOffAt": "2026-06-23T23:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 1836,
+      "name": "Panama"
+    },
+    "awayTeam": {
+      "id": 799,
+      "name": "Croatia"
+    }
+  },
+  {
+    "source": "football-data",
     "matchId": "football-data:537341",
     "fixtureId": "537341",
     "label": "Brazil 3-0 Haiti",
@@ -1042,16 +1106,18 @@
     "source": "football-data",
     "matchId": "football-data:537354",
     "fixtureId": "537354",
-    "label": "Ecuador vs Curaçao",
+    "label": "Ecuador 0-0 Curaçao",
     "kickedOffAt": "2026-06-21T00:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 791,
-      "name": "Ecuador"
+      "name": "Ecuador",
+      "score": 0
     },
     "awayTeam": {
       "id": 9460,
-      "name": "Curaçao"
+      "name": "Curaçao",
+      "score": 0
     }
   },
   {
@@ -1164,70 +1230,6 @@
     "awayTeam": {
       "id": 8062,
       "name": "Iraq"
-    }
-  },
-  {
-    "source": "football-data",
-    "matchId": "football-data:537400",
-    "fixtureId": "537400",
-    "label": "Jordan vs Algeria",
-    "kickedOffAt": "2026-06-23T03:00:00Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "id": 8049,
-      "name": "Jordan"
-    },
-    "awayTeam": {
-      "id": 778,
-      "name": "Algeria"
-    }
-  },
-  {
-    "source": "football-data",
-    "matchId": "football-data:537405",
-    "fixtureId": "537405",
-    "label": "Portugal vs Uzbekistan",
-    "kickedOffAt": "2026-06-23T17:00:00Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "id": 765,
-      "name": "Portugal"
-    },
-    "awayTeam": {
-      "id": 8070,
-      "name": "Uzbekistan"
-    }
-  },
-  {
-    "source": "football-data",
-    "matchId": "football-data:537411",
-    "fixtureId": "537411",
-    "label": "England vs Ghana",
-    "kickedOffAt": "2026-06-23T20:00:00Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "id": 770,
-      "name": "England"
-    },
-    "awayTeam": {
-      "id": 763,
-      "name": "Ghana"
-    }
-  },
-  {
-    "source": "football-data",
-    "matchId": "football-data:537412",
-    "fixtureId": "537412",
-    "label": "Panama vs Croatia",
-    "kickedOffAt": "2026-06-23T23:00:00Z",
-    "status": "scheduled",
-    "homeTeam": {
-      "id": 1836,
-      "name": "Panama"
-    },
-    "awayTeam": {
-      "id": 799,
-      "name": "Croatia"
     }
   }
 ]

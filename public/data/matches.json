@@ -18153,14 +18153,16 @@
   },
   {
     "matchId": "football-data:537354",
-    "label": "Ecuador vs Curaçao",
+    "label": "Ecuador 0-0 Curaçao",
     "kickedOffAt": "2026-06-21T00:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
-      "name": "Ecuador"
+      "name": "Ecuador",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Curacao"
+      "name": "Curacao",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -18213,12 +18215,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 0,
       "goalEventCount": 0,
-      "eventsComplete": false,
+      "eventsComplete": true,
       "lineupsComplete": false,
       "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsLineupBackfill": true
     }
   },
   {
