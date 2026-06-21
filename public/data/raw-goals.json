@@ -2217,6 +2217,22 @@
     "teamId": "netherlands"
   },
   {
+    "externalGoalId": "football-data:scorer:119460:normal",
+    "playerName": "Ayase Ueda",
+    "nationalTeam": "Japan",
+    "sourcePlayerName": "Ayase Ueda",
+    "sourceTeamName": "Japan",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 119460,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "japan-ayase-ueda",
+    "teamId": "japan"
+  },
+  {
     "externalGoalId": "football-data:scorer:39237:normal",
     "playerName": "Julián Quiñones",
     "nationalTeam": "Mexico",
@@ -3183,22 +3199,6 @@
     "detail": "normal",
     "playerId": "ivory-coast-franck-kessie",
     "teamId": "ivory-coast"
-  },
-  {
-    "externalGoalId": "football-data:scorer:119460:normal",
-    "playerName": "Ayase Ueda",
-    "nationalTeam": "Japan",
-    "sourcePlayerName": "Ayase Ueda",
-    "sourceTeamName": "Japan",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 119460,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "japan-ayase-ueda",
-    "teamId": "japan"
   },
   {
     "externalGoalId": "football-data:scorer:49080:normal",
