@@ -1162,7 +1162,7 @@
     "fixtureId": "537365",
     "label": "Belgium 0-0 Iran",
     "kickedOffAt": "2026-06-21T19:00:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 805,
       "name": "Belgium",
@@ -1236,6 +1236,24 @@
     "awayTeam": {
       "id": 8062,
       "name": "Iraq"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489395",
+    "fixtureId": "1489395",
+    "label": "Belgium 0-0 Iran",
+    "kickedOffAt": "2026-06-21T19:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 1,
+      "name": "Belgium",
+      "score": 0
+    },
+    "awayTeam": {
+      "id": 22,
+      "name": "Iran",
+      "score": 0
     }
   }
 ]
