@@ -18948,7 +18948,7 @@
   },
   {
     "matchId": "football-data:537360",
-    "label": "Tunisia 0-1 Japan",
+    "label": "Tunisia 0-2 Japan",
     "kickedOffAt": "2026-06-21T04:00:00Z",
     "status": "live",
     "homeTeam": {
@@ -18957,7 +18957,7 @@
     },
     "awayTeam": {
       "name": "Japan",
-      "score": 1
+      "score": 2
     },
     "goals": [],
     "pointGoals": [],
@@ -18980,7 +18980,7 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 1,
+      "scoreTotal": 2,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
