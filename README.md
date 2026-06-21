@@ -74,7 +74,7 @@ For local experiments, `.env.example` documents the available settings. Producti
 
 ## GitHub Pages and Actions
 
-- `ci.yml` runs tests and build checks on pull requests and on pushes to `master` or `dev`.
+- `ci.yml` runs tests and build checks on pull requests and pushes to `master`.
 - `deploy.yml` builds and publishes the static site to GitHub Pages.
 - `sync-data.yml` runs on a self-hosted runner for controlled data updates.
 - `sync-rosters.yml` updates roster snapshots when run manually.
@@ -92,7 +92,7 @@ Only resolved tournament events affect the score. Roster and nomination data pro
 
 ## Branch Flow
 
-The stable Pages branch is `master`. Ongoing work should happen on feature branches and be opened as pull requests into `dev`. When `dev` is ready, it can be merged into `master` for release.
+The stable Pages branch is `master`. Ongoing work can happen on short-lived feature branches and be opened as pull requests directly into `master`.
 
 ## Contributing
 

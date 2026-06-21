@@ -13,12 +13,12 @@ Thanks for taking an interest in Paniwi. Contributions are welcome when they kee
 ## Workflow
 
 1. Open or pick an issue when the change needs discussion.
-2. Create a feature branch from `dev`.
+2. Create a short-lived feature branch from `master`.
 3. Keep the change focused.
 4. Run the relevant checks.
-5. Open a pull request into `dev`.
+5. Open a pull request into `master`.
 
-`master` is the stable branch used for the GitHub Pages build. Regular development should go through `dev`; direct maintainer commits to `master` are reserved for small operational updates.
+`master` is the stable branch used for the GitHub Pages build. Small maintainer updates may be committed directly when that keeps the project moving, but pull requests should target `master`.
 
 ## Checks
 
