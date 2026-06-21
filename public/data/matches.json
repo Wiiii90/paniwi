@@ -19784,12 +19784,12 @@
   },
   {
     "matchId": "football-data:537371",
-    "label": "Spain 5-0 Saudi Arabia",
+    "label": "Spain 4-0 Saudi Arabia",
     "kickedOffAt": "2026-06-21T16:00:00Z",
     "status": "finished",
     "homeTeam": {
       "name": "Spanien",
-      "score": 5
+      "score": 4
     },
     "awayTeam": {
       "name": "Saudi-Arabien",
@@ -20696,11 +20696,11 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 5,
+      "scoreTotal": 4,
       "goalEventCount": 4,
-      "eventsComplete": false,
+      "eventsComplete": true,
       "lineupsComplete": true,
-      "needsEventBackfill": true,
+      "needsEventBackfill": false,
       "needsLineupBackfill": false
     }
   },

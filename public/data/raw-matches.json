@@ -1142,13 +1142,13 @@
     "source": "football-data",
     "matchId": "football-data:537371",
     "fixtureId": "537371",
-    "label": "Spain 5-0 Saudi Arabia",
+    "label": "Spain 4-0 Saudi Arabia",
     "kickedOffAt": "2026-06-21T16:00:00Z",
     "status": "finished",
     "homeTeam": {
       "id": 760,
       "name": "Spain",
-      "score": 5
+      "score": 4
     },
     "awayTeam": {
       "id": 801,
