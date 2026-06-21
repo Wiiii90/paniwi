@@ -217,6 +217,7 @@ assert.equal(sourceResult.sourceRequestLimit, 3);
 assert.deepEqual(sourceResult.coveredDateKeys, ["2026-06-17"]);
 assert.equal(sourceResult.preserveExistingGoals, true);
 assert.equal(sourceResult.replaceExistingSourceGoals, true);
+assert.equal(sourceResult.preserveExistingMatches, true);
 assert.equal(sourceResult.preserveExistingParticipants, true);
 assert.equal(sourceResult.matches?.[0]?.label, "France 3-1 Senegal");
 assert.deepEqual(sourceResult.goals.map((goal) => [goal.playerName, goal.nationalTeam, goal.goals, goal.detail]), [

@@ -235,8 +235,7 @@ function attachGoalToFootballDataMatch(goal: ExternalGoalRecord, match: External
   return {
     ...goal,
     matchId: match.matchId,
-    matchLabel: match.label,
-    kickedOffAt: match.kickedOffAt ?? goal.kickedOffAt
+    kickedOffAt: goal.kickedOffAt ?? match.kickedOffAt
   };
 }
 

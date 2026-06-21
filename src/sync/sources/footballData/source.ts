@@ -151,7 +151,7 @@ export const footballDataSource: GoalSource = {
       coveredDateKeys: matches.length > 0 ? dateRange.dateKeys : [],
       preserveExistingGoals: true,
       replaceExistingSourceGoals: true,
-      preserveExistingMatches: matches.length === 0,
+      preserveExistingMatches: true,
       preserveExistingParticipants: true,
       sourceRequestCount: budget.used,
       sourceRequestLimit: budget.limit

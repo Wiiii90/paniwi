@@ -375,10 +375,17 @@ try {
   assert.equal(sourceResult.preserveExistingMatches, true);
   assert.equal(sourceResult.preserveExistingParticipants, true);
   assert.deepEqual(
-    sourceResult.goals.map((goal) => [goal.matchId, goal.fixtureId, goal.playerName, goal.minute]),
+    sourceResult.goals.map((goal) => [goal.matchId, goal.fixtureId, goal.matchLabel, goal.playerName, goal.minute]),
     [
-      ["football-data:newest", "9001", "Erling Haaland", 12],
-      ["football-data:older", "9002", "Joao Felix", 33]
+      ["football-data:newest", "9001", "Norway 4-1 Iraq", "Erling Haaland", 12],
+      ["football-data:older", "9002", "Portugal 2-0 DR Congo", "Joao Felix", 33]
+    ]
+  );
+  assert.deepEqual(
+    sourceResult.matches?.map((match) => [match.matchId, match.fixtureId, match.label]),
+    [
+      ["api-football:9001", "9001", "Norway 4-1 Iraq"],
+      ["api-football:9002", "9002", "Portugal 2-0 DR Congo"]
     ]
   );
   assert.deepEqual(
