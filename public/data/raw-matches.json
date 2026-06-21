@@ -1108,7 +1108,7 @@
     "fixtureId": "537354",
     "label": "Ecuador 0-0 Curaçao",
     "kickedOffAt": "2026-06-21T00:00:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 791,
       "name": "Ecuador",
@@ -1230,6 +1230,24 @@
     "awayTeam": {
       "id": 8062,
       "name": "Iraq"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489392",
+    "fixtureId": "1489392",
+    "label": "Ecuador 0-0 Curaçao",
+    "kickedOffAt": "2026-06-21T00:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 2382,
+      "name": "Ecuador",
+      "score": 0
+    },
+    "awayTeam": {
+      "id": 5530,
+      "name": "Curaçao",
+      "score": 0
     }
   }
 ]
