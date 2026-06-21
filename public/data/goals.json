@@ -490,5 +490,30 @@
     "displayPlayerName": "Vinícius Júnior",
     "displayNationalTeam": "Brasilien",
     "points": 1
+  },
+  {
+    "externalGoalId": "api-football:1489397:386828:10:Normal Goal:0",
+    "playerName": "Lamine Yamal",
+    "nationalTeam": "Spain",
+    "sourcePlayerName": "Lamine Yamal",
+    "sourceTeamName": "Spain",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 386828,
+    "matchId": "football-data:537371",
+    "fixtureId": "1489397",
+    "matchLabel": "Spain 5-0 Saudi Arabia",
+    "kickedOffAt": "2026-06-21T16:00:00Z",
+    "minute": 10,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "spain-lamine-yamal",
+    "teamId": "spain",
+    "pickId": "spain-lamine-yamal",
+    "owner": "Rafael",
+    "pickedPlayerName": "Lamine Yamal",
+    "displayPlayerName": "Lamine Yamal",
+    "displayNationalTeam": "Spanien",
+    "points": 1
   }
 ]

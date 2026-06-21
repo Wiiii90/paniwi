@@ -1,20 +1,20 @@
 {
-  "lastUpdated": "2026-06-21T08:01:00.581Z",
-  "source": "football-data",
+  "lastUpdated": "2026-06-21T18:41:37.977Z",
+  "source": "api-football",
   "attemptedSources": [
-    "football-data"
+    "api-football"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 190,
-  "scoredGoalCount": 20,
+  "goalCount": 196,
+  "scoredGoalCount": 21,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
-  "snapshotFingerprint": "02ad4b39daf6fa67822e75f1cd428e548d3ad5e91d4956e2737633e3c019822b",
+  "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
+  "snapshotFingerprint": "6a32287a6ef6a1cb4c6cdaca7cef06681dedb3f6c681896150b4e7d01c37cbed",
   "snapshotChanged": true,
-  "syncWindowId": "2026 fifa world cup group f:tunisia-japan:2026-06-21T04:00:00.000Z-check-3",
+  "syncWindowId": "2026 fifa world cup group g:belgium-iran:2026-06-21T19:00:00.000Z-pre-match:api-football-enrich:football-data:537371",
   "windowSyncAttempts": 1,
   "liveMatchCount": 0,
   "sourceRequestCount": 3,
