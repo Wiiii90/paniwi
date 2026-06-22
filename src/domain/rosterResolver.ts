@@ -19,7 +19,8 @@ type EnrichGoalsWithRosterOptions = {
 
 const apiFootballGoalNameAliases = new Map<string, string>([
   ["cape-verde|k lenini", "Kevin Pina"],
-  ["cape-verde|kevin lenini", "Kevin Pina"]
+  ["cape-verde|kevin lenini", "Kevin Pina"],
+  ["egypt|m salah", "Mohamed Salah"]
 ]);
 
 function getRosterTeam(snapshot: RosterSnapshot | undefined, teamId: string): RosterTeam | null {
