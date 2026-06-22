@@ -3571,5 +3571,21 @@
     "detail": "normal",
     "playerId": "egypt-mohamed-salah",
     "teamId": "egypt"
+  },
+  {
+    "externalGoalId": "football-data:scorer:180952:normal",
+    "playerName": "Trézéguet",
+    "nationalTeam": "Egypt",
+    "sourcePlayerName": "Trezeguet",
+    "sourceTeamName": "Egypt",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 180952,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "egypt-trezeguet",
+    "teamId": "egypt"
   }
 ]

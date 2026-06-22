@@ -1196,7 +1196,7 @@
     "source": "football-data",
     "matchId": "football-data:537366",
     "fixtureId": "537366",
-    "label": "New Zealand 1-1 Egypt",
+    "label": "New Zealand 1-3 Egypt",
     "kickedOffAt": "2026-06-22T01:00:00Z",
     "status": "live",
     "homeTeam": {
@@ -1207,7 +1207,7 @@
     "awayTeam": {
       "id": 825,
       "name": "Egypt",
-      "score": 1
+      "score": 3
     }
   },
   {
