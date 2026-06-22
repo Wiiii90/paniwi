@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-21T23:31:15.855Z",
+  "lastUpdated": "2026-06-22T00:01:26.358Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -12,9 +12,9 @@
   "duplicateGoalCount": 0,
   "sourceErrors": [],
   "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
-  "snapshotFingerprint": "e40d9142a440645e4710197a8724ac67def9fbbf78f78b763803704f533db499",
+  "snapshotFingerprint": "e18121f7e99e41c13ebb553a4ca2a1857080642d3baefee4a0db96b067404495",
   "snapshotChanged": true,
-  "syncWindowId": "2026 fifa world cup group h:uruguay-cape verde:2026-06-21T22:00:00.000Z-live",
+  "syncWindowId": "2026 fifa world cup group g:nzl-egypt:2026-06-22T01:00:00.000Z-pre-match",
   "windowSyncAttempts": 1,
   "liveMatchCount": 1,
   "sourceRequestCount": 3,

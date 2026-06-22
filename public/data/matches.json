@@ -21491,7 +21491,7 @@
   },
   {
     "matchId": "football-data:537372",
-    "label": "Uruguay 2-1 Cape Verde Islands",
+    "label": "Uruguay 2-2 Cape Verde Islands",
     "kickedOffAt": "2026-06-21T22:00:00Z",
     "status": "live",
     "homeTeam": {
@@ -21500,7 +21500,7 @@
     },
     "awayTeam": {
       "name": "Kap Verde",
-      "score": 1
+      "score": 2
     },
     "goals": [],
     "pointGoals": [],
@@ -21583,7 +21583,7 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 3,
+      "scoreTotal": 4,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
@@ -22287,9 +22287,9 @@
     }
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group k:colombia-dr congo:2026-06-24T02:00:00.000Z",
-    "label": "Colombia Match 48 DR Congo",
-    "kickedOffAt": "2026-06-24T02:00:00.000Z",
+    "matchId": "football-data:537406",
+    "label": "Colombia vs Congo DR",
+    "kickedOffAt": "2026-06-24T02:00:00Z",
     "status": "scheduled",
     "homeTeam": {
       "name": "Kolumbien"
@@ -22302,8 +22302,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group k:colombia-dr congo:2026-06-24T02:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537406",
+        "fixtureId": "537406",
         "playerName": "Aaron Wan-Bissaka",
         "nationalTeam": "DR Kongo",
         "teamId": "dr-congo",
@@ -22316,8 +22317,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group k:colombia-dr congo:2026-06-24T02:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537406",
+        "fixtureId": "537406",
         "playerName": "Cédric Bakambu",
         "nationalTeam": "DR Kongo",
         "teamId": "dr-congo",
@@ -22331,8 +22333,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group k:colombia-dr congo:2026-06-24T02:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537406",
+        "fixtureId": "537406",
         "playerName": "Edo Kayembe",
         "nationalTeam": "DR Kongo",
         "teamId": "dr-congo",
@@ -22345,8 +22348,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group k:colombia-dr congo:2026-06-24T02:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537406",
+        "fixtureId": "537406",
         "playerName": "Nathanaël Mbuku",
         "nationalTeam": "DR Kongo",
         "teamId": "dr-congo",
@@ -22359,8 +22363,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group k:colombia-dr congo:2026-06-24T02:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537406",
+        "fixtureId": "537406",
         "playerName": "Ngal'ayel Mukau",
         "nationalTeam": "DR Kongo",
         "teamId": "dr-congo",
@@ -22373,8 +22378,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group k:colombia-dr congo:2026-06-24T02:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537406",
+        "fixtureId": "537406",
         "playerName": "Yoane Wissa",
         "nationalTeam": "DR Kongo",
         "teamId": "dr-congo",
@@ -22387,8 +22393,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group k:colombia-dr congo:2026-06-24T02:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537406",
+        "fixtureId": "537406",
         "playerName": "Davinson Sánchez",
         "nationalTeam": "Kolumbien",
         "teamId": "colombia",
@@ -22401,8 +22408,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group k:colombia-dr congo:2026-06-24T02:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537406",
+        "fixtureId": "537406",
         "playerName": "Jhon Arias",
         "nationalTeam": "Kolumbien",
         "teamId": "colombia",
@@ -22415,8 +22423,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group k:colombia-dr congo:2026-06-24T02:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537406",
+        "fixtureId": "537406",
         "playerName": "Richard Ríos",
         "nationalTeam": "Kolumbien",
         "teamId": "colombia",
@@ -22440,9 +22449,9 @@
     }
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group b:bosnia and herzegovina-qatar:2026-06-24T19:00:00.000Z",
-    "label": "Bosnia and Herzegovina Match 52 Qatar",
-    "kickedOffAt": "2026-06-24T19:00:00.000Z",
+    "matchId": "football-data:537338",
+    "label": "Bosnia-Herzegovina vs Qatar",
+    "kickedOffAt": "2026-06-24T19:00:00Z",
     "status": "scheduled",
     "homeTeam": {
       "name": "Bosnien und Herzegowina"
@@ -22455,8 +22464,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group b:bosnia and herzegovina-qatar:2026-06-24T19:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537338",
+        "fixtureId": "537338",
         "playerName": "Haris Tabaković",
         "nationalTeam": "Bosnien und Herzegowina",
         "teamId": "bosnia-and-herzegovina",
@@ -22469,8 +22479,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group b:bosnia and herzegovina-qatar:2026-06-24T19:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537338",
+        "fixtureId": "537338",
         "playerName": "Edmilson Junior",
         "nationalTeam": "Katar",
         "teamId": "qatar",
@@ -22493,9 +22504,9 @@
     }
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group b:switzerland-canada:2026-06-24T19:00:00.000Z",
-    "label": "Switzerland Match 51 Canada",
-    "kickedOffAt": "2026-06-24T19:00:00.000Z",
+    "matchId": "football-data:537337",
+    "label": "Switzerland vs Canada",
+    "kickedOffAt": "2026-06-24T19:00:00Z",
     "status": "scheduled",
     "homeTeam": {
       "name": "Schweiz"
@@ -22508,8 +22519,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group b:switzerland-canada:2026-06-24T19:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537337",
+        "fixtureId": "537337",
         "playerName": "Alphonso Davies",
         "nationalTeam": "Kanada",
         "teamId": "canada",
@@ -22522,8 +22534,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group b:switzerland-canada:2026-06-24T19:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537337",
+        "fixtureId": "537337",
         "playerName": "Jonathan David",
         "nationalTeam": "Kanada",
         "teamId": "canada",
@@ -22536,8 +22549,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group b:switzerland-canada:2026-06-24T19:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537337",
+        "fixtureId": "537337",
         "playerName": "Mathieu Choinière",
         "nationalTeam": "Kanada",
         "teamId": "canada",
@@ -22550,8 +22564,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group b:switzerland-canada:2026-06-24T19:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537337",
+        "fixtureId": "537337",
         "playerName": "Richie Laryea",
         "nationalTeam": "Kanada",
         "teamId": "canada",
@@ -22564,8 +22579,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group b:switzerland-canada:2026-06-24T19:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537337",
+        "fixtureId": "537337",
         "playerName": "Manuel Akanji",
         "nationalTeam": "Schweiz",
         "teamId": "switzerland",
@@ -22578,8 +22594,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group b:switzerland-canada:2026-06-24T19:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537337",
+        "fixtureId": "537337",
         "playerName": "Rubén Vargas",
         "nationalTeam": "Schweiz",
         "teamId": "switzerland",
@@ -22602,9 +22619,9 @@
     }
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group c:morocco-haiti:2026-06-24T22:00:00.000Z",
-    "label": "Morocco Match 50 Haiti",
-    "kickedOffAt": "2026-06-24T22:00:00.000Z",
+    "matchId": "football-data:537344",
+    "label": "Morocco vs Haiti",
+    "kickedOffAt": "2026-06-24T22:00:00Z",
     "status": "scheduled",
     "homeTeam": {
       "name": "Marokko"
@@ -22617,8 +22634,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group c:morocco-haiti:2026-06-24T22:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537344",
+        "fixtureId": "537344",
         "playerName": "Derrick Etienne Jr.",
         "nationalTeam": "Haiti",
         "teamId": "haiti",
@@ -22631,8 +22649,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group c:morocco-haiti:2026-06-24T22:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537344",
+        "fixtureId": "537344",
         "playerName": "Johny Placide",
         "nationalTeam": "Haiti",
         "teamId": "haiti",
@@ -22645,8 +22664,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group c:morocco-haiti:2026-06-24T22:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537344",
+        "fixtureId": "537344",
         "playerName": "Achraf Hakimi",
         "nationalTeam": "Marokko",
         "teamId": "morocco",
@@ -22659,8 +22679,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group c:morocco-haiti:2026-06-24T22:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537344",
+        "fixtureId": "537344",
         "playerName": "Ayoub El Kaabi",
         "nationalTeam": "Marokko",
         "teamId": "morocco",
@@ -22683,9 +22704,9 @@
     }
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group c:scotland-brazil:2026-06-24T22:00:00.000Z",
-    "label": "Scotland Match 49 Brazil",
-    "kickedOffAt": "2026-06-24T22:00:00.000Z",
+    "matchId": "football-data:537343",
+    "label": "Scotland vs Brazil",
+    "kickedOffAt": "2026-06-24T22:00:00Z",
     "status": "scheduled",
     "homeTeam": {
       "name": "Schottland"
@@ -22698,8 +22719,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group c:scotland-brazil:2026-06-24T22:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537343",
+        "fixtureId": "537343",
         "playerName": "Alisson",
         "nationalTeam": "Brasilien",
         "teamId": "brazil",
@@ -22712,8 +22734,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group c:scotland-brazil:2026-06-24T22:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537343",
+        "fixtureId": "537343",
         "playerName": "Gabriel Magalhães",
         "nationalTeam": "Brasilien",
         "teamId": "brazil",
@@ -22726,8 +22749,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group c:scotland-brazil:2026-06-24T22:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537343",
+        "fixtureId": "537343",
         "playerName": "Lucas Paquetá",
         "nationalTeam": "Brasilien",
         "teamId": "brazil",
@@ -22740,8 +22764,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group c:scotland-brazil:2026-06-24T22:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537343",
+        "fixtureId": "537343",
         "playerName": "Matheus Cunha",
         "nationalTeam": "Brasilien",
         "teamId": "brazil",
@@ -22754,8 +22779,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group c:scotland-brazil:2026-06-24T22:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537343",
+        "fixtureId": "537343",
         "playerName": "Vinícius Júnior",
         "nationalTeam": "Brasilien",
         "teamId": "brazil",
@@ -22768,8 +22794,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group c:scotland-brazil:2026-06-24T22:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537343",
+        "fixtureId": "537343",
         "playerName": "Aaron Hickey",
         "nationalTeam": "Schottland",
         "teamId": "scotland",
@@ -22782,8 +22809,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group c:scotland-brazil:2026-06-24T22:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537343",
+        "fixtureId": "537343",
         "playerName": "Angus Gunn",
         "nationalTeam": "Schottland",
         "teamId": "scotland",
@@ -22796,8 +22824,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group c:scotland-brazil:2026-06-24T22:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537343",
+        "fixtureId": "537343",
         "playerName": "Ben Gannon-Doak",
         "nationalTeam": "Schottland",
         "teamId": "scotland",
