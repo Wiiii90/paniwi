@@ -198,6 +198,54 @@ assert.throws(
       [
         {
           ...baseGoal,
+          externalGoalId: "ambiguous-initial-goal",
+          playerName: "M. Al",
+          nationalTeam: "Egypt",
+          sourcePlayerName: "M. Al",
+          sourceTeamName: "Egypt",
+          source: "api-football",
+          matchLabel: "New Zealand 1-3 Egypt"
+        }
+      ],
+      {
+        lastUpdated: "2026-06-16T00:00:00.000Z",
+        source: "wikipedia",
+        pageTitle: "2026 FIFA World Cup squads",
+        teamCount: 1,
+        playerCount: 2,
+        teams: [
+          {
+            teamName: "Egypt",
+            teamId: "egypt",
+            players: [
+              {
+                playerName: "Mohamed Alaa",
+                normalizedPlayerName: "mohamed alaa",
+                position: "goalkeeper",
+                shirtNumber: 26,
+                sourceName: "Mohamed Alaa"
+              },
+              {
+                playerName: "Mostafa Ziko",
+                normalizedPlayerName: "mostafa ziko",
+                position: "midfielder",
+                shirtNumber: 11,
+                sourceName: "Mostafa Ziko"
+              }
+            ]
+          }
+        ]
+      },
+      { strictSources: ["api-football"] }
+    ),
+  /Roster-Match fehlgeschlagen/
+);
+assert.throws(
+  () =>
+    enrichGoalsWithRoster(
+      [
+        {
+          ...baseGoal,
           externalGoalId: "ambiguous-norway-goal",
           playerName: "L. Ostigard",
           nationalTeam: "Norway",

@@ -19,8 +19,7 @@ type EnrichGoalsWithRosterOptions = {
 
 const apiFootballGoalNameAliases = new Map<string, string>([
   ["cape-verde|k lenini", "Kevin Pina"],
-  ["cape-verde|kevin lenini", "Kevin Pina"],
-  ["egypt|m salah", "Mohamed Salah"]
+  ["cape-verde|kevin lenini", "Kevin Pina"]
 ]);
 
 function getRosterTeam(snapshot: RosterSnapshot | undefined, teamId: string): RosterTeam | null {
@@ -216,7 +215,43 @@ function getGoalRosterMatchScore(searchName: string, player: RosterPlayer): numb
   return 10 + distance;
 }
 
+function matchesInitialAbbreviation(searchName: string, candidateName: string): boolean {
+  const searchTokens = getNameTokens(searchName);
+  const initials = searchTokens.filter((token) => token.length === 1);
+  const fullTokens = searchTokens.filter((token) => token.length > 1);
+
+  if (initials.length === 0 || fullTokens.length === 0) {
+    return false;
+  }
+
+  return matchesInitialAndLastName(searchName, candidateName) || matchesSingleInitialAndFullTokens(searchName, candidateName);
+}
+
+function findUniqueInitialRosterPlayer(searchName: string, rosterPlayers: RosterPlayer[]): RosterPlayer | null {
+  const matches = rosterPlayers.filter((player) =>
+    getRosterPlayerNames(player).some((name) => matchesInitialAbbreviation(searchName, name))
+  );
+  return matches.length === 1 ? matches[0] : null;
+}
+
 function findUniqueGoalRosterPlayer(searchName: string, rosterPlayers: RosterPlayer[]): RosterPlayer | null {
+  const normalizedSearchName = normalizeTransliteratedPlayerName(searchName);
+  const searchSignature = getTokenSignature(searchName);
+  const exactMatch = rosterPlayers.filter((player) =>
+    getRosterPlayerNames(player).some(
+      (name) => normalizeTransliteratedPlayerName(name) === normalizedSearchName || getTokenSignature(name) === searchSignature
+    )
+  );
+
+  if (exactMatch.length === 1) {
+    return exactMatch[0];
+  }
+
+  const initialMatch = findUniqueInitialRosterPlayer(searchName, rosterPlayers);
+  if (initialMatch) {
+    return initialMatch;
+  }
+
   const ranked = rosterPlayers
     .map((player) => ({ player, score: getGoalRosterMatchScore(searchName, player) }))
     .sort((left, right) => left.score - right.score);
