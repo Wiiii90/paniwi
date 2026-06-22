@@ -2271,6 +2271,22 @@
     "teamId": "germany"
   },
   {
+    "externalGoalId": "football-data:scorer:3374:normal",
+    "playerName": "Kylian Mbappé",
+    "nationalTeam": "France",
+    "sourcePlayerName": "Kylian Mbappé",
+    "sourceTeamName": "France",
+    "goals": 3,
+    "source": "football-data",
+    "apiPlayerId": 3374,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "france-kylian-mbappe",
+    "teamId": "france"
+  },
+  {
     "externalGoalId": "football-data:scorer:8924:normal",
     "playerName": "Jonathan David",
     "nationalTeam": "Canada",
@@ -2445,22 +2461,6 @@
     "detail": "normal",
     "playerId": "new-zealand-elijah-just",
     "teamId": "new-zealand"
-  },
-  {
-    "externalGoalId": "football-data:scorer:3374:normal",
-    "playerName": "Kylian Mbappé",
-    "nationalTeam": "France",
-    "sourcePlayerName": "Kylian Mbappé",
-    "sourceTeamName": "France",
-    "goals": 2,
-    "source": "football-data",
-    "apiPlayerId": 3374,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "france-kylian-mbappe",
-    "teamId": "france"
   },
   {
     "externalGoalId": "football-data:scorer:38101:normal",

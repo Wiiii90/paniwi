@@ -24054,14 +24054,16 @@
   },
   {
     "matchId": "football-data:537393",
-    "label": "France vs Iraq",
+    "label": "France 1-0 Iraq",
     "kickedOffAt": "2026-06-22T21:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
-      "name": "Frankreich"
+      "name": "Frankreich",
+      "score": 1
     },
     "awayTeam": {
-      "name": "Irak"
+      "name": "Irak",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -24144,12 +24146,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 1,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsEventBackfill": true,
+      "needsLineupBackfill": true
     }
   },
   {

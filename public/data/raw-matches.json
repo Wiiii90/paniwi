@@ -1232,16 +1232,18 @@
     "source": "football-data",
     "matchId": "football-data:537393",
     "fixtureId": "537393",
-    "label": "France vs Iraq",
+    "label": "France 1-0 Iraq",
     "kickedOffAt": "2026-06-22T21:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 773,
-      "name": "France"
+      "name": "France",
+      "score": 1
     },
     "awayTeam": {
       "id": 8062,
-      "name": "Iraq"
+      "name": "Iraq",
+      "score": 0
     }
   },
   {

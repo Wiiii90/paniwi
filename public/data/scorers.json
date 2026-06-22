@@ -32,6 +32,16 @@
     "rank": 2
   },
   {
+    "playerName": "Kylian Mbappé",
+    "normalizedPlayerName": "kylian mbappe",
+    "nationalTeam": "Frankreich",
+    "goals": 3,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 2
+  },
+  {
     "playerName": "Ayase Ueda",
     "normalizedPlayerName": "ayase ueda",
     "nationalTeam": "Japan",
@@ -39,7 +49,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Brian Brobbey",
@@ -49,7 +59,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Cody Gakpo",
@@ -59,7 +69,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Crysencio Summerville",
@@ -69,7 +79,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Cyle Larin",
@@ -79,7 +89,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Daichi Kamada",
@@ -89,7 +99,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Elijah Just",
@@ -99,7 +109,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Erling Haaland",
@@ -111,7 +121,7 @@
       "Caro"
     ],
     "selected": true,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Folarin Balogun",
@@ -121,7 +131,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Harry Kane",
@@ -131,7 +141,7 @@
     "penaltyGoals": 1,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Ismael Saibari",
@@ -141,7 +151,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Johan Manzambi",
@@ -151,7 +161,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Kai Havertz",
@@ -161,17 +171,7 @@
     "penaltyGoals": 1,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
-  },
-  {
-    "playerName": "Kylian Mbappé",
-    "normalizedPlayerName": "kylian mbappe",
-    "nationalTeam": "Frankreich",
-    "goals": 2,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Matheus Cunha",
@@ -183,7 +183,7 @@
       "Rafael"
     ],
     "selected": true,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Maximiliano Araújo",
@@ -193,7 +193,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Mikel Oyarzabal",
@@ -203,7 +203,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Vinícius Júnior",
@@ -215,7 +215,7 @@
       "Felix"
     ],
     "selected": true,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Yasin Ayari",
@@ -225,7 +225,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 4
+    "rank": 5
   },
   {
     "playerName": "Abbosbek Fayzullaev",
