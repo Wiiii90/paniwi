@@ -50,7 +50,8 @@ function normalizeGoalDetail(detail: string | undefined): GoalDetail {
 }
 
 function isGoalEvent(event: ApiFootballEvent): boolean {
-  return event.type?.toLowerCase() === "goal";
+  const detail = event.detail?.toLowerCase() ?? "";
+  return event.type?.toLowerCase() === "goal" && !(detail.includes("miss") && detail.includes("penalt"));
 }
 
 export function parseApiFootballEvents(

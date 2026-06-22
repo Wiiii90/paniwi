@@ -84,6 +84,22 @@ assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("missing-p
 assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("unknown-team-id"), true);
 assert.equal(formatTeamValidationIssues(invalidTeams.issues).includes("duplicate-player-id-in-team"), true);
 
+const missedPenaltyValidation = validateGoals([
+  {
+    ...baseGoal,
+    externalGoalId: "api-football:1489399:154:33:Missed Penalty:0",
+    playerName: "Lionel Messi",
+    nationalTeam: "Argentina",
+    source: "api-football",
+    detail: "penalty"
+  }
+]);
+assert.equal(missedPenaltyValidation.validGoals.length, 0);
+assert.deepEqual(
+  missedPenaltyValidation.skippedGoals.map((item) => item.reason),
+  ["missed-penalty"]
+);
+
 assert.deepEqual(
   buildSourceErrorMeta(
     ["api-football", "wikipedia"],

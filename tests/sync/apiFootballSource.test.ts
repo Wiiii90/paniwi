@@ -67,6 +67,13 @@ assert.deepEqual(
         detail: "Penalty"
       },
       {
+        time: { elapsed: 58 },
+        team: { id: 1, name: "Norway" },
+        player: { id: 1100, name: "Erling Haaland" },
+        type: "Goal",
+        detail: "Missed Penalty"
+      },
+      {
         team: { name: "Norway" },
         player: { id: 1100, name: "Erling Haaland" },
         assist: { id: 42, name: "Antonio Nusa" },

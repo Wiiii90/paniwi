@@ -53,6 +53,11 @@ export function validateGoals(goals: GoalRecord[]): GoalValidationResult {
 }
 
 function getInvalidReason(goal: GoalRecord): string | null {
+  const externalGoalId = goal.externalGoalId.toLowerCase();
+  if (goal.source === "api-football" && externalGoalId.includes("miss") && externalGoalId.includes("penalt")) {
+    return "missed-penalty";
+  }
+
   if (!goal.playerName.trim()) {
     return "missing-player-name";
   }
