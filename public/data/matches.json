@@ -23233,25 +23233,6 @@
     },
     "goals": [
       {
-        "externalGoalId": "api-football:1489399:154:9:Missed Penalty:0",
-        "playerName": "Lionel Messi",
-        "nationalTeam": "Argentina",
-        "sourcePlayerName": "L. Messi",
-        "sourceTeamName": "Argentina",
-        "goals": 1,
-        "source": "api-football",
-        "apiPlayerId": 154,
-        "matchId": "football-data:537399",
-        "fixtureId": "1489399",
-        "matchLabel": "Argentina 2-0 Austria",
-        "kickedOffAt": "2026-06-22T17:00:00+00:00",
-        "minute": 9,
-        "timeConfidence": "match-only",
-        "detail": "penalty",
-        "playerId": "argentina-lionel-messi",
-        "teamId": "argentina"
-      },
-      {
         "externalGoalId": "api-football:1489399:154:38:Normal Goal:1",
         "playerName": "Lionel Messi",
         "nationalTeam": "Argentina",
@@ -24064,7 +24045,7 @@
     ],
     "syncState": {
       "scoreTotal": 2,
-      "goalEventCount": 3,
+      "goalEventCount": 2,
       "eventsComplete": true,
       "lineupsComplete": true,
       "needsEventBackfill": false,

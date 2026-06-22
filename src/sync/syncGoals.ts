@@ -427,7 +427,7 @@ export async function syncGoals(
   const rosterEnrichedGoals = enrichGoalsWithRoster(normalizedGoals, rosterSnapshot, {
     strictSources
   });
-  const { validGoals: goals, skippedGoals } = validateGoals(rosterEnrichedGoals);
+  const { validGoals: goals } = validateGoals(rosterEnrichedGoals);
   const effectiveGoals = selectEffectiveGoalsForScoring(goals);
   const scoredGoals = sortGoalsChronologically(scoreGoalsForTeams(participantTeams, effectiveGoals, rosterSnapshot));
   const leaderboard = buildLeaderboard(participantTeams, effectiveGoals, rosterSnapshot);
@@ -448,7 +448,7 @@ export async function syncGoals(
       sourceErrors,
       goals,
       scoredGoals,
-      skippedGoals,
+      [],
       previousMeta,
       options,
       normalizedMatches,

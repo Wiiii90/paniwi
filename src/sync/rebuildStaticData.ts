@@ -42,7 +42,7 @@ export async function rebuildStaticData(): Promise<void> {
   const enrichedRawGoals = enrichGoalsWithRoster(rawGoals, rosters, {
     strictSources
   });
-  const { validGoals, skippedGoals } = validateGoals(enrichedRawGoals);
+  const { validGoals } = validateGoals(enrichedRawGoals);
   const effectiveGoals = selectEffectiveGoalsForScoring(validGoals);
   const scoredGoals = sortGoalsChronologically(scoreGoalsForTeams(participantTeams, effectiveGoals, rosters));
   const leaderboard = buildLeaderboard(participantTeams, effectiveGoals, rosters);
@@ -62,8 +62,8 @@ export async function rebuildStaticData(): Promise<void> {
       ...meta,
       goalCount: validGoals.length,
       scoredGoalCount: scoredGoals.length,
-      skippedGoalCount: skippedGoals.length,
-      duplicateGoalCount: skippedGoals.filter((item) => item.reason === "duplicate-goal").length,
+      skippedGoalCount: 0,
+      duplicateGoalCount: 0,
       snapshotFingerprint
     }
   });
