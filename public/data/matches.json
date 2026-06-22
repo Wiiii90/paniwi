@@ -23220,12 +23220,12 @@
   },
   {
     "matchId": "football-data:537399",
-    "label": "Argentina 0-0 Austria",
+    "label": "Argentina 1-0 Austria",
     "kickedOffAt": "2026-06-22T17:00:00Z",
     "status": "live",
     "homeTeam": {
       "name": "Argentinien",
-      "score": 0
+      "score": 1
     },
     "awayTeam": {
       "name": "Österreich",
@@ -23297,11 +23297,11 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 0,
+      "scoreTotal": 1,
       "goalEventCount": 0,
-      "eventsComplete": true,
+      "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
+      "needsEventBackfill": true,
       "needsLineupBackfill": true
     }
   },

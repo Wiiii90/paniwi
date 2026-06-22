@@ -1214,13 +1214,13 @@
     "source": "football-data",
     "matchId": "football-data:537399",
     "fixtureId": "537399",
-    "label": "Argentina 0-0 Austria",
+    "label": "Argentina 1-0 Austria",
     "kickedOffAt": "2026-06-22T17:00:00Z",
     "status": "live",
     "homeTeam": {
       "id": 762,
       "name": "Argentina",
-      "score": 0
+      "score": 1
     },
     "awayTeam": {
       "id": 816,
