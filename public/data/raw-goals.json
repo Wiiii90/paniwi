@@ -3539,5 +3539,37 @@
     "detail": "normal",
     "playerId": "new-zealand-finn-surman",
     "teamId": "new-zealand"
+  },
+  {
+    "externalGoalId": "football-data:scorer:295848:normal",
+    "playerName": "Mostafa Ziko",
+    "nationalTeam": "Egypt",
+    "sourcePlayerName": "Mostafa Ziko",
+    "sourceTeamName": "Egypt",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 295848,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "egypt-mostafa-ziko",
+    "teamId": "egypt"
+  },
+  {
+    "externalGoalId": "football-data:scorer:3754:normal",
+    "playerName": "Mohamed Salah",
+    "nationalTeam": "Egypt",
+    "sourcePlayerName": "Mohamed Salah",
+    "sourceTeamName": "Egypt",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 3754,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "egypt-mohamed-salah",
+    "teamId": "egypt"
   }
 ]

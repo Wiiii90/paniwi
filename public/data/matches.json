@@ -22352,7 +22352,7 @@
   },
   {
     "matchId": "football-data:537366",
-    "label": "New Zealand 1-0 Egypt",
+    "label": "New Zealand 1-1 Egypt",
     "kickedOffAt": "2026-06-22T01:00:00Z",
     "status": "live",
     "homeTeam": {
@@ -22361,7 +22361,7 @@
     },
     "awayTeam": {
       "name": "Ägypten",
-      "score": 0
+      "score": 1
     },
     "goals": [],
     "pointGoals": [],
@@ -22399,7 +22399,7 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 1,
+      "scoreTotal": 2,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,

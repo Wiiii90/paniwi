@@ -761,6 +761,16 @@
     "rank": 23
   },
   {
+    "playerName": "Mohamed Salah",
+    "normalizedPlayerName": "mohamed salah",
+    "nationalTeam": "Ägypten",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 23
+  },
+  {
     "playerName": "Mohammad Mohebi",
     "normalizedPlayerName": "mohammad mohebi",
     "nationalTeam": "Iran",
@@ -770,6 +780,16 @@
       "Felix"
     ],
     "selected": true,
+    "rank": 23
+  },
+  {
+    "playerName": "Mostafa Ziko",
+    "normalizedPlayerName": "mostafa ziko",
+    "nationalTeam": "Ägypten",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
     "rank": 23
   },
   {
