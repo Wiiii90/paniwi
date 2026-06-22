@@ -105,6 +105,46 @@ assert.deepEqual(
   ).map((goal) => [goal.playerName, goal.teamId]),
   [["Leo Østigård", "norway"]]
 );
+assert.deepEqual(
+  enrichGoalsWithRoster(
+    [
+      {
+        ...baseGoal,
+        externalGoalId: "cape-verde-goal",
+        playerName: "K. Lenini",
+        nationalTeam: "Cape Verde Islands",
+        sourcePlayerName: "K. Lenini",
+        sourceTeamName: "Cape Verde Islands",
+        source: "api-football",
+        matchLabel: "Uruguay 2-2 Cape Verde Islands"
+      }
+    ],
+    {
+      lastUpdated: "2026-06-16T00:00:00.000Z",
+      source: "wikipedia",
+      pageTitle: "2026 FIFA World Cup squads",
+      teamCount: 1,
+      playerCount: 1,
+      teams: [
+        {
+          teamName: "Cape Verde",
+          teamId: "cape-verde",
+          players: [
+            {
+              playerName: "Kevin Pina",
+              normalizedPlayerName: "kevin pina",
+              position: "midfielder",
+              shirtNumber: 6,
+              sourceName: "Kevin Pina"
+            }
+          ]
+        }
+      ]
+    },
+    { strictSources: ["api-football"] }
+  ).map((goal) => [goal.playerName, goal.teamId]),
+  [["Kevin Pina", "cape-verde"]]
+);
 assert.throws(
   () =>
     enrichGoalsWithRoster(

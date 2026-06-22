@@ -17,6 +17,11 @@ type EnrichGoalsWithRosterOptions = {
   strictSources?: SourceName[];
 };
 
+const apiFootballGoalNameAliases = new Map<string, string>([
+  ["cape-verde|k lenini", "Kevin Pina"],
+  ["cape-verde|kevin lenini", "Kevin Pina"]
+]);
+
 function getRosterTeam(snapshot: RosterSnapshot | undefined, teamId: string): RosterTeam | null {
   return snapshot?.teams.find((team) => team.teamId === teamId) ?? null;
 }
@@ -62,7 +67,9 @@ function getOwnGoalCandidateTeams(goal: GoalRecord, rosterSnapshot: RosterSnapsh
 }
 
 function resolveRosterPlayer(goal: GoalRecord, rosterTeam: RosterTeam): RosterPlayer | null {
-  return findUniqueGoalRosterPlayer(goal.playerName, rosterTeam.players);
+  const aliasKey = [rosterTeam.teamId ?? "", normalizeTransliteratedPlayerName(goal.playerName)].join("|");
+  const searchName = goal.source === "api-football" ? apiFootballGoalNameAliases.get(aliasKey) ?? goal.playerName : goal.playerName;
+  return findUniqueGoalRosterPlayer(searchName, rosterTeam.players);
 }
 
 function normalizeTransliteratedPlayerName(name: string): string {
