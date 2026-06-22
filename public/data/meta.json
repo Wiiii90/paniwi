@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-22T23:01:27.413Z",
+  "lastUpdated": "2026-06-22T23:31:18.124Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -15,7 +15,7 @@
   "snapshotFingerprint": "98768a27025529dbec5ff517887443e7c28bfa2cb0ec1abc69dd31b3d68eb044",
   "snapshotChanged": false,
   "syncWindowId": "2026 fifa world cup group i:norway-senegal:2026-06-23T00:00:00.000Z-pre-match",
-  "windowSyncAttempts": 1,
+  "windowSyncAttempts": 2,
   "liveMatchCount": 1,
   "sourceRequestCount": 2,
   "sourceRequestLimit": 6
