@@ -1180,7 +1180,7 @@
     "fixtureId": "537372",
     "label": "Uruguay 2-2 Cape Verde Islands",
     "kickedOffAt": "2026-06-21T22:00:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 758,
       "name": "Uruguay",
@@ -1196,16 +1196,18 @@
     "source": "football-data",
     "matchId": "football-data:537366",
     "fixtureId": "537366",
-    "label": "New Zealand vs Egypt",
+    "label": "New Zealand 1-0 Egypt",
     "kickedOffAt": "2026-06-22T01:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 783,
-      "name": "New Zealand"
+      "name": "New Zealand",
+      "score": 1
     },
     "awayTeam": {
       "id": 825,
-      "name": "Egypt"
+      "name": "Egypt",
+      "score": 0
     }
   },
   {
@@ -1336,6 +1338,24 @@
     "awayTeam": {
       "id": 764,
       "name": "Brazil"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489398",
+    "fixtureId": "1489398",
+    "label": "Uruguay 2-2 Cape Verde Islands",
+    "kickedOffAt": "2026-06-21T22:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 7,
+      "name": "Uruguay",
+      "score": 2
+    },
+    "awayTeam": {
+      "id": 1533,
+      "name": "Cape Verde Islands",
+      "score": 2
     }
   }
 ]
