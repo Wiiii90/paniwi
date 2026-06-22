@@ -1,22 +1,22 @@
 {
-  "lastUpdated": "2026-06-22T19:01:37.433Z",
-  "source": "football-data",
+  "lastUpdated": "2026-06-22T20:01:54.021Z",
+  "source": "api-football",
   "attemptedSources": [
-    "football-data"
+    "api-football"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 211,
+  "goalCount": 214,
   "scoredGoalCount": 21,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
-  "snapshotFingerprint": "6d044a64e0cd8ca49b60c851669a38db08f5aaf473bcb0b2041f7e0937695809",
+  "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
+  "snapshotFingerprint": "49e65112e2d3ba0ad0ee5ae24f21012f82d69cfaa7553680df797229b98386fa",
   "snapshotChanged": true,
-  "syncWindowId": "2026 fifa world cup group j:argentina-austria:2026-06-22T17:00:00.000Z-check-1",
+  "syncWindowId": "2026 fifa world cup group i:france-iraq:2026-06-22T21:00:00.000Z-pre-match:api-football-enrich:football-data:537399",
   "windowSyncAttempts": 1,
-  "liveMatchCount": 1,
+  "liveMatchCount": 0,
   "sourceRequestCount": 3,
   "sourceRequestLimit": 6
 }

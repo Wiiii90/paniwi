@@ -1214,13 +1214,13 @@
     "source": "football-data",
     "matchId": "football-data:537399",
     "fixtureId": "537399",
-    "label": "Argentina 1-0 Austria",
+    "label": "Argentina 2-0 Austria",
     "kickedOffAt": "2026-06-22T17:00:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 762,
       "name": "Argentina",
-      "score": 1
+      "score": 2
     },
     "awayTeam": {
       "id": 816,
@@ -1376,6 +1376,24 @@
       "id": 32,
       "name": "Egypt",
       "score": 3
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489399",
+    "fixtureId": "1489399",
+    "label": "Argentina 2-0 Austria",
+    "kickedOffAt": "2026-06-22T17:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 26,
+      "name": "Argentina",
+      "score": 2
+    },
+    "awayTeam": {
+      "id": 775,
+      "name": "Austria",
+      "score": 0
     }
   }
 ]
