@@ -3899,5 +3899,21 @@
     "matchLabel": "FIFA World Cup 2026 Torschützenliste",
     "timeConfidence": "unknown",
     "detail": "normal"
+  },
+  {
+    "externalGoalId": "football-data:scorer:231890:normal",
+    "playerName": "Nizar Al-Rashdan",
+    "nationalTeam": "Jordan",
+    "sourcePlayerName": "Nizar Al Rashdan",
+    "sourceTeamName": "Jordan",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 231890,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "jordan-nizar-al-rashdan",
+    "teamId": "jordan"
   }
 ]

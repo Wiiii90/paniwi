@@ -25875,12 +25875,12 @@
   },
   {
     "matchId": "football-data:537400",
-    "label": "Jordan 0-0 Algeria",
+    "label": "Jordan 1-0 Algeria",
     "kickedOffAt": "2026-06-23T03:00:00Z",
     "status": "live",
     "homeTeam": {
       "name": "Jordanien",
-      "score": 0
+      "score": 1
     },
     "awayTeam": {
       "name": "Algerien",
@@ -25891,11 +25891,11 @@
     "affectedOwners": [],
     "participants": [],
     "syncState": {
-      "scoreTotal": 0,
+      "scoreTotal": 1,
       "goalEventCount": 0,
-      "eventsComplete": true,
+      "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
+      "needsEventBackfill": true,
       "needsLineupBackfill": true
     }
   },
