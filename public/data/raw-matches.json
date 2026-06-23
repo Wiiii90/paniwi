@@ -900,13 +900,13 @@
     "source": "football-data",
     "matchId": "football-data:537394",
     "fixtureId": "537394",
-    "label": "Norway 0-0 Senegal",
+    "label": "Norway 1-0 Senegal",
     "kickedOffAt": "2026-06-23T00:00:00Z",
     "status": "live",
     "homeTeam": {
       "id": 8872,
       "name": "Norway",
-      "score": 0
+      "score": 1
     },
     "awayTeam": {
       "id": 804,
@@ -1236,7 +1236,7 @@
     "fixtureId": "537393",
     "label": "France 3-0 Iraq",
     "kickedOffAt": "2026-06-22T21:00:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 773,
       "name": "France",
@@ -1494,6 +1494,24 @@
     "awayTeam": {
       "id": 792,
       "name": "Sweden"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1539017",
+    "fixtureId": "1539017",
+    "label": "France 3-0 Iraq",
+    "kickedOffAt": "2026-06-22T21:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 2,
+      "name": "France",
+      "score": 3
+    },
+    "awayTeam": {
+      "id": 1567,
+      "name": "Iraq",
+      "score": 0
     }
   }
 ]

@@ -679,6 +679,16 @@
     "rank": 23
   },
   {
+    "playerName": "Marcus Pedersen",
+    "normalizedPlayerName": "marcus pedersen",
+    "nationalTeam": "Norwegen",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 23
+  },
+  {
     "playerName": "Marcus Rashford",
     "normalizedPlayerName": "marcus rashford",
     "nationalTeam": "England",
