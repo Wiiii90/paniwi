@@ -2848,6 +2848,22 @@
     "teamId": "senegal"
   },
   {
+    "externalGoalId": "football-data:scorer:44:normal",
+    "playerName": "Cristiano Ronaldo",
+    "nationalTeam": "Portugal",
+    "sourcePlayerName": "Cristiano Ronaldo",
+    "sourceTeamName": "Portugal",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 44,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "portugal-cristiano-ronaldo",
+    "teamId": "portugal"
+  },
+  {
     "externalGoalId": "football-data:scorer:39237:normal",
     "playerName": "Julián Quiñones",
     "nationalTeam": "Mexico",
@@ -3988,22 +4004,6 @@
     "detail": "normal",
     "playerId": "algeria-amine-gouiri",
     "teamId": "algeria"
-  },
-  {
-    "externalGoalId": "football-data:scorer:44:normal",
-    "playerName": "Cristiano Ronaldo",
-    "nationalTeam": "Portugal",
-    "sourcePlayerName": "Cristiano Ronaldo",
-    "sourceTeamName": "Portugal",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 44,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "portugal-cristiano-ronaldo",
-    "teamId": "portugal"
   },
   {
     "externalGoalId": "football-data:scorer:144570:normal",

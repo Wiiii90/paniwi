@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-23T17:31:30.014Z",
+  "lastUpdated": "2026-06-23T18:01:36.645Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -12,7 +12,7 @@
   "duplicateGoalCount": 0,
   "sourceErrors": [],
   "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
-  "snapshotFingerprint": "77ef22142cf86400058a7a6b142f627434a2906549f8124c61c01e1ab449e1d6",
+  "snapshotFingerprint": "fc4a11bd5721100f44150b4722fa885428dcea2a5eca59e1635787904c58030c",
   "snapshotChanged": true,
   "syncWindowId": "2026 fifa world cup group k:portugal-uzb:2026-06-23T17:00:00.000Z-live",
   "windowSyncAttempts": 1,

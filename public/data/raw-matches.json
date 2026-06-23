@@ -990,13 +990,13 @@
     "source": "football-data",
     "matchId": "football-data:537405",
     "fixtureId": "537405",
-    "label": "Portugal 2-0 Uzbekistan",
+    "label": "Portugal 3-0 Uzbekistan",
     "kickedOffAt": "2026-06-23T17:00:00Z",
     "status": "live",
     "homeTeam": {
       "id": 765,
       "name": "Portugal",
-      "score": 2
+      "score": 3
     },
     "awayTeam": {
       "id": 8070,
