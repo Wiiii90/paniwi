@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-23T16:31:26.101Z",
+  "lastUpdated": "2026-06-23T17:02:18.607Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -14,9 +14,9 @@
   "message": "Daten-Snapshot unveraendert (football-data).",
   "snapshotFingerprint": "4cbae1a5f4e0f6a0ed51ee0f63d63a1790908ae23b13df62de66f7e8c1550e53",
   "snapshotChanged": false,
-  "syncWindowId": "2026 fifa world cup group k:portugal-uzb:2026-06-23T17:00:00.000Z-pre-match",
-  "windowSyncAttempts": 2,
+  "syncWindowId": "2026 fifa world cup group k:portugal-uzb:2026-06-23T17:00:00.000Z-live",
+  "windowSyncAttempts": 1,
   "liveMatchCount": 0,
-  "sourceRequestCount": 2,
+  "sourceRequestCount": 3,
   "sourceRequestLimit": 6
 }
