@@ -1,22 +1,22 @@
 {
-  "lastUpdated": "2026-06-23T02:01:27.882Z",
-  "source": "football-data",
+  "lastUpdated": "2026-06-23T02:31:18.061Z",
+  "source": "api-football",
   "attemptedSources": [
-    "football-data"
+    "api-football"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 219,
-  "scoredGoalCount": 20,
+  "goalCount": 224,
+  "scoredGoalCount": 23,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
-  "snapshotFingerprint": "d4f40be2a1bf4e09f336ab1f2d8132bca1a7b401d2b311bff69ac26860ab3179",
+  "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
+  "snapshotFingerprint": "2cc8da93aedafae1a616643a4a39de07ade58bf0210872b50f96bf7f9da91e57",
   "snapshotChanged": true,
-  "syncWindowId": "2026 fifa world cup group j:jor-algeria:2026-06-23T03:00:00.000Z-pre-match",
+  "syncWindowId": "2026 fifa world cup group j:jor-algeria:2026-06-23T03:00:00.000Z-pre-match:api-football-enrich:football-data:537394",
   "windowSyncAttempts": 1,
-  "liveMatchCount": 1,
+  "liveMatchCount": 0,
   "sourceRequestCount": 3,
   "sourceRequestLimit": 6
 }

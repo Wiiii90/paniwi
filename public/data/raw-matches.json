@@ -902,7 +902,7 @@
     "fixtureId": "537394",
     "label": "Norway 3-2 Senegal",
     "kickedOffAt": "2026-06-23T00:00:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 8872,
       "name": "Norway",
@@ -1512,6 +1512,24 @@
       "id": 1567,
       "name": "Iraq",
       "score": 0
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489401",
+    "fixtureId": "1489401",
+    "label": "Norway 3-2 Senegal",
+    "kickedOffAt": "2026-06-23T00:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 1090,
+      "name": "Norway",
+      "score": 3
+    },
+    "awayTeam": {
+      "id": 13,
+      "name": "Senegal",
+      "score": 2
     }
   }
 ]
