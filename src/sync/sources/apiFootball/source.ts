@@ -6,6 +6,7 @@ import { isCompetitionScorerAggregateGoal } from "../../../domain/effectiveGoals
 import { getExternalMatchKey, goalBelongsToExternalMatch } from "../../../domain/matchIdentity";
 import type { ExternalMatchParticipantRecord, ExternalMatchRecord, FixtureSyncState } from "../../../domain/matchTypes";
 import type { GoalSource, GoalSourceResult } from "../types";
+import { syncPolicy } from "../../syncSchedule";
 import {
   createApiFootballRequestBudget,
   getApiFootballEnrichmentExtraMatchLimit,
@@ -94,8 +95,66 @@ function matchHasLineups(match: ExternalMatchRecord, participants: ExternalMatch
   );
 }
 
-function buildCandidate(match: ExternalMatchRecord, goals: GoalRecord[], participants: ExternalMatchParticipantRecord[]): ApiFootballEnrichmentCandidate | null {
-  if (match.source === "api-football" || match.status !== "finished") {
+function getKickoffTimestamp(match: ExternalMatchRecord): number | null {
+  const timestamp = match.kickedOffAt ? Date.parse(match.kickedOffAt) : Number.NaN;
+  return Number.isFinite(timestamp) ? timestamp : null;
+}
+
+function isPastPostMatchRepairTime(match: ExternalMatchRecord, now = new Date()): boolean {
+  const kickoff = getKickoffTimestamp(match);
+  if (kickoff === null) {
+    return false;
+  }
+
+  const firstPostMatchCheckMinutes = syncPolicy.expectedMatchMinutes + syncPolicy.checkOffsetsAfterExpectedEndMinutes[0];
+  return now.getTime() >= kickoff + firstPostMatchCheckMinutes * 60 * 1000;
+}
+
+function hasApiFootballEquivalent(match: ExternalMatchRecord, matches: ExternalMatchRecord[]): boolean {
+  const matchKey = getExternalMatchKey(match);
+  return matches.some((candidate) => candidate.source === "api-football" && getExternalMatchKey(candidate) === matchKey);
+}
+
+function buildStaleScheduledSyncState(match: ExternalMatchRecord): FixtureSyncState {
+  const hasPickedTeam = matchHasPickedTeam(match, pickedTeamIds);
+  return {
+    scoreTotal: null,
+    goalEventCount: 0,
+    eventsComplete: false,
+    lineupsComplete: !hasPickedTeam,
+    needsEventBackfill: true,
+    needsLineupBackfill: hasPickedTeam
+  };
+}
+
+function isStaleScheduledFootballDataMatch(match: ExternalMatchRecord, matches: ExternalMatchRecord[]): boolean {
+  return (
+    match.source === "football-data" &&
+    match.status === "scheduled" &&
+    isPastPostMatchRepairTime(match) &&
+    !hasApiFootballEquivalent(match, matches)
+  );
+}
+
+function buildCandidate(
+  match: ExternalMatchRecord,
+  goals: GoalRecord[],
+  participants: ExternalMatchParticipantRecord[],
+  matches: ExternalMatchRecord[]
+): ApiFootballEnrichmentCandidate | null {
+  if (match.source === "api-football") {
+    return null;
+  }
+
+  if (isStaleScheduledFootballDataMatch(match, matches)) {
+    return {
+      match,
+      syncState: buildStaleScheduledSyncState(match),
+      reason: "backfill"
+    };
+  }
+
+  if (match.status !== "finished") {
     return null;
   }
 
@@ -138,7 +197,7 @@ export function getApiFootballEnrichmentCandidates(
 ): ApiFootballEnrichmentCandidate[] {
   const maxCandidates = 1 + getApiFootballEnrichmentExtraMatchLimit(env);
   const candidates = matches
-    .flatMap((match) => buildCandidate(match, goals, participants) ?? [])
+    .flatMap((match) => buildCandidate(match, goals, participants, matches) ?? [])
     .sort(sortNewestFirst);
   const selected: ApiFootballEnrichmentCandidate[] = [];
   const selectedMatchIds = new Set<string>();

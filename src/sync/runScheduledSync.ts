@@ -1,10 +1,11 @@
 import { appendFile, readFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
+import { getExternalMatchKey } from "../domain/matchIdentity";
 import type { ExternalMatchRecord } from "../domain/matchTypes";
 import type { StaticMeta } from "../domain/staticMeta";
 import { evaluateSyncWindow } from "./evaluateSyncWindow";
 import { getApiFootballEnrichmentRequestLimit } from "./sources/apiFootball/config";
-import { getUpcomingSyncWindows } from "./syncSchedule";
+import { getUpcomingSyncWindows, syncPolicy } from "./syncSchedule";
 import { syncGoals } from "./syncGoals";
 import { apiFootballSource } from "./sources/apiFootball/source";
 
@@ -34,6 +35,26 @@ function sortMatchesNewestFirst(left: ExternalMatchRecord, right: ExternalMatchR
   return (right.kickedOffAt ?? "").localeCompare(left.kickedOffAt ?? "") || left.matchId.localeCompare(right.matchId);
 }
 
+function getKickoffTimestamp(match: ExternalMatchRecord): number | null {
+  const timestamp = match.kickedOffAt ? Date.parse(match.kickedOffAt) : Number.NaN;
+  return Number.isFinite(timestamp) ? timestamp : null;
+}
+
+function isPastPostMatchRepairTime(match: ExternalMatchRecord, now: Date): boolean {
+  const kickoff = getKickoffTimestamp(match);
+  if (kickoff === null) {
+    return false;
+  }
+
+  const firstPostMatchCheckMinutes = syncPolicy.expectedMatchMinutes + syncPolicy.checkOffsetsAfterExpectedEndMinutes[0];
+  return now.getTime() >= kickoff + firstPostMatchCheckMinutes * 60 * 1000;
+}
+
+function hasApiFootballEquivalent(match: ExternalMatchRecord, matches: ExternalMatchRecord[]): boolean {
+  const matchKey = getExternalMatchKey(match);
+  return matches.some((candidate) => candidate.source === "api-football" && getExternalMatchKey(candidate) === matchKey);
+}
+
 export function getNewlyFinishedFootballDataMatches(
   before: ExternalMatchRecord[],
   after: ExternalMatchRecord[]
@@ -43,6 +64,33 @@ export function getNewlyFinishedFootballDataMatches(
     .filter(isFootballDataMatch)
     .filter((match) => match.status === "finished" && beforeById.get(match.matchId)?.status !== "finished")
     .sort(sortMatchesNewestFirst);
+}
+
+export function getStaleScheduledFootballDataMatches(after: ExternalMatchRecord[], now = new Date()): ExternalMatchRecord[] {
+  return after
+    .filter(isFootballDataMatch)
+    .filter((match) => match.status === "scheduled")
+    .filter((match) => isPastPostMatchRepairTime(match, now))
+    .filter((match) => !hasApiFootballEquivalent(match, after))
+    .sort(sortMatchesNewestFirst);
+}
+
+export function getApiFootballAutoEnrichMatches(
+  before: ExternalMatchRecord[],
+  after: ExternalMatchRecord[],
+  now = new Date()
+): ExternalMatchRecord[] {
+  const selected: ExternalMatchRecord[] = [];
+  const seen = new Set<string>();
+
+  for (const match of [...getNewlyFinishedFootballDataMatches(before, after), ...getStaleScheduledFootballDataMatches(after, now)]) {
+    if (!seen.has(match.matchId)) {
+      selected.push(match);
+      seen.add(match.matchId);
+    }
+  }
+
+  return selected;
 }
 
 function shouldAutoEnrichApiFootball(env: NodeJS.ProcessEnv = process.env): boolean {
@@ -59,9 +107,9 @@ async function autoEnrichNewlyFinishedMatches(before: ExternalMatchRecord[], syn
   }
 
   const after = await readCurrentRawMatches();
-  const matches = getNewlyFinishedFootballDataMatches(before, after);
+  const matches = getApiFootballAutoEnrichMatches(before, after);
   if (matches.length === 0) {
-    console.log("API-Football auto-enrich skipped: no newly finished football-data match.");
+    console.log("API-Football auto-enrich skipped: no newly finished or stale scheduled football-data match.");
     return;
   }
 

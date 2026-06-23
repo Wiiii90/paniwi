@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import type { ExternalMatchRecord } from "../src/domain/matchTypes";
-import { getNewlyFinishedFootballDataMatches } from "../src/sync/runScheduledSync";
+import { getApiFootballAutoEnrichMatches, getNewlyFinishedFootballDataMatches, getStaleScheduledFootballDataMatches } from "../src/sync/runScheduledSync";
 
 const before: ExternalMatchRecord[] = [
   {
@@ -65,6 +65,47 @@ const after: ExternalMatchRecord[] = [
 assert.deepEqual(
   getNewlyFinishedFootballDataMatches(before, after).map((match) => match.matchId),
   ["football-data:newer-finished", "football-data:new-finished"]
+);
+
+const staleScheduledMatch: ExternalMatchRecord = {
+  source: "football-data",
+  matchId: "football-data:stale-scheduled",
+  fixtureId: "stale-scheduled",
+  label: "England vs Ghana",
+  kickedOffAt: "2026-06-18T20:00:00Z",
+  status: "scheduled",
+  homeTeam: { name: "England" },
+  awayTeam: { name: "Ghana" }
+};
+
+assert.deepEqual(
+  getStaleScheduledFootballDataMatches([staleScheduledMatch], new Date("2026-06-18T22:00:00Z")).map((match) => match.matchId),
+  ["football-data:stale-scheduled"]
+);
+
+assert.deepEqual(
+  getStaleScheduledFootballDataMatches(
+    [
+      staleScheduledMatch,
+      {
+        source: "api-football",
+        matchId: "api-football:999",
+        fixtureId: "999",
+        label: "England 2-0 Ghana",
+        kickedOffAt: "2026-06-18T20:00:00Z",
+        status: "finished",
+        homeTeam: { name: "England", score: 2 },
+        awayTeam: { name: "Ghana", score: 0 }
+      }
+    ],
+    new Date("2026-06-18T22:00:00Z")
+  ).map((match) => match.matchId),
+  []
+);
+
+assert.deepEqual(
+  getApiFootballAutoEnrichMatches(before, [...after, staleScheduledMatch], new Date("2026-06-18T22:00:00Z")).map((match) => match.matchId),
+  ["football-data:newer-finished", "football-data:new-finished", "football-data:stale-scheduled"]
 );
 
 console.log("Scheduled sync auto-enrich tests passed.");

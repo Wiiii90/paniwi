@@ -191,6 +191,44 @@ assert.equal(
   true
 );
 
+const staleScheduledFootballDataMatch: ExternalMatchRecord = {
+  source: "football-data",
+  matchId: "football-data:stale-scheduled",
+  fixtureId: "stale-scheduled",
+  label: "England vs Ghana",
+  kickedOffAt: "2026-06-18T20:00:00.000Z",
+  status: "scheduled",
+  homeTeam: { name: "England" },
+  awayTeam: { name: "Ghana" }
+};
+const staleScheduledCandidates = getApiFootballEnrichmentCandidates([staleScheduledFootballDataMatch], [], [], {
+  API_FOOTBALL_ENRICH_EXTRA_MATCH_LIMIT: "0"
+} as NodeJS.ProcessEnv);
+assert.equal(staleScheduledCandidates[0]?.match.matchId, "football-data:stale-scheduled");
+assert.equal(staleScheduledCandidates[0]?.syncState.needsEventBackfill, true);
+assert.equal(staleScheduledCandidates[0]?.syncState.needsLineupBackfill, true);
+
+assert.equal(
+  getApiFootballEnrichmentCandidates(
+    [
+      staleScheduledFootballDataMatch,
+      {
+        source: "api-football",
+        matchId: "api-football:999",
+        fixtureId: "999",
+        label: "England 2-0 Ghana",
+        kickedOffAt: "2026-06-18T20:00:00.000Z",
+        status: "finished",
+        homeTeam: { name: "England", score: 2 },
+        awayTeam: { name: "Ghana", score: 0 }
+      }
+    ],
+    [],
+    []
+  ).length,
+  0
+);
+
 const completeGoals: GoalRecord[] = [
   {
     externalGoalId: "api-football:9001:1",
