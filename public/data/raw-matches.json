@@ -972,16 +972,18 @@
     "source": "football-data",
     "matchId": "football-data:537400",
     "fixtureId": "537400",
-    "label": "Jordan vs Algeria",
+    "label": "Jordan 0-0 Algeria",
     "kickedOffAt": "2026-06-23T03:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 8049,
-      "name": "Jordan"
+      "name": "Jordan",
+      "score": 0
     },
     "awayTeam": {
       "id": 778,
-      "name": "Algeria"
+      "name": "Algeria",
+      "score": 0
     }
   },
   {
