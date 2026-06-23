@@ -10,6 +10,16 @@
     "rank": 1
   },
   {
+    "playerName": "Kylian Mbappé",
+    "normalizedPlayerName": "kylian mbappe",
+    "nationalTeam": "Frankreich",
+    "goals": 4,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 2
+  },
+  {
     "playerName": "Deniz Undav",
     "normalizedPlayerName": "deniz undav",
     "nationalTeam": "Deutschland",
@@ -17,7 +27,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 2
+    "rank": 3
   },
   {
     "playerName": "Jonathan David",
@@ -29,17 +39,7 @@
       "Jonas"
     ],
     "selected": true,
-    "rank": 2
-  },
-  {
-    "playerName": "Kylian Mbappé",
-    "normalizedPlayerName": "kylian mbappe",
-    "nationalTeam": "Frankreich",
-    "goals": 3,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 2
+    "rank": 3
   },
   {
     "playerName": "Ayase Ueda",
@@ -858,6 +858,16 @@
     "playerName": "Omar Rekik",
     "normalizedPlayerName": "omar rekik",
     "nationalTeam": "Tunesien",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 23
+  },
+  {
+    "playerName": "Ousmane Dembélé",
+    "normalizedPlayerName": "ousmane dembele",
+    "nationalTeam": "Frankreich",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],
