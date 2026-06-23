@@ -974,7 +974,7 @@
     "fixtureId": "537400",
     "label": "Jordan 1-2 Algeria",
     "kickedOffAt": "2026-06-23T03:00:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 8049,
       "name": "Jordan",
@@ -1531,6 +1531,24 @@
     "awayTeam": {
       "id": 13,
       "name": "Senegal",
+      "score": 2
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489400",
+    "fixtureId": "1489400",
+    "label": "Jordan 1-2 Algeria",
+    "kickedOffAt": "2026-06-23T03:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 1548,
+      "name": "Jordan",
+      "score": 1
+    },
+    "awayTeam": {
+      "id": 1532,
+      "name": "Algeria",
       "score": 2
     }
   }
