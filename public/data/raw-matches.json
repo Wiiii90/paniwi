@@ -1026,16 +1026,18 @@
     "source": "football-data",
     "matchId": "football-data:537412",
     "fixtureId": "537412",
-    "label": "Panama vs Croatia",
+    "label": "Panama 0-0 Croatia",
     "kickedOffAt": "2026-06-23T23:00:00Z",
-    "status": "scheduled",
+    "status": "unknown",
     "homeTeam": {
       "id": 1836,
-      "name": "Panama"
+      "name": "Panama",
+      "score": 0
     },
     "awayTeam": {
       "id": 799,
-      "name": "Croatia"
+      "name": "Croatia",
+      "score": 0
     }
   },
   {

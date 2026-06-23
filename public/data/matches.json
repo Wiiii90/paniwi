@@ -28476,14 +28476,16 @@
   },
   {
     "matchId": "football-data:537412",
-    "label": "Panama vs Croatia",
+    "label": "Panama 0-0 Croatia",
     "kickedOffAt": "2026-06-23T23:00:00Z",
-    "status": "scheduled",
+    "status": "unknown",
     "homeTeam": {
-      "name": "Panama"
+      "name": "Panama",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Kroatien"
+      "name": "Kroatien",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -28567,9 +28569,9 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 0,
       "goalEventCount": 0,
-      "eventsComplete": false,
+      "eventsComplete": true,
       "lineupsComplete": false,
       "needsEventBackfill": false,
       "needsLineupBackfill": false
