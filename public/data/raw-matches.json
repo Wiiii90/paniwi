@@ -1397,5 +1397,101 @@
       "name": "Austria",
       "score": 0
     }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537331",
+    "fixtureId": "537331",
+    "label": "Czechia vs Mexico",
+    "kickedOffAt": "2026-06-25T01:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 798,
+      "name": "Czechia"
+    },
+    "awayTeam": {
+      "id": 769,
+      "name": "Mexico"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537332",
+    "fixtureId": "537332",
+    "label": "South Africa vs South Korea",
+    "kickedOffAt": "2026-06-25T01:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 774,
+      "name": "South Africa"
+    },
+    "awayTeam": {
+      "id": 772,
+      "name": "South Korea"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537355",
+    "fixtureId": "537355",
+    "label": "Ecuador vs Germany",
+    "kickedOffAt": "2026-06-25T20:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 791,
+      "name": "Ecuador"
+    },
+    "awayTeam": {
+      "id": 759,
+      "name": "Germany"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537356",
+    "fixtureId": "537356",
+    "label": "Curaçao vs Ivory Coast",
+    "kickedOffAt": "2026-06-25T20:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 9460,
+      "name": "Curaçao"
+    },
+    "awayTeam": {
+      "id": 1935,
+      "name": "Ivory Coast"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537361",
+    "fixtureId": "537361",
+    "label": "Tunisia vs Netherlands",
+    "kickedOffAt": "2026-06-25T23:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 802,
+      "name": "Tunisia"
+    },
+    "awayTeam": {
+      "id": 8601,
+      "name": "Netherlands"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537362",
+    "fixtureId": "537362",
+    "label": "Japan vs Sweden",
+    "kickedOffAt": "2026-06-25T23:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 766,
+      "name": "Japan"
+    },
+    "awayTeam": {
+      "id": 792,
+      "name": "Sweden"
+    }
   }
 ]
