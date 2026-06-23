@@ -1010,7 +1010,7 @@
     "fixtureId": "537411",
     "label": "England 0-0 Ghana",
     "kickedOffAt": "2026-06-23T20:00:00Z",
-    "status": "live",
+    "status": "unknown",
     "homeTeam": {
       "id": 770,
       "name": "England",
