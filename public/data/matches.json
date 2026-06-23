@@ -24874,7 +24874,7 @@
   },
   {
     "matchId": "football-data:537394",
-    "label": "Norway 3-1 Senegal",
+    "label": "Norway 3-2 Senegal",
     "kickedOffAt": "2026-06-23T00:00:00Z",
     "status": "live",
     "homeTeam": {
@@ -24883,7 +24883,7 @@
     },
     "awayTeam": {
       "name": "Senegal",
-      "score": 1
+      "score": 2
     },
     "goals": [],
     "pointGoals": [],
@@ -24981,7 +24981,7 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 4,
+      "scoreTotal": 5,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,

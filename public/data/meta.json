@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-23T01:31:19.008Z",
+  "lastUpdated": "2026-06-23T02:01:27.882Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -12,9 +12,9 @@
   "duplicateGoalCount": 0,
   "sourceErrors": [],
   "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
-  "snapshotFingerprint": "a2b0feeca3ed584dd885e785a52584a95436cff0c7e5db1cfb0e18fc720fec64",
+  "snapshotFingerprint": "d4f40be2a1bf4e09f336ab1f2d8132bca1a7b401d2b311bff69ac26860ab3179",
   "snapshotChanged": true,
-  "syncWindowId": "2026 fifa world cup group i:norway-senegal:2026-06-23T00:00:00.000Z-live",
+  "syncWindowId": "2026 fifa world cup group j:jor-algeria:2026-06-23T03:00:00.000Z-pre-match",
   "windowSyncAttempts": 1,
   "liveMatchCount": 1,
   "sourceRequestCount": 3,
