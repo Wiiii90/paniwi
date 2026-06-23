@@ -1008,16 +1008,18 @@
     "source": "football-data",
     "matchId": "football-data:537411",
     "fixtureId": "537411",
-    "label": "England vs Ghana",
+    "label": "England 0-0 Ghana",
     "kickedOffAt": "2026-06-23T20:00:00Z",
-    "status": "scheduled",
+    "status": "unknown",
     "homeTeam": {
       "id": 770,
-      "name": "England"
+      "name": "England",
+      "score": 0
     },
     "awayTeam": {
       "id": 763,
-      "name": "Ghana"
+      "name": "Ghana",
+      "score": 0
     }
   },
   {
