@@ -1,20 +1,20 @@
 {
-  "lastUpdated": "2026-06-23T01:01:29.177Z",
-  "source": "api-football",
+  "lastUpdated": "2026-06-23T01:31:19.008Z",
+  "source": "football-data",
   "attemptedSources": [
-    "api-football"
+    "football-data"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 218,
-  "scoredGoalCount": 21,
+  "goalCount": 219,
+  "scoredGoalCount": 20,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
-  "snapshotFingerprint": "3145da7ceae60e759c979ab4cfa1d2a1d3ff56a5fca2269a081ed974dd1bcac5",
+  "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
+  "snapshotFingerprint": "a2b0feeca3ed584dd885e785a52584a95436cff0c7e5db1cfb0e18fc720fec64",
   "snapshotChanged": true,
-  "syncWindowId": "2026 fifa world cup group i:norway-senegal:2026-06-23T00:00:00.000Z-live:api-football-enrich:football-data:537393",
+  "syncWindowId": "2026 fifa world cup group i:norway-senegal:2026-06-23T00:00:00.000Z-live",
   "windowSyncAttempts": 1,
   "liveMatchCount": 1,
   "sourceRequestCount": 3,

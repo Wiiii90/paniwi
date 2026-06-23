@@ -8,34 +8,34 @@
   },
   {
     "rank": 2,
+    "owner": "Caro",
+    "points": 4,
+    "goals": 4,
+    "playersWithGoals": 1
+  },
+  {
+    "rank": 2,
     "owner": "Felix",
     "points": 4,
     "goals": 4,
     "playersWithGoals": 3
   },
   {
-    "rank": 3,
+    "rank": 4,
     "owner": "Rafael",
     "points": 3,
     "goals": 3,
     "playersWithGoals": 2
   },
   {
-    "rank": 4,
-    "owner": "Caro",
-    "points": 2,
-    "goals": 2,
-    "playersWithGoals": 1
-  },
-  {
-    "rank": 4,
+    "rank": 5,
     "owner": "Marco",
     "points": 2,
     "goals": 2,
     "playersWithGoals": 2
   },
   {
-    "rank": 4,
+    "rank": 5,
     "owner": "Nina",
     "points": 2,
     "goals": 2,

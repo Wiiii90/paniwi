@@ -900,18 +900,18 @@
     "source": "football-data",
     "matchId": "football-data:537394",
     "fixtureId": "537394",
-    "label": "Norway 1-0 Senegal",
+    "label": "Norway 3-1 Senegal",
     "kickedOffAt": "2026-06-23T00:00:00Z",
     "status": "live",
     "homeTeam": {
       "id": 8872,
       "name": "Norway",
-      "score": 1
+      "score": 3
     },
     "awayTeam": {
       "id": 804,
       "name": "Senegal",
-      "score": 0
+      "score": 1
     }
   },
   {

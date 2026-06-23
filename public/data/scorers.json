@@ -10,6 +10,18 @@
     "rank": 1
   },
   {
+    "playerName": "Erling Haaland",
+    "normalizedPlayerName": "erling haaland",
+    "nationalTeam": "Norwegen",
+    "goals": 4,
+    "penaltyGoals": 0,
+    "scoringOwners": [
+      "Caro"
+    ],
+    "selected": true,
+    "rank": 2
+  },
+  {
     "playerName": "Kylian Mbappé",
     "normalizedPlayerName": "kylian mbappe",
     "nationalTeam": "Frankreich",
@@ -27,7 +39,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 3
+    "rank": 4
   },
   {
     "playerName": "Jonathan David",
@@ -39,7 +51,7 @@
       "Jonas"
     ],
     "selected": true,
-    "rank": 3
+    "rank": 4
   },
   {
     "playerName": "Ayase Ueda",
@@ -49,7 +61,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 5
+    "rank": 6
   },
   {
     "playerName": "Brian Brobbey",
@@ -59,7 +71,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 5
+    "rank": 6
   },
   {
     "playerName": "Cody Gakpo",
@@ -69,7 +81,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 5
+    "rank": 6
   },
   {
     "playerName": "Crysencio Summerville",
@@ -79,7 +91,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 5
+    "rank": 6
   },
   {
     "playerName": "Cyle Larin",
@@ -89,7 +101,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 5
+    "rank": 6
   },
   {
     "playerName": "Daichi Kamada",
@@ -99,7 +111,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 5
+    "rank": 6
   },
   {
     "playerName": "Elijah Just",
@@ -109,19 +121,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 5
-  },
-  {
-    "playerName": "Erling Haaland",
-    "normalizedPlayerName": "erling haaland",
-    "nationalTeam": "Norwegen",
-    "goals": 2,
-    "penaltyGoals": 0,
-    "scoringOwners": [
-      "Caro"
-    ],
-    "selected": true,
-    "rank": 5
+    "rank": 6
   },
   {
     "playerName": "Folarin Balogun",
@@ -131,7 +131,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 5
+    "rank": 6
   },
   {
     "playerName": "Harry Kane",
@@ -141,7 +141,7 @@
     "penaltyGoals": 1,
     "scoringOwners": [],
     "selected": false,
-    "rank": 5
+    "rank": 6
   },
   {
     "playerName": "Ismael Saibari",
@@ -151,7 +151,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 5
+    "rank": 6
   },
   {
     "playerName": "Johan Manzambi",
@@ -161,7 +161,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 5
+    "rank": 6
   },
   {
     "playerName": "Kai Havertz",
@@ -171,7 +171,7 @@
     "penaltyGoals": 1,
     "scoringOwners": [],
     "selected": false,
-    "rank": 5
+    "rank": 6
   },
   {
     "playerName": "Matheus Cunha",
@@ -183,7 +183,7 @@
       "Rafael"
     ],
     "selected": true,
-    "rank": 5
+    "rank": 6
   },
   {
     "playerName": "Maximiliano Araújo",
@@ -193,7 +193,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 5
+    "rank": 6
   },
   {
     "playerName": "Mikel Oyarzabal",
@@ -203,7 +203,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 5
+    "rank": 6
   },
   {
     "playerName": "Vinícius Júnior",
@@ -215,7 +215,7 @@
       "Felix"
     ],
     "selected": true,
-    "rank": 5
+    "rank": 6
   },
   {
     "playerName": "Yasin Ayari",
@@ -225,7 +225,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 5
+    "rank": 6
   },
   {
     "playerName": "Abbosbek Fayzullaev",
@@ -507,6 +507,16 @@
   {
     "playerName": "Ibrahim Mbaye",
     "normalizedPlayerName": "ibrahim mbaye",
+    "nationalTeam": "Senegal",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 23
+  },
+  {
+    "playerName": "Ismaïla Sarr",
+    "normalizedPlayerName": "ismaila sarr",
     "nationalTeam": "Senegal",
     "goals": 1,
     "penaltyGoals": 0,
