@@ -392,6 +392,16 @@
     "rank": 24
   },
   {
+    "playerName": "Cristiano Ronaldo",
+    "normalizedPlayerName": "cristiano ronaldo",
+    "nationalTeam": "Portugal",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 24
+  },
+  {
     "playerName": "Daniel Muñoz",
     "normalizedPlayerName": "daniel munoz",
     "nationalTeam": "Kolumbien",
@@ -888,6 +898,16 @@
     "playerName": "Nizar Al-Rashdan",
     "normalizedPlayerName": "nizar al rashdan",
     "nationalTeam": "Jordanien",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 24
+  },
+  {
+    "playerName": "Nuno Mendes",
+    "normalizedPlayerName": "nuno mendes",
+    "nationalTeam": "Portugal",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],

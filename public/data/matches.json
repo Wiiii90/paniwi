@@ -26750,14 +26750,16 @@
   },
   {
     "matchId": "football-data:537405",
-    "label": "Portugal vs Uzbekistan",
+    "label": "Portugal 2-0 Uzbekistan",
     "kickedOffAt": "2026-06-23T17:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
-      "name": "Portugal"
+      "name": "Portugal",
+      "score": 2
     },
     "awayTeam": {
-      "name": "Usbekistan"
+      "name": "Usbekistan",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -26840,12 +26842,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 2,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsEventBackfill": true,
+      "needsLineupBackfill": true
     }
   },
   {
