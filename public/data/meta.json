@@ -1,22 +1,22 @@
 {
-  "lastUpdated": "2026-06-23T19:01:36.983Z",
-  "source": "football-data",
+  "lastUpdated": "2026-06-23T19:31:26.112Z",
+  "source": "api-football",
   "attemptedSources": [
-    "football-data"
+    "api-football"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 233,
+  "goalCount": 234,
   "scoredGoalCount": 23,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
-  "snapshotFingerprint": "cc5f7919356520a9d45d2ad6717c7f887e094c83037aae626a9d24c27662ef37",
+  "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
+  "snapshotFingerprint": "72313709cb0ecd1d8ef430a0a18398bd68bb9cd8fafd793cd54cdfae032c6bc7",
   "snapshotChanged": true,
-  "syncWindowId": "2026 fifa world cup group l:england-gha:2026-06-23T20:00:00.000Z-pre-match",
+  "syncWindowId": "2026 fifa world cup group l:england-gha:2026-06-23T20:00:00.000Z-pre-match:api-football-enrich:football-data:537405",
   "windowSyncAttempts": 1,
-  "liveMatchCount": 1,
+  "liveMatchCount": 0,
   "sourceRequestCount": 3,
   "sourceRequestLimit": 6
 }
