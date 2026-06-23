@@ -1010,7 +1010,7 @@
     "fixtureId": "537411",
     "label": "England 0-0 Ghana",
     "kickedOffAt": "2026-06-23T20:00:00Z",
-    "status": "unknown",
+    "status": "finished",
     "homeTeam": {
       "id": 770,
       "name": "England",
@@ -1571,6 +1571,24 @@
     "awayTeam": {
       "id": 1568,
       "name": "Uzbekistan",
+      "score": 0
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489402",
+    "fixtureId": "1489402",
+    "label": "England 0-0 Ghana",
+    "kickedOffAt": "2026-06-23T20:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 10,
+      "name": "England",
+      "score": 0
+    },
+    "awayTeam": {
+      "id": 1504,
+      "name": "Ghana",
       "score": 0
     }
   }

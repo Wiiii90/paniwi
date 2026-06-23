@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-06-23T22:01:29.357Z",
-  "source": "football-data",
+  "lastUpdated": "2026-06-23T23:01:32.469Z",
+  "source": "api-football",
   "attemptedSources": [
-    "football-data"
+    "api-football"
   ],
   "fallbackUsed": false,
   "status": "ok",
@@ -11,12 +11,12 @@
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot unveraendert (football-data).",
-  "snapshotFingerprint": "a7678bfb19d699c2a9ba496ff16be3928e82716740443efb3d9c1df42cd42a8c",
-  "snapshotChanged": false,
-  "syncWindowId": "2026 fifa world cup group l:panama-croatia:2026-06-23T23:00:00.000Z-pre-match",
+  "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
+  "snapshotFingerprint": "94a78439eeec46ec059f334d5588129ef1ac3d15372b97844ffd5bb86b386dab",
+  "snapshotChanged": true,
+  "syncWindowId": "2026 fifa world cup group l:panama-croatia:2026-06-23T23:00:00.000Z-live:api-football-enrich:football-data:537411",
   "windowSyncAttempts": 1,
   "liveMatchCount": 0,
-  "sourceRequestCount": 2,
+  "sourceRequestCount": 3,
   "sourceRequestLimit": 6
 }
