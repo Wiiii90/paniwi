@@ -1,22 +1,22 @@
 {
-  "lastUpdated": "2026-06-23T07:01:36.417Z",
+  "lastUpdated": "2026-06-23T16:01:47.071Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 230,
+  "goalCount": 229,
   "scoredGoalCount": 23,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot unveraendert (football-data).",
-  "snapshotFingerprint": "ed351d328933bac60cef2bd660a1ccfbaea1a6977f75d1a5c085608b1105a433",
-  "snapshotChanged": false,
-  "syncWindowId": "2026 fifa world cup group j:jor-algeria:2026-06-23T03:00:00.000Z-check-3",
+  "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
+  "snapshotFingerprint": "4cbae1a5f4e0f6a0ed51ee0f63d63a1790908ae23b13df62de66f7e8c1550e53",
+  "snapshotChanged": true,
+  "syncWindowId": "2026 fifa world cup group k:portugal-uzb:2026-06-23T17:00:00.000Z-pre-match",
   "windowSyncAttempts": 1,
   "liveMatchCount": 0,
-  "sourceRequestCount": 3,
+  "sourceRequestCount": 2,
   "sourceRequestLimit": 6
 }

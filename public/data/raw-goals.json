@@ -2624,6 +2624,22 @@
     "teamId": "germany"
   },
   {
+    "externalGoalId": "football-data:scorer:102193:normal",
+    "playerName": "Crysencio Summerville",
+    "nationalTeam": "Netherlands",
+    "sourcePlayerName": "Crysencio Summerville",
+    "sourceTeamName": "Netherlands",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 102193,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "netherlands-crysencio-summerville",
+    "teamId": "netherlands"
+  },
+  {
     "externalGoalId": "football-data:scorer:6716:normal",
     "playerName": "Daichi Kamada",
     "nationalTeam": "Japan",
@@ -3144,22 +3160,6 @@
     "detail": "normal",
     "playerId": "japan-keito-nakamura",
     "teamId": "japan"
-  },
-  {
-    "externalGoalId": "football-data:scorer:102193:normal",
-    "playerName": "Crysencio Summerville",
-    "nationalTeam": "Netherlands",
-    "sourcePlayerName": "Crysencio Summerville",
-    "sourceTeamName": "Netherlands",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 102193,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "netherlands-crysencio-summerville",
-    "teamId": "netherlands"
   },
   {
     "externalGoalId": "football-data:scorer:133584:normal",
@@ -3750,22 +3750,6 @@
     "detail": "normal",
     "playerId": "sweden-anthony-elanga",
     "teamId": "sweden"
-  },
-  {
-    "externalGoalId": "football-data:scorer:8472:normal",
-    "playerName": "Memphis Depay",
-    "nationalTeam": "Netherlands",
-    "sourcePlayerName": "Memphis Depay",
-    "sourceTeamName": "Netherlands",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 8472,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "netherlands-memphis-depay",
-    "teamId": "netherlands"
   },
   {
     "externalGoalId": "football-data:scorer:1747:normal",
