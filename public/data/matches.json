@@ -27646,7 +27646,7 @@
     "matchId": "football-data:537411",
     "label": "England 0-0 Ghana",
     "kickedOffAt": "2026-06-23T20:00:00Z",
-    "status": "unknown",
+    "status": "live",
     "homeTeam": {
       "name": "England",
       "score": 0
@@ -27756,7 +27756,7 @@
       "eventsComplete": true,
       "lineupsComplete": false,
       "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsLineupBackfill": true
     }
   },
   {
