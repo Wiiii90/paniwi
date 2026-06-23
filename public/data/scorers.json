@@ -310,6 +310,16 @@
     "rank": 24
   },
   {
+    "playerName": "Amine Gouiri",
+    "normalizedPlayerName": "amine gouiri",
+    "nationalTeam": "Algerien",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 24
+  },
+  {
     "playerName": "Anthony Elanga",
     "normalizedPlayerName": "anthony elanga",
     "nationalTeam": "Schweden",
@@ -816,6 +826,16 @@
     "playerName": "Mostafa Ziko",
     "normalizedPlayerName": "mostafa ziko",
     "nationalTeam": "Ägypten",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 24
+  },
+  {
+    "playerName": "Nadhir Benbouali",
+    "normalizedPlayerName": "nadhir benbouali",
+    "nationalTeam": "Algerien",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],

@@ -3915,5 +3915,37 @@
     "detail": "normal",
     "playerId": "jordan-nizar-al-rashdan",
     "teamId": "jordan"
+  },
+  {
+    "externalGoalId": "football-data:scorer:192676:normal",
+    "playerName": "Nadhir Benbouali",
+    "nationalTeam": "Algeria",
+    "sourcePlayerName": "Nadhir Benbouali",
+    "sourceTeamName": "Algeria",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 192676,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "algeria-nadhir-benbouali",
+    "teamId": "algeria"
+  },
+  {
+    "externalGoalId": "football-data:scorer:8476:normal",
+    "playerName": "Amine Gouiri",
+    "nationalTeam": "Algeria",
+    "sourcePlayerName": "Amine Gouiri",
+    "sourceTeamName": "Algeria",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 8476,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "algeria-amine-gouiri",
+    "teamId": "algeria"
   }
 ]
