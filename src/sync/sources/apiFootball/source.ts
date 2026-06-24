@@ -76,8 +76,8 @@ function isDetailedGoalForMatch(goal: GoalRecord, match: ExternalMatchRecord): b
   return !isCompetitionScorerAggregateGoal(goal) && goalBelongsToExternalMatch(goal, match);
 }
 
-function countDetailedGoalsForMatch(goals: GoalRecord[], match: ExternalMatchRecord): number {
-  return goals.filter((goal) => isDetailedGoalForMatch(goal, match)).length;
+function countApiFootballDetailedGoalsForMatch(goals: GoalRecord[], match: ExternalMatchRecord): number {
+  return goals.filter((goal) => goal.source === "api-football" && isDetailedGoalForMatch(goal, match)).length;
 }
 
 function participantBelongsToMatch(participant: ExternalMatchParticipantRecord, match: ExternalMatchRecord): boolean {
@@ -160,7 +160,7 @@ function buildCandidate(
 
   const syncState = buildFixtureSyncState(
     match,
-    countDetailedGoalsForMatch(goals, match),
+    countApiFootballDetailedGoalsForMatch(goals, match),
     matchHasLineups(match, participants),
     matchHasPickedTeam(match, pickedTeamIds)
   );

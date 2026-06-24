@@ -114,13 +114,11 @@ async function autoEnrichNewlyFinishedMatches(before: ExternalMatchRecord[], syn
   }
 
   const previousMatchIds = process.env.API_FOOTBALL_ENRICH_MATCH_IDS;
-  const previousExtraLimit = process.env.API_FOOTBALL_ENRICH_EXTRA_MATCH_LIMIT;
   const previousRequestLimit = process.env.API_FOOTBALL_ENRICH_MAX_REQUESTS;
   const requestLimit = getApiFootballEnrichmentRequestLimit();
   let requestCount = 0;
 
   try {
-    process.env.API_FOOTBALL_ENRICH_EXTRA_MATCH_LIMIT = "0";
     for (const match of matches) {
       if (requestCount >= requestLimit) {
         console.log(`API-Football auto-enrich stopped: request budget exhausted (${requestCount}/${requestLimit}).`);
@@ -142,12 +140,6 @@ async function autoEnrichNewlyFinishedMatches(before: ExternalMatchRecord[], syn
       delete process.env.API_FOOTBALL_ENRICH_MATCH_IDS;
     } else {
       process.env.API_FOOTBALL_ENRICH_MATCH_IDS = previousMatchIds;
-    }
-
-    if (previousExtraLimit === undefined) {
-      delete process.env.API_FOOTBALL_ENRICH_EXTRA_MATCH_LIMIT;
-    } else {
-      process.env.API_FOOTBALL_ENRICH_EXTRA_MATCH_LIMIT = previousExtraLimit;
     }
 
     if (previousRequestLimit === undefined) {

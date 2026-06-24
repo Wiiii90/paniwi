@@ -6,5 +6,5 @@ export function isCompetitionScorerAggregateGoal(goal: Pick<GoalRecord, "source"
 }
 
 export function selectEffectiveGoalsForScoring(goals: GoalRecord[]): GoalRecord[] {
-  return goals.filter((goal) => goal.source === "api-football" || goal.source === "mock");
+  return goals.filter((goal) => !isCompetitionScorerAggregateGoal(goal));
 }

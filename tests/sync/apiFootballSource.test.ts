@@ -175,6 +175,80 @@ assert.equal(
   true
 );
 
+const completeWikipediaGoals: GoalRecord[] = [
+  {
+    externalGoalId: "wikipedia:usa-paraguay:one",
+    playerName: "One",
+    nationalTeam: "United States",
+    goals: 1,
+    source: "wikipedia",
+    matchId: "wikipedia:usa-paraguay",
+    matchLabel: "United States 4-1 Paraguay",
+    kickedOffAt: "2026-06-13T01:00:00.000Z",
+    minute: 7,
+    timeConfidence: "estimated",
+    detail: "normal"
+  },
+  {
+    externalGoalId: "wikipedia:usa-paraguay:two",
+    playerName: "Two",
+    nationalTeam: "United States",
+    goals: 1,
+    source: "wikipedia",
+    matchId: "wikipedia:usa-paraguay",
+    matchLabel: "United States 4-1 Paraguay",
+    kickedOffAt: "2026-06-13T01:00:00.000Z",
+    minute: 31,
+    timeConfidence: "estimated",
+    detail: "normal"
+  },
+  {
+    externalGoalId: "wikipedia:usa-paraguay:three",
+    playerName: "Three",
+    nationalTeam: "United States",
+    goals: 1,
+    source: "wikipedia",
+    matchId: "wikipedia:usa-paraguay",
+    matchLabel: "United States 4-1 Paraguay",
+    kickedOffAt: "2026-06-13T01:00:00.000Z",
+    minute: 73,
+    timeConfidence: "estimated",
+    detail: "normal"
+  },
+  {
+    externalGoalId: "wikipedia:usa-paraguay:four",
+    playerName: "Four",
+    nationalTeam: "United States",
+    goals: 1,
+    source: "wikipedia",
+    matchId: "wikipedia:usa-paraguay",
+    matchLabel: "United States 4-1 Paraguay",
+    kickedOffAt: "2026-06-13T01:00:00.000Z",
+    minute: 98,
+    timeConfidence: "estimated",
+    detail: "normal"
+  },
+  {
+    externalGoalId: "wikipedia:usa-paraguay:five",
+    playerName: "Five",
+    nationalTeam: "Paraguay",
+    goals: 1,
+    source: "wikipedia",
+    matchId: "wikipedia:usa-paraguay",
+    matchLabel: "United States 4-1 Paraguay",
+    kickedOffAt: "2026-06-13T01:00:00.000Z",
+    minute: 7,
+    timeConfidence: "estimated",
+    detail: "own-goal"
+  }
+];
+assert.equal(
+  getApiFootballEnrichmentCandidates([wikipediaMatchWithMissingGoal], completeWikipediaGoals, [], {
+    API_FOOTBALL_ENRICH_EXTRA_MATCH_LIMIT: "0"
+  } as NodeJS.ProcessEnv)[0]?.syncState.needsEventBackfill,
+  true
+);
+
 const subOnlyParticipants: ExternalMatchParticipantRecord[] = [
   {
     source: "api-football",

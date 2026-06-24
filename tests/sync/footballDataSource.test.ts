@@ -164,7 +164,7 @@ assert.deepEqual(
   selectEffectiveGoalsForScoring([{ ...partialDetailedGoal, source: "wikipedia", externalGoalId: "wikipedia:kane:one" }]).map(
     (goal) => goal.externalGoalId
   ),
-  []
+  ["wikipedia:kane:one"]
 );
 assert.deepEqual(
   selectEffectiveGoalsForScoring([aggregateGoal, partialDetailedGoal, { ...partialDetailedGoal, externalGoalId: "api-football:kane:two" }]).map(
