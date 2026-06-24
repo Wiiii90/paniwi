@@ -1028,7 +1028,7 @@
     "fixtureId": "537412",
     "label": "Panama 0-0 Croatia",
     "kickedOffAt": "2026-06-23T23:00:00Z",
-    "status": "unknown",
+    "status": "live",
     "homeTeam": {
       "id": 1836,
       "name": "Panama",
@@ -1592,6 +1592,102 @@
       "id": 1504,
       "name": "Ghana",
       "score": 0
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537349",
+    "fixtureId": "537349",
+    "label": "Turkey vs United States",
+    "kickedOffAt": "2026-06-26T02:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 803,
+      "name": "Turkey"
+    },
+    "awayTeam": {
+      "id": 771,
+      "name": "United States"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537350",
+    "fixtureId": "537350",
+    "label": "Paraguay vs Australia",
+    "kickedOffAt": "2026-06-26T02:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 761,
+      "name": "Paraguay"
+    },
+    "awayTeam": {
+      "id": 779,
+      "name": "Australia"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537395",
+    "fixtureId": "537395",
+    "label": "Norway vs France",
+    "kickedOffAt": "2026-06-26T19:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 8872,
+      "name": "Norway"
+    },
+    "awayTeam": {
+      "id": 773,
+      "name": "France"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537396",
+    "fixtureId": "537396",
+    "label": "Senegal vs Iraq",
+    "kickedOffAt": "2026-06-26T19:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 804,
+      "name": "Senegal"
+    },
+    "awayTeam": {
+      "id": 8062,
+      "name": "Iraq"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537373",
+    "fixtureId": "537373",
+    "label": "Uruguay vs Spain",
+    "kickedOffAt": "2026-06-27T00:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 758,
+      "name": "Uruguay"
+    },
+    "awayTeam": {
+      "id": 760,
+      "name": "Spain"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537374",
+    "fixtureId": "537374",
+    "label": "Cape Verde Islands vs Saudi Arabia",
+    "kickedOffAt": "2026-06-27T00:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 1930,
+      "name": "Cape Verde Islands"
+    },
+    "awayTeam": {
+      "id": 801,
+      "name": "Saudi Arabia"
     }
   }
 ]
