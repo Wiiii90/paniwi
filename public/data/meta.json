@@ -1,22 +1,22 @@
 {
-  "lastUpdated": "2026-06-24T00:31:20.562Z",
-  "source": "football-data",
+  "lastUpdated": "2026-06-24T19:51:30.852Z",
+  "source": "api-football",
   "attemptedSources": [
-    "football-data"
+    "api-football"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 239,
+  "goalCount": 241,
   "scoredGoalCount": 23,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
-  "snapshotFingerprint": "912918aa1e40052171a124c137b1fc69890584e37ae6e76506ee25e603c09f19",
+  "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
+  "snapshotFingerprint": "39b0c6bf1fcd208092ca62cb5ca25ba6541764f9fcbbe46e7d0351e425e3574e",
   "snapshotChanged": true,
-  "syncWindowId": "2026 fifa world cup group l:panama-croatia:2026-06-23T23:00:00.000Z-live",
+  "syncWindowId": "2026 fifa world cup group b:switzerland-canada:2026-06-24T19:00:00.000Z-live:api-football-enrich:football-data:537412",
   "windowSyncAttempts": 1,
-  "liveMatchCount": 0,
+  "liveMatchCount": 2,
   "sourceRequestCount": 3,
-  "sourceRequestLimit": 6
+  "sourceRequestLimit": 3
 }

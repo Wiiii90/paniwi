@@ -1028,7 +1028,7 @@
     "fixtureId": "537412",
     "label": "Panama 0-1 Croatia",
     "kickedOffAt": "2026-06-23T23:00:00Z",
-    "status": "unknown",
+    "status": "finished",
     "homeTeam": {
       "id": 1836,
       "name": "Panama",
@@ -1278,48 +1278,54 @@
     "source": "football-data",
     "matchId": "football-data:537406",
     "fixtureId": "537406",
-    "label": "Colombia vs Congo DR",
+    "label": "Colombia 1-0 Congo DR",
     "kickedOffAt": "2026-06-24T02:00:00Z",
-    "status": "scheduled",
+    "status": "finished",
     "homeTeam": {
       "id": 818,
-      "name": "Colombia"
+      "name": "Colombia",
+      "score": 1
     },
     "awayTeam": {
       "id": 1934,
-      "name": "Congo DR"
+      "name": "Congo DR",
+      "score": 0
     }
   },
   {
     "source": "football-data",
     "matchId": "football-data:537337",
     "fixtureId": "537337",
-    "label": "Switzerland vs Canada",
+    "label": "Switzerland 0-0 Canada",
     "kickedOffAt": "2026-06-24T19:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 788,
-      "name": "Switzerland"
+      "name": "Switzerland",
+      "score": 0
     },
     "awayTeam": {
       "id": 828,
-      "name": "Canada"
+      "name": "Canada",
+      "score": 0
     }
   },
   {
     "source": "football-data",
     "matchId": "football-data:537338",
     "fixtureId": "537338",
-    "label": "Bosnia-Herzegovina vs Qatar",
+    "label": "Bosnia-Herzegovina 2-1 Qatar",
     "kickedOffAt": "2026-06-24T19:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 1060,
-      "name": "Bosnia-Herzegovina"
+      "name": "Bosnia-Herzegovina",
+      "score": 2
     },
     "awayTeam": {
       "id": 8030,
-      "name": "Qatar"
+      "name": "Qatar",
+      "score": 1
     }
   },
   {
@@ -1688,6 +1694,42 @@
     "awayTeam": {
       "id": 801,
       "name": "Saudi Arabia"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1539008",
+    "fixtureId": "1539008",
+    "label": "Colombia 1-0 Congo DR",
+    "kickedOffAt": "2026-06-24T02:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 8,
+      "name": "Colombia",
+      "score": 1
+    },
+    "awayTeam": {
+      "id": 1508,
+      "name": "Congo DR",
+      "score": 0
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489403",
+    "fixtureId": "1489403",
+    "label": "Panama 0-1 Croatia",
+    "kickedOffAt": "2026-06-23T23:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 11,
+      "name": "Panama",
+      "score": 0
+    },
+    "awayTeam": {
+      "id": 3,
+      "name": "Croatia",
+      "score": 1
     }
   }
 ]
