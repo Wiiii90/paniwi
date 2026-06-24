@@ -10419,36 +10419,8 @@
         "teamId": "switzerland"
       }
     ],
-    "pointGoals": [
-      {
-        "externalGoalId": "api-football:1539005:48471:84:Normal Goal:1",
-        "playerName": "Rubén Vargas",
-        "nationalTeam": "Switzerland",
-        "sourcePlayerName": "R. Vargas",
-        "sourceTeamName": "Switzerland",
-        "goals": 1,
-        "source": "api-football",
-        "apiPlayerId": 48471,
-        "matchId": "football-data:537335",
-        "fixtureId": "1539005",
-        "matchLabel": "Switzerland 4-1 Bosnia-Herzegovina",
-        "kickedOffAt": "2026-06-18T19:00:00Z",
-        "minute": 84,
-        "timeConfidence": "match-only",
-        "detail": "normal",
-        "playerId": "switzerland-ruben-vargas",
-        "teamId": "switzerland",
-        "pickId": "switzerland-ruben-vargas",
-        "owner": "Peer",
-        "pickedPlayerName": "Rubén Vargas",
-        "displayPlayerName": "Rubén Vargas",
-        "displayNationalTeam": "Schweiz",
-        "points": 1
-      }
-    ],
-    "affectedOwners": [
-      "Peer"
-    ],
+    "pointGoals": [],
+    "affectedOwners": [],
     "participants": [
       {
         "source": "api-football",
@@ -30197,12 +30169,12 @@
   },
   {
     "matchId": "football-data:537337",
-    "label": "Switzerland 0-0 Canada",
+    "label": "Switzerland 2-0 Canada",
     "kickedOffAt": "2026-06-24T19:00:00Z",
     "status": "live",
     "homeTeam": {
       "name": "Schweiz",
-      "score": 0
+      "score": 2
     },
     "awayTeam": {
       "name": "Kanada",
@@ -30304,11 +30276,11 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 0,
+      "scoreTotal": 2,
       "goalEventCount": 0,
-      "eventsComplete": true,
+      "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
+      "needsEventBackfill": true,
       "needsLineupBackfill": true
     }
   },

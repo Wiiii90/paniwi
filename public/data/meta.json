@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-24T20:01:29.098Z",
+  "lastUpdated": "2026-06-24T20:31:22.679Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -11,9 +11,9 @@
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot unveraendert (football-data).",
-  "snapshotFingerprint": "39b0c6bf1fcd208092ca62cb5ca25ba6541764f9fcbbe46e7d0351e425e3574e",
-  "snapshotChanged": false,
+  "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
+  "snapshotFingerprint": "f754a37c8dbe63998fff1c2b3433aece7eb4406dad5c6e147944668d1023cc36",
+  "snapshotChanged": true,
   "syncWindowId": "2026 fifa world cup group b:switzerland-canada:2026-06-24T19:00:00.000Z-live",
   "windowSyncAttempts": 1,
   "liveMatchCount": 2,

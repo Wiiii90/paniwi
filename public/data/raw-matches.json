@@ -1296,13 +1296,13 @@
     "source": "football-data",
     "matchId": "football-data:537337",
     "fixtureId": "537337",
-    "label": "Switzerland 0-0 Canada",
+    "label": "Switzerland 2-0 Canada",
     "kickedOffAt": "2026-06-24T19:00:00Z",
     "status": "live",
     "homeTeam": {
       "id": 788,
       "name": "Switzerland",
-      "score": 0
+      "score": 2
     },
     "awayTeam": {
       "id": 828,

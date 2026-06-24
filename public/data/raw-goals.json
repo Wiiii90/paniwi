@@ -2645,6 +2645,22 @@
     "teamId": "germany"
   },
   {
+    "externalGoalId": "football-data:scorer:212309:normal",
+    "playerName": "Johan Manzambi",
+    "nationalTeam": "Switzerland",
+    "sourcePlayerName": "Johan Manzambi",
+    "sourceTeamName": "Switzerland",
+    "goals": 3,
+    "source": "football-data",
+    "apiPlayerId": 212309,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "switzerland-johan-manzambi",
+    "teamId": "switzerland"
+  },
+  {
     "externalGoalId": "football-data:scorer:8924:normal",
     "playerName": "Jonathan David",
     "nationalTeam": "Canada",
@@ -2885,19 +2901,19 @@
     "teamId": "colombia"
   },
   {
-    "externalGoalId": "football-data:scorer:212309:normal",
-    "playerName": "Johan Manzambi",
+    "externalGoalId": "football-data:scorer:31913:normal",
+    "playerName": "Rubén Vargas",
     "nationalTeam": "Switzerland",
-    "sourcePlayerName": "Johan Manzambi",
+    "sourcePlayerName": "Ruben Vargas",
     "sourceTeamName": "Switzerland",
     "goals": 2,
     "source": "football-data",
-    "apiPlayerId": 212309,
+    "apiPlayerId": 31913,
     "matchId": "football-data:scorers",
     "matchLabel": "FIFA World Cup 2026 Torschützenliste",
     "timeConfidence": "unknown",
     "detail": "normal",
-    "playerId": "switzerland-johan-manzambi",
+    "playerId": "switzerland-ruben-vargas",
     "teamId": "switzerland"
   },
   {
@@ -3773,22 +3789,6 @@
     "detail": "penalty",
     "playerId": "south-africa-teboho-mokoena",
     "teamId": "south-africa"
-  },
-  {
-    "externalGoalId": "football-data:scorer:31913:normal",
-    "playerName": "Rubén Vargas",
-    "nationalTeam": "Switzerland",
-    "sourcePlayerName": "Ruben Vargas",
-    "sourceTeamName": "Switzerland",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 31913,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "switzerland-ruben-vargas",
-    "teamId": "switzerland"
   },
   {
     "externalGoalId": "football-data:scorer:221764:normal",

@@ -42,21 +42,21 @@
     "playersWithGoals": 2
   },
   {
-    "rank": 7,
+    "rank": 5,
+    "owner": "Peer",
+    "points": 2,
+    "goals": 2,
+    "playersWithGoals": 1
+  },
+  {
+    "rank": 8,
     "owner": "Kim",
     "points": 1,
     "goals": 1,
     "playersWithGoals": 1
   },
   {
-    "rank": 7,
-    "owner": "Peer",
-    "points": 1,
-    "goals": 1,
-    "playersWithGoals": 1
-  },
-  {
-    "rank": 7,
+    "rank": 8,
     "owner": "Willi",
     "points": 1,
     "goals": 1,
