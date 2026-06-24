@@ -549,7 +549,7 @@
     "nationalTeam": "Brazil",
     "sourcePlayerName": "Vinicius Junior",
     "sourceTeamName": "Brazil",
-    "goals": 3,
+    "goals": 4,
     "source": "football-data",
     "apiPlayerId": 1556,
     "matchId": "football-data:scorers",
@@ -563,6 +563,6 @@
     "pickedPlayerName": "Vinícius Júnior",
     "displayPlayerName": "Vinícius Júnior",
     "displayNationalTeam": "Brasilien",
-    "points": 3
+    "points": 4
   }
 ]

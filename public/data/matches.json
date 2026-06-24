@@ -31752,16 +31752,16 @@
   },
   {
     "matchId": "football-data:537344",
-    "label": "Morocco 0-1 Haiti",
+    "label": "Morocco 2-2 Haiti",
     "kickedOffAt": "2026-06-24T22:00:00Z",
-    "status": "unknown",
+    "status": "live",
     "homeTeam": {
       "name": "Marokko",
-      "score": 0
+      "score": 2
     },
     "awayTeam": {
       "name": "Haiti",
-      "score": 1
+      "score": 2
     },
     "goals": [],
     "pointGoals": [],
@@ -31829,19 +31829,19 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 1,
+      "scoreTotal": 4,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsEventBackfill": true,
+      "needsLineupBackfill": true
     }
   },
   {
     "matchId": "football-data:537343",
     "label": "Scotland 0-2 Brazil",
     "kickedOffAt": "2026-06-24T22:00:00Z",
-    "status": "unknown",
+    "status": "live",
     "homeTeam": {
       "name": "Schottland",
       "score": 0
@@ -31980,8 +31980,8 @@
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsEventBackfill": true,
+      "needsLineupBackfill": true
     }
   },
   {
