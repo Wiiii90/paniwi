@@ -26,7 +26,7 @@ export type FootballDataMatch = {
   };
 };
 
-const liveStatuses = new Set(["IN_PLAY", "PAUSED", "EXTRA_TIME", "PENALTY_SHOOTOUT", "SUSPENDED"]);
+const liveStatuses = new Set(["IN_PLAY", "LIVE", "PAUSED", "EXTRA_TIME", "PENALTY_SHOOTOUT", "SUSPENDED"]);
 const scheduledStatuses = new Set(["SCHEDULED", "TIMED"]);
 const finishedStatuses = new Set(["FINISHED", "AWARDED"]);
 

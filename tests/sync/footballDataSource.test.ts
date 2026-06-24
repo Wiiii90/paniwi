@@ -81,6 +81,22 @@ assert.deepEqual(
   ["live", "Switzerland 0-0 Bosnia-Herzegovina", 0, 0]
 );
 
+const parsedLiveStatusMatch = parseFootballDataMatch({
+  id: 2003,
+  utcDate: "2026-06-24T22:00:00Z",
+  status: "LIVE",
+  homeTeam: { id: 8873, name: "Scotland" },
+  awayTeam: { id: 764, name: "Brazil" },
+  score: {
+    fullTime: { home: 0, away: 2 }
+  }
+});
+
+assert.deepEqual(
+  parsedLiveStatusMatch && [parsedLiveStatusMatch.status, parsedLiveStatusMatch.label],
+  ["live", "Scotland 0-2 Brazil"]
+);
+
 assert.deepEqual(
   parseFootballDataScorer({
     player: { id: 44, name: "Harry Kane" },

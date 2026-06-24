@@ -447,6 +447,31 @@ assert.deepEqual(
   ["api-football:scheduled-after-kickoff"]
 );
 
+const unknownScoredMatch = buildMatches(
+  [],
+  [],
+  [
+    {
+      source: "football-data",
+      matchId: "football-data:unknown-scored",
+      fixtureId: "unknown-scored",
+      label: "Scotland 0-2 Brazil",
+      kickedOffAt: "2026-06-24T22:00:00Z",
+      status: "unknown",
+      homeTeam: { name: "Scotland", score: 0 },
+      awayTeam: { name: "Brazil", score: 2 }
+    }
+  ]
+)[0];
+assert.deepEqual(
+  groupMatchesBySection([unknownScoredMatch], new Date("2026-06-24T23:30:00Z")).live.map((match) => match.matchId),
+  ["football-data:unknown-scored"]
+);
+assert.deepEqual(
+  groupMatchesBySection([unknownScoredMatch], new Date("2026-06-25T03:00:01Z")).finished.map((match) => match.matchId),
+  ["football-data:unknown-scored"]
+);
+
 const homePreviewMatches = buildMatches(
   [],
   [],

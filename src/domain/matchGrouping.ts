@@ -26,6 +26,31 @@ function getKickoffTime(match: MatchRecord): number | null {
   return Number.isFinite(kickoffMs) ? kickoffMs : null;
 }
 
+function hasScore(match: MatchRecord): boolean {
+  return match.homeTeam.score !== undefined && match.awayTeam.score !== undefined;
+}
+
+function isUnknownResultInActiveWindow(match: MatchRecord, now: Date): boolean {
+  const kickoffMs = getKickoffTime(match);
+  return (
+    match.status === "unknown" &&
+    hasScore(match) &&
+    kickoffMs !== null &&
+    now.getTime() >= kickoffMs &&
+    now.getTime() <= kickoffMs + recentlyFinishedDisplayWindowMinutesAfterKickoff * 60 * 1000
+  );
+}
+
+function isUnknownFinishedResult(match: MatchRecord, now: Date): boolean {
+  const kickoffMs = getKickoffTime(match);
+  return (
+    match.status === "unknown" &&
+    hasScore(match) &&
+    kickoffMs !== null &&
+    now.getTime() > kickoffMs + recentlyFinishedDisplayWindowMinutesAfterKickoff * 60 * 1000
+  );
+}
+
 export function isWarmupMatch(match: MatchRecord, now: Date): boolean {
   const kickoffMs = getKickoffTime(match);
   return match.status === "scheduled" && kickoffMs !== null && now.getTime() >= kickoffMs - preMatchDisplayWindowMinutes * 60 * 1000;
@@ -42,7 +67,7 @@ export function isCooldownMatch(match: MatchRecord, now: Date): boolean {
 }
 
 export function isActiveMatch(match: MatchRecord, now: Date): boolean {
-  return match.status === "live" || isWarmupMatch(match, now) || isCooldownMatch(match, now);
+  return match.status === "live" || isWarmupMatch(match, now) || isCooldownMatch(match, now) || isUnknownResultInActiveWindow(match, now);
 }
 
 function sortUpcomingMatches(now: Date): (left: MatchRecord, right: MatchRecord) => number {
@@ -55,9 +80,9 @@ function sortFinishedMatches(now: Date): (left: MatchRecord, right: MatchRecord)
 
 export function groupMatchesBySection(matches: MatchRecord[], now: Date): MatchSections {
   return {
-    live: matches.filter((match) => match.status === "live").sort(sortByKickoffAscending),
+    live: matches.filter((match) => match.status === "live" || isUnknownResultInActiveWindow(match, now)).sort(sortByKickoffAscending),
     upcoming: matches.filter((match) => match.status === "scheduled").sort(sortUpcomingMatches(now)),
-    finished: matches.filter((match) => match.status === "finished").sort(sortFinishedMatches(now))
+    finished: matches.filter((match) => match.status === "finished" || isUnknownFinishedResult(match, now)).sort(sortFinishedMatches(now))
   };
 }
 
