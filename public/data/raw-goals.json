@@ -2842,6 +2842,22 @@
     "teamId": "canada"
   },
   {
+    "externalGoalId": "football-data:scorer:30842:normal",
+    "playerName": "Matheus Cunha",
+    "nationalTeam": "Brazil",
+    "sourcePlayerName": "Matheus Cunha",
+    "sourceTeamName": "Brazil",
+    "goals": 3,
+    "source": "football-data",
+    "apiPlayerId": 30842,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "brazil-matheus-cunha",
+    "teamId": "brazil"
+  },
+  {
     "externalGoalId": "football-data:scorer:15958:normal",
     "playerName": "Cyle Larin",
     "nationalTeam": "Canada",
@@ -3064,22 +3080,6 @@
     "detail": "normal",
     "playerId": "bosnia-and-herzegovina-ermin-mahmic",
     "teamId": "bosnia-and-herzegovina"
-  },
-  {
-    "externalGoalId": "football-data:scorer:30842:normal",
-    "playerName": "Matheus Cunha",
-    "nationalTeam": "Brazil",
-    "sourcePlayerName": "Matheus Cunha",
-    "sourceTeamName": "Brazil",
-    "goals": 2,
-    "source": "football-data",
-    "apiPlayerId": 30842,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "brazil-matheus-cunha",
-    "teamId": "brazil"
   },
   {
     "externalGoalId": "football-data:scorer:97535:normal",

@@ -31891,7 +31891,7 @@
   },
   {
     "matchId": "football-data:537343",
-    "label": "Scotland 0-2 Brazil",
+    "label": "Scotland 0-3 Brazil",
     "kickedOffAt": "2026-06-24T22:00:00Z",
     "status": "live",
     "homeTeam": {
@@ -31900,7 +31900,7 @@
     },
     "awayTeam": {
       "name": "Brasilien",
-      "score": 2
+      "score": 3
     },
     "goals": [],
     "pointGoals": [],
@@ -32028,7 +32028,7 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 2,
+      "scoreTotal": 3,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,

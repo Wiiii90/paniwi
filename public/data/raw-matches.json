@@ -1350,7 +1350,7 @@
     "source": "football-data",
     "matchId": "football-data:537343",
     "fixtureId": "537343",
-    "label": "Scotland 0-2 Brazil",
+    "label": "Scotland 0-3 Brazil",
     "kickedOffAt": "2026-06-24T22:00:00Z",
     "status": "live",
     "homeTeam": {
@@ -1361,7 +1361,7 @@
     "awayTeam": {
       "id": 764,
       "name": "Brazil",
-      "score": 2
+      "score": 3
     }
   },
   {
