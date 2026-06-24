@@ -2762,6 +2762,22 @@
     "teamId": "norway"
   },
   {
+    "externalGoalId": "football-data:scorer:1556:normal",
+    "playerName": "Vinícius Júnior",
+    "nationalTeam": "Brazil",
+    "sourcePlayerName": "Vinicius Junior",
+    "sourceTeamName": "Brazil",
+    "goals": 3,
+    "source": "football-data",
+    "apiPlayerId": 1556,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "brazil-vinicius-junior",
+    "teamId": "brazil"
+  },
+  {
     "externalGoalId": "football-data:scorer:6928:normal",
     "playerName": "Deniz Undav",
     "nationalTeam": "Germany",
@@ -2856,22 +2872,6 @@
     "detail": "normal",
     "playerId": "morocco-ismael-saibari",
     "teamId": "morocco"
-  },
-  {
-    "externalGoalId": "football-data:scorer:1556:normal",
-    "playerName": "Vinícius Júnior",
-    "nationalTeam": "Brazil",
-    "sourcePlayerName": "Vinicius Junior",
-    "sourceTeamName": "Brazil",
-    "goals": 2,
-    "source": "football-data",
-    "apiPlayerId": 1556,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "brazil-vinicius-junior",
-    "teamId": "brazil"
   },
   {
     "externalGoalId": "football-data:scorer:171:normal",

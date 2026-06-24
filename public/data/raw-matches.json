@@ -1332,32 +1332,36 @@
     "source": "football-data",
     "matchId": "football-data:537344",
     "fixtureId": "537344",
-    "label": "Morocco vs Haiti",
+    "label": "Morocco 0-1 Haiti",
     "kickedOffAt": "2026-06-24T22:00:00Z",
-    "status": "scheduled",
+    "status": "unknown",
     "homeTeam": {
       "id": 815,
-      "name": "Morocco"
+      "name": "Morocco",
+      "score": 0
     },
     "awayTeam": {
       "id": 836,
-      "name": "Haiti"
+      "name": "Haiti",
+      "score": 1
     }
   },
   {
     "source": "football-data",
     "matchId": "football-data:537343",
     "fixtureId": "537343",
-    "label": "Scotland vs Brazil",
+    "label": "Scotland 0-2 Brazil",
     "kickedOffAt": "2026-06-24T22:00:00Z",
-    "status": "scheduled",
+    "status": "unknown",
     "homeTeam": {
       "id": 8873,
-      "name": "Scotland"
+      "name": "Scotland",
+      "score": 0
     },
     "awayTeam": {
       "id": 764,
-      "name": "Brazil"
+      "name": "Brazil",
+      "score": 2
     }
   },
   {

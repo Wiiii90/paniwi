@@ -1,24 +1,24 @@
 [
   {
     "rank": 1,
+    "owner": "Felix",
+    "points": 5,
+    "goals": 5,
+    "playersWithGoals": 3
+  },
+  {
+    "rank": 1,
     "owner": "Jonas",
     "points": 5,
     "goals": 5,
     "playersWithGoals": 3
   },
   {
-    "rank": 2,
+    "rank": 3,
     "owner": "Caro",
     "points": 4,
     "goals": 4,
     "playersWithGoals": 1
-  },
-  {
-    "rank": 2,
-    "owner": "Felix",
-    "points": 4,
-    "goals": 4,
-    "playersWithGoals": 3
   },
   {
     "rank": 4,
