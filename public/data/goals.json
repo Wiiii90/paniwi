@@ -317,6 +317,31 @@
     "points": 1
   },
   {
+    "externalGoalId": "api-football:1539005:48471:84:Normal Goal:1",
+    "playerName": "Rubén Vargas",
+    "nationalTeam": "Switzerland",
+    "sourcePlayerName": "R. Vargas",
+    "sourceTeamName": "Switzerland",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 48471,
+    "matchId": "football-data:537335",
+    "fixtureId": "1539005",
+    "matchLabel": "Switzerland 4-1 Bosnia-Herzegovina",
+    "kickedOffAt": "2026-06-18T19:00:00Z",
+    "minute": 84,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "switzerland-ruben-vargas",
+    "teamId": "switzerland",
+    "pickId": "switzerland-ruben-vargas",
+    "owner": "Peer",
+    "pickedPlayerName": "Rubén Vargas",
+    "displayPlayerName": "Rubén Vargas",
+    "displayNationalTeam": "Schweiz",
+    "points": 1
+  },
+  {
     "externalGoalId": "api-football:1489387:8489:29:Normal Goal:1",
     "playerName": "Jonathan David",
     "nationalTeam": "Canada",
@@ -542,17 +567,20 @@
     "points": 1
   },
   {
-    "externalGoalId": "football-data:scorer:31913:normal",
+    "externalGoalId": "api-football:1489408:48471:46:Normal Goal:0",
     "playerName": "Rubén Vargas",
     "nationalTeam": "Switzerland",
-    "sourcePlayerName": "Ruben Vargas",
+    "sourcePlayerName": "R. Vargas",
     "sourceTeamName": "Switzerland",
-    "goals": 2,
-    "source": "football-data",
-    "apiPlayerId": 31913,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 48471,
+    "matchId": "football-data:537337",
+    "fixtureId": "1489408",
+    "matchLabel": "Switzerland 2-1 Canada",
+    "kickedOffAt": "2026-06-24T19:00:00+00:00",
+    "minute": 46,
+    "timeConfidence": "match-only",
     "detail": "normal",
     "playerId": "switzerland-ruben-vargas",
     "teamId": "switzerland",
@@ -561,6 +589,6 @@
     "pickedPlayerName": "Rubén Vargas",
     "displayPlayerName": "Rubén Vargas",
     "displayNationalTeam": "Schweiz",
-    "points": 2
+    "points": 1
   }
 ]
