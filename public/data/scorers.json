@@ -32,38 +32,6 @@
     "rank": 2
   },
   {
-    "playerName": "Vinícius Júnior",
-    "normalizedPlayerName": "vinicius junior",
-    "nationalTeam": "Brasilien",
-    "goals": 4,
-    "penaltyGoals": 0,
-    "scoringOwners": [
-      "Felix"
-    ],
-    "selected": true,
-    "rank": 2
-  },
-  {
-    "playerName": "Deniz Undav",
-    "normalizedPlayerName": "deniz undav",
-    "nationalTeam": "Deutschland",
-    "goals": 3,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 5
-  },
-  {
-    "playerName": "Ismael Saibari",
-    "normalizedPlayerName": "ismael saibari",
-    "nationalTeam": "Marokko",
-    "goals": 3,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 5
-  },
-  {
     "playerName": "Johan Manzambi",
     "normalizedPlayerName": "johan manzambi",
     "nationalTeam": "Schweiz",
@@ -71,7 +39,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 5
+    "rank": 4
   },
   {
     "playerName": "Jonathan David",
@@ -83,7 +51,7 @@
       "Jonas"
     ],
     "selected": true,
-    "rank": 5
+    "rank": 4
   },
   {
     "playerName": "Ayase Ueda",
@@ -93,7 +61,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 9
+    "rank": 6
   },
   {
     "playerName": "Brian Brobbey",
@@ -103,7 +71,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 9
+    "rank": 6
   },
   {
     "playerName": "Cody Gakpo",
@@ -113,7 +81,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 9
+    "rank": 6
   },
   {
     "playerName": "Cristiano Ronaldo",
@@ -123,37 +91,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 9
-  },
-  {
-    "playerName": "Crysencio Summerville",
-    "normalizedPlayerName": "crysencio summerville",
-    "nationalTeam": "Niederlande",
-    "goals": 2,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 9
-  },
-  {
-    "playerName": "Cyle Larin",
-    "normalizedPlayerName": "cyle larin",
-    "nationalTeam": "Kanada",
-    "goals": 2,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 9
-  },
-  {
-    "playerName": "Daichi Kamada",
-    "normalizedPlayerName": "daichi kamada",
-    "nationalTeam": "Japan",
-    "goals": 2,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 9
+    "rank": 6
   },
   {
     "playerName": "Daniel Muñoz",
@@ -163,7 +101,17 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 9
+    "rank": 6
+  },
+  {
+    "playerName": "Deniz Undav",
+    "normalizedPlayerName": "deniz undav",
+    "nationalTeam": "Deutschland",
+    "goals": 2,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 6
   },
   {
     "playerName": "Elijah Just",
@@ -173,7 +121,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 9
+    "rank": 6
   },
   {
     "playerName": "Ermin Mahmić",
@@ -183,17 +131,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 9
-  },
-  {
-    "playerName": "Folarin Balogun",
-    "normalizedPlayerName": "folarin balogun",
-    "nationalTeam": "USA",
-    "goals": 2,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 9
+    "rank": 6
   },
   {
     "playerName": "Harry Kane",
@@ -203,7 +141,7 @@
     "penaltyGoals": 1,
     "scoringOwners": [],
     "selected": false,
-    "rank": 9
+    "rank": 6
   },
   {
     "playerName": "Ismaïla Sarr",
@@ -213,17 +151,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 9
-  },
-  {
-    "playerName": "Kai Havertz",
-    "normalizedPlayerName": "kai havertz",
-    "nationalTeam": "Deutschland",
-    "goals": 2,
-    "penaltyGoals": 1,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 9
+    "rank": 6
   },
   {
     "playerName": "Matheus Cunha",
@@ -235,7 +163,7 @@
       "Rafael"
     ],
     "selected": true,
-    "rank": 9
+    "rank": 6
   },
   {
     "playerName": "Maximiliano Araújo",
@@ -245,7 +173,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 9
+    "rank": 6
   },
   {
     "playerName": "Mikel Oyarzabal",
@@ -255,7 +183,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 9
+    "rank": 6
   },
   {
     "playerName": "Rubén Vargas",
@@ -267,7 +195,7 @@
       "Peer"
     ],
     "selected": true,
-    "rank": 9
+    "rank": 6
   },
   {
     "playerName": "Yasin Ayari",
@@ -277,7 +205,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 9
+    "rank": 6
   },
   {
     "playerName": "Abbosbek Fayzullaev",
@@ -287,7 +215,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Abdulelah Al-Amri",
@@ -297,7 +225,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Agustín Canobbio",
@@ -307,7 +235,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Alex Freeman",
@@ -317,7 +245,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Alexander Isak",
@@ -329,7 +257,7 @@
       "Jonas"
     ],
     "selected": true,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Ali Olwan",
@@ -339,17 +267,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
-  },
-  {
-    "playerName": "Amad Diallo",
-    "normalizedPlayerName": "amad diallo",
-    "nationalTeam": "Elfenbeinküste",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Amine Gouiri",
@@ -359,7 +277,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Ante Budimir",
@@ -369,7 +287,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Anthony Elanga",
@@ -379,7 +297,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Aymen Hussein",
@@ -389,17 +307,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
-  },
-  {
-    "playerName": "Boualem Khoukhi",
-    "normalizedPlayerName": "boualem khoukhi",
-    "nationalTeam": "Katar",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Bradley Barcola",
@@ -411,17 +319,7 @@
       "Nina"
     ],
     "selected": true,
-    "rank": 28
-  },
-  {
-    "playerName": "Breel Embolo",
-    "normalizedPlayerName": "breel embolo",
-    "nationalTeam": "Schweiz",
-    "goals": 1,
-    "penaltyGoals": 1,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Caleb Yirenkyi",
@@ -431,17 +329,37 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
-    "playerName": "Connor Metcalfe",
-    "normalizedPlayerName": "connor metcalfe",
-    "nationalTeam": "Australien",
+    "playerName": "Crysencio Summerville",
+    "normalizedPlayerName": "crysencio summerville",
+    "nationalTeam": "Niederlande",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
+  },
+  {
+    "playerName": "Cyle Larin",
+    "normalizedPlayerName": "cyle larin",
+    "nationalTeam": "Kanada",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 21
+  },
+  {
+    "playerName": "Daichi Kamada",
+    "normalizedPlayerName": "daichi kamada",
+    "nationalTeam": "Japan",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 21
   },
   {
     "playerName": "Emam Ashour",
@@ -451,30 +369,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
-  },
-  {
-    "playerName": "Felix Kalu Nmecha",
-    "normalizedPlayerName": "felix kalu nmecha",
-    "nationalTeam": "Deutschland",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 28
-  },
-  {
-    "playerName": "Felix Nmecha",
-    "normalizedPlayerName": "felix nmecha",
-    "nationalTeam": "Deutschland",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [
-      "Nina",
-      "Willi"
-    ],
-    "selected": true,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Finn Surman",
@@ -484,7 +379,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Franck Kessié",
@@ -494,27 +389,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
-  },
-  {
-    "playerName": "Gio Reyna",
-    "normalizedPlayerName": "gio reyna",
-    "nationalTeam": "USA",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 28
-  },
-  {
-    "playerName": "Giovanni Reyna",
-    "normalizedPlayerName": "giovanni reyna",
-    "nationalTeam": "USA",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Granit Xhaka",
@@ -524,7 +399,7 @@
     "penaltyGoals": 1,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Hassan Al-Haydos",
@@ -534,7 +409,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Hélio Varela",
@@ -544,27 +419,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
-  },
-  {
-    "playerName": "Hwang In-beom",
-    "normalizedPlayerName": "hwang in beom",
-    "nationalTeam": "Südkorea",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 28
-  },
-  {
-    "playerName": "Hyun-Gyu Oh",
-    "normalizedPlayerName": "hyun gyu oh",
-    "nationalTeam": "Südkorea",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Ibrahim Mbaye",
@@ -574,17 +429,17 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
-    "playerName": "Jamal Musiala",
-    "normalizedPlayerName": "jamal musiala",
-    "nationalTeam": "Deutschland",
+    "playerName": "Ismael Saibari",
+    "normalizedPlayerName": "ismael saibari",
+    "nationalTeam": "Marokko",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Jaminton Campaz",
@@ -594,7 +449,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "João Neves",
@@ -604,27 +459,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
-  },
-  {
-    "playerName": "John McGinn",
-    "normalizedPlayerName": "john mcginn",
-    "nationalTeam": "Schottland",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 28
-  },
-  {
-    "playerName": "Jovo Lukić",
-    "normalizedPlayerName": "jovo lukic",
-    "nationalTeam": "Bosnien und Herzegowina",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Jude Bellingham",
@@ -636,17 +471,7 @@
       "Jonas"
     ],
     "selected": true,
-    "rank": 28
-  },
-  {
-    "playerName": "Julián Quiñones",
-    "normalizedPlayerName": "julian quinones",
-    "nationalTeam": "Mexiko",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Junya Itō",
@@ -656,17 +481,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
-  },
-  {
-    "playerName": "Keito Nakamura",
-    "normalizedPlayerName": "keito nakamura",
-    "nationalTeam": "Japan",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Kerim Alajbegović",
@@ -676,7 +491,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Kevin Pina",
@@ -686,17 +501,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
-  },
-  {
-    "playerName": "Ladislav Krejčí",
-    "normalizedPlayerName": "ladislav krejci",
-    "nationalTeam": "Tschechien",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Lamine Yamal",
@@ -708,7 +513,7 @@
       "Rafael"
     ],
     "selected": true,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Leo Østigård",
@@ -718,17 +523,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
-  },
-  {
-    "playerName": "Livano Comenencia",
-    "normalizedPlayerName": "livano comenencia",
-    "nationalTeam": "Curacao",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Luis Díaz",
@@ -738,7 +533,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Luis Romo",
@@ -748,7 +543,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Marcus Holmgren Pedersen",
@@ -758,17 +553,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
-  },
-  {
-    "playerName": "Marcus Pedersen",
-    "normalizedPlayerName": "marcus pedersen",
-    "nationalTeam": "Norwegen",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Marcus Rashford",
@@ -780,7 +565,7 @@
       "Kim"
     ],
     "selected": true,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Marko Arnautović",
@@ -790,7 +575,7 @@
     "penaltyGoals": 1,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Martin Baturina",
@@ -800,7 +585,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Matías Galarza",
@@ -810,7 +595,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Mattias Svanberg",
@@ -820,17 +605,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
-  },
-  {
-    "playerName": "Maurício",
-    "normalizedPlayerName": "mauricio",
-    "nationalTeam": "Paraguay",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Michal Sadílek",
@@ -840,7 +615,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Mohamed Salah",
@@ -850,7 +625,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Mohammad Mohebi",
@@ -862,7 +637,7 @@
       "Felix"
     ],
     "selected": true,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Mostafa Ziko",
@@ -872,7 +647,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Nadhir Benbouali",
@@ -882,7 +657,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Nathan Saliba",
@@ -892,49 +667,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
-  },
-  {
-    "playerName": "Nathan-Dylan Saliba",
-    "normalizedPlayerName": "nathan dylan saliba",
-    "nationalTeam": "Kanada",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 28
-  },
-  {
-    "playerName": "Nathaniel Brown",
-    "normalizedPlayerName": "nathaniel brown",
-    "nationalTeam": "Deutschland",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 28
-  },
-  {
-    "playerName": "Nestory Irankunda",
-    "normalizedPlayerName": "nestory irankunda",
-    "nationalTeam": "Australien",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [
-      "Marco"
-    ],
-    "selected": true,
-    "rank": 28
-  },
-  {
-    "playerName": "Nico Schlotterbeck",
-    "normalizedPlayerName": "nico schlotterbeck",
-    "nationalTeam": "Deutschland",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Nizar Al-Rashdan",
@@ -944,7 +677,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Nuno Mendes",
@@ -954,17 +687,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
-  },
-  {
-    "playerName": "Oh Hyeon-gyu",
-    "normalizedPlayerName": "oh hyeon gyu",
-    "nationalTeam": "Südkorea",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Omar Rekik",
@@ -974,7 +697,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Ousmane Dembélé",
@@ -984,7 +707,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Petar Musa",
@@ -994,17 +717,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
-  },
-  {
-    "playerName": "Promise Akinpelu",
-    "normalizedPlayerName": "promise akinpelu",
-    "nationalTeam": "Kanada",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Promise David",
@@ -1014,7 +727,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Rafael Leão",
@@ -1024,7 +737,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Ramin Rezaeian",
@@ -1036,17 +749,7 @@
       "Felix"
     ],
     "selected": true,
-    "rank": 28
-  },
-  {
-    "playerName": "Raúl Jiménez",
-    "normalizedPlayerName": "raul jimenez",
-    "nationalTeam": "Mexiko",
-    "goals": 1,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Romano Schmid",
@@ -1056,7 +759,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Teboho Mokoena",
@@ -1066,7 +769,7 @@
     "penaltyGoals": 1,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Trézéguet",
@@ -1076,7 +779,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
     "playerName": "Viktor Gyökeres",
@@ -1086,17 +789,19 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 28
+    "rank": 21
   },
   {
-    "playerName": "Virgil van Dijk",
-    "normalizedPlayerName": "virgil van dijk",
-    "nationalTeam": "Niederlande",
+    "playerName": "Vinícius Júnior",
+    "normalizedPlayerName": "vinicius junior",
+    "nationalTeam": "Brasilien",
     "goals": 1,
     "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 28
+    "scoringOwners": [
+      "Felix"
+    ],
+    "selected": true,
+    "rank": 21
   },
   {
     "playerName": "Yoane Wissa",
@@ -1108,6 +813,6 @@
       "Marco"
     ],
     "selected": true,
-    "rank": 28
+    "rank": 21
   }
 ]

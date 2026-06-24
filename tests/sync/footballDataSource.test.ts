@@ -158,7 +158,13 @@ const partialDetailedGoal: GoalRecord = {
 };
 assert.deepEqual(
   selectEffectiveGoalsForScoring([aggregateGoal, partialDetailedGoal]).map((goal) => goal.externalGoalId),
-  ["football-data:scorer:harry-kane:normal"]
+  ["api-football:kane:one"]
+);
+assert.deepEqual(
+  selectEffectiveGoalsForScoring([{ ...partialDetailedGoal, source: "wikipedia", externalGoalId: "wikipedia:kane:one" }]).map(
+    (goal) => goal.externalGoalId
+  ),
+  []
 );
 assert.deepEqual(
   selectEffectiveGoalsForScoring([aggregateGoal, partialDetailedGoal, { ...partialDetailedGoal, externalGoalId: "api-football:kane:two" }]).map(

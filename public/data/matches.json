@@ -967,34 +967,8 @@
         "playerId": "australia-connor-metcalfe"
       }
     ],
-    "pointGoals": [
-      {
-        "externalGoalId": "wikipedia:2026 fifa world cup group d:australia-tur:2026-06-14T04:00:00.000Z:nestory irankunda:27:normal",
-        "playerName": "Nestory Irankunda",
-        "nationalTeam": "Australia",
-        "sourcePlayerName": "Nestory Irankunda",
-        "sourceTeamName": "Australia",
-        "goals": 1,
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group d:australia-tur:2026-06-14T04:00:00.000Z",
-        "matchLabel": "Australia 2–0 TUR",
-        "kickedOffAt": "2026-06-14T04:00:00.000Z",
-        "minute": 27,
-        "timeConfidence": "estimated",
-        "detail": "normal",
-        "playerId": "australia-nestory-irankunda",
-        "teamId": "australia",
-        "pickId": "australia-nestory-irankunda",
-        "owner": "Marco",
-        "pickedPlayerName": "Nestory Irankunda",
-        "displayPlayerName": "Nestory Irankunda",
-        "displayNationalTeam": "Australien",
-        "points": 1
-      }
-    ],
-    "affectedOwners": [
-      "Marco"
-    ],
+    "pointGoals": [],
+    "affectedOwners": [],
     "participants": [
       {
         "source": "wikipedia",
@@ -1154,58 +1128,8 @@
         "playerId": "germany-deniz-undav"
       }
     ],
-    "pointGoals": [
-      {
-        "externalGoalId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z:felix nmecha:6:normal",
-        "playerName": "Felix Nmecha",
-        "nationalTeam": "Germany",
-        "sourcePlayerName": "Felix Nmecha",
-        "sourceTeamName": "Germany",
-        "goals": 1,
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z",
-        "matchLabel": "Germany 7–1 Curaçao",
-        "kickedOffAt": "2026-06-14T17:00:00.000Z",
-        "minute": 6,
-        "timeConfidence": "estimated",
-        "detail": "normal",
-        "playerId": "germany-felix-nmecha",
-        "teamId": "germany",
-        "pickId": "germany-felix-nmecha",
-        "owner": "Nina",
-        "pickedPlayerName": "Felix Nmecha",
-        "displayPlayerName": "Felix Nmecha",
-        "displayNationalTeam": "Deutschland",
-        "points": 1
-      },
-      {
-        "externalGoalId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z:felix nmecha:6:normal",
-        "playerName": "Felix Nmecha",
-        "nationalTeam": "Germany",
-        "sourcePlayerName": "Felix Nmecha",
-        "sourceTeamName": "Germany",
-        "goals": 1,
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group e:germany-curacao:2026-06-14T17:00:00.000Z",
-        "matchLabel": "Germany 7–1 Curaçao",
-        "kickedOffAt": "2026-06-14T17:00:00.000Z",
-        "minute": 6,
-        "timeConfidence": "estimated",
-        "detail": "normal",
-        "playerId": "germany-felix-nmecha",
-        "teamId": "germany",
-        "pickId": "germany-felix-nmecha",
-        "owner": "Willi",
-        "pickedPlayerName": "Felix Nmecha",
-        "displayPlayerName": "Felix Nmecha",
-        "displayNationalTeam": "Deutschland",
-        "points": 1
-      }
-    ],
-    "affectedOwners": [
-      "Nina",
-      "Willi"
-    ],
+    "pointGoals": [],
+    "affectedOwners": [],
     "participants": [
       {
         "source": "wikipedia",
@@ -14749,9 +14673,35 @@
         "displayPlayerName": "Matheus Cunha",
         "displayNationalTeam": "Brasilien",
         "points": 1
+      },
+      {
+        "externalGoalId": "api-football:1489389:762:45+3:Normal Goal:2",
+        "playerName": "Vinícius Júnior",
+        "nationalTeam": "Brazil",
+        "sourcePlayerName": "Vinicius Junior",
+        "sourceTeamName": "Brazil",
+        "goals": 1,
+        "source": "api-football",
+        "apiPlayerId": 762,
+        "matchId": "football-data:537341",
+        "fixtureId": "1489389",
+        "matchLabel": "Brazil 3-0 Haiti",
+        "kickedOffAt": "2026-06-20T00:30:00Z",
+        "minute": 45,
+        "timeConfidence": "match-only",
+        "detail": "normal",
+        "playerId": "brazil-vinicius-junior",
+        "teamId": "brazil",
+        "pickId": "brazil-vinicius-junior",
+        "owner": "Felix",
+        "pickedPlayerName": "Vinícius Júnior",
+        "displayPlayerName": "Vinícius Júnior",
+        "displayNationalTeam": "Brasilien",
+        "points": 1
       }
     ],
     "affectedOwners": [
+      "Felix",
       "Rafael"
     ],
     "participants": [
