@@ -4145,5 +4145,21 @@
     "detail": "normal",
     "playerId": "portugal-rafael-leao",
     "teamId": "portugal"
+  },
+  {
+    "externalGoalId": "football-data:scorer:2237:normal",
+    "playerName": "Ante Budimir",
+    "nationalTeam": "Croatia",
+    "sourcePlayerName": "Ante Budimir",
+    "sourceTeamName": "Croatia",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 2237,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "croatia-ante-budimir",
+    "teamId": "croatia"
   }
 ]

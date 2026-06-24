@@ -1,22 +1,22 @@
 {
-  "lastUpdated": "2026-06-24T00:01:31.855Z",
+  "lastUpdated": "2026-06-24T00:31:20.562Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 238,
+  "goalCount": 239,
   "scoredGoalCount": 23,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
   "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
-  "snapshotFingerprint": "158a786a54c682ac8f0dd68bff4dfb40e78fd313fb0524e83b38ff8b815c27be",
+  "snapshotFingerprint": "912918aa1e40052171a124c137b1fc69890584e37ae6e76506ee25e603c09f19",
   "snapshotChanged": true,
   "syncWindowId": "2026 fifa world cup group l:panama-croatia:2026-06-23T23:00:00.000Z-live",
   "windowSyncAttempts": 1,
-  "liveMatchCount": 1,
+  "liveMatchCount": 0,
   "sourceRequestCount": 3,
   "sourceRequestLimit": 6
 }
