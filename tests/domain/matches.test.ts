@@ -203,6 +203,71 @@ const apiIdParticipants = participantApiIdMatch[0].participants.filter((particip
 assert.equal(apiIdParticipants.length, 1);
 assert.equal(apiIdParticipants[0]?.status, "subbed-in");
 
+const ambiguousPickedParticipantMatch = buildMatches(
+  [],
+  [],
+  [
+    {
+      source: "api-football",
+      matchId: "api-football:panama-croatia",
+      fixtureId: "panama-croatia",
+      label: "Panama 0-1 Croatia",
+      kickedOffAt: "2026-06-23T23:00:00.000Z",
+      status: "finished",
+      homeTeam: { name: "Panama", score: 0 },
+      awayTeam: { name: "Croatia", score: 1 }
+    }
+  ],
+  [
+    {
+      source: "api-football",
+      matchId: "api-football:panama-croatia",
+      fixtureId: "panama-croatia",
+      playerName: "M. Pašalić",
+      nationalTeam: "Croatia",
+      teamId: "croatia",
+      status: "bench"
+    }
+  ],
+  [
+    {
+      owner: "Melli",
+      players: [
+        {
+          playerName: "Mario Pasalic",
+          teamId: "croatia"
+        }
+      ]
+    }
+  ],
+  {
+    teams: [
+      {
+        teamName: "Croatia",
+        teamId: "croatia",
+        players: [
+          {
+            playerName: "Mario Pašalić",
+            normalizedPlayerName: "mario pasalic",
+            sourceName: "Mario Pašalić"
+          },
+          {
+            playerName: "Marco Pašalić",
+            normalizedPlayerName: "marco pasalic",
+            sourceName: "Marco Pašalić"
+          }
+        ]
+      }
+    ]
+  }
+);
+assert.equal(
+  ambiguousPickedParticipantMatch[0]?.participants.some(
+    (participant) => participant.selected && participant.owners.includes("Melli") && participant.displayPlayerName === "Mario Pašalić"
+  ),
+  true
+);
+
 const runningScoreMatch = buildMatches(
   [
     {

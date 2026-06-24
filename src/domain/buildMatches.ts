@@ -341,6 +341,58 @@ function enrichParticipants(
     });
 }
 
+function appendMissingPickedParticipants(
+  fixture: ExternalMatchRecord,
+  participants: MatchParticipantRecord[],
+  resolvedPicks: ResolvedParticipantPick[]
+): MatchParticipantRecord[] {
+  const fixtureTeamIds = getFixtureTeamIds(fixture);
+  if (fixtureTeamIds.size === 0) {
+    return participants;
+  }
+
+  const selectedParticipantKeys = new Set(
+    participants
+      .filter((participant) => participant.selected)
+      .flatMap((participant) =>
+        participant.owners.map((owner) => `${owner}|${participant.teamId ?? ""}|${normalizePlayerName(participant.displayPlayerName)}`)
+      )
+  );
+  const missingParticipants = resolvedPicks.flatMap((pick) => {
+    const expectedKey = `${pick.owner}|${pick.teamId}|${pick.normalizedPlayerName}`;
+    if (!pick.nominated || !fixtureTeamIds.has(pick.teamId) || selectedParticipantKeys.has(expectedKey)) {
+      return [];
+    }
+
+    const displayNationalTeam = getTeamDisplayName(pick.teamId);
+    return [
+      {
+        source: fixture.source,
+        matchId: fixture.matchId,
+        ...(fixture.fixtureId ? { fixtureId: fixture.fixtureId } : {}),
+        playerName: pick.playerName,
+        nationalTeam: displayNationalTeam,
+        teamId: pick.teamId,
+        status: "unknown",
+        displayPlayerName: pick.playerName,
+        displayNationalTeam,
+        owners: [pick.owner],
+        selected: true
+      } satisfies MatchParticipantRecord
+    ];
+  });
+
+  return [...participants, ...missingParticipants].sort((left, right) => {
+    const selectedSort = Number(right.selected) - Number(left.selected);
+    return (
+      selectedSort ||
+      left.displayNationalTeam.localeCompare(right.displayNationalTeam) ||
+      getParticipantStatusRank(right.status) - getParticipantStatusRank(left.status) ||
+      left.displayPlayerName.localeCompare(right.displayPlayerName)
+    );
+  });
+}
+
 export function buildMatches(
   goals: GoalRecord[],
   scoredGoals: ScoredGoal[],
@@ -365,6 +417,8 @@ export function buildMatches(
       )
     ];
 
+    const enrichedParticipants = enrichParticipants(matchParticipants, resolvedPicks, rosterSnapshot);
+
     return {
       matchId: fixture.matchId,
       label: fixture.label,
@@ -375,7 +429,7 @@ export function buildMatches(
       goals: matchGoals,
       pointGoals,
       affectedOwners: [...new Set(pointGoals.map((goal) => goal.owner))].sort((a, b) => a.localeCompare(b)),
-      participants: enrichParticipants(matchParticipants, resolvedPicks, rosterSnapshot),
+      participants: appendMissingPickedParticipants(fixture, enrichedParticipants, resolvedPicks),
       syncState: buildFixtureSyncStateForMatch(fixture, goals, participants, pickedTeamIds)
     } satisfies MatchRecord;
   });
