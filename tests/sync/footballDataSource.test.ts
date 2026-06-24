@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { buildMatches } from "../../src/domain/buildMatches";
-import { selectEffectiveGoalsForScoring } from "../../src/domain/effectiveGoals";
+import { selectEffectiveGoalsForScorers, selectEffectiveGoalsForScoring } from "../../src/domain/effectiveGoals";
 import type { GoalRecord } from "../../src/domain/goalTypes";
 import { footballDataSource } from "../../src/sync/sources/footballData/source";
 import { getFootballDataDateRange } from "../../src/sync/sources/footballData/config";
@@ -159,6 +159,10 @@ const partialDetailedGoal: GoalRecord = {
 assert.deepEqual(
   selectEffectiveGoalsForScoring([aggregateGoal, partialDetailedGoal]).map((goal) => goal.externalGoalId),
   ["api-football:kane:one"]
+);
+assert.deepEqual(
+  selectEffectiveGoalsForScorers([aggregateGoal, partialDetailedGoal]).map((goal) => goal.externalGoalId),
+  ["football-data:scorer:harry-kane:normal"]
 );
 assert.deepEqual(
   selectEffectiveGoalsForScoring([{ ...partialDetailedGoal, source: "wikipedia", externalGoalId: "wikipedia:kane:one" }]).map(

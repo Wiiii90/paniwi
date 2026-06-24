@@ -3,7 +3,7 @@ import { pathToFileURL } from "node:url";
 import { buildLeaderboard, scoreGoalsForTeams } from "../domain/buildLeaderboard";
 import { buildMatches } from "../domain/buildMatches";
 import { buildScorers } from "../domain/buildScorers";
-import { selectEffectiveGoalsForScoring } from "../domain/effectiveGoals";
+import { selectEffectiveGoalsForScorers, selectEffectiveGoalsForScoring } from "../domain/effectiveGoals";
 import { enrichGoalsWithRoster } from "../domain/rosterResolver";
 import type { PickStatusSnapshot } from "../domain/pickStatusTypes";
 import type { GoalRecord } from "../domain/goalTypes";
@@ -44,9 +44,10 @@ export async function rebuildStaticData(): Promise<void> {
   });
   const { validGoals } = validateGoals(enrichedRawGoals);
   const effectiveGoals = selectEffectiveGoalsForScoring(validGoals);
+  const scorerGoals = selectEffectiveGoalsForScorers(validGoals);
   const scoredGoals = sortGoalsChronologically(scoreGoalsForTeams(participantTeams, effectiveGoals, rosters));
   const leaderboard = buildLeaderboard(participantTeams, effectiveGoals, rosters);
-  const scorers = buildScorers(effectiveGoals, participantTeams, rosters);
+  const scorers = buildScorers(scorerGoals, participantTeams, rosters, effectiveGoals);
   const matches = buildMatches(validGoals, scoredGoals, rawMatches, rawParticipants ?? [], participantTeams, rosters);
   const snapshotFingerprint = buildSnapshotFingerprint(validGoals, rawMatches, rawParticipants ?? []);
 

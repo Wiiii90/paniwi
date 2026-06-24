@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { buildLeaderboard, scoreGoalsForTeams } from "../domain/buildLeaderboard";
 import { buildMatches } from "../domain/buildMatches";
 import { buildScorers } from "../domain/buildScorers";
-import { selectEffectiveGoalsForScoring } from "../domain/effectiveGoals";
+import { selectEffectiveGoalsForScorers, selectEffectiveGoalsForScoring } from "../domain/effectiveGoals";
 import { enrichGoalsWithRoster } from "../domain/rosterResolver";
 import { sortGoalsChronologically } from "../domain/sortGoals";
 import type { SourceName } from "../domain/goalTypes";
@@ -429,9 +429,10 @@ export async function syncGoals(
   });
   const { validGoals: goals } = validateGoals(rosterEnrichedGoals);
   const effectiveGoals = selectEffectiveGoalsForScoring(goals);
+  const scorerGoals = selectEffectiveGoalsForScorers(goals);
   const scoredGoals = sortGoalsChronologically(scoreGoalsForTeams(participantTeams, effectiveGoals, rosterSnapshot));
   const leaderboard = buildLeaderboard(participantTeams, effectiveGoals, rosterSnapshot);
-  const scorers = buildScorers(effectiveGoals, participantTeams, rosterSnapshot);
+  const scorers = buildScorers(scorerGoals, participantTeams, rosterSnapshot, effectiveGoals);
   const matches = buildMatches(goals, scoredGoals, normalizedMatches, normalizedParticipants, participantTeams, rosterSnapshot);
 
   await writeStaticData({

@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { buildLeaderboard, scoreGoalsForTeams } from "../src/domain/buildLeaderboard";
 import { buildMatches } from "../src/domain/buildMatches";
 import { buildScorers } from "../src/domain/buildScorers";
-import { selectEffectiveGoalsForScoring } from "../src/domain/effectiveGoals";
+import { selectEffectiveGoalsForScorers, selectEffectiveGoalsForScoring } from "../src/domain/effectiveGoals";
 import { sortGoalsChronologically } from "../src/domain/sortGoals";
 import { getTeamDisplayName } from "../src/domain/teamDisplay";
 import type { PickStatusSnapshot } from "../src/domain/pickStatusTypes";
@@ -43,9 +43,10 @@ assert.equal(goalValidation.validGoals.length, rawGoals.length);
 assert.equal(goalValidation.skippedGoals.length, 0);
 
 const effectiveGoals = selectEffectiveGoalsForScoring(rawGoals);
+const scorerGoals = selectEffectiveGoalsForScorers(rawGoals);
 assert.deepEqual(leaderboard, buildLeaderboard(participantTeams, effectiveGoals, rosters));
 assert.deepEqual(goals, sortGoalsChronologically(scoreGoalsForTeams(participantTeams, effectiveGoals, rosters)));
-assert.deepEqual(scorers, buildScorers(effectiveGoals, participantTeams, rosters));
+assert.deepEqual(scorers, buildScorers(scorerGoals, participantTeams, rosters, effectiveGoals));
 assert.deepEqual(matches, buildMatches(rawGoals, goals, rawMatches, rawParticipants, participantTeams, rosters));
 
 assert.equal(meta.status, "ok");

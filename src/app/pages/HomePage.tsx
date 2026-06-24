@@ -55,10 +55,41 @@ function PreviewMore({ visible, total }: { visible: number; total: number }) {
   );
 }
 
+type OwnedScorerPreview = {
+  key: string;
+  playerName: string;
+  nationalTeam: string;
+  owners: string[];
+  points: number;
+};
+
+function getOwnedScorerPreviews(goals: ScoredGoal[]): OwnedScorerPreview[] {
+  const previewsByKey = new Map<string, OwnedScorerPreview>();
+
+  for (const goal of goals) {
+    const key = goal.playerId;
+    const current = previewsByKey.get(key) ?? {
+      key,
+      playerName: goal.displayPlayerName,
+      nationalTeam: goal.displayNationalTeam,
+      owners: [],
+      points: 0
+    };
+
+    current.points += goal.points;
+    current.owners = [...new Set([...current.owners, goal.owner])].sort((left, right) => left.localeCompare(right));
+    previewsByKey.set(key, current);
+  }
+
+  return [...previewsByKey.values()].sort(
+    (left, right) => right.points - left.points || left.playerName.localeCompare(right.playerName, "de") || left.nationalTeam.localeCompare(right.nationalTeam, "de")
+  );
+}
+
 export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps) {
   const baseUrl = import.meta.env.BASE_URL;
   const latestGoals = sortGoalsChronologically(goals.filter((goal) => !isCompetitionScorerAggregateGoal(goal))).reverse();
-  const ownedScorers = scorers.filter((scorer) => scorer.selected);
+  const ownedScorers = getOwnedScorerPreviews(goals);
   const tableLeaders = leaderboard.slice(0, 6);
   const topOwnedScorers = ownedScorers.slice(0, 6);
   const topScorers = scorers.slice(0, 4);
@@ -97,14 +128,14 @@ export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps
               <p className="empty-inline">Noch keine Punkte.</p>
             ) : (
               topOwnedScorers.map((scorer) => (
-                <div className="mini-row" key={`${scorer.normalizedPlayerName}-${scorer.nationalTeam}`}>
+                <div className="mini-row" key={`${scorer.key}-${scorer.nationalTeam}`}>
                   <span>
                     <strong>
                       <FlaggedName name={scorer.playerName} teamName={scorer.nationalTeam} />
                     </strong>
-                    <small>{scorer.scoringOwners.join(", ")}</small>
+                    <small>{scorer.owners.join(", ")}</small>
                   </span>
-                  <span>{scorer.goals} Punkte</span>
+                  <span>{scorer.points} Punkte</span>
                 </div>
               ))
             )}
