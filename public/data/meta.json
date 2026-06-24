@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-06-24T19:51:30.852Z",
-  "source": "api-football",
+  "lastUpdated": "2026-06-24T20:01:29.098Z",
+  "source": "football-data",
   "attemptedSources": [
-    "api-football"
+    "football-data"
   ],
   "fallbackUsed": false,
   "status": "ok",
@@ -11,12 +11,12 @@
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
+  "message": "Daten-Snapshot unveraendert (football-data).",
   "snapshotFingerprint": "39b0c6bf1fcd208092ca62cb5ca25ba6541764f9fcbbe46e7d0351e425e3574e",
-  "snapshotChanged": true,
-  "syncWindowId": "2026 fifa world cup group b:switzerland-canada:2026-06-24T19:00:00.000Z-live:api-football-enrich:football-data:537412",
+  "snapshotChanged": false,
+  "syncWindowId": "2026 fifa world cup group b:switzerland-canada:2026-06-24T19:00:00.000Z-live",
   "windowSyncAttempts": 1,
   "liveMatchCount": 2,
-  "sourceRequestCount": 3,
-  "sourceRequestLimit": 3
+  "sourceRequestCount": 4,
+  "sourceRequestLimit": 6
 }
