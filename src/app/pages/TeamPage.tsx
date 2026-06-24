@@ -1,7 +1,6 @@
 import { type CSSProperties } from "react";
 import { participantTeams } from "../../config/teams";
 import { buildPlayerScores } from "../../domain/buildLeaderboard";
-import { isCompetitionScorerAggregateGoal } from "../../domain/effectiveGoals";
 import { sortGoalsChronologically } from "../../domain/sortGoals";
 import type { ScoredGoal } from "../../domain/goalTypes";
 import type { MatchRecord } from "../../domain/matchTypes";
@@ -72,9 +71,7 @@ export function TeamPage({ owner, goals, matches, pickStatuses, rosters }: TeamP
   }
 
   const playerScores = buildPlayerScores(team, goals, rosters);
-  const teamGoals = sortGoalsChronologically(
-    goals.filter((goal) => goal.owner === team.owner && !isCompetitionScorerAggregateGoal(goal))
-  );
+  const teamGoals = sortGoalsChronologically(goals.filter((goal) => goal.owner === team.owner));
   const playerRows = playerScores.map((player) => ({
     ...player,
     rosterStatus: getRosterStatus(pickStatuses, team.owner, player.pickId)
