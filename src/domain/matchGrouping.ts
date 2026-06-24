@@ -30,7 +30,7 @@ function hasScore(match: MatchRecord): boolean {
   return match.homeTeam.score !== undefined && match.awayTeam.score !== undefined;
 }
 
-function isUnknownResultInActiveWindow(match: MatchRecord, now: Date): boolean {
+export function isUnknownResultInActiveWindow(match: MatchRecord, now: Date): boolean {
   const kickoffMs = getKickoffTime(match);
   return (
     match.status === "unknown" &&
@@ -41,7 +41,7 @@ function isUnknownResultInActiveWindow(match: MatchRecord, now: Date): boolean {
   );
 }
 
-function isUnknownFinishedResult(match: MatchRecord, now: Date): boolean {
+export function isUnknownFinishedResult(match: MatchRecord, now: Date): boolean {
   const kickoffMs = getKickoffTime(match);
   return (
     match.status === "unknown" &&

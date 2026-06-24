@@ -5,6 +5,8 @@ import {
   groupMatchesBySection,
   groupSelectedParticipantsBySide,
   isCooldownMatch,
+  isUnknownFinishedResult,
+  isUnknownResultInActiveWindow,
   isWarmupMatch,
   type MatchSectionKey
 } from "../../domain/matchGrouping";
@@ -25,6 +27,14 @@ function formatStatus(match: MatchRecord, now: Date): string {
 
   if (isCooldownMatch(match, now)) {
     return "Auslaufen";
+  }
+
+  if (isUnknownResultInActiveWindow(match, now)) {
+    return "Läuft";
+  }
+
+  if (isUnknownFinishedResult(match, now)) {
+    return "Beendet";
   }
 
   if (match.status === "finished") {
