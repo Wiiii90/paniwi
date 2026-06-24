@@ -527,6 +527,16 @@
     "rank": 28
   },
   {
+    "playerName": "Hassan Al-Haydos",
+    "normalizedPlayerName": "hassan al haydos",
+    "nationalTeam": "Katar",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 28
+  },
+  {
     "playerName": "Hélio Varela",
     "normalizedPlayerName": "helio varela",
     "nationalTeam": "Kap Verde",
@@ -652,6 +662,16 @@
     "playerName": "Keito Nakamura",
     "normalizedPlayerName": "keito nakamura",
     "nationalTeam": "Japan",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 28
+  },
+  {
+    "playerName": "Kerim Alajbegović",
+    "normalizedPlayerName": "kerim alajbegovic",
+    "nationalTeam": "Bosnien und Herzegowina",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],

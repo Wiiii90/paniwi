@@ -1,22 +1,22 @@
 {
-  "lastUpdated": "2026-06-24T21:01:45.805Z",
+  "lastUpdated": "2026-06-24T21:31:26.228Z",
   "source": "api-football",
   "attemptedSources": [
     "api-football"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 244,
+  "goalCount": 248,
   "scoredGoalCount": 24,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
   "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
-  "snapshotFingerprint": "3c74f4c04361a0aa43260235252bf37e8decbaead631979689a0cb18c5442aa5",
+  "snapshotFingerprint": "36804d6e908522ab9da65739eeb5eafb007f4f950a7fe4f075366bd1106bd8b6",
   "snapshotChanged": true,
-  "syncWindowId": "2026 fifa world cup group c:scotland-brazil:2026-06-24T22:00:00.000Z-pre-match:api-football-enrich:football-data:537337",
+  "syncWindowId": "2026 fifa world cup group c:scotland-brazil:2026-06-24T22:00:00.000Z-pre-match:api-football-enrich:football-data:537338",
   "windowSyncAttempts": 1,
-  "liveMatchCount": 1,
+  "liveMatchCount": 0,
   "sourceRequestCount": 3,
   "sourceRequestLimit": 6
 }

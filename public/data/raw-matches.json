@@ -1316,7 +1316,7 @@
     "fixtureId": "537338",
     "label": "Bosnia-Herzegovina 3-1 Qatar",
     "kickedOffAt": "2026-06-24T19:00:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 1060,
       "name": "Bosnia-Herzegovina",
@@ -1747,6 +1747,24 @@
     "awayTeam": {
       "id": 5529,
       "name": "Canada",
+      "score": 1
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1539009",
+    "fixtureId": "1539009",
+    "label": "Bosnia & Herzegovina 3-1 Qatar",
+    "kickedOffAt": "2026-06-24T19:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 1113,
+      "name": "Bosnia & Herzegovina",
+      "score": 3
+    },
+    "awayTeam": {
+      "id": 1569,
+      "name": "Qatar",
       "score": 1
     }
   }
