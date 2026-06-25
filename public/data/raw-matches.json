@@ -1332,13 +1332,13 @@
     "source": "football-data",
     "matchId": "football-data:537344",
     "fixtureId": "537344",
-    "label": "Morocco 2-2 Haiti",
+    "label": "Morocco 4-2 Haiti",
     "kickedOffAt": "2026-06-24T22:00:00Z",
     "status": "live",
     "homeTeam": {
       "id": 815,
       "name": "Morocco",
-      "score": 2
+      "score": 4
     },
     "awayTeam": {
       "id": 836,
@@ -1770,6 +1770,102 @@
       "id": 1569,
       "name": "Qatar",
       "score": 1
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537367",
+    "fixtureId": "537367",
+    "label": "New Zealand vs Belgium",
+    "kickedOffAt": "2026-06-27T03:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 783,
+      "name": "New Zealand"
+    },
+    "awayTeam": {
+      "id": 805,
+      "name": "Belgium"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537368",
+    "fixtureId": "537368",
+    "label": "Egypt vs Iran",
+    "kickedOffAt": "2026-06-27T03:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 825,
+      "name": "Egypt"
+    },
+    "awayTeam": {
+      "id": 840,
+      "name": "Iran"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537413",
+    "fixtureId": "537413",
+    "label": "Panama vs England",
+    "kickedOffAt": "2026-06-27T21:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 1836,
+      "name": "Panama"
+    },
+    "awayTeam": {
+      "id": 770,
+      "name": "England"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537414",
+    "fixtureId": "537414",
+    "label": "Croatia vs Ghana",
+    "kickedOffAt": "2026-06-27T21:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 799,
+      "name": "Croatia"
+    },
+    "awayTeam": {
+      "id": 763,
+      "name": "Ghana"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537407",
+    "fixtureId": "537407",
+    "label": "Colombia vs Portugal",
+    "kickedOffAt": "2026-06-27T23:30:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 818,
+      "name": "Colombia"
+    },
+    "awayTeam": {
+      "id": 765,
+      "name": "Portugal"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537408",
+    "fixtureId": "537408",
+    "label": "Congo DR vs Uzbekistan",
+    "kickedOffAt": "2026-06-27T23:30:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 1934,
+      "name": "Congo DR"
+    },
+    "awayTeam": {
+      "id": 8070,
+      "name": "Uzbekistan"
     }
   }
 ]
