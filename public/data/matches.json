@@ -34548,7 +34548,7 @@
   },
   {
     "matchId": "football-data:537356",
-    "label": "Curaçao 0-1 Ivory Coast",
+    "label": "Curaçao 0-2 Ivory Coast",
     "kickedOffAt": "2026-06-25T20:00:00Z",
     "status": "live",
     "homeTeam": {
@@ -34557,7 +34557,7 @@
     },
     "awayTeam": {
       "name": "Elfenbeinküste",
-      "score": 1
+      "score": 2
     },
     "goals": [],
     "pointGoals": [],
@@ -34611,7 +34611,7 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 1,
+      "scoreTotal": 2,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
@@ -34621,12 +34621,12 @@
   },
   {
     "matchId": "football-data:537355",
-    "label": "Ecuador 1-1 Germany",
+    "label": "Ecuador 2-1 Germany",
     "kickedOffAt": "2026-06-25T20:00:00Z",
     "status": "live",
     "homeTeam": {
       "name": "Ecuador",
-      "score": 1
+      "score": 2
     },
     "awayTeam": {
       "name": "Deutschland",
@@ -34714,7 +34714,7 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 2,
+      "scoreTotal": 3,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,

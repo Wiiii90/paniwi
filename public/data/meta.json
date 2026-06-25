@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-25T21:31:20.971Z",
+  "lastUpdated": "2026-06-25T22:01:26.426Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -12,9 +12,9 @@
   "duplicateGoalCount": 0,
   "sourceErrors": [],
   "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
-  "snapshotFingerprint": "ea8a476aa230c06d9ca68e897a508b0f6b7682daafb66494370da082a5446d4e",
+  "snapshotFingerprint": "996c81b9653f1fdbe3fe4f3aefa6ceac72ce1f524514c31c2f1afb807a78f1ce",
   "snapshotChanged": true,
-  "syncWindowId": "2026 fifa world cup group e:curacao-civ:2026-06-25T20:00:00.000Z-live",
+  "syncWindowId": "2026 fifa world cup group f:japan-sweden:2026-06-25T23:00:00.000Z-pre-match",
   "windowSyncAttempts": 1,
   "liveMatchCount": 2,
   "sourceRequestCount": 4,
