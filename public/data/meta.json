@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-06-25T23:29:07.784Z",
-  "source": "api-football",
+  "lastUpdated": "2026-06-25T23:31:17.984Z",
+  "source": "football-data",
   "attemptedSources": [
-    "api-football"
+    "football-data"
   ],
   "fallbackUsed": false,
   "status": "ok",
@@ -11,11 +11,12 @@
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
+  "message": "Daten-Snapshot unveraendert (football-data).",
   "snapshotFingerprint": "35cff6bb4d87cf66abc87c09a5c8fb66f5d5fc9af06abbe302d95497ccc287e0",
-  "snapshotChanged": true,
+  "snapshotChanged": false,
+  "syncWindowId": "2026 fifa world cup group f:japan-sweden:2026-06-25T23:00:00.000Z-live",
   "windowSyncAttempts": 1,
   "liveMatchCount": 2,
-  "sourceRequestCount": 3,
+  "sourceRequestCount": 4,
   "sourceRequestLimit": 6
 }
