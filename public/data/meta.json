@@ -1,22 +1,22 @@
 {
-  "lastUpdated": "2026-06-25T03:01:36.672Z",
-  "source": "football-data",
+  "lastUpdated": "2026-06-25T04:01:36.451Z",
+  "source": "api-football",
   "attemptedSources": [
-    "football-data"
+    "api-football"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 257,
+  "goalCount": 258,
   "scoredGoalCount": 28,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
-  "snapshotFingerprint": "4b305a05807de18675a7c515f824c7f6aaebbfb33e0916f9415cf0a45a01429b",
+  "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
+  "snapshotFingerprint": "e00c99713bb04ddc46486521f39cec516fe7beee6b9e60baacf644033531de8a",
   "snapshotChanged": true,
-  "syncWindowId": "2026 fifa world cup group a:czech republic-mexico:2026-06-25T01:00:00.000Z-check-1",
+  "syncWindowId": "2026 fifa world cup group a:czech republic-mexico:2026-06-25T01:00:00.000Z-check-2:api-football-enrich:football-data:537332",
   "windowSyncAttempts": 1,
-  "liveMatchCount": 2,
-  "sourceRequestCount": 4,
+  "liveMatchCount": 0,
+  "sourceRequestCount": 3,
   "sourceRequestLimit": 6
 }

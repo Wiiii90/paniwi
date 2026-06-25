@@ -4503,5 +4503,24 @@
     "matchLabel": "FIFA World Cup 2026 Torschützenliste",
     "timeConfidence": "unknown",
     "detail": "normal"
+  },
+  {
+    "externalGoalId": "api-football:1489407:354831:63:Normal Goal:0",
+    "playerName": "Thapelo Maseko",
+    "nationalTeam": "South Africa",
+    "sourcePlayerName": "T. Maseko",
+    "sourceTeamName": "South Africa",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 354831,
+    "matchId": "football-data:537332",
+    "fixtureId": "1489407",
+    "matchLabel": "South Africa 1-0 South Korea",
+    "kickedOffAt": "2026-06-25T01:00:00+00:00",
+    "minute": 63,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "south-africa-thapelo-maseko",
+    "teamId": "south-africa"
   }
 ]

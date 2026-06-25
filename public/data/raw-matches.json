@@ -1424,7 +1424,7 @@
     "fixtureId": "537331",
     "label": "Czechia 0-3 Mexico",
     "kickedOffAt": "2026-06-25T01:00:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 798,
       "name": "Czechia",
@@ -1442,7 +1442,7 @@
     "fixtureId": "537332",
     "label": "South Africa 1-0 South Korea",
     "kickedOffAt": "2026-06-25T01:00:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 774,
       "name": "South Africa",
@@ -1906,6 +1906,24 @@
       "id": 2386,
       "name": "Haiti",
       "score": 2
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489407",
+    "fixtureId": "1489407",
+    "label": "South Africa 1-0 South Korea",
+    "kickedOffAt": "2026-06-25T01:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 1531,
+      "name": "South Africa",
+      "score": 1
+    },
+    "awayTeam": {
+      "id": 17,
+      "name": "South Korea",
+      "score": 0
     }
   }
 ]
