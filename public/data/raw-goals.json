@@ -3384,6 +3384,22 @@
     "teamId": "portugal"
   },
   {
+    "externalGoalId": "football-data:scorer:8412:normal",
+    "playerName": "Nicolas Pépé",
+    "nationalTeam": "Ivory Coast",
+    "sourcePlayerName": "Nicolas Pépé",
+    "sourceTeamName": "Ivory Coast",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 8412,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "ivory-coast-nicolas-pepe",
+    "teamId": "ivory-coast"
+  },
+  {
     "externalGoalId": "football-data:scorer:3305:normal",
     "playerName": "Raúl Jiménez",
     "nationalTeam": "Mexico",
@@ -4508,19 +4524,5 @@
     "detail": "normal",
     "playerId": "croatia-ante-budimir",
     "teamId": "croatia"
-  },
-  {
-    "externalGoalId": "football-data:scorer:260992:normal",
-    "playerName": "Promise Akinpelu",
-    "nationalTeam": "Canada",
-    "sourcePlayerName": "Promise Akinpelu",
-    "sourceTeamName": "Canada",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 260992,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal"
   }
 ]
