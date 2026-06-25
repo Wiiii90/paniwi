@@ -19,7 +19,8 @@ type EnrichGoalsWithRosterOptions = {
 
 const apiFootballGoalNameAliases = new Map<string, string>([
   ["cape-verde|k lenini", "Kevin Pina"],
-  ["cape-verde|kevin lenini", "Kevin Pina"]
+  ["cape-verde|kevin lenini", "Kevin Pina"],
+  ["morocco|bono", "Yassine Bounou"]
 ]);
 
 function getRosterTeam(snapshot: RosterSnapshot | undefined, teamId: string): RosterTeam | null {
@@ -327,6 +328,10 @@ function describeGoal(goal: GoalRecord): string {
   return `${goal.playerName} (${goal.nationalTeam}) in ${matchLabel}`;
 }
 
+function shouldRequireRosterMatch(goal: GoalRecord, strictSources: Set<SourceName>): boolean {
+  return strictSources.has(goal.source) && goal.detail !== "own-goal";
+}
+
 export function enrichGoalsWithRoster(
   goals: GoalRecord[],
   rosterSnapshot: RosterSnapshot | undefined,
@@ -337,7 +342,7 @@ export function enrichGoalsWithRoster(
   const enrichedGoals = goals.map((goal) => {
     const rosterMatch = resolveRosterPlayerForGoal(goal, rosterSnapshot);
     if (!rosterMatch) {
-      if (strictSources.has(goal.source)) {
+      if (shouldRequireRosterMatch(goal, strictSources)) {
         unmatchedGoals.push(describeGoal(goal));
       }
       return goal;

@@ -150,6 +150,60 @@ assert.deepEqual(
     [
       {
         ...baseGoal,
+        externalGoalId: "morocco-bono-own-goal",
+        playerName: "Bono",
+        nationalTeam: "Haiti",
+        sourcePlayerName: "Bono",
+        sourceTeamName: "Haiti",
+        source: "api-football",
+        detail: "own-goal",
+        matchLabel: "Morocco 4-2 Haiti"
+      }
+    ],
+    {
+      lastUpdated: "2026-06-16T00:00:00.000Z",
+      source: "wikipedia",
+      pageTitle: "2026 FIFA World Cup squads",
+      teamCount: 2,
+      playerCount: 2,
+      teams: [
+        {
+          teamName: "Morocco",
+          teamId: "morocco",
+          players: [
+            {
+              playerName: "Yassine Bounou",
+              normalizedPlayerName: "yassine bounou",
+              position: "goalkeeper",
+              shirtNumber: 1,
+              sourceName: "Yassine Bounou"
+            }
+          ]
+        },
+        {
+          teamName: "Haiti",
+          teamId: "haiti",
+          players: [
+            {
+              playerName: "Duckens Nazon",
+              normalizedPlayerName: "duckens nazon",
+              position: "forward",
+              shirtNumber: 9,
+              sourceName: "Duckens Nazon"
+            }
+          ]
+        }
+      ]
+    },
+    { strictSources: ["api-football"] }
+  ).map((goal) => [goal.playerName, goal.nationalTeam, goal.teamId, goal.detail, goal.sourceTeamName]),
+  [["Yassine Bounou", "Morocco", "morocco", "own-goal", "Haiti"]]
+);
+assert.deepEqual(
+  enrichGoalsWithRoster(
+    [
+      {
+        ...baseGoal,
         externalGoalId: "egypt-salah-goal",
         playerName: "M. Salah",
         nationalTeam: "Egypt",
@@ -304,6 +358,26 @@ assert.deepEqual(
     ["Abdulelah Al-Amri", "Saudi Arabia", "saudi-arabia", "normal"],
     ["Mohamed Manai", "Qatar", "qatar", "own-goal"]
   ]
+);
+assert.deepEqual(
+  enrichGoalsWithRoster(
+    [
+      {
+        ...baseGoal,
+        externalGoalId: "unresolved-own-goal",
+        playerName: "Unknown Defender",
+        nationalTeam: "Haiti",
+        sourcePlayerName: "Unknown Defender",
+        sourceTeamName: "Haiti",
+        source: "api-football",
+        detail: "own-goal",
+        matchLabel: "Morocco 4-2 Haiti"
+      }
+    ],
+    apiResolverRosterSnapshot,
+    { strictSources: ["api-football"] }
+  ).map((goal) => [goal.playerName, goal.nationalTeam, goal.teamId, goal.detail]),
+  [["Unknown Defender", "Haiti", undefined, "own-goal"]]
 );
 assert.deepEqual(
   buildScorers(apiAbbreviatedRosterGoals, teams, rosterSnapshot).map((scorer) => [
