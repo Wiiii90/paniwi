@@ -115,6 +115,7 @@ async function autoEnrichNewlyFinishedMatches(before: ExternalMatchRecord[], syn
 
   const previousMatchIds = process.env.API_FOOTBALL_ENRICH_MATCH_IDS;
   const previousRequestLimit = process.env.API_FOOTBALL_ENRICH_MAX_REQUESTS;
+  const previousExtraMatchLimit = process.env.API_FOOTBALL_ENRICH_EXTRA_MATCH_LIMIT;
   const requestLimit = getApiFootballEnrichmentRequestLimit();
   let requestCount = 0;
 
@@ -127,13 +128,21 @@ async function autoEnrichNewlyFinishedMatches(before: ExternalMatchRecord[], syn
 
       process.env.API_FOOTBALL_ENRICH_MATCH_IDS = match.matchId;
       process.env.API_FOOTBALL_ENRICH_MAX_REQUESTS = String(requestLimit - requestCount);
+      process.env.API_FOOTBALL_ENRICH_EXTRA_MATCH_LIMIT = "0";
       console.log(`API-Football auto-enrich started for ${match.label} (${match.matchId}).`);
-      await syncGoals([apiFootballSource], {
-        syncWindowId: syncWindowId ? `${syncWindowId}:api-football-enrich:${match.matchId}` : undefined
-      });
+      try {
+        await syncGoals([apiFootballSource], {
+          syncWindowId: syncWindowId ? `${syncWindowId}:api-football-enrich:${match.matchId}` : undefined,
+          writeErrorMeta: false
+        });
 
-      const meta = await readCurrentMeta();
-      requestCount += meta?.sourceRequestCount ?? 0;
+        const meta = await readCurrentMeta();
+        requestCount += meta?.sourceRequestCount ?? 0;
+      } catch (error) {
+        console.warn(
+          `API-Football auto-enrich failed for ${match.label} (${match.matchId}): ${error instanceof Error ? error.message : String(error)}`
+        );
+      }
     }
   } finally {
     if (previousMatchIds === undefined) {
@@ -146,6 +155,12 @@ async function autoEnrichNewlyFinishedMatches(before: ExternalMatchRecord[], syn
       delete process.env.API_FOOTBALL_ENRICH_MAX_REQUESTS;
     } else {
       process.env.API_FOOTBALL_ENRICH_MAX_REQUESTS = previousRequestLimit;
+    }
+
+    if (previousExtraMatchLimit === undefined) {
+      delete process.env.API_FOOTBALL_ENRICH_EXTRA_MATCH_LIMIT;
+    } else {
+      process.env.API_FOOTBALL_ENRICH_EXTRA_MATCH_LIMIT = previousExtraMatchLimit;
     }
   }
 }

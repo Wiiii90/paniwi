@@ -17,7 +17,7 @@ import { getSourcesForMode, parseSyncSourceMode } from "../../src/sync/sources/s
 assert.equal(getApiFootballEnrichmentRequestLimit({}), 6);
 assert.equal(getApiFootballEnrichmentRequestLimit({ API_FOOTBALL_ENRICH_MAX_REQUESTS: "3" }), 3);
 assert.throws(() => getApiFootballEnrichmentRequestLimit({ API_FOOTBALL_ENRICH_MAX_REQUESTS: "0" }), /at least 1/);
-assert.equal(getApiFootballEnrichmentExtraMatchLimit({}), 1);
+assert.equal(getApiFootballEnrichmentExtraMatchLimit({}), 0);
 assert.equal(getApiFootballEnrichmentExtraMatchLimit({ API_FOOTBALL_ENRICH_EXTRA_MATCH_LIMIT: "0" }), 0);
 assert.throws(() => getApiFootballEnrichmentExtraMatchLimit({ API_FOOTBALL_ENRICH_EXTRA_MATCH_LIMIT: "2" }), /0 or 1/);
 assert.equal(parseSyncSourceMode("api-football-enrich"), "api-football-enrich");
@@ -157,6 +157,10 @@ assert.deepEqual(
     ["football-data:newest", "latest-finished"],
     ["football-data:older", "backfill"]
   ]
+);
+assert.deepEqual(
+  getApiFootballEnrichmentCandidates(footballDataMatches, [], [], {}).map((candidate) => [candidate.match.matchId, candidate.reason]),
+  [["football-data:newest", "latest-finished"]]
 );
 
 const wikipediaMatchWithMissingGoal: ExternalMatchRecord = {

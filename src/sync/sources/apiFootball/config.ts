@@ -1,6 +1,6 @@
 export const defaultBaseUrl = "https://v3.football.api-sports.io";
 export const defaultEnrichmentRequestLimit = 6;
-export const defaultExtraMatchLimit = 1;
+export const defaultExtraMatchLimit = 0;
 
 export type ApiFootballRequestBudget = {
   limit: number;

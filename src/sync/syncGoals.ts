@@ -21,6 +21,7 @@ import { getSourcesFromEnv } from "./sources/sourceSelection";
 
 type SyncGoalsOptions = {
   syncWindowId?: string;
+  writeErrorMeta?: boolean;
 };
 
 type WorkingSourceResult = {
@@ -389,7 +390,9 @@ export async function syncGoals(
     workingSource = await fetchFromFirstWorkingSource(sources);
   } catch (error) {
     if (error instanceof SourceFetchError) {
-      await writeStaticMeta(buildSourceErrorMeta(error.attemptedSources, error.sourceErrors));
+      if (options.writeErrorMeta !== false) {
+        await writeStaticMeta(buildSourceErrorMeta(error.attemptedSources, error.sourceErrors));
+      }
       throw error;
     }
 
