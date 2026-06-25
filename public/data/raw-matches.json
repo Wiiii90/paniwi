@@ -1494,32 +1494,36 @@
     "source": "football-data",
     "matchId": "football-data:537361",
     "fixtureId": "537361",
-    "label": "Tunisia vs Netherlands",
+    "label": "Tunisia 0-2 Netherlands",
     "kickedOffAt": "2026-06-25T23:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 802,
-      "name": "Tunisia"
+      "name": "Tunisia",
+      "score": 0
     },
     "awayTeam": {
       "id": 8601,
-      "name": "Netherlands"
+      "name": "Netherlands",
+      "score": 2
     }
   },
   {
     "source": "football-data",
     "matchId": "football-data:537362",
     "fixtureId": "537362",
-    "label": "Japan vs Sweden",
+    "label": "Japan 0-0 Sweden",
     "kickedOffAt": "2026-06-25T23:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 766,
-      "name": "Japan"
+      "name": "Japan",
+      "score": 0
     },
     "awayTeam": {
       "id": 792,
-      "name": "Sweden"
+      "name": "Sweden",
+      "score": 0
     }
   },
   {
@@ -1964,6 +1968,24 @@
       "id": 1501,
       "name": "Ivory Coast",
       "score": 2
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1539010",
+    "fixtureId": "1539010",
+    "label": "Czechia 0-3 Mexico",
+    "kickedOffAt": "2026-06-25T01:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 770,
+      "name": "Czechia",
+      "score": 0
+    },
+    "awayTeam": {
+      "id": 16,
+      "name": "Mexico",
+      "score": 3
     }
   }
 ]
