@@ -1,6 +1,12 @@
 import assert from "node:assert/strict";
+import type { GoalRecord } from "../src/domain/goalTypes";
 import type { ExternalMatchRecord } from "../src/domain/matchTypes";
-import { getApiFootballAutoEnrichMatches, getNewlyFinishedFootballDataMatches, getStaleScheduledFootballDataMatches } from "../src/sync/runScheduledSync";
+import {
+  getApiFootballAutoEnrichMatches,
+  getIncompleteRecentFootballDataMatches,
+  getNewlyFinishedFootballDataMatches,
+  getStaleScheduledFootballDataMatches
+} from "../src/sync/runScheduledSync";
 
 const before: ExternalMatchRecord[] = [
   {
@@ -103,9 +109,118 @@ assert.deepEqual(
   []
 );
 
+const completeAlreadyFinishedGoals: GoalRecord[] = [
+  {
+    externalGoalId: "api-football:already-finished:1",
+    playerName: "Scorer",
+    nationalTeam: "Already",
+    goals: 1,
+    source: "api-football",
+    matchId: "football-data:already-finished",
+    fixtureId: "already-finished",
+    matchLabel: "Already 1-0 Done",
+    kickedOffAt: "2026-06-18T16:00:00Z",
+    timeConfidence: "exact",
+    detail: "normal"
+  }
+];
+
 assert.deepEqual(
-  getApiFootballAutoEnrichMatches(before, [...after, staleScheduledMatch], new Date("2026-06-18T22:00:00Z")).map((match) => match.matchId),
+  getApiFootballAutoEnrichMatches(
+    before,
+    [...after, staleScheduledMatch],
+    completeAlreadyFinishedGoals,
+    new Date("2026-06-18T22:00:00Z")
+  ).map((match) => match.matchId),
   ["football-data:newer-finished", "football-data:new-finished", "football-data:stale-scheduled"]
+);
+
+const czechiaMexicoFinishedBefore: ExternalMatchRecord = {
+  source: "football-data",
+  matchId: "football-data:537331",
+  fixtureId: "537331",
+  label: "Czechia 0-3 Mexico",
+  kickedOffAt: "2026-06-25T04:00:00.000Z",
+  status: "finished",
+  homeTeam: { name: "Czechia", score: 0 },
+  awayTeam: { name: "Mexico", score: 3 }
+};
+
+const czechiaMexicoFinishedAfter = { ...czechiaMexicoFinishedBefore };
+
+const completeCzechiaMexicoGoals: GoalRecord[] = [
+  {
+    externalGoalId: "api-football:1",
+    playerName: "One",
+    nationalTeam: "Mexico",
+    goals: 1,
+    source: "api-football",
+    matchId: "football-data:537331",
+    fixtureId: "123",
+    matchLabel: "Czechia 0-3 Mexico",
+    kickedOffAt: "2026-06-25T04:00:00.000Z",
+    timeConfidence: "exact",
+    detail: "normal"
+  },
+  {
+    externalGoalId: "api-football:2",
+    playerName: "Two",
+    nationalTeam: "Mexico",
+    goals: 1,
+    source: "api-football",
+    matchId: "football-data:537331",
+    fixtureId: "123",
+    matchLabel: "Czechia 0-3 Mexico",
+    kickedOffAt: "2026-06-25T04:00:00.000Z",
+    timeConfidence: "exact",
+    detail: "normal"
+  },
+  {
+    externalGoalId: "api-football:3",
+    playerName: "Three",
+    nationalTeam: "Mexico",
+    goals: 1,
+    source: "api-football",
+    matchId: "football-data:537331",
+    fixtureId: "123",
+    matchLabel: "Czechia 0-3 Mexico",
+    kickedOffAt: "2026-06-25T04:00:00.000Z",
+    timeConfidence: "exact",
+    detail: "normal"
+  }
+];
+
+assert.deepEqual(
+  getIncompleteRecentFootballDataMatches([czechiaMexicoFinishedAfter], [], new Date("2026-06-26T08:00:00Z")).map(
+    (match) => match.matchId
+  ),
+  ["football-data:537331"]
+);
+
+assert.deepEqual(
+  getIncompleteRecentFootballDataMatches(
+    [czechiaMexicoFinishedAfter],
+    completeCzechiaMexicoGoals,
+    new Date("2026-06-26T08:00:00Z")
+  ).map((match) => match.matchId),
+  []
+);
+
+assert.deepEqual(
+  getIncompleteRecentFootballDataMatches([czechiaMexicoFinishedAfter], [], new Date("2026-06-27T08:00:00Z")).map(
+    (match) => match.matchId
+  ),
+  []
+);
+
+assert.deepEqual(
+  getApiFootballAutoEnrichMatches(
+    [czechiaMexicoFinishedBefore],
+    [czechiaMexicoFinishedAfter],
+    [],
+    new Date("2026-06-26T08:00:00Z")
+  ).map((match) => match.matchId),
+  ["football-data:537331"]
 );
 
 console.log("Scheduled sync auto-enrich tests passed.");

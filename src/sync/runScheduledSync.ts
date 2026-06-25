@@ -1,6 +1,8 @@
 import { appendFile, readFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
-import { getExternalMatchKey } from "../domain/matchIdentity";
+import { getExternalMatchKey, goalBelongsToExternalMatch } from "../domain/matchIdentity";
+import { isCompetitionScorerAggregateGoal } from "../domain/effectiveGoals";
+import type { GoalRecord } from "../domain/goalTypes";
 import type { ExternalMatchRecord } from "../domain/matchTypes";
 import type { StaticMeta } from "../domain/staticMeta";
 import { evaluateSyncWindow } from "./evaluateSyncWindow";
@@ -27,6 +29,15 @@ async function readCurrentRawMatches(): Promise<ExternalMatchRecord[]> {
   }
 }
 
+async function readCurrentRawGoals(): Promise<GoalRecord[]> {
+  try {
+    const raw = await readFile("public/data/raw-goals.json", "utf8");
+    return JSON.parse(raw) as GoalRecord[];
+  } catch {
+    return [];
+  }
+}
+
 function isFootballDataMatch(match: ExternalMatchRecord): boolean {
   return match.source === "football-data" && match.matchId.startsWith("football-data:");
 }
@@ -38,6 +49,40 @@ function sortMatchesNewestFirst(left: ExternalMatchRecord, right: ExternalMatchR
 function getKickoffTimestamp(match: ExternalMatchRecord): number | null {
   const timestamp = match.kickedOffAt ? Date.parse(match.kickedOffAt) : Number.NaN;
   return Number.isFinite(timestamp) ? timestamp : null;
+}
+
+function getUtcDateKey(value: Date): string {
+  return value.toISOString().slice(0, 10);
+}
+
+function shiftUtcDate(value: Date, days: number): Date {
+  const shifted = new Date(value);
+  shifted.setUTCDate(shifted.getUTCDate() + days);
+  return shifted;
+}
+
+function isInApiFootballFreeDateWindow(match: ExternalMatchRecord, now: Date): boolean {
+  const dateKey = match.kickedOffAt?.slice(0, 10);
+  if (!dateKey) {
+    return false;
+  }
+
+  return dateKey >= getUtcDateKey(shiftUtcDate(now, -1)) && dateKey <= getUtcDateKey(shiftUtcDate(now, 1));
+}
+
+function getScoreTotal(match: ExternalMatchRecord): number | null {
+  const homeScore = match.homeTeam.score;
+  const awayScore = match.awayTeam.score;
+  return typeof homeScore === "number" && typeof awayScore === "number" ? homeScore + awayScore : null;
+}
+
+function countApiFootballDetailedGoalsForMatch(goals: GoalRecord[], match: ExternalMatchRecord): number {
+  return goals.filter(
+    (goal) =>
+      goal.source === "api-football" &&
+      !isCompetitionScorerAggregateGoal(goal) &&
+      goalBelongsToExternalMatch(goal, match)
+  ).length;
 }
 
 function isPastPostMatchRepairTime(match: ExternalMatchRecord, now: Date): boolean {
@@ -75,15 +120,36 @@ export function getStaleScheduledFootballDataMatches(after: ExternalMatchRecord[
     .sort(sortMatchesNewestFirst);
 }
 
+export function getIncompleteRecentFootballDataMatches(
+  after: ExternalMatchRecord[],
+  goals: GoalRecord[],
+  now = new Date()
+): ExternalMatchRecord[] {
+  return after
+    .filter(isFootballDataMatch)
+    .filter((match) => match.status === "finished")
+    .filter((match) => isInApiFootballFreeDateWindow(match, now))
+    .filter((match) => {
+      const scoreTotal = getScoreTotal(match);
+      return scoreTotal !== null && scoreTotal > countApiFootballDetailedGoalsForMatch(goals, match);
+    })
+    .sort(sortMatchesNewestFirst);
+}
+
 export function getApiFootballAutoEnrichMatches(
   before: ExternalMatchRecord[],
   after: ExternalMatchRecord[],
+  goals: GoalRecord[] = [],
   now = new Date()
 ): ExternalMatchRecord[] {
   const selected: ExternalMatchRecord[] = [];
   const seen = new Set<string>();
 
-  for (const match of [...getNewlyFinishedFootballDataMatches(before, after), ...getStaleScheduledFootballDataMatches(after, now)]) {
+  for (const match of [
+    ...getNewlyFinishedFootballDataMatches(before, after),
+    ...getStaleScheduledFootballDataMatches(after, now),
+    ...getIncompleteRecentFootballDataMatches(after, goals, now)
+  ]) {
     if (!seen.has(match.matchId)) {
       selected.push(match);
       seen.add(match.matchId);
@@ -101,15 +167,16 @@ function shouldAutoEnrichApiFootball(env: NodeJS.ProcessEnv = process.env): bool
   return env.SYNC_SOURCE === "football-data" && Boolean(env.API_FOOTBALL_KEY);
 }
 
-async function autoEnrichNewlyFinishedMatches(before: ExternalMatchRecord[], syncWindowId?: string): Promise<void> {
+async function autoEnrichApiFootballMatches(before: ExternalMatchRecord[], syncWindowId?: string): Promise<void> {
   if (!shouldAutoEnrichApiFootball()) {
     return;
   }
 
   const after = await readCurrentRawMatches();
-  const matches = getApiFootballAutoEnrichMatches(before, after);
+  const goals = await readCurrentRawGoals();
+  const matches = getApiFootballAutoEnrichMatches(before, after, goals);
   if (matches.length === 0) {
-    console.log("API-Football auto-enrich skipped: no newly finished or stale scheduled football-data match.");
+    console.log("API-Football auto-enrich skipped: no newly finished, stale scheduled, or incomplete recent football-data match.");
     return;
   }
 
@@ -207,7 +274,7 @@ export async function runScheduledSync(force = parseForceFlag(process.argv)): Pr
   }
   const rawMatchesBeforeSync = await readCurrentRawMatches();
   await syncGoals(undefined, { syncWindowId: decision.windowId });
-  await autoEnrichNewlyFinishedMatches(rawMatchesBeforeSync, decision.windowId);
+  await autoEnrichApiFootballMatches(rawMatchesBeforeSync, decision.windowId);
   await setGithubOutput("sync_performed", "true");
   await setGithubOutput("sync_reason", decision.reason);
   return true;

@@ -150,6 +150,53 @@ assert.deepEqual(
     [
       {
         ...baseGoal,
+        externalGoalId: "mexico-chavez-goal",
+        playerName: "M. Chavez Garcia",
+        nationalTeam: "Mexico",
+        sourcePlayerName: "M. Chavez Garcia",
+        sourceTeamName: "Mexico",
+        source: "api-football",
+        matchLabel: "Czechia 0-3 Mexico"
+      }
+    ],
+    {
+      lastUpdated: "2026-06-16T00:00:00.000Z",
+      source: "wikipedia",
+      pageTitle: "2026 FIFA World Cup squads",
+      teamCount: 1,
+      playerCount: 2,
+      teams: [
+        {
+          teamName: "Mexico",
+          teamId: "mexico",
+          players: [
+            {
+              playerName: "Mateo Chávez",
+              normalizedPlayerName: "mateo chavez",
+              position: "defender",
+              shirtNumber: 20,
+              sourceName: "Mateo Chávez"
+            },
+            {
+              playerName: "Luis Chávez",
+              normalizedPlayerName: "luis chavez",
+              position: "midfielder",
+              shirtNumber: 24,
+              sourceName: "Luis Chávez"
+            }
+          ]
+        }
+      ]
+    },
+    { strictSources: ["api-football"] }
+  ).map((goal) => [goal.playerName, goal.teamId]),
+  [["Mateo Chávez", "mexico"]]
+);
+assert.deepEqual(
+  enrichGoalsWithRoster(
+    [
+      {
+        ...baseGoal,
         externalGoalId: "morocco-bono-own-goal",
         playerName: "Bono",
         nationalTeam: "Haiti",

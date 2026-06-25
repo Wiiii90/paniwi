@@ -20,6 +20,7 @@ type EnrichGoalsWithRosterOptions = {
 const apiFootballGoalNameAliases = new Map<string, string>([
   ["cape-verde|k lenini", "Kevin Pina"],
   ["cape-verde|kevin lenini", "Kevin Pina"],
+  ["mexico|m chavez garcia", "Mateo Chávez"],
   ["morocco|bono", "Yassine Bounou"]
 ]);
 
