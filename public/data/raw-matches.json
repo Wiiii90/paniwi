@@ -1458,32 +1458,36 @@
     "source": "football-data",
     "matchId": "football-data:537355",
     "fixtureId": "537355",
-    "label": "Ecuador vs Germany",
+    "label": "Ecuador 1-1 Germany",
     "kickedOffAt": "2026-06-25T20:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 791,
-      "name": "Ecuador"
+      "name": "Ecuador",
+      "score": 1
     },
     "awayTeam": {
       "id": 759,
-      "name": "Germany"
+      "name": "Germany",
+      "score": 1
     }
   },
   {
     "source": "football-data",
     "matchId": "football-data:537356",
     "fixtureId": "537356",
-    "label": "Curaçao vs Ivory Coast",
+    "label": "Curaçao 0-1 Ivory Coast",
     "kickedOffAt": "2026-06-25T20:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 9460,
-      "name": "Curaçao"
+      "name": "Curaçao",
+      "score": 0
     },
     "awayTeam": {
       "id": 1935,
-      "name": "Ivory Coast"
+      "name": "Ivory Coast",
+      "score": 1
     }
   },
   {
