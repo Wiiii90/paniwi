@@ -300,6 +300,18 @@
     "rank": 28
   },
   {
+    "playerName": "Achraf Hakimi",
+    "normalizedPlayerName": "achraf hakimi",
+    "nationalTeam": "Marokko",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [
+      "Jonas"
+    ],
+    "selected": true,
+    "rank": 28
+  },
+  {
     "playerName": "Agustín Canobbio",
     "normalizedPlayerName": "agustin canobbio",
     "nationalTeam": "Uruguay",
@@ -490,6 +502,16 @@
     "playerName": "Franck Kessié",
     "normalizedPlayerName": "franck kessie",
     "nationalTeam": "Elfenbeinküste",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 28
+  },
+  {
+    "playerName": "Gessime Yassine",
+    "normalizedPlayerName": "gessime yassine",
+    "nationalTeam": "Marokko",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],
@@ -1059,6 +1081,16 @@
     "rank": 28
   },
   {
+    "playerName": "Soufiane Rahimi",
+    "normalizedPlayerName": "soufiane rahimi",
+    "nationalTeam": "Marokko",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 28
+  },
+  {
     "playerName": "Teboho Mokoena",
     "normalizedPlayerName": "teboho mokoena",
     "nationalTeam": "Südafrika",
@@ -1092,6 +1124,16 @@
     "playerName": "Virgil van Dijk",
     "normalizedPlayerName": "virgil van dijk",
     "nationalTeam": "Niederlande",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 28
+  },
+  {
+    "playerName": "Wilson Isidor",
+    "normalizedPlayerName": "wilson isidor",
+    "nationalTeam": "Haiti",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],

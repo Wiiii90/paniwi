@@ -1334,7 +1334,7 @@
     "fixtureId": "537344",
     "label": "Morocco 4-2 Haiti",
     "kickedOffAt": "2026-06-24T22:00:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 815,
       "name": "Morocco",
@@ -1352,7 +1352,7 @@
     "fixtureId": "537343",
     "label": "Scotland 0-3 Brazil",
     "kickedOffAt": "2026-06-24T22:00:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 8873,
       "name": "Scotland",
@@ -1422,32 +1422,36 @@
     "source": "football-data",
     "matchId": "football-data:537331",
     "fixtureId": "537331",
-    "label": "Czechia vs Mexico",
+    "label": "Czechia 0-0 Mexico",
     "kickedOffAt": "2026-06-25T01:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 798,
-      "name": "Czechia"
+      "name": "Czechia",
+      "score": 0
     },
     "awayTeam": {
       "id": 769,
-      "name": "Mexico"
+      "name": "Mexico",
+      "score": 0
     }
   },
   {
     "source": "football-data",
     "matchId": "football-data:537332",
     "fixtureId": "537332",
-    "label": "South Africa vs South Korea",
+    "label": "South Africa 0-0 South Korea",
     "kickedOffAt": "2026-06-25T01:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 774,
-      "name": "South Africa"
+      "name": "South Africa",
+      "score": 0
     },
     "awayTeam": {
       "id": 772,
-      "name": "South Korea"
+      "name": "South Korea",
+      "score": 0
     }
   },
   {
@@ -1866,6 +1870,42 @@
     "awayTeam": {
       "id": 8070,
       "name": "Uzbekistan"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489406",
+    "fixtureId": "1489406",
+    "label": "Scotland 0-3 Brazil",
+    "kickedOffAt": "2026-06-24T22:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 1108,
+      "name": "Scotland",
+      "score": 0
+    },
+    "awayTeam": {
+      "id": 6,
+      "name": "Brazil",
+      "score": 3
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489405",
+    "fixtureId": "1489405",
+    "label": "Morocco 4-2 Haiti",
+    "kickedOffAt": "2026-06-24T22:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 31,
+      "name": "Morocco",
+      "score": 4
+    },
+    "awayTeam": {
+      "id": 2386,
+      "name": "Haiti",
+      "score": 2
     }
   }
 ]
