@@ -559,6 +559,16 @@
     "rank": 30
   },
   {
+    "playerName": "Gonzalo Plata",
+    "normalizedPlayerName": "gonzalo plata",
+    "nationalTeam": "Ecuador",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 30
+  },
+  {
     "playerName": "Granit Xhaka",
     "normalizedPlayerName": "granit xhaka",
     "nationalTeam": "Schweiz",
@@ -746,6 +756,16 @@
     "playerName": "Leo Østigård",
     "normalizedPlayerName": "leo stigard",
     "nationalTeam": "Norwegen",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 30
+  },
+  {
+    "playerName": "Leroy Sané",
+    "normalizedPlayerName": "leroy sane",
+    "nationalTeam": "Deutschland",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],
@@ -962,6 +982,16 @@
     "playerName": "Nico Schlotterbeck",
     "normalizedPlayerName": "nico schlotterbeck",
     "nationalTeam": "Deutschland",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 30
+  },
+  {
+    "playerName": "Nilson Angulo",
+    "normalizedPlayerName": "nilson angulo",
+    "nationalTeam": "Ecuador",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],
