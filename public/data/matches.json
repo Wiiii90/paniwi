@@ -33674,7 +33674,7 @@
   },
   {
     "matchId": "football-data:537331",
-    "label": "Czechia 0-0 Mexico",
+    "label": "Czechia 0-2 Mexico",
     "kickedOffAt": "2026-06-25T01:00:00Z",
     "status": "live",
     "homeTeam": {
@@ -33683,7 +33683,7 @@
     },
     "awayTeam": {
       "name": "Mexiko",
-      "score": 0
+      "score": 2
     },
     "goals": [],
     "pointGoals": [],
@@ -33752,22 +33752,22 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 0,
+      "scoreTotal": 2,
       "goalEventCount": 0,
-      "eventsComplete": true,
+      "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
+      "needsEventBackfill": true,
       "needsLineupBackfill": true
     }
   },
   {
     "matchId": "football-data:537332",
-    "label": "South Africa 0-0 South Korea",
+    "label": "South Africa 1-0 South Korea",
     "kickedOffAt": "2026-06-25T01:00:00Z",
     "status": "live",
     "homeTeam": {
       "name": "Südafrika",
-      "score": 0
+      "score": 1
     },
     "awayTeam": {
       "name": "Südkorea",
@@ -33810,11 +33810,11 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 0,
+      "scoreTotal": 1,
       "goalEventCount": 0,
-      "eventsComplete": true,
+      "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
+      "needsEventBackfill": true,
       "needsLineupBackfill": true
     }
   },

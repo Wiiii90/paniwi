@@ -3029,6 +3029,22 @@
     "teamId": "brazil"
   },
   {
+    "externalGoalId": "football-data:scorer:39237:normal",
+    "playerName": "Julián Quiñones",
+    "nationalTeam": "Mexico",
+    "sourcePlayerName": "Julián Quiñones",
+    "sourceTeamName": "Mexico",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 39237,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "mexico-julian-quinones",
+    "teamId": "mexico"
+  },
+  {
     "externalGoalId": "football-data:scorer:15958:normal",
     "playerName": "Cyle Larin",
     "nationalTeam": "Canada",
@@ -3347,22 +3363,6 @@
     "detail": "normal",
     "playerId": "portugal-cristiano-ronaldo",
     "teamId": "portugal"
-  },
-  {
-    "externalGoalId": "football-data:scorer:39237:normal",
-    "playerName": "Julián Quiñones",
-    "nationalTeam": "Mexico",
-    "sourcePlayerName": "Julián Quiñones",
-    "sourceTeamName": "Mexico",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 39237,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "mexico-julian-quinones",
-    "teamId": "mexico"
   },
   {
     "externalGoalId": "football-data:scorer:3305:normal",
