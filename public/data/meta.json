@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-25T05:01:34.302Z",
+  "lastUpdated": "2026-06-25T19:01:43.663Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -14,9 +14,9 @@
   "message": "Daten-Snapshot unveraendert (football-data).",
   "snapshotFingerprint": "e00c99713bb04ddc46486521f39cec516fe7beee6b9e60baacf644033531de8a",
   "snapshotChanged": false,
-  "syncWindowId": "2026 fifa world cup group a:czech republic-mexico:2026-06-25T01:00:00.000Z-check-3",
+  "syncWindowId": "2026 fifa world cup group e:curacao-civ:2026-06-25T20:00:00.000Z-pre-match",
   "windowSyncAttempts": 1,
   "liveMatchCount": 0,
-  "sourceRequestCount": 4,
+  "sourceRequestCount": 2,
   "sourceRequestLimit": 6
 }
