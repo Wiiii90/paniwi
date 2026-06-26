@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-26T03:01:25.345Z",
+  "lastUpdated": "2026-06-26T03:31:17.312Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -12,7 +12,7 @@
   "duplicateGoalCount": 0,
   "sourceErrors": [],
   "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
-  "snapshotFingerprint": "2630c1221bf42d092aedb907c3e0499df1e9c059a890cdc408e15845af7f9e24",
+  "snapshotFingerprint": "03bbfedf635c6c568227cf88099dfb985266b9f74af282ed36cacf34938dc5b3",
   "snapshotChanged": true,
   "syncWindowId": "2026 fifa world cup group d:tur-united states:2026-06-26T02:00:00.000Z-live",
   "windowSyncAttempts": 1,

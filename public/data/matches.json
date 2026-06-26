@@ -38723,7 +38723,7 @@
   },
   {
     "matchId": "football-data:537349",
-    "label": "Turkey 2-1 United States",
+    "label": "Turkey 2-2 United States",
     "kickedOffAt": "2026-06-26T02:00:00Z",
     "status": "live",
     "homeTeam": {
@@ -38732,7 +38732,7 @@
     },
     "awayTeam": {
       "name": "USA",
-      "score": 1
+      "score": 2
     },
     "goals": [],
     "pointGoals": [],
@@ -38771,7 +38771,7 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 3,
+      "scoreTotal": 4,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
