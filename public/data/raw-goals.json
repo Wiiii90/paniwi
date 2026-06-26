@@ -3441,6 +3441,22 @@
     "teamId": "netherlands"
   },
   {
+    "externalGoalId": "football-data:scorer:3638:normal",
+    "playerName": "Ismaïla Sarr",
+    "nationalTeam": "Senegal",
+    "sourcePlayerName": "Ismaïla Sarr",
+    "sourceTeamName": "Senegal",
+    "goals": 3,
+    "source": "football-data",
+    "apiPlayerId": 3638,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "senegal-ismaila-sarr",
+    "teamId": "senegal"
+  },
+  {
     "externalGoalId": "football-data:scorer:39237:normal",
     "playerName": "Julián Quiñones",
     "nationalTeam": "Mexico",
@@ -3743,22 +3759,6 @@
     "detail": "normal",
     "playerId": "spain-mikel-oyarzabal",
     "teamId": "spain"
-  },
-  {
-    "externalGoalId": "football-data:scorer:3638:normal",
-    "playerName": "Ismaïla Sarr",
-    "nationalTeam": "Senegal",
-    "sourcePlayerName": "Ismaïla Sarr",
-    "sourceTeamName": "Senegal",
-    "goals": 2,
-    "source": "football-data",
-    "apiPlayerId": 3638,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "senegal-ismaila-sarr",
-    "teamId": "senegal"
   },
   {
     "externalGoalId": "football-data:scorer:44:normal",

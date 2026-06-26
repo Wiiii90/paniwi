@@ -84,6 +84,16 @@
     "rank": 6
   },
   {
+    "playerName": "Ismaïla Sarr",
+    "normalizedPlayerName": "ismaila sarr",
+    "nationalTeam": "Senegal",
+    "goals": 3,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 6
+  },
+  {
     "playerName": "Johan Manzambi",
     "normalizedPlayerName": "johan manzambi",
     "nationalTeam": "Schweiz",
@@ -125,7 +135,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 12
+    "rank": 13
   },
   {
     "playerName": "Ayase Ueda",
@@ -135,7 +145,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 12
+    "rank": 13
   },
   {
     "playerName": "Cody Gakpo",
@@ -145,7 +155,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 12
+    "rank": 13
   },
   {
     "playerName": "Cristiano Ronaldo",
@@ -155,7 +165,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 12
+    "rank": 13
   },
   {
     "playerName": "Crysencio Summerville",
@@ -165,7 +175,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 12
+    "rank": 13
   },
   {
     "playerName": "Cyle Larin",
@@ -175,7 +185,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 12
+    "rank": 13
   },
   {
     "playerName": "Daichi Kamada",
@@ -185,7 +195,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 12
+    "rank": 13
   },
   {
     "playerName": "Daniel Muñoz",
@@ -195,7 +205,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 12
+    "rank": 13
   },
   {
     "playerName": "Elijah Just",
@@ -205,7 +215,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 12
+    "rank": 13
   },
   {
     "playerName": "Ermin Mahmić",
@@ -215,7 +225,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 12
+    "rank": 13
   },
   {
     "playerName": "Folarin Balogun",
@@ -225,7 +235,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 12
+    "rank": 13
   },
   {
     "playerName": "Harry Kane",
@@ -235,17 +245,7 @@
     "penaltyGoals": 1,
     "scoringOwners": [],
     "selected": false,
-    "rank": 12
-  },
-  {
-    "playerName": "Ismaïla Sarr",
-    "normalizedPlayerName": "ismaila sarr",
-    "nationalTeam": "Senegal",
-    "goals": 2,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 12
+    "rank": 13
   },
   {
     "playerName": "Julián Quiñones",
@@ -255,7 +255,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 12
+    "rank": 13
   },
   {
     "playerName": "Kai Havertz",
@@ -265,7 +265,7 @@
     "penaltyGoals": 1,
     "scoringOwners": [],
     "selected": false,
-    "rank": 12
+    "rank": 13
   },
   {
     "playerName": "Maximiliano Araújo",
@@ -275,7 +275,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 12
+    "rank": 13
   },
   {
     "playerName": "Mikel Oyarzabal",
@@ -285,7 +285,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 12
+    "rank": 13
   },
   {
     "playerName": "Nicolas Pépé",
@@ -295,7 +295,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 12
+    "rank": 13
   },
   {
     "playerName": "Rubén Vargas",
@@ -307,7 +307,7 @@
       "Peer"
     ],
     "selected": true,
-    "rank": 12
+    "rank": 13
   },
   {
     "playerName": "Yasin Ayari",
@@ -317,7 +317,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 12
+    "rank": 13
   },
   {
     "playerName": "Abbosbek Fayzullaev",

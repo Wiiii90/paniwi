@@ -40368,12 +40368,12 @@
   },
   {
     "matchId": "football-data:537396",
-    "label": "Senegal 1-0 Iraq",
+    "label": "Senegal 2-0 Iraq",
     "kickedOffAt": "2026-06-26T19:00:00Z",
     "status": "live",
     "homeTeam": {
       "name": "Senegal",
-      "score": 1
+      "score": 2
     },
     "awayTeam": {
       "name": "Irak",
@@ -40460,7 +40460,7 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 1,
+      "scoreTotal": 2,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
