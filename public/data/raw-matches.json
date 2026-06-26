@@ -1620,32 +1620,36 @@
     "source": "football-data",
     "matchId": "football-data:537349",
     "fixtureId": "537349",
-    "label": "Turkey vs United States",
+    "label": "Turkey 1-1 United States",
     "kickedOffAt": "2026-06-26T02:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 803,
-      "name": "Turkey"
+      "name": "Turkey",
+      "score": 1
     },
     "awayTeam": {
       "id": 771,
-      "name": "United States"
+      "name": "United States",
+      "score": 1
     }
   },
   {
     "source": "football-data",
     "matchId": "football-data:537350",
     "fixtureId": "537350",
-    "label": "Paraguay vs Australia",
+    "label": "Paraguay 0-0 Australia",
     "kickedOffAt": "2026-06-26T02:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 761,
-      "name": "Paraguay"
+      "name": "Paraguay",
+      "score": 0
     },
     "awayTeam": {
       "id": 779,
-      "name": "Australia"
+      "name": "Australia",
+      "score": 0
     }
   },
   {
