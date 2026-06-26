@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-26T19:01:26.014Z",
+  "lastUpdated": "2026-06-26T19:31:21.550Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -11,12 +11,12 @@
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot unveraendert (football-data).",
-  "snapshotFingerprint": "2f4dfe6dc5db40b92580ceb75c62156b688486bc38dcb72b935c4e99fbf103ea",
-  "snapshotChanged": false,
+  "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
+  "snapshotFingerprint": "cdf7f6347ff45a9a93297aed993c8d687e9f6f9843211ecb4226324950d18b19",
+  "snapshotChanged": true,
   "syncWindowId": "2026 fifa world cup group i:norway-france:2026-06-26T19:00:00.000Z-live",
   "windowSyncAttempts": 1,
-  "liveMatchCount": 0,
+  "liveMatchCount": 2,
   "sourceRequestCount": 4,
   "sourceRequestLimit": 6
 }

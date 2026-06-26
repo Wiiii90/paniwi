@@ -40251,14 +40251,16 @@
   },
   {
     "matchId": "football-data:537395",
-    "label": "Norway vs France",
+    "label": "Norway 1-2 France",
     "kickedOffAt": "2026-06-26T19:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
-      "name": "Norwegen"
+      "name": "Norwegen",
+      "score": 1
     },
     "awayTeam": {
-      "name": "Frankreich"
+      "name": "Frankreich",
+      "score": 2
     },
     "goals": [],
     "pointGoals": [],
@@ -40356,24 +40358,26 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 3,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsEventBackfill": true,
+      "needsLineupBackfill": true
     }
   },
   {
     "matchId": "football-data:537396",
-    "label": "Senegal vs Iraq",
+    "label": "Senegal 1-0 Iraq",
     "kickedOffAt": "2026-06-26T19:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
-      "name": "Senegal"
+      "name": "Senegal",
+      "score": 1
     },
     "awayTeam": {
-      "name": "Irak"
+      "name": "Irak",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -40456,12 +40460,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 1,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsEventBackfill": true,
+      "needsLineupBackfill": true
     }
   },
   {
