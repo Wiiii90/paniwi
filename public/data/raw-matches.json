@@ -1674,13 +1674,13 @@
     "source": "football-data",
     "matchId": "football-data:537396",
     "fixtureId": "537396",
-    "label": "Senegal 2-0 Iraq",
+    "label": "Senegal 5-0 Iraq",
     "kickedOffAt": "2026-06-26T19:00:00Z",
     "status": "live",
     "homeTeam": {
       "id": 804,
       "name": "Senegal",
-      "score": 2
+      "score": 5
     },
     "awayTeam": {
       "id": 8062,
