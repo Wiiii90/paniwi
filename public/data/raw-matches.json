@@ -1620,13 +1620,13 @@
     "source": "football-data",
     "matchId": "football-data:537349",
     "fixtureId": "537349",
-    "label": "Turkey 1-1 United States",
+    "label": "Turkey 2-1 United States",
     "kickedOffAt": "2026-06-26T02:00:00Z",
     "status": "live",
     "homeTeam": {
       "id": 803,
       "name": "Turkey",
-      "score": 1
+      "score": 2
     },
     "awayTeam": {
       "id": 771,
