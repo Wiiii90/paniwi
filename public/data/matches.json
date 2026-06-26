@@ -38369,9 +38369,9 @@
     }
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group j:algeria-austria:2026-06-28T02:00:00.000Z",
-    "label": "Algeria Match 69 Austria",
-    "kickedOffAt": "2026-06-28T02:00:00.000Z",
+    "matchId": "football-data:537402",
+    "label": "Algeria vs Austria",
+    "kickedOffAt": "2026-06-28T02:00:00Z",
     "status": "scheduled",
     "homeTeam": {
       "name": "Algerien"
@@ -38384,8 +38384,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group j:algeria-austria:2026-06-28T02:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537402",
+        "fixtureId": "537402",
         "playerName": "Stefan Posch",
         "nationalTeam": "Österreich",
         "teamId": "austria",
@@ -38408,9 +38409,9 @@
     }
   },
   {
-    "matchId": "wikipedia:2026 fifa world cup group j:jor-argentina:2026-06-28T02:00:00.000Z",
-    "label": "JOR Match 70 Argentina",
-    "kickedOffAt": "2026-06-28T02:00:00.000Z",
+    "matchId": "football-data:537401",
+    "label": "Jordan vs Argentina",
+    "kickedOffAt": "2026-06-28T02:00:00Z",
     "status": "scheduled",
     "homeTeam": {
       "name": "Jordanien"
@@ -38423,8 +38424,9 @@
     "affectedOwners": [],
     "participants": [
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group j:jor-argentina:2026-06-28T02:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537401",
+        "fixtureId": "537401",
         "playerName": "Alexis Mac Allister",
         "nationalTeam": "Argentinien",
         "teamId": "argentina",
@@ -38437,8 +38439,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group j:jor-argentina:2026-06-28T02:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537401",
+        "fixtureId": "537401",
         "playerName": "Cristian Romero",
         "nationalTeam": "Argentinien",
         "teamId": "argentina",
@@ -38451,8 +38454,9 @@
         "selected": true
       },
       {
-        "source": "wikipedia",
-        "matchId": "wikipedia:2026 fifa world cup group j:jor-argentina:2026-06-28T02:00:00.000Z",
+        "source": "football-data",
+        "matchId": "football-data:537401",
+        "fixtureId": "537401",
         "playerName": "Giuliano Simeone",
         "nationalTeam": "Argentinien",
         "teamId": "argentina",
