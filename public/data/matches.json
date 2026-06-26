@@ -40251,7 +40251,7 @@
   },
   {
     "matchId": "football-data:537395",
-    "label": "Norway 1-2 France",
+    "label": "Norway 1-3 France",
     "kickedOffAt": "2026-06-26T19:00:00Z",
     "status": "live",
     "homeTeam": {
@@ -40260,7 +40260,7 @@
     },
     "awayTeam": {
       "name": "Frankreich",
-      "score": 2
+      "score": 3
     },
     "goals": [],
     "pointGoals": [],
@@ -40358,7 +40358,7 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 3,
+      "scoreTotal": 4,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
