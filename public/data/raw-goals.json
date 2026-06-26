@@ -3472,6 +3472,22 @@
     "teamId": "netherlands"
   },
   {
+    "externalGoalId": "football-data:scorer:166376:normal",
+    "playerName": "Anthony Elanga",
+    "nationalTeam": "Sweden",
+    "sourcePlayerName": "Anthony Elanga",
+    "sourceTeamName": "Sweden",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 166376,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "sweden-anthony-elanga",
+    "teamId": "sweden"
+  },
+  {
     "externalGoalId": "football-data:scorer:119460:normal",
     "playerName": "Ayase Ueda",
     "nationalTeam": "Japan",
@@ -4374,22 +4390,6 @@
     "detail": "normal",
     "playerId": "paraguay-matias-galarza",
     "teamId": "paraguay"
-  },
-  {
-    "externalGoalId": "football-data:scorer:166376:normal",
-    "playerName": "Anthony Elanga",
-    "nationalTeam": "Sweden",
-    "sourcePlayerName": "Anthony Elanga",
-    "sourceTeamName": "Sweden",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 166376,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "sweden-anthony-elanga",
-    "teamId": "sweden"
   },
   {
     "externalGoalId": "football-data:scorer:1747:normal",

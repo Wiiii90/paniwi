@@ -1494,36 +1494,36 @@
     "source": "football-data",
     "matchId": "football-data:537361",
     "fixtureId": "537361",
-    "label": "Tunisia 0-2 Netherlands",
+    "label": "Tunisia 1-3 Netherlands",
     "kickedOffAt": "2026-06-25T23:00:00Z",
     "status": "live",
     "homeTeam": {
       "id": 802,
       "name": "Tunisia",
-      "score": 0
+      "score": 1
     },
     "awayTeam": {
       "id": 8601,
       "name": "Netherlands",
-      "score": 2
+      "score": 3
     }
   },
   {
     "source": "football-data",
     "matchId": "football-data:537362",
     "fixtureId": "537362",
-    "label": "Japan 0-0 Sweden",
+    "label": "Japan 1-1 Sweden",
     "kickedOffAt": "2026-06-25T23:00:00Z",
     "status": "live",
     "homeTeam": {
       "id": 766,
       "name": "Japan",
-      "score": 0
+      "score": 1
     },
     "awayTeam": {
       "id": 792,
       "name": "Sweden",
-      "score": 0
+      "score": 1
     }
   },
   {
