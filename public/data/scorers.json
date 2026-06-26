@@ -424,9 +424,39 @@
     "rank": 31
   },
   {
+    "playerName": "Arda Güler",
+    "normalizedPlayerName": "arda guler",
+    "nationalTeam": "Türkei",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 31
+  },
+  {
+    "playerName": "Auston Trusty",
+    "normalizedPlayerName": "auston trusty",
+    "nationalTeam": "USA",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 31
+  },
+  {
     "playerName": "Aymen Hussein",
     "normalizedPlayerName": "aymen hussein",
     "nationalTeam": "Irak",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 31
+  },
+  {
+    "playerName": "Barış Alper Yılmaz",
+    "normalizedPlayerName": "bar s alper y lmaz",
+    "nationalTeam": "Türkei",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],
@@ -734,6 +764,16 @@
     "playerName": "Junya Itō",
     "normalizedPlayerName": "junya ito",
     "nationalTeam": "Japan",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 31
+  },
+  {
+    "playerName": "Kaan Ayhan",
+    "normalizedPlayerName": "kaan ayhan",
+    "nationalTeam": "Türkei",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],
@@ -1154,6 +1194,16 @@
     "playerName": "Romano Schmid",
     "normalizedPlayerName": "romano schmid",
     "nationalTeam": "Österreich",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 31
+  },
+  {
+    "playerName": "Sebastian Berhalter",
+    "normalizedPlayerName": "sebastian berhalter",
+    "nationalTeam": "USA",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],

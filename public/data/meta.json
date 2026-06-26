@@ -1,22 +1,22 @@
 {
-  "lastUpdated": "2026-06-26T04:01:24.479Z",
-  "source": "football-data",
+  "lastUpdated": "2026-06-26T18:01:49.145Z",
+  "source": "api-football",
   "attemptedSources": [
-    "football-data"
+    "api-football"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 272,
+  "goalCount": 277,
   "scoredGoalCount": 28,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot unveraendert (football-data).",
-  "snapshotFingerprint": "03bbfedf635c6c568227cf88099dfb985266b9f74af282ed36cacf34938dc5b3",
-  "snapshotChanged": false,
-  "syncWindowId": "2026 fifa world cup group d:tur-united states:2026-06-26T02:00:00.000Z-check-1",
+  "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
+  "snapshotFingerprint": "2f4dfe6dc5db40b92580ceb75c62156b688486bc38dcb72b935c4e99fbf103ea",
+  "snapshotChanged": true,
+  "syncWindowId": "2026 fifa world cup group i:norway-france:2026-06-26T19:00:00.000Z-pre-match:api-football-enrich:football-data:537350",
   "windowSyncAttempts": 1,
-  "liveMatchCount": 2,
-  "sourceRequestCount": 4,
-  "sourceRequestLimit": 6
+  "liveMatchCount": 0,
+  "sourceRequestCount": 3,
+  "sourceRequestLimit": 3
 }
