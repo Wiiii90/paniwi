@@ -29,24 +29,24 @@
   },
   {
     "rank": 5,
-    "owner": "Marco",
-    "points": 2,
-    "goals": 2,
-    "playersWithGoals": 2
-  },
-  {
-    "rank": 5,
     "owner": "Nina",
-    "points": 2,
-    "goals": 2,
-    "playersWithGoals": 2
+    "points": 3,
+    "goals": 3,
+    "playersWithGoals": 3
   },
   {
     "rank": 5,
     "owner": "Peer",
+    "points": 3,
+    "goals": 3,
+    "playersWithGoals": 2
+  },
+  {
+    "rank": 7,
+    "owner": "Marco",
     "points": 2,
     "goals": 2,
-    "playersWithGoals": 1
+    "playersWithGoals": 2
   },
   {
     "rank": 8,

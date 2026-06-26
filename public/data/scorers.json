@@ -546,6 +546,18 @@
     "rank": 33
   },
   {
+    "playerName": "Désiré Doué",
+    "normalizedPlayerName": "desire doue",
+    "nationalTeam": "Frankreich",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [
+      "Peer"
+    ],
+    "selected": true,
+    "rank": 33
+  },
+  {
     "playerName": "Emam Ashour",
     "normalizedPlayerName": "emam ashour",
     "nationalTeam": "Ägypten",
@@ -649,6 +661,18 @@
     "rank": 33
   },
   {
+    "playerName": "Habib Diarra",
+    "normalizedPlayerName": "habib diarra",
+    "nationalTeam": "Senegal",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [
+      "Nina"
+    ],
+    "selected": true,
+    "rank": 33
+  },
+  {
     "playerName": "Hassan Al-Haydos",
     "normalizedPlayerName": "hassan al haydos",
     "nationalTeam": "Katar",
@@ -701,6 +725,16 @@
   {
     "playerName": "Ibrahim Mbaye",
     "normalizedPlayerName": "ibrahim mbaye",
+    "nationalTeam": "Senegal",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 33
+  },
+  {
+    "playerName": "Iliman Ndiaye",
+    "normalizedPlayerName": "iliman ndiaye",
     "nationalTeam": "Senegal",
     "goals": 1,
     "penaltyGoals": 0,
@@ -1244,6 +1278,16 @@
     "playerName": "Thapelo Maseko",
     "normalizedPlayerName": "thapelo maseko",
     "nationalTeam": "Südafrika",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 33
+  },
+  {
+    "playerName": "Thelo Aasgaard",
+    "normalizedPlayerName": "thelo aasgaard",
+    "nationalTeam": "Norwegen",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],
