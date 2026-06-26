@@ -1496,7 +1496,7 @@
     "fixtureId": "537361",
     "label": "Tunisia 1-3 Netherlands",
     "kickedOffAt": "2026-06-25T23:00:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 802,
       "name": "Tunisia",
@@ -2018,6 +2018,24 @@
     "awayTeam": {
       "id": 816,
       "name": "Austria"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489412",
+    "fixtureId": "1489412",
+    "label": "Tunisia 1-3 Netherlands",
+    "kickedOffAt": "2026-06-25T23:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 28,
+      "name": "Tunisia",
+      "score": 1
+    },
+    "awayTeam": {
+      "id": 1118,
+      "name": "Netherlands",
+      "score": 3
     }
   }
 ]

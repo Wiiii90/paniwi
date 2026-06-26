@@ -599,6 +599,16 @@
     "rank": 31
   },
   {
+    "playerName": "Hazem Mastouri",
+    "normalizedPlayerName": "hazem mastouri",
+    "nationalTeam": "Tunesien",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 31
+  },
+  {
     "playerName": "Hélio Varela",
     "normalizedPlayerName": "helio varela",
     "nationalTeam": "Kap Verde",
@@ -652,6 +662,16 @@
     "playerName": "Jaminton Campaz",
     "normalizedPlayerName": "jaminton campaz",
     "nationalTeam": "Kolumbien",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 31
+  },
+  {
+    "playerName": "Jan Paul van Hecke",
+    "normalizedPlayerName": "jan paul van hecke",
+    "nationalTeam": "Niederlande",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],
