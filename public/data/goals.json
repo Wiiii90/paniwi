@@ -740,5 +740,30 @@
     "displayPlayerName": "Désiré Doué",
     "displayNationalTeam": "Frankreich",
     "points": 1
+  },
+  {
+    "externalGoalId": "api-football:1489414:2691:14:Normal Goal:1",
+    "playerName": "Ramin Rezaeian",
+    "nationalTeam": "Iran",
+    "sourcePlayerName": "R. Rezaeian",
+    "sourceTeamName": "Iran",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 2691,
+    "matchId": "football-data:537368",
+    "fixtureId": "1489414",
+    "matchLabel": "Egypt 1-1 Iran",
+    "kickedOffAt": "2026-06-27T03:00:00+00:00",
+    "minute": 14,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "iran-ramin-rezaeian",
+    "teamId": "iran",
+    "pickId": "iran-ramin-rezaeian",
+    "owner": "Felix",
+    "pickedPlayerName": "Ramin Rezaeian",
+    "displayPlayerName": "Ramin Rezaeian",
+    "displayNationalTeam": "Iran",
+    "points": 1
   }
 ]

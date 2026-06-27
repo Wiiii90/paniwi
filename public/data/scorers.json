@@ -426,6 +426,16 @@
     "rank": 35
   },
   {
+    "playerName": "Alexis Saelemaekers",
+    "normalizedPlayerName": "alexis saelemaekers",
+    "nationalTeam": "Belgien",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 35
+  },
+  {
     "playerName": "Ali Olwan",
     "normalizedPlayerName": "ali olwan",
     "nationalTeam": "Jordanien",
@@ -887,6 +897,16 @@
     "rank": 35
   },
   {
+    "playerName": "Kevin De Bruyne",
+    "normalizedPlayerName": "kevin de bruyne",
+    "nationalTeam": "Belgien",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 35
+  },
+  {
     "playerName": "Kevin Pina",
     "normalizedPlayerName": "kevin pina",
     "nationalTeam": "Kap Verde",
@@ -962,6 +982,16 @@
     "playerName": "Luis Romo",
     "normalizedPlayerName": "luis romo",
     "nationalTeam": "Mexiko",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 35
+  },
+  {
+    "playerName": "Mahmoud Saber",
+    "normalizedPlayerName": "mahmoud saber",
+    "nationalTeam": "Ägypten",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],
@@ -1258,6 +1288,16 @@
     "playerName": "Romano Schmid",
     "normalizedPlayerName": "romano schmid",
     "nationalTeam": "Österreich",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 35
+  },
+  {
+    "playerName": "Romelu Lukaku",
+    "normalizedPlayerName": "romelu lukaku",
+    "nationalTeam": "Belgien",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],

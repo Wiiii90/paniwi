@@ -1800,9 +1800,9 @@
     "source": "football-data",
     "matchId": "football-data:537367",
     "fixtureId": "537367",
-    "label": "New Zealand 1-4 Belgium",
+    "label": "New Zealand 1-5 Belgium",
     "kickedOffAt": "2026-06-27T03:00:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 783,
       "name": "New Zealand",
@@ -1811,7 +1811,7 @@
     "awayTeam": {
       "id": 805,
       "name": "Belgium",
-      "score": 4
+      "score": 5
     }
   },
   {
@@ -1820,7 +1820,7 @@
     "fixtureId": "537368",
     "label": "Egypt 1-1 Iran",
     "kickedOffAt": "2026-06-27T03:00:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 825,
       "name": "Egypt",
@@ -2210,6 +2210,42 @@
       "id": 23,
       "name": "Saudi Arabia",
       "score": 0
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489415",
+    "fixtureId": "1489415",
+    "label": "New Zealand 1-5 Belgium",
+    "kickedOffAt": "2026-06-27T03:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 4673,
+      "name": "New Zealand",
+      "score": 1
+    },
+    "awayTeam": {
+      "id": 1,
+      "name": "Belgium",
+      "score": 5
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489414",
+    "fixtureId": "1489414",
+    "label": "Egypt 1-1 Iran",
+    "kickedOffAt": "2026-06-27T03:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 32,
+      "name": "Egypt",
+      "score": 1
+    },
+    "awayTeam": {
+      "id": 22,
+      "name": "Iran",
+      "score": 1
     }
   }
 ]
