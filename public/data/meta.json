@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-27T01:31:16.110Z",
+  "lastUpdated": "2026-06-27T02:01:34.394Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -14,8 +14,8 @@
   "message": "Daten-Snapshot unveraendert (football-data).",
   "snapshotFingerprint": "b5840e2d46ab0fa50a9b7f6b33362f4c44921111d68344779eca9bd751c733ad",
   "snapshotChanged": false,
-  "syncWindowId": "2026 fifa world cup group h:cape verde-ksa:2026-06-27T00:00:00.000Z-live",
-  "windowSyncAttempts": 2,
+  "syncWindowId": "2026 fifa world cup group g:egypt-iran:2026-06-27T03:00:00.000Z-pre-match",
+  "windowSyncAttempts": 1,
   "liveMatchCount": 2,
   "sourceRequestCount": 4,
   "sourceRequestLimit": 6
