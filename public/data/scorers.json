@@ -600,6 +600,16 @@
     "rank": 36
   },
   {
+    "playerName": "Derrick Luckassen",
+    "normalizedPlayerName": "derrick luckassen",
+    "nationalTeam": "Ghana",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 36
+  },
+  {
     "playerName": "Désiré Doué",
     "normalizedPlayerName": "desire doue",
     "nationalTeam": "Frankreich",
@@ -1195,6 +1205,16 @@
     "rank": 36
   },
   {
+    "playerName": "Nikola Vlašić",
+    "normalizedPlayerName": "nikola vlasic",
+    "nationalTeam": "Kroatien",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 36
+  },
+  {
     "playerName": "Nilson Angulo",
     "normalizedPlayerName": "nilson angulo",
     "nationalTeam": "Ecuador",
@@ -1247,6 +1267,16 @@
   {
     "playerName": "Petar Musa",
     "normalizedPlayerName": "petar musa",
+    "nationalTeam": "Kroatien",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 36
+  },
+  {
+    "playerName": "Petar Sučić",
+    "normalizedPlayerName": "petar sucic",
     "nationalTeam": "Kroatien",
     "goals": 1,
     "penaltyGoals": 0,

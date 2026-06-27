@@ -1856,7 +1856,7 @@
     "fixtureId": "537414",
     "label": "Croatia 2-1 Ghana",
     "kickedOffAt": "2026-06-27T21:00:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 799,
       "name": "Croatia",
@@ -2268,6 +2268,24 @@
       "id": 10,
       "name": "England",
       "score": 2
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489420",
+    "fixtureId": "1489420",
+    "label": "Croatia 2-1 Ghana",
+    "kickedOffAt": "2026-06-27T21:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 3,
+      "name": "Croatia",
+      "score": 2
+    },
+    "awayTeam": {
+      "id": 1504,
+      "name": "Ghana",
+      "score": 1
     }
   }
 ]
