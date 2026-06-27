@@ -42152,7 +42152,7 @@
   },
   {
     "matchId": "football-data:537373",
-    "label": "Uruguay 0-0 Spain",
+    "label": "Uruguay 0-1 Spain",
     "kickedOffAt": "2026-06-27T00:00:00Z",
     "status": "live",
     "homeTeam": {
@@ -42161,7 +42161,7 @@
     },
     "awayTeam": {
       "name": "Spanien",
-      "score": 0
+      "score": 1
     },
     "goals": [],
     "pointGoals": [],
@@ -42290,11 +42290,11 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 0,
+      "scoreTotal": 1,
       "goalEventCount": 0,
-      "eventsComplete": true,
+      "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
+      "needsEventBackfill": true,
       "needsLineupBackfill": true
     }
   },
