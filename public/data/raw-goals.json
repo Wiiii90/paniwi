@@ -3826,6 +3826,22 @@
     "teamId": "new-zealand"
   },
   {
+    "externalGoalId": "football-data:scorer:3804:normal",
+    "playerName": "Ramin Rezaeian",
+    "nationalTeam": "Iran",
+    "sourcePlayerName": "Ramin Rezaeian",
+    "sourceTeamName": "Iran",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 3804,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "iran-ramin-rezaeian",
+    "teamId": "iran"
+  },
+  {
     "externalGoalId": "football-data:scorer:8004:normal",
     "playerName": "Harry Kane",
     "nationalTeam": "England",
@@ -4426,22 +4442,6 @@
     "detail": "normal",
     "playerId": "saudi-arabia-abdulelah-al-amri",
     "teamId": "saudi-arabia"
-  },
-  {
-    "externalGoalId": "football-data:scorer:3804:normal",
-    "playerName": "Ramin Rezaeian",
-    "nationalTeam": "Iran",
-    "sourcePlayerName": "Ramin Rezaeian",
-    "sourceTeamName": "Iran",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 3804,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "iran-ramin-rezaeian",
-    "teamId": "iran"
   },
   {
     "externalGoalId": "football-data:scorer:172641:normal",

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-27T03:01:23.733Z",
+  "lastUpdated": "2026-06-27T03:31:25.270Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -11,12 +11,12 @@
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot unveraendert (football-data).",
-  "snapshotFingerprint": "03383d4adee8948422dfda66a3837e8621ba6c6f33529b6de2c138f2c1acb8cb",
-  "snapshotChanged": false,
+  "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
+  "snapshotFingerprint": "3e3df16eac34dda25e7856db8fb6b8dbc27dabec46808fdc13323957279e5b5d",
+  "snapshotChanged": true,
   "syncWindowId": "2026 fifa world cup group g:egypt-iran:2026-06-27T03:00:00.000Z-live",
   "windowSyncAttempts": 1,
-  "liveMatchCount": 0,
+  "liveMatchCount": 2,
   "sourceRequestCount": 4,
   "sourceRequestLimit": 6
 }
