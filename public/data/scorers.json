@@ -74,6 +74,16 @@
     "rank": 6
   },
   {
+    "playerName": "Elijah Just",
+    "normalizedPlayerName": "elijah just",
+    "nationalTeam": "Neuseeland",
+    "goals": 3,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 6
+  },
+  {
     "playerName": "Ismael Saibari",
     "normalizedPlayerName": "ismael saibari",
     "nationalTeam": "Marokko",
@@ -135,7 +145,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 13
+    "rank": 14
   },
   {
     "playerName": "Ayase Ueda",
@@ -145,7 +155,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 13
+    "rank": 14
   },
   {
     "playerName": "Cody Gakpo",
@@ -155,7 +165,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 13
+    "rank": 14
   },
   {
     "playerName": "Cristiano Ronaldo",
@@ -165,7 +175,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 13
+    "rank": 14
   },
   {
     "playerName": "Crysencio Summerville",
@@ -175,7 +185,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 13
+    "rank": 14
   },
   {
     "playerName": "Cyle Larin",
@@ -185,7 +195,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 13
+    "rank": 14
   },
   {
     "playerName": "Daichi Kamada",
@@ -195,7 +205,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 13
+    "rank": 14
   },
   {
     "playerName": "Daniel Muñoz",
@@ -205,17 +215,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 13
-  },
-  {
-    "playerName": "Elijah Just",
-    "normalizedPlayerName": "elijah just",
-    "nationalTeam": "Neuseeland",
-    "goals": 2,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 13
+    "rank": 14
   },
   {
     "playerName": "Ermin Mahmić",
@@ -225,7 +225,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 13
+    "rank": 14
   },
   {
     "playerName": "Folarin Balogun",
@@ -235,7 +235,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 13
+    "rank": 14
   },
   {
     "playerName": "Harry Kane",
@@ -245,7 +245,7 @@
     "penaltyGoals": 1,
     "scoringOwners": [],
     "selected": false,
-    "rank": 13
+    "rank": 14
   },
   {
     "playerName": "Julián Quiñones",
@@ -255,7 +255,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 13
+    "rank": 14
   },
   {
     "playerName": "Kai Havertz",
@@ -265,7 +265,7 @@
     "penaltyGoals": 1,
     "scoringOwners": [],
     "selected": false,
-    "rank": 13
+    "rank": 14
   },
   {
     "playerName": "Leandro Trossard",
@@ -275,7 +275,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 13
+    "rank": 14
   },
   {
     "playerName": "Maximiliano Araújo",
@@ -285,7 +285,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 13
+    "rank": 14
   },
   {
     "playerName": "Mikel Oyarzabal",
@@ -295,7 +295,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 13
+    "rank": 14
   },
   {
     "playerName": "Nicolas Pépé",
@@ -305,7 +305,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 13
+    "rank": 14
   },
   {
     "playerName": "Pape Gueye",
@@ -315,7 +315,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 13
+    "rank": 14
   },
   {
     "playerName": "Ramin Rezaeian",
@@ -327,7 +327,7 @@
       "Felix"
     ],
     "selected": true,
-    "rank": 13
+    "rank": 14
   },
   {
     "playerName": "Rubén Vargas",
@@ -339,7 +339,7 @@
       "Peer"
     ],
     "selected": true,
-    "rank": 13
+    "rank": 14
   },
   {
     "playerName": "Yasin Ayari",
@@ -349,7 +349,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 13
+    "rank": 14
   },
   {
     "playerName": "Abbosbek Fayzullaev",

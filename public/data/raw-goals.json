@@ -3586,6 +3586,22 @@
     "teamId": "germany"
   },
   {
+    "externalGoalId": "football-data:scorer:118981:normal",
+    "playerName": "Elijah Just",
+    "nationalTeam": "New Zealand",
+    "sourcePlayerName": "Elijah Just",
+    "sourceTeamName": "New Zealand",
+    "goals": 3,
+    "source": "football-data",
+    "apiPlayerId": 118981,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "new-zealand-elijah-just",
+    "teamId": "new-zealand"
+  },
+  {
     "externalGoalId": "football-data:scorer:212309:normal",
     "playerName": "Johan Manzambi",
     "nationalTeam": "Switzerland",
@@ -3808,22 +3824,6 @@
     "detail": "normal",
     "playerId": "uruguay-maximiliano-araujo",
     "teamId": "uruguay"
-  },
-  {
-    "externalGoalId": "football-data:scorer:118981:normal",
-    "playerName": "Elijah Just",
-    "nationalTeam": "New Zealand",
-    "sourcePlayerName": "Elijah Just",
-    "sourceTeamName": "New Zealand",
-    "goals": 2,
-    "source": "football-data",
-    "apiPlayerId": 118981,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "new-zealand-elijah-just",
-    "teamId": "new-zealand"
   },
   {
     "externalGoalId": "football-data:scorer:3804:normal",
