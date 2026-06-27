@@ -1836,7 +1836,7 @@
     "source": "football-data",
     "matchId": "football-data:537413",
     "fixtureId": "537413",
-    "label": "Panama 0-0 England",
+    "label": "Panama 0-2 England",
     "kickedOffAt": "2026-06-27T21:00:00Z",
     "status": "live",
     "homeTeam": {
@@ -1847,7 +1847,7 @@
     "awayTeam": {
       "id": 770,
       "name": "England",
-      "score": 0
+      "score": 2
     }
   },
   {

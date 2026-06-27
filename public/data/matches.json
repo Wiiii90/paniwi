@@ -45463,7 +45463,7 @@
   },
   {
     "matchId": "football-data:537413",
-    "label": "Panama 0-0 England",
+    "label": "Panama 0-2 England",
     "kickedOffAt": "2026-06-27T21:00:00Z",
     "status": "live",
     "homeTeam": {
@@ -45472,7 +45472,7 @@
     },
     "awayTeam": {
       "name": "England",
-      "score": 0
+      "score": 2
     },
     "goals": [],
     "pointGoals": [],
@@ -45600,11 +45600,11 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 0,
+      "scoreTotal": 2,
       "goalEventCount": 0,
-      "eventsComplete": true,
+      "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
+      "needsEventBackfill": true,
       "needsLineupBackfill": true
     }
   },
