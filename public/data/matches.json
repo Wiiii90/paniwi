@@ -45390,12 +45390,12 @@
   },
   {
     "matchId": "football-data:537414",
-    "label": "Croatia 0-0 Ghana",
+    "label": "Croatia 1-0 Ghana",
     "kickedOffAt": "2026-06-27T21:00:00Z",
     "status": "live",
     "homeTeam": {
       "name": "Kroatien",
-      "score": 0
+      "score": 1
     },
     "awayTeam": {
       "name": "Ghana",
@@ -45453,11 +45453,11 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 0,
+      "scoreTotal": 1,
       "goalEventCount": 0,
-      "eventsComplete": true,
+      "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
+      "needsEventBackfill": true,
       "needsLineupBackfill": true
     }
   },

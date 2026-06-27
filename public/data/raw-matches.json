@@ -1656,32 +1656,36 @@
     "source": "football-data",
     "matchId": "football-data:537395",
     "fixtureId": "537395",
-    "label": "Norway vs France",
+    "label": "Norway 1-4 France",
     "kickedOffAt": "2026-06-26T19:00:00Z",
-    "status": "scheduled",
+    "status": "finished",
     "homeTeam": {
       "id": 8872,
-      "name": "Norway"
+      "name": "Norway",
+      "score": 1
     },
     "awayTeam": {
       "id": 773,
-      "name": "France"
+      "name": "France",
+      "score": 4
     }
   },
   {
     "source": "football-data",
     "matchId": "football-data:537396",
     "fixtureId": "537396",
-    "label": "Senegal vs Iraq",
+    "label": "Senegal 5-0 Iraq",
     "kickedOffAt": "2026-06-26T19:00:00Z",
-    "status": "scheduled",
+    "status": "finished",
     "homeTeam": {
       "id": 804,
-      "name": "Senegal"
+      "name": "Senegal",
+      "score": 5
     },
     "awayTeam": {
       "id": 8062,
-      "name": "Iraq"
+      "name": "Iraq",
+      "score": 0
     }
   },
   {
@@ -1814,7 +1818,7 @@
     "source": "football-data",
     "matchId": "football-data:537368",
     "fixtureId": "537368",
-    "label": "Egypt 1-2 Iran",
+    "label": "Egypt 1-1 Iran",
     "kickedOffAt": "2026-06-27T03:00:00Z",
     "status": "finished",
     "homeTeam": {
@@ -1825,7 +1829,7 @@
     "awayTeam": {
       "id": 840,
       "name": "Iran",
-      "score": 2
+      "score": 1
     }
   },
   {
@@ -1850,13 +1854,13 @@
     "source": "football-data",
     "matchId": "football-data:537414",
     "fixtureId": "537414",
-    "label": "Croatia 0-0 Ghana",
+    "label": "Croatia 1-0 Ghana",
     "kickedOffAt": "2026-06-27T21:00:00Z",
     "status": "live",
     "homeTeam": {
       "id": 799,
       "name": "Croatia",
-      "score": 0
+      "score": 1
     },
     "awayTeam": {
       "id": 763,
