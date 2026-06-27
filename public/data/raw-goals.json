@@ -3455,6 +3455,25 @@
     "teamId": "senegal"
   },
   {
+    "externalGoalId": "api-football:1489417:182219:42:Normal Goal:0",
+    "playerName": "Álex Baena",
+    "nationalTeam": "Spain",
+    "sourcePlayerName": "A. Baena",
+    "sourceTeamName": "Spain",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 182219,
+    "matchId": "football-data:537373",
+    "fixtureId": "1489417",
+    "matchLabel": "Uruguay 0-1 Spain",
+    "kickedOffAt": "2026-06-27T00:00:00+00:00",
+    "minute": 42,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "spain-alex-baena",
+    "teamId": "spain"
+  },
+  {
     "externalGoalId": "football-data:scorer:3218:normal",
     "playerName": "Lionel Messi",
     "nationalTeam": "Argentina",
@@ -5075,24 +5094,5 @@
     "detail": "normal",
     "playerId": "portugal-rafael-leao",
     "teamId": "portugal"
-  },
-  {
-    "externalGoalId": "api-football:1489417:182219:42:Normal Goal:0",
-    "playerName": "Álex Baena",
-    "nationalTeam": "Spain",
-    "sourcePlayerName": "A. Baena",
-    "sourceTeamName": "Spain",
-    "goals": 1,
-    "source": "api-football",
-    "apiPlayerId": 182219,
-    "matchId": "football-data:537373",
-    "fixtureId": "1489417",
-    "matchLabel": "Uruguay 0-1 Spain",
-    "kickedOffAt": "2026-06-27T00:00:00+00:00",
-    "minute": 42,
-    "timeConfidence": "match-only",
-    "detail": "normal",
-    "playerId": "spain-alex-baena",
-    "teamId": "spain"
   }
 ]
