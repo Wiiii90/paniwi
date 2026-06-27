@@ -1800,7 +1800,7 @@
     "source": "football-data",
     "matchId": "football-data:537367",
     "fixtureId": "537367",
-    "label": "New Zealand 0-0 Belgium",
+    "label": "New Zealand 0-1 Belgium",
     "kickedOffAt": "2026-06-27T03:00:00Z",
     "status": "live",
     "homeTeam": {
@@ -1811,7 +1811,7 @@
     "awayTeam": {
       "id": 805,
       "name": "Belgium",
-      "score": 0
+      "score": 1
     }
   },
   {
