@@ -43743,7 +43743,7 @@
   },
   {
     "matchId": "football-data:537367",
-    "label": "New Zealand 0-1 Belgium",
+    "label": "New Zealand 0-2 Belgium",
     "kickedOffAt": "2026-06-27T03:00:00Z",
     "status": "live",
     "homeTeam": {
@@ -43752,7 +43752,7 @@
     },
     "awayTeam": {
       "name": "Belgien",
-      "score": 1
+      "score": 2
     },
     "goals": [],
     "pointGoals": [],
@@ -43851,7 +43851,7 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 1,
+      "scoreTotal": 2,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,

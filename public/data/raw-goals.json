@@ -4034,6 +4034,22 @@
     "teamId": "senegal"
   },
   {
+    "externalGoalId": "football-data:scorer:8984:normal",
+    "playerName": "Leandro Trossard",
+    "nationalTeam": "Belgium",
+    "sourcePlayerName": "Leandro Trossard",
+    "sourceTeamName": "Belgium",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 8984,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "belgium-leandro-trossard",
+    "teamId": "belgium"
+  },
+  {
     "externalGoalId": "football-data:scorer:3305:normal",
     "playerName": "Raúl Jiménez",
     "nationalTeam": "Mexico",
@@ -5077,22 +5093,6 @@
     "timeConfidence": "unknown",
     "detail": "normal",
     "playerId": "portugal-nuno-mendes",
-    "teamId": "portugal"
-  },
-  {
-    "externalGoalId": "football-data:scorer:15892:normal",
-    "playerName": "Rafael Leão",
-    "nationalTeam": "Portugal",
-    "sourcePlayerName": "Rafael Leão",
-    "sourceTeamName": "Portugal",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 15892,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "portugal-rafael-leao",
     "teamId": "portugal"
   }
 ]
