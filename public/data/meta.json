@@ -1,22 +1,22 @@
 {
-  "lastUpdated": "2026-06-27T02:01:34.394Z",
-  "source": "football-data",
+  "lastUpdated": "2026-06-27T02:31:26.104Z",
+  "source": "api-football",
   "attemptedSources": [
-    "football-data"
+    "api-football"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 287,
+  "goalCount": 288,
   "scoredGoalCount": 30,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot unveraendert (football-data).",
-  "snapshotFingerprint": "b5840e2d46ab0fa50a9b7f6b33362f4c44921111d68344779eca9bd751c733ad",
-  "snapshotChanged": false,
-  "syncWindowId": "2026 fifa world cup group g:egypt-iran:2026-06-27T03:00:00.000Z-pre-match",
+  "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
+  "snapshotFingerprint": "03383d4adee8948422dfda66a3837e8621ba6c6f33529b6de2c138f2c1acb8cb",
+  "snapshotChanged": true,
+  "syncWindowId": "2026 fifa world cup group g:egypt-iran:2026-06-27T03:00:00.000Z-pre-match:api-football-enrich:football-data:537374",
   "windowSyncAttempts": 1,
-  "liveMatchCount": 2,
-  "sourceRequestCount": 4,
-  "sourceRequestLimit": 6
+  "liveMatchCount": 0,
+  "sourceRequestCount": 3,
+  "sourceRequestLimit": 3
 }

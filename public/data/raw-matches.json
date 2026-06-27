@@ -1694,7 +1694,7 @@
     "fixtureId": "537373",
     "label": "Uruguay 0-1 Spain",
     "kickedOffAt": "2026-06-27T00:00:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 758,
       "name": "Uruguay",
@@ -1712,7 +1712,7 @@
     "fixtureId": "537374",
     "label": "Cape Verde Islands 0-0 Saudi Arabia",
     "kickedOffAt": "2026-06-27T00:00:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 1930,
       "name": "Cape Verde Islands",
@@ -2170,6 +2170,42 @@
     "awayTeam": {
       "id": 766,
       "name": "Japan"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489417",
+    "fixtureId": "1489417",
+    "label": "Uruguay 0-1 Spain",
+    "kickedOffAt": "2026-06-27T00:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 7,
+      "name": "Uruguay",
+      "score": 0
+    },
+    "awayTeam": {
+      "id": 9,
+      "name": "Spain",
+      "score": 1
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489413",
+    "fixtureId": "1489413",
+    "label": "Cape Verde Islands 0-0 Saudi Arabia",
+    "kickedOffAt": "2026-06-27T00:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 1533,
+      "name": "Cape Verde Islands",
+      "score": 0
+    },
+    "awayTeam": {
+      "id": 23,
+      "name": "Saudi Arabia",
+      "score": 0
     }
   }
 ]
