@@ -43168,5 +43168,105 @@
       "needsEventBackfill": false,
       "needsLineupBackfill": false
     }
+  },
+  {
+    "matchId": "football-data:537423",
+    "label": "Brazil vs Japan",
+    "kickedOffAt": "2026-06-29T17:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Brasilien"
+    },
+    "awayTeam": {
+      "name": "Japan"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537423",
+        "fixtureId": "537423",
+        "playerName": "Alisson",
+        "nationalTeam": "Brasilien",
+        "teamId": "brazil",
+        "status": "unknown",
+        "displayPlayerName": "Alisson",
+        "displayNationalTeam": "Brasilien",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537423",
+        "fixtureId": "537423",
+        "playerName": "Gabriel Magalhães",
+        "nationalTeam": "Brasilien",
+        "teamId": "brazil",
+        "status": "unknown",
+        "displayPlayerName": "Gabriel Magalhães",
+        "displayNationalTeam": "Brasilien",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537423",
+        "fixtureId": "537423",
+        "playerName": "Lucas Paquetá",
+        "nationalTeam": "Brasilien",
+        "teamId": "brazil",
+        "status": "unknown",
+        "displayPlayerName": "Lucas Paquetá",
+        "displayNationalTeam": "Brasilien",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537423",
+        "fixtureId": "537423",
+        "playerName": "Matheus Cunha",
+        "nationalTeam": "Brasilien",
+        "teamId": "brazil",
+        "status": "unknown",
+        "displayPlayerName": "Matheus Cunha",
+        "displayNationalTeam": "Brasilien",
+        "owners": [
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537423",
+        "fixtureId": "537423",
+        "playerName": "Vinícius Júnior",
+        "nationalTeam": "Brasilien",
+        "teamId": "brazil",
+        "status": "unknown",
+        "displayPlayerName": "Vinícius Júnior",
+        "displayNationalTeam": "Brasilien",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   }
 ]

@@ -2151,5 +2151,21 @@
       "name": "Iraq",
       "score": 0
     }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537423",
+    "fixtureId": "537423",
+    "label": "Brazil vs Japan",
+    "kickedOffAt": "2026-06-29T17:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 764,
+      "name": "Brazil"
+    },
+    "awayTeam": {
+      "id": 766,
+      "name": "Japan"
+    }
   }
 ]
