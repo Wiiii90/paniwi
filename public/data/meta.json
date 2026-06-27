@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-27T00:01:27.544Z",
+  "lastUpdated": "2026-06-27T00:31:17.172Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -12,11 +12,11 @@
   "duplicateGoalCount": 0,
   "sourceErrors": [],
   "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
-  "snapshotFingerprint": "6bc2f3b8c7213144d7d7b7e53704d0965b19e6cf82db7918be9d207a72ba0aa3",
+  "snapshotFingerprint": "da849db667456260d38305c65d87676f4c33da8b33c558301a4763d251546572",
   "snapshotChanged": true,
   "syncWindowId": "2026 fifa world cup group h:cape verde-ksa:2026-06-27T00:00:00.000Z-live",
   "windowSyncAttempts": 1,
-  "liveMatchCount": 0,
+  "liveMatchCount": 2,
   "sourceRequestCount": 4,
   "sourceRequestLimit": 6
 }

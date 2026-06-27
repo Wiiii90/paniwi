@@ -42080,14 +42080,16 @@
   },
   {
     "matchId": "football-data:537374",
-    "label": "Cape Verde Islands vs Saudi Arabia",
+    "label": "Cape Verde Islands 0-0 Saudi Arabia",
     "kickedOffAt": "2026-06-27T00:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
-      "name": "Kap Verde"
+      "name": "Kap Verde",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Saudi-Arabien"
+      "name": "Saudi-Arabien",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -42140,24 +42142,26 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 0,
       "goalEventCount": 0,
-      "eventsComplete": false,
+      "eventsComplete": true,
       "lineupsComplete": false,
       "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsLineupBackfill": true
     }
   },
   {
     "matchId": "football-data:537373",
-    "label": "Uruguay vs Spain",
+    "label": "Uruguay 0-0 Spain",
     "kickedOffAt": "2026-06-27T00:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
-      "name": "Uruguay"
+      "name": "Uruguay",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Spanien"
+      "name": "Spanien",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -42286,12 +42290,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 0,
       "goalEventCount": 0,
-      "eventsComplete": false,
+      "eventsComplete": true,
       "lineupsComplete": false,
       "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsLineupBackfill": true
     }
   },
   {
