@@ -765,5 +765,30 @@
     "displayPlayerName": "Ramin Rezaeian",
     "displayNationalTeam": "Iran",
     "points": 1
+  },
+  {
+    "externalGoalId": "api-football:1489422:129718:62:Normal Goal:0",
+    "playerName": "Jude Bellingham",
+    "nationalTeam": "England",
+    "sourcePlayerName": "J. Bellingham",
+    "sourceTeamName": "England",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 129718,
+    "matchId": "football-data:537413",
+    "fixtureId": "1489422",
+    "matchLabel": "Panama 0-2 England",
+    "kickedOffAt": "2026-06-27T21:00:00+00:00",
+    "minute": 62,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "england-jude-bellingham",
+    "teamId": "england",
+    "pickId": "england-jude-bellingham",
+    "owner": "Jonas",
+    "pickedPlayerName": "Jude Bellingham",
+    "displayPlayerName": "Jude Bellingham",
+    "displayNationalTeam": "England",
+    "points": 1
   }
 ]

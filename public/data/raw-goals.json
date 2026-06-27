@@ -5246,5 +5246,43 @@
     "detail": "normal",
     "playerId": "portugal-nuno-mendes",
     "teamId": "portugal"
+  },
+  {
+    "externalGoalId": "api-football:1489422:129718:62:Normal Goal:0",
+    "playerName": "Jude Bellingham",
+    "nationalTeam": "England",
+    "sourcePlayerName": "J. Bellingham",
+    "sourceTeamName": "England",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 129718,
+    "matchId": "football-data:537413",
+    "fixtureId": "1489422",
+    "matchLabel": "Panama 0-2 England",
+    "kickedOffAt": "2026-06-27T21:00:00+00:00",
+    "minute": 62,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "england-jude-bellingham",
+    "teamId": "england"
+  },
+  {
+    "externalGoalId": "api-football:1489422:184:67:Normal Goal:1",
+    "playerName": "Harry Kane",
+    "nationalTeam": "England",
+    "sourcePlayerName": "H. Kane",
+    "sourceTeamName": "England",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 184,
+    "matchId": "football-data:537413",
+    "fixtureId": "1489422",
+    "matchLabel": "Panama 0-2 England",
+    "kickedOffAt": "2026-06-27T21:00:00+00:00",
+    "minute": 67,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "england-harry-kane",
+    "teamId": "england"
   }
 ]
