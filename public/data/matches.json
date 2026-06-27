@@ -43933,6 +43933,20 @@
         "source": "api-football",
         "matchId": "football-data:537368",
         "fixtureId": "1489414",
+        "playerName": "Zizo",
+        "nationalTeam": "Ägypten",
+        "teamId": "egypt",
+        "apiPlayerId": 16871,
+        "status": "subbed-in",
+        "displayPlayerName": "Zizo",
+        "displayNationalTeam": "Ägypten",
+        "owners": [],
+        "selected": false
+      },
+      {
+        "source": "api-football",
+        "matchId": "football-data:537368",
+        "fixtureId": "1489414",
         "playerName": "Ahmed Fatouh",
         "nationalTeam": "Ägypten",
         "teamId": "egypt",
@@ -44120,21 +44134,6 @@
         "status": "bench",
         "shirtNumber": 24,
         "displayPlayerName": "Tarek Alaa",
-        "displayNationalTeam": "Ägypten",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537368",
-        "fixtureId": "1489414",
-        "playerName": "Zizo",
-        "nationalTeam": "Ägypten",
-        "teamId": "egypt",
-        "apiPlayerId": 16871,
-        "status": "bench",
-        "shirtNumber": 25,
-        "displayPlayerName": "Zizo",
         "displayNationalTeam": "Ägypten",
         "owners": [],
         "selected": false
@@ -45391,14 +45390,16 @@
   },
   {
     "matchId": "football-data:537414",
-    "label": "Croatia vs Ghana",
+    "label": "Croatia 0-0 Ghana",
     "kickedOffAt": "2026-06-27T21:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
-      "name": "Kroatien"
+      "name": "Kroatien",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Ghana"
+      "name": "Ghana",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -45452,24 +45453,26 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 0,
       "goalEventCount": 0,
-      "eventsComplete": false,
+      "eventsComplete": true,
       "lineupsComplete": false,
       "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsLineupBackfill": true
     }
   },
   {
     "matchId": "football-data:537413",
-    "label": "Panama vs England",
+    "label": "Panama 0-0 England",
     "kickedOffAt": "2026-06-27T21:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
-      "name": "Panama"
+      "name": "Panama",
+      "score": 0
     },
     "awayTeam": {
-      "name": "England"
+      "name": "England",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -45597,12 +45600,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 0,
       "goalEventCount": 0,
-      "eventsComplete": false,
+      "eventsComplete": true,
       "lineupsComplete": false,
       "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsLineupBackfill": true
     }
   },
   {

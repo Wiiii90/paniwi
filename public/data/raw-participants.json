@@ -38507,8 +38507,7 @@
     "nationalTeam": "Egypt",
     "teamId": "egypt",
     "apiPlayerId": 16871,
-    "status": "bench",
-    "shirtNumber": 25
+    "status": "subbed-in"
   },
   {
     "source": "api-football",
