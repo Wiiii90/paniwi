@@ -18,6 +18,7 @@ import { resolveParticipantPicks } from "../src/domain/participantPick";
 import { normalizePlayerName } from "../src/domain/normalizePlayerName";
 import { validateGoals } from "../src/sync/validateGoals";
 import { validateTeams } from "../src/sync/validateTeams";
+import { buildPickStatusSnapshot } from "../src/sync/pickStatuses";
 
 async function readJson<T>(path: string): Promise<T> {
   return JSON.parse(await readFile(path, "utf8")) as T;
@@ -55,6 +56,14 @@ assert.equal(meta.scoredGoalCount, goals.length);
 assert.equal(meta.skippedGoalCount, 0);
 assert.equal(meta.duplicateGoalCount, 0);
 assert.equal(pickStatuses.picks.length, participantTeams.reduce((sum, team) => sum + team.players.length, 0));
+assert.deepEqual(
+  pickStatuses,
+  buildPickStatusSnapshot(rosters, {
+    previousSnapshot: pickStatuses,
+    matches,
+    now: new Date(pickStatuses.lastUpdated)
+  })
+);
 
 const owners = new Set(participantTeams.map((team) => team.owner));
 for (const goal of goals) {

@@ -424,6 +424,7 @@ export function buildMatches(
       label: fixture.label,
       kickedOffAt: fixture.kickedOffAt,
       status: fixture.status,
+      ...(fixture.winnerTeam ? { winnerTeam: fixture.winnerTeam } : {}),
       homeTeam: buildMatchTeam(fixture.homeTeam, fixture.source),
       awayTeam: buildMatchTeam(fixture.awayTeam, fixture.source),
       goals: matchGoals,

@@ -10,9 +10,11 @@ import type { SourceName } from "../domain/goalTypes";
 import type { ExternalMatchParticipantRecord, ExternalMatchRecord } from "../domain/matchTypes";
 import type { StaticMeta } from "../domain/staticMeta";
 import type { RosterSnapshot } from "../domain/rosterTypes";
+import type { PickStatusSnapshot } from "../domain/pickStatusTypes";
 import type { GoalSource } from "./sources/types";
 import { participantTeams } from "../config/teams";
 import { normalizeGoals } from "./normalizeGoals";
+import { buildPickStatusSnapshot } from "./pickStatuses";
 import { buildSnapshotFingerprint } from "./snapshotFingerprint";
 import { validateGoals } from "./validateGoals";
 import { formatTeamValidationIssues, validateTeams } from "./validateTeams";
@@ -116,6 +118,14 @@ async function readExistingRawParticipants(): Promise<NormalizedParticipants> {
 async function readExistingRosterSnapshot(): Promise<RosterSnapshot | undefined> {
   try {
     return JSON.parse(await readFile("public/data/rosters.json", "utf8")) as RosterSnapshot;
+  } catch {
+    return undefined;
+  }
+}
+
+async function readExistingPickStatusSnapshot(): Promise<PickStatusSnapshot | undefined> {
+  try {
+    return JSON.parse(await readFile("public/data/pick-statuses.json", "utf8")) as PickStatusSnapshot;
   } catch {
     return undefined;
   }
@@ -426,6 +436,7 @@ export async function syncGoals(
       )
     : incomingParticipants;
   const rosterSnapshot = await readExistingRosterSnapshot();
+  const previousPickStatusSnapshot = await readExistingPickStatusSnapshot();
   const strictSources: SourceName[] = normalizedGoals.some((goal) => goal.source === "api-football") ? ["api-football"] : [];
   const rosterEnrichedGoals = enrichGoalsWithRoster(normalizedGoals, rosterSnapshot, {
     strictSources
@@ -437,6 +448,12 @@ export async function syncGoals(
   const leaderboard = buildLeaderboard(participantTeams, effectiveGoals, rosterSnapshot);
   const scorers = buildScorers(scorerGoals, participantTeams, rosterSnapshot, effectiveGoals);
   const matches = buildMatches(goals, scoredGoals, normalizedMatches, normalizedParticipants, participantTeams, rosterSnapshot);
+  const pickStatuses = rosterSnapshot
+    ? buildPickStatusSnapshot(rosterSnapshot, {
+        previousSnapshot: previousPickStatusSnapshot,
+        matches
+      })
+    : undefined;
 
   await writeStaticData({
     leaderboard,
@@ -446,6 +463,7 @@ export async function syncGoals(
     rawParticipants: normalizedParticipants,
     scorers,
     matches,
+    pickStatuses,
     meta: buildSyncMeta(
       result,
       attemptedSources,

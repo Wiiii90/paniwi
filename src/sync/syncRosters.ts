@@ -2,6 +2,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { PickStatusSnapshot } from "../domain/pickStatusTypes";
+import type { MatchRecord } from "../domain/matchTypes";
 import type { RosterSnapshot, RosterTeam } from "../domain/rosterTypes";
 import { buildPickStatusSnapshot, writePickStatusSnapshot } from "./pickStatuses";
 import { fetchWikipediaRosterPage, parseWikipediaSquads } from "./sources/wikipediaRosterSource";
@@ -39,8 +40,11 @@ export async function syncRosters(): Promise<{ rosterSnapshot: RosterSnapshot; p
   }
 
   const rosterSnapshot = buildRosterSnapshot(page.title, rosterTeams);
-  const previousPickStatusSnapshot = await readOptionalJson<PickStatusSnapshot>("public/data/pick-statuses.json");
-  const pickStatusSnapshot = buildPickStatusSnapshot(rosterSnapshot, { previousSnapshot: previousPickStatusSnapshot });
+  const [previousPickStatusSnapshot, matches] = await Promise.all([
+    readOptionalJson<PickStatusSnapshot>("public/data/pick-statuses.json"),
+    readOptionalJson<MatchRecord[]>("public/data/matches.json")
+  ]);
+  const pickStatusSnapshot = buildPickStatusSnapshot(rosterSnapshot, { previousSnapshot: previousPickStatusSnapshot, matches });
   await Promise.all([writeRosterSnapshot(rosterSnapshot), writePickStatusSnapshot(pickStatusSnapshot)]);
   return { rosterSnapshot, pickStatusSnapshot };
 }

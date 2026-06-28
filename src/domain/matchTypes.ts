@@ -22,6 +22,7 @@ export type ExternalMatchRecord = {
   label: string;
   kickedOffAt?: string;
   status: MatchStatus;
+  winnerTeam?: "home" | "away" | "draw";
   homeTeam: ExternalMatchTeam;
   awayTeam: ExternalMatchTeam;
 };
@@ -59,6 +60,7 @@ export type MatchRecord = {
   label: string;
   kickedOffAt?: string;
   status: MatchStatus;
+  winnerTeam?: "home" | "away" | "draw";
   homeTeam: MatchTeam;
   awayTeam: MatchTeam;
   goals: GoalRecord[];

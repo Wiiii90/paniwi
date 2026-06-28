@@ -3,6 +3,7 @@ import { dirname, resolve } from "node:path";
 import type { GoalRecord, ScoredGoal, ScorerEntry } from "../domain/goalTypes";
 import type { ExternalMatchParticipantRecord, ExternalMatchRecord, MatchRecord } from "../domain/matchTypes";
 import type { LeaderboardEntry } from "../domain/participantTypes";
+import type { PickStatusSnapshot } from "../domain/pickStatusTypes";
 import type { StaticMeta } from "../domain/staticMeta";
 
 type StaticPayload = {
@@ -13,6 +14,7 @@ type StaticPayload = {
   rawParticipants: ExternalMatchParticipantRecord[];
   scorers: ScorerEntry[];
   matches: MatchRecord[];
+  pickStatuses?: PickStatusSnapshot;
   meta: StaticMeta;
 };
 
@@ -31,7 +33,8 @@ export async function writeStaticData(payload: StaticPayload): Promise<void> {
     writeJson("public/data/raw-matches.json", payload.rawMatches),
     writeJson("public/data/raw-participants.json", payload.rawParticipants),
     writeJson("public/data/scorers.json", payload.scorers),
-    writeJson("public/data/matches.json", payload.matches)
+    writeJson("public/data/matches.json", payload.matches),
+    ...(payload.pickStatuses ? [writeJson("public/data/pick-statuses.json", payload.pickStatuses)] : [])
   ]);
 }
 

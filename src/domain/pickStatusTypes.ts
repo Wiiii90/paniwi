@@ -1,4 +1,6 @@
 import type { RosterStatus } from "./rosterTypes";
+import type { PlayerPosition } from "./rosterTypes";
+import type { TeamTournamentStatus, TeamTournamentStatusReason } from "./tournamentStatus";
 
 export type PickDisplayStatus = "nominated" | "not-nominated" | "late-callup" | "unknown";
 
@@ -14,9 +16,12 @@ export type PickStatusEntry = {
   playerName: string;
   teamId: string;
   teamName: string;
+  position?: PlayerPosition;
   baselineRosterStatus: RosterStatus;
   currentRosterStatus: RosterStatus;
   displayStatus: PickDisplayStatus;
+  tournamentStatus: TeamTournamentStatus;
+  tournamentStatusReason: TeamTournamentStatusReason;
   matchedCurrentRoster: boolean;
   matchedCurrentRosterName?: string;
   reason: PickStatusReason;
@@ -31,5 +36,8 @@ export type PickStatusSnapshot = {
     notNominatedCount: number;
     lateCallupCount: number;
     unknownCount: number;
+    activeCount: number;
+    eliminatedCount: number;
+    tournamentUnknownCount: number;
   };
 };

@@ -12,11 +12,12 @@ type LeaderboardPageProps = {
   pickStatuses: PickStatusSnapshot;
 };
 
-type SortKey = "rank" | "owner" | "misses" | "topScorer" | "playersWithGoals" | "points";
+type SortKey = "rank" | "owner" | "misses" | "eliminated" | "topScorer" | "playersWithGoals" | "points";
 
 type LeaderboardRow = LeaderboardEntry & {
   color?: string;
   misses: number;
+  eliminated: number;
   topScorerLabel: string;
   topScorerGoals: number;
   topScorers: Array<{ name: string; nationalTeam: string }>;
@@ -28,6 +29,7 @@ const sortLabels: Record<SortKey, string> = {
   misses: "Nieten",
   topScorer: "Topspieler",
   playersWithGoals: "Torschützen",
+  eliminated: "Raus",
   points: "Pkt."
 };
 
@@ -45,6 +47,20 @@ function getMissCounts(pickStatuses: PickStatusSnapshot): Map<string, number> {
 
   for (const pick of pickStatuses.picks) {
     if (pick.displayStatus !== "not-nominated") {
+      continue;
+    }
+
+    counts.set(pick.owner, (counts.get(pick.owner) ?? 0) + 1);
+  }
+
+  return counts;
+}
+
+function getEliminatedCounts(pickStatuses: PickStatusSnapshot): Map<string, number> {
+  const counts = new Map<string, number>();
+
+  for (const pick of pickStatuses.picks) {
+    if (pick.displayStatus === "not-nominated" || pick.tournamentStatus !== "eliminated") {
       continue;
     }
 
@@ -120,6 +136,7 @@ export function LeaderboardPage({ goals, leaderboard, pickStatuses }: Leaderboar
   const ownerColors = useMemo(() => new Map(participantTeams.map((team) => [team.owner, team.color])), []);
   const rows = useMemo(() => {
     const missCounts = getMissCounts(pickStatuses);
+    const eliminatedCounts = getEliminatedCounts(pickStatuses);
     const topScorers = getTopScorers(goals);
 
     return leaderboard.map((entry) => {
@@ -129,6 +146,7 @@ export function LeaderboardPage({ goals, leaderboard, pickStatuses }: Leaderboar
         ...entry,
         color: ownerColors.get(entry.owner),
         misses: missCounts.get(entry.owner) ?? 0,
+        eliminated: eliminatedCounts.get(entry.owner) ?? 0,
         topScorerLabel: topScorer && topScorer.goals > 0 ? topScorer.players.map((player) => player.name).join(", ") : "",
         topScorers: topScorer?.players ?? [],
         topScorerGoals: topScorer?.goals ?? 0
@@ -149,6 +167,7 @@ export function LeaderboardPage({ goals, leaderboard, pickStatuses }: Leaderboar
           <span>{renderSortButton("points")}</span>
           <span>{renderSortButton("playersWithGoals")}</span>
           <span>{renderSortButton("misses")}</span>
+          <span>{renderSortButton("eliminated")}</span>
           <span>{renderSortButton("owner")}</span>
           <span>{renderSortButton("topScorer")}</span>
         </div>
@@ -165,6 +184,7 @@ export function LeaderboardPage({ goals, leaderboard, pickStatuses }: Leaderboar
                 <strong data-label="Punkte">{entry.points}</strong>
                 <span data-label="Torschützen">{entry.playersWithGoals}</span>
                 <span data-label="Nieten">{entry.misses}</span>
+                <span data-label="Raus">{entry.eliminated}</span>
                 <span className="owner" style={{ "--participant-color": entry.color ?? "var(--color-text)" } as CSSProperties}>
                   <span className="owner-color-blob" />
                   <span className="owner-name">{entry.owner}</span>

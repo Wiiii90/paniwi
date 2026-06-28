@@ -12,7 +12,7 @@ import type { StaticMeta } from "../domain/staticMeta";
 import type { RosterSnapshot } from "../domain/rosterTypes";
 import { sortGoalsChronologically } from "../domain/sortGoals";
 import { participantTeams } from "../config/teams";
-import { buildPickStatusSnapshot, writePickStatusSnapshot } from "./pickStatuses";
+import { buildPickStatusSnapshot } from "./pickStatuses";
 import { buildSnapshotFingerprint } from "./snapshotFingerprint";
 import { validateGoals } from "./validateGoals";
 import { writeStaticData } from "./writeStaticData";
@@ -59,6 +59,7 @@ export async function rebuildStaticData(): Promise<void> {
     rawParticipants: rawParticipants ?? [],
     scorers,
     matches,
+    pickStatuses: rosters ? buildPickStatusSnapshot(rosters, { previousSnapshot: previousPickStatuses, matches }) : undefined,
     meta: {
       ...meta,
       goalCount: validGoals.length,
@@ -69,9 +70,6 @@ export async function rebuildStaticData(): Promise<void> {
     }
   });
 
-  if (rosters) {
-    await writePickStatusSnapshot(buildPickStatusSnapshot(rosters, { previousSnapshot: previousPickStatuses }));
-  }
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

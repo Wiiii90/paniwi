@@ -19,6 +19,7 @@ export type FootballDataMatch = {
   homeTeam?: FootballDataTeam;
   awayTeam?: FootballDataTeam;
   score?: {
+    winner?: string | null;
     fullTime?: FootballDataScorePeriod | null;
     regularTime?: FootballDataScorePeriod | null;
     extraTime?: FootballDataScorePeriod | null;
@@ -83,6 +84,22 @@ function getMatchLabel(homeTeam: string, awayTeam: string, homeScore: number | u
   return `${homeTeam} vs ${awayTeam}`;
 }
 
+function mapFootballDataWinner(winner: string | null | undefined): ExternalMatchRecord["winnerTeam"] | undefined {
+  if (winner === "HOME_TEAM") {
+    return "home";
+  }
+
+  if (winner === "AWAY_TEAM") {
+    return "away";
+  }
+
+  if (winner === "DRAW") {
+    return "draw";
+  }
+
+  return undefined;
+}
+
 export function parseFootballDataMatch(match: FootballDataMatch): ExternalMatchRecord | null {
   const matchId = typeof match.id === "number" ? String(match.id) : null;
   const homeTeam = getTeamName(match.homeTeam);
@@ -95,6 +112,7 @@ export function parseFootballDataMatch(match: FootballDataMatch): ExternalMatchR
   const status = mapFootballDataStatus(match.status);
   const homeScore = getCurrentScore(match, "home", status);
   const awayScore = getCurrentScore(match, "away", status);
+  const winnerTeam = mapFootballDataWinner(match.score?.winner);
 
   return {
     source: "football-data",
@@ -103,6 +121,7 @@ export function parseFootballDataMatch(match: FootballDataMatch): ExternalMatchR
     label: getMatchLabel(homeTeam, awayTeam, homeScore, awayScore),
     kickedOffAt: match.utcDate,
     status,
+    ...(winnerTeam ? { winnerTeam } : {}),
     homeTeam: {
       id: match.homeTeam?.id,
       name: homeTeam,

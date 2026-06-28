@@ -72,6 +72,8 @@ const missingPick = pickStatuses.picks.find((entry) => entry.owner === "Owner Tw
 const unknownTeamPick = pickStatuses.picks.find((entry) => entry.owner === "Owner Three" && entry.pickId === "belgium-thomas-meunier");
 
 assert.equal(nominatedPick?.displayStatus, "nominated");
+assert.equal(nominatedPick?.tournamentStatus, "unknown");
+assert.equal(nominatedPick?.tournamentStatusReason, "knockout-field-incomplete");
 assert.equal(nominatedPick?.matchedCurrentRosterName, "Lamine Yamal");
 assert.equal(missingPick?.displayStatus, "not-nominated");
 assert.equal(missingPick?.reason, "not-found-in-current-team-roster");
@@ -97,6 +99,8 @@ const previousSnapshot: PickStatusSnapshot = {
       baselineRosterStatus: "not-nominated",
       currentRosterStatus: "not-nominated",
       displayStatus: "not-nominated",
+      tournamentStatus: "unknown",
+      tournamentStatusReason: "knockout-field-incomplete",
       matchedCurrentRoster: false,
       reason: "not-found-in-current-team-roster"
     }
@@ -105,7 +109,10 @@ const previousSnapshot: PickStatusSnapshot = {
     nominatedCount: 0,
     notNominatedCount: 1,
     lateCallupCount: 0,
-    unknownCount: 0
+    unknownCount: 0,
+    activeCount: 0,
+    eliminatedCount: 0,
+    tournamentUnknownCount: 1
   }
 };
 

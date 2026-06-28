@@ -85,13 +85,22 @@ const parsedMatch = parseFootballDataMatch({
   homeTeam: { id: 765, name: "Portugal" },
   awayTeam: { id: 766, name: "DR Congo" },
   score: {
+    winner: "HOME_TEAM",
     fullTime: { home: 1, away: 0 }
   }
 });
 
 assert.deepEqual(
-  parsedMatch && [parsedMatch.source, parsedMatch.matchId, parsedMatch.status, parsedMatch.label, parsedMatch.homeTeam.score, parsedMatch.awayTeam.score],
-  ["football-data", "football-data:2000", "live", "Portugal 1-0 DR Congo", 1, 0]
+  parsedMatch && [
+    parsedMatch.source,
+    parsedMatch.matchId,
+    parsedMatch.status,
+    parsedMatch.label,
+    parsedMatch.winnerTeam,
+    parsedMatch.homeTeam.score,
+    parsedMatch.awayTeam.score
+  ],
+  ["football-data", "football-data:2000", "live", "Portugal 1-0 DR Congo", "home", 1, 0]
 );
 
 const parsedScorelessLiveMatch = parseFootballDataMatch({

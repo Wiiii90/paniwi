@@ -19,36 +19,59 @@ type TeamPageProps = {
   rosters: RosterSnapshot;
 };
 
-function formatRosterStatus(status: string | undefined, position: string | undefined): string {
+function formatRosterStatus(status: string | undefined, tournamentStatus: string | undefined, position: string | undefined): string {
+  const labels: string[] = [];
+  const isGoalkeeper = position === "goalkeeper";
+
+  if (status === "not-nominated") {
+    labels.push("Niete");
+    if (isGoalkeeper) {
+      labels.push("Torwart");
+    }
+    return labels.join(" · ");
+  }
+
   if (status === "nominated") {
-    return position === "goalkeeper" ? "nominiert · Torwart" : "nominiert";
+    labels.push("nominiert");
   }
 
   if (status === "late-callup") {
-    return position === "goalkeeper" ? "nachnominiert · Torwart" : "nachnominiert";
+    labels.push("nachnominiert");
   }
 
-  if (status === "not-nominated") {
-    return "Niete";
+  if (labels.length === 0) {
+    labels.push("ungeprüft");
   }
 
-  return "ungeprüft";
+  if (tournamentStatus === "eliminated") {
+    labels.push("ausgeschieden");
+  }
+
+  if (isGoalkeeper) {
+    labels.push("Torwart");
+  }
+
+  return labels.join(" · ");
 }
 
 function getRosterStatus(
   pickStatuses: PickStatusSnapshot,
   owner: string,
   pickId: string
-): PickStatusEntry["displayStatus"] | undefined {
-  return pickStatuses.picks.find((entry) => entry.owner === owner && entry.pickId === pickId)?.displayStatus;
+): PickStatusEntry | undefined {
+  return pickStatuses.picks.find((entry) => entry.owner === owner && entry.pickId === pickId);
 }
 
-function getRosterStatusClassName(status: PickStatusEntry["displayStatus"] | undefined): string {
-  if (status === "not-nominated") {
+function getRosterStatusClassName(status: PickStatusEntry | undefined): string {
+  if (status?.displayStatus === "not-nominated") {
     return "roster-miss";
   }
 
-  if (status === "late-callup") {
+  if (status?.tournamentStatus === "eliminated") {
+    return "roster-eliminated";
+  }
+
+  if (status?.displayStatus === "late-callup") {
     return "roster-late-callup";
   }
 
@@ -77,7 +100,7 @@ export function TeamPage({ owner, goals, matches, pickStatuses, rosters }: TeamP
   );
   const playerRows = playerScores.map((player) => ({
     ...player,
-    rosterStatus: getRosterStatus(pickStatuses, team.owner, player.pickId)
+    pickStatus: getRosterStatus(pickStatuses, team.owner, player.pickId)
   }));
 
   return (
@@ -107,8 +130,8 @@ export function TeamPage({ owner, goals, matches, pickStatuses, rosters }: TeamP
               <TeamFlag className="team-roster-flag" teamName={player.nationalTeam} />
               <span>{player.nationalTeam}</span>
             </span>
-            <span className={getRosterStatusClassName(player.rosterStatus)} data-label="Kader">
-              {formatRosterStatus(player.rosterStatus, player.position)}
+            <span className={getRosterStatusClassName(player.pickStatus)} data-label="Kader">
+              {formatRosterStatus(player.pickStatus?.displayStatus, player.pickStatus?.tournamentStatus, player.pickStatus?.position ?? player.position)}
             </span>
             <span data-label="Pts">{player.points}</span>
           </div>
