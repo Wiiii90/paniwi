@@ -61,6 +61,48 @@ function buildWindows(kickoff) {
   ];
 }
 
+function getLatestStaticKickoffMs(kickoffs) {
+  return kickoffs.reduce((latest, kickoff) => Math.max(latest, Date.parse(kickoff.kickedOffAt)), 0);
+}
+
+function rawMatchToKickoff(match, latestStaticKickoffMs) {
+  if (match?.source !== "football-data" || !match.kickedOffAt) {
+    return null;
+  }
+
+  const kickoffMs = Date.parse(match.kickedOffAt);
+  if (Number.isNaN(kickoffMs) || kickoffMs <= latestStaticKickoffMs) {
+    return null;
+  }
+
+  const id = match.matchId || (match.fixtureId ? `football-data:${match.fixtureId}` : null);
+  if (!id) {
+    return null;
+  }
+
+  return {
+    id,
+    kickedOffAt: match.kickedOffAt,
+    label: match.label || `${match.homeTeam?.name || "Team A"} vs ${match.awayTeam?.name || "Team B"}`,
+    finished: match.status === "finished"
+  };
+}
+
+function getKnownKickoffs() {
+  const staticKickoffs = readJson("src/config/matchKickoffs.json", []);
+  const latestStaticKickoffMs = getLatestStaticKickoffMs(staticKickoffs);
+  const kickoffsById = new Map(staticKickoffs.map((kickoff) => [kickoff.id, kickoff]));
+
+  for (const match of readJson("public/data/raw-matches.json", [])) {
+    const kickoff = rawMatchToKickoff(match, latestStaticKickoffMs);
+    if (kickoff) {
+      kickoffsById.set(kickoff.id, kickoff);
+    }
+  }
+
+  return [...kickoffsById.values()].sort((left, right) => left.kickedOffAt.localeCompare(right.kickedOffAt) || left.id.localeCompare(right.id));
+}
+
 function getMaintenanceWindow(now, windows) {
   if (!isTournamentDay(now)) {
     return null;
@@ -89,8 +131,7 @@ function getMaintenanceWindow(now, windows) {
 }
 
 function getActiveWindow(now) {
-  const kickoffs = readJson("src/config/matchKickoffs.json", []);
-  const windows = kickoffs.flatMap(buildWindows);
+  const windows = getKnownKickoffs().flatMap(buildWindows);
   const active = windows.find((window) => now.getTime() >= window.from.getTime() && now.getTime() <= window.until.getTime());
   return active ?? getMaintenanceWindow(now, windows);
 }

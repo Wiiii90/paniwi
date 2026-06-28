@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import type { StaticMeta } from "../src/domain/staticMeta";
 import { evaluateSyncWindow } from "../src/sync/evaluateSyncWindow";
-import { buildSyncWindowsForKickoff, getActiveSyncWindow, getLastScheduledWindow, syncPolicy } from "../src/sync/syncSchedule";
+import { buildSyncWindowsForKickoff, getActiveSyncWindow, getKnownKickoffs, getLastScheduledWindow, syncPolicy } from "../src/sync/syncSchedule";
 
 const sampleKickoff = {
   id: "sample:brazil-morocco:2026-06-13T16:00:00.000Z",
@@ -85,6 +85,15 @@ assert.equal(overlappingLiveWindow.phase, "live");
 assert.equal(overlappingLiveWindow.id, "2026 fifa world cup group j:argentina-algeria:2026-06-17T01:00:00.000Z-live");
 
 assert.equal(getActiveSyncWindow(new Date("2026-06-16T06:05:00.000Z")), null);
+
+const dynamicKnockoutKickoffs = getKnownKickoffs().filter((kickoff) => kickoff.id.startsWith("football-data:"));
+assert.ok(dynamicKnockoutKickoffs.some((kickoff) => kickoff.id === "football-data:537417"));
+const dynamicKnockoutLiveWindow = getActiveSyncWindow(new Date("2026-06-28T19:05:00.000Z"));
+assert.ok(dynamicKnockoutLiveWindow);
+assert.equal(dynamicKnockoutLiveWindow.id, "football-data:537417-live");
+const dynamicKnockoutPostWindow = getActiveSyncWindow(new Date("2026-06-28T23:00:00.000Z"));
+assert.ok(dynamicKnockoutPostWindow);
+assert.equal(dynamicKnockoutPostWindow.id, "football-data:537417-check-3");
 
 const lastScheduledWindow = getLastScheduledWindow();
 assert.ok(lastScheduledWindow);

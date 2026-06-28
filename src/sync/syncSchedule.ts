@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import kickoffs from "../config/matchKickoffs.json";
 
 export type SyncWindow = {
@@ -13,6 +14,17 @@ export type MatchKickoff = {
   kickedOffAt: string;
   label: string;
   finished?: boolean;
+};
+
+type RawMatch = {
+  source?: string;
+  matchId?: string;
+  fixtureId?: string;
+  label?: string;
+  kickedOffAt?: string;
+  status?: string;
+  homeTeam?: { name?: string };
+  awayTeam?: { name?: string };
 };
 
 export const syncPolicy = {
@@ -40,6 +52,52 @@ export const syncPolicy = {
 } as const;
 
 export const scheduledKickoffs = kickoffs as MatchKickoff[];
+
+function readRawMatches(path = "public/data/raw-matches.json"): RawMatch[] {
+  try {
+    return JSON.parse(readFileSync(path, "utf8")) as RawMatch[];
+  } catch {
+    return [];
+  }
+}
+
+function getLatestStaticKickoffTimestamp(): number {
+  return scheduledKickoffs.reduce((latest, kickoff) => Math.max(latest, Date.parse(kickoff.kickedOffAt)), 0);
+}
+
+function rawMatchToKickoff(match: RawMatch, latestStaticKickoffTimestamp: number): MatchKickoff | null {
+  if (match.source !== "football-data" || !match.kickedOffAt) {
+    return null;
+  }
+
+  const kickoffTimestamp = Date.parse(match.kickedOffAt);
+  if (!Number.isFinite(kickoffTimestamp) || kickoffTimestamp <= latestStaticKickoffTimestamp) {
+    return null;
+  }
+
+  const id = match.matchId ?? (match.fixtureId ? `football-data:${match.fixtureId}` : null);
+  if (!id) {
+    return null;
+  }
+
+  return {
+    id,
+    kickedOffAt: match.kickedOffAt,
+    label: match.label ?? `${match.homeTeam?.name ?? "Team A"} vs ${match.awayTeam?.name ?? "Team B"}`,
+    finished: match.status === "finished"
+  };
+}
+
+export function getKnownKickoffs(rawMatches: RawMatch[] = readRawMatches()): MatchKickoff[] {
+  const latestStaticKickoffTimestamp = getLatestStaticKickoffTimestamp();
+  const kickoffsById = new Map(scheduledKickoffs.map((kickoff) => [kickoff.id, kickoff] as const));
+
+  for (const kickoff of rawMatches.flatMap((match) => rawMatchToKickoff(match, latestStaticKickoffTimestamp) ?? [])) {
+    kickoffsById.set(kickoff.id, kickoff);
+  }
+
+  return [...kickoffsById.values()].sort((left, right) => left.kickedOffAt.localeCompare(right.kickedOffAt) || left.id.localeCompare(right.id));
+}
 
 export function buildSyncWindowsForKickoff(kickoff: MatchKickoff): SyncWindow[] {
   const kickoffMs = new Date(kickoff.kickedOffAt).getTime();
@@ -81,7 +139,7 @@ export function buildSyncWindowsForKickoff(kickoff: MatchKickoff): SyncWindow[] 
 }
 
 export function getAllSyncWindows(): SyncWindow[] {
-  return scheduledKickoffs.flatMap(buildSyncWindowsForKickoff);
+  return getKnownKickoffs().flatMap(buildSyncWindowsForKickoff);
 }
 
 const activeWindowPhasePriority: Record<SyncWindow["phase"], number> = {
