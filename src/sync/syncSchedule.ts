@@ -16,7 +16,7 @@ export type MatchKickoff = {
   finished?: boolean;
 };
 
-type RawMatch = {
+export type RawMatch = {
   source?: string;
   matchId?: string;
   fixtureId?: string;
@@ -138,8 +138,8 @@ export function buildSyncWindowsForKickoff(kickoff: MatchKickoff): SyncWindow[] 
   ];
 }
 
-export function getAllSyncWindows(): SyncWindow[] {
-  return getKnownKickoffs().flatMap(buildSyncWindowsForKickoff);
+export function getAllSyncWindows(rawMatches?: RawMatch[]): SyncWindow[] {
+  return getKnownKickoffs(rawMatches).flatMap(buildSyncWindowsForKickoff);
 }
 
 const activeWindowPhasePriority: Record<SyncWindow["phase"], number> = {
@@ -149,9 +149,9 @@ const activeWindowPhasePriority: Record<SyncWindow["phase"], number> = {
   maintenance: 3
 };
 
-export function getActiveSyncWindow(now: Date = new Date()): SyncWindow | null {
+export function getActiveSyncWindow(now: Date = new Date(), rawMatches?: RawMatch[]): SyncWindow | null {
   const timestamp = now.getTime();
-  const activeWindows = getAllSyncWindows().filter((window) => {
+  const activeWindows = getAllSyncWindows(rawMatches).filter((window) => {
     const from = new Date(window.from).getTime();
     const until = new Date(window.until).getTime();
 
@@ -174,9 +174,9 @@ export function isTournamentDay(now: Date = new Date()): boolean {
   return dateKey >= syncPolicy.tournamentStart && dateKey <= syncPolicy.tournamentEnd;
 }
 
-export function getLastScheduledWindow(): SyncWindow | null {
+export function getLastScheduledWindow(rawMatches?: RawMatch[]): SyncWindow | null {
   return (
-    getAllSyncWindows()
+    getAllSyncWindows(rawMatches)
       .sort((left, right) => right.until.localeCompare(left.until))
       .at(0) ?? null
   );

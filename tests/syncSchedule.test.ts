@@ -86,12 +86,23 @@ assert.equal(overlappingLiveWindow.id, "2026 fifa world cup group j:argentina-al
 
 assert.equal(getActiveSyncWindow(new Date("2026-06-16T06:05:00.000Z")), null);
 
-const dynamicKnockoutKickoffs = getKnownKickoffs().filter((kickoff) => kickoff.id.startsWith("football-data:"));
+const dynamicRawMatches = [
+  {
+    source: "football-data",
+    matchId: "football-data:537417",
+    label: "South Africa 0-0 Canada",
+    kickedOffAt: "2026-06-28T19:00:00Z",
+    status: "live",
+    homeTeam: { name: "South Africa" },
+    awayTeam: { name: "Canada" }
+  }
+];
+const dynamicKnockoutKickoffs = getKnownKickoffs(dynamicRawMatches).filter((kickoff) => kickoff.id.startsWith("football-data:"));
 assert.ok(dynamicKnockoutKickoffs.some((kickoff) => kickoff.id === "football-data:537417"));
-const dynamicKnockoutLiveWindow = getActiveSyncWindow(new Date("2026-06-28T19:05:00.000Z"));
+const dynamicKnockoutLiveWindow = getActiveSyncWindow(new Date("2026-06-28T19:05:00.000Z"), dynamicRawMatches);
 assert.ok(dynamicKnockoutLiveWindow);
 assert.equal(dynamicKnockoutLiveWindow.id, "football-data:537417-live");
-const dynamicKnockoutPostWindow = getActiveSyncWindow(new Date("2026-06-28T23:00:00.000Z"));
+const dynamicKnockoutPostWindow = getActiveSyncWindow(new Date("2026-06-28T23:00:00.000Z"), dynamicRawMatches);
 assert.ok(dynamicKnockoutPostWindow);
 assert.equal(dynamicKnockoutPostWindow.id, "football-data:537417-check-3");
 
