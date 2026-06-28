@@ -47260,12 +47260,12 @@
   },
   {
     "matchId": "football-data:537408",
-    "label": "Congo DR 1-1 Uzbekistan",
+    "label": "Congo DR 0-1 Uzbekistan",
     "kickedOffAt": "2026-06-27T23:30:00Z",
     "status": "live",
     "homeTeam": {
       "name": "DR Kongo",
-      "score": 1
+      "score": 0
     },
     "awayTeam": {
       "name": "Usbekistan",
@@ -47368,7 +47368,7 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 2,
+      "scoreTotal": 1,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,

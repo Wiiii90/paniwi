@@ -1890,13 +1890,13 @@
     "source": "football-data",
     "matchId": "football-data:537408",
     "fixtureId": "537408",
-    "label": "Congo DR 1-1 Uzbekistan",
+    "label": "Congo DR 0-1 Uzbekistan",
     "kickedOffAt": "2026-06-27T23:30:00Z",
     "status": "live",
     "homeTeam": {
       "id": 1934,
       "name": "Congo DR",
-      "score": 1
+      "score": 0
     },
     "awayTeam": {
       "id": 8070,
