@@ -61,7 +61,7 @@ function getTopScorers(goals: ScoredGoal[]): Map<string, { players: Array<{ name
     const ownerGoals = goalsByOwnerAndPlayer.get(goal.owner) ?? new Map<string, { goals: number; nationalTeam: string }>();
     const current = ownerGoals.get(goal.displayPlayerName);
     ownerGoals.set(goal.displayPlayerName, {
-      goals: (current?.goals ?? 0) + goal.points,
+      goals: (current?.goals ?? 0) + goal.goals,
       nationalTeam: goal.displayNationalTeam
     });
     goalsByOwnerAndPlayer.set(goal.owner, ownerGoals);

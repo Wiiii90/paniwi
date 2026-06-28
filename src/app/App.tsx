@@ -56,7 +56,10 @@ function getLeaderboardPartyColors(leaderboard: LeaderboardEntry[] | undefined):
 
   return leaderboard
     .filter((entry) => entry.rank <= 3)
-    .map((entry) => getOwnerColor(entry.owner))
+    .flatMap((entry) => {
+      const color = getOwnerColor(entry.owner);
+      return color ? Array.from({ length: entry.rank === 1 ? 2 : 1 }, () => color) : [];
+    })
     .filter((color): color is string => Boolean(color));
 }
 

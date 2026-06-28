@@ -60,36 +60,25 @@ type OwnedScorerPreview = {
   playerName: string;
   nationalTeam: string;
   owners: string[];
-  points: number;
+  goals: number;
 };
 
-function getOwnedScorerPreviews(goals: ScoredGoal[]): OwnedScorerPreview[] {
-  const previewsByKey = new Map<string, OwnedScorerPreview>();
-
-  for (const goal of goals) {
-    const key = goal.playerId;
-    const current = previewsByKey.get(key) ?? {
-      key,
-      playerName: goal.displayPlayerName,
-      nationalTeam: goal.displayNationalTeam,
-      owners: [],
-      points: 0
-    };
-
-    current.points += goal.points;
-    current.owners = [...new Set([...current.owners, goal.owner])].sort((left, right) => left.localeCompare(right));
-    previewsByKey.set(key, current);
-  }
-
-  return [...previewsByKey.values()].sort(
-    (left, right) => right.points - left.points || left.playerName.localeCompare(right.playerName, "de") || left.nationalTeam.localeCompare(right.nationalTeam, "de")
-  );
+function getOwnedScorerPreviews(scorers: ScorerEntry[]): OwnedScorerPreview[] {
+  return scorers
+    .filter((scorer) => scorer.selected)
+    .map((scorer) => ({
+      key: `${scorer.normalizedPlayerName}-${scorer.nationalTeam}`,
+      playerName: scorer.playerName,
+      nationalTeam: scorer.nationalTeam,
+      owners: scorer.scoringOwners,
+      goals: scorer.goals
+    }));
 }
 
 export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps) {
   const baseUrl = import.meta.env.BASE_URL;
   const latestGoals = sortGoalsChronologically(goals.filter((goal) => !isCompetitionScorerAggregateGoal(goal))).reverse();
-  const ownedScorers = getOwnedScorerPreviews(goals);
+  const ownedScorers = getOwnedScorerPreviews(scorers);
   const tableLeaders = leaderboard.slice(0, 6);
   const topOwnedScorers = ownedScorers.slice(0, 6);
   const topScorers = scorers.slice(0, 4);
@@ -125,7 +114,7 @@ export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps
           </div>
           <div className="mini-list">
             {topOwnedScorers.length === 0 ? (
-              <p className="empty-inline">Noch keine Punkte.</p>
+              <p className="empty-inline">Noch keine Tore.</p>
             ) : (
               topOwnedScorers.map((scorer) => (
                 <div className="mini-row" key={`${scorer.key}-${scorer.nationalTeam}`}>
@@ -135,7 +124,7 @@ export function HomePage({ leaderboard, goals, scorers, matches }: HomePageProps
                     </strong>
                     <small>{scorer.owners.join(", ")}</small>
                   </span>
-                  <span>{scorer.points} Punkte</span>
+                  <span>{scorer.goals} {scorer.goals === 1 ? "Tor" : "Tore"}</span>
                 </div>
               ))
             )}

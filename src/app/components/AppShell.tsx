@@ -46,10 +46,10 @@ type PartyBurst = {
 };
 
 function buildPartyPalette(accentColors: string[] = []): string[] {
-  const uniqueAccentColors = [...new Set(accentColors)];
-  const accentWeight = uniqueAccentColors.length === 1 ? 8 : 5;
+  const weightedAccentColors = accentColors.length > 0 ? accentColors : [];
+  const accentWeight = new Set(weightedAccentColors).size === 1 ? 8 : 5;
   return [
-    ...uniqueAccentColors.flatMap((color) => Array.from({ length: accentWeight }, () => color)),
+    ...weightedAccentColors.flatMap((color) => Array.from({ length: accentWeight }, () => color)),
     ...basePartyColors
   ];
 }
