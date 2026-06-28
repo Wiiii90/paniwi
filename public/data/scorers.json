@@ -634,6 +634,16 @@
     "rank": 37
   },
   {
+    "playerName": "Eldor Shomurodov",
+    "normalizedPlayerName": "eldor shomurodov",
+    "nationalTeam": "Usbekistan",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 37
+  },
+  {
     "playerName": "Emam Ashour",
     "normalizedPlayerName": "emam ashour",
     "nationalTeam": "Ägypten",
@@ -670,6 +680,16 @@
     "playerName": "Finn Surman",
     "normalizedPlayerName": "finn surman",
     "nationalTeam": "Neuseeland",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 37
+  },
+  {
+    "playerName": "Fiston Mayele",
+    "normalizedPlayerName": "fiston mayele",
+    "nationalTeam": "DR Kongo",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],

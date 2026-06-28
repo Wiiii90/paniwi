@@ -1874,7 +1874,7 @@
     "fixtureId": "537407",
     "label": "Colombia 0-0 Portugal",
     "kickedOffAt": "2026-06-27T23:30:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 818,
       "name": "Colombia",
@@ -1892,7 +1892,7 @@
     "fixtureId": "537408",
     "label": "Congo DR 3-1 Uzbekistan",
     "kickedOffAt": "2026-06-27T23:30:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 1934,
       "name": "Congo DR",
@@ -2306,6 +2306,42 @@
     "awayTeam": {
       "id": 815,
       "name": "Morocco"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1489419",
+    "fixtureId": "1489419",
+    "label": "Colombia 0-0 Portugal",
+    "kickedOffAt": "2026-06-27T23:30:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 8,
+      "name": "Colombia",
+      "score": 0
+    },
+    "awayTeam": {
+      "id": 27,
+      "name": "Portugal",
+      "score": 0
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1539013",
+    "fixtureId": "1539013",
+    "label": "Congo DR 3-1 Uzbekistan",
+    "kickedOffAt": "2026-06-27T23:30:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 1508,
+      "name": "Congo DR",
+      "score": 3
+    },
+    "awayTeam": {
+      "id": 1568,
+      "name": "Uzbekistan",
+      "score": 1
     }
   }
 ]
