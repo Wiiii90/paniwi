@@ -27,6 +27,10 @@ on:
         description: "Optional maintenance lookahead in UTC days"
         required: false
         default: ""
+      api_football_auto_enrich_on_finished:
+        description: "Set to false to skip API-Football enrichment for this run"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -64,6 +68,7 @@ jobs:
       API_FOOTBALL_ENRICH_MAX_REQUESTS: ${{ vars.API_FOOTBALL_ENRICH_MAX_REQUESTS }}
       API_FOOTBALL_ENRICH_EXTRA_MATCH_LIMIT: ${{ vars.API_FOOTBALL_ENRICH_EXTRA_MATCH_LIMIT }}
       API_FOOTBALL_ENRICH_MATCH_IDS: ${{ vars.API_FOOTBALL_ENRICH_MATCH_IDS }}
+      API_FOOTBALL_AUTO_ENRICH_ON_FINISHED: ${{ github.event.inputs.api_football_auto_enrich_on_finished }}
       WIKIPEDIA_GOALS_PAGE: ${{ vars.WIKIPEDIA_GOALS_PAGE }}
       WIKIPEDIA_API_ENDPOINT: ${{ vars.WIKIPEDIA_API_ENDPOINT }}
       WIKIPEDIA_TIMEOUT_MS: ${{ vars.WIKIPEDIA_TIMEOUT_MS }}
