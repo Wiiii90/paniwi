@@ -2365,5 +2365,53 @@
       "name": "Austria",
       "score": 3
     }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537415",
+    "fixtureId": "537415",
+    "label": "Germany vs Paraguay",
+    "kickedOffAt": "2026-06-29T20:30:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 759,
+      "name": "Germany"
+    },
+    "awayTeam": {
+      "id": 761,
+      "name": "Paraguay"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537424",
+    "fixtureId": "537424",
+    "label": "Ivory Coast vs Norway",
+    "kickedOffAt": "2026-06-30T17:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 1935,
+      "name": "Ivory Coast"
+    },
+    "awayTeam": {
+      "id": 8872,
+      "name": "Norway"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537416",
+    "fixtureId": "537416",
+    "label": "France vs Sweden",
+    "kickedOffAt": "2026-06-30T21:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 773,
+      "name": "France"
+    },
+    "awayTeam": {
+      "id": 792,
+      "name": "Sweden"
+    }
   }
 ]

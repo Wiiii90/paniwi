@@ -50010,6 +50010,122 @@
     }
   },
   {
+    "matchId": "football-data:537415",
+    "label": "Germany vs Paraguay",
+    "kickedOffAt": "2026-06-29T20:30:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Deutschland"
+    },
+    "awayTeam": {
+      "name": "Paraguay"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537415",
+        "fixtureId": "537415",
+        "playerName": "David Raum",
+        "nationalTeam": "Deutschland",
+        "teamId": "germany",
+        "status": "unknown",
+        "displayPlayerName": "David Raum",
+        "displayNationalTeam": "Deutschland",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537415",
+        "fixtureId": "537415",
+        "playerName": "Felix Nmecha",
+        "nationalTeam": "Deutschland",
+        "teamId": "germany",
+        "status": "unknown",
+        "displayPlayerName": "Felix Nmecha",
+        "displayNationalTeam": "Deutschland",
+        "owners": [
+          "Nina",
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537415",
+        "fixtureId": "537415",
+        "playerName": "Damián Bobadilla",
+        "nationalTeam": "Paraguay",
+        "teamId": "paraguay",
+        "status": "unknown",
+        "displayPlayerName": "Damián Bobadilla",
+        "displayNationalTeam": "Paraguay",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537415",
+        "fixtureId": "537415",
+        "playerName": "Diego Gómez",
+        "nationalTeam": "Paraguay",
+        "teamId": "paraguay",
+        "status": "unknown",
+        "displayPlayerName": "Diego Gómez",
+        "displayNationalTeam": "Paraguay",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537415",
+        "fixtureId": "537415",
+        "playerName": "Julio Enciso",
+        "nationalTeam": "Paraguay",
+        "teamId": "paraguay",
+        "status": "unknown",
+        "displayPlayerName": "Julio Enciso",
+        "displayNationalTeam": "Paraguay",
+        "owners": [
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537415",
+        "fixtureId": "537415",
+        "playerName": "Ramón Sosa",
+        "nationalTeam": "Paraguay",
+        "teamId": "paraguay",
+        "status": "unknown",
+        "displayPlayerName": "Ramón Sosa",
+        "displayNationalTeam": "Paraguay",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
+  },
+  {
     "matchId": "football-data:537418",
     "label": "Netherlands vs Morocco",
     "kickedOffAt": "2026-06-30T01:00:00Z",
@@ -50096,6 +50212,237 @@
         "displayNationalTeam": "Niederlande",
         "owners": [
           "Caro"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
+  },
+  {
+    "matchId": "football-data:537424",
+    "label": "Ivory Coast vs Norway",
+    "kickedOffAt": "2026-06-30T17:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Elfenbeinküste"
+    },
+    "awayTeam": {
+      "name": "Norwegen"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537424",
+        "fixtureId": "537424",
+        "playerName": "Oumar Diakité",
+        "nationalTeam": "Elfenbeinküste",
+        "teamId": "ivory-coast",
+        "status": "unknown",
+        "displayPlayerName": "Oumar Diakité",
+        "displayNationalTeam": "Elfenbeinküste",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537424",
+        "fixtureId": "537424",
+        "playerName": "Seko Fofana",
+        "nationalTeam": "Elfenbeinküste",
+        "teamId": "ivory-coast",
+        "status": "unknown",
+        "displayPlayerName": "Seko Fofana",
+        "displayNationalTeam": "Elfenbeinküste",
+        "owners": [
+          "Anne",
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537424",
+        "fixtureId": "537424",
+        "playerName": "Simon Adingra",
+        "nationalTeam": "Elfenbeinküste",
+        "teamId": "ivory-coast",
+        "status": "unknown",
+        "displayPlayerName": "Simon Adingra",
+        "displayNationalTeam": "Elfenbeinküste",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537424",
+        "fixtureId": "537424",
+        "playerName": "Antonio Nusa",
+        "nationalTeam": "Norwegen",
+        "teamId": "norway",
+        "status": "unknown",
+        "displayPlayerName": "Antonio Nusa",
+        "displayNationalTeam": "Norwegen",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537424",
+        "fixtureId": "537424",
+        "playerName": "Erling Haaland",
+        "nationalTeam": "Norwegen",
+        "teamId": "norway",
+        "status": "unknown",
+        "displayPlayerName": "Erling Haaland",
+        "displayNationalTeam": "Norwegen",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537424",
+        "fixtureId": "537424",
+        "playerName": "Sander Berge",
+        "nationalTeam": "Norwegen",
+        "teamId": "norway",
+        "status": "unknown",
+        "displayPlayerName": "Sander Berge",
+        "displayNationalTeam": "Norwegen",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
+  },
+  {
+    "matchId": "football-data:537416",
+    "label": "France vs Sweden",
+    "kickedOffAt": "2026-06-30T21:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Frankreich"
+    },
+    "awayTeam": {
+      "name": "Schweden"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537416",
+        "fixtureId": "537416",
+        "playerName": "Adrien Rabiot",
+        "nationalTeam": "Frankreich",
+        "teamId": "france",
+        "status": "unknown",
+        "displayPlayerName": "Adrien Rabiot",
+        "displayNationalTeam": "Frankreich",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537416",
+        "fixtureId": "537416",
+        "playerName": "Bradley Barcola",
+        "nationalTeam": "Frankreich",
+        "teamId": "france",
+        "status": "unknown",
+        "displayPlayerName": "Bradley Barcola",
+        "displayNationalTeam": "Frankreich",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537416",
+        "fixtureId": "537416",
+        "playerName": "Désiré Doué",
+        "nationalTeam": "Frankreich",
+        "teamId": "france",
+        "status": "unknown",
+        "displayPlayerName": "Désiré Doué",
+        "displayNationalTeam": "Frankreich",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537416",
+        "fixtureId": "537416",
+        "playerName": "Alexander Isak",
+        "nationalTeam": "Schweden",
+        "teamId": "sweden",
+        "status": "unknown",
+        "displayPlayerName": "Alexander Isak",
+        "displayNationalTeam": "Schweden",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537416",
+        "fixtureId": "537416",
+        "playerName": "Daniel Svensson",
+        "nationalTeam": "Schweden",
+        "teamId": "sweden",
+        "status": "unknown",
+        "displayPlayerName": "Daniel Svensson",
+        "displayNationalTeam": "Schweden",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537416",
+        "fixtureId": "537416",
+        "playerName": "Lucas Bergvall",
+        "nationalTeam": "Schweden",
+        "teamId": "sweden",
+        "status": "unknown",
+        "displayPlayerName": "Lucas Bergvall",
+        "displayNationalTeam": "Schweden",
+        "owners": [
+          "Marco"
         ],
         "selected": true
       }
