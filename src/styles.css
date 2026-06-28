@@ -912,18 +912,14 @@ h2 {
   color: var(--color-muted);
 }
 
-.roster-miss {
+.roster-miss,
+.roster-eliminated {
   color: var(--color-accent);
   font-weight: 800;
 }
 
 .roster-late-callup {
   color: var(--color-primary);
-  font-weight: 800;
-}
-
-.roster-eliminated {
-  color: var(--color-muted);
   font-weight: 800;
 }
 

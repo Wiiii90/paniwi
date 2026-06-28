@@ -23,6 +23,10 @@ function formatRosterStatus(status: string | undefined, tournamentStatus: string
   const labels: string[] = [];
   const isGoalkeeper = position === "goalkeeper";
 
+  if (tournamentStatus === "eliminated") {
+    return "ausgeschieden";
+  }
+
   if (status === "not-nominated") {
     labels.push("Niete");
     if (isGoalkeeper) {
@@ -41,10 +45,6 @@ function formatRosterStatus(status: string | undefined, tournamentStatus: string
 
   if (labels.length === 0) {
     labels.push("ungeprüft");
-  }
-
-  if (tournamentStatus === "eliminated") {
-    labels.push("ausgeschieden");
   }
 
   if (isGoalkeeper) {
