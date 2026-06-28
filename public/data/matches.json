@@ -49810,14 +49810,16 @@
   },
   {
     "matchId": "football-data:537417",
-    "label": "South Africa vs Canada",
+    "label": "South Africa 0-0 Canada",
     "kickedOffAt": "2026-06-28T19:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
-      "name": "Südafrika"
+      "name": "Südafrika",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Kanada"
+      "name": "Kanada",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -49901,12 +49903,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 0,
       "goalEventCount": 0,
-      "eventsComplete": false,
+      "eventsComplete": true,
       "lineupsComplete": false,
       "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsLineupBackfill": true
     }
   },
   {
@@ -50443,6 +50445,1072 @@
         "displayNationalTeam": "Schweden",
         "owners": [
           "Marco"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
+  },
+  {
+    "matchId": "football-data:537425",
+    "label": "Mexico vs Ecuador",
+    "kickedOffAt": "2026-07-01T01:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Mexiko"
+    },
+    "awayTeam": {
+      "name": "Ecuador"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537425",
+        "fixtureId": "537425",
+        "playerName": "Ángelo Preciado",
+        "nationalTeam": "Ecuador",
+        "teamId": "ecuador",
+        "status": "unknown",
+        "displayPlayerName": "Ángelo Preciado",
+        "displayNationalTeam": "Ecuador",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537425",
+        "fixtureId": "537425",
+        "playerName": "Kevin Rodríguez",
+        "nationalTeam": "Ecuador",
+        "teamId": "ecuador",
+        "status": "unknown",
+        "displayPlayerName": "Kevin Rodríguez",
+        "displayNationalTeam": "Ecuador",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537425",
+        "fixtureId": "537425",
+        "playerName": "Piero Hincapié",
+        "nationalTeam": "Ecuador",
+        "teamId": "ecuador",
+        "status": "unknown",
+        "displayPlayerName": "Piero Hincapié",
+        "displayNationalTeam": "Ecuador",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537425",
+        "fixtureId": "537425",
+        "playerName": "Edson Álvarez",
+        "nationalTeam": "Mexiko",
+        "teamId": "mexico",
+        "status": "unknown",
+        "displayPlayerName": "Edson Álvarez",
+        "displayNationalTeam": "Mexiko",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537425",
+        "fixtureId": "537425",
+        "playerName": "Israel Reyes",
+        "nationalTeam": "Mexiko",
+        "teamId": "mexico",
+        "status": "unknown",
+        "displayPlayerName": "Israel Reyes",
+        "displayNationalTeam": "Mexiko",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
+  },
+  {
+    "matchId": "football-data:537426",
+    "label": "England vs Congo DR",
+    "kickedOffAt": "2026-07-01T16:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "England"
+    },
+    "awayTeam": {
+      "name": "DR Kongo"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537426",
+        "fixtureId": "537426",
+        "playerName": "Aaron Wan-Bissaka",
+        "nationalTeam": "DR Kongo",
+        "teamId": "dr-congo",
+        "status": "unknown",
+        "displayPlayerName": "Aaron Wan-Bissaka",
+        "displayNationalTeam": "DR Kongo",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537426",
+        "fixtureId": "537426",
+        "playerName": "Cédric Bakambu",
+        "nationalTeam": "DR Kongo",
+        "teamId": "dr-congo",
+        "status": "unknown",
+        "displayPlayerName": "Cédric Bakambu",
+        "displayNationalTeam": "DR Kongo",
+        "owners": [
+          "Anne",
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537426",
+        "fixtureId": "537426",
+        "playerName": "Edo Kayembe",
+        "nationalTeam": "DR Kongo",
+        "teamId": "dr-congo",
+        "status": "unknown",
+        "displayPlayerName": "Edo Kayembe",
+        "displayNationalTeam": "DR Kongo",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537426",
+        "fixtureId": "537426",
+        "playerName": "Nathanaël Mbuku",
+        "nationalTeam": "DR Kongo",
+        "teamId": "dr-congo",
+        "status": "unknown",
+        "displayPlayerName": "Nathanaël Mbuku",
+        "displayNationalTeam": "DR Kongo",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537426",
+        "fixtureId": "537426",
+        "playerName": "Ngal'ayel Mukau",
+        "nationalTeam": "DR Kongo",
+        "teamId": "dr-congo",
+        "status": "unknown",
+        "displayPlayerName": "Ngal'ayel Mukau",
+        "displayNationalTeam": "DR Kongo",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537426",
+        "fixtureId": "537426",
+        "playerName": "Yoane Wissa",
+        "nationalTeam": "DR Kongo",
+        "teamId": "dr-congo",
+        "status": "unknown",
+        "displayPlayerName": "Yoane Wissa",
+        "displayNationalTeam": "DR Kongo",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537426",
+        "fixtureId": "537426",
+        "playerName": "Dan Burn",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Dan Burn",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537426",
+        "fixtureId": "537426",
+        "playerName": "Jordan Pickford",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Jordan Pickford",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537426",
+        "fixtureId": "537426",
+        "playerName": "Jude Bellingham",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Jude Bellingham",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537426",
+        "fixtureId": "537426",
+        "playerName": "Marc Guéhi",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Marc Guéhi",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537426",
+        "fixtureId": "537426",
+        "playerName": "Marcus Rashford",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Marcus Rashford",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537426",
+        "fixtureId": "537426",
+        "playerName": "Morgan Rogers",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Morgan Rogers",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
+  },
+  {
+    "matchId": "football-data:537422",
+    "label": "Belgium vs Senegal",
+    "kickedOffAt": "2026-07-01T20:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Belgien"
+    },
+    "awayTeam": {
+      "name": "Senegal"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537422",
+        "fixtureId": "537422",
+        "playerName": "Amadou Onana",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "status": "unknown",
+        "displayPlayerName": "Amadou Onana",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537422",
+        "fixtureId": "537422",
+        "playerName": "Jérémy Doku",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "status": "unknown",
+        "displayPlayerName": "Jérémy Doku",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537422",
+        "fixtureId": "537422",
+        "playerName": "Nicolas Raskin",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "status": "unknown",
+        "displayPlayerName": "Nicolas Raskin",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537422",
+        "fixtureId": "537422",
+        "playerName": "Thomas Meunier",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "status": "unknown",
+        "displayPlayerName": "Thomas Meunier",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Felix",
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537422",
+        "fixtureId": "537422",
+        "playerName": "Youri Tielemans",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "status": "unknown",
+        "displayPlayerName": "Youri Tielemans",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537422",
+        "fixtureId": "537422",
+        "playerName": "Habib Diarra",
+        "nationalTeam": "Senegal",
+        "teamId": "senegal",
+        "status": "unknown",
+        "displayPlayerName": "Habib Diarra",
+        "displayNationalTeam": "Senegal",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537422",
+        "fixtureId": "537422",
+        "playerName": "Krépin Diatta",
+        "nationalTeam": "Senegal",
+        "teamId": "senegal",
+        "status": "unknown",
+        "displayPlayerName": "Krépin Diatta",
+        "displayNationalTeam": "Senegal",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537422",
+        "fixtureId": "537422",
+        "playerName": "Nicolas Jackson",
+        "nationalTeam": "Senegal",
+        "teamId": "senegal",
+        "status": "unknown",
+        "displayPlayerName": "Nicolas Jackson",
+        "displayNationalTeam": "Senegal",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
+  },
+  {
+    "matchId": "football-data:537421",
+    "label": "United States vs Bosnia-Herzegovina",
+    "kickedOffAt": "2026-07-02T00:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "USA"
+    },
+    "awayTeam": {
+      "name": "Bosnien und Herzegowina"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537421",
+        "fixtureId": "537421",
+        "playerName": "Haris Tabaković",
+        "nationalTeam": "Bosnien und Herzegowina",
+        "teamId": "bosnia-and-herzegovina",
+        "status": "unknown",
+        "displayPlayerName": "Haris Tabaković",
+        "displayNationalTeam": "Bosnien und Herzegowina",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537421",
+        "fixtureId": "537421",
+        "playerName": "Timothy Weah",
+        "nationalTeam": "USA",
+        "teamId": "united-states",
+        "status": "unknown",
+        "displayPlayerName": "Timothy Weah",
+        "displayNationalTeam": "USA",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537421",
+        "fixtureId": "537421",
+        "playerName": "Tyler Adams",
+        "nationalTeam": "USA",
+        "teamId": "united-states",
+        "status": "unknown",
+        "displayPlayerName": "Tyler Adams",
+        "displayNationalTeam": "USA",
+        "owners": [
+          "Caro",
+          "Jonas"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
+  },
+  {
+    "matchId": "football-data:537420",
+    "label": "Spain vs Austria",
+    "kickedOffAt": "2026-07-02T19:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Spanien"
+    },
+    "awayTeam": {
+      "name": "Österreich"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537420",
+        "fixtureId": "537420",
+        "playerName": "Stefan Posch",
+        "nationalTeam": "Österreich",
+        "teamId": "austria",
+        "status": "unknown",
+        "displayPlayerName": "Stefan Posch",
+        "displayNationalTeam": "Österreich",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537420",
+        "fixtureId": "537420",
+        "playerName": "Aymeric Laporte",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Aymeric Laporte",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537420",
+        "fixtureId": "537420",
+        "playerName": "Fabián Ruiz",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Fabián Ruiz",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Nina",
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537420",
+        "fixtureId": "537420",
+        "playerName": "Lamine Yamal",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Lamine Yamal",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537420",
+        "fixtureId": "537420",
+        "playerName": "Pedri",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Pedri",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537420",
+        "fixtureId": "537420",
+        "playerName": "Rodri",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Rodri",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
+  },
+  {
+    "matchId": "football-data:537419",
+    "label": "Portugal vs Croatia",
+    "kickedOffAt": "2026-07-02T23:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Portugal"
+    },
+    "awayTeam": {
+      "name": "Kroatien"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537419",
+        "fixtureId": "537419",
+        "playerName": "Andrej Kramarić",
+        "nationalTeam": "Kroatien",
+        "teamId": "croatia",
+        "status": "unknown",
+        "displayPlayerName": "Andrej Kramarić",
+        "displayNationalTeam": "Kroatien",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537419",
+        "fixtureId": "537419",
+        "playerName": "Josip Stanišić",
+        "nationalTeam": "Kroatien",
+        "teamId": "croatia",
+        "status": "unknown",
+        "displayPlayerName": "Josip Stanišić",
+        "displayNationalTeam": "Kroatien",
+        "owners": [
+          "Caro",
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537419",
+        "fixtureId": "537419",
+        "playerName": "Mario Pašalić",
+        "nationalTeam": "Kroatien",
+        "teamId": "croatia",
+        "status": "unknown",
+        "displayPlayerName": "Mario Pašalić",
+        "displayNationalTeam": "Kroatien",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537419",
+        "fixtureId": "537419",
+        "playerName": "Bruno Fernandes",
+        "nationalTeam": "Portugal",
+        "teamId": "portugal",
+        "status": "unknown",
+        "displayPlayerName": "Bruno Fernandes",
+        "displayNationalTeam": "Portugal",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537419",
+        "fixtureId": "537419",
+        "playerName": "Gonçalo Ramos",
+        "nationalTeam": "Portugal",
+        "teamId": "portugal",
+        "status": "unknown",
+        "displayPlayerName": "Gonçalo Ramos",
+        "displayNationalTeam": "Portugal",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537419",
+        "fixtureId": "537419",
+        "playerName": "João Cancelo",
+        "nationalTeam": "Portugal",
+        "teamId": "portugal",
+        "status": "unknown",
+        "displayPlayerName": "João Cancelo",
+        "displayNationalTeam": "Portugal",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537419",
+        "fixtureId": "537419",
+        "playerName": "João Félix",
+        "nationalTeam": "Portugal",
+        "teamId": "portugal",
+        "status": "unknown",
+        "displayPlayerName": "João Félix",
+        "displayNationalTeam": "Portugal",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537419",
+        "fixtureId": "537419",
+        "playerName": "Rúben Dias",
+        "nationalTeam": "Portugal",
+        "teamId": "portugal",
+        "status": "unknown",
+        "displayPlayerName": "Rúben Dias",
+        "displayNationalTeam": "Portugal",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
+  },
+  {
+    "matchId": "football-data:537429",
+    "label": "Switzerland vs Algeria",
+    "kickedOffAt": "2026-07-03T03:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Schweiz"
+    },
+    "awayTeam": {
+      "name": "Algerien"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537429",
+        "fixtureId": "537429",
+        "playerName": "Manuel Akanji",
+        "nationalTeam": "Schweiz",
+        "teamId": "switzerland",
+        "status": "unknown",
+        "displayPlayerName": "Manuel Akanji",
+        "displayNationalTeam": "Schweiz",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537429",
+        "fixtureId": "537429",
+        "playerName": "Rubén Vargas",
+        "nationalTeam": "Schweiz",
+        "teamId": "switzerland",
+        "status": "unknown",
+        "displayPlayerName": "Rubén Vargas",
+        "displayNationalTeam": "Schweiz",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
+  },
+  {
+    "matchId": "football-data:537428",
+    "label": "Australia vs Egypt",
+    "kickedOffAt": "2026-07-03T18:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Australien"
+    },
+    "awayTeam": {
+      "name": "Ägypten"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537428",
+        "fixtureId": "537428",
+        "playerName": "Mohamed El Shenawy",
+        "nationalTeam": "Ägypten",
+        "teamId": "egypt",
+        "status": "unknown",
+        "displayPlayerName": "Mohamed El Shenawy",
+        "displayNationalTeam": "Ägypten",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537428",
+        "fixtureId": "537428",
+        "playerName": "Nestory Irankunda",
+        "nationalTeam": "Australien",
+        "teamId": "australia",
+        "status": "unknown",
+        "displayPlayerName": "Nestory Irankunda",
+        "displayNationalTeam": "Australien",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
+  },
+  {
+    "matchId": "football-data:537427",
+    "label": "Argentina vs Cape Verde Islands",
+    "kickedOffAt": "2026-07-03T22:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Argentinien"
+    },
+    "awayTeam": {
+      "name": "Kap Verde"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537427",
+        "fixtureId": "537427",
+        "playerName": "Alexis Mac Allister",
+        "nationalTeam": "Argentinien",
+        "teamId": "argentina",
+        "status": "unknown",
+        "displayPlayerName": "Alexis Mac Allister",
+        "displayNationalTeam": "Argentinien",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537427",
+        "fixtureId": "537427",
+        "playerName": "Cristian Romero",
+        "nationalTeam": "Argentinien",
+        "teamId": "argentina",
+        "status": "unknown",
+        "displayPlayerName": "Cristian Romero",
+        "displayNationalTeam": "Argentinien",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537427",
+        "fixtureId": "537427",
+        "playerName": "Giuliano Simeone",
+        "nationalTeam": "Argentinien",
+        "teamId": "argentina",
+        "status": "unknown",
+        "displayPlayerName": "Giuliano Simeone",
+        "displayNationalTeam": "Argentinien",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537427",
+        "fixtureId": "537427",
+        "playerName": "Dailon Livramento",
+        "nationalTeam": "Kap Verde",
+        "teamId": "cape-verde",
+        "status": "unknown",
+        "displayPlayerName": "Dailon Livramento",
+        "displayNationalTeam": "Kap Verde",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537427",
+        "fixtureId": "537427",
+        "playerName": "Garry Rodrigues",
+        "nationalTeam": "Kap Verde",
+        "teamId": "cape-verde",
+        "status": "unknown",
+        "displayPlayerName": "Garry Rodrigues",
+        "displayNationalTeam": "Kap Verde",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
+  },
+  {
+    "matchId": "football-data:537430",
+    "label": "Colombia vs Ghana",
+    "kickedOffAt": "2026-07-04T01:30:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Kolumbien"
+    },
+    "awayTeam": {
+      "name": "Ghana"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537430",
+        "fixtureId": "537430",
+        "playerName": "Davinson Sánchez",
+        "nationalTeam": "Kolumbien",
+        "teamId": "colombia",
+        "status": "unknown",
+        "displayPlayerName": "Davinson Sánchez",
+        "displayNationalTeam": "Kolumbien",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537430",
+        "fixtureId": "537430",
+        "playerName": "Jhon Arias",
+        "nationalTeam": "Kolumbien",
+        "teamId": "colombia",
+        "status": "unknown",
+        "displayPlayerName": "Jhon Arias",
+        "displayNationalTeam": "Kolumbien",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537430",
+        "fixtureId": "537430",
+        "playerName": "Richard Ríos",
+        "nationalTeam": "Kolumbien",
+        "teamId": "colombia",
+        "status": "unknown",
+        "displayPlayerName": "Richard Ríos",
+        "displayNationalTeam": "Kolumbien",
+        "owners": [
+          "Anne",
+          "Rafael"
         ],
         "selected": true
       }

@@ -2088,16 +2088,18 @@
     "source": "football-data",
     "matchId": "football-data:537417",
     "fixtureId": "537417",
-    "label": "South Africa vs Canada",
+    "label": "South Africa 0-0 Canada",
     "kickedOffAt": "2026-06-28T19:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 774,
-      "name": "South Africa"
+      "name": "South Africa",
+      "score": 0
     },
     "awayTeam": {
       "id": 828,
-      "name": "Canada"
+      "name": "Canada",
+      "score": 0
     }
   },
   {
@@ -2412,6 +2414,166 @@
     "awayTeam": {
       "id": 792,
       "name": "Sweden"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537425",
+    "fixtureId": "537425",
+    "label": "Mexico vs Ecuador",
+    "kickedOffAt": "2026-07-01T01:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 769,
+      "name": "Mexico"
+    },
+    "awayTeam": {
+      "id": 791,
+      "name": "Ecuador"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537426",
+    "fixtureId": "537426",
+    "label": "England vs Congo DR",
+    "kickedOffAt": "2026-07-01T16:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 770,
+      "name": "England"
+    },
+    "awayTeam": {
+      "id": 1934,
+      "name": "Congo DR"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537422",
+    "fixtureId": "537422",
+    "label": "Belgium vs Senegal",
+    "kickedOffAt": "2026-07-01T20:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 805,
+      "name": "Belgium"
+    },
+    "awayTeam": {
+      "id": 804,
+      "name": "Senegal"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537421",
+    "fixtureId": "537421",
+    "label": "United States vs Bosnia-Herzegovina",
+    "kickedOffAt": "2026-07-02T00:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 771,
+      "name": "United States"
+    },
+    "awayTeam": {
+      "id": 1060,
+      "name": "Bosnia-Herzegovina"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537420",
+    "fixtureId": "537420",
+    "label": "Spain vs Austria",
+    "kickedOffAt": "2026-07-02T19:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 760,
+      "name": "Spain"
+    },
+    "awayTeam": {
+      "id": 816,
+      "name": "Austria"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537419",
+    "fixtureId": "537419",
+    "label": "Portugal vs Croatia",
+    "kickedOffAt": "2026-07-02T23:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 765,
+      "name": "Portugal"
+    },
+    "awayTeam": {
+      "id": 799,
+      "name": "Croatia"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537429",
+    "fixtureId": "537429",
+    "label": "Switzerland vs Algeria",
+    "kickedOffAt": "2026-07-03T03:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 788,
+      "name": "Switzerland"
+    },
+    "awayTeam": {
+      "id": 778,
+      "name": "Algeria"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537428",
+    "fixtureId": "537428",
+    "label": "Australia vs Egypt",
+    "kickedOffAt": "2026-07-03T18:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 779,
+      "name": "Australia"
+    },
+    "awayTeam": {
+      "id": 825,
+      "name": "Egypt"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537427",
+    "fixtureId": "537427",
+    "label": "Argentina vs Cape Verde Islands",
+    "kickedOffAt": "2026-07-03T22:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 762,
+      "name": "Argentina"
+    },
+    "awayTeam": {
+      "id": 1930,
+      "name": "Cape Verde Islands"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537430",
+    "fixtureId": "537430",
+    "label": "Colombia vs Ghana",
+    "kickedOffAt": "2026-07-04T01:30:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 818,
+      "name": "Colombia"
+    },
+    "awayTeam": {
+      "id": 763,
+      "name": "Ghana"
     }
   }
 ]
