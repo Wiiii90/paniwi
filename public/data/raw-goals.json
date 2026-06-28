@@ -3849,6 +3849,38 @@
     "teamId": "new-zealand"
   },
   {
+    "externalGoalId": "football-data:scorer:612:normal",
+    "playerName": "Yoane Wissa",
+    "nationalTeam": "DR Congo",
+    "sourcePlayerName": "Yoane Wissa",
+    "sourceTeamName": "Congo DR",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 612,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "dr-congo-yoane-wissa",
+    "teamId": "dr-congo"
+  },
+  {
+    "externalGoalId": "football-data:scorer:612:penalties",
+    "playerName": "Yoane Wissa",
+    "nationalTeam": "DR Congo",
+    "sourcePlayerName": "Yoane Wissa",
+    "sourceTeamName": "Congo DR",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 612,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "penalty",
+    "playerId": "dr-congo-yoane-wissa",
+    "teamId": "dr-congo"
+  },
+  {
     "externalGoalId": "football-data:scorer:8004:normal",
     "playerName": "Harry Kane",
     "nationalTeam": "England",
@@ -4865,22 +4897,6 @@
     "detail": "normal",
     "playerId": "portugal-joao-neves",
     "teamId": "portugal"
-  },
-  {
-    "externalGoalId": "football-data:scorer:612:normal",
-    "playerName": "Yoane Wissa",
-    "nationalTeam": "DR Congo",
-    "sourcePlayerName": "Yoane Wissa",
-    "sourceTeamName": "Congo DR",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 612,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "dr-congo-yoane-wissa",
-    "teamId": "dr-congo"
   },
   {
     "externalGoalId": "football-data:scorer:156912:normal",

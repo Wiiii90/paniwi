@@ -1,21 +1,21 @@
 {
-  "lastUpdated": "2026-06-28T01:01:24.708Z",
+  "lastUpdated": "2026-06-28T01:31:15.631Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 301,
+  "goalCount": 302,
   "scoredGoalCount": 32,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot unveraendert (football-data).",
-  "snapshotFingerprint": "d420294fe78ddf4dcb8cff603bfcf0368cc0131fe480e591be032d3c093a693e",
-  "snapshotChanged": false,
-  "syncWindowId": "2026 fifa world cup group k:colombia-portugal:2026-06-27T23:30:00.000Z-live",
-  "windowSyncAttempts": 2,
+  "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
+  "snapshotFingerprint": "340f2e9c4780eb2dc3efa51b2307716c6584b920cb4518f7bfaa94907a3c9cbe",
+  "snapshotChanged": true,
+  "syncWindowId": "2026 fifa world cup group j:algeria-austria:2026-06-28T02:00:00.000Z-pre-match",
+  "windowSyncAttempts": 1,
   "liveMatchCount": 2,
   "sourceRequestCount": 4,
   "sourceRequestLimit": 6
