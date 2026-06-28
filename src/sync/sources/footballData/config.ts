@@ -5,6 +5,7 @@ export const defaultRequestLimit = 6;
 export const defaultScorerLimit = 100;
 export const defaultTimeoutMs = 10_000;
 export const defaultMaxThrottleMs = 70_000;
+export const defaultMaintenanceLookaheadDays = 7;
 
 export type FootballDataDateRange = {
   from: string;
@@ -74,6 +75,11 @@ export function getFootballDataMaxThrottleMs(env: NodeJS.ProcessEnv = process.en
   return configured ? parsePositiveInteger(configured, "FOOTBALL_DATA_MAX_THROTTLE_MS") : defaultMaxThrottleMs;
 }
 
+export function getFootballDataMaintenanceLookaheadDays(env: NodeJS.ProcessEnv = process.env): number {
+  const configured = getOptionalEnvValue(env.FOOTBALL_DATA_MAINTENANCE_LOOKAHEAD_DAYS);
+  return configured ? parsePositiveInteger(configured, "FOOTBALL_DATA_MAINTENANCE_LOOKAHEAD_DAYS") : defaultMaintenanceLookaheadDays;
+}
+
 export function createFootballDataRequestBudget(env: NodeJS.ProcessEnv = process.env): FootballDataRequestBudget {
   return {
     limit: getFootballDataRequestLimit(env),
@@ -141,6 +147,22 @@ function getDefaultDateRange(now: Date): FootballDataDateRange {
   };
 }
 
+function getMaintenanceDateRange(env: NodeJS.ProcessEnv, now: Date): FootballDataDateRange {
+  const from = new Date(now);
+  const toInclusive = new Date(now);
+  from.setUTCDate(from.getUTCDate() - 1);
+  toInclusive.setUTCDate(toInclusive.getUTCDate() + getFootballDataMaintenanceLookaheadDays(env));
+
+  const fromKey = formatDateKey(from);
+  const toKey = formatDateKey(toInclusive);
+
+  return {
+    from: fromKey,
+    to: addUtcDays(toKey, 1),
+    dateKeys: enumerateDateRange(fromKey, toKey)
+  };
+}
+
 export function getFootballDataDateRange(env: NodeJS.ProcessEnv = process.env, now: Date = new Date()): FootballDataDateRange {
   const explicitDates = getOptionalEnvValue(env.FOOTBALL_DATA_DATES)
     ?.split(",")
@@ -170,6 +192,10 @@ export function getFootballDataDateRange(env: NodeJS.ProcessEnv = process.env, n
       to: addUtcDays(toInclusive, 1),
       dateKeys: enumerateDateRange(from, toInclusive)
     };
+  }
+
+  if (env.SYNC_WINDOW_PHASE === "maintenance") {
+    return getMaintenanceDateRange(env, now);
   }
 
   return getDefaultDateRange(now);

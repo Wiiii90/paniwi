@@ -14,6 +14,7 @@ const envSnapshot = {
   FOOTBALL_DATA_DATE_FROM: process.env.FOOTBALL_DATA_DATE_FROM,
   FOOTBALL_DATA_DATE_TO: process.env.FOOTBALL_DATA_DATE_TO,
   FOOTBALL_DATA_DATES: process.env.FOOTBALL_DATA_DATES,
+  FOOTBALL_DATA_MAINTENANCE_LOOKAHEAD_DAYS: process.env.FOOTBALL_DATA_MAINTENANCE_LOOKAHEAD_DAYS,
   FOOTBALL_DATA_MAX_REQUESTS: process.env.FOOTBALL_DATA_MAX_REQUESTS,
   FOOTBALL_DATA_SCORER_LIMIT: process.env.FOOTBALL_DATA_SCORER_LIMIT,
   SYNC_WINDOW_PHASE: process.env.SYNC_WINDOW_PHASE,
@@ -42,6 +43,40 @@ assert.deepEqual(getFootballDataDateRange({}, new Date("2026-06-17T17:30:00.000Z
   to: "2026-06-19",
   dateKeys: ["2026-06-16", "2026-06-17", "2026-06-18"]
 });
+
+assert.deepEqual(
+  getFootballDataDateRange({ SYNC_WINDOW_PHASE: "maintenance" } as NodeJS.ProcessEnv, new Date("2026-06-28T18:05:00.000Z")),
+  {
+    from: "2026-06-27",
+    to: "2026-07-06",
+    dateKeys: [
+      "2026-06-27",
+      "2026-06-28",
+      "2026-06-29",
+      "2026-06-30",
+      "2026-07-01",
+      "2026-07-02",
+      "2026-07-03",
+      "2026-07-04",
+      "2026-07-05"
+    ]
+  }
+);
+
+assert.deepEqual(
+  getFootballDataDateRange(
+    {
+      SYNC_WINDOW_PHASE: "maintenance",
+      FOOTBALL_DATA_MAINTENANCE_LOOKAHEAD_DAYS: "3"
+    } as NodeJS.ProcessEnv,
+    new Date("2026-06-28T18:05:00.000Z")
+  ),
+  {
+    from: "2026-06-27",
+    to: "2026-07-02",
+    dateKeys: ["2026-06-27", "2026-06-28", "2026-06-29", "2026-06-30", "2026-07-01"]
+  }
+);
 
 const parsedMatch = parseFootballDataMatch({
   id: 2000,

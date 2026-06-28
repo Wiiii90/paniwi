@@ -11,6 +11,22 @@ on:
         description: "Skip schedule gate and sync immediately"
         required: false
         default: "false"
+      football_data_date_from:
+        description: "Optional Football-Data dateFrom override, for example 2026-06-28"
+        required: false
+        default: ""
+      football_data_date_to:
+        description: "Optional Football-Data dateTo override, inclusive, for example 2026-07-03"
+        required: false
+        default: ""
+      football_data_dates:
+        description: "Optional comma-separated Football-Data date list override"
+        required: false
+        default: ""
+      football_data_maintenance_lookahead_days:
+        description: "Optional maintenance lookahead in UTC days"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -34,13 +50,14 @@ jobs:
       FOOTBALL_DATA_BASE_URL: ${{ vars.FOOTBALL_DATA_BASE_URL }}
       FOOTBALL_DATA_COMPETITION: ${{ vars.FOOTBALL_DATA_COMPETITION }}
       FOOTBALL_DATA_SEASON: ${{ vars.FOOTBALL_DATA_SEASON }}
-      FOOTBALL_DATA_DATE_FROM: ${{ vars.FOOTBALL_DATA_DATE_FROM }}
-      FOOTBALL_DATA_DATE_TO: ${{ vars.FOOTBALL_DATA_DATE_TO }}
-      FOOTBALL_DATA_DATES: ${{ vars.FOOTBALL_DATA_DATES }}
+      FOOTBALL_DATA_DATE_FROM: ${{ github.event.inputs.football_data_date_from || vars.FOOTBALL_DATA_DATE_FROM }}
+      FOOTBALL_DATA_DATE_TO: ${{ github.event.inputs.football_data_date_to || vars.FOOTBALL_DATA_DATE_TO }}
+      FOOTBALL_DATA_DATES: ${{ github.event.inputs.football_data_dates || vars.FOOTBALL_DATA_DATES }}
       FOOTBALL_DATA_TIMEOUT_MS: ${{ vars.FOOTBALL_DATA_TIMEOUT_MS }}
       FOOTBALL_DATA_MAX_REQUESTS: ${{ vars.FOOTBALL_DATA_MAX_REQUESTS }}
       FOOTBALL_DATA_SCORER_LIMIT: ${{ vars.FOOTBALL_DATA_SCORER_LIMIT }}
       FOOTBALL_DATA_MAX_THROTTLE_MS: ${{ vars.FOOTBALL_DATA_MAX_THROTTLE_MS }}
+      FOOTBALL_DATA_MAINTENANCE_LOOKAHEAD_DAYS: ${{ github.event.inputs.football_data_maintenance_lookahead_days || vars.FOOTBALL_DATA_MAINTENANCE_LOOKAHEAD_DAYS }}
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
       API_FOOTBALL_BASE_URL: ${{ vars.API_FOOTBALL_BASE_URL }}
       API_FOOTBALL_TIMEOUT_MS: ${{ vars.API_FOOTBALL_TIMEOUT_MS }}
