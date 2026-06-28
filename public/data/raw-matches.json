@@ -1872,32 +1872,36 @@
     "source": "football-data",
     "matchId": "football-data:537407",
     "fixtureId": "537407",
-    "label": "Colombia vs Portugal",
+    "label": "Colombia 0-0 Portugal",
     "kickedOffAt": "2026-06-27T23:30:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 818,
-      "name": "Colombia"
+      "name": "Colombia",
+      "score": 0
     },
     "awayTeam": {
       "id": 765,
-      "name": "Portugal"
+      "name": "Portugal",
+      "score": 0
     }
   },
   {
     "source": "football-data",
     "matchId": "football-data:537408",
     "fixtureId": "537408",
-    "label": "Congo DR vs Uzbekistan",
+    "label": "Congo DR 1-1 Uzbekistan",
     "kickedOffAt": "2026-06-27T23:30:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 1934,
-      "name": "Congo DR"
+      "name": "Congo DR",
+      "score": 1
     },
     "awayTeam": {
       "id": 8070,
-      "name": "Uzbekistan"
+      "name": "Uzbekistan",
+      "score": 1
     }
   },
   {
@@ -2286,6 +2290,22 @@
       "id": 1504,
       "name": "Ghana",
       "score": 1
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537418",
+    "fixtureId": "537418",
+    "label": "Netherlands vs Morocco",
+    "kickedOffAt": "2026-06-30T01:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 8601,
+      "name": "Netherlands"
+    },
+    "awayTeam": {
+      "id": 815,
+      "name": "Morocco"
     }
   }
 ]

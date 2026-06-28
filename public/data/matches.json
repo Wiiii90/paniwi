@@ -47112,14 +47112,16 @@
   },
   {
     "matchId": "football-data:537407",
-    "label": "Colombia vs Portugal",
+    "label": "Colombia 0-0 Portugal",
     "kickedOffAt": "2026-06-27T23:30:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
-      "name": "Kolumbien"
+      "name": "Kolumbien",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Portugal"
+      "name": "Portugal",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -47248,24 +47250,26 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 0,
       "goalEventCount": 0,
-      "eventsComplete": false,
+      "eventsComplete": true,
       "lineupsComplete": false,
       "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsLineupBackfill": true
     }
   },
   {
     "matchId": "football-data:537408",
-    "label": "Congo DR vs Uzbekistan",
+    "label": "Congo DR 1-1 Uzbekistan",
     "kickedOffAt": "2026-06-27T23:30:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
-      "name": "DR Kongo"
+      "name": "DR Kongo",
+      "score": 1
     },
     "awayTeam": {
-      "name": "Usbekistan"
+      "name": "Usbekistan",
+      "score": 1
     },
     "goals": [],
     "pointGoals": [],
@@ -47364,12 +47368,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 2,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsEventBackfill": true,
+      "needsLineupBackfill": true
     }
   },
   {
@@ -47670,6 +47674,106 @@
         "displayNationalTeam": "Brasilien",
         "owners": [
           "Felix"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
+  },
+  {
+    "matchId": "football-data:537418",
+    "label": "Netherlands vs Morocco",
+    "kickedOffAt": "2026-06-30T01:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Niederlande"
+    },
+    "awayTeam": {
+      "name": "Marokko"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537418",
+        "fixtureId": "537418",
+        "playerName": "Achraf Hakimi",
+        "nationalTeam": "Marokko",
+        "teamId": "morocco",
+        "status": "unknown",
+        "displayPlayerName": "Achraf Hakimi",
+        "displayNationalTeam": "Marokko",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537418",
+        "fixtureId": "537418",
+        "playerName": "Ayoub El Kaabi",
+        "nationalTeam": "Marokko",
+        "teamId": "morocco",
+        "status": "unknown",
+        "displayPlayerName": "Ayoub El Kaabi",
+        "displayNationalTeam": "Marokko",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537418",
+        "fixtureId": "537418",
+        "playerName": "Micky van de Ven",
+        "nationalTeam": "Niederlande",
+        "teamId": "netherlands",
+        "status": "unknown",
+        "displayPlayerName": "Micky van de Ven",
+        "displayNationalTeam": "Niederlande",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537418",
+        "fixtureId": "537418",
+        "playerName": "Ryan Gravenberch",
+        "nationalTeam": "Niederlande",
+        "teamId": "netherlands",
+        "status": "unknown",
+        "displayPlayerName": "Ryan Gravenberch",
+        "displayNationalTeam": "Niederlande",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537418",
+        "fixtureId": "537418",
+        "playerName": "Tijjani Reijnders",
+        "nationalTeam": "Niederlande",
+        "teamId": "netherlands",
+        "status": "unknown",
+        "displayPlayerName": "Tijjani Reijnders",
+        "displayNationalTeam": "Niederlande",
+        "owners": [
+          "Caro"
         ],
         "selected": true
       }
