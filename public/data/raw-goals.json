@@ -3802,7 +3802,7 @@
     "nationalTeam": "Argentina",
     "sourcePlayerName": "Lionel Messi",
     "sourceTeamName": "Argentina",
-    "goals": 5,
+    "goals": 6,
     "source": "football-data",
     "apiPlayerId": 3218,
     "matchId": "football-data:scorers",
@@ -4451,6 +4451,22 @@
     "detail": "normal",
     "playerId": "belgium-leandro-trossard",
     "teamId": "belgium"
+  },
+  {
+    "externalGoalId": "football-data:scorer:8069:normal",
+    "playerName": "Riyad Mahrez",
+    "nationalTeam": "Algeria",
+    "sourcePlayerName": "Riyad Mahrez",
+    "sourceTeamName": "Algeria",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 8069,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "algeria-riyad-mahrez",
+    "teamId": "algeria"
   },
   {
     "externalGoalId": "football-data:scorer:3305:normal",
@@ -5433,21 +5449,5 @@
     "detail": "normal",
     "playerId": "algeria-amine-gouiri",
     "teamId": "algeria"
-  },
-  {
-    "externalGoalId": "football-data:scorer:144570:normal",
-    "playerName": "Nuno Mendes",
-    "nationalTeam": "Portugal",
-    "sourcePlayerName": "Nuno Mendes",
-    "sourceTeamName": "Portugal",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 144570,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "portugal-nuno-mendes",
-    "teamId": "portugal"
   }
 ]
