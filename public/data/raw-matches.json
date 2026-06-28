@@ -2016,32 +2016,36 @@
     "source": "football-data",
     "matchId": "football-data:537401",
     "fixtureId": "537401",
-    "label": "Jordan vs Argentina",
+    "label": "Jordan 0-1 Argentina",
     "kickedOffAt": "2026-06-28T02:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 8049,
-      "name": "Jordan"
+      "name": "Jordan",
+      "score": 0
     },
     "awayTeam": {
       "id": 762,
-      "name": "Argentina"
+      "name": "Argentina",
+      "score": 1
     }
   },
   {
     "source": "football-data",
     "matchId": "football-data:537402",
     "fixtureId": "537402",
-    "label": "Algeria vs Austria",
+    "label": "Algeria 0-0 Austria",
     "kickedOffAt": "2026-06-28T02:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
       "id": 778,
-      "name": "Algeria"
+      "name": "Algeria",
+      "score": 0
     },
     "awayTeam": {
       "id": 816,
-      "name": "Austria"
+      "name": "Austria",
+      "score": 0
     }
   },
   {

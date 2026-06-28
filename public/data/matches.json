@@ -48847,14 +48847,16 @@
   },
   {
     "matchId": "football-data:537402",
-    "label": "Algeria vs Austria",
+    "label": "Algeria 0-0 Austria",
     "kickedOffAt": "2026-06-28T02:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
-      "name": "Algerien"
+      "name": "Algerien",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Österreich"
+      "name": "Österreich",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -48877,24 +48879,26 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 0,
       "goalEventCount": 0,
-      "eventsComplete": false,
+      "eventsComplete": true,
       "lineupsComplete": false,
       "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsLineupBackfill": true
     }
   },
   {
     "matchId": "football-data:537401",
-    "label": "Jordan vs Argentina",
+    "label": "Jordan 0-1 Argentina",
     "kickedOffAt": "2026-06-28T02:00:00Z",
-    "status": "scheduled",
+    "status": "live",
     "homeTeam": {
-      "name": "Jordanien"
+      "name": "Jordanien",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Argentinien"
+      "name": "Argentinien",
+      "score": 1
     },
     "goals": [],
     "pointGoals": [],
@@ -48947,12 +48951,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 1,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsEventBackfill": true,
+      "needsLineupBackfill": true
     }
   },
   {
