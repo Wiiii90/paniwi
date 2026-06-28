@@ -1061,6 +1061,16 @@
     "rank": 39
   },
   {
+    "playerName": "Marcel Sabitzer",
+    "normalizedPlayerName": "marcel sabitzer",
+    "nationalTeam": "Österreich",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 39
+  },
+  {
     "playerName": "Marcus Holmgren Pedersen",
     "normalizedPlayerName": "marcus holmgren pedersen",
     "nationalTeam": "Norwegen",
@@ -1347,6 +1357,16 @@
     "rank": 39
   },
   {
+    "playerName": "Rafik Belghali",
+    "normalizedPlayerName": "rafik belghali",
+    "nationalTeam": "Algerien",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 39
+  },
+  {
     "playerName": "Raúl Jiménez",
     "normalizedPlayerName": "raul jimenez",
     "nationalTeam": "Mexiko",
@@ -1370,6 +1390,16 @@
     "playerName": "Romelu Lukaku",
     "normalizedPlayerName": "romelu lukaku",
     "nationalTeam": "Belgien",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 39
+  },
+  {
+    "playerName": "Saša Kalajdžić",
+    "normalizedPlayerName": "sasa kalajdzic",
+    "nationalTeam": "Österreich",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],

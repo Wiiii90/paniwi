@@ -1,22 +1,22 @@
 {
-  "lastUpdated": "2026-06-28T04:01:27.248Z",
-  "source": "football-data",
+  "lastUpdated": "2026-06-28T05:01:25.466Z",
+  "source": "api-football",
   "attemptedSources": [
-    "football-data"
+    "api-football"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 307,
+  "goalCount": 313,
   "scoredGoalCount": 34,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
-  "snapshotFingerprint": "6dafc753d5854111710e5f21b1edca25a00126fb09ffab9ca065a80ec1916818",
+  "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
+  "snapshotFingerprint": "39a5ae182f4517a6072551f35bdecf38134358f95591d68cba41f7b2e9d4fcc8",
   "snapshotChanged": true,
-  "syncWindowId": "2026 fifa world cup group j:algeria-austria:2026-06-28T02:00:00.000Z-check-1",
+  "syncWindowId": "2026 fifa world cup group j:algeria-austria:2026-06-28T02:00:00.000Z-check-2:api-football-enrich:football-data:537402",
   "windowSyncAttempts": 1,
-  "liveMatchCount": 2,
-  "sourceRequestCount": 4,
+  "liveMatchCount": 0,
+  "sourceRequestCount": 3,
   "sourceRequestLimit": 6
 }
