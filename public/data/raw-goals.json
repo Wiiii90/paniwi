@@ -5563,5 +5563,24 @@
     "detail": "normal",
     "playerId": "algeria-amine-gouiri",
     "teamId": "algeria"
+  },
+  {
+    "externalGoalId": "api-football:1561329:35570:90+2:Normal Goal:0",
+    "playerName": "Stephen Eustáquio",
+    "nationalTeam": "Canada",
+    "sourcePlayerName": "S. Eustaquio",
+    "sourceTeamName": "Canada",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 35570,
+    "matchId": "football-data:537417",
+    "fixtureId": "1561329",
+    "matchLabel": "South Africa 0-1 Canada",
+    "kickedOffAt": "2026-06-28T19:00:00+00:00",
+    "minute": 90,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "canada-stephen-eustaquio",
+    "teamId": "canada"
   }
 ]

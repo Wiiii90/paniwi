@@ -2586,5 +2586,23 @@
       "id": 763,
       "name": "Ghana"
     }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1561329",
+    "fixtureId": "1561329",
+    "label": "South Africa 0-1 Canada",
+    "kickedOffAt": "2026-06-28T19:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 1531,
+      "name": "South Africa",
+      "score": 0
+    },
+    "awayTeam": {
+      "id": 5529,
+      "name": "Canada",
+      "score": 1
+    }
   }
 ]
