@@ -2189,14 +2189,14 @@
     "source": "football-data",
     "matchId": "football-data:537423",
     "fixtureId": "537423",
-    "label": "Brazil 1-1 Japan",
+    "label": "Brazil 2-1 Japan",
     "kickedOffAt": "2026-06-29T17:00:00Z",
-    "status": "live",
-    "winnerTeam": "draw",
+    "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "id": 764,
       "name": "Brazil",
-      "score": 1
+      "score": 2
     },
     "awayTeam": {
       "id": 766,
@@ -2605,6 +2605,24 @@
     "awayTeam": {
       "id": 5529,
       "name": "Canada",
+      "score": 1
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1562344",
+    "fixtureId": "1562344",
+    "label": "Brazil 2-1 Japan",
+    "kickedOffAt": "2026-06-29T17:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 6,
+      "name": "Brazil",
+      "score": 2
+    },
+    "awayTeam": {
+      "id": 12,
+      "name": "Japan",
       "score": 1
     }
   }

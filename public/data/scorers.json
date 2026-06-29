@@ -612,6 +612,16 @@
     "rank": 39
   },
   {
+    "playerName": "Casemiro",
+    "normalizedPlayerName": "casemiro",
+    "nationalTeam": "Brasilien",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 39
+  },
+  {
     "playerName": "Connor Metcalfe",
     "normalizedPlayerName": "connor metcalfe",
     "nationalTeam": "Australien",
@@ -720,6 +730,16 @@
     "playerName": "Franck Kessié",
     "normalizedPlayerName": "franck kessie",
     "nationalTeam": "Elfenbeinküste",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 39
+  },
+  {
+    "playerName": "Gabriel Martinelli",
+    "normalizedPlayerName": "gabriel martinelli",
+    "nationalTeam": "Brasilien",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],
@@ -932,6 +952,16 @@
     "playerName": "Kaan Ayhan",
     "normalizedPlayerName": "kaan ayhan",
     "nationalTeam": "Türkei",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 39
+  },
+  {
+    "playerName": "Kaishū Sano",
+    "normalizedPlayerName": "kaishu sano",
+    "nationalTeam": "Japan",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],

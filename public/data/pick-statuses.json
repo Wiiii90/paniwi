@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-29T19:01:27.572Z",
+  "lastUpdated": "2026-06-29T19:31:21.443Z",
   "rosterSnapshotUpdatedAt": "2026-06-15T23:48:37.445Z",
   "picks": [
     {
@@ -189,7 +189,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Alisson",
       "reason": "found-in-current-roster"
@@ -237,7 +237,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Gabriel Magalhães",
       "reason": "found-in-current-roster"
@@ -520,7 +520,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Matheus Cunha",
       "reason": "found-in-current-roster"
@@ -886,7 +886,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Vinícius Júnior",
       "reason": "found-in-current-roster"
@@ -1632,7 +1632,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Lucas Paquetá",
       "reason": "found-in-current-roster"
