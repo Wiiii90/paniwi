@@ -50603,14 +50603,17 @@
   },
   {
     "matchId": "football-data:537423",
-    "label": "Brazil vs Japan",
+    "label": "Brazil 0-0 Japan",
     "kickedOffAt": "2026-06-29T17:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "draw",
     "homeTeam": {
-      "name": "Brasilien"
+      "name": "Brasilien",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Japan"
+      "name": "Japan",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -50693,12 +50696,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 0,
       "goalEventCount": 0,
-      "eventsComplete": false,
+      "eventsComplete": true,
       "lineupsComplete": false,
       "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsLineupBackfill": true
     }
   },
   {
