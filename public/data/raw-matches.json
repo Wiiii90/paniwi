@@ -2189,10 +2189,10 @@
     "source": "football-data",
     "matchId": "football-data:537423",
     "fixtureId": "537423",
-    "label": "Brazil 0-0 Japan",
+    "label": "Brazil 0-1 Japan",
     "kickedOffAt": "2026-06-29T17:00:00Z",
     "status": "live",
-    "winnerTeam": "draw",
+    "winnerTeam": "away",
     "homeTeam": {
       "id": 764,
       "name": "Brazil",
@@ -2201,7 +2201,7 @@
     "awayTeam": {
       "id": 766,
       "name": "Japan",
-      "score": 0
+      "score": 1
     }
   },
   {
