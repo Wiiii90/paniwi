@@ -51449,13 +51449,13 @@
   },
   {
     "matchId": "football-data:537415",
-    "label": "Germany 0-1 Paraguay",
+    "label": "Germany 1-1 Paraguay",
     "kickedOffAt": "2026-06-29T20:30:00Z",
     "status": "live",
-    "winnerTeam": "away",
+    "winnerTeam": "draw",
     "homeTeam": {
       "name": "Deutschland",
-      "score": 0
+      "score": 1
     },
     "awayTeam": {
       "name": "Paraguay",
@@ -51558,7 +51558,7 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 1,
+      "scoreTotal": 2,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
