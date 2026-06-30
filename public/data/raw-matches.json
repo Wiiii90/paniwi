@@ -2410,7 +2410,7 @@
     "fixtureId": "537424",
     "label": "Ivory Coast 1-2 Norway",
     "kickedOffAt": "2026-06-30T17:00:00Z",
-    "status": "live",
+    "status": "finished",
     "winnerTeam": "away",
     "homeTeam": {
       "id": 1935,
@@ -2669,6 +2669,24 @@
       "id": 31,
       "name": "Morocco",
       "score": 1
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1564789",
+    "fixtureId": "1564789",
+    "label": "Ivory Coast 1-2 Norway",
+    "kickedOffAt": "2026-06-30T17:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 1501,
+      "name": "Ivory Coast",
+      "score": 1
+    },
+    "awayTeam": {
+      "id": 1090,
+      "name": "Norway",
+      "score": 2
     }
   }
 ]

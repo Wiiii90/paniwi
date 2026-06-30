@@ -530,6 +530,18 @@
     "rank": 40
   },
   {
+    "playerName": "Antonio Nusa",
+    "normalizedPlayerName": "antonio nusa",
+    "nationalTeam": "Norwegen",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [
+      "Peer"
+    ],
+    "selected": true,
+    "rank": 40
+  },
+  {
     "playerName": "Arda Güler",
     "normalizedPlayerName": "arda guler",
     "nationalTeam": "Türkei",
