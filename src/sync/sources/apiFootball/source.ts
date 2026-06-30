@@ -3,6 +3,7 @@ import { participantTeams } from "../../../config/teams";
 import { buildFixtureSyncState, matchHasPickedTeam } from "../../../domain/fixtureSyncState";
 import type { ExternalGoalRecord, GoalRecord } from "../../../domain/goalTypes";
 import { isCompetitionScorerAggregateGoal } from "../../../domain/effectiveGoals";
+import { isPenaltyShootoutGoal } from "../../../domain/penaltyShootouts";
 import { getExternalMatchKey, goalBelongsToExternalMatch } from "../../../domain/matchIdentity";
 import type { ExternalMatchParticipantRecord, ExternalMatchRecord, FixtureSyncState } from "../../../domain/matchTypes";
 import type { GoalSource, GoalSourceResult } from "../types";
@@ -77,7 +78,7 @@ function isDetailedGoalForMatch(goal: GoalRecord, match: ExternalMatchRecord): b
 }
 
 function countApiFootballDetailedGoalsForMatch(goals: GoalRecord[], match: ExternalMatchRecord): number {
-  return goals.filter((goal) => goal.source === "api-football" && isDetailedGoalForMatch(goal, match)).length;
+  return goals.filter((goal) => goal.source === "api-football" && !isPenaltyShootoutGoal(goal) && isDetailedGoalForMatch(goal, match)).length;
 }
 
 function participantBelongsToMatch(participant: ExternalMatchParticipantRecord, match: ExternalMatchRecord): boolean {

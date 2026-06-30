@@ -3,7 +3,7 @@ import type { ExternalGoalRecord } from "../../../domain/goalTypes";
 import type { ExternalMatchParticipantRecord } from "../../../domain/matchTypes";
 import { fetchApiFootball, hasApiErrors, type ApiFootballRequestBudget } from "./config";
 import { buildParticipantRecord } from "./lineups";
-import { getFixtureLabel, shouldFetchFixtureEvents, type ApiFootballFixture } from "./fixtures";
+import { getFixtureLabel, getFixtureScoreTotal, shouldFetchFixtureEvents, type ApiFootballFixture } from "./fixtures";
 
 export type ApiFootballEvent = {
   time?: {
@@ -31,7 +31,14 @@ type ApiFootballEventsResponse = {
   errors?: unknown;
 };
 
-function normalizeGoalDetail(detail: string | undefined): GoalDetail {
+function normalizeGoalDetail(
+  detail: string | undefined,
+  context?: {
+    goalIndex: number;
+    goalEventCount: number;
+    scoreTotal: number | null;
+  }
+): GoalDetail {
   const normalized = detail?.toLowerCase() ?? "";
 
   if (normalized.includes("own")) {
@@ -43,6 +50,10 @@ function normalizeGoalDetail(detail: string | undefined): GoalDetail {
   }
 
   if (normalized.includes("penalty")) {
+    if (context && context.scoreTotal !== null && context.goalEventCount > context.scoreTotal && context.goalIndex >= context.scoreTotal) {
+      return "penalty-shootout";
+    }
+
     return "penalty";
   }
 
@@ -59,7 +70,10 @@ export function parseApiFootballEvents(
   events: ApiFootballEvent[],
   fixture?: ApiFootballFixture
 ): ExternalGoalRecord[] {
-  return events.filter(isGoalEvent).flatMap((event, index) => {
+  const goalEvents = events.filter(isGoalEvent);
+  const scoreTotal = fixture ? getFixtureScoreTotal(fixture) : null;
+
+  return goalEvents.flatMap((event, index) => {
     const playerName = event.player?.name?.trim();
     const nationalTeam = event.team?.name?.trim();
 
@@ -85,7 +99,11 @@ export function parseApiFootballEvents(
         kickedOffAt: fixture?.fixture?.date,
         minute,
         timeConfidence: typeof minute === "number" ? "match-only" : "unknown",
-        detail: normalizeGoalDetail(event.detail)
+        detail: normalizeGoalDetail(event.detail, {
+          goalIndex: index,
+          goalEventCount: goalEvents.length,
+          scoreTotal
+        })
       }
     ];
   });

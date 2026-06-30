@@ -5,6 +5,7 @@ import { buildMatches } from "../domain/buildMatches";
 import { buildScorers } from "../domain/buildScorers";
 import { selectEffectiveGoalsForScorers, selectEffectiveGoalsForScoring } from "../domain/effectiveGoals";
 import { enrichGoalsWithRoster } from "../domain/rosterResolver";
+import { markApiFootballPenaltyShootoutGoals } from "../domain/penaltyShootouts";
 import type { PickStatusSnapshot } from "../domain/pickStatusTypes";
 import type { GoalRecord } from "../domain/goalTypes";
 import type { ExternalMatchParticipantRecord, ExternalMatchRecord } from "../domain/matchTypes";
@@ -38,8 +39,9 @@ export async function rebuildStaticData(): Promise<void> {
     readOptionalJson<RosterSnapshot>("public/data/rosters.json"),
     readOptionalJson<PickStatusSnapshot>("public/data/pick-statuses.json")
   ]);
-  const strictSources = rawGoals.some((goal) => goal.source === "api-football") ? ["api-football" as const] : [];
-  const enrichedRawGoals = enrichGoalsWithRoster(rawGoals, rosters, {
+  const goalsWithShootouts = markApiFootballPenaltyShootoutGoals(rawGoals, rawMatches);
+  const strictSources = goalsWithShootouts.some((goal) => goal.source === "api-football") ? ["api-football" as const] : [];
+  const enrichedRawGoals = enrichGoalsWithRoster(goalsWithShootouts, rosters, {
     strictSources
   });
   const { validGoals } = validateGoals(enrichedRawGoals);

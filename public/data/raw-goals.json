@@ -4039,7 +4039,7 @@
     "kickedOffAt": "2026-06-29T20:30:00+00:00",
     "minute": 120,
     "timeConfidence": "match-only",
-    "detail": "penalty",
+    "detail": "penalty-shootout",
     "playerId": "paraguay-mauricio",
     "teamId": "paraguay"
   },
@@ -4058,7 +4058,7 @@
     "kickedOffAt": "2026-06-29T20:30:00+00:00",
     "minute": 120,
     "timeConfidence": "match-only",
-    "detail": "penalty",
+    "detail": "penalty-shootout",
     "playerId": "germany-joshua-kimmich",
     "teamId": "germany"
   },
@@ -4077,7 +4077,7 @@
     "kickedOffAt": "2026-06-29T20:30:00+00:00",
     "minute": 120,
     "timeConfidence": "match-only",
-    "detail": "penalty",
+    "detail": "penalty-shootout",
     "playerId": "paraguay-gustavo-gomez",
     "teamId": "paraguay"
   },
@@ -4096,7 +4096,7 @@
     "kickedOffAt": "2026-06-29T20:30:00+00:00",
     "minute": 120,
     "timeConfidence": "match-only",
-    "detail": "penalty",
+    "detail": "penalty-shootout",
     "playerId": "germany-jamal-musiala",
     "teamId": "germany"
   },
@@ -4115,7 +4115,7 @@
     "kickedOffAt": "2026-06-29T20:30:00+00:00",
     "minute": 120,
     "timeConfidence": "match-only",
-    "detail": "penalty",
+    "detail": "penalty-shootout",
     "playerId": "paraguay-matias-galarza",
     "teamId": "paraguay"
   },
@@ -4134,7 +4134,7 @@
     "kickedOffAt": "2026-06-29T20:30:00+00:00",
     "minute": 120,
     "timeConfidence": "match-only",
-    "detail": "penalty",
+    "detail": "penalty-shootout",
     "playerId": "germany-nadiem-amiri",
     "teamId": "germany"
   },
@@ -4153,7 +4153,7 @@
     "kickedOffAt": "2026-06-29T20:30:00+00:00",
     "minute": 120,
     "timeConfidence": "match-only",
-    "detail": "penalty",
+    "detail": "penalty-shootout",
     "playerId": "paraguay-jose-canale",
     "teamId": "paraguay"
   },

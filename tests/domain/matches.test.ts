@@ -340,6 +340,61 @@ assert.deepEqual([...buildRunningGoalScores(runningScoreMatch)], [
   ["api-football:running:home:90:Own Goal:3", "1:3"]
 ]);
 
+const penaltyShootoutMatch = buildMatches(
+  [
+    {
+      ...baseGoal,
+      externalGoalId: "api-football:shootout:away:42:Normal Goal:0",
+      playerName: "Away Scorer",
+      nationalTeam: "Norway",
+      teamId: "norway",
+      detail: "normal",
+      minute: 42,
+      matchId: "api-football:shootout",
+      fixtureId: "shootout"
+    },
+    {
+      ...baseGoal,
+      externalGoalId: "api-football:shootout:home:54:Normal Goal:1",
+      playerName: "Home Scorer",
+      nationalTeam: "Iraq",
+      teamId: "iraq",
+      detail: "normal",
+      minute: 54,
+      matchId: "api-football:shootout",
+      fixtureId: "shootout"
+    },
+    {
+      ...baseGoal,
+      externalGoalId: "api-football:shootout:away:120+1:Penalty:2",
+      playerName: "Shootout Scorer",
+      nationalTeam: "Norway",
+      teamId: "norway",
+      detail: "penalty-shootout",
+      minute: 120,
+      matchId: "api-football:shootout",
+      fixtureId: "shootout"
+    }
+  ],
+  [],
+  [
+    {
+      source: "api-football",
+      matchId: "api-football:shootout",
+      fixtureId: "shootout",
+      label: "Iraq 1-1 Norway",
+      kickedOffAt: "2026-06-29T20:30:00+00:00",
+      status: "finished",
+      homeTeam: { name: "Iraq", score: 1 },
+      awayTeam: { name: "Norway", score: 1 }
+    }
+  ]
+)[0];
+assert.deepEqual(
+  penaltyShootoutMatch.goals.map((goal) => goal.externalGoalId),
+  ["api-football:shootout:away:42:Normal Goal:0", "api-football:shootout:home:54:Normal Goal:1"]
+);
+
 const dedupedFixtureMatches = buildMatches(
   [],
   [],

@@ -87,6 +87,61 @@ assert.deepEqual(
 );
 
 assert.deepEqual(
+  parseApiFootballEvents(
+    "9003",
+    [
+      {
+        time: { elapsed: 42 },
+        team: { id: 2380, name: "Paraguay" },
+        player: { id: 70747, name: "Julio Enciso" },
+        type: "Goal",
+        detail: "Normal Goal"
+      },
+      {
+        time: { elapsed: 54 },
+        team: { id: 25, name: "Germany" },
+        player: { id: 978, name: "Kai Havertz" },
+        type: "Goal",
+        detail: "Normal Goal"
+      },
+      {
+        time: { elapsed: 120, extra: 1 },
+        team: { id: 2380, name: "Paraguay" },
+        player: { id: 106485, name: "Mauricio" },
+        type: "Goal",
+        detail: "Penalty"
+      },
+      {
+        time: { elapsed: 120, extra: 2 },
+        team: { id: 25, name: "Germany" },
+        player: { id: 502, name: "Joshua Kimmich" },
+        type: "Goal",
+        detail: "Penalty"
+      }
+    ],
+    {
+      fixture: {
+        id: 9003,
+        date: "2026-06-29T20:30:00+00:00",
+        status: { short: "PEN" }
+      },
+      league: { id: 1, name: "World Cup", season: 2026 },
+      teams: {
+        home: { id: 25, name: "Germany" },
+        away: { id: 2380, name: "Paraguay" }
+      },
+      goals: { home: 1, away: 1 }
+    }
+  ).map((goal) => [goal.playerName, goal.minute, goal.detail]),
+  [
+    ["Julio Enciso", 42, "normal"],
+    ["Kai Havertz", 54, "normal"],
+    ["Mauricio", 120, "penalty-shootout"],
+    ["Joshua Kimmich", 120, "penalty-shootout"]
+  ]
+);
+
+assert.deepEqual(
   parseApiFootballSubstitutions("9001", [
     {
       team: { name: "Norway" },

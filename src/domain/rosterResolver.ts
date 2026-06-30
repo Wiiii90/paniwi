@@ -330,7 +330,7 @@ function describeGoal(goal: GoalRecord): string {
 }
 
 function shouldRequireRosterMatch(goal: GoalRecord, strictSources: Set<SourceName>): boolean {
-  return strictSources.has(goal.source) && goal.detail !== "own-goal";
+  return strictSources.has(goal.source) && goal.detail !== "own-goal" && goal.detail !== "penalty-shootout";
 }
 
 export function enrichGoalsWithRoster(

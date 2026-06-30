@@ -5,6 +5,7 @@ import { buildMatches } from "../domain/buildMatches";
 import { buildScorers } from "../domain/buildScorers";
 import { selectEffectiveGoalsForScorers, selectEffectiveGoalsForScoring } from "../domain/effectiveGoals";
 import { enrichGoalsWithRoster } from "../domain/rosterResolver";
+import { markApiFootballPenaltyShootoutGoals } from "../domain/penaltyShootouts";
 import { sortGoalsChronologically } from "../domain/sortGoals";
 import type { SourceName } from "../domain/goalTypes";
 import type { ExternalMatchParticipantRecord, ExternalMatchRecord } from "../domain/matchTypes";
@@ -426,6 +427,7 @@ export async function syncGoals(
   const normalizedMatches = result.mergeWithExisting
     ? await mergeWithExistingMatches(result.source, incomingMatches, result.coveredDateKeys, result.preserveExistingMatches)
     : incomingMatches;
+  const goalsWithShootouts = markApiFootballPenaltyShootoutGoals(normalizedGoals, normalizedMatches);
   const normalizedParticipants = result.mergeWithExisting
     ? await mergeWithExistingParticipants(
         result.source,
@@ -437,8 +439,8 @@ export async function syncGoals(
     : incomingParticipants;
   const rosterSnapshot = await readExistingRosterSnapshot();
   const previousPickStatusSnapshot = await readExistingPickStatusSnapshot();
-  const strictSources: SourceName[] = normalizedGoals.some((goal) => goal.source === "api-football") ? ["api-football"] : [];
-  const rosterEnrichedGoals = enrichGoalsWithRoster(normalizedGoals, rosterSnapshot, {
+  const strictSources: SourceName[] = goalsWithShootouts.some((goal) => goal.source === "api-football") ? ["api-football"] : [];
+  const rosterEnrichedGoals = enrichGoalsWithRoster(goalsWithShootouts, rosterSnapshot, {
     strictSources
   });
   const { validGoals: goals } = validateGoals(rosterEnrichedGoals);

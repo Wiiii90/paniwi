@@ -7,6 +7,7 @@ import { buildFixtureSyncState } from "../../src/domain/fixtureSyncState";
 import { buildMatches } from "../../src/domain/buildMatches";
 import { buildScorers } from "../../src/domain/buildScorers";
 import { normalizePlayerName } from "../../src/domain/normalizePlayerName";
+import { markApiFootballPenaltyShootoutGoals } from "../../src/domain/penaltyShootouts";
 import { enrichGoalsWithRoster } from "../../src/domain/rosterResolver";
 import { getGoalPoints, matchesPlayer } from "../../src/domain/scoring";
 import { sortGoalsChronologically } from "../../src/domain/sortGoals";
@@ -51,6 +52,65 @@ assert.deepEqual(
   ]
 );
 assert.equal(scoredGoals[0].displayNationalTeam, "Schweden");
+
+const shootoutCorrectedGoals = markApiFootballPenaltyShootoutGoals(
+  [
+    {
+      ...baseGoal,
+      externalGoalId: "api-football:shootout:2864:42:Normal Goal:0",
+      playerName: "A. Isak",
+      nationalTeam: "Sweden",
+      matchId: "api-football:shootout",
+      fixtureId: "shootout",
+      detail: "normal",
+      minute: 42
+    },
+    {
+      ...baseGoal,
+      externalGoalId: "api-football:shootout:felix:54:Normal Goal:1",
+      playerName: "Felix Nmecha",
+      nationalTeam: "Germany",
+      apiPlayerId: undefined,
+      matchId: "api-football:shootout",
+      fixtureId: "shootout",
+      detail: "normal",
+      minute: 54
+    },
+    {
+      ...baseGoal,
+      externalGoalId: "api-football:shootout:2864:120+1:Penalty:2",
+      playerName: "A. Isak",
+      nationalTeam: "Sweden",
+      matchId: "api-football:shootout",
+      fixtureId: "shootout",
+      detail: "penalty",
+      minute: 120
+    }
+  ],
+  [
+    {
+      source: "api-football",
+      matchId: "api-football:shootout",
+      fixtureId: "shootout",
+      label: "Sweden 1-1 Germany",
+      kickedOffAt: "2026-06-29T20:30:00+00:00",
+      status: "finished",
+      homeTeam: { name: "Sweden", score: 1 },
+      awayTeam: { name: "Germany", score: 1 }
+    }
+  ]
+);
+assert.deepEqual(
+  shootoutCorrectedGoals.map((goal) => goal.detail),
+  ["normal", "normal", "penalty-shootout"]
+);
+assert.deepEqual(
+  scoreGoalsForTeams(teams, shootoutCorrectedGoals).map((goal) => [goal.owner, goal.pickedPlayerName, goal.points]),
+  [
+    ["Anna", "Alexander Isak", 1],
+    ["Ben", "Felix Nmecha", 1]
+  ]
+);
 
 
 console.log("Domain scoring tests passed.");

@@ -427,6 +427,26 @@ assert.deepEqual(
   [["Unknown Defender", "Haiti", undefined, "own-goal"]]
 );
 assert.deepEqual(
+  enrichGoalsWithRoster(
+    [
+      {
+        ...baseGoal,
+        externalGoalId: "unresolved-shootout-penalty",
+        playerName: "Unknown Penalty Taker",
+        nationalTeam: "Paraguay",
+        sourcePlayerName: "Unknown Penalty Taker",
+        sourceTeamName: "Paraguay",
+        source: "api-football",
+        detail: "penalty-shootout",
+        matchLabel: "Germany 1-1 Paraguay"
+      }
+    ],
+    apiResolverRosterSnapshot,
+    { strictSources: ["api-football"] }
+  ).map((goal) => [goal.playerName, goal.nationalTeam, goal.teamId, goal.detail]),
+  [["Unknown Penalty Taker", "Paraguay", undefined, "penalty-shootout"]]
+);
+assert.deepEqual(
   buildScorers(apiAbbreviatedRosterGoals, teams, rosterSnapshot).map((scorer) => [
     scorer.playerName,
     scorer.nationalTeam,

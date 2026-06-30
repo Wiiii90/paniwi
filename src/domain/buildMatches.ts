@@ -17,6 +17,7 @@ import { findUniqueRosterPlayer } from "./rosterNameMatcher";
 import { resolveParticipantPicks, type ResolvedParticipantPick } from "./participantPick";
 import { normalizePlayerName } from "./normalizePlayerName";
 import { buildFixtureSyncStateForMatch } from "./fixtureSyncState";
+import { isPenaltyShootoutGoal } from "./penaltyShootouts";
 import {
   getExternalMatchKey,
   getMatchRecordKey,
@@ -144,7 +145,7 @@ function buildFallbackMatches(
         status: homeTeam.score !== undefined && awayTeam.score !== undefined ? ("finished" as const) : ("unknown" as const),
         homeTeam,
         awayTeam,
-        goals: sortGoalsChronologically(matchGoals),
+        goals: sortGoalsChronologically(matchGoals.filter((goal) => !isPenaltyShootoutGoal(goal))),
         pointGoals: sortGoalsChronologically(pointGoals),
         affectedOwners: [...new Set(pointGoals.map((goal) => goal.owner))].sort((a, b) => a.localeCompare(b)),
         participants: enrichParticipants(buildPickedFallbackParticipants(matchId, source, homeTeam, awayTeam, resolvedPicks), resolvedPicks, rosterSnapshot)
@@ -406,6 +407,7 @@ export function buildMatches(
   const pickedTeamIds = new Set(resolvedPicks.map((pick) => pick.teamId));
   const fixtureMatches = dedupeFixtures(fixtures).map((fixture) => {
     const matchGoals = sortGoalsChronologically(goals.filter((goal) => goalBelongsToFixture(goal, fixture)));
+    const displayGoals = matchGoals.filter((goal) => !isPenaltyShootoutGoal(goal));
     const pointGoals = sortGoalsChronologically(scoredGoals.filter((goal) => goalBelongsToFixture(goal, fixture)));
     const matchParticipants = [
       ...participants.filter((participant) => participantBelongsToFixture(participant, fixture)),
@@ -427,7 +429,7 @@ export function buildMatches(
       ...(fixture.winnerTeam ? { winnerTeam: fixture.winnerTeam } : {}),
       homeTeam: buildMatchTeam(fixture.homeTeam, fixture.source),
       awayTeam: buildMatchTeam(fixture.awayTeam, fixture.source),
-      goals: matchGoals,
+      goals: displayGoals,
       pointGoals,
       affectedOwners: [...new Set(pointGoals.map((goal) => goal.owner))].sort((a, b) => a.localeCompare(b)),
       participants: appendMissingPickedParticipants(fixture, enrichedParticipants, resolvedPicks),
