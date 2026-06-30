@@ -4446,22 +4446,6 @@
     "teamId": "netherlands"
   },
   {
-    "externalGoalId": "football-data:scorer:7459:normal",
-    "playerName": "Cody Gakpo",
-    "nationalTeam": "Netherlands",
-    "sourcePlayerName": "Cody Gakpo",
-    "sourceTeamName": "Netherlands",
-    "goals": 3,
-    "source": "football-data",
-    "apiPlayerId": 7459,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "netherlands-cody-gakpo",
-    "teamId": "netherlands"
-  },
-  {
     "externalGoalId": "football-data:scorer:3638:normal",
     "playerName": "Ismaïla Sarr",
     "nationalTeam": "Senegal",
@@ -4700,6 +4684,22 @@
     "detail": "normal",
     "playerId": "bosnia-and-herzegovina-ermin-mahmic",
     "teamId": "bosnia-and-herzegovina"
+  },
+  {
+    "externalGoalId": "football-data:scorer:7459:normal",
+    "playerName": "Cody Gakpo",
+    "nationalTeam": "Netherlands",
+    "sourcePlayerName": "Cody Gakpo",
+    "sourceTeamName": "Netherlands",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 7459,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "netherlands-cody-gakpo",
+    "teamId": "netherlands"
   },
   {
     "externalGoalId": "football-data:scorer:166376:normal",
@@ -5810,5 +5810,43 @@
     "detail": "normal",
     "playerId": "algeria-amine-gouiri",
     "teamId": "algeria"
+  },
+  {
+    "externalGoalId": "api-football:1562345:247:72:Normal Goal:0",
+    "playerName": "Cody Gakpo",
+    "nationalTeam": "Netherlands",
+    "sourcePlayerName": "C. Gakpo",
+    "sourceTeamName": "Netherlands",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 247,
+    "matchId": "football-data:537418",
+    "fixtureId": "1562345",
+    "matchLabel": "Netherlands 1-1 Morocco",
+    "kickedOffAt": "2026-06-30T01:00:00+00:00",
+    "minute": 72,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "netherlands-cody-gakpo",
+    "teamId": "netherlands"
+  },
+  {
+    "externalGoalId": "api-football:1562345:18814:90+1:Normal Goal:1",
+    "playerName": "Issa Diop",
+    "nationalTeam": "Morocco",
+    "sourcePlayerName": "I. Diop",
+    "sourceTeamName": "Morocco",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 18814,
+    "matchId": "football-data:537418",
+    "fixtureId": "1562345",
+    "matchLabel": "Netherlands 1-1 Morocco",
+    "kickedOffAt": "2026-06-30T01:00:00+00:00",
+    "minute": 90,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "morocco-issa-diop",
+    "teamId": "morocco"
   }
 ]
