@@ -54046,13 +54046,13 @@
   },
   {
     "matchId": "football-data:537416",
-    "label": "France 0-0 Sweden",
+    "label": "France 2-0 Sweden",
     "kickedOffAt": "2026-06-30T21:00:00Z",
     "status": "live",
-    "winnerTeam": "draw",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Frankreich",
-      "score": 0
+      "score": 2
     },
     "awayTeam": {
       "name": "Schweden",
@@ -54154,11 +54154,11 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 0,
+      "scoreTotal": 2,
       "goalEventCount": 0,
-      "eventsComplete": true,
+      "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
+      "needsEventBackfill": true,
       "needsLineupBackfill": true
     }
   },

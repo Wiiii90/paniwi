@@ -4812,6 +4812,22 @@
     "teamId": "iran"
   },
   {
+    "externalGoalId": "football-data:scorer:172762:normal",
+    "playerName": "Bradley Barcola",
+    "nationalTeam": "France",
+    "sourcePlayerName": "Bradley Barcola",
+    "sourceTeamName": "France",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 172762,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "france-bradley-barcola",
+    "teamId": "france"
+  },
+  {
     "externalGoalId": "football-data:scorer:8223:normal",
     "playerName": "Marko Arnautović",
     "nationalTeam": "Austria",
@@ -5444,22 +5460,6 @@
     "detail": "normal",
     "playerId": "iran-mohammad-mohebi",
     "teamId": "iran"
-  },
-  {
-    "externalGoalId": "football-data:scorer:172762:normal",
-    "playerName": "Bradley Barcola",
-    "nationalTeam": "France",
-    "sourcePlayerName": "Bradley Barcola",
-    "sourceTeamName": "France",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 172762,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "france-bradley-barcola",
-    "teamId": "france"
   },
   {
     "externalGoalId": "football-data:scorer:265040:normal",
