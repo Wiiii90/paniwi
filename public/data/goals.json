@@ -915,5 +915,30 @@
     "displayPlayerName": "Erling Haaland",
     "displayNationalTeam": "Norwegen",
     "points": 1
+  },
+  {
+    "externalGoalId": "api-football:1565177:161904:53:Normal Goal:1",
+    "playerName": "Bradley Barcola",
+    "nationalTeam": "France",
+    "sourcePlayerName": "B. Barcola",
+    "sourceTeamName": "France",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 161904,
+    "matchId": "football-data:537416",
+    "fixtureId": "1565177",
+    "matchLabel": "France 3-0 Sweden",
+    "kickedOffAt": "2026-06-30T21:00:00+00:00",
+    "minute": 53,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "france-bradley-barcola",
+    "teamId": "france",
+    "pickId": "france-bradley-barcola",
+    "owner": "Nina",
+    "pickedPlayerName": "Bradley Barcola",
+    "displayPlayerName": "Bradley Barcola",
+    "displayNationalTeam": "Frankreich",
+    "points": 1
   }
 ]

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-30T22:31:23.927Z",
+  "lastUpdated": "2026-06-30T23:01:36.750Z",
   "rosterSnapshotUpdatedAt": "2026-06-15T23:48:37.445Z",
   "picks": [
     {
@@ -61,7 +61,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Bradley Barcola",
       "reason": "found-in-current-roster"
@@ -678,8 +678,8 @@
       "baselineRosterStatus": "not-nominated",
       "currentRosterStatus": "not-nominated",
       "displayStatus": "not-nominated",
-      "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatus": "eliminated",
+      "tournamentStatusReason": "knockout-loser",
       "matchedCurrentRoster": false,
       "reason": "not-found-in-current-team-roster"
     },
@@ -1185,8 +1185,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatus": "eliminated",
+      "tournamentStatusReason": "knockout-loser",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Alexander Isak",
       "reason": "found-in-current-roster"
@@ -1490,7 +1490,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Adrien Rabiot",
       "reason": "found-in-current-roster"
@@ -1505,8 +1505,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatus": "eliminated",
+      "tournamentStatusReason": "knockout-loser",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Daniel Svensson",
       "reason": "found-in-current-roster"
@@ -1680,7 +1680,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Désiré Doué",
       "reason": "found-in-current-roster"
@@ -1850,8 +1850,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatus": "eliminated",
+      "tournamentStatusReason": "knockout-loser",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Lucas Bergvall",
       "reason": "found-in-current-roster"
@@ -1977,8 +1977,8 @@
       "baselineRosterStatus": "not-nominated",
       "currentRosterStatus": "not-nominated",
       "displayStatus": "not-nominated",
-      "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatus": "eliminated",
+      "tournamentStatusReason": "knockout-loser",
       "matchedCurrentRoster": false,
       "reason": "not-found-in-current-team-roster"
     },
@@ -2052,8 +2052,8 @@
     "notNominatedCount": 11,
     "lateCallupCount": 0,
     "unknownCount": 0,
-    "activeCount": 99,
-    "eliminatedCount": 30,
+    "activeCount": 94,
+    "eliminatedCount": 35,
     "tournamentUnknownCount": 0
   }
 }
