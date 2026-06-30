@@ -2386,18 +2386,18 @@
     "source": "football-data",
     "matchId": "football-data:537415",
     "fixtureId": "537415",
-    "label": "Germany 4-4 Paraguay",
+    "label": "Germany 5-6 Paraguay",
     "kickedOffAt": "2026-06-29T20:30:00Z",
-    "status": "live",
+    "status": "finished",
     "homeTeam": {
       "id": 759,
       "name": "Germany",
-      "score": 4
+      "score": 5
     },
     "awayTeam": {
       "id": 761,
       "name": "Paraguay",
-      "score": 4
+      "score": 6
     }
   },
   {
@@ -2625,6 +2625,24 @@
     "awayTeam": {
       "id": 12,
       "name": "Japan",
+      "score": 1
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1565176",
+    "fixtureId": "1565176",
+    "label": "Germany 1-1 Paraguay",
+    "kickedOffAt": "2026-06-29T20:30:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 25,
+      "name": "Germany",
+      "score": 1
+    },
+    "awayTeam": {
+      "id": 2380,
+      "name": "Paraguay",
       "score": 1
     }
   }

@@ -840,5 +840,30 @@
     "displayPlayerName": "Yoane Wissa",
     "displayNationalTeam": "DR Kongo",
     "points": 1
+  },
+  {
+    "externalGoalId": "api-football:1565176:70747:42:Normal Goal:0",
+    "playerName": "Julio Enciso",
+    "nationalTeam": "Paraguay",
+    "sourcePlayerName": "J. Enciso",
+    "sourceTeamName": "Paraguay",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 70747,
+    "matchId": "football-data:537415",
+    "fixtureId": "1565176",
+    "matchLabel": "Germany 1-1 Paraguay",
+    "kickedOffAt": "2026-06-29T20:30:00+00:00",
+    "minute": 42,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "paraguay-julio-enciso",
+    "teamId": "paraguay",
+    "pickId": "paraguay-julio-enciso",
+    "owner": "Rafael",
+    "pickedPlayerName": "Julio Enciso",
+    "displayPlayerName": "Julio Enciso",
+    "displayNationalTeam": "Paraguay",
+    "points": 1
   }
 ]

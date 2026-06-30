@@ -15,21 +15,21 @@
   },
   {
     "rank": 3,
+    "owner": "Rafael",
+    "points": 5,
+    "goals": 5,
+    "playersWithGoals": 3
+  },
+  {
+    "rank": 4,
     "owner": "Caro",
     "points": 4,
     "goals": 4,
     "playersWithGoals": 1
   },
   {
-    "rank": 3,
+    "rank": 4,
     "owner": "Marco",
-    "points": 4,
-    "goals": 4,
-    "playersWithGoals": 2
-  },
-  {
-    "rank": 3,
-    "owner": "Rafael",
     "points": 4,
     "goals": 4,
     "playersWithGoals": 2
