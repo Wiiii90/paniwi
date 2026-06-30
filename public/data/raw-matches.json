@@ -2319,6 +2319,7 @@
     "label": "Netherlands 3-4 Morocco",
     "kickedOffAt": "2026-06-30T01:00:00Z",
     "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "id": 8601,
       "name": "Netherlands",
@@ -2391,6 +2392,7 @@
     "label": "Germany 4-5 Paraguay",
     "kickedOffAt": "2026-06-29T20:30:00Z",
     "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "id": 759,
       "name": "Germany",
