@@ -2427,16 +2427,19 @@
     "source": "football-data",
     "matchId": "football-data:537416",
     "fixtureId": "537416",
-    "label": "France vs Sweden",
+    "label": "France 0-0 Sweden",
     "kickedOffAt": "2026-06-30T21:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "draw",
     "homeTeam": {
       "id": 773,
-      "name": "France"
+      "name": "France",
+      "score": 0
     },
     "awayTeam": {
       "id": 792,
-      "name": "Sweden"
+      "name": "Sweden",
+      "score": 0
     }
   },
   {
