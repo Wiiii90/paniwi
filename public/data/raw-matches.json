@@ -2316,16 +2316,19 @@
     "source": "football-data",
     "matchId": "football-data:537418",
     "fixtureId": "537418",
-    "label": "Netherlands vs Morocco",
+    "label": "Netherlands 0-0 Morocco",
     "kickedOffAt": "2026-06-30T01:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "draw",
     "homeTeam": {
       "id": 8601,
-      "name": "Netherlands"
+      "name": "Netherlands",
+      "score": 0
     },
     "awayTeam": {
       "id": 815,
-      "name": "Morocco"
+      "name": "Morocco",
+      "score": 0
     }
   },
   {
