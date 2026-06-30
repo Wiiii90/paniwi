@@ -25,11 +25,11 @@
     "playerName": "Kylian Mbappé",
     "normalizedPlayerName": "kylian mbappe",
     "nationalTeam": "Frankreich",
-    "goals": 4,
+    "goals": 5,
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 3
+    "rank": 2
   },
   {
     "playerName": "Ousmane Dembélé",
@@ -39,7 +39,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 3
+    "rank": 4
   },
   {
     "playerName": "Vinícius Júnior",
@@ -51,7 +51,7 @@
       "Felix"
     ],
     "selected": true,
-    "rank": 3
+    "rank": 4
   },
   {
     "playerName": "Brian Brobbey",
