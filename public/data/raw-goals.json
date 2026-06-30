@@ -4307,6 +4307,22 @@
     "teamId": "argentina"
   },
   {
+    "externalGoalId": "football-data:scorer:38101:normal",
+    "playerName": "Erling Haaland",
+    "nationalTeam": "Norway",
+    "sourcePlayerName": "Erling Haaland",
+    "sourceTeamName": "Norway",
+    "goals": 5,
+    "source": "football-data",
+    "apiPlayerId": 38101,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "norway-erling-haaland",
+    "teamId": "norway"
+  },
+  {
     "externalGoalId": "football-data:scorer:1556:normal",
     "playerName": "Vinícius Júnior",
     "nationalTeam": "Brazil",
@@ -4337,22 +4353,6 @@
     "detail": "normal",
     "playerId": "france-kylian-mbappe",
     "teamId": "france"
-  },
-  {
-    "externalGoalId": "football-data:scorer:38101:normal",
-    "playerName": "Erling Haaland",
-    "nationalTeam": "Norway",
-    "sourcePlayerName": "Erling Haaland",
-    "sourceTeamName": "Norway",
-    "goals": 4,
-    "source": "football-data",
-    "apiPlayerId": 38101,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "norway-erling-haaland",
-    "teamId": "norway"
   },
   {
     "externalGoalId": "football-data:scorer:3373:normal",
@@ -4689,6 +4689,22 @@
     "detail": "normal",
     "playerId": "japan-daichi-kamada",
     "teamId": "japan"
+  },
+  {
+    "externalGoalId": "football-data:scorer:133584:normal",
+    "playerName": "Amad Diallo",
+    "nationalTeam": "Ivory Coast",
+    "sourcePlayerName": "Amad Diallo",
+    "sourceTeamName": "Ivory Coast",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 133584,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "ivory-coast-amad-diallo",
+    "teamId": "ivory-coast"
   },
   {
     "externalGoalId": "football-data:scorer:145613:normal",
@@ -5259,22 +5275,6 @@
     "detail": "normal",
     "playerId": "japan-keito-nakamura",
     "teamId": "japan"
-  },
-  {
-    "externalGoalId": "football-data:scorer:133584:normal",
-    "playerName": "Amad Diallo",
-    "nationalTeam": "Ivory Coast",
-    "sourcePlayerName": "Amad Diallo",
-    "sourceTeamName": "Ivory Coast",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 133584,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "ivory-coast-amad-diallo",
-    "teamId": "ivory-coast"
   },
   {
     "externalGoalId": "football-data:scorer:6486:normal",
