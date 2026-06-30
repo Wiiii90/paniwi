@@ -53130,14 +53130,17 @@
   },
   {
     "matchId": "football-data:537424",
-    "label": "Ivory Coast vs Norway",
+    "label": "Ivory Coast 0-0 Norway",
     "kickedOffAt": "2026-06-30T17:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "draw",
     "homeTeam": {
-      "name": "Elfenbeinküste"
+      "name": "Elfenbeinküste",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Norwegen"
+      "name": "Norwegen",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -53236,12 +53239,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 0,
       "goalEventCount": 0,
-      "eventsComplete": false,
+      "eventsComplete": true,
       "lineupsComplete": false,
       "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsLineupBackfill": true
     }
   },
   {
