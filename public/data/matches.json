@@ -52296,17 +52296,17 @@
   },
   {
     "matchId": "football-data:537418",
-    "label": "Netherlands 0-0 Morocco",
+    "label": "Netherlands 1-1 Morocco",
     "kickedOffAt": "2026-06-30T01:00:00Z",
     "status": "live",
     "winnerTeam": "draw",
     "homeTeam": {
       "name": "Niederlande",
-      "score": 0
+      "score": 1
     },
     "awayTeam": {
       "name": "Marokko",
-      "score": 0
+      "score": 1
     },
     "goals": [],
     "pointGoals": [],
@@ -52389,11 +52389,11 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 0,
+      "scoreTotal": 2,
       "goalEventCount": 0,
-      "eventsComplete": true,
+      "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
+      "needsEventBackfill": true,
       "needsLineupBackfill": true
     }
   },

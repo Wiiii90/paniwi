@@ -4446,6 +4446,22 @@
     "teamId": "netherlands"
   },
   {
+    "externalGoalId": "football-data:scorer:7459:normal",
+    "playerName": "Cody Gakpo",
+    "nationalTeam": "Netherlands",
+    "sourcePlayerName": "Cody Gakpo",
+    "sourceTeamName": "Netherlands",
+    "goals": 3,
+    "source": "football-data",
+    "apiPlayerId": 7459,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "netherlands-cody-gakpo",
+    "teamId": "netherlands"
+  },
+  {
     "externalGoalId": "football-data:scorer:3638:normal",
     "playerName": "Ismaïla Sarr",
     "nationalTeam": "Senegal",
@@ -4684,22 +4700,6 @@
     "detail": "normal",
     "playerId": "bosnia-and-herzegovina-ermin-mahmic",
     "teamId": "bosnia-and-herzegovina"
-  },
-  {
-    "externalGoalId": "football-data:scorer:7459:normal",
-    "playerName": "Cody Gakpo",
-    "nationalTeam": "Netherlands",
-    "sourcePlayerName": "Cody Gakpo",
-    "sourceTeamName": "Netherlands",
-    "goals": 2,
-    "source": "football-data",
-    "apiPlayerId": 7459,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "netherlands-cody-gakpo",
-    "teamId": "netherlands"
   },
   {
     "externalGoalId": "football-data:scorer:166376:normal",
