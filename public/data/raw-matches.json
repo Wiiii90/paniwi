@@ -2465,16 +2465,19 @@
     "source": "football-data",
     "matchId": "football-data:537426",
     "fixtureId": "537426",
-    "label": "England vs Congo DR",
+    "label": "England 0-1 Congo DR",
     "kickedOffAt": "2026-07-01T16:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "away",
     "homeTeam": {
       "id": 770,
-      "name": "England"
+      "name": "England",
+      "score": 0
     },
     "awayTeam": {
       "id": 1934,
-      "name": "Congo DR"
+      "name": "Congo DR",
+      "score": 1
     }
   },
   {
