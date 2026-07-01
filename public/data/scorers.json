@@ -42,6 +42,16 @@
     "rank": 3
   },
   {
+    "playerName": "Ismaïla Sarr",
+    "normalizedPlayerName": "ismaila sarr",
+    "nationalTeam": "Senegal",
+    "goals": 4,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 5
+  },
+  {
     "playerName": "Ousmane Dembélé",
     "normalizedPlayerName": "ousmane dembele",
     "nationalTeam": "Frankreich",
@@ -71,7 +81,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 7
+    "rank": 8
   },
   {
     "playerName": "Cody Gakpo",
@@ -81,7 +91,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 7
+    "rank": 8
   },
   {
     "playerName": "Deniz Undav",
@@ -91,7 +101,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 7
+    "rank": 8
   },
   {
     "playerName": "Elijah Just",
@@ -101,7 +111,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 7
+    "rank": 8
   },
   {
     "playerName": "Ismael Saibari",
@@ -111,17 +121,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 7
-  },
-  {
-    "playerName": "Ismaïla Sarr",
-    "normalizedPlayerName": "ismaila sarr",
-    "nationalTeam": "Senegal",
-    "goals": 3,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 7
+    "rank": 8
   },
   {
     "playerName": "Johan Manzambi",
@@ -131,7 +131,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 7
+    "rank": 8
   },
   {
     "playerName": "Jonathan David",
@@ -143,7 +143,7 @@
       "Jonas"
     ],
     "selected": true,
-    "rank": 7
+    "rank": 8
   },
   {
     "playerName": "Julián Quiñones",
@@ -153,7 +153,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 7
+    "rank": 8
   },
   {
     "playerName": "Kai Havertz",
@@ -163,7 +163,7 @@
     "penaltyGoals": 1,
     "scoringOwners": [],
     "selected": false,
-    "rank": 7
+    "rank": 8
   },
   {
     "playerName": "Matheus Cunha",
@@ -175,7 +175,7 @@
       "Rafael"
     ],
     "selected": true,
-    "rank": 7
+    "rank": 8
   },
   {
     "playerName": "Yoane Wissa",
@@ -187,7 +187,7 @@
       "Marco"
     ],
     "selected": true,
-    "rank": 7
+    "rank": 8
   },
   {
     "playerName": "Amad Diallo",

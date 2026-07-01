@@ -56624,7 +56624,7 @@
   },
   {
     "matchId": "football-data:537422",
-    "label": "Belgium 0-1 Senegal",
+    "label": "Belgium 0-2 Senegal",
     "kickedOffAt": "2026-07-01T20:00:00Z",
     "status": "live",
     "winnerTeam": "away",
@@ -56634,7 +56634,7 @@
     },
     "awayTeam": {
       "name": "Senegal",
-      "score": 1
+      "score": 2
     },
     "goals": [],
     "pointGoals": [],
@@ -56763,7 +56763,7 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 1,
+      "scoreTotal": 2,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
