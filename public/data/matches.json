@@ -54916,13 +54916,13 @@
   },
   {
     "matchId": "football-data:537425",
-    "label": "Mexico 0-0 Ecuador",
+    "label": "Mexico 1-0 Ecuador",
     "kickedOffAt": "2026-07-01T01:00:00Z",
     "status": "live",
-    "winnerTeam": "draw",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Mexiko",
-      "score": 0
+      "score": 1
     },
     "awayTeam": {
       "name": "Ecuador",
@@ -55009,11 +55009,11 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 0,
+      "scoreTotal": 1,
       "goalEventCount": 0,
-      "eventsComplete": true,
+      "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
+      "needsEventBackfill": true,
       "needsLineupBackfill": true
     }
   },

@@ -146,6 +146,16 @@
     "rank": 6
   },
   {
+    "playerName": "Julián Quiñones",
+    "normalizedPlayerName": "julian quinones",
+    "nationalTeam": "Mexiko",
+    "goals": 3,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 6
+  },
+  {
     "playerName": "Kai Havertz",
     "normalizedPlayerName": "kai havertz",
     "nationalTeam": "Deutschland",
@@ -187,7 +197,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 18
+    "rank": 19
   },
   {
     "playerName": "Anthony Elanga",
@@ -197,7 +207,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 18
+    "rank": 19
   },
   {
     "playerName": "Ayase Ueda",
@@ -207,7 +217,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 18
+    "rank": 19
   },
   {
     "playerName": "Bradley Barcola",
@@ -219,7 +229,7 @@
       "Nina"
     ],
     "selected": true,
-    "rank": 18
+    "rank": 19
   },
   {
     "playerName": "Cristiano Ronaldo",
@@ -229,7 +239,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 18
+    "rank": 19
   },
   {
     "playerName": "Crysencio Summerville",
@@ -239,7 +249,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 18
+    "rank": 19
   },
   {
     "playerName": "Cyle Larin",
@@ -249,7 +259,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 18
+    "rank": 19
   },
   {
     "playerName": "Daichi Kamada",
@@ -259,7 +269,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 18
+    "rank": 19
   },
   {
     "playerName": "Daniel Muñoz",
@@ -269,7 +279,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 18
+    "rank": 19
   },
   {
     "playerName": "Ermin Mahmić",
@@ -279,7 +289,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 18
+    "rank": 19
   },
   {
     "playerName": "Folarin Balogun",
@@ -289,7 +299,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 18
+    "rank": 19
   },
   {
     "playerName": "Jude Bellingham",
@@ -301,17 +311,7 @@
       "Jonas"
     ],
     "selected": true,
-    "rank": 18
-  },
-  {
-    "playerName": "Julián Quiñones",
-    "normalizedPlayerName": "julian quinones",
-    "nationalTeam": "Mexiko",
-    "goals": 2,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 18
+    "rank": 19
   },
   {
     "playerName": "Leandro Trossard",
@@ -321,7 +321,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 18
+    "rank": 19
   },
   {
     "playerName": "Marko Arnautović",
@@ -331,7 +331,7 @@
     "penaltyGoals": 1,
     "scoringOwners": [],
     "selected": false,
-    "rank": 18
+    "rank": 19
   },
   {
     "playerName": "Maximiliano Araújo",
@@ -341,7 +341,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 18
+    "rank": 19
   },
   {
     "playerName": "Mikel Oyarzabal",
@@ -351,7 +351,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 18
+    "rank": 19
   },
   {
     "playerName": "Nicolas Pépé",
@@ -361,7 +361,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 18
+    "rank": 19
   },
   {
     "playerName": "Pape Gueye",
@@ -371,7 +371,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 18
+    "rank": 19
   },
   {
     "playerName": "Ramin Rezaeian",
@@ -383,7 +383,7 @@
       "Felix"
     ],
     "selected": true,
-    "rank": 18
+    "rank": 19
   },
   {
     "playerName": "Riyad Mahrez",
@@ -393,7 +393,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 18
+    "rank": 19
   },
   {
     "playerName": "Rubén Vargas",
@@ -405,7 +405,7 @@
       "Peer"
     ],
     "selected": true,
-    "rank": 18
+    "rank": 19
   },
   {
     "playerName": "Yasin Ayari",
@@ -415,7 +415,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 18
+    "rank": 19
   },
   {
     "playerName": "Abbosbek Fayzullaev",

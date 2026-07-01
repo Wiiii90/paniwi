@@ -4485,6 +4485,22 @@
     "teamId": "france"
   },
   {
+    "externalGoalId": "football-data:scorer:39237:normal",
+    "playerName": "Julián Quiñones",
+    "nationalTeam": "Mexico",
+    "sourcePlayerName": "Julián Quiñones",
+    "sourceTeamName": "Mexico",
+    "goals": 3,
+    "source": "football-data",
+    "apiPlayerId": 39237,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "mexico-julian-quinones",
+    "teamId": "mexico"
+  },
+  {
     "externalGoalId": "football-data:scorer:130173:normal",
     "playerName": "Ismael Saibari",
     "nationalTeam": "Morocco",
@@ -4723,22 +4739,6 @@
     "detail": "normal",
     "playerId": "senegal-ismaila-sarr",
     "teamId": "senegal"
-  },
-  {
-    "externalGoalId": "football-data:scorer:39237:normal",
-    "playerName": "Julián Quiñones",
-    "nationalTeam": "Mexico",
-    "sourcePlayerName": "Julián Quiñones",
-    "sourceTeamName": "Mexico",
-    "goals": 2,
-    "source": "football-data",
-    "apiPlayerId": 39237,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "mexico-julian-quinones",
-    "teamId": "mexico"
   },
   {
     "externalGoalId": "football-data:scorer:15958:normal",
