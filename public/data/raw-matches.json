@@ -2448,7 +2448,7 @@
     "fixtureId": "537425",
     "label": "Mexico 2-0 Ecuador",
     "kickedOffAt": "2026-07-01T01:00:00Z",
-    "status": "live",
+    "status": "finished",
     "winnerTeam": "home",
     "homeTeam": {
       "id": 769,
@@ -2710,6 +2710,24 @@
     "awayTeam": {
       "id": 5,
       "name": "Sweden",
+      "score": 0
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1567306",
+    "fixtureId": "1567306",
+    "label": "Mexico 2-0 Ecuador",
+    "kickedOffAt": "2026-07-01T01:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 16,
+      "name": "Mexico",
+      "score": 2
+    },
+    "awayTeam": {
+      "id": 2382,
+      "name": "Ecuador",
       "score": 0
     }
   }

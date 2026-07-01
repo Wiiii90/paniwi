@@ -6057,5 +6057,43 @@
     "detail": "normal",
     "playerId": "algeria-amine-gouiri",
     "teamId": "algeria"
+  },
+  {
+    "externalGoalId": "api-football:1567306:35532:22:Normal Goal:0",
+    "playerName": "Julián Quiñones",
+    "nationalTeam": "Mexico",
+    "sourcePlayerName": "J. Quinones",
+    "sourceTeamName": "Mexico",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 35532,
+    "matchId": "football-data:537425",
+    "fixtureId": "1567306",
+    "matchLabel": "Mexico 2-0 Ecuador",
+    "kickedOffAt": "2026-07-01T01:00:00+00:00",
+    "minute": 22,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "mexico-julian-quinones",
+    "teamId": "mexico"
+  },
+  {
+    "externalGoalId": "api-football:1567306:2887:31:Normal Goal:1",
+    "playerName": "Raúl Jiménez",
+    "nationalTeam": "Mexico",
+    "sourcePlayerName": "R. Jimenez",
+    "sourceTeamName": "Mexico",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 2887,
+    "matchId": "football-data:537425",
+    "fixtureId": "1567306",
+    "matchLabel": "Mexico 2-0 Ecuador",
+    "kickedOffAt": "2026-07-01T01:00:00+00:00",
+    "minute": 31,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "mexico-raul-jimenez",
+    "teamId": "mexico"
   }
 ]

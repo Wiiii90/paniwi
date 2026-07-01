@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-01T04:01:25.364Z",
+  "lastUpdated": "2026-07-01T05:01:29.316Z",
   "rosterSnapshotUpdatedAt": "2026-06-15T23:48:37.445Z",
   "picks": [
     {
@@ -694,7 +694,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Israel Reyes",
       "reason": "found-in-current-roster"
@@ -853,8 +853,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatus": "eliminated",
+      "tournamentStatusReason": "knockout-loser",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Piero Hincapié",
       "reason": "found-in-current-roster"
@@ -917,8 +917,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatus": "eliminated",
+      "tournamentStatusReason": "knockout-loser",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Ángelo Preciado",
       "reason": "found-in-current-roster"
@@ -1154,7 +1154,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Edson Álvarez",
       "reason": "found-in-current-roster"
@@ -1726,7 +1726,7 @@
       "currentRosterStatus": "not-nominated",
       "displayStatus": "not-nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": false,
       "reason": "not-found-in-current-team-roster"
     },
@@ -1914,8 +1914,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatus": "eliminated",
+      "tournamentStatusReason": "knockout-loser",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Kevin Rodríguez",
       "reason": "found-in-current-roster"
@@ -2052,8 +2052,8 @@
     "notNominatedCount": 11,
     "lateCallupCount": 0,
     "unknownCount": 0,
-    "activeCount": 94,
-    "eliminatedCount": 35,
+    "activeCount": 91,
+    "eliminatedCount": 38,
     "tournamentUnknownCount": 0
   }
 }
