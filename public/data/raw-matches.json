@@ -2446,14 +2446,14 @@
     "source": "football-data",
     "matchId": "football-data:537425",
     "fixtureId": "537425",
-    "label": "Mexico 1-0 Ecuador",
+    "label": "Mexico 2-0 Ecuador",
     "kickedOffAt": "2026-07-01T01:00:00Z",
     "status": "live",
     "winnerTeam": "home",
     "homeTeam": {
       "id": 769,
       "name": "Mexico",
-      "score": 1
+      "score": 2
     },
     "awayTeam": {
       "id": 791,

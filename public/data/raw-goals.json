@@ -4741,6 +4741,22 @@
     "teamId": "senegal"
   },
   {
+    "externalGoalId": "football-data:scorer:3305:normal",
+    "playerName": "Raúl Jiménez",
+    "nationalTeam": "Mexico",
+    "sourcePlayerName": "Raúl Jiménez",
+    "sourceTeamName": "Mexico",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 3305,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "mexico-raul-jimenez",
+    "teamId": "mexico"
+  },
+  {
     "externalGoalId": "football-data:scorer:15958:normal",
     "playerName": "Cyle Larin",
     "nationalTeam": "Canada",
@@ -5107,22 +5123,6 @@
     "detail": "normal",
     "playerId": "algeria-riyad-mahrez",
     "teamId": "algeria"
-  },
-  {
-    "externalGoalId": "football-data:scorer:3305:normal",
-    "playerName": "Raúl Jiménez",
-    "nationalTeam": "Mexico",
-    "sourcePlayerName": "Raúl Jiménez",
-    "sourceTeamName": "Mexico",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 3305,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "mexico-raul-jimenez",
-    "teamId": "mexico"
   },
   {
     "externalGoalId": "football-data:scorer:1878:normal",
