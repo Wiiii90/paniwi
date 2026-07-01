@@ -2465,14 +2465,14 @@
     "source": "football-data",
     "matchId": "football-data:537426",
     "fixtureId": "537426",
-    "label": "England 0-1 Congo DR",
+    "label": "England 2-1 Congo DR",
     "kickedOffAt": "2026-07-01T16:00:00Z",
-    "status": "live",
-    "winnerTeam": "away",
+    "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "id": 770,
       "name": "England",
-      "score": 0
+      "score": 2
     },
     "awayTeam": {
       "id": 1934,
@@ -2484,16 +2484,19 @@
     "source": "football-data",
     "matchId": "football-data:537422",
     "fixtureId": "537422",
-    "label": "Belgium vs Senegal",
+    "label": "Belgium 0-1 Senegal",
     "kickedOffAt": "2026-07-01T20:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "away",
     "homeTeam": {
       "id": 805,
-      "name": "Belgium"
+      "name": "Belgium",
+      "score": 0
     },
     "awayTeam": {
       "id": 804,
-      "name": "Senegal"
+      "name": "Senegal",
+      "score": 1
     }
   },
   {
@@ -2732,6 +2735,24 @@
       "id": 2382,
       "name": "Ecuador",
       "score": 0
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1567307",
+    "fixtureId": "1567307",
+    "label": "England 2-1 Congo DR",
+    "kickedOffAt": "2026-07-01T16:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 10,
+      "name": "England",
+      "score": 2
+    },
+    "awayTeam": {
+      "id": 1508,
+      "name": "Congo DR",
+      "score": 1
     }
   }
 ]

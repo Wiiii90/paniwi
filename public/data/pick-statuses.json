@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-01T17:01:41.151Z",
+  "lastUpdated": "2026-07-01T20:40:16.330Z",
   "rosterSnapshotUpdatedAt": "2026-06-15T23:48:37.445Z",
   "picks": [
     {
@@ -13,7 +13,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Morgan Rogers",
       "reason": "found-in-current-roster"
@@ -157,7 +157,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Marc Guéhi",
       "reason": "found-in-current-roster"
@@ -379,7 +379,7 @@
       "currentRosterStatus": "not-nominated",
       "displayStatus": "not-nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": false,
       "reason": "not-found-in-current-team-roster"
     },
@@ -599,8 +599,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatus": "eliminated",
+      "tournamentStatusReason": "knockout-loser",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Cédric Bakambu",
       "reason": "found-in-current-roster"
@@ -805,8 +805,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatus": "eliminated",
+      "tournamentStatusReason": "knockout-loser",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Edo Kayembe",
       "reason": "found-in-current-roster"
@@ -870,7 +870,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Jordan Pickford",
       "reason": "found-in-current-roster"
@@ -1138,7 +1138,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Jude Bellingham",
       "reason": "found-in-current-roster"
@@ -1250,7 +1250,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Marcus Rashford",
       "reason": "found-in-current-roster"
@@ -1265,8 +1265,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatus": "eliminated",
+      "tournamentStatusReason": "knockout-loser",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Cédric Bakambu",
       "reason": "found-in-current-roster"
@@ -1377,8 +1377,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatus": "eliminated",
+      "tournamentStatusReason": "knockout-loser",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Aaron Wan-Bissaka",
       "reason": "found-in-current-roster"
@@ -1740,8 +1740,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatus": "eliminated",
+      "tournamentStatusReason": "knockout-loser",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Yoane Wissa",
       "reason": "found-in-current-roster"
@@ -1772,8 +1772,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatus": "eliminated",
+      "tournamentStatusReason": "knockout-loser",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Nathanaël Mbuku",
       "reason": "found-in-current-roster"
@@ -1866,8 +1866,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatus": "eliminated",
+      "tournamentStatusReason": "knockout-loser",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Ngal'ayel Mukau",
       "reason": "found-in-current-roster"
@@ -1963,7 +1963,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Dan Burn",
       "reason": "found-in-current-roster"
@@ -2052,8 +2052,8 @@
     "notNominatedCount": 11,
     "lateCallupCount": 0,
     "unknownCount": 0,
-    "activeCount": 91,
-    "eliminatedCount": 38,
+    "activeCount": 84,
+    "eliminatedCount": 45,
     "tournamentUnknownCount": 0
   }
 }
