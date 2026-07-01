@@ -2446,16 +2446,19 @@
     "source": "football-data",
     "matchId": "football-data:537425",
     "fixtureId": "537425",
-    "label": "Mexico vs Ecuador",
+    "label": "Mexico 0-0 Ecuador",
     "kickedOffAt": "2026-07-01T01:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "draw",
     "homeTeam": {
       "id": 769,
-      "name": "Mexico"
+      "name": "Mexico",
+      "score": 0
     },
     "awayTeam": {
       "id": 791,
-      "name": "Ecuador"
+      "name": "Ecuador",
+      "score": 0
     }
   },
   {
