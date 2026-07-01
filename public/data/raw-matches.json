@@ -2408,19 +2408,16 @@
     "source": "football-data",
     "matchId": "football-data:537424",
     "fixtureId": "537424",
-    "label": "Ivory Coast 1-2 Norway",
+    "label": "Ivory Coast vs Norway",
     "kickedOffAt": "2026-06-30T17:00:00Z",
-    "status": "finished",
-    "winnerTeam": "away",
+    "status": "scheduled",
     "homeTeam": {
       "id": 1935,
-      "name": "Ivory Coast",
-      "score": 1
+      "name": "Ivory Coast"
     },
     "awayTeam": {
       "id": 8872,
-      "name": "Norway",
-      "score": 2
+      "name": "Norway"
     }
   },
   {
