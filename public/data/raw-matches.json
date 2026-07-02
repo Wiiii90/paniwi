@@ -2522,16 +2522,19 @@
     "source": "football-data",
     "matchId": "football-data:537420",
     "fixtureId": "537420",
-    "label": "Spain vs Austria",
+    "label": "Spain 1-0 Austria",
     "kickedOffAt": "2026-07-02T19:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "home",
     "homeTeam": {
       "id": 760,
-      "name": "Spain"
+      "name": "Spain",
+      "score": 1
     },
     "awayTeam": {
       "id": 816,
-      "name": "Austria"
+      "name": "Austria",
+      "score": 0
     }
   },
   {

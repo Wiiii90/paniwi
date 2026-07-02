@@ -59226,14 +59226,17 @@
   },
   {
     "matchId": "football-data:537420",
-    "label": "Spain vs Austria",
+    "label": "Spain 1-0 Austria",
     "kickedOffAt": "2026-07-02T19:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "home",
     "homeTeam": {
-      "name": "Spanien"
+      "name": "Spanien",
+      "score": 1
     },
     "awayTeam": {
-      "name": "Österreich"
+      "name": "Österreich",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -59332,12 +59335,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 1,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsEventBackfill": true,
+      "needsLineupBackfill": true
     }
   },
   {
