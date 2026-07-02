@@ -52,6 +52,16 @@
     "rank": 5
   },
   {
+    "playerName": "Mikel Oyarzabal",
+    "normalizedPlayerName": "mikel oyarzabal",
+    "nationalTeam": "Spanien",
+    "goals": 4,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 5
+  },
+  {
     "playerName": "Ousmane Dembélé",
     "normalizedPlayerName": "ousmane dembele",
     "nationalTeam": "Frankreich",
@@ -81,7 +91,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 8
+    "rank": 9
   },
   {
     "playerName": "Cody Gakpo",
@@ -91,7 +101,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 8
+    "rank": 9
   },
   {
     "playerName": "Deniz Undav",
@@ -101,7 +111,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 8
+    "rank": 9
   },
   {
     "playerName": "Elijah Just",
@@ -111,7 +121,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 8
+    "rank": 9
   },
   {
     "playerName": "Folarin Balogun",
@@ -121,7 +131,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 8
+    "rank": 9
   },
   {
     "playerName": "Ismael Saibari",
@@ -131,7 +141,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 8
+    "rank": 9
   },
   {
     "playerName": "Johan Manzambi",
@@ -141,7 +151,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 8
+    "rank": 9
   },
   {
     "playerName": "Jonathan David",
@@ -153,7 +163,7 @@
       "Jonas"
     ],
     "selected": true,
-    "rank": 8
+    "rank": 9
   },
   {
     "playerName": "Julián Quiñones",
@@ -163,7 +173,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 8
+    "rank": 9
   },
   {
     "playerName": "Kai Havertz",
@@ -173,7 +183,7 @@
     "penaltyGoals": 1,
     "scoringOwners": [],
     "selected": false,
-    "rank": 8
+    "rank": 9
   },
   {
     "playerName": "Matheus Cunha",
@@ -185,17 +195,7 @@
       "Rafael"
     ],
     "selected": true,
-    "rank": 8
-  },
-  {
-    "playerName": "Mikel Oyarzabal",
-    "normalizedPlayerName": "mikel oyarzabal",
-    "nationalTeam": "Spanien",
-    "goals": 3,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 8
+    "rank": 9
   },
   {
     "playerName": "Yoane Wissa",
@@ -207,7 +207,7 @@
       "Marco"
     ],
     "selected": true,
-    "rank": 8
+    "rank": 9
   },
   {
     "playerName": "Amad Diallo",

@@ -59226,13 +59226,13 @@
   },
   {
     "matchId": "football-data:537420",
-    "label": "Spain 1-0 Austria",
+    "label": "Spain 3-0 Austria",
     "kickedOffAt": "2026-07-02T19:00:00Z",
     "status": "live",
     "winnerTeam": "home",
     "homeTeam": {
       "name": "Spanien",
-      "score": 1
+      "score": 3
     },
     "awayTeam": {
       "name": "Österreich",
@@ -59335,7 +59335,7 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 1,
+      "scoreTotal": 3,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,

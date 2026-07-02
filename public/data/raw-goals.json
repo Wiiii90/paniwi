@@ -4729,6 +4729,22 @@
     "teamId": "brazil"
   },
   {
+    "externalGoalId": "football-data:scorer:180137:normal",
+    "playerName": "Mikel Oyarzabal",
+    "nationalTeam": "Spain",
+    "sourcePlayerName": "Mikel Oyarzabal",
+    "sourceTeamName": "Spain",
+    "goals": 4,
+    "source": "football-data",
+    "apiPlayerId": 180137,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "spain-mikel-oyarzabal",
+    "teamId": "spain"
+  },
+  {
     "externalGoalId": "football-data:scorer:3373:normal",
     "playerName": "Ousmane Dembélé",
     "nationalTeam": "France",
@@ -4983,22 +4999,6 @@
     "detail": "normal",
     "playerId": "netherlands-cody-gakpo",
     "teamId": "netherlands"
-  },
-  {
-    "externalGoalId": "football-data:scorer:180137:normal",
-    "playerName": "Mikel Oyarzabal",
-    "nationalTeam": "Spain",
-    "sourcePlayerName": "Mikel Oyarzabal",
-    "sourceTeamName": "Spain",
-    "goals": 3,
-    "source": "football-data",
-    "apiPlayerId": 180137,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "spain-mikel-oyarzabal",
-    "teamId": "spain"
   },
   {
     "externalGoalId": "football-data:scorer:3305:normal",
