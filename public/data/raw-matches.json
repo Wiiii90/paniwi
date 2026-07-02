@@ -2505,7 +2505,7 @@
     "fixtureId": "537421",
     "label": "United States 2-0 Bosnia-Herzegovina",
     "kickedOffAt": "2026-07-02T00:00:00Z",
-    "status": "live",
+    "status": "finished",
     "winnerTeam": "home",
     "homeTeam": {
       "id": 771,
@@ -2806,6 +2806,24 @@
     "awayTeam": {
       "id": 773,
       "name": "France"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1562586",
+    "fixtureId": "1562586",
+    "label": "USA 2-0 Bosnia & Herzegovina",
+    "kickedOffAt": "2026-07-02T00:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 2384,
+      "name": "USA",
+      "score": 2
+    },
+    "awayTeam": {
+      "id": 1113,
+      "name": "Bosnia & Herzegovina",
+      "score": 0
     }
   }
 ]
