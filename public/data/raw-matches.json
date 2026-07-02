@@ -2524,7 +2524,7 @@
     "fixtureId": "537420",
     "label": "Spain 3-0 Austria",
     "kickedOffAt": "2026-07-02T19:00:00Z",
-    "status": "live",
+    "status": "finished",
     "winnerTeam": "home",
     "homeTeam": {
       "id": 760,
@@ -2826,6 +2826,24 @@
     "awayTeam": {
       "id": 1113,
       "name": "Bosnia & Herzegovina",
+      "score": 0
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1567311",
+    "fixtureId": "1567311",
+    "label": "Spain 3-0 Austria",
+    "kickedOffAt": "2026-07-02T19:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 9,
+      "name": "Spain",
+      "score": 3
+    },
+    "awayTeam": {
+      "id": 775,
+      "name": "Austria",
       "score": 0
     }
   }

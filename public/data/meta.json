@@ -1,22 +1,22 @@
 {
-  "lastUpdated": "2026-07-02T21:01:36.987Z",
-  "source": "football-data",
+  "lastUpdated": "2026-07-02T22:01:39.625Z",
+  "source": "api-football",
   "attemptedSources": [
-    "football-data"
+    "api-football"
   ],
   "fallbackUsed": false,
   "status": "ok",
-  "goalCount": 352,
+  "goalCount": 355,
   "scoredGoalCount": 41,
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
-  "snapshotFingerprint": "d547538551752672356650254d69241060670114bbfe01c8bd84b2c7bb232735",
+  "message": "Daten-Snapshot mit Quelle api-football erzeugt.",
+  "snapshotFingerprint": "61f8b696f8aaf9c8bd1d659efb11eda9967201961da99c03b54b2f95d071c113",
   "snapshotChanged": true,
-  "syncWindowId": "football-data:537420-check-1",
+  "syncWindowId": "football-data:537419-pre-match:api-football-enrich:football-data:537420",
   "windowSyncAttempts": 1,
-  "liveMatchCount": 1,
+  "liveMatchCount": 0,
   "sourceRequestCount": 3,
   "sourceRequestLimit": 6
 }
