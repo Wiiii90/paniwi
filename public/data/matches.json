@@ -57569,13 +57569,13 @@
   },
   {
     "matchId": "football-data:537421",
-    "label": "United States 0-0 Bosnia-Herzegovina",
+    "label": "United States 1-0 Bosnia-Herzegovina",
     "kickedOffAt": "2026-07-02T00:00:00Z",
     "status": "live",
-    "winnerTeam": "draw",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "USA",
-      "score": 0
+      "score": 1
     },
     "awayTeam": {
       "name": "Bosnien und Herzegowina",
@@ -57633,11 +57633,11 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 0,
+      "scoreTotal": 1,
       "goalEventCount": 0,
-      "eventsComplete": true,
+      "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
+      "needsEventBackfill": true,
       "needsLineupBackfill": true
     }
   },

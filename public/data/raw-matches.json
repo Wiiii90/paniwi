@@ -2503,14 +2503,14 @@
     "source": "football-data",
     "matchId": "football-data:537421",
     "fixtureId": "537421",
-    "label": "United States 0-0 Bosnia-Herzegovina",
+    "label": "United States 1-0 Bosnia-Herzegovina",
     "kickedOffAt": "2026-07-02T00:00:00Z",
     "status": "live",
-    "winnerTeam": "draw",
+    "winnerTeam": "home",
     "homeTeam": {
       "id": 771,
       "name": "United States",
-      "score": 0
+      "score": 1
     },
     "awayTeam": {
       "id": 1060,

@@ -4739,6 +4739,22 @@
     "teamId": "mexico"
   },
   {
+    "externalGoalId": "football-data:scorer:131040:normal",
+    "playerName": "Folarin Balogun",
+    "nationalTeam": "United States",
+    "sourcePlayerName": "Folarin Balogun",
+    "sourceTeamName": "United States",
+    "goals": 3,
+    "source": "football-data",
+    "apiPlayerId": 131040,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "united-states-folarin-balogun",
+    "teamId": "united-states"
+  },
+  {
     "externalGoalId": "football-data:scorer:130173:normal",
     "playerName": "Ismael Saibari",
     "nationalTeam": "Morocco",
@@ -4961,22 +4977,6 @@
     "detail": "normal",
     "playerId": "canada-cyle-larin",
     "teamId": "canada"
-  },
-  {
-    "externalGoalId": "football-data:scorer:131040:normal",
-    "playerName": "Folarin Balogun",
-    "nationalTeam": "United States",
-    "sourcePlayerName": "Folarin Balogun",
-    "sourceTeamName": "United States",
-    "goals": 2,
-    "source": "football-data",
-    "apiPlayerId": 131040,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "united-states-folarin-balogun",
-    "teamId": "united-states"
   },
   {
     "externalGoalId": "football-data:scorer:102193:normal",
