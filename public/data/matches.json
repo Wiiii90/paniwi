@@ -58180,5 +58180,250 @@
       "needsEventBackfill": false,
       "needsLineupBackfill": false
     }
+  },
+  {
+    "matchId": "football-data:537376",
+    "label": "Canada vs Morocco",
+    "kickedOffAt": "2026-07-04T17:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Kanada"
+    },
+    "awayTeam": {
+      "name": "Marokko"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537376",
+        "fixtureId": "537376",
+        "playerName": "Alphonso Davies",
+        "nationalTeam": "Kanada",
+        "teamId": "canada",
+        "status": "unknown",
+        "displayPlayerName": "Alphonso Davies",
+        "displayNationalTeam": "Kanada",
+        "owners": [
+          "Marco"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537376",
+        "fixtureId": "537376",
+        "playerName": "Jonathan David",
+        "nationalTeam": "Kanada",
+        "teamId": "canada",
+        "status": "unknown",
+        "displayPlayerName": "Jonathan David",
+        "displayNationalTeam": "Kanada",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537376",
+        "fixtureId": "537376",
+        "playerName": "Mathieu Choinière",
+        "nationalTeam": "Kanada",
+        "teamId": "canada",
+        "status": "unknown",
+        "displayPlayerName": "Mathieu Choinière",
+        "displayNationalTeam": "Kanada",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537376",
+        "fixtureId": "537376",
+        "playerName": "Richie Laryea",
+        "nationalTeam": "Kanada",
+        "teamId": "canada",
+        "status": "unknown",
+        "displayPlayerName": "Richie Laryea",
+        "displayNationalTeam": "Kanada",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537376",
+        "fixtureId": "537376",
+        "playerName": "Achraf Hakimi",
+        "nationalTeam": "Marokko",
+        "teamId": "morocco",
+        "status": "unknown",
+        "displayPlayerName": "Achraf Hakimi",
+        "displayNationalTeam": "Marokko",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537376",
+        "fixtureId": "537376",
+        "playerName": "Ayoub El Kaabi",
+        "nationalTeam": "Marokko",
+        "teamId": "morocco",
+        "status": "unknown",
+        "displayPlayerName": "Ayoub El Kaabi",
+        "displayNationalTeam": "Marokko",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
+  },
+  {
+    "matchId": "football-data:537375",
+    "label": "Paraguay vs France",
+    "kickedOffAt": "2026-07-04T21:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Paraguay"
+    },
+    "awayTeam": {
+      "name": "Frankreich"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537375",
+        "fixtureId": "537375",
+        "playerName": "Adrien Rabiot",
+        "nationalTeam": "Frankreich",
+        "teamId": "france",
+        "status": "unknown",
+        "displayPlayerName": "Adrien Rabiot",
+        "displayNationalTeam": "Frankreich",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537375",
+        "fixtureId": "537375",
+        "playerName": "Bradley Barcola",
+        "nationalTeam": "Frankreich",
+        "teamId": "france",
+        "status": "unknown",
+        "displayPlayerName": "Bradley Barcola",
+        "displayNationalTeam": "Frankreich",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537375",
+        "fixtureId": "537375",
+        "playerName": "Désiré Doué",
+        "nationalTeam": "Frankreich",
+        "teamId": "france",
+        "status": "unknown",
+        "displayPlayerName": "Désiré Doué",
+        "displayNationalTeam": "Frankreich",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537375",
+        "fixtureId": "537375",
+        "playerName": "Damián Bobadilla",
+        "nationalTeam": "Paraguay",
+        "teamId": "paraguay",
+        "status": "unknown",
+        "displayPlayerName": "Damián Bobadilla",
+        "displayNationalTeam": "Paraguay",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537375",
+        "fixtureId": "537375",
+        "playerName": "Diego Gómez",
+        "nationalTeam": "Paraguay",
+        "teamId": "paraguay",
+        "status": "unknown",
+        "displayPlayerName": "Diego Gómez",
+        "displayNationalTeam": "Paraguay",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537375",
+        "fixtureId": "537375",
+        "playerName": "Julio Enciso",
+        "nationalTeam": "Paraguay",
+        "teamId": "paraguay",
+        "status": "unknown",
+        "displayPlayerName": "Julio Enciso",
+        "displayNationalTeam": "Paraguay",
+        "owners": [
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537375",
+        "fixtureId": "537375",
+        "playerName": "Ramón Sosa",
+        "nationalTeam": "Paraguay",
+        "teamId": "paraguay",
+        "status": "unknown",
+        "displayPlayerName": "Ramón Sosa",
+        "displayNationalTeam": "Paraguay",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   }
 ]

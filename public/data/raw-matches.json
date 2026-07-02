@@ -2772,5 +2772,37 @@
       "name": "Senegal",
       "score": 2
     }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537376",
+    "fixtureId": "537376",
+    "label": "Canada vs Morocco",
+    "kickedOffAt": "2026-07-04T17:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 828,
+      "name": "Canada"
+    },
+    "awayTeam": {
+      "id": 815,
+      "name": "Morocco"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537375",
+    "fixtureId": "537375",
+    "label": "Paraguay vs France",
+    "kickedOffAt": "2026-07-04T21:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 761,
+      "name": "Paraguay"
+    },
+    "awayTeam": {
+      "id": 773,
+      "name": "France"
+    }
   }
 ]
