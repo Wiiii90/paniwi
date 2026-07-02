@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-02T03:01:34.878Z",
+  "lastUpdated": "2026-07-02T04:01:41.302Z",
   "rosterSnapshotUpdatedAt": "2026-06-15T23:48:37.445Z",
   "picks": [
     {
@@ -124,8 +124,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "not-in-first-knockout-round",
+      "tournamentStatus": "unknown",
+      "tournamentStatusReason": "knockout-field-incomplete",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Aaron Hickey",
       "reason": "found-in-current-roster"
@@ -172,8 +172,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "not-in-first-knockout-round",
+      "tournamentStatus": "unknown",
+      "tournamentStatusReason": "knockout-field-incomplete",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Orlando Mosquera",
       "reason": "found-in-current-roster"
@@ -316,8 +316,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "not-in-first-knockout-round",
+      "tournamentStatus": "unknown",
+      "tournamentStatusReason": "knockout-field-incomplete",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Cho Gue-sung",
       "reason": "found-in-current-roster"
@@ -503,8 +503,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "not-in-first-knockout-round",
+      "tournamentStatus": "unknown",
+      "tournamentStatusReason": "knockout-field-incomplete",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Federico Viñas",
       "reason": "found-in-current-roster"
@@ -535,8 +535,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "not-in-first-knockout-round",
+      "tournamentStatus": "unknown",
+      "tournamentStatusReason": "knockout-field-incomplete",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Johny Placide",
       "reason": "found-in-current-roster"
@@ -789,8 +789,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "not-in-first-knockout-round",
+      "tournamentStatus": "unknown",
+      "tournamentStatusReason": "knockout-field-incomplete",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Derrick Etienne Jr.",
       "reason": "found-in-current-roster"
@@ -949,8 +949,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "not-in-first-knockout-round",
+      "tournamentStatus": "unknown",
+      "tournamentStatusReason": "knockout-field-incomplete",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Mohammad Mohebi",
       "reason": "found-in-current-roster"
@@ -965,8 +965,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "not-in-first-knockout-round",
+      "tournamentStatus": "unknown",
+      "tournamentStatusReason": "knockout-field-incomplete",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Ramin Rezaeian",
       "reason": "found-in-current-roster"
@@ -1012,8 +1012,8 @@
       "baselineRosterStatus": "not-nominated",
       "currentRosterStatus": "not-nominated",
       "displayStatus": "not-nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "not-in-first-knockout-round",
+      "tournamentStatus": "unknown",
+      "tournamentStatusReason": "knockout-field-incomplete",
       "matchedCurrentRoster": false,
       "reason": "not-found-in-current-team-roster"
     },
@@ -1041,8 +1041,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "not-in-first-knockout-round",
+      "tournamentStatus": "unknown",
+      "tournamentStatusReason": "knockout-field-incomplete",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Angus Gunn",
       "reason": "found-in-current-roster"
@@ -1057,8 +1057,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "not-in-first-knockout-round",
+      "tournamentStatus": "unknown",
+      "tournamentStatusReason": "knockout-field-incomplete",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Luis Mejía",
       "reason": "found-in-current-roster"
@@ -1121,8 +1121,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "not-in-first-knockout-round",
+      "tournamentStatus": "unknown",
+      "tournamentStatusReason": "knockout-field-incomplete",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Pavel Šulc",
       "reason": "found-in-current-roster"
@@ -1233,8 +1233,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "not-in-first-knockout-round",
+      "tournamentStatus": "unknown",
+      "tournamentStatusReason": "knockout-field-incomplete",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Edmilson Junior",
       "reason": "found-in-current-roster"
@@ -1281,8 +1281,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "not-in-first-knockout-round",
+      "tournamentStatus": "unknown",
+      "tournamentStatusReason": "knockout-field-incomplete",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Pavel Šulc",
       "reason": "found-in-current-roster"
@@ -1297,8 +1297,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "not-in-first-knockout-round",
+      "tournamentStatus": "unknown",
+      "tournamentStatusReason": "knockout-field-incomplete",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Lukáš Provod",
       "reason": "found-in-current-roster"
@@ -1553,8 +1553,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "not-in-first-knockout-round",
+      "tournamentStatus": "unknown",
+      "tournamentStatusReason": "knockout-field-incomplete",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Elias Saad",
       "reason": "found-in-current-roster"
@@ -1601,8 +1601,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "not-in-first-knockout-round",
+      "tournamentStatus": "unknown",
+      "tournamentStatusReason": "knockout-field-incomplete",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Mohanad Ali",
       "reason": "found-in-current-roster"
@@ -1695,8 +1695,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "not-in-first-knockout-round",
+      "tournamentStatus": "unknown",
+      "tournamentStatusReason": "knockout-field-incomplete",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Ben Gannon-Doak",
       "reason": "found-in-current-roster"
@@ -1710,8 +1710,8 @@
       "baselineRosterStatus": "not-nominated",
       "currentRosterStatus": "not-nominated",
       "displayStatus": "not-nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "not-in-first-knockout-round",
+      "tournamentStatus": "unknown",
+      "tournamentStatusReason": "knockout-field-incomplete",
       "matchedCurrentRoster": false,
       "reason": "not-found-in-current-team-roster"
     },
@@ -1804,8 +1804,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "not-in-first-knockout-round",
+      "tournamentStatus": "unknown",
+      "tournamentStatusReason": "knockout-field-incomplete",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Ali Jasim",
       "reason": "found-in-current-roster"
@@ -1820,8 +1820,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "not-in-first-knockout-round",
+      "tournamentStatus": "unknown",
+      "tournamentStatusReason": "knockout-field-incomplete",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Nicolás de la Cruz",
       "reason": "found-in-current-roster"
@@ -1946,8 +1946,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "not-in-first-knockout-round",
+      "tournamentStatus": "unknown",
+      "tournamentStatusReason": "knockout-field-incomplete",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Saleh Al-Shehri",
       "reason": "found-in-current-roster"
@@ -2024,8 +2024,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "not-in-first-knockout-round",
+      "tournamentStatus": "unknown",
+      "tournamentStatusReason": "knockout-field-incomplete",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Manuel Ugarte",
       "reason": "found-in-current-roster"
@@ -2040,8 +2040,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "not-in-first-knockout-round",
+      "tournamentStatus": "unknown",
+      "tournamentStatusReason": "knockout-field-incomplete",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Chris Wood",
       "reason": "found-in-current-roster"
@@ -2053,7 +2053,7 @@
     "lateCallupCount": 0,
     "unknownCount": 0,
     "activeCount": 80,
-    "eliminatedCount": 49,
-    "tournamentUnknownCount": 0
+    "eliminatedCount": 25,
+    "tournamentUnknownCount": 24
   }
 }
