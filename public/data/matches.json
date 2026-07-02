@@ -60086,14 +60086,17 @@
   },
   {
     "matchId": "football-data:537419",
-    "label": "Portugal vs Croatia",
+    "label": "Portugal 0-0 Croatia",
     "kickedOffAt": "2026-07-02T23:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "draw",
     "homeTeam": {
-      "name": "Portugal"
+      "name": "Portugal",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Kroatien"
+      "name": "Kroatien",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -60222,12 +60225,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 0,
       "goalEventCount": 0,
-      "eventsComplete": false,
+      "eventsComplete": true,
       "lineupsComplete": false,
       "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsLineupBackfill": true
     }
   },
   {
