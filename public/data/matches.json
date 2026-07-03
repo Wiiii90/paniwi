@@ -51452,6 +51452,7 @@
     "label": "Germany 1-1 Paraguay",
     "kickedOffAt": "2026-06-29T20:30:00+00:00",
     "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "name": "Deutschland",
       "score": 1
@@ -52299,6 +52300,7 @@
     "label": "Netherlands 1-1 Morocco",
     "kickedOffAt": "2026-06-30T01:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "name": "Niederlande",
       "score": 1

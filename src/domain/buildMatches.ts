@@ -64,13 +64,56 @@ function getFixtureCompletenessScore(fixture: ExternalMatchRecord): number {
   return sourceScore + statusScore + scoreScore;
 }
 
+function inferWinnerTeamFromScore(fixture: ExternalMatchRecord): ExternalMatchRecord["winnerTeam"] | undefined {
+  if (fixture.status !== "finished") {
+    return undefined;
+  }
+
+  const homeScore = fixture.homeTeam.score;
+  const awayScore = fixture.awayTeam.score;
+  if (typeof homeScore !== "number" || typeof awayScore !== "number") {
+    return undefined;
+  }
+
+  if (homeScore === awayScore) {
+    return undefined;
+  }
+
+  return homeScore > awayScore ? "home" : "away";
+}
+
+function resolveFixtureWinnerTeam(fixture: ExternalMatchRecord): ExternalMatchRecord["winnerTeam"] | undefined {
+  return fixture.winnerTeam && fixture.winnerTeam !== "draw"
+    ? fixture.winnerTeam
+    : inferWinnerTeamFromScore(fixture);
+}
+
+function mergeFixtureWinnerTeam(
+  fixture: ExternalMatchRecord,
+  alternateFixture?: ExternalMatchRecord
+): ExternalMatchRecord {
+  const fixtureWinnerTeam = fixture.winnerTeam && fixture.winnerTeam !== "draw" ? fixture.winnerTeam : undefined;
+  const needsAlternateWinnerTeam = !fixtureWinnerTeam && !inferWinnerTeamFromScore(fixture);
+  const winnerTeam =
+    fixtureWinnerTeam ??
+    (needsAlternateWinnerTeam && alternateFixture ? resolveFixtureWinnerTeam(alternateFixture) : undefined);
+  return winnerTeam ? { ...fixture, winnerTeam } : fixture;
+}
+
 function dedupeFixtures(fixtures: ExternalMatchRecord[]): ExternalMatchRecord[] {
   const fixturesByKey = new Map<string, ExternalMatchRecord>();
   for (const fixture of fixtures) {
     const key = getExternalMatchKey(fixture);
     const existing = fixturesByKey.get(key);
-    if (!existing || getFixtureCompletenessScore(fixture) > getFixtureCompletenessScore(existing)) {
-      fixturesByKey.set(key, fixture);
+    if (!existing) {
+      fixturesByKey.set(key, mergeFixtureWinnerTeam(fixture));
+      continue;
+    }
+
+    if (getFixtureCompletenessScore(fixture) > getFixtureCompletenessScore(existing)) {
+      fixturesByKey.set(key, mergeFixtureWinnerTeam(fixture, existing));
+    } else {
+      fixturesByKey.set(key, mergeFixtureWinnerTeam(existing, fixture));
     }
   }
 

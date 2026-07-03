@@ -468,6 +468,42 @@ assert.deepEqual(
   ["api-football:1489397", 4, 0]
 );
 
+const apiPreferredPenaltyWinnerMatch = buildMatches(
+  [],
+  [],
+  [
+    {
+      source: "football-data",
+      matchId: "football-data:537415",
+      fixtureId: "537415",
+      label: "Germany 4-5 Paraguay",
+      kickedOffAt: "2026-06-29T20:30:00Z",
+      status: "finished",
+      homeTeam: { name: "Germany", score: 4 },
+      awayTeam: { name: "Paraguay", score: 5 }
+    },
+    {
+      source: "api-football",
+      matchId: "api-football:1565176",
+      fixtureId: "1565176",
+      label: "Germany 1-1 Paraguay",
+      kickedOffAt: "2026-06-29T20:30:00+00:00",
+      status: "finished",
+      homeTeam: { name: "Germany", score: 1 },
+      awayTeam: { name: "Paraguay", score: 1 }
+    }
+  ]
+)[0];
+assert.deepEqual(
+  [
+    apiPreferredPenaltyWinnerMatch.matchId,
+    apiPreferredPenaltyWinnerMatch.homeTeam.score,
+    apiPreferredPenaltyWinnerMatch.awayTeam.score,
+    apiPreferredPenaltyWinnerMatch.winnerTeam
+  ],
+  ["api-football:1565176", 1, 1, "away"]
+);
+
 const scheduledAfterKickoffMatch = buildMatches(
   [],
   [],
