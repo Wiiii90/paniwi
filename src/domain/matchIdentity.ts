@@ -2,6 +2,8 @@ import type { GoalRecord, ScoredGoal, SourceName } from "./goalTypes";
 import type { ExternalMatchRecord, MatchRecord } from "./matchTypes";
 import { resolveTeamDisplayName } from "./teamDisplay";
 
+const matchIdentityTimeToleranceMs = 2 * 60 * 60 * 1000;
+
 export function normalizeScoreLabel(label: string): string {
   return label.replace(/[–—]/g, "-");
 }
@@ -40,6 +42,25 @@ export function getMatchRecordKey(match: Pick<MatchRecord, "kickedOffAt" | "home
   ].join("|");
 }
 
+function parseMatchTimestamp(value: string | undefined): number | undefined {
+  if (!value) {
+    return undefined;
+  }
+
+  const timestamp = Date.parse(value);
+  return Number.isNaN(timestamp) ? undefined : timestamp;
+}
+
+export function matchTimesAreCloseEnough(left: string | undefined, right: string | undefined): boolean {
+  const leftTime = parseMatchTimestamp(left);
+  const rightTime = parseMatchTimestamp(right);
+  if (leftTime === undefined || rightTime === undefined) {
+    return normalizeMatchTimeKey(left) === normalizeMatchTimeKey(right);
+  }
+
+  return Math.abs(leftTime - rightTime) <= matchIdentityTimeToleranceMs;
+}
+
 function parseTeamsFromMatchLabel(label: string | undefined, source: SourceName): { home: string; away: string } | null {
   if (!label) {
     return null;
@@ -72,7 +93,7 @@ function goalMatchesFixtureIdentity(
     return false;
   }
 
-  if (normalizeMatchTimeKey(goal.kickedOffAt) !== normalizeMatchTimeKey(fixture.kickedOffAt)) {
+  if (!matchTimesAreCloseEnough(goal.kickedOffAt, fixture.kickedOffAt)) {
     return false;
   }
 

@@ -425,6 +425,108 @@ assert.deepEqual(
   ["api-football:1539002"]
 );
 
+const timeShiftedDedupedFixtureMatches = buildMatches(
+  [],
+  [],
+  [
+    {
+      source: "football-data",
+      matchId: "football-data:537425",
+      fixtureId: "537425",
+      label: "Mexico 2-0 Ecuador",
+      kickedOffAt: "2026-07-01T02:00:00Z",
+      status: "finished",
+      winnerTeam: "home",
+      homeTeam: { name: "Mexico", score: 2 },
+      awayTeam: { name: "Ecuador", score: 0 }
+    },
+    {
+      source: "api-football",
+      matchId: "api-football:1567306",
+      fixtureId: "1567306",
+      label: "Mexico 2-0 Ecuador",
+      kickedOffAt: "2026-07-01T01:00:00+00:00",
+      status: "finished",
+      homeTeam: { name: "Mexico", score: 2 },
+      awayTeam: { name: "Ecuador", score: 0 }
+    }
+  ]
+);
+assert.deepEqual(
+  [
+    timeShiftedDedupedFixtureMatches.length,
+    timeShiftedDedupedFixtureMatches[0]?.matchId,
+    timeShiftedDedupedFixtureMatches[0]?.winnerTeam
+  ],
+  [1, "api-football:1567306", "home"]
+);
+
+const repeatedTeamFixtures = buildMatches(
+  [],
+  [],
+  [
+    {
+      source: "football-data",
+      matchId: "football-data:early",
+      fixtureId: "early",
+      label: "Mexico 2-0 Ecuador",
+      kickedOffAt: "2026-07-01T02:00:00Z",
+      status: "finished",
+      homeTeam: { name: "Mexico", score: 2 },
+      awayTeam: { name: "Ecuador", score: 0 }
+    },
+    {
+      source: "football-data",
+      matchId: "football-data:late",
+      fixtureId: "late",
+      label: "Mexico 1-0 Ecuador",
+      kickedOffAt: "2026-07-05T02:00:00Z",
+      status: "finished",
+      homeTeam: { name: "Mexico", score: 1 },
+      awayTeam: { name: "Ecuador", score: 0 }
+    }
+  ]
+);
+assert.deepEqual(
+  repeatedTeamFixtures.map((match) => match.matchId),
+  ["football-data:early", "football-data:late"]
+);
+
+const timeShiftedFallbackMatch = buildMatches(
+  [
+    {
+      ...baseGoal,
+      externalGoalId: "wikipedia:mexico-ecuador:goal",
+      source: "wikipedia",
+      playerName: "Scorer",
+      nationalTeam: "Mexico",
+      matchId: "wikipedia:mexico-ecuador",
+      matchLabel: "Mexico 2-0 Ecuador",
+      kickedOffAt: "2026-07-01T02:00:00Z"
+    }
+  ],
+  [],
+  [
+    {
+      source: "api-football",
+      matchId: "api-football:1567306",
+      fixtureId: "1567306",
+      label: "Mexico 2-0 Ecuador",
+      kickedOffAt: "2026-07-01T01:00:00+00:00",
+      status: "finished",
+      homeTeam: { name: "Mexico", score: 2 },
+      awayTeam: { name: "Ecuador", score: 0 }
+    }
+  ]
+);
+assert.deepEqual(
+  [
+    timeShiftedFallbackMatch.map((match) => match.matchId),
+    timeShiftedFallbackMatch[0]?.goals.map((goal) => goal.externalGoalId)
+  ],
+  [["api-football:1567306"], ["wikipedia:mexico-ecuador:goal"]]
+);
+
 const apiEnrichedFixtureMatch = buildMatches(
   [
     {

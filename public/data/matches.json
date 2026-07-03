@@ -4,6 +4,7 @@
     "label": "Mexico 2–0 South Africa",
     "kickedOffAt": "2026-06-11T19:00:00.000Z",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Mexiko",
       "score": 2
@@ -109,6 +110,7 @@
     "label": "South Korea 2–1 Czech Republic",
     "kickedOffAt": "2026-06-12T02:00:00.000Z",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Südkorea",
       "score": 2
@@ -363,6 +365,7 @@
     "label": "United States 4–1 Paraguay",
     "kickedOffAt": "2026-06-13T01:00:00.000Z",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "USA",
       "score": 4
@@ -834,6 +837,7 @@
     "label": "Haiti 0–1 Scotland",
     "kickedOffAt": "2026-06-14T01:00:00.000Z",
     "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "name": "Haiti",
       "score": 0
@@ -949,6 +953,7 @@
     "label": "Australia 2–0 TUR",
     "kickedOffAt": "2026-06-14T04:00:00.000Z",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Australien",
       "score": 2
@@ -1051,6 +1056,7 @@
     "label": "Germany 7–1 Curaçao",
     "kickedOffAt": "2026-06-14T17:00:00.000Z",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Deutschland",
       "score": 7
@@ -1415,6 +1421,7 @@
     "label": "CIV 1–0 Ecuador",
     "kickedOffAt": "2026-06-14T23:00:00.000Z",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Elfenbeinküste",
       "score": 1
@@ -1545,6 +1552,7 @@
     "label": "Sweden 5-1 Tunisia",
     "kickedOffAt": "2026-06-15T02:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Schweden",
       "score": 5
@@ -5208,6 +5216,7 @@
     "label": "France 3-1 Senegal",
     "kickedOffAt": "2026-06-16T19:00:00Z",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Frankreich",
       "score": 3
@@ -5430,6 +5439,7 @@
     "label": "Iraq 1-4 Norway",
     "kickedOffAt": "2026-06-16T22:00:00Z",
     "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "name": "Irak",
       "score": 1
@@ -5681,6 +5691,7 @@
     "label": "Argentina 3-0 Algeria",
     "kickedOffAt": "2026-06-17T01:00:00Z",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Argentinien",
       "score": 3
@@ -5811,6 +5822,7 @@
     "label": "Austria 3-1 Jordan",
     "kickedOffAt": "2026-06-17T04:00:00Z",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Österreich",
       "score": 3
@@ -6827,6 +6839,7 @@
     "label": "England 4-2 Croatia",
     "kickedOffAt": "2026-06-17T20:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "England",
       "score": 4
@@ -7807,6 +7820,7 @@
     "label": "Ghana 1-0 Panama",
     "kickedOffAt": "2026-06-17T23:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Ghana",
       "score": 1
@@ -8635,6 +8649,7 @@
     "label": "Uzbekistan 1-3 Colombia",
     "kickedOffAt": "2026-06-18T02:00:00Z",
     "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "name": "Usbekistan",
       "score": 1
@@ -10314,6 +10329,7 @@
     "label": "Switzerland 4-1 Bosnia-Herzegovina",
     "kickedOffAt": "2026-06-18T19:00:00Z",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Schweiz",
       "score": 4
@@ -11216,6 +11232,7 @@
     "label": "Canada 6-0 Qatar",
     "kickedOffAt": "2026-06-18T22:00:00Z",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Kanada",
       "score": 6
@@ -12209,6 +12226,7 @@
     "label": "Mexico 1-0 South Korea",
     "kickedOffAt": "2026-06-19T01:00:00Z",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Mexiko",
       "score": 1
@@ -13008,6 +13026,7 @@
     "label": "United States 2-0 Australia",
     "kickedOffAt": "2026-06-19T19:00:00Z",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "USA",
       "score": 2
@@ -13839,6 +13858,7 @@
     "label": "Scotland 0-1 Morocco",
     "kickedOffAt": "2026-06-19T22:00:00Z",
     "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "name": "Schottland",
       "score": 0
@@ -14658,6 +14678,7 @@
     "label": "Brazil 3-0 Haiti",
     "kickedOffAt": "2026-06-20T00:30:00Z",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Brasilien",
       "score": 3
@@ -15585,6 +15606,7 @@
     "label": "Turkey 0-1 Paraguay",
     "kickedOffAt": "2026-06-20T03:00:00Z",
     "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "name": "Türkei",
       "score": 0
@@ -16400,6 +16422,7 @@
     "label": "Netherlands 5-1 Sweden",
     "kickedOffAt": "2026-06-20T17:00:00Z",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Niederlande",
       "score": 5
@@ -17299,6 +17322,7 @@
     "label": "Germany 2-1 Ivory Coast",
     "kickedOffAt": "2026-06-20T20:00:00Z",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Deutschland",
       "score": 2
@@ -18951,6 +18975,7 @@
     "label": "Tunisia 0-4 Japan",
     "kickedOffAt": "2026-06-21T04:00:00Z",
     "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "name": "Tunesien",
       "score": 0
@@ -19787,6 +19812,7 @@
     "label": "Spain 4-0 Saudi Arabia",
     "kickedOffAt": "2026-06-21T16:00:00Z",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Spanien",
       "score": 4
@@ -22355,6 +22381,7 @@
     "label": "New Zealand 1-3 Egypt",
     "kickedOffAt": "2026-06-22T01:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "name": "Neuseeland",
       "score": 1
@@ -23223,6 +23250,7 @@
     "label": "Argentina 2-0 Austria",
     "kickedOffAt": "2026-06-22T17:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Argentinien",
       "score": 2
@@ -24057,6 +24085,7 @@
     "label": "France 3-0 Iraq",
     "kickedOffAt": "2026-06-22T21:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Frankreich",
       "score": 3
@@ -24930,6 +24959,7 @@
     "label": "Norway 3-2 Senegal",
     "kickedOffAt": "2026-06-23T00:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Norwegen",
       "score": 3
@@ -25878,6 +25908,7 @@
     "label": "Jordan 1-2 Algeria",
     "kickedOffAt": "2026-06-23T03:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "name": "Jordanien",
       "score": 1
@@ -26753,6 +26784,7 @@
     "label": "Portugal 5-0 Uzbekistan",
     "kickedOffAt": "2026-06-23T17:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Portugal",
       "score": 5
@@ -28479,6 +28511,7 @@
     "label": "Panama 0-1 Croatia",
     "kickedOffAt": "2026-06-23T23:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "name": "Panama",
       "score": 0
@@ -29312,6 +29345,7 @@
     "label": "Colombia 1-0 Congo DR",
     "kickedOffAt": "2026-06-24T02:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Kolumbien",
       "score": 1
@@ -30143,6 +30177,7 @@
     "label": "Bosnia & Herzegovina 3-1 Qatar",
     "kickedOffAt": "2026-06-24T19:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Bosnien und Herzegowina",
       "score": 3
@@ -30967,6 +31002,7 @@
     "label": "Switzerland 2-1 Canada",
     "kickedOffAt": "2026-06-24T19:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Schweiz",
       "score": 2
@@ -31807,6 +31843,7 @@
     "label": "Morocco 4-2 Haiti",
     "kickedOffAt": "2026-06-24T22:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Marokko",
       "score": 4
@@ -32745,6 +32782,7 @@
     "label": "Scotland 0-3 Brazil",
     "kickedOffAt": "2026-06-24T22:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "name": "Schottland",
       "score": 0
@@ -33677,6 +33715,7 @@
     "label": "Czechia 0-3 Mexico",
     "kickedOffAt": "2026-06-25T01:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "name": "Tschechien",
       "score": 0
@@ -34517,6 +34556,7 @@
     "label": "South Africa 1-0 South Korea",
     "kickedOffAt": "2026-06-25T01:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Südafrika",
       "score": 1
@@ -35303,6 +35343,7 @@
     "label": "Curaçao 0-2 Ivory Coast",
     "kickedOffAt": "2026-06-25T20:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "name": "Curacao",
       "score": 0
@@ -36137,6 +36178,7 @@
     "label": "Ecuador 2-1 Germany",
     "kickedOffAt": "2026-06-25T20:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Ecuador",
       "score": 2
@@ -37782,6 +37824,7 @@
     "label": "Tunisia 1-3 Netherlands",
     "kickedOffAt": "2026-06-25T23:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "name": "Tunesien",
       "score": 1
@@ -39381,6 +39424,7 @@
     "label": "Türkiye 3-2 USA",
     "kickedOffAt": "2026-06-26T02:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Türkei",
       "score": 3
@@ -40254,6 +40298,7 @@
     "label": "Norway 1-4 France",
     "kickedOffAt": "2026-06-26T19:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "name": "Norwegen",
       "score": 1
@@ -41177,6 +41222,7 @@
     "label": "Senegal 5-0 Iraq",
     "kickedOffAt": "2026-06-26T19:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Senegal",
       "score": 5
@@ -42846,6 +42892,7 @@
     "label": "Uruguay 0-1 Spain",
     "kickedOffAt": "2026-06-27T00:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "name": "Uruguay",
       "score": 0
@@ -44508,6 +44555,7 @@
     "label": "New Zealand 1-5 Belgium",
     "kickedOffAt": "2026-06-27T03:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "name": "Neuseeland",
       "score": 1
@@ -45393,6 +45441,7 @@
     "label": "Croatia 2-1 Ghana",
     "kickedOffAt": "2026-06-27T21:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Kroatien",
       "score": 2
@@ -46260,6 +46309,7 @@
     "label": "Panama 0-2 England",
     "kickedOffAt": "2026-06-27T21:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "name": "Panama",
       "score": 0
@@ -47920,6 +47970,7 @@
     "label": "Congo DR 3-1 Uzbekistan",
     "kickedOffAt": "2026-06-27T23:30:00+00:00",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "DR Kongo",
       "score": 3
@@ -49814,6 +49865,7 @@
     "label": "South Africa 0-1 Canada",
     "kickedOffAt": "2026-06-28T19:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "name": "Südafrika",
       "score": 0
@@ -50606,6 +50658,7 @@
     "label": "Brazil 2-1 Japan",
     "kickedOffAt": "2026-06-29T17:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Brasilien",
       "score": 2
@@ -53135,6 +53188,7 @@
     "label": "Ivory Coast 1-2 Norway",
     "kickedOffAt": "2026-06-30T17:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "name": "Elfenbeinküste",
       "score": 1
@@ -54051,6 +54105,7 @@
     "label": "France 3-0 Sweden",
     "kickedOffAt": "2026-06-30T21:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Frankreich",
       "score": 3
@@ -54921,842 +54976,6 @@
     "label": "Mexico 2-0 Ecuador",
     "kickedOffAt": "2026-07-01T01:00:00+00:00",
     "status": "finished",
-    "homeTeam": {
-      "name": "Mexiko",
-      "score": 2
-    },
-    "awayTeam": {
-      "name": "Ecuador",
-      "score": 0
-    },
-    "goals": [
-      {
-        "externalGoalId": "api-football:1567306:35532:22:Normal Goal:0",
-        "playerName": "Julián Quiñones",
-        "nationalTeam": "Mexico",
-        "sourcePlayerName": "J. Quinones",
-        "sourceTeamName": "Mexico",
-        "goals": 1,
-        "source": "api-football",
-        "apiPlayerId": 35532,
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "matchLabel": "Mexico 2-0 Ecuador",
-        "kickedOffAt": "2026-07-01T01:00:00+00:00",
-        "minute": 22,
-        "timeConfidence": "match-only",
-        "detail": "normal",
-        "playerId": "mexico-julian-quinones",
-        "teamId": "mexico"
-      },
-      {
-        "externalGoalId": "api-football:1567306:2887:31:Normal Goal:1",
-        "playerName": "Raúl Jiménez",
-        "nationalTeam": "Mexico",
-        "sourcePlayerName": "R. Jimenez",
-        "sourceTeamName": "Mexico",
-        "goals": 1,
-        "source": "api-football",
-        "apiPlayerId": 2887,
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "matchLabel": "Mexico 2-0 Ecuador",
-        "kickedOffAt": "2026-07-01T01:00:00+00:00",
-        "minute": 31,
-        "timeConfidence": "match-only",
-        "detail": "normal",
-        "playerId": "mexico-raul-jimenez",
-        "teamId": "mexico"
-      }
-    ],
-    "pointGoals": [],
-    "affectedOwners": [],
-    "participants": [
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "A. Preciado",
-        "nationalTeam": "Ecuador",
-        "teamId": "ecuador",
-        "apiPlayerId": 2583,
-        "status": "subbed-in",
-        "displayPlayerName": "Ángelo Preciado",
-        "displayNationalTeam": "Ecuador",
-        "owners": [
-          "Felix"
-        ],
-        "selected": true
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "K. Rodriguez",
-        "nationalTeam": "Ecuador",
-        "teamId": "ecuador",
-        "apiPlayerId": 361966,
-        "status": "subbed-in",
-        "displayPlayerName": "Kevin Rodríguez",
-        "displayNationalTeam": "Ecuador",
-        "owners": [
-          "Tjark"
-        ],
-        "selected": true
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Piero Hincapié",
-        "nationalTeam": "Ecuador",
-        "teamId": "ecuador",
-        "apiPlayerId": 127817,
-        "status": "starter",
-        "shirtNumber": 3,
-        "displayPlayerName": "Piero Hincapié",
-        "displayNationalTeam": "Ecuador",
-        "owners": [
-          "Caro"
-        ],
-        "selected": true
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "I. Reyes",
-        "nationalTeam": "Mexiko",
-        "teamId": "mexico",
-        "apiPlayerId": 127227,
-        "status": "subbed-in",
-        "displayPlayerName": "Israel Reyes",
-        "displayNationalTeam": "Mexiko",
-        "owners": [
-          "Anne"
-        ],
-        "selected": true
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Edson Álvarez",
-        "nationalTeam": "Mexiko",
-        "teamId": "mexico",
-        "apiPlayerId": 2869,
-        "status": "bench",
-        "shirtNumber": 4,
-        "displayPlayerName": "Edson Álvarez",
-        "displayNationalTeam": "Mexiko",
-        "owners": [
-          "Jonas"
-        ],
-        "selected": true
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "A. Franco",
-        "nationalTeam": "Ecuador",
-        "teamId": "ecuador",
-        "apiPlayerId": 16360,
-        "status": "subbed-out",
-        "displayPlayerName": "Alan Franco",
-        "displayNationalTeam": "Ecuador",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "E. Valencia",
-        "nationalTeam": "Ecuador",
-        "teamId": "ecuador",
-        "apiPlayerId": 35533,
-        "status": "subbed-out",
-        "displayPlayerName": "Enner Valencia",
-        "displayNationalTeam": "Ecuador",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "J. Ordonez",
-        "nationalTeam": "Ecuador",
-        "teamId": "ecuador",
-        "apiPlayerId": 354027,
-        "status": "subbed-out",
-        "displayPlayerName": "Joel Ordóñez",
-        "displayNationalTeam": "Ecuador",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "J. Yeboah",
-        "nationalTeam": "Ecuador",
-        "teamId": "ecuador",
-        "apiPlayerId": 25414,
-        "status": "subbed-out",
-        "displayPlayerName": "John Yeboah",
-        "displayNationalTeam": "Ecuador",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "N. Angulo",
-        "nationalTeam": "Ecuador",
-        "teamId": "ecuador",
-        "apiPlayerId": 311543,
-        "status": "subbed-out",
-        "displayPlayerName": "Nilson Angulo",
-        "displayNationalTeam": "Ecuador",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "J. Caicedo",
-        "nationalTeam": "Ecuador",
-        "teamId": "ecuador",
-        "apiPlayerId": 16590,
-        "status": "subbed-in",
-        "displayPlayerName": "Jordy Caicedo",
-        "displayNationalTeam": "Ecuador",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "K. Paez",
-        "nationalTeam": "Ecuador",
-        "teamId": "ecuador",
-        "apiPlayerId": 406303,
-        "status": "subbed-in",
-        "displayPlayerName": "Kendry Páez",
-        "displayNationalTeam": "Ecuador",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Y. Medina",
-        "nationalTeam": "Ecuador",
-        "teamId": "ecuador",
-        "apiPlayerId": 306940,
-        "status": "subbed-in",
-        "displayPlayerName": "Yaimar Medina",
-        "displayNationalTeam": "Ecuador",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Gonzalo Plata",
-        "nationalTeam": "Ecuador",
-        "teamId": "ecuador",
-        "apiPlayerId": 16369,
-        "status": "starter",
-        "shirtNumber": 19,
-        "displayPlayerName": "Gonzalo Plata",
-        "displayNationalTeam": "Ecuador",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Hernán Galíndez",
-        "nationalTeam": "Ecuador",
-        "teamId": "ecuador",
-        "apiPlayerId": 16380,
-        "status": "starter",
-        "shirtNumber": 1,
-        "displayPlayerName": "Hernán Galíndez",
-        "displayNationalTeam": "Ecuador",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Moisés Caicedo",
-        "nationalTeam": "Ecuador",
-        "teamId": "ecuador",
-        "apiPlayerId": 116117,
-        "status": "starter",
-        "shirtNumber": 23,
-        "displayPlayerName": "Moisés Caicedo",
-        "displayNationalTeam": "Ecuador",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Pedro Vite",
-        "nationalTeam": "Ecuador",
-        "teamId": "ecuador",
-        "apiPlayerId": 237078,
-        "status": "starter",
-        "shirtNumber": 15,
-        "displayPlayerName": "Pedro Vite",
-        "displayNationalTeam": "Ecuador",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Willian Pacho",
-        "nationalTeam": "Ecuador",
-        "teamId": "ecuador",
-        "apiPlayerId": 16367,
-        "status": "starter",
-        "shirtNumber": 6,
-        "displayPlayerName": "Willian Pacho",
-        "displayNationalTeam": "Ecuador",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Alan Minda",
-        "nationalTeam": "Ecuador",
-        "teamId": "ecuador",
-        "apiPlayerId": 280695,
-        "status": "bench",
-        "shirtNumber": 14,
-        "displayPlayerName": "Alan Minda",
-        "displayNationalTeam": "Ecuador",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Anthony Valencia",
-        "nationalTeam": "Ecuador",
-        "teamId": "ecuador",
-        "apiPlayerId": 198347,
-        "status": "bench",
-        "shirtNumber": 8,
-        "displayPlayerName": "Anthony Valencia",
-        "displayNationalTeam": "Ecuador",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Denil Castillo",
-        "nationalTeam": "Ecuador",
-        "teamId": "ecuador",
-        "apiPlayerId": 338045,
-        "status": "bench",
-        "shirtNumber": 18,
-        "displayPlayerName": "Denil Castillo",
-        "displayNationalTeam": "Ecuador",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Félix Torres",
-        "nationalTeam": "Ecuador",
-        "teamId": "ecuador",
-        "apiPlayerId": 63964,
-        "status": "bench",
-        "shirtNumber": 2,
-        "displayPlayerName": "Félix Torres",
-        "displayNationalTeam": "Ecuador",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Gonzalo Valle",
-        "nationalTeam": "Ecuador",
-        "teamId": "ecuador",
-        "apiPlayerId": 16642,
-        "status": "bench",
-        "shirtNumber": 22,
-        "displayPlayerName": "Gonzalo Valle",
-        "displayNationalTeam": "Ecuador",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Jackson Porozo",
-        "nationalTeam": "Ecuador",
-        "teamId": "ecuador",
-        "apiPlayerId": 2575,
-        "status": "bench",
-        "shirtNumber": 25,
-        "displayPlayerName": "Jackson Porozo",
-        "displayNationalTeam": "Ecuador",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Jeremy Arevalo",
-        "nationalTeam": "Ecuador",
-        "teamId": "ecuador",
-        "apiPlayerId": 350799,
-        "status": "bench",
-        "shirtNumber": 24,
-        "displayPlayerName": "Jeremy Arévalo",
-        "displayNationalTeam": "Ecuador",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Jordy Alcivar",
-        "nationalTeam": "Ecuador",
-        "teamId": "ecuador",
-        "apiPlayerId": 16470,
-        "status": "bench",
-        "shirtNumber": 5,
-        "displayPlayerName": "Jordy Alcívar",
-        "displayNationalTeam": "Ecuador",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Moisés Ramírez",
-        "nationalTeam": "Ecuador",
-        "teamId": "ecuador",
-        "apiPlayerId": 81224,
-        "status": "bench",
-        "shirtNumber": 12,
-        "displayPlayerName": "Moisés Ramírez",
-        "displayNationalTeam": "Ecuador",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Pervis Estupiñán",
-        "nationalTeam": "Ecuador",
-        "teamId": "ecuador",
-        "apiPlayerId": 46731,
-        "status": "bench",
-        "shirtNumber": 7,
-        "displayPlayerName": "Pervis Estupiñán",
-        "displayNationalTeam": "Ecuador",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "G. Mora",
-        "nationalTeam": "Mexiko",
-        "teamId": "mexico",
-        "apiPlayerId": 482605,
-        "status": "subbed-out",
-        "displayPlayerName": "Gilberto Mora",
-        "displayNationalTeam": "Mexiko",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "J. Quinones",
-        "nationalTeam": "Mexiko",
-        "teamId": "mexico",
-        "apiPlayerId": 35532,
-        "status": "subbed-out",
-        "displayPlayerName": "Julián Quiñones",
-        "displayNationalTeam": "Mexiko",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "L. Romo",
-        "nationalTeam": "Mexiko",
-        "teamId": "mexico",
-        "apiPlayerId": 35970,
-        "status": "subbed-out",
-        "displayPlayerName": "Luis Romo",
-        "displayNationalTeam": "Mexiko",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "R. Jimenez",
-        "nationalTeam": "Mexiko",
-        "teamId": "mexico",
-        "apiPlayerId": 2887,
-        "status": "subbed-out",
-        "displayPlayerName": "Raúl Jiménez",
-        "displayNationalTeam": "Mexiko",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "R. Alvarado",
-        "nationalTeam": "Mexiko",
-        "teamId": "mexico",
-        "apiPlayerId": 2879,
-        "status": "subbed-out",
-        "displayPlayerName": "Roberto Alvarado",
-        "displayNationalTeam": "Mexiko",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "B. Gutierrez",
-        "nationalTeam": "Mexiko",
-        "teamId": "mexico",
-        "apiPlayerId": 212233,
-        "status": "subbed-in",
-        "displayPlayerName": "Brian Gutiérrez",
-        "displayNationalTeam": "Mexiko",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "O. Vargas",
-        "nationalTeam": "Mexiko",
-        "teamId": "mexico",
-        "apiPlayerId": 313383,
-        "status": "subbed-in",
-        "displayPlayerName": "Obed Vargas",
-        "displayNationalTeam": "Mexiko",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "O. Pineda",
-        "nationalTeam": "Mexiko",
-        "teamId": "mexico",
-        "apiPlayerId": 35576,
-        "status": "subbed-in",
-        "displayPlayerName": "Orbelín Pineda",
-        "displayNationalTeam": "Mexiko",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "S. Gimenez",
-        "nationalTeam": "Mexiko",
-        "teamId": "mexico",
-        "apiPlayerId": 94562,
-        "status": "subbed-in",
-        "displayPlayerName": "Santiago Giménez",
-        "displayNationalTeam": "Mexiko",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "César Montes",
-        "nationalTeam": "Mexiko",
-        "teamId": "mexico",
-        "apiPlayerId": 2873,
-        "status": "starter",
-        "shirtNumber": 3,
-        "displayPlayerName": "César Montes",
-        "displayNationalTeam": "Mexiko",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Erik Lira",
-        "nationalTeam": "Mexiko",
-        "teamId": "mexico",
-        "apiPlayerId": 266345,
-        "status": "starter",
-        "shirtNumber": 6,
-        "displayPlayerName": "Érik Lira",
-        "displayNationalTeam": "Mexiko",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Jesús Gallardo",
-        "nationalTeam": "Mexiko",
-        "teamId": "mexico",
-        "apiPlayerId": 2881,
-        "status": "starter",
-        "shirtNumber": 23,
-        "displayPlayerName": "Jesús Gallardo",
-        "displayNationalTeam": "Mexiko",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Johan Vásquez",
-        "nationalTeam": "Mexiko",
-        "teamId": "mexico",
-        "apiPlayerId": 35544,
-        "status": "starter",
-        "shirtNumber": 5,
-        "displayPlayerName": "Johan Vásquez",
-        "displayNationalTeam": "Mexiko",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Jorge Sánchez",
-        "nationalTeam": "Mexiko",
-        "teamId": "mexico",
-        "apiPlayerId": 2878,
-        "status": "starter",
-        "shirtNumber": 2,
-        "displayPlayerName": "Jorge Sánchez",
-        "displayNationalTeam": "Mexiko",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Raúl Rangel",
-        "nationalTeam": "Mexiko",
-        "teamId": "mexico",
-        "apiPlayerId": 270774,
-        "status": "starter",
-        "shirtNumber": 1,
-        "displayPlayerName": "Raúl Rangel",
-        "displayNationalTeam": "Mexiko",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Alexis Vega",
-        "nationalTeam": "Mexiko",
-        "teamId": "mexico",
-        "apiPlayerId": 2889,
-        "status": "bench",
-        "shirtNumber": 10,
-        "displayPlayerName": "Alexis Vega",
-        "displayNationalTeam": "Mexiko",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Álvaro Fidalgo",
-        "nationalTeam": "Mexiko",
-        "teamId": "mexico",
-        "apiPlayerId": 750,
-        "status": "bench",
-        "shirtNumber": 8,
-        "displayPlayerName": "Álvaro Fidalgo",
-        "displayNationalTeam": "Mexiko",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Armando González",
-        "nationalTeam": "Mexiko",
-        "teamId": "mexico",
-        "apiPlayerId": 291713,
-        "status": "bench",
-        "shirtNumber": 14,
-        "displayPlayerName": "Armando González",
-        "displayNationalTeam": "Mexiko",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Carlos Acevedo",
-        "nationalTeam": "Mexiko",
-        "teamId": "mexico",
-        "apiPlayerId": 35769,
-        "status": "bench",
-        "shirtNumber": 12,
-        "displayPlayerName": "Carlos Acevedo",
-        "displayNationalTeam": "Mexiko",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "César Huerta",
-        "nationalTeam": "Mexiko",
-        "teamId": "mexico",
-        "apiPlayerId": 36111,
-        "status": "bench",
-        "shirtNumber": 21,
-        "displayPlayerName": "César Huerta",
-        "displayNationalTeam": "Mexiko",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Guillermo Martínez",
-        "nationalTeam": "Mexiko",
-        "teamId": "mexico",
-        "apiPlayerId": 36088,
-        "status": "bench",
-        "shirtNumber": 22,
-        "displayPlayerName": "Guillermo Martínez",
-        "displayNationalTeam": "Mexiko",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Guillermo Ochoa",
-        "nationalTeam": "Mexiko",
-        "teamId": "mexico",
-        "apiPlayerId": 2098,
-        "status": "bench",
-        "shirtNumber": 13,
-        "displayPlayerName": "Guillermo Ochoa",
-        "displayNationalTeam": "Mexiko",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Luis Chávez",
-        "nationalTeam": "Mexiko",
-        "teamId": "mexico",
-        "apiPlayerId": 35690,
-        "status": "bench",
-        "shirtNumber": 24,
-        "displayPlayerName": "Luis Chávez",
-        "displayNationalTeam": "Mexiko",
-        "owners": [],
-        "selected": false
-      },
-      {
-        "source": "api-football",
-        "matchId": "football-data:537425",
-        "fixtureId": "1567306",
-        "playerName": "Mateo Chávez",
-        "nationalTeam": "Mexiko",
-        "teamId": "mexico",
-        "apiPlayerId": 390002,
-        "status": "bench",
-        "shirtNumber": 20,
-        "displayPlayerName": "Mateo Chávez",
-        "displayNationalTeam": "Mexiko",
-        "owners": [],
-        "selected": false
-      }
-    ],
-    "syncState": {
-      "scoreTotal": 2,
-      "goalEventCount": 2,
-      "eventsComplete": true,
-      "lineupsComplete": true,
-      "needsEventBackfill": false,
-      "needsLineupBackfill": false
-    }
-  },
-  {
-    "matchId": "football-data:537425",
-    "label": "Mexico 2-0 Ecuador",
-    "kickedOffAt": "2026-07-01T02:00:00Z",
-    "status": "finished",
     "winnerTeam": "home",
     "homeTeam": {
       "name": "Mexiko",
@@ -56594,6 +55813,7 @@
     "label": "England 2-1 Congo DR",
     "kickedOffAt": "2026-07-01T16:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "England",
       "score": 2
@@ -57466,6 +56686,7 @@
     "label": "Belgium 3-2 Senegal",
     "kickedOffAt": "2026-07-01T20:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Belgien",
       "score": 3
@@ -58411,6 +57632,7 @@
     "label": "USA 2-0 Bosnia & Herzegovina",
     "kickedOffAt": "2026-07-02T00:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "USA",
       "score": 2
@@ -59231,6 +58453,7 @@
     "label": "Spain 3-0 Austria",
     "kickedOffAt": "2026-07-02T19:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Spanien",
       "score": 3
@@ -60091,6 +59314,7 @@
     "label": "Portugal 2-1 Croatia",
     "kickedOffAt": "2026-07-02T23:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Portugal",
       "score": 2
@@ -60997,6 +60221,7 @@
     "label": "Switzerland 2-0 Algeria",
     "kickedOffAt": "2026-07-03T03:00:00+00:00",
     "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Schweiz",
       "score": 2

@@ -19,9 +19,9 @@ import { normalizePlayerName } from "./normalizePlayerName";
 import { buildFixtureSyncStateForMatch } from "./fixtureSyncState";
 import { isPenaltyShootoutGoal } from "./penaltyShootouts";
 import {
-  getExternalMatchKey,
   getMatchRecordKey,
   goalBelongsToExternalMatch,
+  matchTimesAreCloseEnough,
   normalizeMatchTeamKey,
   normalizeScoreLabel
 } from "./matchIdentity";
@@ -64,6 +64,28 @@ function getFixtureCompletenessScore(fixture: ExternalMatchRecord): number {
   return sourceScore + statusScore + scoreScore;
 }
 
+function getFixtureTeamKey(fixture: ExternalMatchRecord): string {
+  return [
+    normalizeMatchTeamKey(resolveTeamDisplayName(fixture.homeTeam.name, fixture.source)),
+    normalizeMatchTeamKey(resolveTeamDisplayName(fixture.awayTeam.name, fixture.source))
+  ].join("|");
+}
+
+function getMatchTeamKey(match: Pick<MatchRecord, "homeTeam" | "awayTeam">): string {
+  return [
+    normalizeMatchTeamKey(match.homeTeam.name),
+    normalizeMatchTeamKey(match.awayTeam.name)
+  ].join("|");
+}
+
+function fixturesReferToSameMatch(left: ExternalMatchRecord, right: ExternalMatchRecord): boolean {
+  return getFixtureTeamKey(left) === getFixtureTeamKey(right) && matchTimesAreCloseEnough(left.kickedOffAt, right.kickedOffAt);
+}
+
+function recordsReferToSameMatch(left: MatchRecord, right: MatchRecord): boolean {
+  return getMatchTeamKey(left) === getMatchTeamKey(right) && matchTimesAreCloseEnough(left.kickedOffAt, right.kickedOffAt);
+}
+
 function inferWinnerTeamFromScore(fixture: ExternalMatchRecord): ExternalMatchRecord["winnerTeam"] | undefined {
   if (fixture.status !== "finished") {
     return undefined;
@@ -92,32 +114,28 @@ function mergeFixtureWinnerTeam(
   fixture: ExternalMatchRecord,
   alternateFixture?: ExternalMatchRecord
 ): ExternalMatchRecord {
-  const fixtureWinnerTeam = fixture.winnerTeam && fixture.winnerTeam !== "draw" ? fixture.winnerTeam : undefined;
-  const needsAlternateWinnerTeam = !fixtureWinnerTeam && !inferWinnerTeamFromScore(fixture);
-  const winnerTeam =
-    fixtureWinnerTeam ??
-    (needsAlternateWinnerTeam && alternateFixture ? resolveFixtureWinnerTeam(alternateFixture) : undefined);
+  const winnerTeam = resolveFixtureWinnerTeam(fixture) ?? (alternateFixture ? resolveFixtureWinnerTeam(alternateFixture) : undefined);
   return winnerTeam ? { ...fixture, winnerTeam } : fixture;
 }
 
 function dedupeFixtures(fixtures: ExternalMatchRecord[]): ExternalMatchRecord[] {
-  const fixturesByKey = new Map<string, ExternalMatchRecord>();
+  const dedupedFixtures: ExternalMatchRecord[] = [];
   for (const fixture of fixtures) {
-    const key = getExternalMatchKey(fixture);
-    const existing = fixturesByKey.get(key);
-    if (!existing) {
-      fixturesByKey.set(key, mergeFixtureWinnerTeam(fixture));
+    const existingIndex = dedupedFixtures.findIndex((existingFixture) => fixturesReferToSameMatch(existingFixture, fixture));
+    if (existingIndex === -1) {
+      dedupedFixtures.push(mergeFixtureWinnerTeam(fixture));
       continue;
     }
 
+    const existing = dedupedFixtures[existingIndex];
     if (getFixtureCompletenessScore(fixture) > getFixtureCompletenessScore(existing)) {
-      fixturesByKey.set(key, mergeFixtureWinnerTeam(fixture, existing));
+      dedupedFixtures[existingIndex] = mergeFixtureWinnerTeam(fixture, existing);
     } else {
-      fixturesByKey.set(key, mergeFixtureWinnerTeam(existing, fixture));
+      dedupedFixtures[existingIndex] = mergeFixtureWinnerTeam(existing, fixture);
     }
   }
 
-  return [...fixturesByKey.values()];
+  return dedupedFixtures;
 }
 
 function getGoalMatchId(goal: GoalRecord): string {
@@ -484,7 +502,12 @@ export function buildMatches(
 
   return [
     ...fixtureMatches,
-    ...fallbackMatches.filter((match) => !fixtureIds.has(match.matchId) && !fixtureKeys.has(getMatchRecordKey(match)))
+    ...fallbackMatches.filter(
+      (match) =>
+        !fixtureIds.has(match.matchId) &&
+        !fixtureKeys.has(getMatchRecordKey(match)) &&
+        !fixtureMatches.some((fixtureMatch) => recordsReferToSameMatch(fixtureMatch, match))
+    )
   ]
     .sort((a, b) => {
       const timeA = a.kickedOffAt ? Date.parse(a.kickedOffAt) : Number.MAX_SAFE_INTEGER;
