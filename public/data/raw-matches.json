@@ -2597,10 +2597,10 @@
     "source": "football-data",
     "matchId": "football-data:537427",
     "fixtureId": "537427",
-    "label": "Argentina 1-0 Cape Verde Islands",
+    "label": "Argentina 1-1 Cape Verde Islands",
     "kickedOffAt": "2026-07-03T22:00:00Z",
     "status": "live",
-    "winnerTeam": "home",
+    "winnerTeam": "draw",
     "homeTeam": {
       "id": 762,
       "name": "Argentina",
@@ -2609,7 +2609,7 @@
     "awayTeam": {
       "id": 1930,
       "name": "Cape Verde Islands",
-      "score": 0
+      "score": 1
     }
   },
   {
