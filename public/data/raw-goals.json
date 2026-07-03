@@ -5179,6 +5179,38 @@
     "teamId": "canada"
   },
   {
+    "externalGoalId": "football-data:scorer:3483:normal",
+    "playerName": "Breel Embolo",
+    "nationalTeam": "Switzerland",
+    "sourcePlayerName": "Breel Embolo",
+    "sourceTeamName": "Switzerland",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 3483,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "switzerland-breel-embolo",
+    "teamId": "switzerland"
+  },
+  {
+    "externalGoalId": "football-data:scorer:3483:penalties",
+    "playerName": "Breel Embolo",
+    "nationalTeam": "Switzerland",
+    "sourcePlayerName": "Breel Embolo",
+    "sourceTeamName": "Switzerland",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 3483,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "penalty",
+    "playerId": "switzerland-breel-embolo",
+    "teamId": "switzerland"
+  },
+  {
     "externalGoalId": "football-data:scorer:102193:normal",
     "playerName": "Crysencio Summerville",
     "nationalTeam": "Netherlands",
@@ -5637,22 +5669,6 @@
     "matchLabel": "FIFA World Cup 2026 Torschützenliste",
     "timeConfidence": "unknown",
     "detail": "normal"
-  },
-  {
-    "externalGoalId": "football-data:scorer:3483:penalties",
-    "playerName": "Breel Embolo",
-    "nationalTeam": "Switzerland",
-    "sourcePlayerName": "Breel Embolo",
-    "sourceTeamName": "Switzerland",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 3483,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "penalty",
-    "playerId": "switzerland-breel-embolo",
-    "teamId": "switzerland"
   },
   {
     "externalGoalId": "football-data:scorer:115828:normal",

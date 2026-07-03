@@ -2560,16 +2560,19 @@
     "source": "football-data",
     "matchId": "football-data:537429",
     "fixtureId": "537429",
-    "label": "Switzerland vs Algeria",
+    "label": "Switzerland 1-0 Algeria",
     "kickedOffAt": "2026-07-03T03:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "home",
     "homeTeam": {
       "id": 788,
-      "name": "Switzerland"
+      "name": "Switzerland",
+      "score": 1
     },
     "awayTeam": {
       "id": 778,
-      "name": "Algeria"
+      "name": "Algeria",
+      "score": 0
     }
   },
   {

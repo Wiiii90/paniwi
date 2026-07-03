@@ -60992,14 +60992,17 @@
   },
   {
     "matchId": "football-data:537429",
-    "label": "Switzerland vs Algeria",
+    "label": "Switzerland 1-0 Algeria",
     "kickedOffAt": "2026-07-03T03:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "home",
     "homeTeam": {
-      "name": "Schweiz"
+      "name": "Schweiz",
+      "score": 1
     },
     "awayTeam": {
-      "name": "Algerien"
+      "name": "Algerien",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -61037,12 +61040,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 1,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsEventBackfill": true,
+      "needsLineupBackfill": true
     }
   },
   {
