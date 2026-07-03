@@ -1,5 +1,15 @@
 [
   {
+    "playerName": "Lionel Messi",
+    "normalizedPlayerName": "lionel messi",
+    "nationalTeam": "Argentinien",
+    "goals": 7,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 1
+  },
+  {
     "playerName": "Kylian Mbappé",
     "normalizedPlayerName": "kylian mbappe",
     "nationalTeam": "Frankreich",
@@ -7,17 +17,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 1
-  },
-  {
-    "playerName": "Lionel Messi",
-    "normalizedPlayerName": "lionel messi",
-    "nationalTeam": "Argentinien",
-    "goals": 6,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 1
+    "rank": 2
   },
   {
     "playerName": "Erling Haaland",
