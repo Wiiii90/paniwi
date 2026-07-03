@@ -2579,19 +2579,18 @@
     "source": "football-data",
     "matchId": "football-data:537428",
     "fixtureId": "537428",
-    "label": "Australia 1-1 Egypt",
+    "label": "Australia 3-5 Egypt",
     "kickedOffAt": "2026-07-03T18:00:00Z",
-    "status": "live",
-    "winnerTeam": "draw",
+    "status": "finished",
     "homeTeam": {
       "id": 779,
       "name": "Australia",
-      "score": 1
+      "score": 3
     },
     "awayTeam": {
       "id": 825,
       "name": "Egypt",
-      "score": 1
+      "score": 5
     }
   },
   {
@@ -2922,6 +2921,24 @@
       "id": 1532,
       "name": "Algeria",
       "score": 0
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1565178",
+    "fixtureId": "1565178",
+    "label": "Australia 1-1 Egypt",
+    "kickedOffAt": "2026-07-03T18:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 20,
+      "name": "Australia",
+      "score": 1
+    },
+    "awayTeam": {
+      "id": 32,
+      "name": "Egypt",
+      "score": 1
     }
   }
 ]
