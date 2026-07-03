@@ -2543,7 +2543,7 @@
     "fixtureId": "537419",
     "label": "Portugal 2-1 Croatia",
     "kickedOffAt": "2026-07-02T23:00:00Z",
-    "status": "live",
+    "status": "finished",
     "winnerTeam": "home",
     "homeTeam": {
       "id": 765,
@@ -2880,6 +2880,24 @@
     "awayTeam": {
       "id": 770,
       "name": "England"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1567309",
+    "fixtureId": "1567309",
+    "label": "Portugal 2-1 Croatia",
+    "kickedOffAt": "2026-07-02T23:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 27,
+      "name": "Portugal",
+      "score": 2
+    },
+    "awayTeam": {
+      "id": 3,
+      "name": "Croatia",
+      "score": 1
     }
   }
 ]

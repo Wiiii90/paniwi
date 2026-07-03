@@ -843,6 +843,18 @@
     "rank": 45
   },
   {
+    "playerName": "Gonçalo Ramos",
+    "normalizedPlayerName": "goncalo ramos",
+    "nationalTeam": "Portugal",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [
+      "Peer"
+    ],
+    "selected": true,
+    "rank": 45
+  },
+  {
     "playerName": "Gonzalo Plata",
     "normalizedPlayerName": "gonzalo plata",
     "nationalTeam": "Ecuador",
@@ -936,6 +948,16 @@
     "playerName": "Issa Diop",
     "normalizedPlayerName": "issa diop",
     "nationalTeam": "Marokko",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 45
+  },
+  {
+    "playerName": "Ivan Perišić",
+    "normalizedPlayerName": "ivan perisic",
+    "nationalTeam": "Kroatien",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],

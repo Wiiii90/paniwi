@@ -29,24 +29,24 @@
   },
   {
     "rank": 3,
+    "owner": "Peer",
+    "points": 5,
+    "goals": 5,
+    "playersWithGoals": 4
+  },
+  {
+    "rank": 3,
     "owner": "Rafael",
     "points": 5,
     "goals": 5,
     "playersWithGoals": 3
   },
   {
-    "rank": 6,
+    "rank": 7,
     "owner": "Marco",
     "points": 4,
     "goals": 4,
     "playersWithGoals": 2
-  },
-  {
-    "rank": 6,
-    "owner": "Peer",
-    "points": 4,
-    "goals": 4,
-    "playersWithGoals": 3
   },
   {
     "rank": 8,
