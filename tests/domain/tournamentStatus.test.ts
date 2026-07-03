@@ -69,6 +69,24 @@ assert.deepEqual(
   }
 );
 
+const duplicateFixtureSnapshot = buildTeamTournamentStatusSnapshot(
+  [
+    firstRoundMatches[0]!,
+    ...firstRoundMatches.map((match, index) =>
+      index === firstRoundMatches.length - 1
+        ? {
+            ...match,
+            kickedOffAt: new Date(Date.parse(match.kickedOffAt!) + 24 * 60 * 60 * 1000).toISOString()
+          }
+        : match
+    )
+  ],
+  rosterSnapshot
+);
+assert.equal(duplicateFixtureSnapshot.firstKnockoutRoundComplete, true);
+assert.equal(duplicateFixtureSnapshot.knockoutTeamCount, 32);
+assert.equal(duplicateFixtureSnapshot.teams.find((team) => team.teamId === "scotland")?.status, "eliminated");
+
 const finishedHomeWinSnapshot = buildTeamTournamentStatusSnapshot(
   [
     createMatch(0, firstRoundTeamIds[0]!, firstRoundTeamIds[1]!, {

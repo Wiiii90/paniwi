@@ -92,6 +92,20 @@ function resolveReason(displayStatus: PickDisplayStatus, currentRosterStatus: Ro
   return "team-roster-missing";
 }
 
+function resolveTournamentState(
+  previousEntry: PickStatusEntry | undefined,
+  currentTournamentState: Pick<PickStatusEntry, "tournamentStatus" | "tournamentStatusReason">
+): Pick<PickStatusEntry, "tournamentStatus" | "tournamentStatusReason"> {
+  if (currentTournamentState.tournamentStatus === "unknown" && previousEntry?.tournamentStatus === "eliminated") {
+    return {
+      tournamentStatus: previousEntry.tournamentStatus,
+      tournamentStatusReason: previousEntry.tournamentStatusReason
+    };
+  }
+
+  return currentTournamentState;
+}
+
 export function buildPickStatusSnapshot(
   rosterSnapshot: RosterSnapshot,
   options: {
@@ -117,6 +131,10 @@ export function buildPickStatusSnapshot(
       const baselineRosterStatus = previousEntry?.baselineRosterStatus ?? currentMatch.status;
       const displayStatus = resolveDisplayStatus(previousEntry, baselineRosterStatus, currentMatch.status);
       const tournamentStatus = tournamentStatusByTeamId.get(pick.teamId);
+      const tournamentState = resolveTournamentState(previousEntry, {
+        tournamentStatus: tournamentStatus?.status ?? "unknown",
+        tournamentStatusReason: tournamentStatus?.reason ?? "knockout-field-incomplete"
+      });
       const position = currentMatch.position ?? pick.position;
 
       return {
@@ -129,8 +147,7 @@ export function buildPickStatusSnapshot(
         baselineRosterStatus,
         currentRosterStatus: currentMatch.status,
         displayStatus,
-        tournamentStatus: tournamentStatus?.status ?? "unknown",
-        tournamentStatusReason: tournamentStatus?.reason ?? "knockout-field-incomplete",
+        ...tournamentState,
         matchedCurrentRoster: Boolean(currentMatch.matchedName),
         ...(currentMatch.matchedName ? { matchedCurrentRosterName: currentMatch.matchedName } : {}),
         reason: resolveReason(displayStatus, currentMatch.status)

@@ -85,7 +85,7 @@ function getFinishedWinnerAndLoser(match: TournamentMatch): { winnerTeamId: stri
 function getUniqueFirstKnockoutRoundTeamIds(knockoutMatches: TournamentMatch[]): Set<string> {
   const teamIds = new Set<string>();
 
-  for (const match of knockoutMatches.slice(0, firstKnockoutRoundMatchCount)) {
+  for (const match of knockoutMatches) {
     const { homeTeamId, awayTeamId } = getMatchTeamIds(match);
     if (homeTeamId) {
       teamIds.add(homeTeamId);

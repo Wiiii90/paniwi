@@ -91,6 +91,21 @@ const previousSnapshot: PickStatusSnapshot = {
   rosterSnapshotUpdatedAt: "2026-06-15T10:00:00.000Z",
   picks: [
     {
+      owner: "Owner One",
+      pickId: "spain-lamine-yamal",
+      playerName: "Lamine Yamal",
+      teamId: "spain",
+      teamName: "Spanien",
+      baselineRosterStatus: "nominated",
+      currentRosterStatus: "nominated",
+      displayStatus: "nominated",
+      tournamentStatus: "eliminated",
+      tournamentStatusReason: "not-in-first-knockout-round",
+      matchedCurrentRoster: true,
+      matchedCurrentRosterName: "Lamine Yamal",
+      reason: "found-in-current-roster"
+    },
+    {
       owner: "Owner Two",
       pickId: "sweden-lucas-bergvall",
       playerName: "Lucas Bergvall",
@@ -143,10 +158,13 @@ const lateCallupSnapshot = buildPickStatusSnapshot(
   }
 );
 const lateCallupPick = lateCallupSnapshot.picks.find((entry) => entry.owner === "Owner Two" && entry.pickId === "sweden-lucas-bergvall");
+const preservedEliminatedPick = lateCallupSnapshot.picks.find((entry) => entry.owner === "Owner One" && entry.pickId === "spain-lamine-yamal");
 
 assert.equal(lateCallupPick?.displayStatus, "late-callup");
 assert.equal(lateCallupPick?.baselineRosterStatus, "not-nominated");
 assert.equal(lateCallupPick?.currentRosterStatus, "nominated");
 assert.equal(lateCallupPick?.reason, "late-callup");
+assert.equal(preservedEliminatedPick?.tournamentStatus, "eliminated");
+assert.equal(preservedEliminatedPick?.tournamentStatusReason, "not-in-first-knockout-round");
 
 console.log("Roster sync tests passed.");
