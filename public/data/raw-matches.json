@@ -2562,7 +2562,7 @@
     "fixtureId": "537429",
     "label": "Switzerland 2-0 Algeria",
     "kickedOffAt": "2026-07-03T03:00:00Z",
-    "status": "live",
+    "status": "finished",
     "winnerTeam": "home",
     "homeTeam": {
       "id": 788,
@@ -2901,6 +2901,24 @@
       "id": 3,
       "name": "Croatia",
       "score": 1
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1567312",
+    "fixtureId": "1567312",
+    "label": "Switzerland 2-0 Algeria",
+    "kickedOffAt": "2026-07-03T03:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 15,
+      "name": "Switzerland",
+      "score": 2
+    },
+    "awayTeam": {
+      "id": 1532,
+      "name": "Algeria",
+      "score": 0
     }
   }
 ]
