@@ -5058,6 +5058,38 @@
     "teamId": "netherlands"
   },
   {
+    "externalGoalId": "football-data:scorer:44:normal",
+    "playerName": "Cristiano Ronaldo",
+    "nationalTeam": "Portugal",
+    "sourcePlayerName": "Cristiano Ronaldo",
+    "sourceTeamName": "Portugal",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 44,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "portugal-cristiano-ronaldo",
+    "teamId": "portugal"
+  },
+  {
+    "externalGoalId": "football-data:scorer:44:penalties",
+    "playerName": "Cristiano Ronaldo",
+    "nationalTeam": "Portugal",
+    "sourcePlayerName": "Cristiano Ronaldo",
+    "sourceTeamName": "Portugal",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 44,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "penalty",
+    "playerId": "portugal-cristiano-ronaldo",
+    "teamId": "portugal"
+  },
+  {
     "externalGoalId": "football-data:scorer:3305:normal",
     "playerName": "Raúl Jiménez",
     "nationalTeam": "Mexico",
@@ -5328,22 +5360,6 @@
     "detail": "normal",
     "playerId": "japan-ayase-ueda",
     "teamId": "japan"
-  },
-  {
-    "externalGoalId": "football-data:scorer:44:normal",
-    "playerName": "Cristiano Ronaldo",
-    "nationalTeam": "Portugal",
-    "sourcePlayerName": "Cristiano Ronaldo",
-    "sourceTeamName": "Portugal",
-    "goals": 2,
-    "source": "football-data",
-    "apiPlayerId": 44,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "portugal-cristiano-ronaldo",
-    "teamId": "portugal"
   },
   {
     "externalGoalId": "football-data:scorer:8412:normal",

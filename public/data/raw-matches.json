@@ -2541,10 +2541,10 @@
     "source": "football-data",
     "matchId": "football-data:537419",
     "fixtureId": "537419",
-    "label": "Portugal 0-0 Croatia",
+    "label": "Portugal 0-1 Croatia",
     "kickedOffAt": "2026-07-02T23:00:00Z",
     "status": "live",
-    "winnerTeam": "draw",
+    "winnerTeam": "away",
     "homeTeam": {
       "id": 765,
       "name": "Portugal",
@@ -2553,7 +2553,7 @@
     "awayTeam": {
       "id": 799,
       "name": "Croatia",
-      "score": 0
+      "score": 1
     }
   },
   {
