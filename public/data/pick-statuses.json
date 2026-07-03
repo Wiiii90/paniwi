@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-02T23:31:30.937Z",
+  "lastUpdated": "2026-07-03T00:01:40.275Z",
   "rosterSnapshotUpdatedAt": "2026-06-15T23:48:37.445Z",
   "picks": [
     {
@@ -13,7 +13,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Morgan Rogers",
       "reason": "found-in-current-roster"
@@ -157,7 +157,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Marc Guéhi",
       "reason": "found-in-current-roster"
@@ -189,7 +189,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Alisson",
       "reason": "found-in-current-roster"
@@ -237,7 +237,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Gabriel Magalhães",
       "reason": "found-in-current-roster"
@@ -379,7 +379,7 @@
       "currentRosterStatus": "not-nominated",
       "displayStatus": "not-nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": false,
       "reason": "not-found-in-current-team-roster"
     },
@@ -520,7 +520,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Matheus Cunha",
       "reason": "found-in-current-roster"
@@ -694,7 +694,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Israel Reyes",
       "reason": "found-in-current-roster"
@@ -726,7 +726,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Erling Haaland",
       "reason": "found-in-current-roster"
@@ -870,7 +870,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Jordan Pickford",
       "reason": "found-in-current-roster"
@@ -886,7 +886,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Vinícius Júnior",
       "reason": "found-in-current-roster"
@@ -982,7 +982,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Sander Berge",
       "reason": "found-in-current-roster"
@@ -1138,7 +1138,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Jude Bellingham",
       "reason": "found-in-current-roster"
@@ -1154,7 +1154,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Edson Álvarez",
       "reason": "found-in-current-roster"
@@ -1250,7 +1250,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Marcus Rashford",
       "reason": "found-in-current-roster"
@@ -1632,7 +1632,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Lucas Paquetá",
       "reason": "found-in-current-roster"
@@ -1664,7 +1664,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Antonio Nusa",
       "reason": "found-in-current-roster"
@@ -1726,7 +1726,7 @@
       "currentRosterStatus": "not-nominated",
       "displayStatus": "not-nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": false,
       "reason": "not-found-in-current-team-roster"
     },
@@ -1963,7 +1963,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Dan Burn",
       "reason": "found-in-current-roster"

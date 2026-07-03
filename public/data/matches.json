@@ -60758,5 +60758,295 @@
       "needsEventBackfill": false,
       "needsLineupBackfill": false
     }
+  },
+  {
+    "matchId": "football-data:537377",
+    "label": "Brazil vs Norway",
+    "kickedOffAt": "2026-07-05T20:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Brasilien"
+    },
+    "awayTeam": {
+      "name": "Norwegen"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537377",
+        "fixtureId": "537377",
+        "playerName": "Alisson",
+        "nationalTeam": "Brasilien",
+        "teamId": "brazil",
+        "status": "unknown",
+        "displayPlayerName": "Alisson",
+        "displayNationalTeam": "Brasilien",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537377",
+        "fixtureId": "537377",
+        "playerName": "Gabriel Magalhães",
+        "nationalTeam": "Brasilien",
+        "teamId": "brazil",
+        "status": "unknown",
+        "displayPlayerName": "Gabriel Magalhães",
+        "displayNationalTeam": "Brasilien",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537377",
+        "fixtureId": "537377",
+        "playerName": "Lucas Paquetá",
+        "nationalTeam": "Brasilien",
+        "teamId": "brazil",
+        "status": "unknown",
+        "displayPlayerName": "Lucas Paquetá",
+        "displayNationalTeam": "Brasilien",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537377",
+        "fixtureId": "537377",
+        "playerName": "Matheus Cunha",
+        "nationalTeam": "Brasilien",
+        "teamId": "brazil",
+        "status": "unknown",
+        "displayPlayerName": "Matheus Cunha",
+        "displayNationalTeam": "Brasilien",
+        "owners": [
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537377",
+        "fixtureId": "537377",
+        "playerName": "Vinícius Júnior",
+        "nationalTeam": "Brasilien",
+        "teamId": "brazil",
+        "status": "unknown",
+        "displayPlayerName": "Vinícius Júnior",
+        "displayNationalTeam": "Brasilien",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537377",
+        "fixtureId": "537377",
+        "playerName": "Antonio Nusa",
+        "nationalTeam": "Norwegen",
+        "teamId": "norway",
+        "status": "unknown",
+        "displayPlayerName": "Antonio Nusa",
+        "displayNationalTeam": "Norwegen",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537377",
+        "fixtureId": "537377",
+        "playerName": "Erling Haaland",
+        "nationalTeam": "Norwegen",
+        "teamId": "norway",
+        "status": "unknown",
+        "displayPlayerName": "Erling Haaland",
+        "displayNationalTeam": "Norwegen",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537377",
+        "fixtureId": "537377",
+        "playerName": "Sander Berge",
+        "nationalTeam": "Norwegen",
+        "teamId": "norway",
+        "status": "unknown",
+        "displayPlayerName": "Sander Berge",
+        "displayNationalTeam": "Norwegen",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
+  },
+  {
+    "matchId": "football-data:537378",
+    "label": "Mexico vs England",
+    "kickedOffAt": "2026-07-06T00:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Mexiko"
+    },
+    "awayTeam": {
+      "name": "England"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537378",
+        "fixtureId": "537378",
+        "playerName": "Dan Burn",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Dan Burn",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537378",
+        "fixtureId": "537378",
+        "playerName": "Jordan Pickford",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Jordan Pickford",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537378",
+        "fixtureId": "537378",
+        "playerName": "Jude Bellingham",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Jude Bellingham",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537378",
+        "fixtureId": "537378",
+        "playerName": "Marc Guéhi",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Marc Guéhi",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537378",
+        "fixtureId": "537378",
+        "playerName": "Marcus Rashford",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Marcus Rashford",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537378",
+        "fixtureId": "537378",
+        "playerName": "Morgan Rogers",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Morgan Rogers",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537378",
+        "fixtureId": "537378",
+        "playerName": "Edson Álvarez",
+        "nationalTeam": "Mexiko",
+        "teamId": "mexico",
+        "status": "unknown",
+        "displayPlayerName": "Edson Álvarez",
+        "displayNationalTeam": "Mexiko",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537378",
+        "fixtureId": "537378",
+        "playerName": "Israel Reyes",
+        "nationalTeam": "Mexiko",
+        "teamId": "mexico",
+        "status": "unknown",
+        "displayPlayerName": "Israel Reyes",
+        "displayNationalTeam": "Mexiko",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   }
 ]

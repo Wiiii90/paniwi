@@ -2849,5 +2849,37 @@
       "name": "Austria",
       "score": 0
     }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537377",
+    "fixtureId": "537377",
+    "label": "Brazil vs Norway",
+    "kickedOffAt": "2026-07-05T20:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 764,
+      "name": "Brazil"
+    },
+    "awayTeam": {
+      "id": 8872,
+      "name": "Norway"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537378",
+    "fixtureId": "537378",
+    "label": "Mexico vs England",
+    "kickedOffAt": "2026-07-06T00:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 769,
+      "name": "Mexico"
+    },
+    "awayTeam": {
+      "id": 770,
+      "name": "England"
+    }
   }
 ]
