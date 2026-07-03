@@ -2579,16 +2579,19 @@
     "source": "football-data",
     "matchId": "football-data:537428",
     "fixtureId": "537428",
-    "label": "Australia vs Egypt",
+    "label": "Australia 0-1 Egypt",
     "kickedOffAt": "2026-07-03T18:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "away",
     "homeTeam": {
       "id": 779,
-      "name": "Australia"
+      "name": "Australia",
+      "score": 0
     },
     "awayTeam": {
       "id": 825,
-      "name": "Egypt"
+      "name": "Egypt",
+      "score": 1
     }
   },
   {

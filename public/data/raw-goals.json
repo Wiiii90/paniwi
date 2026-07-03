@@ -5313,6 +5313,22 @@
     "teamId": "sweden"
   },
   {
+    "externalGoalId": "football-data:scorer:191972:normal",
+    "playerName": "Emam Ashour",
+    "nationalTeam": "Egypt",
+    "sourcePlayerName": "Emam Ashour",
+    "sourceTeamName": "Egypt",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 191972,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "egypt-emam-ashour",
+    "teamId": "egypt"
+  },
+  {
     "externalGoalId": "football-data:scorer:28770:normal",
     "playerName": "Maximiliano Araújo",
     "nationalTeam": "Uruguay",
@@ -5945,22 +5961,6 @@
     "detail": "normal",
     "playerId": "sweden-mattias-svanberg",
     "teamId": "sweden"
-  },
-  {
-    "externalGoalId": "football-data:scorer:191972:normal",
-    "playerName": "Emam Ashour",
-    "nationalTeam": "Egypt",
-    "sourcePlayerName": "Emam Ashour",
-    "sourceTeamName": "Egypt",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 191972,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "egypt-emam-ashour",
-    "teamId": "egypt"
   },
   {
     "externalGoalId": "football-data:scorer:103094:normal",

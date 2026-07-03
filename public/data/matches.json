@@ -61004,14 +61004,17 @@
   },
   {
     "matchId": "football-data:537428",
-    "label": "Australia vs Egypt",
+    "label": "Australia 0-1 Egypt",
     "kickedOffAt": "2026-07-03T18:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "away",
     "homeTeam": {
-      "name": "Australien"
+      "name": "Australien",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Ägypten"
+      "name": "Ägypten",
+      "score": 1
     },
     "goals": [],
     "pointGoals": [],
@@ -61049,12 +61052,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 1,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsEventBackfill": true,
+      "needsLineupBackfill": true
     }
   },
   {
