@@ -2582,6 +2582,7 @@
     "label": "Australia 3-5 Egypt",
     "kickedOffAt": "2026-07-03T18:00:00Z",
     "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "id": 779,
       "name": "Australia",
@@ -2997,6 +2998,22 @@
       "id": 1533,
       "name": "Cape Verde Islands",
       "score": 2
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537379",
+    "fixtureId": "537379",
+    "label": "Portugal vs Spain",
+    "kickedOffAt": "2026-07-06T19:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 765,
+      "name": "Portugal"
+    },
+    "awayTeam": {
+      "id": 760,
+      "name": "Spain"
     }
   }
 ]

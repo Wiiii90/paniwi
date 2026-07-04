@@ -64062,6 +64062,182 @@
     }
   },
   {
+    "matchId": "football-data:537379",
+    "label": "Portugal vs Spain",
+    "kickedOffAt": "2026-07-06T19:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Portugal"
+    },
+    "awayTeam": {
+      "name": "Spanien"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537379",
+        "fixtureId": "537379",
+        "playerName": "Bruno Fernandes",
+        "nationalTeam": "Portugal",
+        "teamId": "portugal",
+        "status": "unknown",
+        "displayPlayerName": "Bruno Fernandes",
+        "displayNationalTeam": "Portugal",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537379",
+        "fixtureId": "537379",
+        "playerName": "Gonçalo Ramos",
+        "nationalTeam": "Portugal",
+        "teamId": "portugal",
+        "status": "unknown",
+        "displayPlayerName": "Gonçalo Ramos",
+        "displayNationalTeam": "Portugal",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537379",
+        "fixtureId": "537379",
+        "playerName": "João Cancelo",
+        "nationalTeam": "Portugal",
+        "teamId": "portugal",
+        "status": "unknown",
+        "displayPlayerName": "João Cancelo",
+        "displayNationalTeam": "Portugal",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537379",
+        "fixtureId": "537379",
+        "playerName": "João Félix",
+        "nationalTeam": "Portugal",
+        "teamId": "portugal",
+        "status": "unknown",
+        "displayPlayerName": "João Félix",
+        "displayNationalTeam": "Portugal",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537379",
+        "fixtureId": "537379",
+        "playerName": "Rúben Dias",
+        "nationalTeam": "Portugal",
+        "teamId": "portugal",
+        "status": "unknown",
+        "displayPlayerName": "Rúben Dias",
+        "displayNationalTeam": "Portugal",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537379",
+        "fixtureId": "537379",
+        "playerName": "Aymeric Laporte",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Aymeric Laporte",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537379",
+        "fixtureId": "537379",
+        "playerName": "Fabián Ruiz",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Fabián Ruiz",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Nina",
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537379",
+        "fixtureId": "537379",
+        "playerName": "Lamine Yamal",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Lamine Yamal",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537379",
+        "fixtureId": "537379",
+        "playerName": "Pedri",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Pedri",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537379",
+        "fixtureId": "537379",
+        "playerName": "Rodri",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Rodri",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
+  },
+  {
     "matchId": "football-data:537380",
     "label": "United States vs Belgium",
     "kickedOffAt": "2026-07-07T00:00:00Z",

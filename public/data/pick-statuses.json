@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-04T05:31:25.080Z",
+  "lastUpdated": "2026-07-04T16:01:55.892Z",
   "rosterSnapshotUpdatedAt": "2026-06-15T23:48:37.445Z",
   "picks": [
     {
@@ -93,7 +93,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Rodri",
       "reason": "found-in-current-roster"
@@ -109,7 +109,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Fabián Ruiz",
       "reason": "found-in-current-roster"
@@ -285,7 +285,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Rúben Dias",
       "reason": "found-in-current-roster"
@@ -456,7 +456,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Fabián Ruiz",
       "reason": "found-in-current-roster"
@@ -488,7 +488,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Lamine Yamal",
       "reason": "found-in-current-roster"
@@ -552,7 +552,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Pedri",
       "reason": "found-in-current-roster"
@@ -568,7 +568,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Bruno Fernandes",
       "reason": "found-in-current-roster"
@@ -1074,7 +1074,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "João Cancelo",
       "reason": "found-in-current-roster"
@@ -1090,7 +1090,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Aymeric Laporte",
       "reason": "found-in-current-roster"
@@ -1570,7 +1570,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Gonçalo Ramos",
       "reason": "found-in-current-roster"
@@ -2009,7 +2009,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "João Félix",
       "reason": "found-in-current-roster"
