@@ -61861,14 +61861,17 @@
   },
   {
     "matchId": "football-data:537430",
-    "label": "Colombia vs Ghana",
+    "label": "Colombia 1-0 Ghana",
     "kickedOffAt": "2026-07-04T01:30:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "home",
     "homeTeam": {
-      "name": "Kolumbien"
+      "name": "Kolumbien",
+      "score": 1
     },
     "awayTeam": {
-      "name": "Ghana"
+      "name": "Ghana",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -61922,12 +61925,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 1,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsEventBackfill": true,
+      "needsLineupBackfill": true
     }
   },
   {
