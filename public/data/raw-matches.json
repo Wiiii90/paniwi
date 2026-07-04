@@ -2798,9 +2798,9 @@
     "source": "football-data",
     "matchId": "football-data:537376",
     "fixtureId": "537376",
-    "label": "Canada 0-2 Morocco",
+    "label": "Canada 0-3 Morocco",
     "kickedOffAt": "2026-07-04T17:00:00Z",
-    "status": "live",
+    "status": "finished",
     "winnerTeam": "away",
     "homeTeam": {
       "id": 828,
@@ -2810,7 +2810,7 @@
     "awayTeam": {
       "id": 815,
       "name": "Morocco",
-      "score": 2
+      "score": 3
     }
   },
   {
@@ -3017,6 +3017,24 @@
     "awayTeam": {
       "id": 760,
       "name": "Spain"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1567824",
+    "fixtureId": "1567824",
+    "label": "Canada 0-3 Morocco",
+    "kickedOffAt": "2026-07-04T17:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 5529,
+      "name": "Canada",
+      "score": 0
+    },
+    "awayTeam": {
+      "id": 31,
+      "name": "Morocco",
+      "score": 3
     }
   }
 ]
