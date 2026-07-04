@@ -62464,5 +62464,137 @@
       "needsEventBackfill": false,
       "needsLineupBackfill": false
     }
+  },
+  {
+    "matchId": "football-data:537380",
+    "label": "United States vs Belgium",
+    "kickedOffAt": "2026-07-07T00:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "USA"
+    },
+    "awayTeam": {
+      "name": "Belgien"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537380",
+        "fixtureId": "537380",
+        "playerName": "Amadou Onana",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "status": "unknown",
+        "displayPlayerName": "Amadou Onana",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537380",
+        "fixtureId": "537380",
+        "playerName": "Jérémy Doku",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "status": "unknown",
+        "displayPlayerName": "Jérémy Doku",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537380",
+        "fixtureId": "537380",
+        "playerName": "Nicolas Raskin",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "status": "unknown",
+        "displayPlayerName": "Nicolas Raskin",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537380",
+        "fixtureId": "537380",
+        "playerName": "Thomas Meunier",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "status": "unknown",
+        "displayPlayerName": "Thomas Meunier",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Felix",
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537380",
+        "fixtureId": "537380",
+        "playerName": "Youri Tielemans",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "status": "unknown",
+        "displayPlayerName": "Youri Tielemans",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537380",
+        "fixtureId": "537380",
+        "playerName": "Timothy Weah",
+        "nationalTeam": "USA",
+        "teamId": "united-states",
+        "status": "unknown",
+        "displayPlayerName": "Timothy Weah",
+        "displayNationalTeam": "USA",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537380",
+        "fixtureId": "537380",
+        "playerName": "Tyler Adams",
+        "nationalTeam": "USA",
+        "teamId": "united-states",
+        "status": "unknown",
+        "displayPlayerName": "Tyler Adams",
+        "displayNationalTeam": "USA",
+        "owners": [
+          "Caro",
+          "Jonas"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   }
 ]

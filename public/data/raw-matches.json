@@ -2943,5 +2943,21 @@
       "name": "Egypt",
       "score": 1
     }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537380",
+    "fixtureId": "537380",
+    "label": "United States vs Belgium",
+    "kickedOffAt": "2026-07-07T00:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 771,
+      "name": "United States"
+    },
+    "awayTeam": {
+      "id": 805,
+      "name": "Belgium"
+    }
   }
 ]
