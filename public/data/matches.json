@@ -61758,13 +61758,13 @@
   },
   {
     "matchId": "football-data:537427",
-    "label": "Argentina 2-2 Cape Verde Islands",
+    "label": "Argentina 3-2 Cape Verde Islands",
     "kickedOffAt": "2026-07-03T22:00:00Z",
-    "status": "live",
-    "winnerTeam": "draw",
+    "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Argentinien",
-      "score": 2
+      "score": 3
     },
     "awayTeam": {
       "name": "Kap Verde",
@@ -61851,7 +61851,7 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 4,
+      "scoreTotal": 5,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
