@@ -63528,14 +63528,17 @@
   },
   {
     "matchId": "football-data:537376",
-    "label": "Canada vs Morocco",
+    "label": "Canada 0-0 Morocco",
     "kickedOffAt": "2026-07-04T17:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "draw",
     "homeTeam": {
-      "name": "Kanada"
+      "name": "Kanada",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Marokko"
+      "name": "Marokko",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -63633,12 +63636,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 0,
       "goalEventCount": 0,
-      "eventsComplete": false,
+      "eventsComplete": true,
       "lineupsComplete": false,
       "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsLineupBackfill": true
     }
   },
   {
