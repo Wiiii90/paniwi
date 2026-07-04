@@ -2798,7 +2798,7 @@
     "source": "football-data",
     "matchId": "football-data:537376",
     "fixtureId": "537376",
-    "label": "Canada 0-1 Morocco",
+    "label": "Canada 0-2 Morocco",
     "kickedOffAt": "2026-07-04T17:00:00Z",
     "status": "live",
     "winnerTeam": "away",
@@ -2810,7 +2810,7 @@
     "awayTeam": {
       "id": 815,
       "name": "Morocco",
-      "score": 1
+      "score": 2
     }
   },
   {

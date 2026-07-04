@@ -5897,6 +5897,22 @@
     "teamId": "belgium"
   },
   {
+    "externalGoalId": "football-data:scorer:122511:normal",
+    "playerName": "Azzedine Ounahi",
+    "nationalTeam": "Morocco",
+    "sourcePlayerName": "Azzedine Ounahi",
+    "sourceTeamName": "Morocco",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 122511,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "morocco-azzedine-ounahi",
+    "teamId": "morocco"
+  },
+  {
     "externalGoalId": "football-data:scorer:1878:normal",
     "playerName": "Ladislav Krejčí",
     "nationalTeam": "Czech Republic",
@@ -6735,19 +6751,5 @@
     "detail": "normal",
     "playerId": "egypt-trezeguet",
     "teamId": "egypt"
-  },
-  {
-    "externalGoalId": "football-data:scorer:38548:normal",
-    "playerName": "Marcus Pedersen",
-    "nationalTeam": "Norway",
-    "sourcePlayerName": "Marcus Pedersen",
-    "sourceTeamName": "Norway",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 38548,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal"
   }
 ]
