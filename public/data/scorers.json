@@ -728,6 +728,16 @@
     "rank": 47
   },
   {
+    "playerName": "Deroy Duarte",
+    "normalizedPlayerName": "deroy duarte",
+    "nationalTeam": "Kap Verde",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 47
+  },
+  {
     "playerName": "Derrick Luckassen",
     "normalizedPlayerName": "derrick luckassen",
     "nationalTeam": "Ghana",
@@ -1005,6 +1015,18 @@
     "rank": 47
   },
   {
+    "playerName": "Jhon Arias",
+    "normalizedPlayerName": "jhon arias",
+    "nationalTeam": "Kolumbien",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [
+      "Peer"
+    ],
+    "selected": true,
+    "rank": 47
+  },
+  {
     "playerName": "João Neves",
     "normalizedPlayerName": "joao neves",
     "nationalTeam": "Portugal",
@@ -1152,6 +1174,16 @@
     "playerName": "Leroy Sané",
     "normalizedPlayerName": "leroy sane",
     "nationalTeam": "Deutschland",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 47
+  },
+  {
+    "playerName": "Lisandro Martínez",
+    "normalizedPlayerName": "lisandro martinez",
+    "nationalTeam": "Argentinien",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],
@@ -1548,6 +1580,16 @@
     "playerName": "Sebastian Berhalter",
     "normalizedPlayerName": "sebastian berhalter",
     "nationalTeam": "USA",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 47
+  },
+  {
+    "playerName": "Sidny Lopes Cabral",
+    "normalizedPlayerName": "sidny lopes cabral",
+    "nationalTeam": "Kap Verde",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],

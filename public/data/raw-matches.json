@@ -2616,14 +2616,14 @@
     "source": "football-data",
     "matchId": "football-data:537430",
     "fixtureId": "537430",
-    "label": "Colombia 2-0 Ghana",
+    "label": "Colombia 1-0 Ghana",
     "kickedOffAt": "2026-07-04T01:30:00Z",
-    "status": "live",
+    "status": "finished",
     "winnerTeam": "home",
     "homeTeam": {
       "id": 818,
       "name": "Colombia",
-      "score": 2
+      "score": 1
     },
     "awayTeam": {
       "id": 763,
@@ -2961,6 +2961,42 @@
     "awayTeam": {
       "id": 805,
       "name": "Belgium"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1567310",
+    "fixtureId": "1567310",
+    "label": "Colombia 1-0 Ghana",
+    "kickedOffAt": "2026-07-04T01:30:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 8,
+      "name": "Colombia",
+      "score": 1
+    },
+    "awayTeam": {
+      "id": 1504,
+      "name": "Ghana",
+      "score": 0
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1565179",
+    "fixtureId": "1565179",
+    "label": "Argentina 3-2 Cape Verde Islands",
+    "kickedOffAt": "2026-07-03T22:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 26,
+      "name": "Argentina",
+      "score": 3
+    },
+    "awayTeam": {
+      "id": 1533,
+      "name": "Cape Verde Islands",
+      "score": 2
     }
   }
 ]

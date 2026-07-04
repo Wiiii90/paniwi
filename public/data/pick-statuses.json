@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-04T03:31:55.349Z",
+  "lastUpdated": "2026-07-04T04:31:28.054Z",
   "rosterSnapshotUpdatedAt": "2026-06-15T23:48:37.445Z",
   "picks": [
     {
@@ -205,7 +205,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Davinson Sánchez",
       "reason": "found-in-current-roster"
@@ -394,7 +394,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Richard Ríos",
       "reason": "found-in-current-roster"
@@ -616,7 +616,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Richard Ríos",
       "reason": "found-in-current-roster"
@@ -1586,7 +1586,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Jhon Arias",
       "reason": "found-in-current-roster"
