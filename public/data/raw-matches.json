@@ -2817,16 +2817,19 @@
     "source": "football-data",
     "matchId": "football-data:537375",
     "fixtureId": "537375",
-    "label": "Paraguay vs France",
+    "label": "Paraguay 0-0 France",
     "kickedOffAt": "2026-07-04T21:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "draw",
     "homeTeam": {
       "id": 761,
-      "name": "Paraguay"
+      "name": "Paraguay",
+      "score": 0
     },
     "awayTeam": {
       "id": 773,
-      "name": "France"
+      "name": "France",
+      "score": 0
     }
   },
   {

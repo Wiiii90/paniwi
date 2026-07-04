@@ -64371,14 +64371,17 @@
   },
   {
     "matchId": "football-data:537375",
-    "label": "Paraguay vs France",
+    "label": "Paraguay 0-0 France",
     "kickedOffAt": "2026-07-04T21:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "draw",
     "homeTeam": {
-      "name": "Paraguay"
+      "name": "Paraguay",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Frankreich"
+      "name": "Frankreich",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -64491,12 +64494,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 0,
       "goalEventCount": 0,
-      "eventsComplete": false,
+      "eventsComplete": true,
       "lineupsComplete": false,
       "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsLineupBackfill": true
     }
   },
   {
