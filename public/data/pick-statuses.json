@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-04T23:01:42.785Z",
+  "lastUpdated": "2026-07-05T00:01:47.965Z",
   "rosterSnapshotUpdatedAt": "2026-06-15T23:48:37.445Z",
   "picks": [
     {
@@ -61,7 +61,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Bradley Barcola",
       "reason": "found-in-current-roster"
@@ -77,7 +77,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Cristian Romero",
       "reason": "found-in-current-roster"
@@ -205,7 +205,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Davinson Sánchez",
       "reason": "found-in-current-roster"
@@ -268,8 +268,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatus": "eliminated",
+      "tournamentStatusReason": "knockout-loser",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Diego Gómez",
       "reason": "found-in-current-roster"
@@ -394,7 +394,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Richard Ríos",
       "reason": "found-in-current-roster"
@@ -471,8 +471,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatus": "eliminated",
+      "tournamentStatusReason": "knockout-loser",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Julio Enciso",
       "reason": "found-in-current-roster"
@@ -616,7 +616,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Richard Ríos",
       "reason": "found-in-current-roster"
@@ -632,7 +632,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Giuliano Simeone",
       "reason": "found-in-current-roster"
@@ -838,7 +838,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Manuel Akanji",
       "reason": "found-in-current-roster"
@@ -1329,8 +1329,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatus": "eliminated",
+      "tournamentStatusReason": "knockout-loser",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Damián Bobadilla",
       "reason": "found-in-current-roster"
@@ -1410,7 +1410,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Alexis Mac Allister",
       "reason": "found-in-current-roster"
@@ -1458,7 +1458,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Mohamed El Shenawy",
       "reason": "found-in-current-roster"
@@ -1490,7 +1490,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Adrien Rabiot",
       "reason": "found-in-current-roster"
@@ -1586,7 +1586,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Jhon Arias",
       "reason": "found-in-current-roster"
@@ -1617,7 +1617,7 @@
       "currentRosterStatus": "not-nominated",
       "displayStatus": "not-nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": false,
       "reason": "not-found-in-current-team-roster"
     },
@@ -1648,7 +1648,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Rubén Vargas",
       "reason": "found-in-current-roster"
@@ -1680,7 +1680,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Désiré Doué",
       "reason": "found-in-current-roster"
@@ -1835,8 +1835,8 @@
       "baselineRosterStatus": "not-nominated",
       "currentRosterStatus": "not-nominated",
       "displayStatus": "not-nominated",
-      "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatus": "eliminated",
+      "tournamentStatusReason": "knockout-loser",
       "matchedCurrentRoster": false,
       "reason": "not-found-in-current-team-roster"
     },
@@ -1930,8 +1930,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatus": "eliminated",
+      "tournamentStatusReason": "knockout-loser",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Ramón Sosa",
       "reason": "found-in-current-roster"
@@ -2052,8 +2052,8 @@
     "notNominatedCount": 11,
     "lateCallupCount": 0,
     "unknownCount": 0,
-    "activeCount": 60,
-    "eliminatedCount": 69,
+    "activeCount": 55,
+    "eliminatedCount": 74,
     "tournamentUnknownCount": 0
   }
 }

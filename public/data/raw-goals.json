@@ -6824,5 +6824,24 @@
     "detail": "normal",
     "playerId": "egypt-mohamed-salah",
     "teamId": "egypt"
+  },
+  {
+    "externalGoalId": "api-football:1569870:278:70:Penalty:0",
+    "playerName": "Kylian Mbappé",
+    "nationalTeam": "France",
+    "sourcePlayerName": "K. Mbappe",
+    "sourceTeamName": "France",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 278,
+    "matchId": "football-data:537375",
+    "fixtureId": "1569870",
+    "matchLabel": "Paraguay 0-1 France",
+    "kickedOffAt": "2026-07-04T21:00:00+00:00",
+    "minute": 70,
+    "timeConfidence": "match-only",
+    "detail": "penalty",
+    "playerId": "france-kylian-mbappe",
+    "teamId": "france"
   }
 ]

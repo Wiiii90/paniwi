@@ -2819,7 +2819,7 @@
     "fixtureId": "537375",
     "label": "Paraguay 0-1 France",
     "kickedOffAt": "2026-07-04T21:00:00Z",
-    "status": "live",
+    "status": "finished",
     "winnerTeam": "away",
     "homeTeam": {
       "id": 761,
@@ -3038,6 +3038,56 @@
       "id": 31,
       "name": "Morocco",
       "score": 3
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537381",
+    "fixtureId": "537381",
+    "label": "Argentina vs Egypt",
+    "kickedOffAt": "2026-07-07T16:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 762,
+      "name": "Argentina"
+    },
+    "awayTeam": {
+      "id": 825,
+      "name": "Egypt"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537382",
+    "fixtureId": "537382",
+    "label": "Switzerland vs Colombia",
+    "kickedOffAt": "2026-07-07T20:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 788,
+      "name": "Switzerland"
+    },
+    "awayTeam": {
+      "id": 818,
+      "name": "Colombia"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1569870",
+    "fixtureId": "1569870",
+    "label": "Paraguay 0-1 France",
+    "kickedOffAt": "2026-07-04T21:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 2380,
+      "name": "Paraguay",
+      "score": 0
+    },
+    "awayTeam": {
+      "id": 2,
+      "name": "France",
+      "score": 1
     }
   }
 ]
