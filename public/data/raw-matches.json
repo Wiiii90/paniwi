@@ -3018,7 +3018,7 @@
     "fixtureId": "537379",
     "label": "Portugal 0-1 Spain",
     "kickedOffAt": "2026-07-06T19:00:00Z",
-    "status": "live",
+    "status": "finished",
     "winnerTeam": "away",
     "homeTeam": {
       "id": 765,
@@ -3133,6 +3133,24 @@
       "id": 1090,
       "name": "Norway",
       "score": 2
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1576756",
+    "fixtureId": "1576756",
+    "label": "Portugal 0-1 Spain",
+    "kickedOffAt": "2026-07-06T19:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 27,
+      "name": "Portugal",
+      "score": 0
+    },
+    "awayTeam": {
+      "id": 9,
+      "name": "Spain",
+      "score": 1
     }
   }
 ]

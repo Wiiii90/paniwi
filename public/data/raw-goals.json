@@ -7011,5 +7011,24 @@
     "detail": "normal",
     "playerId": "egypt-mohamed-salah",
     "teamId": "egypt"
+  },
+  {
+    "externalGoalId": "api-football:1576756:47311:90+1:Normal Goal:0",
+    "playerName": "Mikel Merino",
+    "nationalTeam": "Spain",
+    "sourcePlayerName": "M. Merino",
+    "sourceTeamName": "Spain",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 47311,
+    "matchId": "football-data:537379",
+    "fixtureId": "1576756",
+    "matchLabel": "Portugal 0-1 Spain",
+    "kickedOffAt": "2026-07-06T19:00:00+00:00",
+    "minute": 90,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "spain-mikel-merino",
+    "teamId": "spain"
   }
 ]
