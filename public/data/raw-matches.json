@@ -2872,32 +2872,38 @@
     "source": "football-data",
     "matchId": "football-data:537377",
     "fixtureId": "537377",
-    "label": "Brazil vs Norway",
+    "label": "Brazil 1-2 Norway",
     "kickedOffAt": "2026-07-05T20:00:00Z",
-    "status": "scheduled",
+    "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "id": 764,
-      "name": "Brazil"
+      "name": "Brazil",
+      "score": 1
     },
     "awayTeam": {
       "id": 8872,
-      "name": "Norway"
+      "name": "Norway",
+      "score": 2
     }
   },
   {
     "source": "football-data",
     "matchId": "football-data:537378",
     "fixtureId": "537378",
-    "label": "Mexico vs England",
-    "kickedOffAt": "2026-07-06T00:00:00Z",
-    "status": "scheduled",
+    "label": "Mexico 2-3 England",
+    "kickedOffAt": "2026-07-06T01:00:00Z",
+    "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "id": 769,
-      "name": "Mexico"
+      "name": "Mexico",
+      "score": 2
     },
     "awayTeam": {
       "id": 770,
-      "name": "England"
+      "name": "England",
+      "score": 3
     }
   },
   {
@@ -3088,6 +3094,42 @@
       "id": 2,
       "name": "France",
       "score": 1
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1570714",
+    "fixtureId": "1570714",
+    "label": "Mexico 2-3 England",
+    "kickedOffAt": "2026-07-06T01:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 16,
+      "name": "Mexico",
+      "score": 2
+    },
+    "awayTeam": {
+      "id": 10,
+      "name": "England",
+      "score": 3
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1568100",
+    "fixtureId": "1568100",
+    "label": "Brazil 1-2 Norway",
+    "kickedOffAt": "2026-07-05T20:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 6,
+      "name": "Brazil",
+      "score": 1
+    },
+    "awayTeam": {
+      "id": 1090,
+      "name": "Norway",
+      "score": 2
     }
   }
 ]
