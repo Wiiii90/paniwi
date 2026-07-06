@@ -67075,14 +67075,17 @@
   },
   {
     "matchId": "football-data:537379",
-    "label": "Portugal vs Spain",
+    "label": "Portugal 0-0 Spain",
     "kickedOffAt": "2026-07-06T19:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "draw",
     "homeTeam": {
-      "name": "Portugal"
+      "name": "Portugal",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Spanien"
+      "name": "Spanien",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -67241,12 +67244,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 0,
       "goalEventCount": 0,
-      "eventsComplete": false,
+      "eventsComplete": true,
       "lineupsComplete": false,
       "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsLineupBackfill": true
     }
   },
   {

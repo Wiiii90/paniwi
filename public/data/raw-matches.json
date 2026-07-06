@@ -3016,16 +3016,19 @@
     "source": "football-data",
     "matchId": "football-data:537379",
     "fixtureId": "537379",
-    "label": "Portugal vs Spain",
+    "label": "Portugal 0-0 Spain",
     "kickedOffAt": "2026-07-06T19:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "draw",
     "homeTeam": {
       "id": 765,
-      "name": "Portugal"
+      "name": "Portugal",
+      "score": 0
     },
     "awayTeam": {
       "id": 760,
-      "name": "Spain"
+      "name": "Spain",
+      "score": 0
     }
   },
   {
