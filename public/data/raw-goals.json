@@ -5760,6 +5760,22 @@
     "teamId": "portugal"
   },
   {
+    "externalGoalId": "football-data:scorer:3662:normal",
+    "playerName": "Romelu Lukaku",
+    "nationalTeam": "Belgium",
+    "sourcePlayerName": "Romelu Lukaku",
+    "sourceTeamName": "Belgium",
+    "goals": 3,
+    "source": "football-data",
+    "apiPlayerId": 3662,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "belgium-romelu-lukaku",
+    "teamId": "belgium"
+  },
+  {
     "externalGoalId": "football-data:scorer:15958:normal",
     "playerName": "Cyle Larin",
     "nationalTeam": "Canada",
@@ -6125,22 +6141,6 @@
     "timeConfidence": "unknown",
     "detail": "normal",
     "playerId": "belgium-leandro-trossard",
-    "teamId": "belgium"
-  },
-  {
-    "externalGoalId": "football-data:scorer:3662:normal",
-    "playerName": "Romelu Lukaku",
-    "nationalTeam": "Belgium",
-    "sourcePlayerName": "Romelu Lukaku",
-    "sourceTeamName": "Belgium",
-    "goals": 2,
-    "source": "football-data",
-    "apiPlayerId": 3662,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "belgium-romelu-lukaku",
     "teamId": "belgium"
   },
   {
