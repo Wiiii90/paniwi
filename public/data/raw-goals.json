@@ -6192,6 +6192,22 @@
     "teamId": "belgium"
   },
   {
+    "externalGoalId": "football-data:scorer:144470:normal",
+    "playerName": "Malik Tillman",
+    "nationalTeam": "United States",
+    "sourcePlayerName": "Malik Tillman",
+    "sourceTeamName": "United States",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 144470,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "united-states-malik-tillman",
+    "teamId": "united-states"
+  },
+  {
     "externalGoalId": "football-data:scorer:122511:normal",
     "playerName": "Azzedine Ounahi",
     "nationalTeam": "Morocco",
@@ -6206,6 +6222,22 @@
     "detail": "normal",
     "playerId": "morocco-azzedine-ounahi",
     "teamId": "morocco"
+  },
+  {
+    "externalGoalId": "football-data:scorer:129947:normal",
+    "playerName": "Charles De Ketelaere",
+    "nationalTeam": "Belgium",
+    "sourcePlayerName": "Charles De Ketelaere",
+    "sourceTeamName": "Belgium",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 129947,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "belgium-charles-de-ketelaere",
+    "teamId": "belgium"
   },
   {
     "externalGoalId": "football-data:scorer:1878:normal",
@@ -6998,37 +7030,5 @@
     "detail": "normal",
     "playerId": "new-zealand-finn-surman",
     "teamId": "new-zealand"
-  },
-  {
-    "externalGoalId": "football-data:scorer:295848:normal",
-    "playerName": "Mostafa Ziko",
-    "nationalTeam": "Egypt",
-    "sourcePlayerName": "Mostafa Ziko",
-    "sourceTeamName": "Egypt",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 295848,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "egypt-mostafa-ziko",
-    "teamId": "egypt"
-  },
-  {
-    "externalGoalId": "football-data:scorer:3754:normal",
-    "playerName": "Mohamed Salah",
-    "nationalTeam": "Egypt",
-    "sourcePlayerName": "Mohamed Salah",
-    "sourceTeamName": "Egypt",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 3754,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "egypt-mohamed-salah",
-    "teamId": "egypt"
   }
 ]

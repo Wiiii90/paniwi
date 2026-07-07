@@ -2964,19 +2964,19 @@
     "source": "football-data",
     "matchId": "football-data:537380",
     "fixtureId": "537380",
-    "label": "United States 0-1 Belgium",
+    "label": "United States 1-2 Belgium",
     "kickedOffAt": "2026-07-07T00:00:00Z",
     "status": "live",
     "winnerTeam": "away",
     "homeTeam": {
       "id": 771,
       "name": "United States",
-      "score": 0
+      "score": 1
     },
     "awayTeam": {
       "id": 805,
       "name": "Belgium",
-      "score": 1
+      "score": 2
     }
   },
   {
