@@ -68793,13 +68793,13 @@
   },
   {
     "matchId": "football-data:537381",
-    "label": "Argentina 0-2 Egypt",
+    "label": "Argentina 2-2 Egypt",
     "kickedOffAt": "2026-07-07T16:00:00Z",
     "status": "live",
-    "winnerTeam": "away",
+    "winnerTeam": "draw",
     "homeTeam": {
       "name": "Argentinien",
-      "score": 0
+      "score": 2
     },
     "awayTeam": {
       "name": "Ägypten",
@@ -68871,7 +68871,7 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 2,
+      "scoreTotal": 4,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,

@@ -5391,6 +5391,22 @@
     "teamId": "belgium"
   },
   {
+    "externalGoalId": "football-data:scorer:3218:normal",
+    "playerName": "Lionel Messi",
+    "nationalTeam": "Argentina",
+    "sourcePlayerName": "Lionel Messi",
+    "sourceTeamName": "Argentina",
+    "goals": 8,
+    "source": "football-data",
+    "apiPlayerId": 3218,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "argentina-lionel-messi",
+    "teamId": "argentina"
+  },
+  {
     "externalGoalId": "football-data:scorer:3374:normal",
     "playerName": "Kylian Mbappé",
     "nationalTeam": "France",
@@ -5437,22 +5453,6 @@
     "detail": "normal",
     "playerId": "norway-erling-haaland",
     "teamId": "norway"
-  },
-  {
-    "externalGoalId": "football-data:scorer:3218:normal",
-    "playerName": "Lionel Messi",
-    "nationalTeam": "Argentina",
-    "sourcePlayerName": "Lionel Messi",
-    "sourceTeamName": "Argentina",
-    "goals": 7,
-    "source": "football-data",
-    "apiPlayerId": 3218,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "argentina-lionel-messi",
-    "teamId": "argentina"
   },
   {
     "externalGoalId": "football-data:scorer:8004:normal",
@@ -6157,6 +6157,22 @@
     "detail": "normal",
     "playerId": "japan-ayase-ueda",
     "teamId": "japan"
+  },
+  {
+    "externalGoalId": "football-data:scorer:295848:normal",
+    "playerName": "Mostafa Ziko",
+    "nationalTeam": "Egypt",
+    "sourcePlayerName": "Mostafa Ziko",
+    "sourceTeamName": "Egypt",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 295848,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "egypt-mostafa-ziko",
+    "teamId": "egypt"
   },
   {
     "externalGoalId": "football-data:scorer:130502:normal",
@@ -7109,21 +7125,5 @@
     "detail": "normal",
     "playerId": "cape-verde-helio-varela",
     "teamId": "cape-verde"
-  },
-  {
-    "externalGoalId": "football-data:scorer:176993:normal",
-    "playerName": "Finn Surman",
-    "nationalTeam": "New Zealand",
-    "sourcePlayerName": "Finn Surman",
-    "sourceTeamName": "New Zealand",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 176993,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "new-zealand-finn-surman",
-    "teamId": "new-zealand"
   }
 ]
