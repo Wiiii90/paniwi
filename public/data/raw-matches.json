@@ -3056,14 +3056,14 @@
     "source": "football-data",
     "matchId": "football-data:537381",
     "fixtureId": "537381",
-    "label": "Argentina 2-2 Egypt",
+    "label": "Argentina 3-2 Egypt",
     "kickedOffAt": "2026-07-07T16:00:00Z",
-    "status": "live",
-    "winnerTeam": "draw",
+    "status": "finished",
+    "winnerTeam": "home",
     "homeTeam": {
       "id": 762,
       "name": "Argentina",
-      "score": 2
+      "score": 3
     },
     "awayTeam": {
       "id": 825,
@@ -3191,6 +3191,24 @@
       "id": 1,
       "name": "Belgium",
       "score": 4
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1576804",
+    "fixtureId": "1576804",
+    "label": "Argentina 3-2 Egypt",
+    "kickedOffAt": "2026-07-07T16:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 26,
+      "name": "Argentina",
+      "score": 3
+    },
+    "awayTeam": {
+      "id": 32,
+      "name": "Egypt",
+      "score": 2
     }
   }
 ]

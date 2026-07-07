@@ -758,6 +758,18 @@
     "rank": 52
   },
   {
+    "playerName": "Cristian Romero",
+    "normalizedPlayerName": "cristian romero",
+    "nationalTeam": "Argentinien",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [
+      "Nina"
+    ],
+    "selected": true,
+    "rank": 52
+  },
+  {
     "playerName": "Daizen Maeda",
     "normalizedPlayerName": "daizen maeda",
     "nationalTeam": "Japan",
@@ -813,6 +825,16 @@
     "playerName": "Eldor Shomurodov",
     "normalizedPlayerName": "eldor shomurodov",
     "nationalTeam": "Usbekistan",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 52
+  },
+  {
+    "playerName": "Enzo Fernández",
+    "normalizedPlayerName": "enzo fernandez",
+    "nationalTeam": "Argentinien",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],
@@ -1720,6 +1742,16 @@
     "playerName": "Wilson Isidor",
     "normalizedPlayerName": "wilson isidor",
     "nationalTeam": "Haiti",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 52
+  },
+  {
+    "playerName": "Yasser Ibrahim",
+    "normalizedPlayerName": "yasser ibrahim",
+    "nationalTeam": "Ägypten",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],

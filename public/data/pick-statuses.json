@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-07T18:01:51.289Z",
+  "lastUpdated": "2026-07-07T19:02:11.719Z",
   "rosterSnapshotUpdatedAt": "2026-06-15T23:48:37.445Z",
   "picks": [
     {
@@ -77,7 +77,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Cristian Romero",
       "reason": "found-in-current-roster"
@@ -632,7 +632,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Giuliano Simeone",
       "reason": "found-in-current-roster"
@@ -1410,7 +1410,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Alexis Mac Allister",
       "reason": "found-in-current-roster"
@@ -1457,8 +1457,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatus": "eliminated",
+      "tournamentStatusReason": "knockout-loser",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Mohamed El Shenawy",
       "reason": "found-in-current-roster"
@@ -1617,7 +1617,7 @@
       "currentRosterStatus": "not-nominated",
       "displayStatus": "not-nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-fixture",
+      "tournamentStatusReason": "knockout-winner",
       "matchedCurrentRoster": false,
       "reason": "not-found-in-current-team-roster"
     },
@@ -2052,8 +2052,8 @@
     "notNominatedCount": 11,
     "lateCallupCount": 0,
     "unknownCount": 0,
-    "activeCount": 39,
-    "eliminatedCount": 90,
+    "activeCount": 38,
+    "eliminatedCount": 91,
     "tournamentUnknownCount": 0
   }
 }

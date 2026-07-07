@@ -1165,5 +1165,30 @@
     "displayPlayerName": "Jude Bellingham",
     "displayNationalTeam": "England",
     "points": 1
+  },
+  {
+    "externalGoalId": "api-football:1576804:30776:79:Normal Goal:2",
+    "playerName": "Cristian Romero",
+    "nationalTeam": "Argentina",
+    "sourcePlayerName": "C. Romero",
+    "sourceTeamName": "Argentina",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 30776,
+    "matchId": "football-data:537381",
+    "fixtureId": "1576804",
+    "matchLabel": "Argentina 3-2 Egypt",
+    "kickedOffAt": "2026-07-07T16:00:00+00:00",
+    "minute": 79,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "argentina-cristian-romero",
+    "teamId": "argentina",
+    "pickId": "argentina-cristian-romero",
+    "owner": "Nina",
+    "pickedPlayerName": "Cristian Romero",
+    "displayPlayerName": "Cristian Romero",
+    "displayNationalTeam": "Argentinien",
+    "points": 1
   }
 ]
