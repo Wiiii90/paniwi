@@ -68793,14 +68793,17 @@
   },
   {
     "matchId": "football-data:537381",
-    "label": "Argentina vs Egypt",
+    "label": "Argentina 0-1 Egypt",
     "kickedOffAt": "2026-07-07T16:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "away",
     "homeTeam": {
-      "name": "Argentinien"
+      "name": "Argentinien",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Ägypten"
+      "name": "Ägypten",
+      "score": 1
     },
     "goals": [],
     "pointGoals": [],
@@ -68868,12 +68871,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 1,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsEventBackfill": true,
+      "needsLineupBackfill": true
     }
   },
   {

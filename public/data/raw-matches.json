@@ -3056,16 +3056,19 @@
     "source": "football-data",
     "matchId": "football-data:537381",
     "fixtureId": "537381",
-    "label": "Argentina vs Egypt",
+    "label": "Argentina 0-1 Egypt",
     "kickedOffAt": "2026-07-07T16:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "away",
     "homeTeam": {
       "id": 762,
-      "name": "Argentina"
+      "name": "Argentina",
+      "score": 0
     },
     "awayTeam": {
       "id": 825,
-      "name": "Egypt"
+      "name": "Egypt",
+      "score": 1
     }
   },
   {
