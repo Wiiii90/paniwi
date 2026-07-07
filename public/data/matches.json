@@ -69686,14 +69686,17 @@
   },
   {
     "matchId": "football-data:537382",
-    "label": "Switzerland vs Colombia",
+    "label": "Switzerland 0-0 Colombia",
     "kickedOffAt": "2026-07-07T20:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "draw",
     "homeTeam": {
-      "name": "Schweiz"
+      "name": "Schweiz",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Kolumbien"
+      "name": "Kolumbien",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -69777,12 +69780,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 0,
       "goalEventCount": 0,
-      "eventsComplete": false,
+      "eventsComplete": true,
       "lineupsComplete": false,
       "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsLineupBackfill": true
     }
   },
   {

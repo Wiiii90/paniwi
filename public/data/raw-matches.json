@@ -3075,16 +3075,19 @@
     "source": "football-data",
     "matchId": "football-data:537382",
     "fixtureId": "537382",
-    "label": "Switzerland vs Colombia",
+    "label": "Switzerland 0-0 Colombia",
     "kickedOffAt": "2026-07-07T20:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "draw",
     "homeTeam": {
       "id": 788,
-      "name": "Switzerland"
+      "name": "Switzerland",
+      "score": 0
     },
     "awayTeam": {
       "id": 818,
-      "name": "Colombia"
+      "name": "Colombia",
+      "score": 0
     }
   },
   {
