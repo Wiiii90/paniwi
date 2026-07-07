@@ -67908,14 +67908,17 @@
   },
   {
     "matchId": "football-data:537380",
-    "label": "United States vs Belgium",
+    "label": "United States 0-1 Belgium",
     "kickedOffAt": "2026-07-07T00:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "away",
     "homeTeam": {
-      "name": "USA"
+      "name": "USA",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Belgien"
+      "name": "Belgien",
+      "score": 1
     },
     "goals": [],
     "pointGoals": [],
@@ -68030,12 +68033,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 1,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsEventBackfill": true,
+      "needsLineupBackfill": true
     }
   },
   {
