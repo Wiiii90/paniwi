@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-07T19:31:58.698Z",
+  "lastUpdated": "2026-07-07T20:02:06.031Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -14,9 +14,9 @@
   "message": "Daten-Snapshot unveraendert (football-data).",
   "snapshotFingerprint": "65c21423fd226fd71233cb20c3dfd165ba32e806b3425cda4c5f793dec6482da",
   "snapshotChanged": false,
-  "syncWindowId": "football-data:537382-pre-match",
+  "syncWindowId": "football-data:537382-live",
   "windowSyncAttempts": 1,
   "liveMatchCount": 0,
-  "sourceRequestCount": 2,
+  "sourceRequestCount": 3,
   "sourceRequestLimit": 6
 }
