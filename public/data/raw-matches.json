@@ -3152,5 +3152,21 @@
       "name": "Spain",
       "score": 1
     }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537383",
+    "fixtureId": "537383",
+    "label": "France vs Morocco",
+    "kickedOffAt": "2026-07-09T20:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 773,
+      "name": "France"
+    },
+    "awayTeam": {
+      "id": 815,
+      "name": "Morocco"
+    }
   }
 ]

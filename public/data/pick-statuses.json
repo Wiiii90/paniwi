@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-06T23:02:13.758Z",
+  "lastUpdated": "2026-07-07T00:01:42.500Z",
   "rosterSnapshotUpdatedAt": "2026-06-15T23:48:37.445Z",
   "picks": [
     {
@@ -61,7 +61,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Bradley Barcola",
       "reason": "found-in-current-roster"
@@ -349,7 +349,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Ayoub El Kaabi",
       "reason": "found-in-current-roster"
@@ -441,7 +441,7 @@
       "currentRosterStatus": "not-nominated",
       "displayStatus": "not-nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": false,
       "reason": "not-found-in-current-team-roster"
     },
@@ -1106,7 +1106,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Achraf Hakimi",
       "reason": "found-in-current-roster"
@@ -1490,7 +1490,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Adrien Rabiot",
       "reason": "found-in-current-roster"
@@ -1680,7 +1680,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Désiré Doué",
       "reason": "found-in-current-roster"

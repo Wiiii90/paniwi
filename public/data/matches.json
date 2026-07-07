@@ -68223,5 +68223,105 @@
       "needsEventBackfill": false,
       "needsLineupBackfill": false
     }
+  },
+  {
+    "matchId": "football-data:537383",
+    "label": "France vs Morocco",
+    "kickedOffAt": "2026-07-09T20:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Frankreich"
+    },
+    "awayTeam": {
+      "name": "Marokko"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537383",
+        "fixtureId": "537383",
+        "playerName": "Adrien Rabiot",
+        "nationalTeam": "Frankreich",
+        "teamId": "france",
+        "status": "unknown",
+        "displayPlayerName": "Adrien Rabiot",
+        "displayNationalTeam": "Frankreich",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537383",
+        "fixtureId": "537383",
+        "playerName": "Bradley Barcola",
+        "nationalTeam": "Frankreich",
+        "teamId": "france",
+        "status": "unknown",
+        "displayPlayerName": "Bradley Barcola",
+        "displayNationalTeam": "Frankreich",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537383",
+        "fixtureId": "537383",
+        "playerName": "Désiré Doué",
+        "nationalTeam": "Frankreich",
+        "teamId": "france",
+        "status": "unknown",
+        "displayPlayerName": "Désiré Doué",
+        "displayNationalTeam": "Frankreich",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537383",
+        "fixtureId": "537383",
+        "playerName": "Achraf Hakimi",
+        "nationalTeam": "Marokko",
+        "teamId": "morocco",
+        "status": "unknown",
+        "displayPlayerName": "Achraf Hakimi",
+        "displayNationalTeam": "Marokko",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537383",
+        "fixtureId": "537383",
+        "playerName": "Ayoub El Kaabi",
+        "nationalTeam": "Marokko",
+        "teamId": "morocco",
+        "status": "unknown",
+        "displayPlayerName": "Ayoub El Kaabi",
+        "displayNationalTeam": "Marokko",
+        "owners": [
+          "Willi"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   }
 ]
