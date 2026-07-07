@@ -3075,19 +3075,18 @@
     "source": "football-data",
     "matchId": "football-data:537382",
     "fixtureId": "537382",
-    "label": "Switzerland 0-0 Colombia",
+    "label": "Switzerland 4-3 Colombia",
     "kickedOffAt": "2026-07-07T20:00:00Z",
-    "status": "live",
-    "winnerTeam": "draw",
+    "status": "finished",
     "homeTeam": {
       "id": 788,
       "name": "Switzerland",
-      "score": 0
+      "score": 4
     },
     "awayTeam": {
       "id": 818,
       "name": "Colombia",
-      "score": 0
+      "score": 3
     }
   },
   {
@@ -3212,6 +3211,24 @@
       "id": 32,
       "name": "Egypt",
       "score": 2
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1576805",
+    "fixtureId": "1576805",
+    "label": "Switzerland 0-0 Colombia",
+    "kickedOffAt": "2026-07-07T20:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 15,
+      "name": "Switzerland",
+      "score": 0
+    },
+    "awayTeam": {
+      "id": 8,
+      "name": "Colombia",
+      "score": 0
     }
   }
 ]
