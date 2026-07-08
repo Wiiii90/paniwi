@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-07T23:01:56.567Z",
+  "lastUpdated": "2026-07-08T00:01:53.157Z",
   "rosterSnapshotUpdatedAt": "2026-06-15T23:48:37.445Z",
   "picks": [
     {
@@ -93,7 +93,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Rodri",
       "reason": "found-in-current-roster"
@@ -109,7 +109,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Fabián Ruiz",
       "reason": "found-in-current-roster"
@@ -253,7 +253,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Thomas Meunier",
       "reason": "found-in-current-roster"
@@ -456,7 +456,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Fabián Ruiz",
       "reason": "found-in-current-roster"
@@ -488,7 +488,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Lamine Yamal",
       "reason": "found-in-current-roster"
@@ -552,7 +552,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Pedri",
       "reason": "found-in-current-roster"
@@ -998,7 +998,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Thomas Meunier",
       "reason": "found-in-current-roster"
@@ -1090,7 +1090,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Aymeric Laporte",
       "reason": "found-in-current-roster"
@@ -1394,7 +1394,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Youri Tielemans",
       "reason": "found-in-current-roster"
@@ -1426,7 +1426,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Jérémy Doku",
       "reason": "found-in-current-roster"
@@ -1899,7 +1899,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Nicolas Raskin",
       "reason": "found-in-current-roster"
@@ -1993,7 +1993,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Amadou Onana",
       "reason": "found-in-current-roster"

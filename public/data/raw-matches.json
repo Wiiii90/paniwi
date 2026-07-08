@@ -3230,5 +3230,21 @@
       "name": "Colombia",
       "score": 0
     }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537384",
+    "fixtureId": "537384",
+    "label": "Spain vs Belgium",
+    "kickedOffAt": "2026-07-10T19:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 760,
+      "name": "Spain"
+    },
+    "awayTeam": {
+      "id": 805,
+      "name": "Belgium"
+    }
   }
 ]

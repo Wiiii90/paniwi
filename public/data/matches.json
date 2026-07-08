@@ -70535,5 +70535,182 @@
       "needsEventBackfill": false,
       "needsLineupBackfill": false
     }
+  },
+  {
+    "matchId": "football-data:537384",
+    "label": "Spain vs Belgium",
+    "kickedOffAt": "2026-07-10T19:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Spanien"
+    },
+    "awayTeam": {
+      "name": "Belgien"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537384",
+        "fixtureId": "537384",
+        "playerName": "Amadou Onana",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "status": "unknown",
+        "displayPlayerName": "Amadou Onana",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537384",
+        "fixtureId": "537384",
+        "playerName": "Jérémy Doku",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "status": "unknown",
+        "displayPlayerName": "Jérémy Doku",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537384",
+        "fixtureId": "537384",
+        "playerName": "Nicolas Raskin",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "status": "unknown",
+        "displayPlayerName": "Nicolas Raskin",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537384",
+        "fixtureId": "537384",
+        "playerName": "Thomas Meunier",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "status": "unknown",
+        "displayPlayerName": "Thomas Meunier",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Felix",
+          "Willi"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537384",
+        "fixtureId": "537384",
+        "playerName": "Youri Tielemans",
+        "nationalTeam": "Belgien",
+        "teamId": "belgium",
+        "status": "unknown",
+        "displayPlayerName": "Youri Tielemans",
+        "displayNationalTeam": "Belgien",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537384",
+        "fixtureId": "537384",
+        "playerName": "Aymeric Laporte",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Aymeric Laporte",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537384",
+        "fixtureId": "537384",
+        "playerName": "Fabián Ruiz",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Fabián Ruiz",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Nina",
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537384",
+        "fixtureId": "537384",
+        "playerName": "Lamine Yamal",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Lamine Yamal",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537384",
+        "fixtureId": "537384",
+        "playerName": "Pedri",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Pedri",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537384",
+        "fixtureId": "537384",
+        "playerName": "Rodri",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Rodri",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   }
 ]
