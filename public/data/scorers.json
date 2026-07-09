@@ -1,5 +1,15 @@
 [
   {
+    "playerName": "Kylian Mbappé",
+    "normalizedPlayerName": "kylian mbappe",
+    "nationalTeam": "Frankreich",
+    "goals": 8,
+    "penaltyGoals": 1,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 1
+  },
+  {
     "playerName": "Lionel Messi",
     "normalizedPlayerName": "lionel messi",
     "nationalTeam": "Argentinien",
@@ -19,17 +29,7 @@
       "Caro"
     ],
     "selected": true,
-    "rank": 2
-  },
-  {
-    "playerName": "Kylian Mbappé",
-    "normalizedPlayerName": "kylian mbappe",
-    "nationalTeam": "Frankreich",
-    "goals": 7,
-    "penaltyGoals": 1,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 2
+    "rank": 3
   },
   {
     "playerName": "Harry Kane",
@@ -42,6 +42,16 @@
     "rank": 4
   },
   {
+    "playerName": "Ousmane Dembélé",
+    "normalizedPlayerName": "ousmane dembele",
+    "nationalTeam": "Frankreich",
+    "goals": 5,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 5
+  },
+  {
     "playerName": "Ismaïla Sarr",
     "normalizedPlayerName": "ismaila sarr",
     "nationalTeam": "Senegal",
@@ -49,7 +59,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 5
+    "rank": 6
   },
   {
     "playerName": "Jude Bellingham",
@@ -61,7 +71,7 @@
       "Jonas"
     ],
     "selected": true,
-    "rank": 5
+    "rank": 6
   },
   {
     "playerName": "Julián Quiñones",
@@ -71,7 +81,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 5
+    "rank": 6
   },
   {
     "playerName": "Mikel Oyarzabal",
@@ -81,17 +91,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 5
-  },
-  {
-    "playerName": "Ousmane Dembélé",
-    "normalizedPlayerName": "ousmane dembele",
-    "nationalTeam": "Frankreich",
-    "goals": 4,
-    "penaltyGoals": 0,
-    "scoringOwners": [],
-    "selected": false,
-    "rank": 5
+    "rank": 6
   },
   {
     "playerName": "Vinícius Júnior",
@@ -103,7 +103,7 @@
       "Felix"
     ],
     "selected": true,
-    "rank": 5
+    "rank": 6
   },
   {
     "playerName": "Brian Brobbey",

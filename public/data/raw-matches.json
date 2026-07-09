@@ -3165,14 +3165,14 @@
     "source": "football-data",
     "matchId": "football-data:537383",
     "fixtureId": "537383",
-    "label": "France 0-0 Morocco",
+    "label": "France 1-0 Morocco",
     "kickedOffAt": "2026-07-09T20:00:00Z",
     "status": "live",
-    "winnerTeam": "draw",
+    "winnerTeam": "home",
     "homeTeam": {
       "id": 773,
       "name": "France",
-      "score": 0
+      "score": 1
     },
     "awayTeam": {
       "id": 815,

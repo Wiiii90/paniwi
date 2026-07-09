@@ -70438,13 +70438,13 @@
   },
   {
     "matchId": "football-data:537383",
-    "label": "France 0-0 Morocco",
+    "label": "France 1-0 Morocco",
     "kickedOffAt": "2026-07-09T20:00:00Z",
     "status": "live",
-    "winnerTeam": "draw",
+    "winnerTeam": "home",
     "homeTeam": {
       "name": "Frankreich",
-      "score": 0
+      "score": 1
     },
     "awayTeam": {
       "name": "Marokko",
@@ -70531,11 +70531,11 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 0,
+      "scoreTotal": 1,
       "goalEventCount": 0,
-      "eventsComplete": true,
+      "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
+      "needsEventBackfill": true,
       "needsLineupBackfill": true
     }
   },
