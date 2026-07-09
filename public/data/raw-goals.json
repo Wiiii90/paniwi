@@ -7353,5 +7353,43 @@
     "detail": "normal",
     "playerId": "cape-verde-helio-varela",
     "teamId": "cape-verde"
+  },
+  {
+    "externalGoalId": "api-football:1578539:278:60:Normal Goal:0",
+    "playerName": "Kylian Mbappé",
+    "nationalTeam": "France",
+    "sourcePlayerName": "K. Mbappe",
+    "sourceTeamName": "France",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 278,
+    "matchId": "football-data:537383",
+    "fixtureId": "1578539",
+    "matchLabel": "France 2-0 Morocco",
+    "kickedOffAt": "2026-07-09T20:00:00+00:00",
+    "minute": 60,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "france-kylian-mbappe",
+    "teamId": "france"
+  },
+  {
+    "externalGoalId": "api-football:1578539:153:66:Normal Goal:1",
+    "playerName": "Ousmane Dembélé",
+    "nationalTeam": "France",
+    "sourcePlayerName": "O. Dembele",
+    "sourceTeamName": "France",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 153,
+    "matchId": "football-data:537383",
+    "fixtureId": "1578539",
+    "matchLabel": "France 2-0 Morocco",
+    "kickedOffAt": "2026-07-09T20:00:00+00:00",
+    "minute": 66,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "france-ousmane-dembele",
+    "teamId": "france"
   }
 ]

@@ -3167,7 +3167,7 @@
     "fixtureId": "537383",
     "label": "France 2-0 Morocco",
     "kickedOffAt": "2026-07-09T20:00:00Z",
-    "status": "live",
+    "status": "finished",
     "winnerTeam": "home",
     "homeTeam": {
       "id": 773,
@@ -3264,6 +3264,24 @@
     "awayTeam": {
       "id": 770,
       "name": "England"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1578539",
+    "fixtureId": "1578539",
+    "label": "France 2-0 Morocco",
+    "kickedOffAt": "2026-07-09T20:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 2,
+      "name": "France",
+      "score": 2
+    },
+    "awayTeam": {
+      "id": 31,
+      "name": "Morocco",
+      "score": 0
     }
   }
 ]
