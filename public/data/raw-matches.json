@@ -3246,5 +3246,21 @@
       "id": 805,
       "name": "Belgium"
     }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537385",
+    "fixtureId": "537385",
+    "label": "Norway vs England",
+    "kickedOffAt": "2026-07-11T21:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 8872,
+      "name": "Norway"
+    },
+    "awayTeam": {
+      "id": 770,
+      "name": "England"
+    }
   }
 ]

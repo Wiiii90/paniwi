@@ -70712,5 +70712,165 @@
       "needsEventBackfill": false,
       "needsLineupBackfill": false
     }
+  },
+  {
+    "matchId": "football-data:537385",
+    "label": "Norway vs England",
+    "kickedOffAt": "2026-07-11T21:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Norwegen"
+    },
+    "awayTeam": {
+      "name": "England"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537385",
+        "fixtureId": "537385",
+        "playerName": "Dan Burn",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Dan Burn",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537385",
+        "fixtureId": "537385",
+        "playerName": "Jordan Pickford",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Jordan Pickford",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537385",
+        "fixtureId": "537385",
+        "playerName": "Jude Bellingham",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Jude Bellingham",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537385",
+        "fixtureId": "537385",
+        "playerName": "Marc Guéhi",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Marc Guéhi",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537385",
+        "fixtureId": "537385",
+        "playerName": "Marcus Rashford",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Marcus Rashford",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537385",
+        "fixtureId": "537385",
+        "playerName": "Morgan Rogers",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Morgan Rogers",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537385",
+        "fixtureId": "537385",
+        "playerName": "Antonio Nusa",
+        "nationalTeam": "Norwegen",
+        "teamId": "norway",
+        "status": "unknown",
+        "displayPlayerName": "Antonio Nusa",
+        "displayNationalTeam": "Norwegen",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537385",
+        "fixtureId": "537385",
+        "playerName": "Erling Haaland",
+        "nationalTeam": "Norwegen",
+        "teamId": "norway",
+        "status": "unknown",
+        "displayPlayerName": "Erling Haaland",
+        "displayNationalTeam": "Norwegen",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537385",
+        "fixtureId": "537385",
+        "playerName": "Sander Berge",
+        "nationalTeam": "Norwegen",
+        "teamId": "norway",
+        "status": "unknown",
+        "displayPlayerName": "Sander Berge",
+        "displayNationalTeam": "Norwegen",
+        "owners": [
+          "Felix"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   }
 ]
