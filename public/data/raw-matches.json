@@ -3238,16 +3238,19 @@
     "source": "football-data",
     "matchId": "football-data:537384",
     "fixtureId": "537384",
-    "label": "Spain vs Belgium",
+    "label": "Spain 0-0 Belgium",
     "kickedOffAt": "2026-07-10T19:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "draw",
     "homeTeam": {
       "id": 760,
-      "name": "Spain"
+      "name": "Spain",
+      "score": 0
     },
     "awayTeam": {
       "id": 805,
-      "name": "Belgium"
+      "name": "Belgium",
+      "score": 0
     }
   },
   {
