@@ -6617,6 +6617,22 @@
     "teamId": "morocco"
   },
   {
+    "externalGoalId": "football-data:scorer:7935:normal",
+    "playerName": "Mikel Merino",
+    "nationalTeam": "Spain",
+    "sourcePlayerName": "Mikel Merino",
+    "sourceTeamName": "Spain",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 7935,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "spain-mikel-merino",
+    "teamId": "spain"
+  },
+  {
     "externalGoalId": "football-data:scorer:1878:normal",
     "playerName": "Ladislav Krejčí",
     "nationalTeam": "Czech Republic",
@@ -7375,21 +7391,5 @@
     "detail": "normal",
     "playerId": "uruguay-agustin-canobbio",
     "teamId": "uruguay"
-  },
-  {
-    "externalGoalId": "football-data:scorer:213119:normal",
-    "playerName": "Hélio Varela",
-    "nationalTeam": "Cape Verde",
-    "sourcePlayerName": "Hélio Varela",
-    "sourceTeamName": "Cape Verde Islands",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 213119,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "cape-verde-helio-varela",
-    "teamId": "cape-verde"
   }
 ]

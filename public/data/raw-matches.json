@@ -3238,14 +3238,14 @@
     "source": "football-data",
     "matchId": "football-data:537384",
     "fixtureId": "537384",
-    "label": "Spain 1-1 Belgium",
+    "label": "Spain 2-1 Belgium",
     "kickedOffAt": "2026-07-10T19:00:00Z",
     "status": "live",
-    "winnerTeam": "draw",
+    "winnerTeam": "home",
     "homeTeam": {
       "id": 760,
       "name": "Spain",
-      "score": 1
+      "score": 2
     },
     "awayTeam": {
       "id": 805,
