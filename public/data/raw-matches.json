@@ -3283,5 +3283,21 @@
       "name": "Morocco",
       "score": 0
     }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537386",
+    "fixtureId": "537386",
+    "label": "Argentina vs Switzerland",
+    "kickedOffAt": "2026-07-12T01:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 762,
+      "name": "Argentina"
+    },
+    "awayTeam": {
+      "id": 788,
+      "name": "Switzerland"
+    }
   }
 ]

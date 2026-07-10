@@ -71611,5 +71611,105 @@
       "needsEventBackfill": false,
       "needsLineupBackfill": false
     }
+  },
+  {
+    "matchId": "football-data:537386",
+    "label": "Argentina vs Switzerland",
+    "kickedOffAt": "2026-07-12T01:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Argentinien"
+    },
+    "awayTeam": {
+      "name": "Schweiz"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537386",
+        "fixtureId": "537386",
+        "playerName": "Alexis Mac Allister",
+        "nationalTeam": "Argentinien",
+        "teamId": "argentina",
+        "status": "unknown",
+        "displayPlayerName": "Alexis Mac Allister",
+        "displayNationalTeam": "Argentinien",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537386",
+        "fixtureId": "537386",
+        "playerName": "Cristian Romero",
+        "nationalTeam": "Argentinien",
+        "teamId": "argentina",
+        "status": "unknown",
+        "displayPlayerName": "Cristian Romero",
+        "displayNationalTeam": "Argentinien",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537386",
+        "fixtureId": "537386",
+        "playerName": "Giuliano Simeone",
+        "nationalTeam": "Argentinien",
+        "teamId": "argentina",
+        "status": "unknown",
+        "displayPlayerName": "Giuliano Simeone",
+        "displayNationalTeam": "Argentinien",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537386",
+        "fixtureId": "537386",
+        "playerName": "Manuel Akanji",
+        "nationalTeam": "Schweiz",
+        "teamId": "switzerland",
+        "status": "unknown",
+        "displayPlayerName": "Manuel Akanji",
+        "displayNationalTeam": "Schweiz",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537386",
+        "fixtureId": "537386",
+        "playerName": "Rubén Vargas",
+        "nationalTeam": "Schweiz",
+        "teamId": "switzerland",
+        "status": "unknown",
+        "displayPlayerName": "Rubén Vargas",
+        "displayNationalTeam": "Schweiz",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   }
 ]

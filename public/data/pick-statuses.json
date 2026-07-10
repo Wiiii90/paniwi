@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-09T23:01:58.305Z",
+  "lastUpdated": "2026-07-10T00:02:00.286Z",
   "rosterSnapshotUpdatedAt": "2026-06-15T23:48:37.445Z",
   "picks": [
     {
@@ -77,7 +77,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Cristian Romero",
       "reason": "found-in-current-roster"
@@ -632,7 +632,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Giuliano Simeone",
       "reason": "found-in-current-roster"
@@ -838,7 +838,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Manuel Akanji",
       "reason": "found-in-current-roster"
@@ -1410,7 +1410,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Alexis Mac Allister",
       "reason": "found-in-current-roster"
@@ -1617,7 +1617,7 @@
       "currentRosterStatus": "not-nominated",
       "displayStatus": "not-nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": false,
       "reason": "not-found-in-current-team-roster"
     },
@@ -1648,7 +1648,7 @@
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
       "tournamentStatus": "active",
-      "tournamentStatusReason": "knockout-winner",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Rubén Vargas",
       "reason": "found-in-current-roster"
