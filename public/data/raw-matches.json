@@ -3240,7 +3240,7 @@
     "fixtureId": "537384",
     "label": "Spain 2-1 Belgium",
     "kickedOffAt": "2026-07-10T19:00:00Z",
-    "status": "live",
+    "status": "finished",
     "winnerTeam": "home",
     "homeTeam": {
       "id": 760,
@@ -3301,6 +3301,24 @@
     "awayTeam": {
       "id": 788,
       "name": "Switzerland"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1581821",
+    "fixtureId": "1581821",
+    "label": "Spain 2-1 Belgium",
+    "kickedOffAt": "2026-07-10T19:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 9,
+      "name": "Spain",
+      "score": 2
+    },
+    "awayTeam": {
+      "id": 1,
+      "name": "Belgium",
+      "score": 1
     }
   }
 ]

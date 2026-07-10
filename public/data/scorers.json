@@ -852,6 +852,19 @@
     "rank": 53
   },
   {
+    "playerName": "Fabián Ruiz",
+    "normalizedPlayerName": "fabian ruiz",
+    "nationalTeam": "Spanien",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [
+      "Nina",
+      "Rafael"
+    ],
+    "selected": true,
+    "rank": 53
+  },
+  {
     "playerName": "Felix Kalu Nmecha",
     "normalizedPlayerName": "felix kalu nmecha",
     "nationalTeam": "Deutschland",

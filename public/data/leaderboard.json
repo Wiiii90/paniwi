@@ -21,25 +21,25 @@
     "playersWithGoals": 3
   },
   {
-    "rank": 4,
+    "rank": 2,
     "owner": "Nina",
-    "points": 6,
-    "goals": 6,
-    "playersWithGoals": 4
+    "points": 7,
+    "goals": 7,
+    "playersWithGoals": 5
   },
   {
-    "rank": 4,
+    "rank": 5,
     "owner": "Peer",
     "points": 6,
     "goals": 6,
     "playersWithGoals": 5
   },
   {
-    "rank": 6,
+    "rank": 5,
     "owner": "Rafael",
-    "points": 5,
-    "goals": 5,
-    "playersWithGoals": 3
+    "points": 6,
+    "goals": 6,
+    "playersWithGoals": 4
   },
   {
     "rank": 7,
