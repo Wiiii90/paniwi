@@ -71277,17 +71277,17 @@
   },
   {
     "matchId": "football-data:537384",
-    "label": "Spain 0-0 Belgium",
+    "label": "Spain 1-1 Belgium",
     "kickedOffAt": "2026-07-10T19:00:00Z",
     "status": "live",
     "winnerTeam": "draw",
     "homeTeam": {
       "name": "Spanien",
-      "score": 0
+      "score": 1
     },
     "awayTeam": {
       "name": "Belgien",
-      "score": 0
+      "score": 1
     },
     "goals": [],
     "pointGoals": [],
@@ -71447,11 +71447,11 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 0,
+      "scoreTotal": 2,
       "goalEventCount": 0,
-      "eventsComplete": true,
+      "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
+      "needsEventBackfill": true,
       "needsLineupBackfill": true
     }
   },
