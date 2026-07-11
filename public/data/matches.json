@@ -72183,14 +72183,17 @@
   },
   {
     "matchId": "football-data:537385",
-    "label": "Norway vs England",
+    "label": "Norway 0-0 England",
     "kickedOffAt": "2026-07-11T21:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "draw",
     "homeTeam": {
-      "name": "Norwegen"
+      "name": "Norwegen",
+      "score": 0
     },
     "awayTeam": {
-      "name": "England"
+      "name": "England",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -72333,12 +72336,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 0,
       "goalEventCount": 0,
-      "eventsComplete": false,
+      "eventsComplete": true,
       "lineupsComplete": false,
       "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsLineupBackfill": true
     }
   },
   {
