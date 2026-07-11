@@ -42,6 +42,18 @@
     "rank": 4
   },
   {
+    "playerName": "Jude Bellingham",
+    "normalizedPlayerName": "jude bellingham",
+    "nationalTeam": "England",
+    "goals": 5,
+    "penaltyGoals": 0,
+    "scoringOwners": [
+      "Jonas"
+    ],
+    "selected": true,
+    "rank": 5
+  },
+  {
     "playerName": "Ousmane Dembélé",
     "normalizedPlayerName": "ousmane dembele",
     "nationalTeam": "Frankreich",
@@ -59,19 +71,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 6
-  },
-  {
-    "playerName": "Jude Bellingham",
-    "normalizedPlayerName": "jude bellingham",
-    "nationalTeam": "England",
-    "goals": 4,
-    "penaltyGoals": 0,
-    "scoringOwners": [
-      "Jonas"
-    ],
-    "selected": true,
-    "rank": 6
+    "rank": 7
   },
   {
     "playerName": "Julián Quiñones",
@@ -81,7 +81,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 6
+    "rank": 7
   },
   {
     "playerName": "Mikel Oyarzabal",
@@ -91,7 +91,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 6
+    "rank": 7
   },
   {
     "playerName": "Vinícius Júnior",
@@ -103,7 +103,7 @@
       "Felix"
     ],
     "selected": true,
-    "rank": 6
+    "rank": 7
   },
   {
     "playerName": "Brian Brobbey",

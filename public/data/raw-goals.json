@@ -5810,6 +5810,22 @@
     "teamId": "england"
   },
   {
+    "externalGoalId": "football-data:scorer:125010:normal",
+    "playerName": "Jude Bellingham",
+    "nationalTeam": "England",
+    "sourcePlayerName": "Jude Bellingham",
+    "sourceTeamName": "England",
+    "goals": 5,
+    "source": "football-data",
+    "apiPlayerId": 125010,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "england-jude-bellingham",
+    "teamId": "england"
+  },
+  {
     "externalGoalId": "football-data:scorer:3373:normal",
     "playerName": "Ousmane Dembélé",
     "nationalTeam": "France",
@@ -5856,22 +5872,6 @@
     "detail": "normal",
     "playerId": "brazil-vinicius-junior",
     "teamId": "brazil"
-  },
-  {
-    "externalGoalId": "football-data:scorer:125010:normal",
-    "playerName": "Jude Bellingham",
-    "nationalTeam": "England",
-    "sourcePlayerName": "Jude Bellingham",
-    "sourceTeamName": "England",
-    "goals": 4,
-    "source": "football-data",
-    "apiPlayerId": 125010,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "england-jude-bellingham",
-    "teamId": "england"
   },
   {
     "externalGoalId": "football-data:scorer:180137:normal",
