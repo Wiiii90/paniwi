@@ -3257,14 +3257,14 @@
     "source": "football-data",
     "matchId": "football-data:537385",
     "fixtureId": "537385",
-    "label": "Norway 1-1 England",
+    "label": "Norway 2-1 England",
     "kickedOffAt": "2026-07-11T21:00:00Z",
     "status": "live",
-    "winnerTeam": "draw",
+    "winnerTeam": "home",
     "homeTeam": {
       "id": 8872,
       "name": "Norway",
-      "score": 1
+      "score": 2
     },
     "awayTeam": {
       "id": 770,
