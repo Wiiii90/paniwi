@@ -42,7 +42,8 @@ export async function rebuildStaticData(): Promise<void> {
   const goalsWithShootouts = markApiFootballPenaltyShootoutGoals(rawGoals, rawMatches);
   const strictSources = goalsWithShootouts.some((goal) => goal.source === "api-football") ? ["api-football" as const] : [];
   const enrichedRawGoals = enrichGoalsWithRoster(goalsWithShootouts, rosters, {
-    strictSources
+    strictSources,
+    participants: rawParticipants ?? []
   });
   const { validGoals } = validateGoals(enrichedRawGoals);
   const effectiveGoals = selectEffectiveGoalsForScoring(validGoals);

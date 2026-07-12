@@ -293,6 +293,86 @@ assert.deepEqual(
   ).map((goal) => [goal.playerName, goal.teamId]),
   [["Mohamed Salah", "egypt"]]
 );
+assert.deepEqual(
+  enrichGoalsWithRoster(
+    [
+      {
+        ...baseGoal,
+        externalGoalId: "argentina-lautaro-goal",
+        playerName: "L. Martinez",
+        nationalTeam: "Argentina",
+        sourcePlayerName: "L. Martinez",
+        sourceTeamName: "Argentina",
+        source: "api-football",
+        apiPlayerId: 217,
+        matchLabel: "Argentina 3-1 Switzerland"
+      }
+    ],
+    {
+      lastUpdated: "2026-06-16T00:00:00.000Z",
+      source: "wikipedia",
+      pageTitle: "2026 FIFA World Cup squads",
+      teamCount: 1,
+      playerCount: 3,
+      teams: [
+        {
+          teamName: "Argentina",
+          teamId: "argentina",
+          players: [
+            {
+              playerName: "Lisandro Martínez",
+              normalizedPlayerName: "lisandro martinez",
+              position: "defender",
+              shirtNumber: 6,
+              sourceName: "Lisandro Martínez"
+            },
+            {
+              playerName: "Lautaro Martínez",
+              normalizedPlayerName: "lautaro martinez",
+              position: "forward",
+              shirtNumber: 22,
+              sourceName: "Lautaro Martínez"
+            },
+            {
+              playerName: "Emiliano Martínez",
+              normalizedPlayerName: "emiliano martinez",
+              position: "goalkeeper",
+              shirtNumber: 23,
+              sourceName: "Emiliano Martínez"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      strictSources: ["api-football"],
+      participants: [
+        {
+          source: "api-football",
+          matchId: "football-data:537386",
+          fixtureId: "1579144",
+          playerName: "L. Martinez",
+          nationalTeam: "Argentina",
+          teamId: "argentina",
+          apiPlayerId: 217,
+          status: "subbed-in"
+        },
+        {
+          source: "api-football",
+          matchId: "football-data:537386",
+          fixtureId: "1579144",
+          playerName: "Lautaro Martínez",
+          nationalTeam: "Argentina",
+          teamId: "argentina",
+          apiPlayerId: 217,
+          status: "bench",
+          shirtNumber: 22
+        }
+      ]
+    }
+  ).map((goal) => [goal.playerName, goal.teamId]),
+  [["Lautaro Martínez", "argentina"]]
+);
 assert.throws(
   () =>
     enrichGoalsWithRoster(

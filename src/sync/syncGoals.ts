@@ -441,7 +441,8 @@ export async function syncGoals(
   const previousPickStatusSnapshot = await readExistingPickStatusSnapshot();
   const strictSources: SourceName[] = goalsWithShootouts.some((goal) => goal.source === "api-football") ? ["api-football"] : [];
   const rosterEnrichedGoals = enrichGoalsWithRoster(goalsWithShootouts, rosterSnapshot, {
-    strictSources
+    strictSources,
+    participants: normalizedParticipants
   });
   const { validGoals: goals } = validateGoals(rosterEnrichedGoals);
   const effectiveGoals = selectEffectiveGoalsForScoring(goals);

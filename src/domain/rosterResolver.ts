@@ -3,6 +3,7 @@ import { normalizePlayerName } from "./normalizePlayerName";
 import { getTeamDisplayName } from "./teamDisplay";
 import { resolveGoalTeamId, resolveTeamFromApiFootball, resolveTeamFromWikipedia } from "./teamResolver";
 import type { GoalRecord, SourceName } from "./goalTypes";
+import type { ExternalMatchParticipantRecord } from "./matchTypes";
 import type { RosterPlayer, RosterSnapshot, RosterTeam } from "./rosterTypes";
 
 export type RosterGoalMatch = {
@@ -15,6 +16,7 @@ export type RosterGoalMatch = {
 
 type EnrichGoalsWithRosterOptions = {
   strictSources?: SourceName[];
+  participants?: ExternalMatchParticipantRecord[];
 };
 
 const apiFootballGoalNameAliases = new Map<string, string>([
@@ -68,7 +70,60 @@ function getOwnGoalCandidateTeams(goal: GoalRecord, rosterSnapshot: RosterSnapsh
   return candidateTeams;
 }
 
-function resolveRosterPlayer(goal: GoalRecord, rosterTeam: RosterTeam): RosterPlayer | null {
+function participantBelongsToTeam(participant: ExternalMatchParticipantRecord, teamId: string): boolean {
+  if (participant.teamId) {
+    return participant.teamId === teamId;
+  }
+
+  const resolvedTeam =
+    participant.source === "api-football"
+      ? resolveTeamFromApiFootball(participant.nationalTeam)
+      : resolveTeamFromWikipedia(participant.nationalTeam) ?? resolveTeamFromApiFootball(participant.nationalTeam);
+
+  return resolvedTeam?.teamId === teamId;
+}
+
+function resolveRosterPlayerFromApiPlayerId(
+  goal: GoalRecord,
+  rosterTeam: RosterTeam,
+  participants: ExternalMatchParticipantRecord[] | undefined
+): RosterPlayer | null {
+  const teamId = rosterTeam.teamId ?? resolveGoalTeamId(goal);
+  if (!goal.apiPlayerId || !teamId || !participants?.length) {
+    return null;
+  }
+
+  const apiPlayerNames = [
+    ...new Set(
+      participants
+        .filter((participant) => participant.source === "api-football")
+        .filter((participant) => participant.apiPlayerId === goal.apiPlayerId)
+        .filter((participant) => participantBelongsToTeam(participant, teamId))
+        .map((participant) => participant.playerName)
+    )
+  ];
+  const rosterMatches = new Set<RosterPlayer>();
+
+  for (const playerName of apiPlayerNames) {
+    const player = findUniqueGoalRosterPlayer(playerName, rosterTeam.players);
+    if (player) {
+      rosterMatches.add(player);
+    }
+  }
+
+  return rosterMatches.size === 1 ? [...rosterMatches][0] : null;
+}
+
+function resolveRosterPlayer(
+  goal: GoalRecord,
+  rosterTeam: RosterTeam,
+  participants?: ExternalMatchParticipantRecord[]
+): RosterPlayer | null {
+  const apiPlayerMatch = goal.source === "api-football" ? resolveRosterPlayerFromApiPlayerId(goal, rosterTeam, participants) : null;
+  if (apiPlayerMatch) {
+    return apiPlayerMatch;
+  }
+
   const aliasKey = [rosterTeam.teamId ?? "", normalizeTransliteratedPlayerName(goal.playerName)].join("|");
   const searchName = goal.source === "api-football" ? apiFootballGoalNameAliases.get(aliasKey) ?? goal.playerName : goal.playerName;
   return findUniqueGoalRosterPlayer(searchName, rosterTeam.players);
@@ -277,7 +332,8 @@ function findUniqueGoalRosterPlayer(searchName: string, rosterPlayers: RosterPla
 
 export function resolveRosterPlayerForGoal(
   goal: GoalRecord,
-  rosterSnapshot: RosterSnapshot | undefined
+  rosterSnapshot: RosterSnapshot | undefined,
+  participants?: ExternalMatchParticipantRecord[]
 ): RosterGoalMatch | null {
   if (!rosterSnapshot) {
     return null;
@@ -289,7 +345,7 @@ export function resolveRosterPlayerForGoal(
   }
 
   const rosterTeam = getRosterTeam(rosterSnapshot, teamId);
-  const player = rosterTeam ? resolveRosterPlayer(goal, rosterTeam) : null;
+  const player = rosterTeam ? resolveRosterPlayer(goal, rosterTeam, participants) : null;
   if (player && rosterTeam) {
     return {
       player,
@@ -306,7 +362,7 @@ export function resolveRosterPlayerForGoal(
 
   const ownGoalMatches = getOwnGoalCandidateTeams(goal, rosterSnapshot, teamId)
     .map((candidateTeam) => {
-      const ownGoalPlayer = resolveRosterPlayer(goal, candidateTeam);
+      const ownGoalPlayer = resolveRosterPlayer(goal, candidateTeam, participants);
       if (!ownGoalPlayer || !candidateTeam.teamId) {
         return null;
       }
@@ -341,7 +397,7 @@ export function enrichGoalsWithRoster(
   const strictSources = new Set(options.strictSources ?? []);
   const unmatchedGoals: string[] = [];
   const enrichedGoals = goals.map((goal) => {
-    const rosterMatch = resolveRosterPlayerForGoal(goal, rosterSnapshot);
+    const rosterMatch = resolveRosterPlayerForGoal(goal, rosterSnapshot, options.participants);
     if (!rosterMatch) {
       if (shouldRequireRosterMatch(goal, strictSources)) {
         unmatchedGoals.push(describeGoal(goal));
