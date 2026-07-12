@@ -6715,6 +6715,22 @@
     "teamId": "united-states"
   },
   {
+    "externalGoalId": "football-data:scorer:77641:normal",
+    "playerName": "Dan Ndoye",
+    "nationalTeam": "Switzerland",
+    "sourcePlayerName": "Dan Ndoye",
+    "sourceTeamName": "Switzerland",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 77641,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "switzerland-dan-ndoye",
+    "teamId": "switzerland"
+  },
+  {
     "externalGoalId": "football-data:scorer:122511:normal",
     "playerName": "Azzedine Ounahi",
     "nationalTeam": "Morocco",
@@ -7489,21 +7505,5 @@
     "detail": "normal",
     "playerId": "cape-verde-kevin-pina",
     "teamId": "cape-verde"
-  },
-  {
-    "externalGoalId": "football-data:scorer:28614:normal",
-    "playerName": "Agustín Canobbio",
-    "nationalTeam": "Uruguay",
-    "sourcePlayerName": "Agustín Canobbio",
-    "sourceTeamName": "Uruguay",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 28614,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "uruguay-agustin-canobbio",
-    "teamId": "uruguay"
   }
 ]
