@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-12T01:01:49.238Z",
+  "lastUpdated": "2026-07-12T01:32:07.614Z",
   "source": "football-data",
   "attemptedSources": [
     "football-data"
@@ -11,12 +11,12 @@
   "skippedGoalCount": 0,
   "duplicateGoalCount": 0,
   "sourceErrors": [],
-  "message": "Daten-Snapshot unveraendert (football-data).",
-  "snapshotFingerprint": "cdb0b101bc59efc4c700c0ce961e3c4c98d2294cd6e33229cf6fb7d6d81137dd",
-  "snapshotChanged": false,
+  "message": "Daten-Snapshot mit Quelle football-data erzeugt.",
+  "snapshotFingerprint": "d6122ffd7162bcce3451a6c7b6d3ba5f72d19f3d863b7e7fe516e30e003b7ae3",
+  "snapshotChanged": true,
   "syncWindowId": "football-data:537386-live",
   "windowSyncAttempts": 1,
-  "liveMatchCount": 0,
+  "liveMatchCount": 1,
   "sourceRequestCount": 3,
   "sourceRequestLimit": 6
 }

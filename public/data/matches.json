@@ -73081,14 +73081,17 @@
   },
   {
     "matchId": "football-data:537386",
-    "label": "Argentina vs Switzerland",
+    "label": "Argentina 1-0 Switzerland",
     "kickedOffAt": "2026-07-12T01:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "home",
     "homeTeam": {
-      "name": "Argentinien"
+      "name": "Argentinien",
+      "score": 1
     },
     "awayTeam": {
-      "name": "Schweiz"
+      "name": "Schweiz",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -73171,12 +73174,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 1,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsEventBackfill": true,
+      "needsLineupBackfill": true
     }
   },
   {

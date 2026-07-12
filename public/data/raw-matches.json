@@ -3294,16 +3294,19 @@
     "source": "football-data",
     "matchId": "football-data:537386",
     "fixtureId": "537386",
-    "label": "Argentina vs Switzerland",
+    "label": "Argentina 1-0 Switzerland",
     "kickedOffAt": "2026-07-12T01:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "home",
     "homeTeam": {
       "id": 762,
-      "name": "Argentina"
+      "name": "Argentina",
+      "score": 1
     },
     "awayTeam": {
       "id": 788,
-      "name": "Switzerland"
+      "name": "Switzerland",
+      "score": 0
     }
   },
   {
