@@ -1290,5 +1290,30 @@
     "displayPlayerName": "Jude Bellingham",
     "displayNationalTeam": "England",
     "points": 1
+  },
+  {
+    "externalGoalId": "api-football:1582681:6716:10:Normal Goal:0",
+    "playerName": "Alexis Mac Allister",
+    "nationalTeam": "Argentina",
+    "sourcePlayerName": "A. Mac Allister",
+    "sourceTeamName": "Argentina",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 6716,
+    "matchId": "football-data:537386",
+    "fixtureId": "1582681",
+    "matchLabel": "Argentina 3-1 Switzerland",
+    "kickedOffAt": "2026-07-12T01:00:00+00:00",
+    "minute": 10,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "argentina-alexis-mac-allister",
+    "teamId": "argentina",
+    "pickId": "argentina-alexis-mac-allister",
+    "owner": "Melli",
+    "pickedPlayerName": "Alexis Mac Allister",
+    "displayPlayerName": "Alexis Mac Allister",
+    "displayNationalTeam": "Argentinien",
+    "points": 1
   }
 ]

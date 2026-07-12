@@ -636,6 +636,18 @@
     "rank": 55
   },
   {
+    "playerName": "Alexis Mac Allister",
+    "normalizedPlayerName": "alexis mac allister",
+    "nationalTeam": "Argentinien",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [
+      "Melli"
+    ],
+    "selected": true,
+    "rank": 55
+  },
+  {
     "playerName": "Alexis Saelemaekers",
     "normalizedPlayerName": "alexis saelemaekers",
     "nationalTeam": "Belgien",
@@ -1175,6 +1187,16 @@
     "playerName": "Jovo Lukić",
     "normalizedPlayerName": "jovo lukic",
     "nationalTeam": "Bosnien und Herzegowina",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 55
+  },
+  {
+    "playerName": "Julián Alvarez",
+    "normalizedPlayerName": "julian alvarez",
+    "nationalTeam": "Argentinien",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],
