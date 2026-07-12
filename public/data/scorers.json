@@ -45,13 +45,13 @@
     "playerName": "Jude Bellingham",
     "normalizedPlayerName": "jude bellingham",
     "nationalTeam": "England",
-    "goals": 5,
+    "goals": 6,
     "penaltyGoals": 0,
     "scoringOwners": [
       "Jonas"
     ],
     "selected": true,
-    "rank": 5
+    "rank": 4
   },
   {
     "playerName": "Ousmane Dembélé",
@@ -61,7 +61,7 @@
     "penaltyGoals": 0,
     "scoringOwners": [],
     "selected": false,
-    "rank": 5
+    "rank": 6
   },
   {
     "playerName": "Ismaïla Sarr",
@@ -649,6 +649,16 @@
     "playerName": "Amine Gouiri",
     "normalizedPlayerName": "amine gouiri",
     "nationalTeam": "Algerien",
+    "goals": 1,
+    "penaltyGoals": 0,
+    "scoringOwners": [],
+    "selected": false,
+    "rank": 53
+  },
+  {
+    "playerName": "Andreas Schjelderup",
+    "normalizedPlayerName": "andreas schjelderup",
+    "nationalTeam": "Norwegen",
     "goals": 1,
     "penaltyGoals": 0,
     "scoringOwners": [],

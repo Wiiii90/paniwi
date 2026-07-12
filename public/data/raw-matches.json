@@ -3257,19 +3257,19 @@
     "source": "football-data",
     "matchId": "football-data:537385",
     "fixtureId": "537385",
-    "label": "Norway 2-1 England",
+    "label": "Norway 1-2 England",
     "kickedOffAt": "2026-07-11T21:00:00Z",
-    "status": "live",
-    "winnerTeam": "home",
+    "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "id": 8872,
       "name": "Norway",
-      "score": 2
+      "score": 1
     },
     "awayTeam": {
       "id": 770,
       "name": "England",
-      "score": 1
+      "score": 2
     }
   },
   {
@@ -3322,6 +3322,40 @@
       "id": 1,
       "name": "Belgium",
       "score": 1
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537387",
+    "fixtureId": "537387",
+    "label": "France vs Spain",
+    "kickedOffAt": "2026-07-14T19:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 773,
+      "name": "France"
+    },
+    "awayTeam": {
+      "id": 760,
+      "name": "Spain"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1581037",
+    "fixtureId": "1581037",
+    "label": "Norway 1-2 England",
+    "kickedOffAt": "2026-07-11T21:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 1090,
+      "name": "Norway",
+      "score": 1
+    },
+    "awayTeam": {
+      "id": 10,
+      "name": "England",
+      "score": 2
     }
   }
 ]
