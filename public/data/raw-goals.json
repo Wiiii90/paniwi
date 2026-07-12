@@ -6651,6 +6651,38 @@
     "teamId": "belgium"
   },
   {
+    "externalGoalId": "football-data:scorer:3220:normal",
+    "playerName": "Lautaro Martínez",
+    "nationalTeam": "Argentina",
+    "sourcePlayerName": "Lautaro Martínez",
+    "sourceTeamName": "Argentina",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 3220,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "argentina-lautaro-martinez",
+    "teamId": "argentina"
+  },
+  {
+    "externalGoalId": "football-data:scorer:3220:penalties",
+    "playerName": "Lautaro Martínez",
+    "nationalTeam": "Argentina",
+    "sourcePlayerName": "Lautaro Martínez",
+    "sourceTeamName": "Argentina",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 3220,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "penalty",
+    "playerId": "argentina-lautaro-martinez",
+    "teamId": "argentina"
+  },
+  {
     "externalGoalId": "football-data:scorer:8069:normal",
     "playerName": "Riyad Mahrez",
     "nationalTeam": "Algeria",
@@ -7489,21 +7521,5 @@
     "detail": "normal",
     "playerId": "spain-lamine-yamal",
     "teamId": "spain"
-  },
-  {
-    "externalGoalId": "football-data:scorer:40121:normal",
-    "playerName": "Kevin Pina",
-    "nationalTeam": "Cape Verde",
-    "sourcePlayerName": "Kevin Pina",
-    "sourceTeamName": "Cape Verde Islands",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 40121,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "cape-verde-kevin-pina",
-    "teamId": "cape-verde"
   }
 ]
