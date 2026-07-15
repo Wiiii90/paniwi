@@ -74829,14 +74829,17 @@
   },
   {
     "matchId": "football-data:537388",
-    "label": "England vs Argentina",
+    "label": "England 0-0 Argentina",
     "kickedOffAt": "2026-07-15T19:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "draw",
     "homeTeam": {
-      "name": "England"
+      "name": "England",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Argentinien"
+      "name": "Argentinien",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -74979,12 +74982,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 0,
       "goalEventCount": 0,
-      "eventsComplete": false,
+      "eventsComplete": true,
       "lineupsComplete": false,
       "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsLineupBackfill": true
     }
   }
 ]
