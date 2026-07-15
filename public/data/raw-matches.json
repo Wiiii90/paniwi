@@ -3388,7 +3388,7 @@
     "fixtureId": "537388",
     "label": "England 1-2 Argentina",
     "kickedOffAt": "2026-07-15T19:00:00Z",
-    "status": "live",
+    "status": "finished",
     "winnerTeam": "away",
     "homeTeam": {
       "id": 770,
@@ -3416,6 +3416,24 @@
     "awayTeam": {
       "id": 9,
       "name": "Spain",
+      "score": 2
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1586077",
+    "fixtureId": "1586077",
+    "label": "England 1-2 Argentina",
+    "kickedOffAt": "2026-07-15T19:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 10,
+      "name": "England",
+      "score": 1
+    },
+    "awayTeam": {
+      "id": 26,
+      "name": "Argentina",
       "score": 2
     }
   }
