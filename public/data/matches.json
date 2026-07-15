@@ -74829,17 +74829,17 @@
   },
   {
     "matchId": "football-data:537388",
-    "label": "England 1-0 Argentina",
+    "label": "England 1-2 Argentina",
     "kickedOffAt": "2026-07-15T19:00:00Z",
     "status": "live",
-    "winnerTeam": "home",
+    "winnerTeam": "away",
     "homeTeam": {
       "name": "England",
       "score": 1
     },
     "awayTeam": {
       "name": "Argentinien",
-      "score": 0
+      "score": 2
     },
     "goals": [],
     "pointGoals": [],
@@ -74982,7 +74982,7 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 1,
+      "scoreTotal": 3,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,

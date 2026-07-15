@@ -6381,6 +6381,38 @@
     "teamId": "belgium"
   },
   {
+    "externalGoalId": "football-data:scorer:3220:normal",
+    "playerName": "Lautaro Martínez",
+    "nationalTeam": "Argentina",
+    "sourcePlayerName": "Lautaro Martínez",
+    "sourceTeamName": "Argentina",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 3220,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "argentina-lautaro-martinez",
+    "teamId": "argentina"
+  },
+  {
+    "externalGoalId": "football-data:scorer:3220:penalties",
+    "playerName": "Lautaro Martínez",
+    "nationalTeam": "Argentina",
+    "sourcePlayerName": "Lautaro Martínez",
+    "sourceTeamName": "Argentina",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 3220,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "penalty",
+    "playerId": "argentina-lautaro-martinez",
+    "teamId": "argentina"
+  },
+  {
     "externalGoalId": "football-data:scorer:129947:normal",
     "playerName": "Charles De Ketelaere",
     "nationalTeam": "Belgium",
@@ -6781,38 +6813,6 @@
     "teamId": "belgium"
   },
   {
-    "externalGoalId": "football-data:scorer:3220:normal",
-    "playerName": "Lautaro Martínez",
-    "nationalTeam": "Argentina",
-    "sourcePlayerName": "Lautaro Martínez",
-    "sourceTeamName": "Argentina",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 3220,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "argentina-lautaro-martinez",
-    "teamId": "argentina"
-  },
-  {
-    "externalGoalId": "football-data:scorer:3220:penalties",
-    "playerName": "Lautaro Martínez",
-    "nationalTeam": "Argentina",
-    "sourcePlayerName": "Lautaro Martínez",
-    "sourceTeamName": "Argentina",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 3220,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "penalty",
-    "playerId": "argentina-lautaro-martinez",
-    "teamId": "argentina"
-  },
-  {
     "externalGoalId": "football-data:scorer:8069:normal",
     "playerName": "Riyad Mahrez",
     "nationalTeam": "Algeria",
@@ -6939,6 +6939,22 @@
     "detail": "normal",
     "playerId": "spain-mikel-merino",
     "teamId": "spain"
+  },
+  {
+    "externalGoalId": "football-data:scorer:102603:normal",
+    "playerName": "Enzo Fernández",
+    "nationalTeam": "Argentina",
+    "sourcePlayerName": "Enzo Fernández",
+    "sourceTeamName": "Argentina",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 102603,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "argentina-enzo-fernandez",
+    "teamId": "argentina"
   },
   {
     "externalGoalId": "football-data:scorer:1878:normal",
@@ -7635,21 +7651,5 @@
     "detail": "normal",
     "playerId": "ivory-coast-franck-kessie",
     "teamId": "ivory-coast"
-  },
-  {
-    "externalGoalId": "football-data:scorer:49080:normal",
-    "playerName": "Junya Itō",
-    "nationalTeam": "Japan",
-    "sourcePlayerName": "Junya Ito",
-    "sourceTeamName": "Japan",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 49080,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "japan-junya-ito",
-    "teamId": "japan"
   }
 ]

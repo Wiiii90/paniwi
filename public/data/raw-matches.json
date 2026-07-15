@@ -3386,10 +3386,10 @@
     "source": "football-data",
     "matchId": "football-data:537388",
     "fixtureId": "537388",
-    "label": "England 1-0 Argentina",
+    "label": "England 1-2 Argentina",
     "kickedOffAt": "2026-07-15T19:00:00Z",
     "status": "live",
-    "winnerTeam": "home",
+    "winnerTeam": "away",
     "homeTeam": {
       "id": 770,
       "name": "England",
@@ -3398,7 +3398,7 @@
     "awayTeam": {
       "id": 762,
       "name": "Argentina",
-      "score": 0
+      "score": 2
     }
   },
   {
