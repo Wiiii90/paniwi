@@ -3331,16 +3331,19 @@
     "source": "football-data",
     "matchId": "football-data:537387",
     "fixtureId": "537387",
-    "label": "France vs Spain",
+    "label": "France 0-2 Spain",
     "kickedOffAt": "2026-07-14T19:00:00Z",
-    "status": "scheduled",
+    "status": "finished",
+    "winnerTeam": "away",
     "homeTeam": {
       "id": 773,
-      "name": "France"
+      "name": "France",
+      "score": 0
     },
     "awayTeam": {
       "id": 760,
-      "name": "Spain"
+      "name": "Spain",
+      "score": 2
     }
   },
   {
@@ -3377,6 +3380,40 @@
       "id": 15,
       "name": "Switzerland",
       "score": 1
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537388",
+    "fixtureId": "537388",
+    "label": "England vs Argentina",
+    "kickedOffAt": "2026-07-15T19:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 770,
+      "name": "England"
+    },
+    "awayTeam": {
+      "id": 762,
+      "name": "Argentina"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1585131",
+    "fixtureId": "1585131",
+    "label": "France 0-2 Spain",
+    "kickedOffAt": "2026-07-14T19:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 2,
+      "name": "France",
+      "score": 0
+    },
+    "awayTeam": {
+      "id": 9,
+      "name": "Spain",
+      "score": 2
     }
   }
 ]
