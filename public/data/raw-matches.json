@@ -3441,14 +3441,14 @@
     "source": "football-data",
     "matchId": "football-data:537389",
     "fixtureId": "537389",
-    "label": "France 0-4 England",
+    "label": "France 2-4 England",
     "kickedOffAt": "2026-07-18T21:00:00Z",
     "status": "live",
     "winnerTeam": "away",
     "homeTeam": {
       "id": 773,
       "name": "France",
-      "score": 0
+      "score": 2
     },
     "awayTeam": {
       "id": 770,

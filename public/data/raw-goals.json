@@ -5947,7 +5947,7 @@
     "nationalTeam": "France",
     "sourcePlayerName": "Kylian Mbappé",
     "sourceTeamName": "France",
-    "goals": 7,
+    "goals": 9,
     "source": "football-data",
     "apiPlayerId": 3374,
     "matchId": "football-data:scorers",
@@ -6276,6 +6276,22 @@
     "detail": "normal",
     "playerId": "new-zealand-elijah-just",
     "teamId": "new-zealand"
+  },
+  {
+    "externalGoalId": "football-data:scorer:172762:normal",
+    "playerName": "Bradley Barcola",
+    "nationalTeam": "France",
+    "sourcePlayerName": "Bradley Barcola",
+    "sourceTeamName": "France",
+    "goals": 3,
+    "source": "football-data",
+    "apiPlayerId": 172762,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "france-bradley-barcola",
+    "teamId": "france"
   },
   {
     "externalGoalId": "football-data:scorer:612:normal",
@@ -6644,22 +6660,6 @@
     "detail": "normal",
     "playerId": "iran-ramin-rezaeian",
     "teamId": "iran"
-  },
-  {
-    "externalGoalId": "football-data:scorer:172762:normal",
-    "playerName": "Bradley Barcola",
-    "nationalTeam": "France",
-    "sourcePlayerName": "Bradley Barcola",
-    "sourceTeamName": "France",
-    "goals": 2,
-    "source": "football-data",
-    "apiPlayerId": 172762,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "france-bradley-barcola",
-    "teamId": "france"
   },
   {
     "externalGoalId": "football-data:scorer:8223:normal",
