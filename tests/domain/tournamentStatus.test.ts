@@ -137,4 +137,38 @@ const laterKnockoutLossSnapshot = buildTeamTournamentStatusSnapshot(
 assert.equal(laterKnockoutLossSnapshot.teams.find((team) => team.teamId === firstRoundTeamIds[0])?.status, "eliminated");
 assert.equal(laterKnockoutLossSnapshot.teams.find((team) => team.teamId === firstRoundTeamIds[0])?.reason, "knockout-loser");
 
+const thirdPlaceRosterSnapshot: RosterSnapshot = {
+  ...rosterSnapshot,
+  teams: [
+    { teamName: getTeam("france").sourceName, teamId: "france", players: [] },
+    { teamName: getTeam("england").sourceName, teamId: "england", players: [] }
+  ]
+};
+const thirdPlaceFixtureSnapshot = buildTeamTournamentStatusSnapshot(
+  [
+    ...firstRoundMatches,
+    createMatch(40, "france", "spain", {
+      kickedOffAt: "2026-07-14T19:00:00.000Z",
+      status: "finished",
+      homeTeam: { name: getTeam("france").sourceName, score: 0 },
+      awayTeam: { name: getTeam("spain").sourceName, score: 2 }
+    }),
+    createMatch(41, "england", "argentina", {
+      kickedOffAt: "2026-07-15T19:00:00.000Z",
+      status: "finished",
+      homeTeam: { name: getTeam("england").sourceName, score: 1 },
+      awayTeam: { name: getTeam("argentina").sourceName, score: 2 }
+    }),
+    createMatch(42, "france", "england", {
+      kickedOffAt: "2026-07-18T21:00:00.000Z",
+      status: "scheduled"
+    })
+  ],
+  thirdPlaceRosterSnapshot
+);
+assert.equal(thirdPlaceFixtureSnapshot.teams.find((team) => team.teamId === "france")?.status, "active");
+assert.equal(thirdPlaceFixtureSnapshot.teams.find((team) => team.teamId === "france")?.reason, "knockout-fixture");
+assert.equal(thirdPlaceFixtureSnapshot.teams.find((team) => team.teamId === "england")?.status, "active");
+assert.equal(thirdPlaceFixtureSnapshot.teams.find((team) => team.teamId === "england")?.reason, "knockout-fixture");
+
 console.log("Tournament status tests passed.");

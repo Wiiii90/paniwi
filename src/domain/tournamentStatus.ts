@@ -27,7 +27,7 @@ export type TeamTournamentStatusSnapshot = {
 };
 
 type TournamentMatch = Pick<MatchRecord, "kickedOffAt" | "status" | "winnerTeam" | "homeTeam" | "awayTeam">;
-type TeamTournamentState = Pick<TeamTournamentStatusEntry, "status" | "reason">;
+type TeamTournamentState = Pick<TeamTournamentStatusEntry, "status" | "reason"> & { kickedOffAt?: string };
 
 const firstKnockoutRoundStartsAt = "2026-06-28T18:00:00.000Z";
 const firstKnockoutRoundMatchCount = 16;
@@ -108,12 +108,13 @@ export function buildTeamTournamentStatusSnapshot(
     knockoutMatches.length >= firstKnockoutRoundMatchCount && firstKnockoutRoundTeamIds.size >= firstKnockoutRoundTeamCount;
   const statusByTeamId = new Map<string, TeamTournamentState>();
 
-  const setActiveStatus = (teamId: string, reason: TeamTournamentStatusReason) => {
-    if (statusByTeamId.get(teamId)?.status === "eliminated") {
+  const setActiveStatus = (teamId: string, reason: TeamTournamentStatusReason, kickedOffAt?: string) => {
+    const currentStatus = statusByTeamId.get(teamId);
+    if (currentStatus?.status === "eliminated" && (!kickedOffAt || !currentStatus.kickedOffAt || kickedOffAt <= currentStatus.kickedOffAt)) {
       return;
     }
 
-    statusByTeamId.set(teamId, { status: "active", reason });
+    statusByTeamId.set(teamId, { status: "active", reason, kickedOffAt });
   };
 
   for (const match of knockoutMatches) {
@@ -121,16 +122,16 @@ export function buildTeamTournamentStatusSnapshot(
     const result = getFinishedWinnerAndLoser(match);
 
     if (result) {
-      statusByTeamId.set(result.winnerTeamId, { status: "active", reason: "knockout-winner" });
-      statusByTeamId.set(result.loserTeamId, { status: "eliminated", reason: "knockout-loser" });
+      statusByTeamId.set(result.winnerTeamId, { status: "active", reason: "knockout-winner", kickedOffAt: match.kickedOffAt });
+      statusByTeamId.set(result.loserTeamId, { status: "eliminated", reason: "knockout-loser", kickedOffAt: match.kickedOffAt });
       continue;
     }
 
     if (homeTeamId) {
-      setActiveStatus(homeTeamId, "knockout-fixture");
+      setActiveStatus(homeTeamId, "knockout-fixture", match.kickedOffAt);
     }
     if (awayTeamId) {
-      setActiveStatus(awayTeamId, "knockout-fixture");
+      setActiveStatus(awayTeamId, "knockout-fixture", match.kickedOffAt);
     }
   }
 

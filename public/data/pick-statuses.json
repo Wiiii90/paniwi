@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-18T14:51:07.195Z",
+  "lastUpdated": "2026-07-18T14:55:27.627Z",
   "rosterSnapshotUpdatedAt": "2026-06-15T23:48:37.445Z",
   "picks": [
     {
@@ -12,8 +12,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "knockout-loser",
+      "tournamentStatus": "active",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Morgan Rogers",
       "reason": "found-in-current-roster"
@@ -60,8 +60,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "knockout-loser",
+      "tournamentStatus": "active",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Bradley Barcola",
       "reason": "found-in-current-roster"
@@ -156,8 +156,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "knockout-loser",
+      "tournamentStatus": "active",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Marc Guéhi",
       "reason": "found-in-current-roster"
@@ -378,8 +378,8 @@
       "baselineRosterStatus": "not-nominated",
       "currentRosterStatus": "not-nominated",
       "displayStatus": "not-nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "knockout-loser",
+      "tournamentStatus": "active",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": false,
       "reason": "not-found-in-current-team-roster"
     },
@@ -869,8 +869,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "knockout-loser",
+      "tournamentStatus": "active",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Jordan Pickford",
       "reason": "found-in-current-roster"
@@ -1137,8 +1137,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "knockout-loser",
+      "tournamentStatus": "active",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Jude Bellingham",
       "reason": "found-in-current-roster"
@@ -1249,8 +1249,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "knockout-loser",
+      "tournamentStatus": "active",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Marcus Rashford",
       "reason": "found-in-current-roster"
@@ -1489,8 +1489,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "knockout-loser",
+      "tournamentStatus": "active",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Adrien Rabiot",
       "reason": "found-in-current-roster"
@@ -1679,8 +1679,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "knockout-loser",
+      "tournamentStatus": "active",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Désiré Doué",
       "reason": "found-in-current-roster"
@@ -1962,8 +1962,8 @@
       "baselineRosterStatus": "nominated",
       "currentRosterStatus": "nominated",
       "displayStatus": "nominated",
-      "tournamentStatus": "eliminated",
-      "tournamentStatusReason": "knockout-loser",
+      "tournamentStatus": "active",
+      "tournamentStatusReason": "knockout-fixture",
       "matchedCurrentRoster": true,
       "matchedCurrentRosterName": "Dan Burn",
       "reason": "found-in-current-roster"
@@ -2052,8 +2052,8 @@
     "notNominatedCount": 11,
     "lateCallupCount": 0,
     "unknownCount": 0,
-    "activeCount": 10,
-    "eliminatedCount": 119,
+    "activeCount": 20,
+    "eliminatedCount": 109,
     "tournamentUnknownCount": 0
   }
 }
