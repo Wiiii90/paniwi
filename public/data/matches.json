@@ -75678,14 +75678,17 @@
   },
   {
     "matchId": "football-data:537389",
-    "label": "France vs England",
+    "label": "France 0-2 England",
     "kickedOffAt": "2026-07-18T21:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "away",
     "homeTeam": {
-      "name": "Frankreich"
+      "name": "Frankreich",
+      "score": 0
     },
     "awayTeam": {
-      "name": "England"
+      "name": "England",
+      "score": 2
     },
     "goals": [],
     "pointGoals": [],
@@ -75828,12 +75831,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 2,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
-      "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsEventBackfill": true,
+      "needsLineupBackfill": true
     }
   },
   {
