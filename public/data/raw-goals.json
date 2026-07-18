@@ -7014,6 +7014,22 @@
     "teamId": "argentina"
   },
   {
+    "externalGoalId": "football-data:scorer:99813:normal",
+    "playerName": "Bukayo Saka",
+    "nationalTeam": "England",
+    "sourcePlayerName": "Bukayo Saka",
+    "sourceTeamName": "England",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 99813,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "england-bukayo-saka",
+    "teamId": "england"
+  },
+  {
     "externalGoalId": "football-data:scorer:1878:normal",
     "playerName": "Ladislav Krejčí",
     "nationalTeam": "Czech Republic",
@@ -7692,21 +7708,5 @@
     "detail": "normal",
     "playerId": "paraguay-matias-galarza",
     "teamId": "paraguay"
-  },
-  {
-    "externalGoalId": "football-data:scorer:1747:normal",
-    "playerName": "Franck Kessié",
-    "nationalTeam": "Ivory Coast",
-    "sourcePlayerName": "Franck Kessié",
-    "sourceTeamName": "Ivory Coast",
-    "goals": 1,
-    "source": "football-data",
-    "apiPlayerId": 1747,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "ivory-coast-franck-kessie",
-    "teamId": "ivory-coast"
   }
 ]

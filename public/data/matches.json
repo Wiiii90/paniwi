@@ -75678,7 +75678,7 @@
   },
   {
     "matchId": "football-data:537389",
-    "label": "France 0-2 England",
+    "label": "France 0-4 England",
     "kickedOffAt": "2026-07-18T21:00:00Z",
     "status": "live",
     "winnerTeam": "away",
@@ -75688,7 +75688,7 @@
     },
     "awayTeam": {
       "name": "England",
-      "score": 2
+      "score": 4
     },
     "goals": [],
     "pointGoals": [],
@@ -75831,7 +75831,7 @@
       }
     ],
     "syncState": {
-      "scoreTotal": 2,
+      "scoreTotal": 4,
       "goalEventCount": 0,
       "eventsComplete": false,
       "lineupsComplete": false,
