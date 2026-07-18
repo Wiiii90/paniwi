@@ -106,12 +106,12 @@ const dynamicKnockoutPostWindow = getActiveSyncWindow(new Date("2026-06-28T23:00
 assert.ok(dynamicKnockoutPostWindow);
 assert.equal(dynamicKnockoutPostWindow.id, "football-data:537417-check-3");
 
-const lastScheduledWindow = getLastScheduledWindow();
+const lastScheduledWindow = getLastScheduledWindow(dynamicRawMatches);
 assert.ok(lastScheduledWindow);
 const knockoutWindowStart = new Date(Math.max(new Date(lastScheduledWindow.until).getTime() + 60 * 60 * 1000, new Date("2026-06-29T00:00:00.000Z").getTime()));
 knockoutWindowStart.setUTCMinutes(5, 0, 0);
 knockoutWindowStart.setUTCHours(18);
-const knockoutWindow = getActiveSyncWindow(knockoutWindowStart);
+const knockoutWindow = getActiveSyncWindow(knockoutWindowStart, dynamicRawMatches);
 assert.ok(knockoutWindow);
 assert.equal(knockoutWindow.id.startsWith("knockout-maintenance:"), true);
 

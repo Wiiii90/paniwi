@@ -166,7 +166,7 @@ export function getActiveSyncWindow(now: Date = new Date(), rawMatches?: RawMatc
     )[0]!;
   }
 
-  return getKnockoutMaintenanceWindow(now);
+  return getKnockoutMaintenanceWindow(now, rawMatches);
 }
 
 export function isTournamentDay(now: Date = new Date()): boolean {
@@ -182,12 +182,12 @@ export function getLastScheduledWindow(rawMatches?: RawMatch[]): SyncWindow | nu
   );
 }
 
-export function getKnockoutMaintenanceWindow(now: Date = new Date()): SyncWindow | null {
+export function getKnockoutMaintenanceWindow(now: Date = new Date(), rawMatches?: RawMatch[]): SyncWindow | null {
   if (!isTournamentDay(now)) {
     return null;
   }
 
-  const lastScheduledWindow = getLastScheduledWindow();
+  const lastScheduledWindow = getLastScheduledWindow(rawMatches);
   if (lastScheduledWindow && now.getTime() <= new Date(lastScheduledWindow.until).getTime()) {
     return null;
   }
@@ -214,10 +214,10 @@ export function getKnockoutMaintenanceWindow(now: Date = new Date()): SyncWindow
   };
 }
 
-export function getUpcomingSyncWindows(now: Date = new Date(), limit = 5): SyncWindow[] {
+export function getUpcomingSyncWindows(now: Date = new Date(), limit = 5, rawMatches?: RawMatch[]): SyncWindow[] {
   const timestamp = now.getTime();
 
-  return getAllSyncWindows()
+  return getAllSyncWindows(rawMatches)
     .filter((window) => new Date(window.until).getTime() >= timestamp)
     .sort((left, right) => left.from.localeCompare(right.from))
     .slice(0, limit);
