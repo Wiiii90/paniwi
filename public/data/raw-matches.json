@@ -3436,5 +3436,37 @@
       "name": "Argentina",
       "score": 2
     }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537389",
+    "fixtureId": "537389",
+    "label": "France vs England",
+    "kickedOffAt": "2026-07-18T21:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 773,
+      "name": "France"
+    },
+    "awayTeam": {
+      "id": 770,
+      "name": "England"
+    }
+  },
+  {
+    "source": "football-data",
+    "matchId": "football-data:537390",
+    "fixtureId": "537390",
+    "label": "Spain vs Argentina",
+    "kickedOffAt": "2026-07-19T19:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "id": 760,
+      "name": "Spain"
+    },
+    "awayTeam": {
+      "id": 762,
+      "name": "Argentina"
+    }
   }
 ]

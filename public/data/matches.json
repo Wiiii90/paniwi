@@ -75675,5 +75675,311 @@
       "needsEventBackfill": false,
       "needsLineupBackfill": false
     }
+  },
+  {
+    "matchId": "football-data:537389",
+    "label": "France vs England",
+    "kickedOffAt": "2026-07-18T21:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Frankreich"
+    },
+    "awayTeam": {
+      "name": "England"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537389",
+        "fixtureId": "537389",
+        "playerName": "Dan Burn",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Dan Burn",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Tjark"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537389",
+        "fixtureId": "537389",
+        "playerName": "Jordan Pickford",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Jordan Pickford",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Caro"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537389",
+        "fixtureId": "537389",
+        "playerName": "Jude Bellingham",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Jude Bellingham",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537389",
+        "fixtureId": "537389",
+        "playerName": "Marc Guéhi",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Marc Guéhi",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537389",
+        "fixtureId": "537389",
+        "playerName": "Marcus Rashford",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Marcus Rashford",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Kim"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537389",
+        "fixtureId": "537389",
+        "playerName": "Morgan Rogers",
+        "nationalTeam": "England",
+        "teamId": "england",
+        "status": "unknown",
+        "displayPlayerName": "Morgan Rogers",
+        "displayNationalTeam": "England",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537389",
+        "fixtureId": "537389",
+        "playerName": "Adrien Rabiot",
+        "nationalTeam": "Frankreich",
+        "teamId": "france",
+        "status": "unknown",
+        "displayPlayerName": "Adrien Rabiot",
+        "displayNationalTeam": "Frankreich",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537389",
+        "fixtureId": "537389",
+        "playerName": "Bradley Barcola",
+        "nationalTeam": "Frankreich",
+        "teamId": "france",
+        "status": "unknown",
+        "displayPlayerName": "Bradley Barcola",
+        "displayNationalTeam": "Frankreich",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537389",
+        "fixtureId": "537389",
+        "playerName": "Désiré Doué",
+        "nationalTeam": "Frankreich",
+        "teamId": "france",
+        "status": "unknown",
+        "displayPlayerName": "Désiré Doué",
+        "displayNationalTeam": "Frankreich",
+        "owners": [
+          "Peer"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
+  },
+  {
+    "matchId": "football-data:537390",
+    "label": "Spain vs Argentina",
+    "kickedOffAt": "2026-07-19T19:00:00Z",
+    "status": "scheduled",
+    "homeTeam": {
+      "name": "Spanien"
+    },
+    "awayTeam": {
+      "name": "Argentinien"
+    },
+    "goals": [],
+    "pointGoals": [],
+    "affectedOwners": [],
+    "participants": [
+      {
+        "source": "football-data",
+        "matchId": "football-data:537390",
+        "fixtureId": "537390",
+        "playerName": "Alexis Mac Allister",
+        "nationalTeam": "Argentinien",
+        "teamId": "argentina",
+        "status": "unknown",
+        "displayPlayerName": "Alexis Mac Allister",
+        "displayNationalTeam": "Argentinien",
+        "owners": [
+          "Melli"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537390",
+        "fixtureId": "537390",
+        "playerName": "Cristian Romero",
+        "nationalTeam": "Argentinien",
+        "teamId": "argentina",
+        "status": "unknown",
+        "displayPlayerName": "Cristian Romero",
+        "displayNationalTeam": "Argentinien",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537390",
+        "fixtureId": "537390",
+        "playerName": "Giuliano Simeone",
+        "nationalTeam": "Argentinien",
+        "teamId": "argentina",
+        "status": "unknown",
+        "displayPlayerName": "Giuliano Simeone",
+        "displayNationalTeam": "Argentinien",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537390",
+        "fixtureId": "537390",
+        "playerName": "Aymeric Laporte",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Aymeric Laporte",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Jonas"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537390",
+        "fixtureId": "537390",
+        "playerName": "Fabián Ruiz",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Fabián Ruiz",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Nina",
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537390",
+        "fixtureId": "537390",
+        "playerName": "Lamine Yamal",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Lamine Yamal",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Rafael"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537390",
+        "fixtureId": "537390",
+        "playerName": "Pedri",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Pedri",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Anne"
+        ],
+        "selected": true
+      },
+      {
+        "source": "football-data",
+        "matchId": "football-data:537390",
+        "fixtureId": "537390",
+        "playerName": "Rodri",
+        "nationalTeam": "Spanien",
+        "teamId": "spain",
+        "status": "unknown",
+        "displayPlayerName": "Rodri",
+        "displayNationalTeam": "Spanien",
+        "owners": [
+          "Nina"
+        ],
+        "selected": true
+      }
+    ],
+    "syncState": {
+      "scoreTotal": null,
+      "goalEventCount": 0,
+      "eventsComplete": false,
+      "lineupsComplete": false,
+      "needsEventBackfill": false,
+      "needsLineupBackfill": false
+    }
   }
 ]
