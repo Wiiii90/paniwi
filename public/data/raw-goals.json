@@ -6054,6 +6054,22 @@
     "teamId": "england"
   },
   {
+    "externalGoalId": "football-data:scorer:3373:normal",
+    "playerName": "Ousmane Dembélé",
+    "nationalTeam": "France",
+    "sourcePlayerName": "Ousmane Dembélé",
+    "sourceTeamName": "France",
+    "goals": 6,
+    "source": "football-data",
+    "apiPlayerId": 3373,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "france-ousmane-dembele",
+    "teamId": "france"
+  },
+  {
     "externalGoalId": "football-data:scorer:180137:normal",
     "playerName": "Mikel Oyarzabal",
     "nationalTeam": "Spain",
@@ -6084,22 +6100,6 @@
     "detail": "penalty",
     "playerId": "spain-mikel-oyarzabal",
     "teamId": "spain"
-  },
-  {
-    "externalGoalId": "football-data:scorer:3373:normal",
-    "playerName": "Ousmane Dembélé",
-    "nationalTeam": "France",
-    "sourcePlayerName": "Ousmane Dembélé",
-    "sourceTeamName": "France",
-    "goals": 5,
-    "source": "football-data",
-    "apiPlayerId": 3373,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "france-ousmane-dembele",
-    "teamId": "france"
   },
   {
     "externalGoalId": "football-data:scorer:39237:normal",
@@ -6500,6 +6500,38 @@
     "detail": "normal",
     "playerId": "belgium-charles-de-ketelaere",
     "teamId": "belgium"
+  },
+  {
+    "externalGoalId": "football-data:scorer:99813:normal",
+    "playerName": "Bukayo Saka",
+    "nationalTeam": "England",
+    "sourcePlayerName": "Bukayo Saka",
+    "sourceTeamName": "England",
+    "goals": 2,
+    "source": "football-data",
+    "apiPlayerId": 99813,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "normal",
+    "playerId": "england-bukayo-saka",
+    "teamId": "england"
+  },
+  {
+    "externalGoalId": "football-data:scorer:99813:penalties",
+    "playerName": "Bukayo Saka",
+    "nationalTeam": "England",
+    "sourcePlayerName": "Bukayo Saka",
+    "sourceTeamName": "England",
+    "goals": 1,
+    "source": "football-data",
+    "apiPlayerId": 99813,
+    "matchId": "football-data:scorers",
+    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
+    "timeConfidence": "unknown",
+    "detail": "penalty",
+    "playerId": "england-bukayo-saka",
+    "teamId": "england"
   },
   {
     "externalGoalId": "football-data:scorer:15958:normal",
@@ -7012,22 +7044,6 @@
     "detail": "normal",
     "playerId": "argentina-enzo-fernandez",
     "teamId": "argentina"
-  },
-  {
-    "externalGoalId": "football-data:scorer:99813:normal",
-    "playerName": "Bukayo Saka",
-    "nationalTeam": "England",
-    "sourcePlayerName": "Bukayo Saka",
-    "sourceTeamName": "England",
-    "goals": 2,
-    "source": "football-data",
-    "apiPlayerId": 99813,
-    "matchId": "football-data:scorers",
-    "matchLabel": "FIFA World Cup 2026 Torschützenliste",
-    "timeConfidence": "unknown",
-    "detail": "normal",
-    "playerId": "england-bukayo-saka",
-    "teamId": "england"
   },
   {
     "externalGoalId": "football-data:scorer:1878:normal",
