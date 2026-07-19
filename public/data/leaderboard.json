@@ -2,30 +2,30 @@
   {
     "rank": 1,
     "owner": "Jonas",
-    "points": 11,
-    "goals": 11,
+    "points": 12,
+    "goals": 12,
     "playersWithGoals": 4
   },
   {
     "rank": 2,
+    "owner": "Nina",
+    "points": 8,
+    "goals": 8,
+    "playersWithGoals": 5
+  },
+  {
+    "rank": 3,
     "owner": "Caro",
     "points": 7,
     "goals": 7,
     "playersWithGoals": 1
   },
   {
-    "rank": 2,
+    "rank": 3,
     "owner": "Felix",
     "points": 7,
     "goals": 7,
     "playersWithGoals": 3
-  },
-  {
-    "rank": 2,
-    "owner": "Nina",
-    "points": 7,
-    "goals": 7,
-    "playersWithGoals": 5
   },
   {
     "rank": 5,

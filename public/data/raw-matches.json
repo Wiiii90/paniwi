@@ -3441,19 +3441,19 @@
     "source": "football-data",
     "matchId": "football-data:537389",
     "fixtureId": "537389",
-    "label": "France 3-5 England",
+    "label": "France 4-6 England",
     "kickedOffAt": "2026-07-18T21:00:00Z",
-    "status": "live",
+    "status": "finished",
     "winnerTeam": "away",
     "homeTeam": {
       "id": 773,
       "name": "France",
-      "score": 3
+      "score": 4
     },
     "awayTeam": {
       "id": 770,
       "name": "England",
-      "score": 5
+      "score": 6
     }
   },
   {
@@ -3470,6 +3470,24 @@
     "awayTeam": {
       "id": 762,
       "name": "Argentina"
+    }
+  },
+  {
+    "source": "api-football",
+    "matchId": "api-football:1591865",
+    "fixtureId": "1591865",
+    "label": "France 4-6 England",
+    "kickedOffAt": "2026-07-18T21:00:00+00:00",
+    "status": "finished",
+    "homeTeam": {
+      "id": 2,
+      "name": "France",
+      "score": 4
+    },
+    "awayTeam": {
+      "id": 10,
+      "name": "England",
+      "score": 6
     }
   }
 ]
