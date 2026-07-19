@@ -76714,14 +76714,17 @@
   },
   {
     "matchId": "football-data:537390",
-    "label": "Spain vs Argentina",
+    "label": "Spain 0-0 Argentina",
     "kickedOffAt": "2026-07-19T19:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "draw",
     "homeTeam": {
-      "name": "Spanien"
+      "name": "Spanien",
+      "score": 0
     },
     "awayTeam": {
-      "name": "Argentinien"
+      "name": "Argentinien",
+      "score": 0
     },
     "goals": [],
     "pointGoals": [],
@@ -76850,12 +76853,12 @@
       }
     ],
     "syncState": {
-      "scoreTotal": null,
+      "scoreTotal": 0,
       "goalEventCount": 0,
-      "eventsComplete": false,
+      "eventsComplete": true,
       "lineupsComplete": false,
       "needsEventBackfill": false,
-      "needsLineupBackfill": false
+      "needsLineupBackfill": true
     }
   }
 ]

@@ -3460,16 +3460,19 @@
     "source": "football-data",
     "matchId": "football-data:537390",
     "fixtureId": "537390",
-    "label": "Spain vs Argentina",
+    "label": "Spain 0-0 Argentina",
     "kickedOffAt": "2026-07-19T19:00:00Z",
-    "status": "scheduled",
+    "status": "live",
+    "winnerTeam": "draw",
     "homeTeam": {
       "id": 760,
-      "name": "Spain"
+      "name": "Spain",
+      "score": 0
     },
     "awayTeam": {
       "id": 762,
-      "name": "Argentina"
+      "name": "Argentina",
+      "score": 0
     }
   },
   {
