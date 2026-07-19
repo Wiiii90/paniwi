@@ -7914,5 +7914,24 @@
     "detail": "normal",
     "playerId": "paraguay-matias-galarza",
     "teamId": "paraguay"
+  },
+  {
+    "externalGoalId": "api-football:1591866:931:106:Normal Goal:0",
+    "playerName": "Ferran Torres",
+    "nationalTeam": "Spain",
+    "sourcePlayerName": "Ferrán Torres",
+    "sourceTeamName": "Spain",
+    "goals": 1,
+    "source": "api-football",
+    "apiPlayerId": 931,
+    "matchId": "football-data:537390",
+    "fixtureId": "1591866",
+    "matchLabel": "Spain 1-0 Argentina",
+    "kickedOffAt": "2026-07-19T19:00:00+00:00",
+    "minute": 106,
+    "timeConfidence": "match-only",
+    "detail": "normal",
+    "playerId": "spain-ferran-torres",
+    "teamId": "spain"
   }
 ]
